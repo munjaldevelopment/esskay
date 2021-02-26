@@ -112,6 +112,8 @@ $(document).ready(function() {
 
 				$('.mtb_category_scroller item').removeClass('active');
 
+				console.log($(this).parent().find('.item'));
+
 				$(this).parent().find('.item').addClass('active');
 			}
 		});
