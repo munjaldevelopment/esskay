@@ -43,14 +43,14 @@
 						</div>
 						<div class="mtd-doc-hover">
 							<ul>
-								<li><a href=""><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
-
 								<li>
 									@if($doc['ext'] == 'pdf')
-									<a href="{{ asset('/') }}downloadDoc/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a>
-									@else
-									<a href="{{ asset('/') }}downloadDoc/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a>
+									<a href="{{ asset('/') }}previewDoc/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 									@endif
+								</li>
+
+								<li>
+									<a href="{{ asset('/') }}downloadDoc/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a>
 								</li>
 							</ul>
 						</div>
