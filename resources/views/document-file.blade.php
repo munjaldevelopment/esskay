@@ -8,7 +8,7 @@
 <div class="mtb-inner-category">
 	<div class="owl-carousel mtb_category_scroller">
 		@foreach($subCategory as $id => $subCategoryRow)
-		<div class="item @if($id == 0) active @endif">
+		<div class="sub-category-row sub-sub-category{{$subCategoryRow['id']}} item @if($id == 0) active @endif">
 			<a href="javascript:;" class="sub-dropdown-box" data-category="{{$subCategoryRow['id']}}">{{ $subCategoryRow['name'] }}</a>
 		</div>
 		@endforeach
@@ -110,11 +110,9 @@ $(document).ready(function() {
 
 				$('.assign_date').val('{{ $current_year }}');
 
-				$('.mtb_category_scroller item').removeClass('active');
+				$('.sub-category-row').removeClass('active');
 
-				console.log($(this).parent().find('.item'));
-
-				$(this).parent().find('.item').addClass('active');
+				$('.sub-sub-category'+category).addClass('active');
 			}
 		});
 		
