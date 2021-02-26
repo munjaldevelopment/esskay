@@ -109,6 +109,10 @@ $(document).ready(function() {
 				$('.sub-doc-container').html(output);
 
 				$('.assign_date').val('{{ $current_year }}');
+
+				$('.mtb_category_scroller item').removeClass('active');
+
+				$(this).parent().find('.item').addClass('active');
 			}
 		});
 		
