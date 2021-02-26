@@ -25,7 +25,7 @@
 			@endphp
 			@foreach($documentDateData as $k => $doc_date)
 			<li class="time-container @if($docu_date == $doc_date) active @endif" name="{{ $doc_date }}">
-				<a href="javascript:;" class="javascript:;" data-date="{{ $doc_date }}">
+				<a href="javascript:;" class="btn-date" data-date="{{ $doc_date }}">
 					{{ $doc_date }}
 				</a>
 			</li>
@@ -166,7 +166,7 @@ $(document).ready(function() {
 				
 		$('li[name="'+date1+'"]').addClass("active-time");
 		
-		$('.category-listing li.active .dropdown-box').trigger('click');
+		$('.category-listing li.active .sub-dropdown-box').trigger('click');
 	});
 });
 </script>

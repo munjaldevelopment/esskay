@@ -543,11 +543,11 @@ class HomeController extends Controller
 		
 		if($is_timeline)
 		{
-			$docData = \DB::table('documents')->leftJoin('document_lender', 'documents.id', '=', 'document_lender.document_id')->where('document_lender.lender_id',$lender_id)->where('documents.document_category_id', '=', $request->category_id)->orWhere('documents.document_sub_category_id', '=', $request->category_id)->groupBy('document_lender.document_id')->get();
+			$docData = \DB::table('documents')->leftJoin('document_lender', 'documents.id', '=', 'document_lender.document_id')->where('document_lender.lender_id',$lender_id)->where('documents.document_sub_category_id', '=', $request->category_id)->groupBy('document_lender.document_id')->get();
 		}
 		else
 		{
-			$docData = \DB::table('documents')->leftJoin('document_lender', 'documents.id', '=', 'document_lender.document_id')->where('document_lender.lender_id',$lender_id)->where('documents.document_category_id', '=', $request->category_id)->orWhere('documents.document_sub_category_id', '=', $request->category_id)->groupBy('document_lender.document_id')->get();
+			$docData = \DB::table('documents')->leftJoin('document_lender', 'documents.id', '=', 'document_lender.document_id')->where('document_lender.lender_id',$lender_id)->where('documents.document_sub_category_id', '=', $request->category_id)->groupBy('document_lender.document_id')->get();
 		}
 		
 		//dd($docData);
@@ -698,7 +698,7 @@ class HomeController extends Controller
 			}
 		}
 		
-		return view('document-child-file', ['documentDateData' => $document_date, 'docu_date' => $request->document_date, 'cat_name' => $cat_name, 'category_name' => $category_name, 'subCategory' => $subCategoryArr, 'is_timeline' => $is_timeline, 'docData' => $docArr, 'esskay_doc_date' => session()->get('esskay_doc_date')]);
+		return view('document-child-file', ['documentDateData' => $document_date, 'docu_date' => $request->document_date, 'cat_name' => $cat_name, 'category_name' => $category_name, 'subCategory' => $subCategoryArr, 'category_id' => $request->category_id, 'is_timeline' => $is_timeline, 'docData' => $docArr, 'esskay_doc_date' => session()->get('esskay_doc_date')]);
 	}
 
 	public function showDoc(Request $request)
