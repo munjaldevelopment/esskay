@@ -87,8 +87,6 @@ $(function () {
 			success: function(output) {
 				$('.sub-doc-container').html(output);
 
-				$('.assign_date').val('{{ $current_year }}');
-
 				$('.sub-category-row').removeClass('active');
 
 				$('.sub-sub-category'+category).addClass('active');
