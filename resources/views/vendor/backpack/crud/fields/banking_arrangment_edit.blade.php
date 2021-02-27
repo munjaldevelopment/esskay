@@ -35,7 +35,7 @@
 
     <input
             type="hidden"
-            name="{{ lender_banking_status_old[]"
+            name="lender_banking_status_old[]"
             value="@if(isset($invoiceInfoArr[$k])){{$invoiceInfoArr[$k]['lender_banking_status']}}@endif"
         >
 
