@@ -40,8 +40,6 @@
 
 		<div class="side-body">
 			<div class="doc-container">
-				<div class="doc-content">				
-				</div>
 			</div>
 		</div>
 	</div>
