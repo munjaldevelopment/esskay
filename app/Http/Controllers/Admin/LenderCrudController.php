@@ -720,11 +720,11 @@ class LenderCrudController extends CrudController
 
 		
 		$user_id = User::insertGetId([
-			'name' => $this->crud->entry->name,
-			'email' => $this->crud->entry->email,
-			'phone' => $this->crud->entry->phone,
+			'name' => $this->crud->getRequest()->name,
+			'email' => $this->crud->getRequest()->email,
+			'phone' => $this->crud->getRequest()->phone,
 			'user_otp' => '987654',
-			'password' => Hash::make($this->crud->entry->password),
+			'password' => Hash::make($this->crud->getRequest()->password),
 			'created_at' => date('Y-m-d H:i:s'),
 			'updated_at' => date('Y-m-d H:i:s'),
 		]);
