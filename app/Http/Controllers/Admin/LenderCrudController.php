@@ -786,7 +786,6 @@ class LenderCrudController extends CrudController
 				{
                     $old_status = $this->crud->getRequest()->lender_banking_status_old[$k];
 
-                    
                     $lender_banking_status = 1;
                     if(($sanction_amount != $this->crud->getRequest()->lender_banking_sanction_old[$k]) || ($this->crud->getRequest()->lender_banking_outstanding[$k] != $this->crud->getRequest()->lender_banking_outstanding_old[$k]))
                     {
@@ -817,6 +816,8 @@ class LenderCrudController extends CrudController
 				}
 			}
 		}
+
+        echo "a"; exit;
 
         $result = $this->traitLenderUpdate();
 		
