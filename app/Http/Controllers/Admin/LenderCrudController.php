@@ -817,8 +817,6 @@ class LenderCrudController extends CrudController
 			}
 		}
 
-        echo "a"; exit;
-
         $result = $this->traitLenderUpdate();
 		
 		return $result;
