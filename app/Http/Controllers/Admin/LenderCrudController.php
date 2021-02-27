@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+use Auth;
 use App\Models\Lender;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\LenderRequest;
@@ -788,6 +789,17 @@ class LenderCrudController extends CrudController
                     if(($sanction_amount != $this->crud->getRequest()->lender_banking_sanction_old[$k]) || ($this->crud->getRequest()->lender_banking_outstanding[$k] != $this->crud->getRequest()->lender_banking_outstanding_old[$k]))
                     {
                         $lender_banking_status = 0;
+
+                        // Insert into revision
+                        if($sanction_amount != $this->crud->getRequest()->lender_banking_sanction_old[$k])
+                        {
+                            \DB::table('revisions')->insert(['revisionable_type' => 'App\Models\LenderBanking', 'revisionable_id' => $this->crud->getRequest()->id, 'user_id' => Auth::guard('backpack')->user()->id, 'key' => 'lender_banking_sanction', 'old_value' => $this->crud->getRequest()->lender_banking_sanction_old[$k], 'new_value' => $sanction_amount, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+                        }
+
+                        if($this->crud->getRequest()->lender_banking_outstanding[$k] != $this->crud->getRequest()->lender_banking_outstanding_old[$k])
+                        {
+                            \DB::table('revisions')->insert(['revisionable_type' => 'App\Models\LenderBanking', 'revisionable_id' => $this->crud->getRequest()->id, 'user_id' => Auth::guard('backpack')->user()->id, 'key' => 'lender_banking_outstanding', 'old_value' => $this->crud->getRequest()->lender_banking_outstanding_old[$k], 'new_value' => $this->crud->getRequest()->lender_banking_outstanding[$k], 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+                        }
                     }
 
 					\DB::table('lender_banking')->insert(['lender_id' => $this->crud->getRequest()->id, 'banking_arrangment_id' => $this->crud->getRequest()->banking_arrangment_id[$k], 'sanction_amount' => $sanction_amount, 'outstanding_amount' => $this->crud->getRequest()->lender_banking_outstanding[$k], 'lender_banking_status' => $lender_banking_status, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
