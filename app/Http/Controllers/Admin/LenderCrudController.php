@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+use Auth;
 use App\Models\Lender;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\LenderRequest;
@@ -756,13 +757,12 @@ class LenderCrudController extends CrudController
      */
     public function update()
     {
+        $user_logged_id = \Auth::user()->id;
         $this->crud->setRequest($this->crud->validateRequest());
         //$this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
         $this->crud->unsetValidation(); // validation has already been run
 
-        $result = $this->traitLenderUpdate();
-		
-		$user_id = $this->crud->getRequest()->user_id;
+        $user_id = $this->crud->getRequest()->user_id;
 
 		//echo $user_id.",".$this->crud->getRequest()->password; exit;
         //dd($this->crud->getRequest()->all());
@@ -792,12 +792,12 @@ class LenderCrudController extends CrudController
                         // Insert into revision
                         if($sanction_amount != $this->crud->getRequest()->lender_banking_sanction_old[$k])
                         {
-                            \DB::table('revisions')->insert(['revisionable_type' => 'App\Models\LenderBanking', 'revisionable_id' => $this->crud->getRequest()->id, 'user_id' => $user_id, 'key' => 'lender_banking_sanction', 'old_value' => $this->crud->getRequest()->lender_banking_sanction_old[$k], 'new_value' => $sanction_amount, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+                            \DB::table('revisions')->insert(['revisionable_type' => 'App\Models\LenderBanking', 'revisionable_id' => $this->crud->getRequest()->id, 'user_id' => $user_logged_id, 'key' => 'lender_banking_sanction', 'old_value' => $this->crud->getRequest()->lender_banking_sanction_old[$k], 'new_value' => $sanction_amount, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
                         }
 
                         if($this->crud->getRequest()->lender_banking_outstanding[$k] != $this->crud->getRequest()->lender_banking_outstanding_old[$k])
                         {
-                            \DB::table('revisions')->insert(['revisionable_type' => 'App\Models\LenderBanking', 'revisionable_id' => $this->crud->getRequest()->id, 'user_id' => $user_id, 'key' => 'lender_banking_outstanding', 'old_value' => $this->crud->getRequest()->lender_banking_outstanding_old[$k], 'new_value' => $this->crud->getRequest()->lender_banking_outstanding[$k], 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+                            \DB::table('revisions')->insert(['revisionable_type' => 'App\Models\LenderBanking', 'revisionable_id' => $this->crud->getRequest()->id, 'user_id' => $user_logged_id, 'key' => 'lender_banking_outstanding', 'old_value' => $this->crud->getRequest()->lender_banking_outstanding_old[$k], 'new_value' => $this->crud->getRequest()->lender_banking_outstanding[$k], 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
                         }
                     }
 
@@ -805,6 +805,8 @@ class LenderCrudController extends CrudController
 				}
 			}
 		}
+
+        $result = $this->traitLenderUpdate();
 		
 		return $result;
     }
