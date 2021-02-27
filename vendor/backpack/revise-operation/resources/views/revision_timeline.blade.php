@@ -8,11 +8,10 @@
       </h5>
 
   @foreach($dateRevisions as $history)
-	@if($history->fieldName() == "document_status" || $history->fieldName() == "lender_banking_status")
+	@if($history->fieldName() == "document_status" || $history->fieldName() == "lender_banking_status" || $history->fieldName() == "is_document" || $history->fieldName() == "is_message_md" || $history->fieldName() == "is_banking_arrangement" || $history->fieldName() == "is_contact_us" || $history->fieldName() == "is_newsletter")
 	
 	@else
 		<div class="card timeline-item-wrap @if($count > 0) disable-card @endif">
-			{{$history->fieldName()}}
 		  @if($history->key == 'created_at' && !$history->old_value)
 			<div class="card-header">
 			  <strong class="time"><i class="la la-clock"></i> {{ date('h:ia', strtotime($history->created_at)) }}</strong> -
