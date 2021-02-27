@@ -818,8 +818,6 @@ class LenderCrudController extends CrudController
 		}
 
         $result = $this->traitLenderUpdate();
-
-        dd($result);
 		
 		return $result;
     }
