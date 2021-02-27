@@ -31,9 +31,9 @@ class LenderRequest extends FormRequest
 			'email' => 'required|unique:lenders,email,'.$this->id,
 			'phone' => 'required|unique:lenders,phone,'.$this->id,
 			'password' => 'required',
-			'code' => 'required|unique:lenders,code,'.$this->id,
-			'slug' => 'required|unique:lenders,slug,'.$this->id,
-			'lot_name' => 'required'
+			//'code' => 'required|unique:lenders,code,'.$this->id,
+			//'slug' => 'required|unique:lenders,slug,'.$this->id,
+			//'lot_name' => 'required'
         ];
     }
 
