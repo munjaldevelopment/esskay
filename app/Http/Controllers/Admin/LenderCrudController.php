@@ -757,7 +757,7 @@ class LenderCrudController extends CrudController
      */
     public function update()
     {
-        dd(Auth::guard('backpack')->user());
+        dd(\Auth::user()->id);
         $this->crud->setRequest($this->crud->validateRequest());
         //$this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
         $this->crud->unsetValidation(); // validation has already been run
