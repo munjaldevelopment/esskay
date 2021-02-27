@@ -784,6 +784,9 @@ class LenderCrudController extends CrudController
 			{
 				if(!is_null($sanction_amount))
 				{
+                    $old_status = $this->crud->getRequest()->lender_banking_status_old[$k];
+
+                    
                     $lender_banking_status = 1;
                     if(($sanction_amount != $this->crud->getRequest()->lender_banking_sanction_old[$k]) || ($this->crud->getRequest()->lender_banking_outstanding[$k] != $this->crud->getRequest()->lender_banking_outstanding_old[$k]))
                     {
@@ -799,6 +802,15 @@ class LenderCrudController extends CrudController
                         {
                             \DB::table('revisions')->insert(['revisionable_type' => 'App\Models\LenderBanking', 'revisionable_id' => $this->crud->getRequest()->id, 'user_id' => $user_logged_id, 'key' => 'lender_banking_outstanding', 'old_value' => $this->crud->getRequest()->lender_banking_outstanding_old[$k], 'new_value' => $this->crud->getRequest()->lender_banking_outstanding[$k], 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
                         }
+                    }
+
+                    if($old_status == 1)
+                    {
+                        $lender_banking_status = 1;
+                    }
+                    else
+                    {
+                        $lender_banking_status = 0;
                     }
 
 					\DB::table('lender_banking')->insert(['lender_id' => $this->crud->getRequest()->id, 'banking_arrangment_id' => $this->crud->getRequest()->banking_arrangment_id[$k], 'sanction_amount' => $sanction_amount, 'outstanding_amount' => $this->crud->getRequest()->lender_banking_outstanding[$k], 'lender_banking_status' => $lender_banking_status, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);

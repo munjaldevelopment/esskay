@@ -19,7 +19,7 @@
 		$bankData = \DB::table('lender_banking')->where('lender_id', $entry->getKey())->where('banking_arrangment_id', $k)->first();
 		if($bankData)
 		{
-			$invoiceInfoArr[$k] = array('sanction_amount' => $bankData->sanction_amount, 'outstanding_amount' => $bankData->outstanding_amount);
+			$invoiceInfoArr[$k] = array('lender_banking_status' => $bankData->lender_banking_status, 'sanction_amount' => $bankData->sanction_amount, 'outstanding_amount' => $bankData->outstanding_amount);
 		}
 ?>
 <!-- select2 from array -->
@@ -31,6 +31,12 @@
             type="hidden"
             name="banking_arrangment_id[]"
             value="{{ $k }}"
+        >
+
+    <input
+            type="hidden"
+            name="{{ lender_banking_status_old[]"
+            value="@if(isset($invoiceInfoArr[$k])){{$invoiceInfoArr[$k]['lender_banking_status']}}@endif"
         >
 
     <input
