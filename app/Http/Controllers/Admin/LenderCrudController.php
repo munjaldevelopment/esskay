@@ -765,9 +765,9 @@ class LenderCrudController extends CrudController
         $user_id = $this->crud->getRequest()->user_id;
 
 		//echo $user_id.",".$this->crud->getRequest()->password; exit;
-        dd($this->crud->getRequest()->all());
+        //dd($this->crud->getRequest()->all());
 		
-		if($this->crud->getRequest()->password == "")
+		if($this->crud->getRequest()->password == NULL)
 		{
 			User::where('id', $user_id)->update(['name' => $this->crud->getRequest()->name, 'email' => $this->crud->getRequest()->email, 'phone' => $this->crud->getRequest()->phone, 'updated_at' => date('Y-m-d H:i:s')]);
 		}
