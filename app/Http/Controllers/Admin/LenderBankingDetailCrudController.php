@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\LenderBankingRequest;
+use App\Http\Requests\LenderBankingDetailRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class LenderBankingCrudController
+ * Class LenderBankingDetailCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class LenderBankingCrudController extends CrudController
+class LenderBankingDetailCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitLenderBankingStore; }
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitLenderBankingUpdate; } 
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitLenderBankingDetailStore; }
+    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitLenderBankingDetailUpdate; } 
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
@@ -28,10 +28,9 @@ class LenderBankingCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\LenderBanking::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/lender_banking');
-        CRUD::setEntityNameStrings('Lender Banking', 'Lender Bankings');
-		
+        CRUD::setModel(\App\Models\LenderBankingDetail::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/lender_banking_detail');
+        CRUD::setEntityNameStrings('Lender Banking Detail', 'Lender Banking Details');
 		$list_lender_banking = backpack_user()->hasPermissionTo('list_lender_banking');
 		
 		if($list_lender_banking)
@@ -96,6 +95,16 @@ class LenderBankingCrudController extends CrudController
 					'model'     => "App\Models\Lender", //name of Models
 
 					]);
+
+            $this->crud->addColumn([
+                    'label'     => 'Lender Banking',
+                    'type'      => 'select',
+                    'name'      => 'lender_banking_id',
+                    'entity'    => 'lenderBanking', //function name
+                    'attribute' => 'lender_banking_code', //name of fields in models table like districts
+                    'model'     => "App\Models\LenderBanking", //name of Models
+
+                    ]);
 					
 			$this->crud->addColumn([
 					'label'     => 'Banking Arrangment',
@@ -129,11 +138,15 @@ class LenderBankingCrudController extends CrudController
 
 					]);
 
-			$this->crud->addField([
-					'label'     => 'Lender Banking Code',
-					'type'      => 'text',
-					'name'      => 'lender_banking_code'
-					]);
+            $this->crud->addField([
+                    'label'     => 'Lender Banking',
+                    'type'      => 'select2',
+                    'name'      => 'lender_banking_id',
+                    'entity'    => 'lenderBanking', //function name
+                    'attribute' => 'lender_banking_code', //name of fields in models table like districts
+                    'model'     => "App\Models\LenderBanking", //name of Models
+
+                    ]);
 					
 			$this->crud->addField([
 					'label'     => 'Banking Arrangment',
@@ -167,14 +180,13 @@ class LenderBankingCrudController extends CrudController
 					
 			$this->crud->addButtonFromView('line', 'checker_banking_arrangment', 'checker_banking_arrangment', 'end');
 			
-			$this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportLenderBankingButton', 'end');
-			$this->crud->addButtonFromModelFunction('top', 'import_xls', 'importLenderBankingButton', 'end');
+			$this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportLenderBankingDetailButton', 'end');
+			$this->crud->addButtonFromModelFunction('top', 'import_xls', 'importLenderBankingDetailButton', 'end');
 		}
 		else
 		{
 			$this->crud->denyAccess(['list']);
 		}
-		
     }
 
     /**
@@ -202,7 +214,7 @@ class LenderBankingCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(LenderBankingRequest::class);
+        CRUD::setValidation(LenderBankingDetailRequest::class);
 
         CRUD::setFromDb(); // fields
 

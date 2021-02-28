@@ -71,7 +71,7 @@ return [
     // ------
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo'   => '<img src="/public/uploads/logo/SK_Logo_Squre_new.png" class="img-fluid" />',
+    'project_logo'   => '<img src="'.env('APP_URL').'/uploads/logo/SK_Logo_Squre_new.png" class="img-fluid" />',
 
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,

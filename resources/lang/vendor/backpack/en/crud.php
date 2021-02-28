@@ -47,7 +47,7 @@ return [
     'details_row_loading_error' => 'There was an error loading the details. Please retry.',
     'clone'                     => 'Clone',
     'checkerDocument'           => 'Approve Document',
-    'checkerBankingArrangment'  => 'Approve Banking Arrangement',
+    'checkerBankingArrangment'  => 'Approve',
     'clone_success'             => '<strong>Entry cloned</strong><br>A new entry has been added, with the same information as this one.',
     'clone_failure'             => '<strong>Cloning failed</strong><br>The new entry could not be created. Please try again.',
 	

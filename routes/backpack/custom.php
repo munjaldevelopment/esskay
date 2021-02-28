@@ -30,6 +30,7 @@ Route::group([
     Route::crud('user_pdf', 'UserPDFCrudController');
     Route::crud('banking_arrangment', 'BankingArrangmentCrudController');
     Route::crud('lender_banking', 'LenderBankingCrudController');
+    Route::crud('lender_banking_detail', 'LenderBankingDetailCrudController');
     Route::crud('user_login', 'UserLoginCrudController');
     Route::crud('user_login_attempt', 'UserLoginAttemptCrudController');	
     Route::crud('analytics_graph', 'AnalyticsGraphCrudController');
@@ -44,4 +45,9 @@ Route::group([
 	Route::get('exportLenderBanking', 'ImportExportController@exportLenderBanking');
 	Route::get('importLenderBanking', 'ImportExportController@importLenderBanking');
 	Route::post('insertLenderBanking', 'ImportExportController@insertLenderBanking');
+
+    Route::get('exportLenderBankingDetail', 'ImportExportController@exportLenderBankingDetail');
+    Route::get('importLenderBankingDetail', 'ImportExportController@importLenderBankingDetail');
+    Route::post('insertLenderBankingDetail', 'ImportExportController@insertLenderBankingDetail');
+    
 }); // this should be the absolute last line of this file
