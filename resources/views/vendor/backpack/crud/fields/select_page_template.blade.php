@@ -33,7 +33,6 @@
     @endif
 @include('crud::fields.inc.wrapper_end')
 
-
 {{-- ########################################## --}}
 {{-- Extra CSS and JS for this particular field --}}
 {{-- If a field type is shown multiple times on a form, the CSS and JS will only be loaded once --}}
@@ -78,7 +77,6 @@
             });
         </script>
     @endpush
-
 @endif
 {{-- End of Extra CSS and JS --}}
 {{-- ########################################## --}}
