@@ -22,6 +22,7 @@ return [
     'extra_permissions'     => 'Extra Permissions',
     'password'              => 'Password',
     'password_confirmation' => 'Password Confirmation',
+    'user_otp'              => 'User OTP',
     'user_role_permission'  => 'User Role Permissions',
     'user'                  => 'User',
     'users'                 => 'Users',
