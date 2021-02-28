@@ -1345,8 +1345,10 @@ class HomeController extends Controller
 		
 		$content = str_replace("INVERTEDLEFT", '<i class="fa fa-quote-left quote-icons" style=""></i>', $pageInfo->content);
 		$content1 = str_replace("INVERTEDRIGHT", '<i class="fa fa-quote-right quote-icons" style=""></i>', $content);
+
+		$videoPageInfo = Page::getPageInfo(12);
 		
-		return view('ess-kay-homepage', ['customer_name' => $customer_name, 'page_title' => $pageInfo->title, 'page_content' => $content1]);
+		return view('ess-kay-homepage', ['customer_name' => $customer_name, 'page_title' => $pageInfo->title, 'page_content' => $content1, 'video_content' => $videoPageInfo->content]);
 		
 	}
 	
