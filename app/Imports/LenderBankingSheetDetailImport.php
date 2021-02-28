@@ -49,7 +49,7 @@ class LenderBankingSheetDetailImport implements ToCollection, WithValidation, Wi
 			{
 				// Check if CODE already exists
 				$isExists = Lender::where('name', '=', $lender)->count();
-				$isExists2 = LenderBanking::where('lender_banking_code', '=', $lender_banking_code)->count();
+				$isExists1 = LenderBanking::where('lender_banking_code', '=', $lender_banking_code)->count();
 				$isExists2 = BankingArrangment::where('name', '=', $banking_arrangment)->count();
 				
 				
@@ -73,7 +73,7 @@ class LenderBankingSheetDetailImport implements ToCollection, WithValidation, Wi
 			}
 		}
     }
-    
+
 	public function rules(): array
 	{
 		return [
