@@ -238,5 +238,4 @@ return [
 		'Agent' => Jenssegers\Agent\Facades\Agent::class,
 		'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
-
 ];
