@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'b3747c5eeb59fe3f20435c8708af5dba3a93d0fe',
+    'reference' => '70555ef539683c45118099781aa0347fb18d73f2',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -716,7 +716,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'b3747c5eeb59fe3f20435c8708af5dba3a93d0fe',
+      'reference' => '70555ef539683c45118099781aa0347fb18d73f2',
     ),
     'laravel/tinker' => 
     array (
