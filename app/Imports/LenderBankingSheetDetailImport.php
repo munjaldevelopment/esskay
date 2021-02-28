@@ -65,6 +65,7 @@ class LenderBankingSheetDetailImport implements ToCollection, WithValidation, Wi
 					$lenderBanking->lender_banking_id = $lenderBankingData->id;
 					$lenderBanking->lender_banking_detail_code = $row['lender_banking_detail_code'];
 					$lenderBanking->banking_arrangment_id = $bankingData->id;
+					$lenderBanking->lender_banking_date = $row['banking_date'];
 					$lenderBanking->sanction_amount = $row['sanction'];
 					$lenderBanking->outstanding_amount = $row['outstanding'];
 					$lenderBanking->lender_banking_status = ($row['status'] == "Yes" ? "1" : "0");
@@ -82,6 +83,7 @@ class LenderBankingSheetDetailImport implements ToCollection, WithValidation, Wi
             'lender_banking_code' => 'required',
             'lender_banking_detail_code' => 'required',
             'banking_arrangment' => 'required',
+            'banking_date' => 'required',
             'sanction' => 'required',
             'outstanding' => 'required',
             'status' => 'required',
@@ -93,12 +95,13 @@ class LenderBankingSheetDetailImport implements ToCollection, WithValidation, Wi
 		return [
 			'id' => 'Message 1.',
 			'lender' => 'Message 2.',
-            'lender_banking_code' => 'Message 2.',
-            'lender_banking_detail_code' => 'Message 2.',
-			'banking_arrangment' => 'Message 2.',
-			'sanction' => 'Message 2.',
-			'outstanding' => 'Message 2.',
-			'status' => 'Message 2.',
+            'lender_banking_code' => 'Message 3.',
+            'lender_banking_detail_code' => 'Message 4.',
+			'banking_arrangment' => 'Message 5.',
+			'banking_date' => 'Message 6.',
+			'sanction' => 'Message 7.',
+			'outstanding' => 'Message 8.',
+			'status' => 'Message 9.',
 		];
 	}
 	
