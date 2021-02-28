@@ -57,38 +57,12 @@
 @push('after_scripts')
 <script>
 	
-	function getLenderBanking(lender_id)
-	{
-		if(lender_id != "")
-		{
-			$("#lender_banking_id").html('<option value="">--Select--</option>');
-			$.ajax({
-				type:"GET",
-				url:"{{ backpack_url('getLenderBanking') }}/"+lender_id,
-				success:function(res){ 
-					if(res){
-						//$("#lender_banking_id").append('<option value="0">None</option>');
-						$.each(res,function(key,value){
-							$("#lender_banking_id").append('<option value="'+key+'">'+value+'</option>');
-						});
-				  	}
-				}
-			});
-		}
-		else
-		{
-			$("#lender_banking_id").html('<option value="">--Select--</option><option value="0">None</option>');
-		}
-	}
-
-	getLenderBanking($('#lender_id option:selected').val());
-
 	$.ajax({
 		type:"GET",
-		url:"{{ backpack_url('getLastLenderBankingDetail') }}",
+		url:"{{ backpack_url('getLastLenderBanking') }}",
 		success:function(res){ 
 			if(res){
-				$('#lender_banking_detail_code').val('LENDERBANKDETAIL'+ res);
+				$('#lender_banking_code').val('LENDERBANK'+ res);
 		  	}
 		}
 	});

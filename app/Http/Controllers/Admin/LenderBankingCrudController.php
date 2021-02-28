@@ -132,7 +132,10 @@ class LenderBankingCrudController extends CrudController
 			$this->crud->addField([
 					'label'     => 'Lender Banking Code',
 					'type'      => 'text',
-					'name'      => 'lender_banking_code'
+					'name'      => 'lender_banking_code',
+					'attributes' => [
+                        'id' => 'lender_banking_code'
+                    ]
 					]);
 					
 			$this->crud->addField([
@@ -169,6 +172,9 @@ class LenderBankingCrudController extends CrudController
 			
 			$this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportLenderBankingButton', 'end');
 			$this->crud->addButtonFromModelFunction('top', 'import_xls', 'importLenderBankingButton', 'end');
+
+			$this->crud->setCreateView('admin.create-lender-banking-form');
+            $this->crud->setUpdateView('admin.edit-lender-banking-form');
 		}
 		else
 		{

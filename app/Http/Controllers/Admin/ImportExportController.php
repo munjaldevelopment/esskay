@@ -8,13 +8,10 @@ use App\Models\LenderBanking;
 use App\Models\Planings;
 
 use App\Exports\LenderBankingExport;
-
-use App\Exports\PlanningCurrentExport;
-use App\Exports\PlanningHistoryExport;
-use App\Exports\PlanningCodeDataExport;
-use App\Exports\PlanningHistoryDataExport;
+use App\Exports\LenderBankingDetailExport;
 
 use App\Imports\LenderBankingImport;
+use App\Imports\LenderBankingDetailImport;
 
 use Auth;
 use Excel;
@@ -110,7 +107,85 @@ class ImportExportController extends Controller
 		$pdf = PDF::loadView('backpack::download_factory')->setPaper('A4', 'portrait');
 		return $pdf->download('factory-'.date('y-m-d').'.pdf');
 	}
-	//END FACTORY
+	//END Lender Banking
+
+	// LenderBankingDetail
+	public function exportLenderBankingDetail(Request $request)
+	{
+		$this->data['title'] = trans('backpack::base.dashboard'); // set the page title
+		
+		return (new LenderBankingDetailExport())->download('LenderBankingDetail_'.date('Y-m-d').'.xls');
+	}
+	
+	public function importLenderBankingDetail()
+    {
+        $this->data['title'] = 'Import Lender Banking Detail';//trans('backpack::base.dashboard'); // set the page title
+
+        return view('backpack::import_lender_banking_detail', $this->data);
+    }
+	
+	public function insertLenderBanking(Request $request)
+	{
+		$user = Auth::user();
+		$user_id = $user->id;
+		
+		if($request->hasFile('lender_banking_detail_file')){
+			$fileName = $request->file('lender_banking_detail_file')->getClientOriginalName();
+			$path = $request->file('lender_banking_detail_file')->getRealPath();
+			
+			$fileNameTemp = time()."_".$user_id."_".$fileName;
+			copy($path, public_path().'/uploads/import_file/lender_banking_detail_file/'.$fileNameTemp);
+			
+			$error = $success = '';
+			
+			try {
+			
+				Excel::import(new LenderBankingImport, public_path().'/uploads/import_file/lender_banking_detail_file/'.$fileNameTemp);
+				$success = 'Your sheet has been imported successfully.';
+				
+				return back()->with('success', $success);
+			} catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+				$failures = $e->failures();
+				//dd($failures);
+				
+				$error = "";
+				 
+				foreach ($failures as $failure) {
+					$failure->row(); // row that went wrong
+					$failure->attribute(); // either heading key (if using heading row concern) or column index
+					foreach($failure->errors() as $err)
+					{
+						$error .= $err;
+					}
+					
+					$error .= " on line number ".$failure->row().' <br />';
+					// Actual error messages from Laravel validator
+					$failure->values(); // The values of the row that has failed.
+				}
+				
+				//echo $error; exit;
+				
+				return back()->with('error', $error);
+			}
+		}
+		
+		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
+	}
+	
+	public function exportLenderBankingPDF(Request $request)
+	{
+		$this->data['title'] = trans('backpack::base.dashboard'); // set the page title
+		
+		$factories = LenderBanking::get();
+		$base_url = env('APP_URL');
+		
+		view()->share('factories',$factories);
+		view()->share('base_url',$base_url);
+		
+		$pdf = PDF::loadView('backpack::download_factory')->setPaper('A4', 'portrait');
+		return $pdf->download('factory-'.date('y-m-d').'.pdf');
+	}
+	//END LenderBankingDetail
 	
 	// Export Planning Data
 	public function exportXLSPlanning()

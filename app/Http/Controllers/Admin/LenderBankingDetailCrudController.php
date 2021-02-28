@@ -154,6 +154,15 @@ class LenderBankingDetailCrudController extends CrudController
                     ]
 
                     ]);
+
+            $this->crud->addField([
+                    'label'     => 'Lender Banking Detail Code',
+                    'type'      => 'text',
+                    'name'      => 'lender_banking_detail_code',
+                    'attributes' => [
+                        'id' => 'lender_banking_detail_code'
+                    ]
+                    ]);
 					
 			$this->crud->addField([
 					'label'     => 'Banking Arrangment',
@@ -191,7 +200,7 @@ class LenderBankingDetailCrudController extends CrudController
 			$this->crud->addButtonFromModelFunction('top', 'import_xls', 'importLenderBankingDetailButton', 'end');
 
             $this->crud->setCreateView('admin.create-lender-banking-detail-form');
-            $this->crud->setUpdateView('admin.update-lender-banking-detail-form');
+            $this->crud->setUpdateView('admin.edit-lender-banking-detail-form');
 		}
 		else
 		{
@@ -300,5 +309,57 @@ class LenderBankingDetailCrudController extends CrudController
         \DB::table('lender_banking_detail_revisions')->insert(['lender_banking_detail_id' => $lender_banking_detail_id, 'lender_id' => $lender_id, 'lender_banking_id' => $lender_banking_id, 'banking_arrangment_id' => $banking_arrangment_id,'sanction_amount' => $sanction_amount, 'outstanding_amount' => $outstanding_amount, 'lender_banking_status' => $lender_banking_status]);
     
         return $result;
+    }
+
+    public function getLastLenderBanking()
+    {
+        $personInfo = \DB::table("lender_banking")
+                    ->orderBy("id",'DESC')
+                    ->first();
+
+        $personInfoData = "00001";
+        if($personInfo)
+        {
+            if($personInfo->id <= 8)
+            {
+                $personInfoData = "0000".($personInfo->id + 1);
+            }
+            else if($personInfo->id > 8 && $personInfo->id <= 98)
+            {
+                $personInfoData = "000".($personInfo->id + 1);
+            }
+            else 
+            {
+                $personInfoData = "00".($personInfo->id + 1);
+            }
+        }
+
+        return $personInfoData;
+    }
+
+    public function getLastLenderBankingDetail()
+    {
+        $personInfo = \DB::table("lender_banking_details")
+                    ->orderBy("id",'DESC')
+                    ->first();
+
+        $personInfoData = "00001";
+        if($personInfo)
+        {
+            if($personInfo->id <= 8)
+            {
+                $personInfoData = "0000".($personInfo->id + 1);
+            }
+            else if($personInfo->id > 8 && $personInfo->id <= 98)
+            {
+                $personInfoData = "000".($personInfo->id + 1);
+            }
+            else 
+            {
+                $personInfoData = "00".($personInfo->id + 1);
+            }
+        }
+
+        return $personInfoData;
     }
 }
