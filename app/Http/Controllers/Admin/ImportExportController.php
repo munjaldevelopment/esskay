@@ -124,7 +124,7 @@ class ImportExportController extends Controller
         return view('backpack::import_lender_banking_detail', $this->data);
     }
 	
-	public function insertLenderBanking(Request $request)
+	public function insertLenderBankingDetail(Request $request)
 	{
 		$user = Auth::user();
 		$user_id = $user->id;
@@ -140,13 +140,12 @@ class ImportExportController extends Controller
 			
 			try {
 			
-				Excel::import(new LenderBankingImport, public_path().'/uploads/import_file/lender_banking_detail_file/'.$fileNameTemp);
+				Excel::import(new LenderBankingDetailImport, public_path().'/uploads/import_file/lender_banking_detail_file/'.$fileNameTemp);
 				$success = 'Your sheet has been imported successfully.';
 				
 				return back()->with('success', $success);
 			} catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
 				$failures = $e->failures();
-				//dd($failures);
 				
 				$error = "";
 				 
@@ -170,20 +169,6 @@ class ImportExportController extends Controller
 		}
 		
 		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
-	}
-	
-	public function exportLenderBankingPDF(Request $request)
-	{
-		$this->data['title'] = trans('backpack::base.dashboard'); // set the page title
-		
-		$factories = LenderBanking::get();
-		$base_url = env('APP_URL');
-		
-		view()->share('factories',$factories);
-		view()->share('base_url',$base_url);
-		
-		$pdf = PDF::loadView('backpack::download_factory')->setPaper('A4', 'portrait');
-		return $pdf->download('factory-'.date('y-m-d').'.pdf');
 	}
 	//END LenderBankingDetail
 	

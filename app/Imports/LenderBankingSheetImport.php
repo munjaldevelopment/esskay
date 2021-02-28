@@ -72,6 +72,7 @@ class LenderBankingSheetImport implements ToCollection, WithValidation, WithHead
 		return [
 			'id' => 'required',
             'lender' => 'required',
+            'lender_banking_code' => 'required',
             'banking_arrangment' => 'required',
             'sanction' => 'required',
             'outstanding' => 'required',
@@ -84,6 +85,7 @@ class LenderBankingSheetImport implements ToCollection, WithValidation, WithHead
 		return [
 			'id' => 'Message 1.',
 			'lender' => 'Message 2.',
+            'lender_banking_code' => 'Message 2.',
 			'banking_arrangment' => 'Message 2.',
 			'sanction' => 'Message 2.',
 			'outstanding' => 'Message 2.',
