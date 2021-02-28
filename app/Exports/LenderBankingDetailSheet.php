@@ -6,7 +6,7 @@ use Maatwebsite\Excel\Concerns\WithTitle;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-use App\Models\LenderBanking;
+use App\Models\LenderBankingDetail;
 
 class LenderBankingDetailSheet implements FromArray, WithTitle, WithHeadings, ShouldAutoSize
 {
@@ -22,6 +22,7 @@ class LenderBankingDetailSheet implements FromArray, WithTitle, WithHeadings, Sh
             'ID',
             'Lender',
             'Lender Banking Code',
+            'Lender Banking Detail Code',
             'Banking Arrangment',
             'Sanction',
             'Outstanding',
@@ -31,12 +32,12 @@ class LenderBankingDetailSheet implements FromArray, WithTitle, WithHeadings, Sh
 	
 	public function array(): array
     {
-		$factories = LenderBanking::leftjoin('lenders', 'lender_banking.lender_id', '=', 'lenders.id')->leftjoin('banking_arrangment', 'lender_banking.banking_arrangment_id', '=', 'banking_arrangment.id')->selectRaw('lender_banking.id as lender_banking_id, lenders.name as lender_name, lender_banking.lender_banking_code, banking_arrangment.name as banking_arrangment_name, lender_banking.sanction_amount, lender_banking.sanction_amount, lender_banking.outstanding_amount, lender_banking.lender_banking_status')->orderBy('lender_banking.id', 'ASC')->get()->toArray();
+		$factories = LenderBankingDetail::leftjoin('lender_banking', 'lender_banking_detail.lender_banking_id', '=', 'lender_banking.id')->leftjoin('lenders', 'lender_banking_detail.lender_id', '=', 'lenders.id')->leftjoin('banking_arrangment', 'lender_banking_detail.banking_arrangment_id', '=', 'banking_arrangment.id')->selectRaw('lender_banking_detail.id as lender_banking_id, lenders.name as lender_name, lender_banking_detail.lender_banking_detail_code, lender_banking.lender_banking_code, banking_arrangment.name as banking_arrangment_name, lender_banking_detail.sanction_amount, lender_banking_detail.sanction_amount, lender_banking_detail.outstanding_amount, lender_banking_detail.lender_banking_status')->orderBy('lender_banking_detail.id', 'ASC')->get()->toArray();
 		//dd($factories);
 		$factoryData = array();
 		if($factories){
 			foreach($factories as $k => $factory){
-				$factoryData[$k] = array('ID' => $factory['lender_banking_id'], 'Lender' => $factory['lender_name'],  'Lender Banking Code' => $factory['lender_banking_code'], 'Banking Arrangment' => $factory['banking_arrangment_name'], 'Sanction' => $factory['sanction_amount'], 'Outstanding' => $factory['outstanding_amount'], 'Status' => ($factory['lender_banking_status'] ? "Yes" : "No"));
+				$factoryData[$k] = array('ID' => $factory['lender_banking_id'], 'Lender' => $factory['lender_name'], 'Lender Banking Code' => $factory['lender_banking_code'], 'Lender Banking Detail Code' => $factory['lender_banking_detail_code'], 'Banking Arrangment' => $factory['banking_arrangment_name'], 'Sanction' => $factory['sanction_amount'], 'Outstanding' => $factory['outstanding_amount'], 'Status' => ($factory['lender_banking_status'] ? "Yes" : "No"));
 			}
 		}
 		
