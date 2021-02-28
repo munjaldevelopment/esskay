@@ -277,4 +277,19 @@ class LenderBankingCrudController extends CrudController
     
         return $result;
     }
+
+    public function getLenderBanking($lender_id)
+    {
+        $personInfo = \DB::table("lender_banking")
+                    ->where("lender_id",$lender_id)
+                    ->get();
+					
+		$personInfoData = array();
+		foreach($personInfo as $row)
+		{
+			$personInfoData[$row->id] = $row->lender_banking_code;
+		
+		}
+        return response()->json($personInfoData);
+    }
 }

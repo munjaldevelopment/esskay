@@ -68,10 +68,10 @@ class LenderBankingDetail extends Model
     |--------------------------------------------------------------------------
     */
 	public function exportLenderBankingDetailButton() {
-        return "<a class='btn btn-success ladda-button tooltipped' data-position='right' data-delay='50' data-tooltip='Export Lender Banking'  href='".backpack_url('exportLenderBankingDetail')."'><i class='fa fa-download'></i> Export Lender Banking Detail</a> &nbsp;&nbsp;"; 
+        return "<a class='btn btn-success ladda-button tooltipped' data-position='right' data-delay='50' data-tooltip='Export Lender Banking'  href='".backpack_url('exportLenderBankingDetail')."'><i class='fa fa-download'></i> Export Banking Detail</a> &nbsp;&nbsp;"; 
     }
     
     public function importLenderBankingDetailButton() {
-        return "<a class='btn btn-success ladda-button tooltipped' data-position='right' data-delay='50' data-tooltip='Import Lender Banking'  href='".backpack_url('importLenderBankingDetail')."'><i class='fa fa-cloud'></i> Import Lender Banking Detail</a> &nbsp;&nbsp;"; 
+        return "<a class='btn btn-success ladda-button tooltipped' data-position='right' data-delay='50' data-tooltip='Import Lender Banking'  href='".backpack_url('importLenderBankingDetail')."'><i class='fa fa-cloud'></i> Import Banking Detail</a> &nbsp;&nbsp;"; 
     }
 }

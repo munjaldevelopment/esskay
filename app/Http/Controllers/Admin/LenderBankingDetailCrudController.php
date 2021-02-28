@@ -135,6 +135,10 @@ class LenderBankingDetailCrudController extends CrudController
 					'entity'    => 'lenders', //function name
 					'attribute' => 'name', //name of fields in models table like districts
 					'model'     => "App\Models\Lender", //name of Models
+                    'attributes' => [
+                        'id' => 'lender_id',
+                        'onchange' => 'getLenderBanking(this.value);'
+                    ]
 
 					]);
 
@@ -145,6 +149,9 @@ class LenderBankingDetailCrudController extends CrudController
                     'entity'    => 'lenderBanking', //function name
                     'attribute' => 'lender_banking_code', //name of fields in models table like districts
                     'model'     => "App\Models\LenderBanking", //name of Models
+                    'attributes' => [
+                        'id' => 'lender_banking_id'
+                    ]
 
                     ]);
 					
@@ -182,6 +189,9 @@ class LenderBankingDetailCrudController extends CrudController
 			
 			$this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportLenderBankingDetailButton', 'end');
 			$this->crud->addButtonFromModelFunction('top', 'import_xls', 'importLenderBankingDetailButton', 'end');
+
+            $this->crud->setCreateView('admin.create-lender-banking-detail-form');
+            $this->crud->setUpdateView('admin.update-lender-banking-detail-form');
 		}
 		else
 		{
@@ -241,7 +251,7 @@ class LenderBankingDetailCrudController extends CrudController
 		$updateData = array('lender_banking_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('lender_banking')->where(['id' => $lender_banking_id])->update($updateData);
 
-		\DB::table('lender_banking_revisions')->where(['lender_banking_id' => $lender_banking_id])->update($updateData);
+		\DB::table('lender_banking_detail_revisions')->where(['lender_banking_id' => $lender_banking_id])->update($updateData);
 	}
 
 	public function store()
@@ -250,7 +260,7 @@ class LenderBankingDetailCrudController extends CrudController
         //$this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
         $this->crud->unsetValidation(); // validation has already been run
 
-        $result = $this->traitLenderBankingStore();
+        $result = $this->traitLenderBankingDetailStore();
 
         $lender_banking_id =  $this->crud->entry->id;
         $lender_id = $this->crud->getRequest()->lender_id;
@@ -262,7 +272,7 @@ class LenderBankingDetailCrudController extends CrudController
         $document_status = $this->crud->getRequest()->document_status;
 
 
-        \DB::table('lender_banking_revisions')->insert(['lender_banking_id' => $lender_banking_id, 'lender_id' => $lender_id, 'banking_arrangment_id' => $banking_arrangment_id,'sanction_amount' => $sanction_amount, 'outstanding_amount' => $outstanding_amount, 'lender_banking_status' => $lender_banking_status]);
+        \DB::table('lender_banking_detail_revisions')->insert(['lender_banking_detail_id' => $lender_banking_id, 'lender_id' => $lender_id, 'banking_arrangment_id' => $banking_arrangment_id,'sanction_amount' => $sanction_amount, 'outstanding_amount' => $outstanding_amount, 'lender_banking_status' => $lender_banking_status]);
 
         return $result;
     }    
@@ -273,7 +283,7 @@ class LenderBankingDetailCrudController extends CrudController
         //$this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
         $this->crud->unsetValidation(); // validation has already been run
 
-        $result = $this->traitLenderBankingUpdate();
+        $result = $this->traitLenderBankingDetailUpdate();
 
         $lender_banking_id =  $this->crud->getRequest()->id;
         $lender_id = $this->crud->getRequest()->lender_id;
@@ -285,7 +295,7 @@ class LenderBankingDetailCrudController extends CrudController
         $document_status = $this->crud->getRequest()->document_status;
 
 
-        \DB::table('lender_banking_revisions')->insert(['lender_banking_id' => $lender_banking_id, 'lender_id' => $lender_id, 'banking_arrangment_id' => $banking_arrangment_id,'sanction_amount' => $sanction_amount, 'outstanding_amount' => $outstanding_amount, 'lender_banking_status' => $lender_banking_status]);
+        \DB::table('lender_banking_detail_revisions')->insert(['lender_banking_detail_id' => $lender_banking_id, 'lender_id' => $lender_id, 'banking_arrangment_id' => $banking_arrangment_id,'sanction_amount' => $sanction_amount, 'outstanding_amount' => $outstanding_amount, 'lender_banking_status' => $lender_banking_status]);
     
         return $result;
     }

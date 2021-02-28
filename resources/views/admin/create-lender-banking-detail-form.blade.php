@@ -57,19 +57,19 @@
 @push('after_scripts')
 <script>
 	
-	function getSubCategory(document_category_id)
+	function getLenderBanking(lender_id)
 	{
-		if(document_category_id != "")
+		if(lender_id != "")
 		{
-			$("#document_sub_category_id").html('<option value="">--Select--</option>');
+			$("#lender_banking_id").html('<option value="">--Select--</option>');
 			$.ajax({
 				type:"GET",
-				url:"{{ backpack_url('getSubCategory') }}/"+document_category_id,
+				url:"{{ backpack_url('getLenderBanking') }}/"+lender_id,
 				success:function(res){ 
 					if(res){
-						$("#document_sub_category_id").append('<option value="0">None</option>');
+						//$("#lender_banking_id").append('<option value="0">None</option>');
 						$.each(res,function(key,value){
-							$("#document_sub_category_id").append('<option value="'+key+'">'+value+'</option>');
+							$("#lender_banking_id").append('<option value="'+key+'">'+value+'</option>');
 						});
 				  	}
 				}
@@ -77,9 +77,11 @@
 		}
 		else
 		{
-			$("#document_sub_category_id").html('<option value="">--Select--</option><option value="0">None</option>');
+			$("#lender_banking_id").html('<option value="">--Select--</option><option value="0">None</option>');
 		}
 	}
+
+	getLenderBanking($('#lender_id option:selected').val());
 </script>
 @endpush
 

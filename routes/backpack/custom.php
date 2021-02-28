@@ -41,6 +41,8 @@ Route::group([
 	
 	Route::post('checkerDocument/{document_id}', 'DocumentCrudController@checkerDocument');
 	Route::post('checkerBankingArrangment/{lender_banking_id}', 'LenderBankingCrudController@checkerBankingArrangment');
+
+    Route::get('getLenderBanking/{lender_id}', 'LenderBankingCrudController@getLenderBanking');
 	
 	Route::get('exportLenderBanking', 'ImportExportController@exportLenderBanking');
 	Route::get('importLenderBanking', 'ImportExportController@importLenderBanking');
