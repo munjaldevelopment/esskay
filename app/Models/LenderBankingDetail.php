@@ -20,7 +20,7 @@ class LenderBankingDetail extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['lender_id', 'lender_banking_id', 'lender_banking_detail_code', 'banking_arrangment_id', 'sanction_amount', 'outstanding_amount','lender_banking_status'];
+    protected $fillable = ['lender_id', 'lender_banking_id', 'lender_banking_detail_code', 'banking_arrangment_id', 'lender_banking_date', 'sanction_amount', 'outstanding_amount','lender_banking_status'];
     // protected $hidden = [];
     // protected $dates = [];
 

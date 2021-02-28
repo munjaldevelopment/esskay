@@ -173,7 +173,13 @@ class LenderBankingDetailCrudController extends CrudController
 					'model'     => "App\Models\BankingArrangment", //name of Models
 
 					]);
-					
+
+            $this->crud->addField([
+                    'label'     => 'Banking Date',
+                    'type'      => 'date',
+                    'name'      => 'lender_banking_date',
+                    ]);
+
 			$this->crud->addField([
 					'label'     => 'Sanction Amount',
 					'type'      => 'number',
