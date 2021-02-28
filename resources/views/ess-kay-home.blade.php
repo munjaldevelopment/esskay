@@ -62,10 +62,14 @@
 					  	</button>
 					  	<div class="dropdown-menu">
 							<a class="dropdown-item home-class active" href="javascript:;">Message from MD</a>
-							<a class="dropdown-item home1-class active" href="javascript:;">Board of  Directors</a>
-							<a class="dropdown-item home2-class active" href="javascript:;">Key Managerial Person</a>
+							<a class="dropdown-item board-class" href="javascript:;">Board of  Directors</a>
+							<a class="dropdown-item key-manager-class" href="javascript:;">Key Managerial Person</a>
 					  	</div>
 					</div>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link insight-class " href="javascript:;">Insight</a>
 				</li>
 				@endif
 				@if($lenderData->is_document == 1)

@@ -20,6 +20,42 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+	$('.board-class').bind('click', function() {
+		$('.esskay-home li a').removeClass('active');
+		$('.board-class').addClass('active');
+		
+		$.ajax({
+			url: base_url+'board',
+			type: 'post',
+			data: {_token: CSRF_TOKEN},
+			beforeSend: function() {
+				$('.preloader').show();
+			},
+			success: function(output) {
+				$('.preloader').hide();
+				$('.home-content').html(output);
+			}
+		});
+	});
+
+	$('.key-manager-class').bind('click', function() {
+		$('.esskay-home li a').removeClass('active');
+		$('.key-manager-class').addClass('active');
+		
+		$.ajax({
+			url: base_url+'keymanager',
+			type: 'post',
+			data: {_token: CSRF_TOKEN},
+			beforeSend: function() {
+				$('.preloader').show();
+			},
+			success: function(output) {
+				$('.preloader').hide();
+				$('.home-content').html(output);
+			}
+		});
+	});
 		
 	$('.doc-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');

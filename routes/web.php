@@ -41,6 +41,9 @@ Route::post('/saveUserOTP', 'HomeController@saveUserOTP');
 Route::get('/logout', 'HomeController@logout');
 
 Route::post('/homepage', 'HomeController@homepage');
+Route::post('/board', 'HomeController@boardPage');
+Route::post('/keymanager', 'HomeController@keymanagerPage');
+
 Route::post('/document', 'HomeController@document');
 Route::post('/news', 'HomeController@news');
 Route::post('/contact_us', 'HomeController@contactUs');

@@ -1351,6 +1351,34 @@ class HomeController extends Controller
 		return view('ess-kay-homepage', ['customer_name' => $customer_name, 'page_title' => $pageInfo->title, 'page_content' => $content1, 'video_content' => $videoPageInfo->content]);
 		
 	}
+
+	public function boardPage()
+    {	
+		$customer_name = session()->get('esskay_verify');
+		
+		$pageInfo = Page::getPageInfo(10);
+		//dd($pageInfo);
+		
+		$content = str_replace("INVERTEDLEFT", '<i class="fa fa-quote-left quote-icons" style=""></i>', $pageInfo->content);
+		$content1 = str_replace("INVERTEDRIGHT", '<i class="fa fa-quote-right quote-icons" style=""></i>', $content);
+		
+		return view('ess-kay-board', ['customer_name' => $customer_name, 'page_title' => $pageInfo->title, 'page_content' => $content1]);
+		
+	}
+
+	public function keymanagerPage()
+    {	
+		$customer_name = session()->get('esskay_verify');
+		
+		$pageInfo = Page::getPageInfo(11);
+		//dd($pageInfo);
+		
+		$content = str_replace("INVERTEDLEFT", '<i class="fa fa-quote-left quote-icons" style=""></i>', $pageInfo->content);
+		$content1 = str_replace("INVERTEDRIGHT", '<i class="fa fa-quote-right quote-icons" style=""></i>', $content);
+		
+		return view('ess-kay-key-manager', ['customer_name' => $customer_name, 'page_title' => $pageInfo->title, 'page_content' => $content1]);
+		
+	}
 	
 	public function news()
     {	
