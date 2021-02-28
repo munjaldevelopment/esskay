@@ -78,7 +78,7 @@
 	if($list_lender || $list_lender_banking):
 @endphp
 <li class="nav-item nav-dropdown">
-	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Master</a>
+	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Lender</a>
 	<ul class="nav-dropdown-items">
 @php
 	if($list_lender):
@@ -91,10 +91,10 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking') }}'><i class='nav-icon la la-file-o'></i> Lender Banking</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking_detail') }}'><i class='nav-icon la la-file-o'></i> Lender Banking Detail</a></li>
 @php
-		endif;
+	endif;
+@endphp
 	</ul>
 </li>
-@endphp
 @php
 	endif;
 
