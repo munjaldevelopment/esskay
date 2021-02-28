@@ -2,6 +2,35 @@
 
 All notable changes to `laravel-backup` will be documented in this file.
 
+## 6.14.3 - 2021-01-29
+
+- fix for #1225 (#1227)
+
+## 6.14.2 - 2020-12-27
+
+- add norwegian
+
+## 6.14.1 - 2020-12-16
+
+- fix exception messages
+
+## 6.14.0 - 2020-12-08
+
+- add option to add files to zip-file using relative path (#1158)
+
+## 6.13.1 - 2020-12-01
+
+- Update README.md, docs and comment in config file (#1154)
+
+## 6.13.0 - 2020-11-25
+
+- add support for PHP 8.0
+- drop support for Laravel 5.8
+
+## 6.12.0 - 2020-11-19
+
+- allow a `CleanupStrategy` to access its intended `BackupDestination` (#1149)
+
 ## 6.11.6 - 2020-10-19
 
 - add funding section

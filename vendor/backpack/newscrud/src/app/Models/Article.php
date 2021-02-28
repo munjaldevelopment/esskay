@@ -22,7 +22,7 @@ class Article extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['slug', 'title', 'short_description', 'content', 'image', 'article_pdf', 'status', 'featured', 'date'];
+    protected $fillable = ['slug', 'title', 'content', 'image', 'status', 'category_id', 'featured', 'date'];
     // protected $hidden = [];
     // protected $dates = [];
     protected $casts = [
@@ -35,7 +35,7 @@ class Article extends Model
      *
      * @return array
      */
-    public function sluggable()
+    public function sluggable(): array
     {
         return [
             'slug' => [
@@ -58,7 +58,7 @@ class Article extends Model
 
     public function category()
     {
-        return $this->belongsToMany('Backpack\NewsCRUD\app\Models\Category', 'article_category');
+        return $this->belongsTo('Backpack\NewsCRUD\app\Models\Category', 'category_id');
     }
 
     public function tags()
@@ -75,8 +75,8 @@ class Article extends Model
     public function scopePublished($query)
     {
         return $query->where('status', 'PUBLISHED')
-                    ->where('date', '<=', date('Y-m-d'))
-                    ->orderBy('date', 'DESC');
+            ->where('date', '<=', date('Y-m-d'))
+            ->orderBy('date', 'DESC');
     }
 
     /*

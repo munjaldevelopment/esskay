@@ -34,14 +34,22 @@ If you need to EXTEND the existing `Role` or `Permission` models note that:
 
 - Your `Role` model needs to extend the `Spatie\Permission\Models\Role` model
 - Your `Permission` model needs to extend the `Spatie\Permission\Models\Permission` model
+- You need to update `config/permission.php` to specify your namespaced model
 
 ### Replacing
 If you need to REPLACE the existing `Role` or `Permission` models you need to keep the following things in mind:
 
 - Your `Role` model needs to implement the `Spatie\Permission\Contracts\Role` contract
 - Your `Permission` model needs to implement the `Spatie\Permission\Contracts\Permission` contract
+- You need to update `config/permission.php` to specify your namespaced model
 
 
-## Migrations - Adding fields to your models
+## Adding fields to your models
 You can add your own migrations to make changes to the role/permission tables, as you would for adding/changing fields in any other tables in your Laravel project.
+
 Following that, you can add any necessary logic for interacting with those fields into your custom/extended Models.
+
+Related article: [Adding Extra Fields To Pivot Table](https://quickadminpanel.com/blog/laravel-belongstomany-add-extra-fields-to-pivot-table/) (video)
+
+
+

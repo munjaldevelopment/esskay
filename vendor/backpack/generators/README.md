@@ -21,20 +21,6 @@ Via Composer
 composer require backpack/generators --dev
 ```
 
-For Laravel 7, 6 or 5.5+ - you're done.
-
-For Laravel 5.4 or 5.3 you'll only want to use these generators for ```local``` development, so you don't want to update the ```production``` providers array in ```config/app.php```. Instead, add the provider in ```app/Providers/AppServiceProvider.php```, like so:
-
-```php
-public function register()
-{
-    if ($this->app->environment() == 'local') {
-        // $this->app->register('Laracasts\Generators\GeneratorsServiceProvider'); // you're using Jeffrey way's generators, too, right?
-        $this->app->register('Backpack\Generators\GeneratorsServiceProvider');
-    }
-}
-```
-
 ## Usage
 
 Open the console and enter one of the commands:
