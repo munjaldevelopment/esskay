@@ -90,12 +90,12 @@
 				@endif
 			</ul>
 		</div>
-	</div>
-
-	<div class="main-tab-details">
-		<!-- Tab panes -->
-		<div class="tab-content">
-			<div class="home-content">
+	
+		<div class="main-tab-details">
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="home-content">
+				</div>
 			</div>
 		</div>
 	</div>
