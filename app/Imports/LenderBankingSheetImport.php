@@ -38,6 +38,7 @@ class LenderBankingSheetImport implements ToCollection, WithValidation, WithHead
 		foreach($rows as $row)
 		{
 			$lender = isset($row['lender']) ? trim($row['lender']) : "";
+			$lender_banking_code = isset($row['lender_banking_code']) ? trim($row['lender_banking_code']) : "";
 			$banking_arrangment = isset($row['banking_arrangment']) ? trim($row['banking_arrangment']) : "";
 								
 			if($lender != "" && $banking_arrangment != "")
@@ -54,6 +55,7 @@ class LenderBankingSheetImport implements ToCollection, WithValidation, WithHead
 					$lenderBanking = new LenderBanking;
 					$lenderBanking->lender_id = $lenderData->id;
 					$lenderBanking->banking_arrangment_id = $bankingData->id;
+					$lenderBanking->lender_banking_code = $row['lender_banking_code'];
 					$lenderBanking->sanction_amount = $row['sanction'];
 					$lenderBanking->outstanding_amount = $row['outstanding'];
 					$lenderBanking->lender_banking_status = ($row['status'] == "Yes" ? "1" : "0");

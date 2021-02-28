@@ -21,6 +21,7 @@ class LenderBankingSheet implements FromArray, WithTitle, WithHeadings, ShouldAu
         return [
             'ID',
             'Lender',
+            'Lender Banking Code',
             'Banking Arrangment',
             'Sanction',
             'Outstanding',
@@ -35,7 +36,7 @@ class LenderBankingSheet implements FromArray, WithTitle, WithHeadings, ShouldAu
 		$factoryData = array();
 		if($factories){
 			foreach($factories as $k => $factory){
-				$factoryData[$k] = array('ID' => ($k + 1), 'Lender' => $factory['lender_name'], 'Banking Arrangment' => $factory['banking_arrangment_name'], 'Sanction' => $factory['sanction_amount'], 'Outstanding' => $factory['outstanding_amount'], 'Status' => ($factory['lender_banking_status'] ? "Yes" : "No"));
+				$factoryData[$k] = array('ID' => ($k + 1), 'Lender' => $factory['lender_name'],  'Lender Banking Code' => $factory['lender_banking_code'], 'Banking Arrangment' => $factory['banking_arrangment_name'], 'Sanction' => $factory['sanction_amount'], 'Outstanding' => $factory['outstanding_amount'], 'Status' => ($factory['lender_banking_status'] ? "Yes" : "No"));
 			}
 		}
 		
