@@ -37,6 +37,7 @@ class LenderBankingSheetImport implements ToCollection, WithValidation, WithHead
 		
 		foreach($rows as $row)
 		{
+			$lender_banking_id = $row['id'];
 			$lender = isset($row['lender']) ? trim($row['lender']) : "";
 			$lender_banking_code = isset($row['lender_banking_code']) ? trim($row['lender_banking_code']) : "";
 			$banking_arrangment = isset($row['banking_arrangment']) ? trim($row['banking_arrangment']) : "";
@@ -53,6 +54,7 @@ class LenderBankingSheetImport implements ToCollection, WithValidation, WithHead
 					$bankingData = BankingArrangment::where('name', '=', $banking_arrangment)->first();
 					
 					$lenderBanking = new LenderBanking;
+					$lenderBanking->id = $lender_banking_id;
 					$lenderBanking->lender_id = $lenderData->id;
 					$lenderBanking->banking_arrangment_id = $bankingData->id;
 					$lenderBanking->lender_banking_code = $row['lender_banking_code'];
