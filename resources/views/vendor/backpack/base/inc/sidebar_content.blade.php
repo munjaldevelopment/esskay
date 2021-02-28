@@ -74,6 +74,13 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('email_sms') }}'><i class='nav-icon la la-cog'></i> Email / SMS </a></li>
 @php
 	endif;
+
+	if($list_lender || $list_lender_banking):
+@endphp
+<li class="nav-item nav-dropdown">
+	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Master</a>
+	<ul class="nav-dropdown-items">
+@php
 	if($list_lender):
 @endphp
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender') }}'><i class='nav-icon la la-user'></i> Lenders</a></li>
@@ -84,7 +91,13 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking') }}'><i class='nav-icon la la-file-o'></i> Lender Banking</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking_detail') }}'><i class='nav-icon la la-file-o'></i> Lender Banking Detail</a></li>
 @php
+		endif;
+	</ul>
+</li>
+@endphp
+@php
 	endif;
+
 	if($list_document):
 @endphp
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('document') }}'><i class='nav-icon la la-file-o'></i> Documents</a></li>
