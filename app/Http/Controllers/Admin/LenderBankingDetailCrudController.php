@@ -86,7 +86,7 @@ class LenderBankingDetailCrudController extends CrudController
 				$this->crud->addClause('where', 'lender_banking_status', '=', "0");
 			}
 			
-			$this->crud->addColumn([
+			/*$this->crud->addColumn([
 					'label'     => 'Lender',
 					'type'      => 'select',
 					'name'      => 'lender_id',
@@ -94,7 +94,7 @@ class LenderBankingDetailCrudController extends CrudController
 					'attribute' => 'name', //name of fields in models table like districts
 					'model'     => "App\Models\Lender", //name of Models
 
-					]);
+					]);*/
 
             $this->crud->addColumn([
                     'label'     => 'Lender Banking',
@@ -185,7 +185,7 @@ class LenderBankingDetailCrudController extends CrudController
 					
 				]);
 					
-			$this->crud->addButtonFromView('line', 'checker_banking_arrangment', 'checker_banking_arrangment', 'end');
+			$this->crud->addButtonFromView('line', 'checker_banking_arrangment_detail', 'checker_banking_arrangment_detail', 'end');
 			
 			$this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportLenderBankingDetailButton', 'end');
 			$this->crud->addButtonFromModelFunction('top', 'import_xls', 'importLenderBankingDetailButton', 'end');
@@ -246,12 +246,12 @@ class LenderBankingDetailCrudController extends CrudController
         $this->setupCreateOperation();
     }
 	
-	public function checkerBankingArrangment($lender_banking_id)
+	public function checkerBankingArrangmentDetail($lender_banking_id)
 	{
 		$updateData = array('lender_banking_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
-		\DB::table('lender_banking')->where(['id' => $lender_banking_id])->update($updateData);
+		\DB::table('lender_banking_details')->where(['id' => $lender_banking_id])->update($updateData);
 
-		\DB::table('lender_banking_detail_revisions')->where(['lender_banking_id' => $lender_banking_id])->update($updateData);
+		\DB::table('lender_banking_detail_revisions')->where(['lender_banking_detail_id' => $lender_banking_id])->update($updateData);
 	}
 
 	public function store()
@@ -262,8 +262,9 @@ class LenderBankingDetailCrudController extends CrudController
 
         $result = $this->traitLenderBankingDetailStore();
 
-        $lender_banking_id =  $this->crud->entry->id;
+        $lender_banking_detail_id =  $this->crud->entry->id;
         $lender_id = $this->crud->getRequest()->lender_id;
+        $lender_banking_id = $this->crud->getRequest()->lender_banking_id;
         $banking_arrangment_id = $this->crud->getRequest()->banking_arrangment_id;
         $sanction_amount = $this->crud->getRequest()->sanction_amount;
         $outstanding_amount = $this->crud->getRequest()->outstanding_amount;
@@ -272,7 +273,7 @@ class LenderBankingDetailCrudController extends CrudController
         $document_status = $this->crud->getRequest()->document_status;
 
 
-        \DB::table('lender_banking_detail_revisions')->insert(['lender_banking_detail_id' => $lender_banking_id, 'lender_id' => $lender_id, 'banking_arrangment_id' => $banking_arrangment_id,'sanction_amount' => $sanction_amount, 'outstanding_amount' => $outstanding_amount, 'lender_banking_status' => $lender_banking_status]);
+        \DB::table('lender_banking_detail_revisions')->insert(['lender_banking_detail_id' => $lender_banking_detail_id, 'lender_id' => $lender_id, 'lender_banking_id' => $lender_banking_id, 'banking_arrangment_id' => $banking_arrangment_id,'sanction_amount' => $sanction_amount, 'outstanding_amount' => $outstanding_amount, 'lender_banking_status' => $lender_banking_status]);
 
         return $result;
     }    
@@ -285,8 +286,9 @@ class LenderBankingDetailCrudController extends CrudController
 
         $result = $this->traitLenderBankingDetailUpdate();
 
-        $lender_banking_id =  $this->crud->getRequest()->id;
+        $lender_banking_detail_id =  $this->crud->getRequest()->id;
         $lender_id = $this->crud->getRequest()->lender_id;
+        $lender_banking_id = $this->crud->getRequest()->lender_banking_id;
         $banking_arrangment_id = $this->crud->getRequest()->banking_arrangment_id;
         $sanction_amount = $this->crud->getRequest()->sanction_amount;
         $outstanding_amount = $this->crud->getRequest()->outstanding_amount;
@@ -295,7 +297,7 @@ class LenderBankingDetailCrudController extends CrudController
         $document_status = $this->crud->getRequest()->document_status;
 
 
-        \DB::table('lender_banking_detail_revisions')->insert(['lender_banking_detail_id' => $lender_banking_id, 'lender_id' => $lender_id, 'banking_arrangment_id' => $banking_arrangment_id,'sanction_amount' => $sanction_amount, 'outstanding_amount' => $outstanding_amount, 'lender_banking_status' => $lender_banking_status]);
+        \DB::table('lender_banking_detail_revisions')->insert(['lender_banking_detail_id' => $lender_banking_detail_id, 'lender_id' => $lender_id, 'lender_banking_id' => $lender_banking_id, 'banking_arrangment_id' => $banking_arrangment_id,'sanction_amount' => $sanction_amount, 'outstanding_amount' => $outstanding_amount, 'lender_banking_status' => $lender_banking_status]);
     
         return $result;
     }
