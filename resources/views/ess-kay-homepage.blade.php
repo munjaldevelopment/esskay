@@ -15,7 +15,7 @@
 								<iframe id="sk_frame1" src="https://www.youtube.com/embed/9xwazD5SyVg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 								<div class="more-video-cont" id="sk_video_cont">
 									<button type="button" class="speechmax-icon" id="sk_video1">
-										<img src="i{{ asset('public/assets/') }}/mages/video-bg.png" alt="">
+										<img src="{{ asset('public/assets/') }}/images/video-bg.png" alt="">
 										<img src="{{ asset('public/assets/') }}/images/play-btn.svg" alt="" class="play-btn-about">
 									</button>
 								</div>				
