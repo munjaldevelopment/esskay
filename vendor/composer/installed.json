@@ -6285,7 +6285,7 @@
                     }
                 }
             },
-            "installation-source": "source",
+            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "PragmaRX\\Firewall\\": "src/",
@@ -6310,6 +6310,10 @@
                 "laravel",
                 "whitelist"
             ],
+            "support": {
+                "issues": "https://github.com/antonioribeiro/firewall/issues",
+                "source": "https://github.com/antonioribeiro/firewall/tree/master"
+            },
             "install-path": "../pragmarx/firewall"
         },
         {
