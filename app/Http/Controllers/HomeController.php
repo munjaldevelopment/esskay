@@ -188,8 +188,8 @@ class HomeController extends Controller
 				}
 			}
 			
-			echo '<pre>'; print_r($lenderBankingData); 
-			dd($lenderBankingDetailData);
+			//echo '<pre>'; print_r($lenderBankingData); 
+			//dd($lenderBankingDetailData);
 			return view('ess-kay-home', ['customer_name' => $customer_name, 'parentCategoryData' => $parentCategoryData, 'childCategoryData' => $childCategoryData, 'lenderData' => $lenderData, 'lenderCode' => $lenderCode, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords, 'lenderBankingData' => $lenderBankingData, 'lenderBankingDetailData' => $lenderBankingDetailData, 'lenderCount' => count($lenderBankingData)]);
 		}
 	}
