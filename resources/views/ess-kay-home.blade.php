@@ -21,50 +21,6 @@
 											<td><span class="spn spn-bdr">Outstanding: <br /> <i class="fa fa-inr" aria-hidden="true"></i> {!! $bdetail['outstanding_amount'] !!}</span></td>
 										</div>
 									</div>
-
-									<!-- Modal -->
-									<div class="modal fade" id="staticBackdrop{{ $k }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-									  <div class="modal-dialog loan-summry-modal">
-									    <div class="modal-content">
-									      <div class="modal-header">
-									        <h5 class="modal-title" id="staticBackdropLabel">{!! $bdetail['banking_arrangment_name'] !!}</h5>
-									        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									          <span aria-hidden="true"><img src="{{ asset('public/assets/') }}/images/modal-close-icon.svg" alt=""></span>
-									        </button>
-									      </div>
-									      <div class="modal-body">
-									        <div class="custom-table-area">
-												<div class="table-responsive">
-													<table class="table">
-														<thead>
-														  <tr>
-															<th>#</th>
-															<th>Date</th>
-															<th>Sanctioned (in Cr.)</th>
-															<th>Outstanding (in Cr.)</th>
-														  </tr>
-														</thead>
-														<tbody>
-														  <tr>
-															<td>1</td>
-															<td>29 Jan 2021</td>
-															<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> 50,000</td>
-															<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> 10,000</td>
-														  </tr>
-														  <tr>
-															<td>2</td>
-															<td>28 Jan 2021</td>
-															<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> 40,000</td>
-															<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> 20,000</td>
-														  </tr>
-														</tbody>
-													  </table>	
-												</div>	
-											</div>
-									      </div>
-									    </div>
-									  </div>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -148,6 +104,46 @@
 		</div>
 	</div>
 </section>
+
+<!-- Modal -->
+@foreach($lenderBankingData as $k => $bdetail)
+<div class="modal fade" id="staticBackdrop{{ $k }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog loan-summry-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><img src="{{ asset('public/assets/') }}/images/modal-close-icon.svg" alt=""></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="custom-table-area">
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+					  <tr>
+						<th>#</th>
+						<th>Date</th>
+						<th>Sanctioned (in Cr.)</th>
+						<th>Outstanding (in Cr.)</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr>
+						<td>1</td>
+						<td>29 Jan 2021</td>
+						<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> 50,000</td>
+						<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> 10,000</td>
+					  </tr>
+					</tbody>
+				  </table>	
+			</div>	
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
 
 <style>
 	.carousel-control-next, .carousel-control-prev {
