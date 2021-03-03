@@ -44,7 +44,7 @@
 	      <div class="modal-header">
 	        <h5 class="modal-title" id="staticBackdropLabel">PTC (Investor Portion)</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true"><img src="images/modal-close-icon.svg" alt=""></span>
+	          <span aria-hidden="true"><img src="{{ asset('public/assets/') }}/images/modal-close-icon.svg" alt=""></span>
 	        </button>
 	      </div>
 	      <div class="modal-body">
@@ -63,14 +63,14 @@
 						  <tr>
 							<td>1</td>
 							<td>29 Jan 2021</td>
-							<td><img src="images/rupees-icon.svg" alt=""> 50,000</td>
-							<td><img src="images/rupees-icon.svg" alt=""> 10,000</td>
+							<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> 50,000</td>
+							<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> 10,000</td>
 						  </tr>
 						  <tr>
 							<td>2</td>
 							<td>28 Jan 2021</td>
-							<td><img src="images/rupees-icon.svg" alt=""> 40,000</td>
-							<td><img src="images/rupees-icon.svg" alt=""> 20,000</td>
+							<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> 40,000</td>
+							<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> 20,000</td>
 						  </tr>
 						</tbody>
 					  </table>	
