@@ -118,6 +118,7 @@
       </div>
       <div class="modal-body">
         <div class="custom-table-area">
+        	@if(isset($lenderBankingDetailData[$bdetail['banking_arrangment_id']))
 			<div class="table-responsive">
 				<table class="table">
 					<thead>
@@ -129,15 +130,18 @@
 					  </tr>
 					</thead>
 					<tbody>
-					  <tr>
-						<td>1</td>
-						<td>29 Jan 2021</td>
-						<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> 50,000</td>
-						<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> 10,000</td>
-					  </tr>
+						@foreach($lenderBankingDetailData[$bdetail['banking_arrangment_id'] as $k1 => $row1)
+					  	<tr>
+							<td>{{ $k1 + 1}}</td>
+							<td>{{ $row['lender_banking_date'] }}</td>
+							<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> {{ $row['sanction_amount'] }}</td>
+							<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> {{ $row['outstanding_amount'] }}</td>
+					  	</tr>
+					  	@endforeach
 					</tbody>
-				  </table>	
-			</div>	
+				</table>	
+			</div>
+			@endif
 		</div>
       </div>
     </div>

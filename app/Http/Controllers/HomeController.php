@@ -168,7 +168,7 @@ class HomeController extends Controller
 
 					foreach ($bankingInnerData as $bdataInner) {
 						if($bdataInner->lender_banking_status == 1 && ($bdataInner->sanction_amount > 0.00 || $bdataInner->outstanding_amount > 0.00)) {
-								$lenderBankingDetailData[$bdata->banking_arrangment_id][] = array('lender_banking_date' => $bdataInner->lender_banking_date, 'sanction_amount' => $bdataInner->sanction_amount, 'outstanding_amount' => $bdataInner->outstanding_amount);
+								$lenderBankingDetailData[$bdata->banking_arrangment_id][] = array('lender_banking_date' => date('d M Y', strtotime($bdataInner->lender_banking_date)), 'sanction_amount' => $bdataInner->sanction_amount, 'outstanding_amount' => $bdataInner->outstanding_amount);
 						}
 					}
 				}else{
@@ -181,15 +181,15 @@ class HomeController extends Controller
 
 						foreach ($bankingInnerData as $bdataInner) {
 							if($bdataInner->lender_banking_status == 1 && ($bdataInner->sanction_amount > 0.00 || $bdataInner->outstanding_amount > 0.00)) {
-									$lenderBankingDetailData[$bdata->banking_arrangment_id][] = array('lender_banking_date' => $bdataInner->lender_banking_date, 'sanction_amount' => $bdataInner->sanction_amount, 'outstanding_amount' => $bdataInner->outstanding_amount);
+									$lenderBankingDetailData[$bdata->banking_arrangment_id][] = array('lender_banking_date' => date('d M Y', strtotime($bdataInner->lender_banking_date)), 'sanction_amount' => $bdataInner->sanction_amount, 'outstanding_amount' => $bdataInner->outstanding_amount);
 							}
 						}
 					}
 				}
 			}
 			
-			dd($lenderBankingDetailData);
-			
+			//dd($lenderBankingDetailData);
+
 			//echo '<pre>'; print_r($lenderBankingData); exit;
 			return view('ess-kay-home', ['customer_name' => $customer_name, 'parentCategoryData' => $parentCategoryData, 'childCategoryData' => $childCategoryData, 'lenderData' => $lenderData, 'lenderCode' => $lenderCode, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords, 'lenderBankingData' => $lenderBankingData, 'lenderBankingDetailData' => $lenderBankingDetailData, 'lenderCount' => count($lenderBankingData)]);
 		}
