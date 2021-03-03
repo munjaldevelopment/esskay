@@ -118,7 +118,7 @@
       </div>
       <div class="modal-body">
         <div class="custom-table-area">
-        	@if(isset($lenderBankingDetailData[$bdetail['banking_arrangment_id']))
+        	@if(isset($lenderBankingDetailData[$bdetail['banking_arrangment_id']]))
 			<div class="table-responsive">
 				<table class="table">
 					<thead>
@@ -130,7 +130,7 @@
 					  </tr>
 					</thead>
 					<tbody>
-						@foreach($lenderBankingDetailData[$bdetail['banking_arrangment_id'] as $k1 => $row1)
+						@foreach($lenderBankingDetailData[$bdetail['banking_arrangment_id']] as $k1 => $row1)
 					  	<tr>
 							<td>{{ $k1 + 1}}</td>
 							<td>{{ $row['lender_banking_date'] }}</td>
