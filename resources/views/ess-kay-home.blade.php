@@ -16,7 +16,7 @@
 								<div class="col-md-12">
 									<div class="card no-border">
 										<div class="card-body">
-											<td><span class="bg-blue-light" data-toggle="modal" data-target="#staticBackdrop{{ $k }}">{!! $bdetail['banking_arrangment_name'] !!}</span></td>
+											<td><span class="bg-blue-light cursor-pointer" data-toggle="modal" data-target="#staticBackdrop{{ $k }}">{!! $bdetail['banking_arrangment_name'] !!}</span></td>
 											<td><span class="spn">Sanctioned: <br /> <i class="fa fa-inr" aria-hidden="true"></i> {!! $bdetail['sanction_amount'] !!}</span></td>
 											<td><span class="spn spn-bdr">Outstanding: <br /> <i class="fa fa-inr" aria-hidden="true"></i> {!! $bdetail['outstanding_amount'] !!}</span></td>
 										</div>

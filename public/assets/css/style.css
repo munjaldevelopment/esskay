@@ -2090,6 +2090,10 @@ nav.side-navbar a[aria-expanded="true"]::before{
   display: none;
 }
 
+.cursor-pointer {
+  cursor:pointer !important;
+}
+
 
 /*nav.side-navbar li.active a.dropdown-box.category-list.collapsed::after{
   content: '\f105';
