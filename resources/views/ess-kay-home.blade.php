@@ -133,9 +133,9 @@
 						@foreach($lenderBankingDetailData[$bdetail['banking_arrangment_id']] as $k1 => $row1)
 					  	<tr>
 							<td>{{ $k1 + 1}}</td>
-							<td>{{ $row['lender_banking_date'] }}</td>
-							<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> {{ $row['sanction_amount'] }}</td>
-							<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> {{ $row['outstanding_amount'] }}</td>
+							<td>{{ $row1['lender_banking_date'] }}</td>
+							<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> {{ $row1['sanction_amount'] }}</td>
+							<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> {{ $row1['outstanding_amount'] }}</td>
 					  	</tr>
 					  	@endforeach
 					</tbody>
