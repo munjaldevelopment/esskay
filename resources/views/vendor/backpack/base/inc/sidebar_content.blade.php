@@ -6,8 +6,8 @@
 	$list_asset_class = backpack_user()->hasPermissionTo('list_asset_class');
 	$list_document_category = backpack_user()->hasPermissionTo('list_document_category');
 	$list_banking_arrangment = backpack_user()->hasPermissionTo('list_banking_arrangment');
-	$list_insight_category = backpack_user()->hasPermissionTo('list_insight_category');
-	$list_insight = backpack_user()->hasPermissionTo('list_insight');
+	$list_insight_category = 1;//backpack_user()->hasPermissionTo('list_insight_category');
+	$list_insight = 1;//backpack_user()->hasPermissionTo('list_insight');
 
 	$list_email_sms = backpack_user()->hasPermissionTo('list_email_sms');
 	$list_lender = backpack_user()->hasPermissionTo('list_lender');
