@@ -20,7 +20,7 @@ class Insight extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
 
-    protected $fillable = ['insight_category_id', 'insight_code','value1','value2','value3','value4','value5','value6'];
+    protected $fillable = ['insight_category_id', 'insight_code','value1','value2','value3','value4','value5','value6','status'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];

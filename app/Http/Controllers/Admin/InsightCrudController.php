@@ -52,6 +52,14 @@ class InsightCrudController extends CrudController
             //$this->crud->denyAccess(['delete']);
             
             $this->crud->addColumn([
+                                    'name' => 'insight_category_id',
+                                    'label' => 'Category',
+                                    'type' => 'select',
+                                    'entity'    => 'insightCategory', //function name
+                                    'attribute' => 'category_code', //name of fields in models table like districts
+                                    'model'     => "App\Models\InsightCategory", //name of Models
+                                ]);
+            $this->crud->addColumn([
                                     'name' => 'insight_code',
                                     'label' => 'Code',
                                     'type' => 'text',
@@ -68,7 +76,15 @@ class InsightCrudController extends CrudController
                                 ]);
 
             
-                                
+            $this->crud->addField([
+                                    'name' => 'insight_category_id',
+                                    'label' => 'Category',
+                                    'type' => 'select2',
+                                    'entity'    => 'insightCategory', //function name
+                                    'attribute' => 'category_code', //name of fields in models table like districts
+                                    'model'     => "App\Models\InsightCategory", //name of Models
+                                    'tab' => 'General'
+                                ]);               
             $this->crud->addField([
                                     'name' => 'insight_code',
                                     'label' => 'Code',
