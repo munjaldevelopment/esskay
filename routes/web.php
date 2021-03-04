@@ -95,6 +95,16 @@ Route::get('/updateEmail', function () {
 	\DB::statement("UPDATE lenders Set email = REPLACE(email, '&.', '.') WHERE id > 2");
 });
 
+Route::get('/updateUserEmail', function () {
+	\DB::statement("UPDATE users Set name = TRIM(name) WHERE id > 2");
+	\DB::statement("UPDATE users Set email = CONCAT(lower(name), '@skfin.in') WHERE id > 2");
+	\DB::statement("UPDATE users Set email = REPLACE(email, ' ', '.') WHERE id > 2");
+	\DB::statement("UPDATE users Set email = REPLACE(email, '.@', '@') WHERE id > 2");
+	\DB::statement("UPDATE users Set email = REPLACE(email, '.(', '.') WHERE id > 2");
+	\DB::statement("UPDATE users Set email = REPLACE(email, ')@', '@') WHERE id > 2");
+	\DB::statement("UPDATE users Set email = REPLACE(email, '&.', '.') WHERE id > 2");
+});
+
 Route::get('/updateAll', function () {
 	$updateData = array('is_banking_arrangement' => '1', 'is_message_md' => '1', 'is_document' => '1', 'is_financial_summary' => '1', 'is_newsletter' => '1', 'is_contact_us' => '1');
 	\DB::table('lenders')->update($updateData);

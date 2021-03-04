@@ -58,4 +58,6 @@ Route::group([
     Route::get('importLenderBankingDetail', 'ImportExportController@importLenderBankingDetail');
     Route::post('insertLenderBankingDetail', 'ImportExportController@insertLenderBankingDetail');
     
+    Route::crud('insight_category', 'InsightCategoryCrudController');
+    Route::crud('insight', 'InsightCrudController');
 }); // this should be the absolute last line of this file
