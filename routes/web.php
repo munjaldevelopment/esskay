@@ -115,6 +115,21 @@ Route::get('/updateAll', function () {
 
 Route::get('/terms', 'HomeController@termsPage');
 
+Route::get('/enter_insight_category_data', function () {
+	$parentData = \DB::table('insight_category_lender')->delete();
+	
+	$parentData = \DB::table('lenders')->get();
+	$parentData1 = \DB::table('insight_categories')->get();
+	
+	foreach($parentData as $row)
+	{
+		foreach($parentData1 as $row1)
+		{
+			\DB::table('insight_category_lender')->insert(['insight_category_id' => $row1->id, 'lender_id' => $row->id]);
+		}
+	}
+});
+
 Route::get('/enter_doc_data', function () {
 	$parentData = \DB::table('document_lender')->delete();
 	
