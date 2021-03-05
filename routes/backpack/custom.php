@@ -60,4 +60,6 @@ Route::group([
     
     Route::crud('insight_category', 'InsightCategoryCrudController');
     Route::crud('insight', 'InsightCrudController');
+    Route::crud('trustee', 'TrusteeCrudController');
+    Route::crud('trustee_type', 'TrusteeTypeCrudController');
 }); // this should be the absolute last line of this file

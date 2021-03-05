@@ -1,6 +1,7 @@
 @php
 	$list_dashboard = backpack_user()->hasPermissionTo('list_dashboard');
 	$list_lender_type = backpack_user()->hasPermissionTo('list_lender_type');
+	$list_trustee_type = backpack_user()->hasPermissionTo('list_trustee_type');
 	$list_instrument_type = backpack_user()->hasPermissionTo('list_instrument_type');
 	$list_facility_type = backpack_user()->hasPermissionTo('list_facility_type');
 	$list_asset_class = backpack_user()->hasPermissionTo('list_asset_class');
@@ -28,7 +29,7 @@
 {{-- <li class='nav-item'><a class='nav-link' href='{{ backpack_url('backup') }}'><i class='nav-icon la la-hdd-o'></i> Backups</a></li> --}}
 
 @php
-	if($list_lender_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category || $list_insight):
+	if($list_lender_type || $list_trustee_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category || $list_insight):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Master</a>
@@ -37,6 +38,11 @@
 			if($list_lender_type):
 		@endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_type') }}'><i class='nav-icon la la-list'></i> Lender Type</a></li>
+		@php
+			endif;
+			if($list_trustee_type):
+		@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('trustee_type') }}'><i class='nav-icon la la-list'></i> Trustee Type</a></li>
 		@php
 			endif;
 			if($list_instrument_type):
@@ -96,13 +102,13 @@
 @php
 	if($list_lender):
 @endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender') }}'><i class='nav-icon la la-user'></i> Lenders</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender') }}'><i class='nav-icon la la-user'></i> Lenders</a></li>
 @php
 	endif;
 	if($list_lender_banking):
 @endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking') }}'><i class='nav-icon la la-file-o'></i> Lender Banking</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking_detail') }}'><i class='nav-icon la la-file-o'></i> Lender Banking Detail</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking') }}'><i class='nav-icon la la-file-o'></i> Lender Banking</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking_detail') }}'><i class='nav-icon la la-file-o'></i> Lender Banking Detail</a></li>
 @php
 	endif;
 @endphp
@@ -173,3 +179,4 @@
 @php
 	endif;
 @endphp
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('trustee') }}'><i class='nav-icon la la-question'></i> Trustees</a></li>

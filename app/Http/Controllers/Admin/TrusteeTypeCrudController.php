@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\InsightCategoryRequest;
+use App\Http\Requests\TrusteeTypeRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class InsightCategoryCrudController
+ * Class TrusteeTypeCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class InsightCategoryCrudController extends CrudController
+class TrusteeTypeCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -28,84 +28,43 @@ class InsightCategoryCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\InsightCategory::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/insight_category');
-        CRUD::setEntityNameStrings('Insight Category', 'Insight Categories');
+        CRUD::setModel(\App\Models\TrusteeType::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/trustee_type');
 
-        $list_insight_category = backpack_user()->hasPermissionTo('list_insight_category');
+        CRUD::setEntityNameStrings('Trustee Type', 'Trustee Types');
         
-        if($list_insight_category)
+        $list_lender_type = backpack_user()->hasPermissionTo('list_trustee_type');
+        
+        if($list_lender_type)
         {
             $this->crud->allowAccess('show');
             $this->crud->allowAccess('reorder');
             $this->crud->enableExportButtons();
             
-            
             $this->crud->set('reorder.label', 'name');
             // define how deep the admin is allowed to nest the items
             // for infinite levels, set it to 0
-            $this->crud->set('reorder.max_level', 3);
+            $this->crud->set('reorder.max_level', 2);
             $this->crud->orderBy('lft', 'ASC');
             
-            //$this->crud->enableReorder('name', 2);
+            //$this->crud->enableReorder('category_name', 2);
             
-            //$this->crud->denyAccess(['delete']);
+            $this->crud->denyAccess(['delete']);
             
-            $this->crud->addColumn([
-                                    'name' => 'category_code',
-                                    'label' => 'Code',
-                                    'type' => 'text',
-                                ]);
             $this->crud->addColumn([
                                     'name' => 'name',
                                     'label' => 'Name',
                                     'type' => 'text',
                                 ]);
-            $this->crud->addColumn([
-                                    'name' => 'status',
-                                    'label' => 'Status',
-                                    'type' => 'check',
-                                ]);
-
-            
                                 
-            $this->crud->addField([
-                                    'name' => 'category_code',
-                                    'label' => 'Code',
-                                    'type' => 'text',
-                                    'tab' => 'General'
+            $this->crud->addColumn([
+                                    'name' => 'parent_id',
+                                    'type'      => 'select',
+                                    'name'      => 'parent_id',
+                                    'entity'    => 'trusteeType', //function name
+                                    'attribute' => 'name', //name of fields in models table like districts
+                                    'model'     => "App\Models\TrusteeType", //name of Models
                                 ]);
-            $this->crud->addField([
-                                    'name' => 'name',
-                                    'label' => 'Name',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'description',
-                                    'label' => 'Description',
-                                    'type' => 'ckeditor',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'status',
-                                    'label' => 'Status',
-                                    'type' => 'checkbox',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                    'label'     => 'Lender',
-                    'type'      => 'relationship ',
-                    'name'      => 'lenders',
-                    'entity'    => 'lenders', //function name
-                    'attribute' => 'name', //name of fields in models table like districts
-                    'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
-                    
-                    'tab' => 'Lender'
-                    ]);
         }
         else
         {
@@ -138,9 +97,23 @@ class InsightCategoryCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(InsightCategoryRequest::class);
+        CRUD::setValidation(TrusteeTypeRequest::class);
 
         //CRUD::setFromDb(); // fields
+        $this->crud->addField([
+                                    'name' => 'name',
+                                    'label' => 'Name',
+                                    'type' => 'text',
+                                ]);
+
+        $this->crud->addField([
+                                    'name' => 'parent_id',
+                                    'type'      => 'select2',
+                                    'name'      => 'parent_id',
+                                    'entity'    => 'trusteeType', //function name
+                                    'attribute' => 'name', //name of fields in models table like districts
+                                    'model'     => "App\Models\TrusteeType", //name of Models
+                                ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

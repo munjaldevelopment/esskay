@@ -20,7 +20,7 @@ class InsightCategory extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
 
-    protected $fillable = ['category_code', 'name','status'];
+    protected $fillable = ['category_code', 'name', 'description', 'status'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];

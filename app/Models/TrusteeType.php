@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class LenderType extends Model
+class TrusteeType extends Model
 {
     use CrudTrait;
 
@@ -15,11 +15,11 @@ class LenderType extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'lender_type';
+    protected $table = 'trustee_type';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-	protected $fillable = ['parent_id', 'name'];
+    protected $fillable = ['parent_id', 'name'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
@@ -29,9 +29,9 @@ class LenderType extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function lenderType()
+    public function trusteeType()
     {
-        return $this->belongsTo('App\Models\LenderType', 'parent_id');
+        return $this->belongsTo('App\Models\TrusteeType', 'parent_id');
     }
 
     /*

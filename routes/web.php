@@ -44,6 +44,8 @@ Route::post('/homepage', 'HomeController@homepage');
 Route::post('/board', 'HomeController@boardPage');
 Route::post('/keymanager', 'HomeController@keymanagerPage');
 
+Route::post('/insight', 'HomeController@insight');
+
 Route::post('/document', 'HomeController@document');
 Route::post('/news', 'HomeController@news');
 Route::post('/contact_us', 'HomeController@contactUs');

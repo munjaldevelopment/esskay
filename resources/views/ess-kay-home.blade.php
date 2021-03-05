@@ -69,17 +69,17 @@
 				@endif
 				@if($lenderData->is_insight == 1)
 				<li class="nav-item">
-					<a class="nav-link insight-class " href="javascript:;">Insight</a>
+					<a class="nav-link insight-class @if($lenderData->is_message_md == 0) active @endif" href="javascript:;">Insight</a>
 				</li>
 				@endif
 				@if($lenderData->is_document == 1)
 				<li class="nav-item">
-					<a class="nav-link doc-class @if($lenderData->is_message_md == 0) active @endif" href="javascript:;">Documents</a>
+					<a class="nav-link doc-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0) active @endif" href="javascript:;">Documents</a>
 				</li>
 				@endif
 				@if($lenderData->is_current_deal  == 1)
 				<li class="nav-item">
-				<a class="nav-link deal-class @if($lenderData->is_message_md == 0 && $lenderData->is_document == 0) active @endif" href="javascript:;">Current Deal</a>
+				<a class="nav-link deal-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0 && $lenderData->is_document == 0) active @endif" href="javascript:;">Current Deal</a>
 				</li>
 				@endif
 
@@ -90,12 +90,12 @@
 				@endif
 				@if($lenderData->is_newsletter == 1)
 				<li class="nav-item">
-				<a class="nav-link news-class @if($lenderData->is_message_md == 0 && $lenderData->is_document == 0 && $lenderData->is_financial_summary == 0) active @endif" href="javascript:;">Newsletters</a>
+				<a class="nav-link news-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0 && $lenderData->is_document == 0 && $lenderData->is_financial_summary == 0) active @endif" href="javascript:;">Newsletters</a>
 				</li>
 				@endif
 				@if($lenderData->is_contact_us == 1)
 				<li class="nav-item">
-				<a class="nav-link contact-class @if($lenderData->is_message_md == 0 && $lenderData->is_document == 0 && $lenderData->is_financial_summary == 0 && $lenderData->is_newsletter == 0) active @endif" href="javascript:;">Contact Us</a>
+				<a class="nav-link contact-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0 && $lenderData->is_document == 0 && $lenderData->is_financial_summary == 0 && $lenderData->is_newsletter == 0) active @endif" href="javascript:;">Contact Us</a>
 				</li>
 				@endif
 			</ul>
