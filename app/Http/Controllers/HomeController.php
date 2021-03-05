@@ -490,57 +490,87 @@ class HomeController extends Controller
 	}
 	
 	public function downloadDoc($doc_id)
-    {	// Download file
-		$doc_id = base64_decode($doc_id);
-		$docData  = \DB::table('documents')->where('id', '=', $doc_id)->first();
+    {
+    	// Download file
+    	$customer_name = session()->get('esskay_verify');
 		
-		if($docData)
+		if(!$customer_name)
 		{
-			$file= public_path(). "/".$docData->document_filename;
+			return redirect(url('/').'/login');
+		}
+		else
+		{
+			// Download file
+			$doc_id = base64_decode($doc_id);
+			$docData  = \DB::table('documents')->where('id', '=', $doc_id)->first();
+			
+			if($docData)
+			{
+				$file= public_path(). "/".$docData->document_filename;
+				
+				/*$headers = array(
+						  'Content-Type: application/pdf',
+						);*/
+						
+				$document_filename = explode("/", $docData->document_filename);
+				$doc = array_pop($document_filename);
+
+				\DB::table('user_document')->insert(['user_id' => session()->get('esskay_user_id'), 'document_id' => $doc_id, 'download_date' => date('Y-m-d H:i:s'), 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+				
+				return response()->download($file, $doc);
+			}
+		}
+	}
+
+	public function previewDoc($doc_id)
+    {
+    	$customer_name = session()->get('esskay_verify');
+		
+		if(!$customer_name)
+		{
+			return redirect(url('/').'/login');
+		}
+		else
+		{
+			// Download file
+			$doc_id = base64_decode($doc_id);
+			$docData  = \DB::table('documents')->where('id', '=', $doc_id)->first();
+			
+			if($docData)
+			{
+				$file = asset('/'). $docData->document_filename;
+
+				header('location:'.$file);
+			}
+		}
+	}
+	
+	public function downloadFile($doc_id)
+    {	
+    	// Download file
+    	$customer_name = session()->get('esskay_verify');
+		
+		if(!$customer_name)
+		{
+			return redirect(url('/').'/login');
+		}
+		else
+		{
+			$docData  = \DB::table('articles')->where('id', '=', $doc_id)->first();
+			
+			$file= public_path(). "/".$docData->article_pdf;
 			
 			/*$headers = array(
 					  'Content-Type: application/pdf',
 					);*/
 					
-			$document_filename = explode("/", $docData->document_filename);
-			$doc = array_pop($document_filename);
+			$article_pdf = explode("/", $docData->article_pdf);
+			$doc = array_pop($article_pdf);
 
-			\DB::table('user_document')->insert(['user_id' => session()->get('esskay_user_id'), 'document_id' => $doc_id, 'download_date' => date('Y-m-d H:i:s'), 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+			\DB::table('user_pdf')->insert(['user_id' => session()->get('esskay_user_id'), 'article_id' => $doc_id, 'download_date' => date('Y-m-d H:i:s'), 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 			
 			return response()->download($file, $doc);
 		}
-	}
-
-	public function previewDoc($doc_id)
-    {	
-    	// Download file
-		$doc_id = base64_decode($doc_id);
-		$docData  = \DB::table('documents')->where('id', '=', $doc_id)->first();
-		
-		if($docData)
-		{
-			$file = asset('/'). $docData->document_filename;
-
-			header('location:'.$file);
-		}
-	}
-	
-	public function downloadFile($doc_id)
-    {	// Download file
-		$docData  = \DB::table('articles')->where('id', '=', $doc_id)->first();
-		
-		$file= public_path(). "/".$docData->article_pdf;
-		
-		/*$headers = array(
-				  'Content-Type: application/pdf',
-				);*/
-				
-		$article_pdf = explode("/", $docData->article_pdf);
-		$doc = array_pop($article_pdf);
-
-		\DB::table('user_pdf')->insert(['user_id' => session()->get('esskay_user_id'), 'article_id' => $doc_id, 'download_date' => date('Y-m-d H:i:s'), 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
-		
-		return response()->download($file, $doc);
 	}
 	
 	
