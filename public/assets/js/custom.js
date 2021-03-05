@@ -7,6 +7,7 @@ $(document).ready(function() {
 		$('.esskay-home li a').removeClass('active');
 		$('.esskay-home li button').removeClass('active');
 		$('.home-class').addClass('active');
+		$('.about-class').addClass('active');
 		
 		$.ajax({
 			url: base_url+'homepage',
@@ -26,6 +27,7 @@ $(document).ready(function() {
 		$('.esskay-home li a').removeClass('active');
 		$('.esskay-home li button').removeClass('active');
 		$('.board-class').addClass('active');
+		$('.about-class').addClass('active');
 		
 		$.ajax({
 			url: base_url+'board',
@@ -45,6 +47,7 @@ $(document).ready(function() {
 		$('.esskay-home li a').removeClass('active');
 		$('.esskay-home li button').removeClass('active');
 		$('.key-manager-class').addClass('active');
+		$('.about-class').addClass('active');
 		
 		$.ajax({
 			url: base_url+'keymanager',

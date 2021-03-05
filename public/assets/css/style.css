@@ -2074,7 +2074,7 @@ button.close {
     width: 100%;
     display: block;
     padding: 10px;
-    font-weight: 600;
+    font-weight: 100;
     text-align: center;
     font-size: 12px;
 }

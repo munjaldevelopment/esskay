@@ -57,7 +57,7 @@
 				<li class="nav-item">
 					<!-- Single button -->
 					<div class="dropdown">
-						<button type="button" class="active nav-link btn btn-primary dropdown-toggle" data-toggle="dropdown">About Us</button>
+						<button type="button" class="active nav-link btn btn-primary about-class dropdown-toggle" data-toggle="dropdown">About Us</button>
 					  	<div class="dropdown-menu">
 							<a class="dropdown-item home-class" href="javascript:;">Message from MD</a>
 							<a class="dropdown-item board-class" href="javascript:;">Board of  Directors</a>
@@ -66,6 +66,8 @@
 					</div>
 				</li>
 
+				@endif
+				@if($lenderData->is_insight == 1)
 				<li class="nav-item">
 					<a class="nav-link insight-class " href="javascript:;">Insight</a>
 				</li>
@@ -75,10 +77,16 @@
 					<a class="nav-link doc-class @if($lenderData->is_message_md == 0) active @endif" href="javascript:;">Documents</a>
 				</li>
 				@endif
-				@if($lenderData->is_financial_summary == 1)
+				@if($lenderData->is_current_deal  == 1)
 				<li class="nav-item">
-				<a class="nav-link graph-class @if($lenderData->is_message_md == 0 && $lenderData->is_document == 0) active @endif" href="javascript:;">Financial Summary</a>
+				<a class="nav-link deal-class @if($lenderData->is_message_md == 0 && $lenderData->is_document == 0) active @endif" href="javascript:;">Current Deal</a>
 				</li>
+				@endif
+
+				@if($lenderData->is_financial_summary == 1)
+				<!--<li class="nav-item">
+				<a class="nav-link graph-class @if($lenderData->is_message_md == 0 && $lenderData->is_document == 0) active @endif" href="javascript:;">Financial Summary</a>
+				</li>-->
 				@endif
 				@if($lenderData->is_newsletter == 1)
 				<li class="nav-item">
@@ -161,6 +169,11 @@
 	}
 </style>
 <script> 
+
+	$('.dropdown').hover(function(){ 
+  		$('.dropdown-toggle', this).trigger('click'); 
+	});
+
 $(document).ready(function(){
 	$('#carousel0').swiper({
 		mode: 'horizontal',
