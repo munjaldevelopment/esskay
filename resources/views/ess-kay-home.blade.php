@@ -57,11 +57,9 @@
 				<li class="nav-item">
 					<!-- Single button -->
 					<div class="dropdown">
-						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-							About Us
-					  	</button>
+						<button type="button" class="active nav-link btn btn-primary dropdown-toggle" data-toggle="dropdown">About Us</button>
 					  	<div class="dropdown-menu">
-							<a class="dropdown-item home-class active" href="javascript:;">Message from MD</a>
+							<a class="dropdown-item home-class" href="javascript:;">Message from MD</a>
 							<a class="dropdown-item board-class" href="javascript:;">Board of  Directors</a>
 							<a class="dropdown-item key-manager-class" href="javascript:;">Key Managerial Person</a>
 					  	</div>

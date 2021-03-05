@@ -363,6 +363,22 @@ class LenderCrudController extends CrudController
 								'options' => ['0' => 'No', '1' => 'Yes'],
 								'tab' => 'Roles'
                             ]);
+
+        $this->crud->addField([
+                                'name' => 'is_insight',
+                                'label' => 'Show Insight',
+                                'type' => 'select2_from_array',
+                                'options' => ['0' => 'No', '1' => 'Yes'],
+                                'tab' => 'Roles'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'is_current_deal',
+                                'label' => 'Show Current Deal',
+                                'type' => 'select2_from_array',
+                                'options' => ['0' => 'No', '1' => 'Yes'],
+                                'tab' => 'Roles'
+                            ]);
 		
 							
 		$this->crud->addField([
@@ -644,6 +660,22 @@ class LenderCrudController extends CrudController
                                 'type' => 'select2_from_array',
 								'options' => ['0' => 'No', '1' => 'Yes'],
 								'tab' => 'Roles'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'is_insight',
+                                'label' => 'Show Insight',
+                                'type' => 'select2_from_array',
+                                'options' => ['0' => 'No', '1' => 'Yes'],
+                                'tab' => 'Roles'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'is_current_deal',
+                                'label' => 'Show Current Deal',
+                                'type' => 'select2_from_array',
+                                'options' => ['0' => 'No', '1' => 'Yes'],
+                                'tab' => 'Roles'
                             ]);
 							
 		$this->crud->addField([

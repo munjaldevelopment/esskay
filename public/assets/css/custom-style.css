@@ -1644,12 +1644,88 @@
     color: #fff;
 }
 
+.mtb-inner-category .item.active.introjs-showElement a::before {
+    bottom: 0px;
+}
 
+.introjs-helperLayer {
+    box-shadow: none !important;
+}
 
+.introjs-tooltip .introjs-bullets, .introjs-tooltip .introjs-tooltip-header {
+    display: none;
+}
 
+.introjs-tooltip {
+    border: 1px solid #1976D2;
+    border-radius: 10px;
+}
 
+.introjs-prevbutton, .introjs-nextbutton {
+    float: none;
+    margin-right: 10px;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 6px 25px;
+    letter-spacing: 1px;
+}
 
+.introjs-nextbutton {
+	margin-right: 0 !important; 
+}
 
+.introjs-tooltipbuttons {
+    margin: 0 auto 12px;
+    display: table;
+    border: none;
+}
+
+.introjs-tooltiptext {
+    text-align: center;
+    color: #1976D2;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 23px 0 11px 0;
+}
+
+.introjs-arrow.top {
+    top: -30px;
+    left: 53px;
+    border-bottom-color: #1976D2;
+}
+
+.introjs-arrow.top:before {
+    position: absolute;
+    content: "";
+    border: 15px solid transparent;
+    border-bottom-color: #fff;
+    left: -15px;
+    top: -14px;
+}
+
+.introjs-arrow {
+    border: 15px solid transparent;
+}
+
+.introjs-button:focus {
+    box-shadow: none;
+	border: #1976D2;
+	outline: none;
+	background: #1976D2;
+	color: #fff;
+}
+
+.introjs-button {
+    background: #1976D2;
+    color: #fff;
+    border-radius: 6px;
+    border: none;
+    text-shadow: none;
+}
+
+.introjs-disabled {
+    cursor: no-drop !important;
+}
 
 
 

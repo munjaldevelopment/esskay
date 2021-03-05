@@ -5,6 +5,7 @@ $(document).ready(function() {
 	
 	$('.home-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
 		$('.home-class').addClass('active');
 		
 		$.ajax({
@@ -23,6 +24,7 @@ $(document).ready(function() {
 
 	$('.board-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
 		$('.board-class').addClass('active');
 		
 		$.ajax({
@@ -41,6 +43,7 @@ $(document).ready(function() {
 
 	$('.key-manager-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
 		$('.key-manager-class').addClass('active');
 		
 		$.ajax({
@@ -59,6 +62,7 @@ $(document).ready(function() {
 		
 	$('.doc-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
 		$('.doc-class').addClass('active');
 		
 		$.ajax({
@@ -77,6 +81,7 @@ $(document).ready(function() {
 
 	$('.news-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
 		$('.news-class').addClass('active');
 		
 		$.ajax({
@@ -95,6 +100,7 @@ $(document).ready(function() {
 
 	$('.contact-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
 		$('.contact-class').addClass('active');
 		
 		$.ajax({
@@ -113,6 +119,7 @@ $(document).ready(function() {
 	
 	$('.graph-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
 		$('.graph-class').addClass('active');
 		
 		$.ajax({
