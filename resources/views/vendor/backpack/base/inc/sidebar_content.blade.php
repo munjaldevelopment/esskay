@@ -19,6 +19,8 @@
 	$list_log = backpack_user()->hasPermissionTo('list_log');
 	$list_user_log = backpack_user()->hasPermissionTo('list_user_log');
 	
+	$list_trustee = backpack_user()->hasPermissionTo('list_trustee');
+
 	if($list_dashboard):
 @endphp
 
@@ -75,11 +77,6 @@
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('insight_category') }}'><i class='nav-icon la la-list'></i> Insight Category</a></li>
 		@php
 			endif;
-			if($list_insight):
-		@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('insight') }}'><i class='nav-icon la la-list'></i> Insight</a></li>
-		@php
-			endif;
 		@endphp
 	</ul>
 </li>
@@ -109,6 +106,23 @@
 @endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking') }}'><i class='nav-icon la la-file-o'></i> Lender Banking</a></li>
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking_detail') }}'><i class='nav-icon la la-file-o'></i> Lender Banking Detail</a></li>
+@php
+	endif;
+@endphp
+	</ul>
+</li>
+@php
+	endif;
+
+	if($list_trustee):
+@endphp
+<li class="nav-item nav-dropdown">
+	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Trustee</a>
+	<ul class="nav-dropdown-items">
+@php
+	if($list_trustee):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('trustee') }}'><i class='nav-icon la la-user'></i> Trustee</a></li>
 @php
 	endif;
 @endphp
@@ -179,4 +193,3 @@
 @php
 	endif;
 @endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('trustee') }}'><i class='nav-icon la la-question'></i> Trustees</a></li>

@@ -61,18 +61,6 @@ class LenderCrudController extends CrudController
                                     'label' => 'Name',
                                     'type' => 'text',
                                 ]);
-    							
-    		$this->crud->addColumn([
-                                    'name' => 'code',
-                                    'label' => 'Code',
-                                    'type' => 'text',
-                                ]);
-    							
-    		$this->crud->addColumn([
-                                    'name' => 'lot_name',
-                                    'label' => 'Lot Name',
-                                    'type' => 'text',
-                                ]);
     					
     		// fields
     		//$this->crud->enableAjaxTable();
