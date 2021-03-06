@@ -26,14 +26,10 @@ class LenderRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
 			'name' => 'required',
 			'email' => 'required|unique:users,email,'.$this->id,
 			'phone' => 'required|unique:users,phone,'.$this->id,
-			'password' => 'required',
-			//'code' => 'required|unique:lenders,code,'.$this->id,
-			//'slug' => 'required|unique:lenders,slug,'.$this->id,
-			//'lot_name' => 'required'
+			'password' => 'required'
         ];
     }
 

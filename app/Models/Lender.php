@@ -30,7 +30,7 @@ class Lender extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-	public function lenderType()
+	/*public function lenderType()
 	{
 		return $this->belongsTo('App\Models\LenderType', 'lender_type_id');
 	}
@@ -43,7 +43,7 @@ class Lender extends Model
 	public function facilityType()
 	{
 		return $this->belongsTo('App\Models\FacilityType', 'facility_type_id');
-	}
+	}*/
 	
 	public function users()
 	{
