@@ -28,8 +28,8 @@ class TrusteeRequest extends FormRequest
         return [
             // 'name' => 'required|min:5|max:255'
             'name' => 'required',
-            'email' => 'required|unique:users,email,'.$this->id,
-            'phone' => 'required|unique:users,phone,'.$this->id,
+            'email' => 'required|unique:users,email',
+            'phone' => 'required|unique:users,phone',
             'password' => 'required',
         ];
     }
