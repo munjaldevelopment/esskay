@@ -32,9 +32,9 @@ class NetWorthCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/net_worth');
         CRUD::setEntityNameStrings('Net Worth', 'Net Worths');
 
-        $list_liquidity = backpack_user()->hasPermissionTo('list_liquidity');
+        $list_net_worth = backpack_user()->hasPermissionTo('list_net_worth');
         
-        if($list_liquidity)
+        if($list_net_worth)
         {
             $adminRolesRow  = \DB::table('model_has_roles')->where('role_id', '=', '1')->get();
             
