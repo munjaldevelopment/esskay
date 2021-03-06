@@ -63,7 +63,7 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#">resources</a>
 					</li>--}} 
-					<li class="operation-li"><h5 class="custome-syle">{{ $trusteeData->name }}<span class="inner-inner">({{ $trusteeData->code }})</span></h5>
+					<li class="operation-li"><h5 class="custome-syle">{{ $trusteeData->name }}<span class="inner-inner">({{ substr($trusteeData->name, 0, 1) }})</span></h5>
 						<div class="onbrd-btn">
 							<button id="lender_banking" class="lender_blankingbtn-1">{{ $trusteeData->is_onboard }} </button>
 						</div> 

@@ -63,7 +63,7 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#">resources</a>
 					</li>--}} 
-					<li class="operation-li"><h5 class="custome-syle">{{ $lenderData->name }}<span class="inner-inner">({{ $lenderData->code }})</span></h5>
+					<li class="operation-li"><h5 class="custome-syle">{{ $lenderData->name }}<span class="inner-inner">({{ substr($lenderData->name, 0, 1) }})</span></h5>
 						<div class="onbrd-btn">
 							<button id="lender_banking" class="lender_blankingbtn-1">{{ $lenderData->is_onboard }} </button>
 						</div> 
