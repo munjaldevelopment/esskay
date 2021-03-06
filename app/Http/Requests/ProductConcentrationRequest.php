@@ -26,6 +26,7 @@ class ProductConcentrationRequest extends FormRequest
     public function rules()
     {
         return [
+            'geographical_diversification' => 'required',
             // 'name' => 'required|min:5|max:255'
         ];
     }

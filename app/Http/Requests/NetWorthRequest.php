@@ -26,6 +26,7 @@ class NetWorthRequest extends FormRequest
     public function rules()
     {
         return [
+            'particulars' => 'required'
             // 'name' => 'required|min:5|max:255'
         ];
     }

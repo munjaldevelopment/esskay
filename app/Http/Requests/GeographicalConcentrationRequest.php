@@ -26,6 +26,8 @@ class GeographicalConcentrationRequest extends FormRequest
     public function rules()
     {
         return [
+            'geographical_diversification' => 'required',
+            'docp' => 'required',
             // 'name' => 'required|min:5|max:255'
         ];
     }
