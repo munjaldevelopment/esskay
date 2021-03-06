@@ -1536,9 +1536,13 @@ class HomeController extends Controller
 		$insightCatData = \DB::table('insight_categories')->where('id', '=', $request->category_id)->first();
 
 		$insightData = \DB::table('operational_highlights')->where('operational_highlight_status', 1)->get();
+
+		$insightFirst = \DB::table('operational_highlights')->where('operational_highlight_status', 1)->first();
+
+		//echo '<pre>'; print_r($insightData); exit;
 		
 		$current_year = date('Y');
-		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData]);
+		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst]);
 	}
 
 	
