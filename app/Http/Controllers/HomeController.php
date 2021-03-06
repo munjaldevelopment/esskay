@@ -116,81 +116,90 @@ class HomeController extends Controller
 		Setting::assignSetting();
 		
 		$customer_name = session()->get('esskay_verify');
+		$trustee_name = session()->get('esskay_trustee_verify');
 		
 		$pageInfo = Page::getPageInfo(1);
 		$pageData = json_decode($pageInfo['extras']);
-		//dd($pageData);
 		
-		if(!$customer_name)
-		{
-			return redirect(url('/').'/login');
-		}
-		else
-		{
-			$parentData = \DB::table('document_category')->whereNull('parent_id')->orderBy('lft', 'ASC')->get();
 		
-			$parentCategoryData = $childCategoryData = array();
-			
-			if($parentData)
+		if($customer_name || $trustee_name)
+		{
+			if($customer_name)
 			{
-				foreach($parentData as $parentRow)
+				$parentData = \DB::table('document_category')->whereNull('parent_id')->orderBy('lft', 'ASC')->get();
+			
+				$parentCategoryData = $childCategoryData = array();
+				
+				if($parentData)
 				{
-					$parentCategoryData[$parentRow->id] = $parentRow->name;
-					
-					$childData = \DB::table('document_category')->where('parent_id', $parentRow->id)->orderBy('lft', 'ASC')->get();
-					
-					if($childData)
+					foreach($parentData as $parentRow)
 					{
-						foreach($childData as $childRow)
+						$parentCategoryData[$parentRow->id] = $parentRow->name;
+						
+						$childData = \DB::table('document_category')->where('parent_id', $parentRow->id)->orderBy('lft', 'ASC')->get();
+						
+						if($childData)
 						{
-							$childCategoryData[$parentRow->id][$childRow->id] = $childRow->name;
+							foreach($childData as $childRow)
+							{
+								$childCategoryData[$parentRow->id][$childRow->id] = $childRow->name;
+							}
 						}
 					}
 				}
-			}
-			
-			$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
-			
-			$lenderCode = substr($lenderData->code, 0, 1);
-			//dd($lenderData);
+				
+				$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
+				
+				//dd($lenderData);
 
-			// Lender Banking Assessment
-			$bankingData = \DB::table('lender_banking')->leftJoin('banking_arrangment', 'lender_banking.banking_arrangment_id', '=', 'banking_arrangment.id')->where('lender_id', $lenderData->id)->selectRaw('lender_banking.*,banking_arrangment.name')->get();
+				// Lender Banking Assessment
+				$bankingData = \DB::table('lender_banking')->leftJoin('banking_arrangment', 'lender_banking.banking_arrangment_id', '=', 'banking_arrangment.id')->where('lender_id', $lenderData->id)->selectRaw('lender_banking.*,banking_arrangment.name')->get();
 
-			$lenderBankingData = $lenderBankingDetailData = array();
-			foreach ($bankingData as $bdata) {
-				# code...
-				if($bdata->lender_banking_status == 1 && ($bdata->sanction_amount > 0.00 || $bdata->outstanding_amount > 0.00)) {
-					$lenderBankingData[] = array('lender_id' => $bdata->lender_id,'banking_arrangment_id' => $bdata->banking_arrangment_id,'banking_arrangment_name' => $bdata->name,'sanction_amount' => $bdata->sanction_amount,'outstanding_amount' => $bdata->outstanding_amount);
-
-					// Inner Data
-					$bankingInnerData = \DB::table('lender_banking_details')->leftJoin('banking_arrangment', 'lender_banking_details.banking_arrangment_id', '=', 'banking_arrangment.id')->where('lender_id', $lenderData->id)->where('lender_banking_id', $bdata->id)->get();
-
-					foreach ($bankingInnerData as $bdataInner) {
-						if($bdataInner->lender_banking_status == 1 && ($bdataInner->sanction_amount > 0.00 || $bdataInner->outstanding_amount > 0.00)) {
-								$lenderBankingDetailData[$bdata->banking_arrangment_id][] = array('lender_banking_date' => date('d M Y', strtotime($bdataInner->lender_banking_date)), 'sanction_amount' => $bdataInner->sanction_amount, 'outstanding_amount' => $bdataInner->outstanding_amount);
-						}
-					}
-				}else{
-					$bankingData_r = \DB::table('lender_banking_revisions')->leftJoin('banking_arrangment', 'lender_banking_revisions.banking_arrangment_id', '=', 'banking_arrangment.id')->where('lender_id', $lenderData->id)->where('banking_arrangment_id', $bdata->banking_arrangment_id)->where('lender_banking_revisions.lender_banking_status', '1')->orderby('lender_banking_revisions.id','DESC')->selectRaw('lender_banking_revisions.*,banking_arrangment.name')->first();
-					if($bankingData_r){
-						$lenderBankingData[] = array('lender_id' => $bankingData_r->lender_id,'banking_arrangment_id' => $bankingData_r->banking_arrangment_id,'banking_arrangment_name' => $bankingData_r->name,'sanction_amount' => $bankingData_r->sanction_amount,'outstanding_amount' => $bankingData_r->outstanding_amount);
+				$lenderBankingData = $lenderBankingDetailData = array();
+				foreach ($bankingData as $bdata) {
+					# code...
+					if($bdata->lender_banking_status == 1 && ($bdata->sanction_amount > 0.00 || $bdata->outstanding_amount > 0.00)) {
+						$lenderBankingData[] = array('lender_id' => $bdata->lender_id,'banking_arrangment_id' => $bdata->banking_arrangment_id,'banking_arrangment_name' => $bdata->name,'sanction_amount' => $bdata->sanction_amount,'outstanding_amount' => $bdata->outstanding_amount);
 
 						// Inner Data
-						$bankingInnerData = \DB::table('lender_banking_details')->leftJoin('banking_arrangment', 'lender_banking_details.banking_arrangment_id', '=', 'banking_arrangment.id')->where('lender_id', $lenderData->id)->where('lender_banking_id', $bankingData_r->lender_banking_id)->get();
+						$bankingInnerData = \DB::table('lender_banking_details')->leftJoin('banking_arrangment', 'lender_banking_details.banking_arrangment_id', '=', 'banking_arrangment.id')->where('lender_id', $lenderData->id)->where('lender_banking_id', $bdata->id)->get();
 
 						foreach ($bankingInnerData as $bdataInner) {
 							if($bdataInner->lender_banking_status == 1 && ($bdataInner->sanction_amount > 0.00 || $bdataInner->outstanding_amount > 0.00)) {
 									$lenderBankingDetailData[$bdata->banking_arrangment_id][] = array('lender_banking_date' => date('d M Y', strtotime($bdataInner->lender_banking_date)), 'sanction_amount' => $bdataInner->sanction_amount, 'outstanding_amount' => $bdataInner->outstanding_amount);
 							}
 						}
+					}else{
+						$bankingData_r = \DB::table('lender_banking_revisions')->leftJoin('banking_arrangment', 'lender_banking_revisions.banking_arrangment_id', '=', 'banking_arrangment.id')->where('lender_id', $lenderData->id)->where('banking_arrangment_id', $bdata->banking_arrangment_id)->where('lender_banking_revisions.lender_banking_status', '1')->orderby('lender_banking_revisions.id','DESC')->selectRaw('lender_banking_revisions.*,banking_arrangment.name')->first();
+						if($bankingData_r){
+							$lenderBankingData[] = array('lender_id' => $bankingData_r->lender_id,'banking_arrangment_id' => $bankingData_r->banking_arrangment_id,'banking_arrangment_name' => $bankingData_r->name,'sanction_amount' => $bankingData_r->sanction_amount,'outstanding_amount' => $bankingData_r->outstanding_amount);
+
+							// Inner Data
+							$bankingInnerData = \DB::table('lender_banking_details')->leftJoin('banking_arrangment', 'lender_banking_details.banking_arrangment_id', '=', 'banking_arrangment.id')->where('lender_id', $lenderData->id)->where('lender_banking_id', $bankingData_r->lender_banking_id)->get();
+
+							foreach ($bankingInnerData as $bdataInner) {
+								if($bdataInner->lender_banking_status == 1 && ($bdataInner->sanction_amount > 0.00 || $bdataInner->outstanding_amount > 0.00)) {
+										$lenderBankingDetailData[$bdata->banking_arrangment_id][] = array('lender_banking_date' => date('d M Y', strtotime($bdataInner->lender_banking_date)), 'sanction_amount' => $bdataInner->sanction_amount, 'outstanding_amount' => $bdataInner->outstanding_amount);
+								}
+							}
+						}
 					}
 				}
+				
+				return view('ess-kay-home', ['customer_name' => $customer_name, 'parentCategoryData' => $parentCategoryData, 'childCategoryData' => $childCategoryData, 'lenderData' => $lenderData, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords, 'lenderBankingData' => $lenderBankingData, 'lenderBankingDetailData' => $lenderBankingDetailData, 'lenderCount' => count($lenderBankingData)]);
 			}
-			
-			//echo '<pre>'; print_r($lenderBankingData); 
-			//dd($lenderBankingDetailData);
-			return view('ess-kay-home', ['customer_name' => $customer_name, 'parentCategoryData' => $parentCategoryData, 'childCategoryData' => $childCategoryData, 'lenderData' => $lenderData, 'lenderCode' => $lenderCode, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords, 'lenderBankingData' => $lenderBankingData, 'lenderBankingDetailData' => $lenderBankingDetailData, 'lenderCount' => count($lenderBankingData)]);
+			else if($trustee_name)
+			{
+				$trusteeData = \DB::table('trustee')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
+
+				dd($trusteeData);
+
+				return view('ess-kay-trusee-home', ['customer_name' => $trustee_name, 'trusteeData' => $trusteeData, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords)]);
+			}
+		}
+		else
+		{
+			return redirect(url('/').'/login');
 		}
 	}
 	
@@ -1325,8 +1334,6 @@ class HomeController extends Controller
 									// Find User ID
 
 									$modelRole = \DB::table('model_has_roles')->where('model_id', $user_id)->first();
-
-									echo $modelRole->role_id; exit;
 
 									$is_model = 0;
 									if($modelRole)
