@@ -194,7 +194,7 @@ class HomeController extends Controller
 
 				dd($trusteeData);
 
-				return view('ess-kay-trusee-home', ['customer_name' => $trustee_name, 'trusteeData' => $trusteeData, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords)]);
+				return view('ess-kay-trusee-home', ['customer_name' => $trustee_name, 'trusteeData' => $trusteeData, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
 			}
 		}
 		else
