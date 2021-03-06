@@ -305,12 +305,34 @@ class HomeController extends Controller
 							return Redirect::back ();
 						}
 					}
-						
-					session ( [
-						'esskay_name' => $checkRecord->email,
-						'esskay_user_id' => $user_id
-					] );
-					
+
+					$modelRole = \DB::table('model_has_roles')->where('model_id', $user_id)->first();
+
+					$is_model = 0;
+					if($modelRole)
+					{
+						if($modelRole->role_id == '4')
+						{
+							$is_model = 1;
+							session ( [
+								'esskay_name' => $checkRecord->email,
+								'esskay_user_id' => $user_id,
+								'esskay_verify' => '1',
+								'role_id' => $modelRole->role_id
+							] );
+						}
+						else if($modelRole->role_id == '11')
+						{
+							$is_model = 1;
+							session ( [
+								'esskay_trustee_name' => $checkRecord->email,
+								'esskay_trustee_user_id' => $user_id,
+								'esskay_trustee_verify' => '1',
+								'role_id' => $modelRole->role_id
+							] );
+						}
+					}
+
 					$agent = new Agent();
 					$browser = $agent->browser();
 					$version = $agent->version($browser);
@@ -334,8 +356,14 @@ class HomeController extends Controller
 					}
 					
 					\DB::table('user_login')->insert(['user_id' => $user_id, 'user_ip' => $request->ip(), 'user_browser' => $browser." ".$version, 'device_type' => $device_type, 'login_type' => 'phone', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
-					
-					return redirect(url('/user_otp'));					
+
+					if($is_model == 1)
+					{
+						return redirect(url('/user_otp'));
+					} else {
+						Session::flash ( 'message', "Something went wrong or you do not have permission to access this page." );
+						return Redirect::back ();
+					}
 				} else {
 					Session::flash ( 'message', "Invalid Credentials, Please try again." );
 					return Redirect::back ();
@@ -352,6 +380,11 @@ class HomeController extends Controller
 		session()->forget('esskay_name');
 		session()->forget('esskay_user_id');
 		session()->forget('esskay_verify');
+
+		session()->forget('esskay_trustee_name');
+		session()->forget('esskay_trustee_user_id');
+		session()->forget('esskay_trustee_verify');
+		session()->forget('role_id');
 		
 		return redirect(url('/').'/');
 	}
@@ -1293,21 +1326,51 @@ class HomeController extends Controller
 
 									$modelRole = \DB::table('model_has_roles')->where('model_id', $user_id)->first();
 
-									dd($modelRole);
-									
-									session ( [
-										'esskay_name' => $checkRecord->email,
-										'esskay_user_id' => $user_id,
-										'esskay_verify' => '1'
-									] );
-									
-									$user_login_attempt = 0;
-									$updateData = array('login_attempt' => $user_login_attempt, 'updated_at' => date('Y-m-d H:i:s'));
-										\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
-									
-									\DB::table('user_login')->insert(['user_id' => $user_id, 'user_ip' => $request->ip(), 'user_browser' => $browser." ".$version, 'device_type' => $device_type, 'login_type' => 'email', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
-									
-									return redirect(url('/'));
+									$is_model = 0;
+									if($modelRole)
+									{
+										if($modelRole->role_id == '4')
+										{
+											$is_model = 1;
+											session ( [
+												'esskay_name' => $checkRecord->email,
+												'esskay_user_id' => $user_id,
+												'esskay_verify' => '1',
+												'role_id' => $modelRole->role_id
+											] );
+										}
+										else if($modelRole->role_id == '11')
+										{
+											$is_model = 1;
+											session ( [
+												'esskay_trustee_name' => $checkRecord->email,
+												'esskay_trustee_user_id' => $user_id,
+												'esskay_trustee_verify' => '1',
+												'role_id' => $modelRole->role_id
+											] );
+										}
+
+										if($is_model == 1)
+										{
+											$user_login_attempt = 0;
+											$updateData = array('login_attempt' => $user_login_attempt, 'updated_at' => date('Y-m-d H:i:s'));
+												\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
+											
+											\DB::table('user_login')->insert(['user_id' => $user_id, 'user_ip' => $request->ip(), 'user_browser' => $browser." ".$version, 'device_type' => $device_type, 'login_type' => 'email', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+
+											return redirect(url('/'));
+										}
+										else
+										{
+											Session::flash ( 'message', "Something went wrong or you do not have permission to access this page." );
+											return Redirect::back ();
+										}
+									}
+									else
+									{
+										Session::flash ( 'message', "Something went wrong or you do not have permission to access this page." );
+										return Redirect::back ();
+									}
 								} else {
 
 									$user_login_attempt = $checkRecord->login_attempt+1;
