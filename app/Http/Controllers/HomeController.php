@@ -1535,7 +1535,7 @@ class HomeController extends Controller
 		
 		$insightCatData = \DB::table('insight_categories')->where('id', '=', $request->category_id)->first();
 
-		$insightData = \DB::table('operational_highlights')->where('operational_highlight_status', 1)->first();
+		$insightData = \DB::table('operational_highlights')->where('operational_highlight_status', 1)->get();
 		
 		$current_year = date('Y');
 		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData]);

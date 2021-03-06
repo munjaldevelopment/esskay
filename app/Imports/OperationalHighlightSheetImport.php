@@ -20,11 +20,16 @@ class OperationalHighlightSheetImport implements ToCollection, WithValidation, W
 	public function collection(Collection $rows)
 	{
 		//dd($rows);
-		/*lender" => "A K Capital Services Limited"
-        "banking_arrangment" => "TL - Secured"
-        "sanction" => 0.0
-        "outstanding" => 0.0
-        "status*/
+		/*"value1_amount" => 381
+        "value1_heading" => "Total Income"
+        "value1_heading_percentage" => 52.75
+        "value1_year" => 2019
+        "value2_amount" => 582
+        "value2_heading" => "Total Income"
+        "value2_heading_percentage" => 52.75
+        "value2_year" => 2020
+        "value3_amount" => 582
+        "status"*/
 		
 		\DB::table('operational_highlights')->truncate();
 		
@@ -36,16 +41,24 @@ class OperationalHighlightSheetImport implements ToCollection, WithValidation, W
 			$operational_highlights_id = $row['id'];
 			$operation_row1_value = $row['value1_amount'];
 			$operation_row1_income = $row['value1_heading'];
+			$operation_row1_income_percentage = $row['value1_heading_percentage'];
+			$operation_row1_year = $row['value1_year'];
 			$operation_row2_value = $row['value2_amount'];
 			$operation_row2_income = $row['value2_heading'];
+			$operation_row2_income_percentage = $row['value2_heading_percentage'];
+			$operation_row2_year = $row['value2_year'];
 			$operation_row3_value = $row['value3_amount'];
 			
 			$lenderBanking = new OperationalHighlight;
 			$lenderBanking->id = $operational_highlights_id;
 			$lenderBanking->operation_row1_value = $operation_row1_value;
 			$lenderBanking->operation_row1_income = $operation_row1_income;
+			$lenderBanking->operation_row1_income_percentage = $operation_row1_income_percentage;
+			$lenderBanking->operation_row1_year = $operation_row1_year;
 			$lenderBanking->operation_row2_value = $operation_row2_value;
 			$lenderBanking->operation_row2_income = $operation_row2_income;
+			$lenderBanking->operation_row2_income_percentage = $operation_row2_income_percentage;
+			$lenderBanking->operation_row2_year = $operation_row2_year;
 			$lenderBanking->operation_row3_value = $operation_row3_value;
 			$lenderBanking->operational_highlight_status = ($row['status'] == "Yes" ? "1" : "0");
 			$lenderBanking->save();

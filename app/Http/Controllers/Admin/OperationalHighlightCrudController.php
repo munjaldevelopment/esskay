@@ -73,12 +73,6 @@ class OperationalHighlightCrudController extends CrudController
                     'type'      => 'text',
                     'name'      => 'operation_row2_income',
                     ]);
-
-            $this->crud->addColumn([
-                    'label'     => 'Value3 Amount',
-                    'type'      => 'text',
-                    'name'      => 'operation_row3_value',
-                    ]);
 					
 			$this->crud->addField([
 					'label'     => 'Value1 Amount',
@@ -93,6 +87,18 @@ class OperationalHighlightCrudController extends CrudController
                     ]);
 
             $this->crud->addField([
+                    'label'     => 'Value1 Heading %',
+                    'type'      => 'text',
+                    'name'      => 'operation_row1_income_percentage',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Value1 Year',
+                    'type'      => 'text',
+                    'name'      => 'operation_row1_year',
+                    ]);
+
+            $this->crud->addField([
                     'label'     => 'Value2 Amount',
                     'type'      => 'text',
                     'name'      => 'operation_row2_value',
@@ -104,7 +110,19 @@ class OperationalHighlightCrudController extends CrudController
                     'name'      => 'operation_row2_income',
                     ]);
 
-            $this->crud->addColumn([
+            $this->crud->addField([
+                    'label'     => 'Value2 Heading %',
+                    'type'      => 'text',
+                    'name'      => 'operation_row2_income_percentage',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Value2 Year',
+                    'type'      => 'text',
+                    'name'      => 'operation_row2_year',
+                    ]);
+
+            $this->crud->addField([
                     'label'     => 'Value3 Amount',
                     'type'      => 'text',
                     'name'      => 'operation_row3_value',
