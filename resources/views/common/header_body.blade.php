@@ -63,14 +63,14 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#">resources</a>
 					</li>--}} 
-					<li class="operation-li"><h5 class="custome-syle">{{ $lenderData->name }}<span class="inner-inner">({{ substr($lenderData->name, 1) }})</span></h5>
+					<li class="operation-li"><h5 class="custome-syle">{{ $lenderData->name }}<span class="inner-inner">({{ substr($lenderData->name, 0, 1) }})</span></h5>
 						<div class="onbrd-btn">
 							<button id="lender_banking" class="lender_blankingbtn-1">{{ $lenderData->is_onboard }} </button>
 						</div> 
 					</li>
 					<li class="nav-item dropdown pr-0">
 						<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-							<span class="mr-1 rounded-circle heading-jhone">{{ $lenderCode }}</span>
+							<span class="mr-1 rounded-circle heading-jhone">({{ substr($lenderData->name, 0, 1) }})</span>
 						</a>
 						
 						<div class="dropdown-menu dropdown-menu-right mt-2">
