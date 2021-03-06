@@ -10,6 +10,9 @@
 	$list_insight_category = backpack_user()->hasPermissionTo('list_insight_category');
 	$list_insight = backpack_user()->hasPermissionTo('list_insight');
 
+	$list_operational_highlight = backpack_user()->hasPermissionTo('list_operational_highlight');
+
+
 	$list_email_sms = backpack_user()->hasPermissionTo('list_email_sms');
 	$list_lender = backpack_user()->hasPermissionTo('list_lender');
 	$maker_banking_arrangment = backpack_user()->hasPermissionTo('maker_banking_arrangment');
@@ -31,7 +34,7 @@
 {{-- <li class='nav-item'><a class='nav-link' href='{{ backpack_url('backup') }}'><i class='nav-icon la la-hdd-o'></i> Backups</a></li> --}}
 
 @php
-	if($list_lender_type || $list_trustee_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category || $list_insight):
+	if($list_lender_type || $list_trustee_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category || $list_operational_highlight):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Master</a>
@@ -75,6 +78,11 @@
 			if($list_insight_category):
 		@endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('insight_category') }}'><i class='nav-icon la la-list'></i> Insight Category</a></li>
+		@php
+			endif;
+			if($list_operational_highlight):
+		@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('operational_highlight') }}'><i class='nav-icon la la-list'></i> Operational Highlight</a></li>
 		@php
 			endif;
 		@endphp

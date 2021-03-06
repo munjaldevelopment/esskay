@@ -44,8 +44,8 @@ Route::post('/homepage', 'HomeController@homepage');
 Route::post('/board', 'HomeController@boardPage');
 Route::post('/keymanager', 'HomeController@keymanagerPage');
 
-Route::post('/insight', 'HomeController@insight');
 
+Route::post('/insight', 'HomeController@insight');
 Route::post('/document', 'HomeController@document');
 Route::post('/news', 'HomeController@news');
 Route::post('/contact_us', 'HomeController@contactUs');
@@ -60,6 +60,10 @@ Route::post('/saveContact', 'HomeController@saveContact');
 
 Route::any('/company_graph', 'HomeController@companyGraph');
 
+// Insight Section
+Route::post('/showInsight', 'HomeController@showInsight');
+
+// Doc section
 Route::post('/showDoc', 'HomeController@showDoc');
 Route::get('/previewDoc/{id}', 'HomeController@previewDoc');
 Route::get('/downloadDoc/{id}', 'HomeController@downloadDoc');

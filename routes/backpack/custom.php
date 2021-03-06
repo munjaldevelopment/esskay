@@ -57,9 +57,13 @@ Route::group([
     Route::get('exportLenderBankingDetail', 'ImportExportController@exportLenderBankingDetail');
     Route::get('importLenderBankingDetail', 'ImportExportController@importLenderBankingDetail');
     Route::post('insertLenderBankingDetail', 'ImportExportController@insertLenderBankingDetail');
+
+    Route::get('exportOperationalHighlight', 'ImportExportController@exportOperationalHighlight');
+    Route::get('importOperationalHighlight', 'ImportExportController@importOperationalHighlight');
+    Route::post('insertOperationalHighlight', 'ImportExportController@insertOperationalHighlight');
     
     Route::crud('insight_category', 'InsightCategoryCrudController');
-    Route::crud('insight', 'InsightCrudController');
     Route::crud('trustee', 'TrusteeCrudController');
     Route::crud('trustee_type', 'TrusteeTypeCrudController');
+    Route::crud('operational_highlight', 'OperationalHighlightCrudController');
 }); // this should be the absolute last line of this file

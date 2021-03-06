@@ -1,38 +1,32 @@
 <div class="main-tab-details">
-		<!-- Tab panes -->
-		<div class="tab-content">
-			 <div class="mtd-inner-box">
-				<div class="mtd-inner">
-					<div class="side-body side-body-full">
-						<div class="mtb-inner-category">
-							<div class="owl-carousel mtb_category_scroller">
-								<div class="item">
-									<a href="">Trend Analysis</a>
-								</div>
-								<div class="item">
-								  <a href="">Operational Highlights</a>
-								</div>
-								<div class="item active" data-intro="Last updated on 10 Feb 2021 , Time : 11:00 am." > 
-								  <a href="">Geographical Concentration</a>
-								</div>
-								<div class="item">
-								  <a href="">Product Concentration</a>
-								</div>
-								<div class="item">
-								  <a href="">Branches</a>
-								</div>
-								<div class="item">
-								  <a href="">Asset Quality</a>
-								</div>
-							  </div>
+	<!-- Tab panes -->
+	<div class="tab-content">
+		 <div class="mtd-inner-box">
+			<div class="mtd-inner">
+				@if($parentCategoryData)
+				<div class="side-body side-body-full">
+					<div class="mtb-inner-category">
+						<div class="owl-carousel mtb_category_scroller">
+							@php
+								$count = 1;
+							@endphp
+							@foreach($parentCategoryData as $cat_id => $name)
+							<div class="item @if($count == 1) active @endif">
+								<a class="insight-category-list" data-insight="{{ $cat_id }}" href="javascript:;">{{ $name }}</a>
+							</div>
+								@php
+									$count++;
+								@endphp
+							@endforeach
 						</div>
 					</div>
+				</div>
+				@endif
 
-					<div class="side-body">
-						<div class="insight-container">
-							<div class="alert alert-warning">
-								Please click on left section to get data
-							</div>
+				<div class="side-body side-body-full">
+					<div class="insight-container">
+						<div class="alert alert-warning">
+							Please click on left section to get data
 						</div>
 					</div>
 				</div>
@@ -95,14 +89,44 @@
 		</svg>
 </div>
 
-<script>
+<script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
+<script src="{{ asset('public/assets/') }}/js/owl.carousel.js"></script>	
 
+<script>
 $(document).ready(function() {
 	
 	var base_url = $('base').attr('href');
 	
 	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 	
-	
+	$('.mtb_category_scroller').owlCarousel({
+		margin: 10,
+		loop: false,
+		nav:true,
+		navText: ["<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'>","<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'>"],  
+		autoWidth: true,
+		items: 4
+	});
+
+	$('.insight-category-list').bind('click', function() {
+		var insight_category = $(this).attr('data-insight');
+		
+		$.ajax({
+			url: base_url+'showInsight',
+			type: 'post',
+			data: {_token: CSRF_TOKEN, category_id: insight_category},
+			beforeSend: function() {
+				var content = $('.preloader_doc').html();
+				$('.insight-container').html(content);
+			},
+			success: function(output) {
+				$('.insight-container').html(output);
+			}
+		});
+		
+		$('.mtb_category_scroller .item').removeClass('active');
+				
+		$(this).find('.item').addClass("active");
+	});
 });
 </script>

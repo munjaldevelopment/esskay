@@ -1511,7 +1511,7 @@ class HomeController extends Controller
     	//dd($lenderData);
     	$lender_id = $lenderData->id;
 
-		$parentData = \DB::table('insight_categories')->leftJoin('insight_category_lender', 'insight_categories.id', '=', 'insight_category_lender.insight_category_id')->where('insight_category_lender.lender_id',$lender_id)->whereNull('document_category.parent_id')->orderBy('document_category.lft', 'ASC')->get();
+		$parentData = \DB::table('insight_categories')->leftJoin('insight_category_lender', 'insight_categories.id', '=', 'insight_category_lender.insight_category_id')->where('insight_category_lender.lender_id',$lender_id)->whereNull('insight_categories.parent_id')->orderBy('insight_categories.lft', 'ASC')->get();
 		//dd($parentData); 
 		$parentCategoryData = array();
 		
@@ -1519,11 +1519,25 @@ class HomeController extends Controller
 		{
 			foreach($parentData as $parentRow)
 			{
-				$parentCategoryData[$parentRow->id] = array('name' => $parentRow->name);
+				$parentCategoryData[$parentRow->id] = $parentRow->name;
 			}
 		}
 		
 		return view('ess-kay-insight', ['parentCategoryData' => $parentCategoryData, 'lenderData' => $lenderData]);
+	}
+
+	public function showInsight(Request $request)
+    {
+		//dd($request->all());
+		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
+    	//dd($lenderData);
+    	$lender_id = $lenderData->id;
+		
+		$insightCatData = \DB::table('insight_categories')->where('id', '=', $request->category_id)->first();
+		
+		
+		$current_year = date('Y');
+		return view('insight-listing', ['insightCatData' => $insightCatData]);
 	}
 
 	

@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Venturecraft\Revisionable\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Insight extends Model
+class OperationalHighlight extends Model
 {
-    use CrudTrait;
+    use CrudTrait, RevisionableTrait;
 
     /*
     |--------------------------------------------------------------------------
@@ -15,12 +16,11 @@ class Insight extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'insights';
+    protected $table = 'operational_highlights';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-
-    protected $fillable = ['insight_category_id', 'insight_code','value1','value2','value3','value4','value5','value6','status'];
+    protected $fillable = ['operation_row1_value', 'operation_row1_income', 'operation_row2_value', 'operation_row2_income', 'operation_row3_value'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
@@ -30,14 +30,12 @@ class Insight extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function insightCategory()
-    {
-        return $this->belongsTo('App\Models\InsightCategory', 'insight_category_id');
+    public function exportOperationalHighlightButton() {
+        return "<a class='btn btn-success ladda-button tooltipped' data-position='right' data-delay='50' data-tooltip='Export Lender Banking'  href='".backpack_url('exportOperationalHighlight')."'><i class='fa fa-download'></i> Export Op. Highlight </a> &nbsp;&nbsp;"; 
     }
-
-    public function lenders()
-    {
-        return $this->belongsToMany('App\Models\Lender', 'insight_lender');
+    
+    public function importOperationalHighlightButton() {
+        return "<a class='btn btn-success ladda-button tooltipped' data-position='right' data-delay='50' data-tooltip='Import Lender Banking'  href='".backpack_url('importOperationalHighlight')."'><i class='fa fa-cloud'></i> Import Op. Highlight </a> &nbsp;&nbsp;"; 
     }
 
     /*
