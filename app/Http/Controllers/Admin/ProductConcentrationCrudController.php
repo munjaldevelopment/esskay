@@ -14,10 +14,12 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 class ProductConcentrationCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitProductConcentrationStore; }
+    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitProductConcentrationUpdate; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+
+    use \Backpack\ReviseOperation\ReviseOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -27,8 +29,169 @@ class ProductConcentrationCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\ProductConcentration::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/productconcentration');
-        CRUD::setEntityNameStrings('productconcentration', 'product_concentrations');
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/product_concentration');
+        CRUD::setEntityNameStrings('Product Concentration', 'Product Concentrations');
+
+        $list_product_concentration = backpack_user()->hasPermissionTo('list_product_concentration');
+        
+        if($list_product_concentration)
+        {
+            $adminRolesRow  = \DB::table('model_has_roles')->where('role_id', '=', '1')->get();
+            
+            $adminRolesData = array();
+            foreach($adminRolesRow as $row)
+            {
+                $adminRolesData[] = $row->model_id;
+            }
+            
+            $this->crud->orderBy('updated_at', 'DESC');
+            
+            
+            $this->crud->allowAccess('show');
+            $this->crud->enableExportButtons();
+            
+            $this->crud->addColumn([
+                    'label'     => 'Geographical Diversification',
+                    'type'      => 'text',
+                    'name'      => 'geographical_diversification',
+                    ]);
+                    
+            $this->crud->addColumn([
+                    'label'     => 'Amount1',
+                    'type'      => 'text',
+                    'name'      => 'amount1',
+                    ]);
+
+            $this->crud->addColumn([
+                    'label'     => 'Amount Percentage1',
+                    'type'      => 'text',
+                    'name'      => 'amount_percentage1',
+                    ]);
+                    
+            $this->crud->addField([
+                    'label'     => 'Geographical Diversification',
+                    'type'      => 'text',
+                    'name'      => 'geographical_diversification',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount1',
+                    'type'      => 'text',
+                    'name'      => 'amount1',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount Percentage1',
+                    'type'      => 'text',
+                    'name'      => 'amount_percentage1',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount2',
+                    'type'      => 'text',
+                    'name'      => 'amount2',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount Percentage2',
+                    'type'      => 'text',
+                    'name'      => 'amount_percentage2',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount3',
+                    'type'      => 'text',
+                    'name'      => 'amount3',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount Percentage3',
+                    'type'      => 'text',
+                    'name'      => 'amount_percentage3',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount4',
+                    'type'      => 'text',
+                    'name'      => 'amount4',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount Percentage4',
+                    'type'      => 'text',
+                    'name'      => 'amount_percentage4',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount5',
+                    'type'      => 'text',
+                    'name'      => 'amount5',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount Percentage5',
+                    'type'      => 'text',
+                    'name'      => 'amount_percentage5',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount6',
+                    'type'      => 'text',
+                    'name'      => 'amount6',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount Percentage6',
+                    'type'      => 'text',
+                    'name'      => 'amount_percentage6',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount7',
+                    'type'      => 'text',
+                    'name'      => 'amount7',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount Percentage7',
+                    'type'      => 'text',
+                    'name'      => 'amount_percentage7',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount8',
+                    'type'      => 'text',
+                    'name'      => 'amount8',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount Percentage8',
+                    'type'      => 'text',
+                    'name'      => 'amount_percentage8',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount9',
+                    'type'      => 'text',
+                    'name'      => 'amount9',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Amount Percentage9',
+                    'type'      => 'text',
+                    'name'      => 'amount_percentage9',
+                    ]);
+            
+            $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportProductConcentrationButton', 'end');
+            $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importProductConcentrationButton', 'end');
+
+            $this->crud->setCreateView('admin.create-lender-banking-form');
+            $this->crud->setUpdateView('admin.edit-lender-banking-form');
+        }
+        else
+        {
+            $this->crud->denyAccess(['list']);
+        }
     }
 
     /**
@@ -39,7 +202,7 @@ class ProductConcentrationCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
+        //CRUD::setFromDb(); // columns
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -76,5 +239,27 @@ class ProductConcentrationCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    public function store()
+    {
+        $this->crud->setRequest($this->crud->validateRequest());
+        //$this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
+        $this->crud->unsetValidation(); // validation has already been run
+
+        $result = $this->traitProductConcentrationStore();
+
+        return $result;
+    }    
+
+    public function update()
+    {
+        $this->crud->setRequest($this->crud->validateRequest());
+        //$this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
+        $this->crud->unsetValidation(); // validation has already been run
+
+        $result = $this->traitProductConcentrationUpdate();
+
+        return $result;
     }
 }
