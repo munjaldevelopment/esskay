@@ -190,7 +190,7 @@ class HomeController extends Controller
 			}
 			else if($trustee_name)
 			{
-				$trusteeData = \DB::table('trustee')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
+				$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
 
 				dd($trusteeData);
 
