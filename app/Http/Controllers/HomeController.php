@@ -186,13 +186,15 @@ class HomeController extends Controller
 					}
 				}
 				
-				return view('ess-kay-home', ['customer_name' => $customer_name, 'parentCategoryData' => $parentCategoryData, 'childCategoryData' => $childCategoryData, 'lenderData' => $lenderData, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords, 'lenderBankingData' => $lenderBankingData, 'lenderBankingDetailData' => $lenderBankingDetailData, 'lenderCount' => count($lenderBankingData)]);
+				$lenderCode = "";
+				return view('ess-kay-home', ['customer_name' => $customer_name, 'parentCategoryData' => $parentCategoryData, 'childCategoryData' => $childCategoryData, 'lenderData' => $lenderData, 'lenderCode' => $lenderCode, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords, 'lenderBankingData' => $lenderBankingData, 'lenderBankingDetailData' => $lenderBankingDetailData, 'lenderCount' => count($lenderBankingData)]);
 			}
 			else if($trustee_name)
 			{
 				$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
+				$trusteeCode = "";
 
-				return view('ess-kay-trusee-home', ['customer_name' => $trustee_name, 'trusteeData' => $trusteeData, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
+				return view('ess-kay-trusee-home', ['customer_name' => $trustee_name, 'trusteeCode' => $trusteeCode, 'trusteeData' => $trusteeData, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
 			}
 		}
 		else
