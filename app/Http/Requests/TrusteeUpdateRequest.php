@@ -29,7 +29,7 @@ class TrusteeUpdateRequest extends FormRequest
             // 'name' => 'required|min:5|max:255'
 			'name' => 'required',
 			'email' => 'required|unique:users,email,'.$this->id,
-            'phone' => 'required|unique:users,phone,'.$this->id,
+            //'phone' => 'required|unique:users,phone,'.$this->id,
 			//'code' => 'required|unique:lenders,code,'.$this->id,
 			//'slug' => 'required|unique:lenders,slug,'.$this->id,
 			//'lot_name' => 'required'
