@@ -47,6 +47,7 @@ class OperationalHighlightSheetImport implements ToCollection, WithValidation, W
 			$lenderBanking->operation_row2_value = $operation_row2_value;
 			$lenderBanking->operation_row2_income = $operation_row2_income;
 			$lenderBanking->operation_row3_value = $operation_row3_value;
+			$lenderBanking->operational_highlight_status = ($row['status'] == "Yes" ? "1" : "0");
 			$lenderBanking->save();
 		}
     }	
@@ -56,7 +57,8 @@ class OperationalHighlightSheetImport implements ToCollection, WithValidation, W
 		return [
 			'id' => 'required',
             'value1_amount' => 'required',
-            'value1_heading' => 'required'
+            'value1_heading' => 'required',
+            'status' => 'required',
 		];
 	}
 	
@@ -66,6 +68,7 @@ class OperationalHighlightSheetImport implements ToCollection, WithValidation, W
 			'id' => 'Message 1.',
 			'operation_row1_value' => 'Message 2.',
 			'value1_heading' => 'Message 3.',
+            'status' => 'Message 4.',
 		];
 	}
 	

@@ -25,6 +25,7 @@ class OperationalHighlightSheet implements FromArray, WithTitle, WithHeadings, S
             'Value2 Amount',
             'Value2 Heading',
             'Value3 Amount',
+            'Status',
         ];
     }
 	
@@ -34,8 +35,9 @@ class OperationalHighlightSheet implements FromArray, WithTitle, WithHeadings, S
 		//dd($factories);
 		$factoryData = array();
 		if($factories){
-			foreach($factories as $k => $factory){
-				$factoryData[$k] = array('ID' => $factory['id'], 'Value1 Amount' => $factory['operation_row1_value'], 'Value1 Heading' => $factory['operation_row1_income'], 'Value2 Amount' => $factory['operation_row2_value'], 'Value2 Heading' => $factory['operation_row2_income'], 'Value3 Amount' => $factory['operation_row3_value']);
+			foreach($factories as $k => $factory)
+			{
+				$factoryData[$k] = array('ID' => $factory['id'], 'Value1 Amount' => $factory['operation_row1_value'], 'Value1 Heading' => $factory['operation_row1_income'], 'Value2 Amount' => $factory['operation_row2_value'], 'Value2 Heading' => $factory['operation_row2_income'], 'Value3 Amount' => $factory['operation_row3_value'], 'Status' => ($factory['operational_highlight_status'] ? "Yes" : "No"));
 			}
 		}
 		
