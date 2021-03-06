@@ -34,7 +34,7 @@
 {{-- <li class='nav-item'><a class='nav-link' href='{{ backpack_url('backup') }}'><i class='nav-icon la la-hdd-o'></i> Backups</a></li> --}}
 
 @php
-	if($list_lender_type || $list_trustee_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category || $list_operational_highlight):
+	if($list_lender_type || $list_trustee_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Master</a>
@@ -80,11 +80,6 @@
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('insight_category') }}'><i class='nav-icon la la-list'></i> Insight Category</a></li>
 		@php
 			endif;
-			if($list_operational_highlight):
-		@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('operational_highlight') }}'><i class='nav-icon la la-list'></i> Operational Highlight</a></li>
-		@php
-			endif;
 		@endphp
 	</ul>
 </li>
@@ -99,7 +94,7 @@
 @php
 	endif;
 
-	if($list_lender || $list_lender_banking):
+	if($list_lender || $list_lender_banking || $list_operational_highlight):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Lender</a>
@@ -114,6 +109,11 @@
 @endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking') }}'><i class='nav-icon la la-file-o'></i> Lender Banking</a></li>
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking_detail') }}'><i class='nav-icon la la-file-o'></i> Lender Banking Detail</a></li>
+@php
+	endif;
+	if($list_operational_highlight):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('operational_highlight') }}'><i class='nav-icon la la-list'></i> Operational Highlight</a></li>
 @php
 	endif;
 @endphp
