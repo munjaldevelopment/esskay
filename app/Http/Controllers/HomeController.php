@@ -1291,7 +1291,7 @@ class HomeController extends Controller
 								if($user) {
 									// Find User ID
 
-									$modelRole = \DB::table('model_has_roles')->where('model_id' => $user_id);
+									$modelRole = \DB::table('model_has_roles')->where('model_id', $user_id)->first();
 
 									dd($modelRole);
 									
