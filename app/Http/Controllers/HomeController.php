@@ -1254,7 +1254,6 @@ class HomeController extends Controller
 				if ($resultJson->score >= 0.3) {
 					if($request->email != "")
 					{
-
 						$checkRecord = \DB::table('users')->where(['email' => $request->email, 'user_status' => '1'])->first();
 							
 						if($checkRecord)
@@ -1291,6 +1290,10 @@ class HomeController extends Controller
 								
 								if($user) {
 									// Find User ID
+
+									$modelRole = \DB::table('model_has_roles')->where('model_id' => $user_id);
+
+									dd($modelRole);
 									
 									session ( [
 										'esskay_name' => $checkRecord->email,

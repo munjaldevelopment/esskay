@@ -388,8 +388,10 @@ class TrusteeCrudController extends CrudController
             'phone' => $this->crud->getRequest()->phone,
             'user_otp' => '987654',
             'password' => Hash::make($this->crud->getRequest()->password),
+            'user_status' => '1',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
+
         ]);
         
         Trustee::where('id', $id)->update(['user_id' => $user_id]);
