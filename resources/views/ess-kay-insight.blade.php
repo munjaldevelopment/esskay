@@ -126,7 +126,7 @@ $(document).ready(function() {
 		
 		$('.mtb_category_scroller .item').removeClass('active');
 				
-		$(this).find('.item').addClass("active");
+		$(this).parent('.item').addClass("active");
 	});
 });
 </script>
