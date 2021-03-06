@@ -1511,45 +1511,19 @@ class HomeController extends Controller
     	//dd($lenderData);
     	$lender_id = $lenderData->id;
 
-		$parentData = \DB::table('document_category')->leftJoin('document_category_lender', 'document_category.id', '=', 'document_category_lender.document_category_id')->where('document_category_lender.lender_id',$lender_id)->whereNull('document_category.parent_id')->orderBy('document_category.lft', 'ASC')->get();
+		$parentData = \DB::table('insight_categories')->leftJoin('insight_category_lender', 'insight_categories.id', '=', 'insight_category_lender.insight_category_id')->where('insight_category_lender.lender_id',$lender_id)->whereNull('document_category.parent_id')->orderBy('document_category.lft', 'ASC')->get();
 		//dd($parentData); 
-		$parentCategoryData = $childCategoryData = $childChildCategoryData = array();
+		$parentCategoryData = array();
 		
 		if($parentData)
 		{
 			foreach($parentData as $parentRow)
 			{
-				$parentCategoryData[$parentRow->id] = array('name' => $parentRow->name, 'image' => url('/')."/".$parentRow->category_image);
-				
-				//$childData = \DB::table('document_category')->where('parent_id', $parentRow->id)->orderBy('lft', 'ASC')->get();
-				$childData = \DB::table('document_category')->leftJoin('document_category_lender', 'document_category.id', '=', 'document_category_lender.document_category_id')->where('document_category_lender.lender_id',$lender_id)->where('document_category.parent_id', $parentRow->id)->orderBy('document_category.lft', 'ASC')->get();
-				if($childData)
-				{
-					foreach($childData as $childRow)
-					{
-						$childCategoryData[$parentRow->id][$childRow->id] = array('name' => $childRow->name, 'image' => url('/')."/".$childRow->category_image);
-					}
-				}
+				$parentCategoryData[$parentRow->id] = array('name' => $parentRow->name);
 			}
 		}
 		
-		//echo "<pre> Parent"; print_r($parentCategoryData); 
-		//echo "child"; print_r($childCategoryData);
-		
-		
-		$document_date = array();
-		for($count=date('Y');$count>=2015;$count--)
-		{
-			$document_date[$count] = $count;
-		}
-		
-		session ( [
-			'esskay_doc_date' => date('Y')
-		] );
-
-		$current_year = date('Y');
-		
-		return view('ess-kay-document', ['documentDateData' => $document_date, 'parentCategoryData' => $parentCategoryData, 'childCategoryData' => $childCategoryData, 'childChildCategoryData' => $childChildCategoryData, 'lenderData' => $lenderData, 'current_year' => $current_year]);
+		return view('ess-kay-insight', ['parentCategoryData' => $parentCategoryData, 'lenderData' => $lenderData]);
 	}
 
 	
