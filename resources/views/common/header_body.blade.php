@@ -70,7 +70,7 @@
 					</li>
 					<li class="nav-item dropdown pr-0">
 						<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-							<span class="mr-1 rounded-circle heading-jhone">({{ substr($lenderData->name, 0, 1) }})</span>
+							<span class="mr-1 rounded-circle heading-jhone">{{ substr($lenderData->name, 0, 1) }}</span>
 						</a>
 						
 						<div class="dropdown-menu dropdown-menu-right mt-2">
