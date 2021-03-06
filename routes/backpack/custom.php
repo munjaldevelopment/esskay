@@ -65,5 +65,12 @@ Route::group([
     Route::crud('insight_category', 'InsightCategoryCrudController');
     Route::crud('trustee', 'TrusteeCrudController');
     Route::crud('trustee_type', 'TrusteeTypeCrudController');
+
     Route::crud('operational_highlight', 'OperationalHighlightCrudController');
+    Route::crud('geographical_concentration', 'GeographicalConcentrationCrudController');
+    Route::crud('product_concentration', 'ProductConcentrationCrudController');
+    Route::crud('asset_quality', 'AssetQualityCrudController');
+    Route::crud('collection_efficiency', 'CollectionEfficiencyCrudController');
+    Route::crud('net_worth', 'NetWorthCrudController');
+    Route::crud('liquidity', 'LiquidityCrudController');
 }); // this should be the absolute last line of this file

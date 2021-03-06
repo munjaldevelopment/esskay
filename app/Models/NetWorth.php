@@ -3,12 +3,11 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Venturecraft\Revisionable\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class OperationalHighlight extends Model
+class NetWorth extends Model
 {
-    use CrudTrait, RevisionableTrait;
+    use CrudTrait;
 
     /*
     |--------------------------------------------------------------------------
@@ -16,11 +15,11 @@ class OperationalHighlight extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'operational_highlights';
+    protected $table = 'net_worth';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['operation_row1_value', 'operation_row1_income', 'operation_row1_income_percentage', 'operation_row1_year', 'operation_row2_value', 'operation_row2_income', 'operation_row2_income_percentage', 'operation_row2_year', 'operation_row3_value'];
+    protected $fillable = ['particulars', 'amount1', 'amount2', 'amount3', 'amount4', 'amount5', 'amount6', 'amount7', 'amount8', 'amount9', 'amount10', 'amount11', 'amount12'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
@@ -30,12 +29,12 @@ class OperationalHighlight extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function exportOperationalHighlightButton() {
-        return "<a class='btn btn-success ladda-button tooltipped' data-position='right' data-delay='50' data-tooltip='Export Op. Highlight'  href='".backpack_url('exportOperationalHighlight')."'><i class='fa fa-download'></i> Export Op. Highlight </a> &nbsp;&nbsp;"; 
+    public function exportNetWorthButton() {
+        return "<a class='btn btn-success ladda-button tooltipped' data-position='right' data-delay='50' data-tooltip='Export NetWorth'  href='".backpack_url('exportNetWorth')."'><i class='fa fa-download'></i> Export NetWorth </a> &nbsp;&nbsp;"; 
     }
     
-    public function importOperationalHighlightButton() {
-        return "<a class='btn btn-success ladda-button tooltipped' data-position='right' data-delay='50' data-tooltip='Import Op. Highlight'  href='".backpack_url('importOperationalHighlight')."'><i class='fa fa-cloud'></i> Import Op. Highlight </a> &nbsp;&nbsp;"; 
+    public function importNetWorthButton() {
+        return "<a class='btn btn-success ladda-button tooltipped' data-position='right' data-delay='50' data-tooltip='Import NetWorth'  href='".backpack_url('importNetWorth')."'><i class='fa fa-cloud'></i> Import NetWorth </a> &nbsp;&nbsp;"; 
     }
 
     /*

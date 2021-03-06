@@ -11,6 +11,12 @@
 	$list_insight = backpack_user()->hasPermissionTo('list_insight');
 
 	$list_operational_highlight = backpack_user()->hasPermissionTo('list_operational_highlight');
+	$list_geographical_concentration = backpack_user()->hasPermissionTo('list_geographical_concentration');
+	$list_product_concentration = backpack_user()->hasPermissionTo('list_product_concentration');
+	$list_asset_quality = backpack_user()->hasPermissionTo('list_asset_quality');
+	$list_collection_efficiency = backpack_user()->hasPermissionTo('list_collection_efficiency');
+	$list_net_worth = backpack_user()->hasPermissionTo('list_net_worth');
+	$list_liquidity = backpack_user()->hasPermissionTo('list_liquidity');
 
 
 	$list_email_sms = backpack_user()->hasPermissionTo('list_email_sms');
@@ -94,7 +100,7 @@
 @php
 	endif;
 
-	if($list_lender || $list_lender_banking || $list_operational_highlight):
+	if($list_lender || $list_lender_banking || $list_operational_highlight || $list_geographical_concentration || $list_product_concentration || $list_asset_quality || $list_collection_efficiency || $list_net_worth || $list_liquidity):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Lender</a>
@@ -114,6 +120,36 @@
 	if($list_operational_highlight):
 @endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('operational_highlight') }}'><i class='nav-icon la la-list'></i> Operational Highlight</a></li>
+@php
+	endif;
+	if($list_geographical_concentration):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('geographical_concentration') }}'><i class='nav-icon la la-list'></i> Graphical Concentration</a></li>
+@php
+	endif;
+	if($list_product_concentration):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('product_concentration') }}'><i class='nav-icon la la-list'></i> Product Concentration</a></li>
+@php
+	endif;
+	if($list_asset_quality):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('asset_quality') }}'><i class='nav-icon la la-list'></i> Asset Quality</a></li>
+@php
+	endif;
+	if($list_collection_efficiency):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('collection_efficiency') }}'><i class='nav-icon la la-list'></i> Collection Efficiency</a></li>
+@php
+	endif;
+	if($list_net_worth):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('net_worth') }}'><i class='nav-icon la la-list'></i> Net Worth</a></li>
+@php
+	endif;
+	if($list_liquidity):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liquidity') }}'><i class='nav-icon la la-list'></i> Liquidity</a></li>
 @php
 	endif;
 @endphp
