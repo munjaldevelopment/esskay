@@ -189,7 +189,7 @@ class ImportExportController extends Controller
     {
         $this->data['title'] = 'Import Operational Highlight';//trans('backpack::base.dashboard'); // set the page title
 
-        return view('backpack::import_Operational_Highlight', $this->data);
+        return view('backpack::import_operational_highlight', $this->data);
     }
 	
 	public function insertOperationalHighlight(Request $request)

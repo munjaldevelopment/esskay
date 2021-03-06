@@ -19,7 +19,7 @@ class OperationalHighlightSheetImport implements ToCollection, WithValidation, W
 	
 	public function collection(Collection $rows)
 	{
-		dd($rows);
+		//dd($rows);
 		/*lender" => "A K Capital Services Limited"
         "banking_arrangment" => "TL - Secured"
         "sanction" => 0.0
@@ -34,11 +34,11 @@ class OperationalHighlightSheetImport implements ToCollection, WithValidation, W
 		foreach($rows as $row)
 		{
 			$operational_highlights_id = $row['id'];
-			$operation_row1_value = $row['operation_row1_value'];
-			$operation_row1_income = $row['operation_row1_income'];
-			$operation_row2_value = $row['operation_row2_value'];
-			$operation_row2_income = $row['operation_row2_income'];
-			$operation_row3_value = $row['operation_row3_value'];
+			$operation_row1_value = $row['value1_amount'];
+			$operation_row1_income = $row['value1_heading'];
+			$operation_row2_value = $row['value2_amount'];
+			$operation_row2_income = $row['value2_heading'];
+			$operation_row3_value = $row['value3_amount'];
 			
 			$lenderBanking = new OperationalHighlight;
 			$lenderBanking->id = $operational_highlights_id;
@@ -55,8 +55,8 @@ class OperationalHighlightSheetImport implements ToCollection, WithValidation, W
 	{
 		return [
 			'id' => 'required',
-            'operation_row1_value' => 'required',
-            'operation_row1_income' => 'required'
+            'value1_amount' => 'required',
+            'value1_heading' => 'required'
 		];
 	}
 	
@@ -65,7 +65,7 @@ class OperationalHighlightSheetImport implements ToCollection, WithValidation, W
 		return [
 			'id' => 'Message 1.',
 			'operation_row1_value' => 'Message 2.',
-			'operation_row1_income' => 'Message 3.',
+			'value1_heading' => 'Message 3.',
 		];
 	}
 	
