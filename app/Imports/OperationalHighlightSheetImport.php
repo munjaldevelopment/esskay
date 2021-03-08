@@ -50,7 +50,6 @@ class OperationalHighlightSheetImport implements ToCollection, WithValidation, W
 			$operation_row3_value = $row['value3_amount'];
 			
 			$lenderBanking = new OperationalHighlight;
-			$lenderBanking->id = $operational_highlights_id;
 			$lenderBanking->operation_row1_value = $operation_row1_value;
 			$lenderBanking->operation_row1_income = $operation_row1_income;
 			$lenderBanking->operation_row1_income_percentage = $operation_row1_income_percentage;

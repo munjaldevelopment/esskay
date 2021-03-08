@@ -60,7 +60,6 @@ class LenderBankingSheetDetailImport implements ToCollection, WithValidation, Wi
 					$bankingData = BankingArrangment::where('name', '=', $banking_arrangment)->first();
 					
 					$lenderBanking = new LenderBankingDetail;
-					$lenderBanking->id = $lender_banking_id;
 					$lenderBanking->lender_id = $lenderData->id;
 					$lenderBanking->lender_banking_id = $lenderBankingData->id;
 					$lenderBanking->lender_banking_detail_code = $row['lender_banking_detail_code'];

@@ -10,10 +10,12 @@ use App\Models\Planings;
 use App\Exports\LenderBankingExport;
 use App\Exports\LenderBankingDetailExport;
 use App\Exports\OperationalHighlightExport;
+use App\Exports\GeographicalConcentrationExport;
 
 use App\Imports\LenderBankingImport;
 use App\Imports\LenderBankingDetailImport;
 use App\Imports\OperationalHighlightImport;
+use App\Imports\GeographicalConcentrationImport;
 
 use Auth;
 use Excel;
@@ -177,7 +179,6 @@ class ImportExportController extends Controller
 	// Export Planning Data
 
 	// START OPERATIOANAL HIGHLIGHT
-	// OperationalHighlight
 	public function exportOperationalHighlight(Request $request)
 	{
 		$this->data['title'] = trans('backpack::base.dashboard'); // set the page title
@@ -209,6 +210,70 @@ class ImportExportController extends Controller
 			try {
 			
 				Excel::import(new OperationalHighlightImport, public_path().'/uploads/import_file/operational_highlight_file/'.$fileNameTemp);
+				$success = 'Your sheet has been imported successfully.';
+				
+				return back()->with('success', $success);
+			} catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+				$failures = $e->failures();
+				//dd($failures);
+				
+				$error = "";
+				 
+				foreach ($failures as $failure) {
+					$failure->row(); // row that went wrong
+					$failure->attribute(); // either heading key (if using heading row concern) or column index
+					foreach($failure->errors() as $err)
+					{
+						$error .= $err;
+					}
+					
+					$error .= " on line number ".$failure->row().' <br />';
+					// Actual error messages from Laravel validator
+					$failure->values(); // The values of the row that has failed.
+				}
+				
+				//echo $error; exit;
+				
+				return back()->with('error', $error);
+			}
+		}
+		
+		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
+	}
+	// END OPERATIONAL HIGHLIGHT
+
+	// START GeographicalConcentration
+	public function exportGeographicalConcentration(Request $request)
+	{
+		$this->data['title'] = trans('backpack::base.dashboard'); // set the page title
+		
+		return (new GeographicalConcentrationExport())->download('GeographicalConcentration_'.date('Y-m-d').'.xls');
+	}
+	
+	public function importGeographicalConcentration()
+    {
+        $this->data['title'] = 'Import Geographical Concentration';//trans('backpack::base.dashboard'); // set the page title
+
+        return view('backpack::import_geographical_concentration', $this->data);
+    }
+	
+	public function insertGeographicalConcentration(Request $request)
+	{
+		$user = Auth::user();
+		$user_id = $user->id;
+		
+		if($request->hasFile('geographical_concentration_file')){
+			$fileName = $request->file('geographical_concentration_file')->getClientOriginalName();
+			$path = $request->file('geographical_concentration_file')->getRealPath();
+			
+			$fileNameTemp = time()."_".$user_id."_".$fileName;
+			copy($path, public_path().'/uploads/import_file/geographical_concentration_file/'.$fileNameTemp);
+			
+			$error = $success = '';
+			
+			try {
+			
+				Excel::import(new GeographicalConcentrationImport, public_path().'/uploads/import_file/geographical_concentration_file/'.$fileNameTemp);
 				$success = 'Your sheet has been imported successfully.';
 				
 				return back()->with('success', $success);
