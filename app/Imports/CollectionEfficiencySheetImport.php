@@ -33,9 +33,28 @@ class CollectionEfficiencySheetImport implements ToCollection, WithValidation, W
 		
 		foreach($rows as $row)
 		{
-			$heading_graph1 = $row['heading_top_graph'];
+			if($row['heading_top_graph'] > 0)
+			{
+				$UNIX_DATE = ($row['heading_top_graph'] - 25569) * 86400;
+				$heading_graph1 = gmdate("M-Y", $UNIX_DATE);
+			}
+			else 
+			{
+				$heading_graph1 = $row['heading_top_graph'];
+			}
+
 			$amount_graph1 = $row['amount_top_graph'];
-			$heading_graph2 = $row['heading_bottom_graph'];
+
+			if($row['heading_bottom_graph'] > 0)
+			{
+				$UNIX_DATE = ($row['heading_bottom_graph'] - 25569) * 86400;
+				$heading_graph2 = gmdate("M-Y", $UNIX_DATE);
+			}
+			else 
+			{
+				$heading_graph2 = $row['heading_bottom_graph'];
+			}
+
 			$amount_graph2 = $row['amount_bottom_graph'];
 
 			$lenderBanking = new CollectionEfficiency;
