@@ -30,7 +30,7 @@ class ProductConcentrationCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\ProductConcentration::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/product_concentration');
-        CRUD::setEntityNameStrings('Product Concentration', 'Product Concentrations');
+        CRUD::setEntityNameStrings('Product Con.', 'Product Concentrations');
 
         $list_product_concentration = backpack_user()->hasPermissionTo('list_product_concentration');
         
@@ -51,136 +51,145 @@ class ProductConcentrationCrudController extends CrudController
             $this->crud->enableExportButtons();
             
             $this->crud->addColumn([
-                    'label'     => 'Geographical Diversification',
+                    'label'     => 'Product Diversification',
                     'type'      => 'text',
-                    'name'      => 'geographical_diversification',
+                    'name'      => 'product_diversification',
                     ]);
                     
             $this->crud->addColumn([
-                    'label'     => 'Amount1',
+                    'label'     => 'Mar-16 Amount',
                     'type'      => 'text',
                     'name'      => 'amount1',
                     ]);
 
             $this->crud->addColumn([
-                    'label'     => 'Amount Percentage1',
+                    'label'     => 'Mar-16 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage1',
                     ]);
                     
+            $geographicalDivData = array('Commercial Vehicle' => 'Commercial Vehicle', 'Tractor' => 'Tractor', 'Car' => 'Car', 'Two Wheeler' => 'Two Wheeler', 'Punjab' => 'Punjab', 'Haryana' => 'Haryana');
+                    
             $this->crud->addField([
-                    'label'     => 'Geographical Diversification',
-                    'type'      => 'text',
-                    'name'      => 'geographical_diversification',
+                    'label'     => 'Product Diversification',
+                    'type'      => 'select2_from_array',
+                    'name'      => 'product_diversification',
+                    'options'   => $geographicalDivData
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount1',
+                    'label'     => 'Mar-16 Amount',
                     'type'      => 'text',
                     'name'      => 'amount1',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount Percentage1',
+                    'label'     => 'Mar-16 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage1',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount2',
+                    'label'     => 'Mar-17 Amount',
                     'type'      => 'text',
                     'name'      => 'amount2',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount Percentage2',
+                    'label'     => 'Mar-17 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage2',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount3',
+                    'label'     => 'Mar-18 Amount',
                     'type'      => 'text',
                     'name'      => 'amount3',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount Percentage3',
+                    'label'     => 'Mar-18 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage3',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount4',
+                    'label'     => 'Mar-19 Amount',
                     'type'      => 'text',
                     'name'      => 'amount4',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount Percentage4',
+                    'label'     => 'Mar-19 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage4',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount5',
+                    'label'     => 'Mar-20 Amount',
                     'type'      => 'text',
                     'name'      => 'amount5',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount Percentage5',
+                    'label'     => 'Mar-20 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage5',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount6',
+                    'label'     => 'Sep-20 Amount',
                     'type'      => 'text',
                     'name'      => 'amount6',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount Percentage6',
+                    'label'     => 'Sep-20 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage6',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount7',
+                    'label'     => 'Mar-21 Amount',
                     'type'      => 'text',
                     'name'      => 'amount7',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount Percentage7',
+                    'label'     => 'Mar-21 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage7',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount8',
+                    'label'     => 'Mar-22 Amount',
                     'type'      => 'text',
                     'name'      => 'amount8',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount Percentage8',
+                    'label'     => 'Mar-22 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage8',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount9',
+                    'label'     => 'Mar-23 Amount',
                     'type'      => 'text',
                     'name'      => 'amount9',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount Percentage9',
+                    'label'     => 'Mar-23 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage9',
                     ]);
+
+            $this->crud->addField([
+                    'label'     => 'Status',
+                    'type'      => 'checkbox',
+                    'name'      => 'product_concentration_status',
+                ]);
             
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportProductConcentrationButton', 'end');
             $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importProductConcentrationButton', 'end');

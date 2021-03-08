@@ -65,6 +65,10 @@ Route::group([
     Route::get('exportGeographicalConcentration', 'ImportExportController@exportGeographicalConcentration');
     Route::get('importGeographicalConcentration', 'ImportExportController@importGeographicalConcentration');
     Route::post('insertGeographicalConcentration', 'ImportExportController@insertGeographicalConcentration');
+
+    Route::get('exportProductConcentration', 'ImportExportController@exportProductConcentration');
+    Route::get('importProductConcentration', 'ImportExportController@importProductConcentration');
+    Route::post('insertProductConcentration', 'ImportExportController@insertProductConcentration');
     
     Route::crud('insight_category', 'InsightCategoryCrudController');
     Route::crud('trustee', 'TrusteeCrudController');

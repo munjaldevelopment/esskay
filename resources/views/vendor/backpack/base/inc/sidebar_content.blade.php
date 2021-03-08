@@ -100,23 +100,6 @@
 @php
 	endif;
 
-	if($list_lender || $list_lender_banking || $list_operational_highlight || $list_geographical_concentration || $list_product_concentration || $list_asset_quality || $list_collection_efficiency || $list_net_worth || $list_liquidity):
-@endphp
-<li class="nav-item nav-dropdown">
-	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Lender</a>
-	<ul class="nav-dropdown-items">
-@php
-	if($list_lender):
-@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender') }}'><i class='nav-icon la la-user'></i> Lenders</a></li>
-@php
-	endif;
-	if($list_lender_banking):
-@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking') }}'><i class='nav-icon la la-file-o'></i> Lender Banking</a></li>
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking_detail') }}'><i class='nav-icon la la-file-o'></i> Lender Banking Detail</a></li>
-@php
-	endif;
 	if($list_operational_highlight):
 @endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('operational_highlight') }}'><i class='nav-icon la la-list'></i> Operational Highlight</a></li>
@@ -150,6 +133,26 @@
 	if($list_liquidity):
 @endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liquidity') }}'><i class='nav-icon la la-list'></i> Liquidity</a></li>
+@php
+	endif;
+
+
+
+	if($list_lender || $list_lender_banking):
+@endphp
+<li class="nav-item nav-dropdown">
+	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Lender</a>
+	<ul class="nav-dropdown-items">
+@php
+	if($list_lender):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender') }}'><i class='nav-icon la la-user'></i> Lenders</a></li>
+@php
+	endif;
+	if($list_lender_banking):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking') }}'><i class='nav-icon la la-file-o'></i> Lender Banking</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking_detail') }}'><i class='nav-icon la la-file-o'></i> Lender Banking Detail</a></li>
 @php
 	endif;
 @endphp

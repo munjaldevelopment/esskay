@@ -11,11 +11,13 @@ use App\Exports\LenderBankingExport;
 use App\Exports\LenderBankingDetailExport;
 use App\Exports\OperationalHighlightExport;
 use App\Exports\GeographicalConcentrationExport;
+use App\Exports\ProductConcentrationExport;
 
 use App\Imports\LenderBankingImport;
 use App\Imports\LenderBankingDetailImport;
 use App\Imports\OperationalHighlightImport;
 use App\Imports\GeographicalConcentrationImport;
+use App\Imports\ProductConcentrationImport;
 
 use Auth;
 use Excel;
@@ -304,7 +306,71 @@ class ImportExportController extends Controller
 		
 		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
 	}
-	// END OPERATIONAL HIGHLIGHT
+	// END GeographicalConcentration
+
+	// START ProductConcentration
+	public function exportProductConcentration(Request $request)
+	{
+		$this->data['title'] = trans('backpack::base.dashboard'); // set the page title
+		
+		return (new ProductConcentrationExport())->download('ProductConcentration_'.date('Y-m-d').'.xls');
+	}
+	
+	public function importProductConcentration()
+    {
+        $this->data['title'] = 'Import Product Concentration';//trans('backpack::base.dashboard'); // set the page title
+
+        return view('backpack::import_product_concentration', $this->data);
+    }
+	
+	public function insertProductConcentration(Request $request)
+	{
+		$user = Auth::user();
+		$user_id = $user->id;
+		
+		if($request->hasFile('product_concentration_file')){
+			$fileName = $request->file('product_concentration_file')->getClientOriginalName();
+			$path = $request->file('product_concentration_file')->getRealPath();
+			
+			$fileNameTemp = time()."_".$user_id."_".$fileName;
+			copy($path, public_path().'/uploads/import_file/product_concentration_file/'.$fileNameTemp);
+			
+			$error = $success = '';
+			
+			try {
+			
+				Excel::import(new ProductConcentrationImport, public_path().'/uploads/import_file/product_concentration_file/'.$fileNameTemp);
+				$success = 'Your sheet has been imported successfully.';
+				
+				return back()->with('success', $success);
+			} catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+				$failures = $e->failures();
+				//dd($failures);
+				
+				$error = "";
+				 
+				foreach ($failures as $failure) {
+					$failure->row(); // row that went wrong
+					$failure->attribute(); // either heading key (if using heading row concern) or column index
+					foreach($failure->errors() as $err)
+					{
+						$error .= $err;
+					}
+					
+					$error .= " on line number ".$failure->row().' <br />';
+					// Actual error messages from Laravel validator
+					$failure->values(); // The values of the row that has failed.
+				}
+				
+				//echo $error; exit;
+				
+				return back()->with('error', $error);
+			}
+		}
+		
+		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
+	}
+	// END ProductConcentration
 	
 	
 	public function exportPlanningPDF(Request $request)
