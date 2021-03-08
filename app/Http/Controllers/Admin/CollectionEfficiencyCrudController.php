@@ -51,63 +51,45 @@ class CollectionEfficiencyCrudController extends CrudController
             $this->crud->enableExportButtons();
             
             $this->crud->addColumn([
-                    'label'     => 'Geographical Diversification',
-                    'type'      => 'text',
-                    'name'      => 'geographical_diversification',
-                    ]);
-                    
-            $this->crud->addColumn([
-                    'label'     => 'Heading1',
+                    'label'     => 'Heading Top Graph',
                     'type'      => 'text',
                     'name'      => 'heading_graph1',
                     ]);
 
             $this->crud->addColumn([
-                    'label'     => 'Amount1',
+                    'label'     => 'Amount Top Graph',
                     'type'      => 'text',
                     'name'      => 'amount_graph1',
                     ]);
-                    
-            $this->crud->addField([
-                    'label'     => 'Geographical Diversification',
-                    'type'      => 'text',
-                    'name'      => 'geographical_diversification',
-                    ]);
 
             $this->crud->addField([
-                    'label'     => 'Heading1',
+                    'label'     => 'Heading Top Graph',
                     'type'      => 'text',
                     'name'      => 'heading_graph1',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount1',
+                    'label'     => 'Amount Top Graph',
                     'type'      => 'text',
                     'name'      => 'amount_graph1',
                     ]);
 
             $this->crud->addField([
-                     'label'     => 'Heading2',
+                     'label'     => 'Heading Bottom Graph',
                     'type'      => 'text',
                     'name'      => 'heading_graph2',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount2',
+                    'label'     => 'Amount Bottom Graph',
                     'type'      => 'text',
                     'name'      => 'amount_graph2',
                     ]);
 
             $this->crud->addField([
-                     'label'     => 'Heading3',
-                    'type'      => 'text',
-                    'name'      => 'heading_graph3',
-                    ]);
-
-            $this->crud->addField([
-                    'label'     => 'Amount3',
-                    'type'      => 'text',
-                    'name'      => 'amount_graph3',
+                     'label'     => 'Status',
+                    'type'      => 'checkbox',
+                    'name'      => 'collection_efficiency_status',
                     ]);
             
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportCollectionEfficiencyButton', 'end');

@@ -4,7 +4,7 @@
   $defaultBreadcrumbs = [
     trans('backpack::crud.admin') => url(config('backpack.base.route_prefix'), 'dashboard'),
     
-    trans('Lender Banking') => false,
+    trans('Asset Quality') => false,
   ];
 
   // if breadcrumbs aren't defined in the CrudController, use the default breadcrumbs
@@ -14,7 +14,7 @@
 @section('header')
 <div class="container-fluid">
     <h2>
-      <span class="text-capitalize">Import Lender Banking Sheet</span>
+      <span class="text-capitalize">Import Asset Quality Sheet</span>
 	  <small id="datatable_info_stack"></small>
 	</h2>
 </div>
@@ -32,7 +32,7 @@
 		@if ($message = Session::get('error'))
 		<div class="alert alert-danger" role="alert"> {!! Session::get('error') !!} </div>
 		@endif
-		<form action="{{ URL(config('backpack.base.route_prefix'), 'insertLenderBanking') }}" method="post" enctype="multipart/form-data">
+		<form action="{{ URL(config('backpack.base.route_prefix'), 'insertAssetQuality') }}" method="post" enctype="multipart/form-data">
 			{!! csrf_field() !!}
 		  	<div class="col-md-12">
 
@@ -44,7 +44,7 @@
 						<!-- text input -->
 						<div class="form-group col-xs-12">
 							<label>Choose File</label>
-							<input type="file" name="lender_banking_file" class="form-control" />
+							<input type="file" name="asset_quality_file" class="form-control" />
 						</div>
 					</div>
 				</div>
@@ -54,7 +54,7 @@
 						<div class="btn-group">
 							<button type="submit" class="btn btn-success"><i class="fa fa-cloud"></i> Import Excel File</button>
 							&nbsp;&nbsp; </div>
-						<a href="{{ URL::to('esskayadmin/lender_banking') }}" class="btn btn-default"><span class="fa fa-ban"></span> &nbsp;Cancel</a> </div>
+						<a href="{{ URL::to('esskayadmin/asset_quality') }}" class="btn btn-default"><span class="fa fa-ban"></span> &nbsp;Cancel</a> </div>
 				</div>
 			</div>
 		</form>

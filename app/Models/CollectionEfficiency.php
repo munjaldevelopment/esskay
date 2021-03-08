@@ -20,7 +20,7 @@ class CollectionEfficiency extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['geographical_diversification', 'heading_graph1', 'amount_graph1', 'heading_graph2', 'amount_graph2', 'heading_graph3', 'amount_graph3'];
+    protected $fillable = ['heading_graph1', 'amount_graph1', 'heading_graph2', 'amount_graph2', 'collection_efficiency_status'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];

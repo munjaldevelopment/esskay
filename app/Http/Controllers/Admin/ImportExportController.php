@@ -12,12 +12,16 @@ use App\Exports\LenderBankingDetailExport;
 use App\Exports\OperationalHighlightExport;
 use App\Exports\GeographicalConcentrationExport;
 use App\Exports\ProductConcentrationExport;
+use App\Exports\AssetQualityExport;
+use App\Exports\CollectionEfficiencyExport;
 
 use App\Imports\LenderBankingImport;
 use App\Imports\LenderBankingDetailImport;
 use App\Imports\OperationalHighlightImport;
 use App\Imports\GeographicalConcentrationImport;
 use App\Imports\ProductConcentrationImport;
+use App\Imports\AssetQualityImport;
+use App\Imports\CollectionEfficiencyImport;
 
 use Auth;
 use Excel;
@@ -371,7 +375,134 @@ class ImportExportController extends Controller
 		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
 	}
 	// END ProductConcentration
+
+	// START AssetQuality
+	public function exportAssetQuality(Request $request)
+	{
+		$this->data['title'] = trans('backpack::base.dashboard'); // set the page title
+		
+		return (new AssetQualityExport())->download('AssetQuality_'.date('Y-m-d').'.xls');
+	}
 	
+	public function importAssetQuality()
+    {
+        $this->data['title'] = 'Import Asset Quality';//trans('backpack::base.dashboard'); // set the page title
+
+        return view('backpack::import_asset_quality', $this->data);
+    }
+	
+	public function insertAssetQuality(Request $request)
+	{
+		$user = Auth::user();
+		$user_id = $user->id;
+		
+		if($request->hasFile('asset_quality_file')){
+			$fileName = $request->file('asset_quality_file')->getClientOriginalName();
+			$path = $request->file('asset_quality_file')->getRealPath();
+			
+			$fileNameTemp = time()."_".$user_id."_".$fileName;
+			copy($path, public_path().'/uploads/import_file/asset_quality_file/'.$fileNameTemp);
+			
+			$error = $success = '';
+			
+			try {
+			
+				Excel::import(new AssetQualityImport, public_path().'/uploads/import_file/asset_quality_file/'.$fileNameTemp);
+				$success = 'Your sheet has been imported successfully.';
+				
+				return back()->with('success', $success);
+			} catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+				$failures = $e->failures();
+				//dd($failures);
+				
+				$error = "";
+				 
+				foreach ($failures as $failure) {
+					$failure->row(); // row that went wrong
+					$failure->attribute(); // either heading key (if using heading row concern) or column index
+					foreach($failure->errors() as $err)
+					{
+						$error .= $err;
+					}
+					
+					$error .= " on line number ".$failure->row().' <br />';
+					// Actual error messages from Laravel validator
+					$failure->values(); // The values of the row that has failed.
+				}
+				
+				//echo $error; exit;
+				
+				return back()->with('error', $error);
+			}
+		}
+		
+		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
+	}
+	// END AssetQuality
+	
+	// START CollectionEfficiency
+	public function exportCollectionEfficiency(Request $request)
+	{
+		$this->data['title'] = trans('backpack::base.dashboard'); // set the page title
+		
+		return (new CollectionEfficiencyExport())->download('CollectionEfficiency_'.date('Y-m-d').'.xls');
+	}
+	
+	public function importCollectionEfficiency()
+    {
+        $this->data['title'] = 'Import Collection Efficiency';//trans('backpack::base.dashboard'); // set the page title
+
+        return view('backpack::import_collection_efficiency', $this->data);
+    }
+	
+	public function insertCollectionEfficiency(Request $request)
+	{
+		$user = Auth::user();
+		$user_id = $user->id;
+		
+		if($request->hasFile('collection_efficiency_file')){
+			$fileName = $request->file('collection_efficiency_file')->getClientOriginalName();
+			$path = $request->file('collection_efficiency_file')->getRealPath();
+			
+			$fileNameTemp = time()."_".$user_id."_".$fileName;
+			copy($path, public_path().'/uploads/import_file/collection_efficiency_file/'.$fileNameTemp);
+			
+			$error = $success = '';
+			
+			try {
+			
+				Excel::import(new CollectionEfficiencyImport, public_path().'/uploads/import_file/collection_efficiency_file/'.$fileNameTemp);
+				$success = 'Your sheet has been imported successfully.';
+				
+				return back()->with('success', $success);
+			} catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+				$failures = $e->failures();
+				//dd($failures);
+				
+				$error = "";
+				 
+				foreach ($failures as $failure) {
+					$failure->row(); // row that went wrong
+					$failure->attribute(); // either heading key (if using heading row concern) or column index
+					foreach($failure->errors() as $err)
+					{
+						$error .= $err;
+					}
+					
+					$error .= " on line number ".$failure->row().' <br />';
+					// Actual error messages from Laravel validator
+					$failure->values(); // The values of the row that has failed.
+				}
+				
+				//echo $error; exit;
+				
+				return back()->with('error', $error);
+			}
+		}
+		
+		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
+	}
+	// END CollectionEfficiency
 	
 	public function exportPlanningPDF(Request $request)
 	{

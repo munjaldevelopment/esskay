@@ -73,6 +73,10 @@ Route::group([
     Route::get('exportAssetQuality', 'ImportExportController@exportAssetQuality');
     Route::get('importAssetQuality', 'ImportExportController@importAssetQuality');
     Route::post('insertAssetQuality', 'ImportExportController@insertAssetQuality');
+
+    Route::get('exportCollectionEfficiency', 'ImportExportController@exportCollectionEfficiency');
+    Route::get('importCollectionEfficiency', 'ImportExportController@importCollectionEfficiency');
+    Route::post('insertCollectionEfficiency', 'ImportExportController@insertCollectionEfficiency');
     
     Route::crud('insight_category', 'InsightCategoryCrudController');
     Route::crud('trustee', 'TrusteeCrudController');

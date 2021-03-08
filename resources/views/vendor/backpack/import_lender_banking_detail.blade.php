@@ -4,7 +4,7 @@
   $defaultBreadcrumbs = [
     trans('backpack::crud.admin') => url(config('backpack.base.route_prefix'), 'dashboard'),
     
-    trans('Banking arrangement Detail') => false,
+    trans('Lender Banking Detail') => false,
   ];
 
   // if breadcrumbs aren't defined in the CrudController, use the default breadcrumbs
@@ -14,7 +14,7 @@
 @section('header')
 <div class="container-fluid">
     <h2>
-      <span class="text-capitalize">Import Banking arrangement Detail Sheet</span>
+      <span class="text-capitalize">Import Lender Banking Detail Sheet</span>
 	  <small id="datatable_info_stack"></small>
 	</h2>
 </div>

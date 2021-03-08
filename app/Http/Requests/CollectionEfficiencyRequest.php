@@ -26,9 +26,8 @@ class CollectionEfficiencyRequest extends FormRequest
     public function rules()
     {
         return [
-            'geographical_diversification' => 'required',
             'heading_graph1' => 'required',
-            //'amount_graph1' => 'required'
+            'amount_graph1' => 'required'
             // 'name' => 'required|min:5|max:255'
         ];
     }
