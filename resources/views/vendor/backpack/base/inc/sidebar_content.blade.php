@@ -107,12 +107,12 @@
 	endif;
 	if($list_geographical_concentration):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('geographical_concentration') }}'><i class='nav-icon la la-list'></i> Graphical Concentration</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('geographical_concentration') }}'><i class='nav-icon la la-list'></i> Graphical Con.</a></li>
 @php
 	endif;
 	if($list_product_concentration):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('product_concentration') }}'><i class='nav-icon la la-list'></i> Product Concentration</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('product_concentration') }}'><i class='nav-icon la la-list'></i> Product Con.</a></li>
 @php
 	endif;
 	if($list_asset_quality):

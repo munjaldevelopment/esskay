@@ -68,7 +68,7 @@ class ProductConcentrationCrudController extends CrudController
                     'name'      => 'amount_percentage1',
                     ]);
                     
-            $geographicalDivData = array('Commercial Vehicle' => 'Commercial Vehicle', 'Tractor' => 'Tractor', 'Car' => 'Car', 'Two Wheeler' => 'Two Wheeler', 'Punjab' => 'Punjab', 'Haryana' => 'Haryana');
+            $geographicalDivData = array('Commercial Vehicle' => 'Commercial Vehicle', 'Tractor' => 'Tractor', 'Car' => 'Car', 'Two Wheeler' => 'Two Wheeler', 'SME' => 'SME');
                     
             $this->crud->addField([
                     'label'     => 'Product Diversification',

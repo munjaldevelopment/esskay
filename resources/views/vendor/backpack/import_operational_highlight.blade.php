@@ -54,7 +54,7 @@
 						<div class="btn-group">
 							<button type="submit" class="btn btn-success"><i class="fa fa-cloud"></i> Import Excel File</button>
 							&nbsp;&nbsp; </div>
-						<a href="{{ URL::to('admin/operational_highlight') }}" class="btn btn-default"><span class="fa fa-ban"></span> &nbsp;Cancel</a> </div>
+						<a href="{{ URL::to('esskayadmin/operational_highlight') }}" class="btn btn-default"><span class="fa fa-ban"></span> &nbsp;Cancel</a> </div>
 				</div>
 			</div>
 		</form>
