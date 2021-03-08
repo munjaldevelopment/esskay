@@ -20,7 +20,7 @@ class AssetQuality extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['geographical_diversification', 'amount1', 'amount_percentage1', 'amount2', 'amount_percentage2', 'amount3',     'amount_percentage3', 'amount4', 'amount_percentage4', 'amount5', 'amount_percentage5', 'amount6', 'amount_percentage6', 'amount7', 'amount_percentage7', 'amount8', 'amount_percentage8'];
+    protected $fillable = ['geographical_diversification', 'amount_percentage1', 'amount_percentage2', 'amount_percentage3', 'amount_percentage4', 'amount_percentage5', 'amount_percentage6', 'amount_percentage7', 'amount_percentage8', 'asset_quality_status'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];

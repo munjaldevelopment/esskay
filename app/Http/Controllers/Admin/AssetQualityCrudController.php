@@ -55,17 +55,17 @@ class AssetQualityCrudController extends CrudController
                     'type'      => 'text',
                     'name'      => 'geographical_diversification',
                     ]);
-                    
+
             $this->crud->addColumn([
-                    'label'     => 'Amount1',
+                    'label'     => 'FY14 Amount %',
                     'type'      => 'text',
-                    'name'      => 'amount1',
+                    'name'      => 'amount_percentage1',
                     ]);
 
             $this->crud->addColumn([
-                    'label'     => 'Amount Percentage1',
+                    'label'     => 'FY15 Amount %',
                     'type'      => 'text',
-                    'name'      => 'amount_percentage1',
+                    'name'      => 'amount_percentage2',
                     ]);
                     
             $this->crud->addField([
@@ -75,100 +75,58 @@ class AssetQualityCrudController extends CrudController
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount1',
-                    'type'      => 'text',
-                    'name'      => 'amount1',
-                    ]);
-
-            $this->crud->addField([
-                    'label'     => 'Amount Percentage1',
+                    'label'     => 'FY14 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage1',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount2',
-                    'type'      => 'text',
-                    'name'      => 'amount2',
-                    ]);
-
-            $this->crud->addField([
-                    'label'     => 'Amount Percentage2',
+                    'label'     => 'FY15 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage2',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount3',
-                    'type'      => 'text',
-                    'name'      => 'amount3',
-                    ]);
-
-            $this->crud->addField([
-                    'label'     => 'Amount Percentage3',
+                    'label'     => 'FY16 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage3',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount4',
-                    'type'      => 'text',
-                    'name'      => 'amount4',
-                    ]);
-
-            $this->crud->addField([
-                    'label'     => 'Amount Percentage4',
+                    'label'     => 'FY17 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage4',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount5',
-                    'type'      => 'text',
-                    'name'      => 'amount5',
-                    ]);
-
-            $this->crud->addField([
-                    'label'     => 'Amount Percentage5',
+                    'label'     => 'FY18 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage5',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount6',
-                    'type'      => 'text',
-                    'name'      => 'amount6',
-                    ]);
-
-            $this->crud->addField([
-                    'label'     => 'Amount Percentage6',
+                    'label'     => 'FY19 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage6',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount7',
-                    'type'      => 'text',
-                    'name'      => 'amount7',
-                    ]);
-
-            $this->crud->addField([
-                    'label'     => 'Amount Percentage7',
+                    'label'     => 'FY20 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage7',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount8',
-                    'type'      => 'text',
-                    'name'      => 'amount8',
-                    ]);
-
-            $this->crud->addField([
-                    'label'     => 'Amount Percentage8',
+                    'label'     => 'FY21 Amount %',
                     'type'      => 'text',
                     'name'      => 'amount_percentage8',
                     ]);
+
+            $this->crud->addField([
+                    'label'     => 'Status',
+                    'type'      => 'checkbox',
+                    'name'      => 'asset_quality_status',
+                ]);
             
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportAssetQualityButton', 'end');
             $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importAssetQualityButton', 'end');
