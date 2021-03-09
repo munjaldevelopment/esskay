@@ -16,7 +16,7 @@
 	$list_asset_quality = backpack_user()->hasPermissionTo('list_asset_quality');
 	$list_collection_efficiency = backpack_user()->hasPermissionTo('list_collection_efficiency');
 	$list_net_worth = backpack_user()->hasPermissionTo('list_net_worth');
-	$list_net_worth_infusion = backpack_user()->hasPermissionTo('list_net_worth_infusion');
+	$list_net_worth_infusion = backpack_user()->hasPermissionTo('list_net_worth');//list_net_worth_infusion');
 	$list_liquidity = backpack_user()->hasPermissionTo('list_liquidity');
 
 
