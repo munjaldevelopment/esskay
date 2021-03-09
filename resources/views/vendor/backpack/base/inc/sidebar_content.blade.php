@@ -16,6 +16,7 @@
 	$list_asset_quality = backpack_user()->hasPermissionTo('list_asset_quality');
 	$list_collection_efficiency = backpack_user()->hasPermissionTo('list_collection_efficiency');
 	$list_net_worth = backpack_user()->hasPermissionTo('list_net_worth');
+	$list_net_worth_infusion = backpack_user()->hasPermissionTo('list_net_worth_infusion');
 	$list_liquidity = backpack_user()->hasPermissionTo('list_liquidity');
 
 
@@ -130,6 +131,12 @@
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('net_worth') }}'><i class='nav-icon la la-list'></i> Net Worth</a></li>
 @php
 	endif;
+	if($list_net_worth_infusion):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('networth_infusion') }}'><i class='nav-icon la la-list'></i> Net Worth Infusions</a></li>
+@php
+	endif;
+	
 	if($list_liquidity):
 @endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liquidity') }}'><i class='nav-icon la la-list'></i> Liquidity</a></li>
