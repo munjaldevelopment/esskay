@@ -77,7 +77,11 @@ Route::group([
     Route::get('exportCollectionEfficiency', 'ImportExportController@exportCollectionEfficiency');
     Route::get('importCollectionEfficiency', 'ImportExportController@importCollectionEfficiency');
     Route::post('insertCollectionEfficiency', 'ImportExportController@insertCollectionEfficiency');
-    
+
+    Route::get('exportNetWorth', 'ImportExportController@exportNetWorth');
+    Route::get('importNetWorth', 'ImportExportController@importNetWorth');
+    Route::post('insertNetWorth', 'ImportExportController@insertNetWorth');
+
     Route::crud('insight_category', 'InsightCategoryCrudController');
     Route::crud('trustee', 'TrusteeCrudController');
     Route::crud('trustee_type', 'TrusteeTypeCrudController');

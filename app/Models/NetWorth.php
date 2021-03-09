@@ -20,7 +20,7 @@ class NetWorth extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['particulars', 'amount1', 'amount2', 'amount3', 'amount4', 'amount5', 'amount6', 'amount7', 'amount8', 'amount9', 'amount10', 'amount11', 'amount12'];
+    protected $fillable = ['particulars', 'amount1', 'amount2', 'amount3', 'amount4', 'amount5', 'amount6', 'amount7', 'amount8', 'amount9', 'amount10', 'amount11', 'amount12', 'net_worth_status'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];

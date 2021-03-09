@@ -57,13 +57,13 @@ class NetWorthCrudController extends CrudController
                     ]);
                     
             $this->crud->addColumn([
-                    'label'     => 'Amount1',
+                    'label'     => 'Top FY16 Amount',
                     'type'      => 'text',
                     'name'      => 'amount1',
                     ]);
 
             $this->crud->addColumn([
-                    'label'     => 'Amount2',
+                    'label'     => 'Top FY17 Amount',
                     'type'      => 'text',
                     'name'      => 'amount2',
                     ]);
@@ -75,76 +75,82 @@ class NetWorthCrudController extends CrudController
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount1',
+                    'label'     => 'Top FY16 Amount',
                     'type'      => 'text',
                     'name'      => 'amount1',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount2',
+                    'label'     => 'Top FY17 Amount',
                     'type'      => 'text',
                     'name'      => 'amount2',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount3',
+                    'label'     => 'Top FY18 Amount',
                     'type'      => 'text',
                     'name'      => 'amount3',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount4',
+                    'label'     => 'Top FY19 Amount',
                     'type'      => 'text',
                     'name'      => 'amount4',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount5',
+                    'label'     => 'Top FY20 Amount',
                     'type'      => 'text',
                     'name'      => 'amount5',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount6',
+                    'label'     => 'Top FY21 Amount',
                     'type'      => 'text',
                     'name'      => 'amount6',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount7',
+                    'label'     => 'Bottom FY16 Amount',
                     'type'      => 'text',
                     'name'      => 'amount7',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount8',
+                    'label'     => 'Bottom FY17 Amount',
                     'type'      => 'text',
                     'name'      => 'amount8',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount9',
+                    'label'     => 'Bottom FY18 Amount',
                     'type'      => 'text',
                     'name'      => 'amount9',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount10',
+                    'label'     => 'Bottom FY19 Amount',
                     'type'      => 'text',
                     'name'      => 'amount10',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount11',
+                    'label'     => 'Bottom FY20 Amount',
                     'type'      => 'text',
                     'name'      => 'amount11',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount12',
+                    'label'     => 'Bottom FY21 Amount',
                     'type'      => 'text',
                     'name'      => 'amount12',
                     ]);
+
+            $this->crud->addField([
+                    'label'     => 'Status',
+                    'type'      => 'checkbox',
+                    'name'      => 'net_worth_status',
+                ]);
             
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportNetWorthButton', 'end');
             $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importNetWorthButton', 'end');
