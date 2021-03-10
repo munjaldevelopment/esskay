@@ -82,6 +82,10 @@ Route::group([
     Route::get('importNetWorth', 'ImportExportController@importNetWorth');
     Route::post('insertNetWorth', 'ImportExportController@insertNetWorth');
 
+    Route::get('exportLiquidity', 'ImportExportController@exportLiquidity');
+    Route::get('importLiquidity', 'ImportExportController@importLiquidity');
+    Route::post('insertLiquidity', 'ImportExportController@insertLiquidity');
+
     Route::crud('insight_category', 'InsightCategoryCrudController');
     Route::crud('trustee', 'TrusteeCrudController');
     Route::crud('trustee_type', 'TrusteeTypeCrudController');

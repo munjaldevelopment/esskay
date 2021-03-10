@@ -15,6 +15,7 @@ use App\Exports\ProductConcentrationExport;
 use App\Exports\AssetQualityExport;
 use App\Exports\CollectionEfficiencyExport;
 use App\Exports\NetWorthExport;
+use App\Exports\LiquidityExport;
 
 use App\Imports\LenderBankingImport;
 use App\Imports\LenderBankingDetailImport;
@@ -24,6 +25,7 @@ use App\Imports\ProductConcentrationImport;
 use App\Imports\AssetQualityImport;
 use App\Imports\CollectionEfficiencyImport;
 use App\Imports\NetWorthImport;
+use App\Imports\LiquidityImport;
 
 use Auth;
 use Excel;
@@ -569,6 +571,70 @@ class ImportExportController extends Controller
 		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
 	}
 	// END NetWorth
+	
+	// START Liquidity
+	public function exportLiquidity(Request $request)
+	{
+		$this->data['title'] = trans('backpack::base.dashboard'); // set the page title
+		
+		return (new LiquidityExport())->download('Liquidity_'.date('Y-m-d').'.xls');
+	}
+	
+	public function importLiquidity()
+    {
+        $this->data['title'] = 'Import Liquidity';//trans('backpack::base.dashboard'); // set the page title
+
+        return view('backpack::import_liquidity', $this->data);
+    }
+	
+	public function insertLiquidity(Request $request)
+	{
+		$user = Auth::user();
+		$user_id = $user->id;
+		
+		if($request->hasFile('liquidity_file')){
+			$fileName = $request->file('liquidity_file')->getClientOriginalName();
+			$path = $request->file('liquidity_file')->getRealPath();
+			
+			$fileNameTemp = time()."_".$user_id."_".$fileName;
+			copy($path, public_path().'/uploads/import_file/liquidity_file/'.$fileNameTemp);
+			
+			$error = $success = '';
+			
+			try {
+			
+				Excel::import(new LiquidityImport, public_path().'/uploads/import_file/liquidity_file/'.$fileNameTemp);
+				$success = 'Your sheet has been imported successfully.';
+				
+				return back()->with('success', $success);
+			} catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+				$failures = $e->failures();
+				//dd($failures);
+				
+				$error = "";
+				 
+				foreach ($failures as $failure) {
+					$failure->row(); // row that went wrong
+					$failure->attribute(); // either heading key (if using heading row concern) or column index
+					foreach($failure->errors() as $err)
+					{
+						$error .= $err;
+					}
+					
+					$error .= " on line number ".$failure->row().' <br />';
+					// Actual error messages from Laravel validator
+					$failure->values(); // The values of the row that has failed.
+				}
+				
+				//echo $error; exit;
+				
+				return back()->with('error', $error);
+			}
+		}
+		
+		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
+	}
+	// END Liquidity
 	
 	public function exportPlanningPDF(Request $request)
 	{
