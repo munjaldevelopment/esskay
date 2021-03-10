@@ -5,7 +5,7 @@ use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
 
-class LiquidityExport implements WithMultipleSheets
+class CurrentDealExport implements WithMultipleSheets
 {
 	use Exportable;
 	
@@ -23,7 +23,7 @@ class LiquidityExport implements WithMultipleSheets
     {
 		$sheets = array();
 		
-		$sheets[] = new LiquiditySheet();
+		$sheets[] = new CurrentDealSheet();
 
         return $sheets;
 	}
