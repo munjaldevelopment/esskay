@@ -57,7 +57,11 @@
 @elseif($insightCatData->id == 3)
 	<div class="white-box">
 		<div class="pool-dynamic-graph">
-			<img src="images/graph-img.png" alt="">
+			@if($chart1)
+				<div id="first_chart"></div>
+
+				{!! $chart1 !!}
+			@endif
 		</div>
 	</div>
 	

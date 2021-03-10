@@ -183,10 +183,10 @@ ul.breadcrumb li+li:before {
   color: black;
   content: "/\00a0";
 }
-.priceadd{ color: #4b4b4d; }
+.priceadd{ color: #767676; }
 /* Add a color to all links inside the list */
 ul.breadcrumb li a {
-  color: #4b4b4d;
+  color: #767676;
   text-decoration: none;
 }
 
@@ -318,7 +318,7 @@ nav.side-navbar ul li i {
 }
 
 .custome-syle {
-    color: #4b4b4d;
+    color: #767676;
     margin-top: 15px;
     margin-right: 10px;
     font-size: 16px;
@@ -342,7 +342,7 @@ nav.side-navbar ul li i {
     border-radius: 5px;
 }
 .notification-box .content-right p {
-    color: #4b4b4d;
+    color: #767676;
     font-size: 12px;
     font-weight: 500; margin: 0;
 }
@@ -392,7 +392,7 @@ p.right-arrow i { font-size: 12px;
     margin: 0px auto;
 }
 .nav-boxupar ul li {
-    color: #4b4b4d;
+    color: #767676;
 }
 .nav-boxupar ul li a{ text-decoration: none; }
 ul.navbar-nav.ml-auto.nav-custome li a.nav-link.dropdown-toggle {
@@ -518,7 +518,7 @@ ul.navbar-nav.ml-auto.nav-custome li a.nav-link.dropdown-toggle {
     font-size: 26px;
     font-weight: 600;
     padding-top: 15px;
-    color: #4b4b4d;
+    color: #767676;
 }
 
 .s130 form .inner-form .input-field.first-wrap .svg-wrapper {
@@ -580,8 +580,8 @@ ul.navbar-nav.ml-auto.nav-custome li a.nav-link.dropdown-toggle {
 .tabs-search ul li {
     margin: 8px;      
 }
-.tabs-search ul li a { border: 2px solid #4b4b4d;
-    color: #4b4b4d;  padding: 6px 40px;    border-radius: 50px;
+.tabs-search ul li a { border: 2px solid #767676;
+    color: #767676;  padding: 6px 40px;    border-radius: 50px;
     text-decoration: none; display: inline-block; 
 }
 .tabs-search ul li a.active{ position: relative; background: #3e4095; color: white;    border: 2px solid #fff;}
@@ -1933,7 +1933,7 @@ p.designation {
 h1 {
     font-size: 16px;
     font-weight: 800;
-    color: #4b4b4d;
+    color: #767676;
 }
 .doc-container h2 {
 	font-size: 18px;

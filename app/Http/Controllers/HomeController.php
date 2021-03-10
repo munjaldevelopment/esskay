@@ -1541,11 +1541,32 @@ class HomeController extends Controller
 
 		$geographicalConData = $geographicalConTotalData = array();
 
+		$chart1 = array();
+
 		if($request->category_id == 3)
 		{
 			$geographicalConData = \DB::table('geographical_concentrations')->where('geographical_concentration_status', 1)->get();
 
 			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
+
+			$raj_amount1 = $raj_amount2 = $raj_amount3 = $raj_amount4 = $raj_amount5 = $raj_amount6 = $raj_amount7 = $raj_amount8 = $raj_amount9 = 0;
+			$other_amount1 = $other_amount2 = $other_amount3 = $other_amount4 = $other_amount5 = $other_amount6 = $other_amount7 = $other_amount8 = $other_amount9 = 0;
+
+			$geographicalConRajData = \DB::table('geographical_concentrations')->where('geographical_diversification', "Rajasthan")->where('geographical_concentration_status', 1)->first();
+
+			if($geographicalConRajData)
+			{
+				$raj_amount1 = $geographicalConRajData->amount1;
+				$raj_amount2 = $geographicalConRajData->amount2;
+				$raj_amount3 = $geographicalConRajData->amount3;
+				$raj_amount4 = $geographicalConRajData->amount4;
+				$raj_amount5 = $geographicalConRajData->amount5;
+				$raj_amount6 = $geographicalConRajData->amount6;
+				$raj_amount7 = $geographicalConRajData->amount7;
+				$raj_amount8 = $geographicalConRajData->amount8;
+				$raj_amount9 = $geographicalConRajData->amount9;
+			}
+
 			foreach($geographicalConData as $geographicalConRow)
 			{
 				$amount1+=$geographicalConRow->amount1;
@@ -1558,14 +1579,79 @@ class HomeController extends Controller
 				$amount8+=$geographicalConRow->amount8;
 				$amount9+=$geographicalConRow->amount9;
 
+				if($geographicalConRow->geographical_diversification != "Rajasthan")
+				{
+					$other_amount1+= $geographicalConRow->amount1;
+					$other_amount2+= $geographicalConRow->amount2;
+					$other_amount3+= $geographicalConRow->amount3;
+					$other_amount4+= $geographicalConRow->amount4;
+					$other_amount5+= $geographicalConRow->amount5;
+					$other_amount6+= $geographicalConRow->amount6;
+					$other_amount7+= $geographicalConRow->amount7;
+					$other_amount8+= $geographicalConRow->amount8;
+					$other_amount9+= $geographicalConRow->amount9;
+				}
+
 				$geographicalConTotalData = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3, 'amount4' => $amount4, 'amount5' => $amount5, 'amount6' => $amount6, 'amount7' => $amount7, 'amount8' => $amount8, 'amount9' => $amount9);
 			}
+
+			$chart1 = \Chart::title([
+				'text' => 'Geographical Concentration',
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'first_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0c2959'
+			])
+			->xaxis([
+				'categories' => [
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'Nov-20', 'FY21', 'FY22', 'FY23'
+				],
+				'labels'     => [
+					'rotation'  => 15,
+					'align'     => 'top',
+					// use 'startJs:yourjavasscripthere:endJs'
+				],
+			])
+			->plotOptions([
+				'line'        => ([
+					'dataLabels' => ([
+						'enabled' => 'true'
+					]),
+					'enableMouseTracking' => 'false'
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Rajasthan',
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
+						'color' => '#0000FF',
+					],
+				],
+				[
+					[
+						'name'  => 'Other States',
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
+						'color' => '#FF0000',
+					],
+				]
+			)
+			->display();
 		}
 
 		//dd($geographicalConTotalData);
 		
 		$current_year = date('Y');
-		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData]);
+		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'chart1' => $chart1]);
 	}
 
 	
