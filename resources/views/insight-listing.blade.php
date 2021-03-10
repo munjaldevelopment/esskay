@@ -366,25 +366,27 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th>Month</th>
-								@foreach($netWorthData as $row)
-								<th>{{ $row->month }}</th>
-								@endforeach
+								<th>Particulars</th>
+								<th>FY-16</th>
+								<th>FY-17</th>
+								<th>FY-18</th>
+								<th>FY-19</th>
+								<th>FY-20</th>
+								<th>H1FY-21</th>
 							</tr>
 						</thead>
 						<tbody>
+							@foreach($netWorthData1 as $row)
 							<tr>
-								<td>Capital Infusion</td>
-								@foreach($netWorthData as $row)
-								<td>{{ $row->capital_infusion }}</td>
-								@endforeach
+								<td>{{ $row->particulars}}</td>
+								<td>{{ $row->amount1}}</td>
+								<td>{{ $row->amount2}}</td>
+								<td>{{ $row->amount3}}</td>
+								<td>{{ $row->amount4}}</td>
+								<td>{{ $row->amount5}}</td>
+								<td>{{ $row->amount6}}</td>
 							</tr>
-							<tr>
-								<td>Investors</td>
-								@foreach($netWorthData as $row)
-								<td>{!! $row->investors !!}</td>
-								@endforeach
-							</tr>
+							@endforeach
 						</tbody>
 					</table>	
 				</div>	
