@@ -1539,10 +1539,15 @@ class HomeController extends Controller
 
 		$insightFirst = \DB::table('operational_highlights')->where('operational_highlight_status', 1)->first();
 
-		//echo '<pre>'; print_r($insightData); exit;
+		$geographicalConData = array();
+
+		if($request->category_id == 3)
+		{
+			$geographicalConData = \DB::table('geographical_concentrations')->where('geographical_concentration_status', 1)->get();
+		}
 		
 		$current_year = date('Y');
-		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst]);
+		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData]);
 	}
 
 	

@@ -69,12 +69,12 @@
 				@endif
 				@if($lenderData->is_insight == 1)
 				<li class="nav-item">
-					<a class="nav-link insight-class @if($lenderData->is_message_md == 0) active @endif" href="javascript:;">Insight</a>
+					<a class="nav-link insight-class @if($lenderData->is_message_md == 0) active @endif" href="javascript:;">Insights</a>
 				</li>
 				@endif
 				@if($lenderData->is_document == 1)
 				<li class="nav-item">
-					<a class="nav-link doc-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0) active @endif" href="javascript:;">Documents</a>
+					<a class="nav-link doc-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0) active @endif" href="javascript:;">Document</a>
 				</li>
 				@endif
 				@if($lenderData->is_current_deal  == 1)
