@@ -1539,15 +1539,33 @@ class HomeController extends Controller
 
 		$insightFirst = \DB::table('operational_highlights')->where('operational_highlight_status', 1)->first();
 
-		$geographicalConData = array();
+		$geographicalConData = $geographicalConTotalData = array();
 
 		if($request->category_id == 3)
 		{
 			$geographicalConData = \DB::table('geographical_concentrations')->where('geographical_concentration_status', 1)->get();
+
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
+			foreach($geographicalConData as $geographicalConRow)
+			{
+				$amount1+=$geographicalConRow->amount1;
+				$amount2+=$geographicalConRow->amount2;
+				$amount3+=$geographicalConRow->amount3;
+				$amount4+=$geographicalConRow->amount4;
+				$amount5+=$geographicalConRow->amount5;
+				$amount6+=$geographicalConRow->amount6;
+				$amount7+=$geographicalConRow->amount7;
+				$amount8+=$geographicalConRow->amount8;
+				$amount9+=$geographicalConRow->amount9;
+
+				$geographicalConTotalData = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3, 'amount4' => $amount4, 'amount5' => $amount5, 'amount6' => $amount6, 'amount7' => $amount7, 'amount8' => $amount8, 'amount9' => $amount9);
+			}
 		}
+
+		//dd($geographicalConTotalData);
 		
 		$current_year = date('Y');
-		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData]);
+		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData]);
 	}
 
 	

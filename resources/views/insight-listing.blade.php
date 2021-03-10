@@ -127,25 +127,32 @@
 								<td>{{ $row->amount_percentage9 }}%</td>
 							</tr>
 							@endforeach
+						</tbody>
 
+						<tfoot>
 							<tr>
 								<td>Total</td>
 								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
+								<td>{{ $geographicalConTotalData['amount1'] }}</td>
+								<td>100%</td>
+								<td>{{ $geographicalConTotalData['amount2'] }}</td>
+								<td>100%</td>
+								<td>{{ $geographicalConTotalData['amount3'] }}</td>
+								<td>100%</td>
+								<td>{{ $geographicalConTotalData['amount4'] }}</td>
+								<td>100%</td>
+								<td>{{ $geographicalConTotalData['amount5'] }}</td>
+								<td>100%</td>
+								<td>{{ $geographicalConTotalData['amount6'] }}</td>
+								<td>100%</td>
+								<td>{{ $geographicalConTotalData['amount7'] }}</td>
+								<td>100%</td>
+								<td>{{ $geographicalConTotalData['amount8'] }}</td>
+								<td>100%</td>
+								<td>{{ $geographicalConTotalData['amount9'] }}</td>
+								<td>100%</td>
 							</tr>
-						</tbody>
+						</tfoot>
 					</table>	
 				</div>	
 			</div>
