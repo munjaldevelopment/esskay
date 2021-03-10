@@ -11,8 +11,8 @@
 								$count = 1;
 							@endphp
 							@foreach($parentCategoryData as $cat_id => $name)
-							<div class="item @if($count == 1) active @endif">
-								<a class="insight-category-list" data-insight="{{ $cat_id }}" href="javascript:;">{{ $name }}</a>
+							<div class="insight-category item @if($count == 1) active @endif">
+								<a class="insight-category-list insight-category-cat{{ $cat_id }}" data-insight="{{ $cat_id }}" href="javascript:;">{{ $name }}</a>
 							</div>
 								@php
 									$count++;
@@ -26,7 +26,7 @@
 				<div class="side-body side-body-full">
 					<div class="insight-container">
 						<div class="alert alert-warning">
-							Please click on left section to get data
+							Please click on top section to get data
 						</div>
 					</div>
 				</div>
@@ -128,5 +128,7 @@ $(document).ready(function() {
 				
 		$(this).parent('.item').addClass("active");
 	});
+
+	$('.insight-category-cat1').trigger('click');
 });
 </script>

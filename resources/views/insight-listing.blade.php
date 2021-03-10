@@ -127,6 +127,24 @@
 								<td>{{ $row->amount_percentage9 }}%</td>
 							</tr>
 							@endforeach
+
+							<tr>
+								<td>Total</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+							</tr>
 						</tbody>
 					</table>	
 				</div>	
