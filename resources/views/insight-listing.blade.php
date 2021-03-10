@@ -323,6 +323,74 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="white-box outstanding-box">
+		<div class="outstanding-table">
+			<h3>Capital Infusion Detail</h3>
+			<div class="custom-table-area">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Month</th>
+								@foreach($netWorthData as $row)
+								<th>{{ $row->month }}</th>
+								@endforeach
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Capital Infusion</td>
+								@foreach($netWorthData as $row)
+								<td>{{ $row->capital_infusion }}</td>
+								@endforeach
+							</tr>
+							<tr>
+								<td>Investors</td>
+								@foreach($netWorthData as $row)
+								<td>{!! $row->investors !!}</td>
+								@endforeach
+							</tr>
+						</tbody>
+					</table>	
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	<div class="white-box outstanding-box">
+		<div class="outstanding-table">
+			<h3>Reconciliation of Net worth</h3>
+			<div class="custom-table-area">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Month</th>
+								@foreach($netWorthData as $row)
+								<th>{{ $row->month }}</th>
+								@endforeach
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Capital Infusion</td>
+								@foreach($netWorthData as $row)
+								<td>{{ $row->capital_infusion }}</td>
+								@endforeach
+							</tr>
+							<tr>
+								<td>Investors</td>
+								@foreach($netWorthData as $row)
+								<td>{!! $row->investors !!}</td>
+								@endforeach
+							</tr>
+						</tbody>
+					</table>	
+				</div>	
+			</div>
+		</div>
+	</div>
 @endif
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
 <script src="{{ asset('public/assets/') }}/js/owl.carousel.js"></script>

@@ -1541,6 +1541,7 @@ class HomeController extends Controller
 
 		$geographicalConData = $geographicalConTotalData = array();
 		$productConData = $productConTotalData = array();
+		$netWorthData = $netWorthData1 = array();
 
 		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = array();
 
@@ -2041,6 +2042,9 @@ class HomeController extends Controller
 				]
 			)
 			->display(0);
+
+			$netWorthData = \DB::table('net_worth_infusions')->where('net_worth_infusion_status', 1)->get();
+			$netWorthData1 = \DB::table('net_worth')->where('net_worth_status', 1)->get();
 		}
 
 		//dd($chart1);
@@ -2048,7 +2052,7 @@ class HomeController extends Controller
 		//dd($geographicalConTotalData);
 		
 		$current_year = date('Y');
-		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52]);
+		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1]);
 	}
 
 	
