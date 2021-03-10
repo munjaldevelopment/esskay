@@ -267,6 +267,16 @@
 			</div>
 		</div>
 	</div>
+@elseif($insightCatData->id == 5)
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			@if($chart3)
+				<div id="third_chart"></div>
+
+				{!! $chart3 !!}
+			@endif
+		</div>
+	</div>
 @endif
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
 <script src="{{ asset('public/assets/') }}/js/owl.carousel.js"></script>

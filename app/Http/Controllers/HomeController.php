@@ -1542,7 +1542,7 @@ class HomeController extends Controller
 		$geographicalConData = $geographicalConTotalData = array();
 		$productConData = $productConTotalData = array();
 
-		$chart1 = $chart2 = array();
+		$chart1 = $chart2 = $chart3 = array();
 
 		if($request->category_id == 3)
 		{
@@ -1754,13 +1754,89 @@ class HomeController extends Controller
 			)
 			->display(0);
 		}
+		else if($request->category_id == 5)
+		{
+			$assetData1 = $assetData2 = $assetData3 = array();
+
+			$assetConData1 = \DB::table('asset_quality')->where('id', "1")->where('asset_quality_status', 1)->first();
+			if($assetConData1)
+			{
+				$assetData1 = array((float)$assetConData1->amount_percentage1, (float)$assetConData1->amount_percentage2, (float)$assetConData1->amount_percentage3, (float)$assetConData1->amount_percentage4, (float)$assetConData1->amount_percentage5, (float)$assetConData1->amount_percentage6, (float)$assetConData1->amount_percentage7, (float)$assetConData1->amount_percentage8);
+			}
+			$assetConData2 = \DB::table('asset_quality')->where('id', "2")->where('asset_quality_status', 1)->first();
+			if($assetConData2)
+			{
+				$assetData2 = array((float)$assetConData2->amount_percentage1, (float)$assetConData2->amount_percentage2, (float)$assetConData2->amount_percentage3, (float)$assetConData2->amount_percentage4, (float)$assetConData2->amount_percentage5, (float)$assetConData2->amount_percentage6, (float)$assetConData2->amount_percentage7, (float)$assetConData2->amount_percentage8);
+			}
+			$assetConData3 = \DB::table('asset_quality')->where('id', "3")->where('asset_quality_status', 1)->first();
+			if($assetConData3)
+			{
+				$assetData3 = array((float)$assetConData3->amount_percentage1, (float)$assetConData3->amount_percentage2, (float)$assetConData3->amount_percentage3, (float)$assetConData3->amount_percentage4, (float)$assetConData3->amount_percentage5, (float)$assetConData3->amount_percentage6, (float)$assetConData3->amount_percentage7, (float)$assetConData3->amount_percentage8);
+			}
+
+			$chart3 = \Chart::title([
+				'text' => 'Asset Quality',
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'third_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF', '#FF0000', '#493313'
+			])
+			->xaxis([
+				'categories' => [
+					'FY14', 'FY15', 'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21'
+				],
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'No.'
+				],
+			])
+			->legend([
+		        'align' => 'center',
+		        'verticalAlign' => 'top'
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+						'enabled' => 'true',
+						'format' => '{y}%',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Par 150',
+						'data'  => $assetData1,
+					],
+					[
+						'name'  => 'Par 120',
+						'data'  => $assetData2,
+					],
+					[
+						'name'  => 'Par 90',
+						'data'  => $assetData3,
+					],
+				]
+			)
+			->display(0);
+		}
 
 		//dd($chart1);
 
 		//dd($geographicalConTotalData);
 		
 		$current_year = date('Y');
-		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2]);
+		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3]);
 	}
 
 	
