@@ -1540,8 +1540,9 @@ class HomeController extends Controller
 		$insightFirst = \DB::table('operational_highlights')->where('operational_highlight_status', 1)->first();
 
 		$geographicalConData = $geographicalConTotalData = array();
+		$productConData = $productConTotalData = array();
 
-		$chart1 = array();
+		$chart1 = $chart2 = array();
 
 		if($request->category_id == 3)
 		{
@@ -1648,13 +1649,118 @@ class HomeController extends Controller
 			)
 			->display(0);
 		}
+		else if($request->category_id == 4)
+		{
+			$productConData = \DB::table('product_concentrations')->where('product_concentration_status', 1)->get();
+
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
+
+			$raj_amount1 = $raj_amount2 = $raj_amount3 = $raj_amount4 = $raj_amount5 = $raj_amount6 = $raj_amount7 = $raj_amount8 = $raj_amount9 = 0;
+			$other_amount1 = $other_amount2 = $other_amount3 = $other_amount4 = $other_amount5 = $other_amount6 = $other_amount7 = $other_amount8 = $other_amount9 = 0;
+
+			$geographicalConRajData = \DB::table('product_concentrations')->where('product_diversification', "Commercial Vehicle")->where('product_concentration_status', 1)->first();
+
+			if($geographicalConRajData)
+			{
+				$raj_amount1 = (int)$geographicalConRajData->amount_percentage1;
+				$raj_amount2 = (int)$geographicalConRajData->amount_percentage2;
+				$raj_amount3 = (int)$geographicalConRajData->amount_percentage3;
+				$raj_amount4 = (int)$geographicalConRajData->amount_percentage4;
+				$raj_amount5 = (int)$geographicalConRajData->amount_percentage5;
+				$raj_amount6 = (int)$geographicalConRajData->amount_percentage6;
+				$raj_amount7 = (int)$geographicalConRajData->amount_percentage7;
+				$raj_amount8 = (int)$geographicalConRajData->amount_percentage8;
+				$raj_amount9 = (int)$geographicalConRajData->amount_percentage9;
+			}
+
+			foreach($productConData as $geographicalConRow)
+			{
+				$amount1+=$geographicalConRow->amount1;
+				$amount2+=$geographicalConRow->amount2;
+				$amount3+=$geographicalConRow->amount3;
+				$amount4+=$geographicalConRow->amount4;
+				$amount5+=$geographicalConRow->amount5;
+				$amount6+=$geographicalConRow->amount6;
+				$amount7+=$geographicalConRow->amount7;
+				$amount8+=$geographicalConRow->amount8;
+				$amount9+=$geographicalConRow->amount9;
+
+				if($geographicalConRow->product_diversification != "Commercial Vehicle")
+				{
+					$other_amount1+= $geographicalConRow->amount_percentage1;
+					$other_amount2+= $geographicalConRow->amount_percentage2;
+					$other_amount3+= $geographicalConRow->amount_percentage3;
+					$other_amount4+= $geographicalConRow->amount_percentage4;
+					$other_amount5+= $geographicalConRow->amount_percentage5;
+					$other_amount6+= $geographicalConRow->amount_percentage6;
+					$other_amount7+= $geographicalConRow->amount_percentage7;
+					$other_amount8+= $geographicalConRow->amount_percentage8;
+					$other_amount9+= $geographicalConRow->amount_percentage9;
+				}
+
+				$productConTotalData = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3, 'amount4' => $amount4, 'amount5' => $amount5, 'amount6' => $amount6, 'amount7' => $amount7, 'amount8' => $amount8, 'amount9' => $amount9);
+			}
+
+			$chart2 = \Chart::title([
+				'text' => 'Product Concentration',
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'second_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF', '#FF0000'
+			])
+			->xaxis([
+				'categories' => [
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'Nov-20', 'FY21', 'FY22', 'FY23'
+				],
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'No.'
+				],
+			])
+			/*->legend([
+				'layout' => 'vertical',
+		        'align' => 'right',
+		        'verticalAlign' => 'middle'
+			])*/
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+						'enabled' => 'true',
+						'format' => '{y}.0%',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Rajasthan',
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
+					],
+					[
+						'name'  => 'Other States',
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
+					],
+				]
+			)
+			->display(0);
+		}
 
 		//dd($chart1);
 
 		//dd($geographicalConTotalData);
 		
 		$current_year = date('Y');
-		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'chart1' => $chart1]);
+		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2]);
 	}
 
 	

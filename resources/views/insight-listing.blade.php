@@ -162,6 +162,111 @@
 			</div>
 		</div>
 	</div>
+@elseif($insightCatData->id == 4)
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			@if($chart2)
+				<div id="second_chart"></div>
+
+				{!! $chart2 !!}
+			@endif
+		</div>
+	</div>
+	
+	<div class="white-box outstanding-box">
+		<div class="outstanding-table">
+			<h3>Outstanding As on</h3>
+			<div class="custom-table-area">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th rowspan="2">Product <br /> Diversification</th>
+								<th colspan="2" class="border-bottom">Mar-16</th>
+								<th colspan="2" class="border-bottom">Mar-17</th>
+								<th colspan="2" class="border-bottom">Mar-18</th>
+								<th colspan="2" class="border-bottom">Mar-19</th>
+								<th colspan="2" class="border-bottom">Mar-20</th>
+								<th colspan="2" class="border-bottom">Sep-20</th>
+								<th colspan="2" class="border-bottom">Mar-21</th>
+								<th colspan="2" class="border-bottom">Mar-22</th>
+								<th colspan="2" class="border-bottom">Mar-23</th>
+							</tr>
+							<tr>
+								<th>Amount</th>
+								<th>%</th>
+								<th>Amount</th>
+								<th>%</th>
+								<th>Amount</th>
+								<th>%</th>
+								<th>Amount</th>
+								<th>%</th>
+								<th>Amount</th>
+								<th>%</th>
+								<th>Amount</th>
+								<th>%</th>
+								<th>Amount</th>
+								<th>%</th>
+								<th>Amount</th>
+								<th>%</th>
+								<th>Amount</th>
+								<th>%</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach($productConData as $row)
+							<tr>
+								<td>{{ $row->product_diversification }}</td>
+								<td>{{ $row->amount1 }}</td>
+								<td>{{ $row->amount_percentage1 }}%</td>
+								<td>{{ $row->amount2 }}</td>
+								<td>{{ $row->amount_percentage2 }}%</td>
+								<td>{{ $row->amount3 }}</td>
+								<td>{{ $row->amount_percentage3 }}%</td>
+								<td>{{ $row->amount4 }}</td>
+								<td>{{ $row->amount_percentage4 }}%</td>
+								<td>{{ $row->amount5 }}</td>
+								<td>{{ $row->amount_percentage5 }}%</td>
+								<td>{{ $row->amount6 }}</td>
+								<td>{{ $row->amount_percentage6 }}%</td>
+								<td>{{ $row->amount7 }}</td>
+								<td>{{ $row->amount_percentage7 }}%</td>
+								<td>{{ $row->amount8 }}</td>
+								<td>{{ $row->amount_percentage8 }}%</td>
+								<td>{{ $row->amount9 }}</td>
+								<td>{{ $row->amount_percentage9 }}%</td>
+							</tr>
+							@endforeach
+						</tbody>
+
+						<tfoot>
+							<tr>
+								<td>Total</td>
+								<td>{{ $productConTotalData['amount1'] }}</td>
+								<td>100%</td>
+								<td>{{ $productConTotalData['amount2'] }}</td>
+								<td>100%</td>
+								<td>{{ $productConTotalData['amount3'] }}</td>
+								<td>100%</td>
+								<td>{{ $productConTotalData['amount4'] }}</td>
+								<td>100%</td>
+								<td>{{ $productConTotalData['amount5'] }}</td>
+								<td>100%</td>
+								<td>{{ $productConTotalData['amount6'] }}</td>
+								<td>100%</td>
+								<td>{{ $productConTotalData['amount7'] }}</td>
+								<td>100%</td>
+								<td>{{ $productConTotalData['amount8'] }}</td>
+								<td>100%</td>
+								<td>{{ $productConTotalData['amount9'] }}</td>
+								<td>100%</td>
+							</tr>
+						</tfoot>
+					</table>	
+				</div>	
+			</div>
+		</div>
+	</div>
 @endif
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
 <script src="{{ asset('public/assets/') }}/js/owl.carousel.js"></script>
