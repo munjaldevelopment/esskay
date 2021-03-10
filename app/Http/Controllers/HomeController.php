@@ -1542,7 +1542,7 @@ class HomeController extends Controller
 		$geographicalConData = $geographicalConTotalData = array();
 		$productConData = $productConTotalData = array();
 
-		$chart1 = $chart2 = $chart3 = array();
+		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = array();
 
 		if($request->category_id == 3)
 		{
@@ -1830,13 +1830,122 @@ class HomeController extends Controller
 			)
 			->display(0);
 		}
+		else if($request->category_id == 6)
+		{
+			$assetData1 = $assetData11 = $assetData2 = $assetData21 = array();
+
+			$assetConData1 = \DB::table('collection_efficiency')->where('collection_efficiency_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $assetConRow)
+				{
+					$assetData1[] = (float)$assetConRow->amount_graph1;
+					$assetData11[] = $assetConRow->heading_graph1;
+
+					$assetData2[] = (float)$assetConRow->amount_graph2;
+					$assetData21[] = $assetConRow->heading_graph2;
+				}
+			}
+
+			$chart41 = \Chart::title([
+				'text' => 'Collection Efficiency',
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'fourth1_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF', '#FF0000', '#493313'
+			])
+			->xaxis([
+				'categories' => $assetData11,
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'No.'
+				],
+			])
+			->legend([
+		        'align' => 'center',
+		        'verticalAlign' => 'top'
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+						'enabled' => 'true',
+						'format' => '{y}%',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Collection',
+						'data'  => $assetData1,
+					],
+				]
+			)
+			->display(0);
+
+			$chart42 = \Chart::title([
+				'text' => 'Collection Efficiency',
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'fourth2_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF', '#FF0000', '#493313'
+			])
+			->xaxis([
+				'categories' => $assetData21,
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'No.'
+				],
+			])
+			->legend([
+		        'align' => 'center',
+		        'verticalAlign' => 'top'
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+						'enabled' => 'true',
+						'format' => '{y}%',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Collection',
+						'data'  => $assetData2,
+					],
+				]
+			)
+			->display(0);
+		}
 
 		//dd($chart1);
 
 		//dd($geographicalConTotalData);
 		
 		$current_year = date('Y');
-		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3]);
+		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42]);
 	}
 
 	
