@@ -1542,7 +1542,7 @@ class HomeController extends Controller
 		$geographicalConData = $geographicalConTotalData = array();
 		$productConData = $productConTotalData = array();
 
-		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = array();
+		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = array();
 
 		if($request->category_id == 3)
 		{
@@ -1876,7 +1876,7 @@ class HomeController extends Controller
 				'series'        => ([
 					'dataLabels' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '{y}',
 					]),
 				]),
 			])
@@ -1939,13 +1939,116 @@ class HomeController extends Controller
 			)
 			->display(0);
 		}
+		else if($request->category_id == 8)
+		{
+			$assetData1 = $assetData2 = array();
+
+			$assetConData1 = \DB::table('net_worth')->where('net_worth_status', 1)->where('particulars', 'Closing Net worth')->first();
+			if($assetConData1)
+			{
+				$assetData1 = array((float)$assetConData1->amount1, (float)$assetConData1->amount2, (float)$assetConData1->amount3, (float)$assetConData1->amount4, (float)$assetConData1->amount5, (float)$assetConData1->amount6);
+				$assetData2 = array((float)$assetConData1->amount7, (float)$assetConData1->amount8, (float)$assetConData1->amount9, (float)$assetConData1->amount10, (float)$assetConData1->amount11, (float)$assetConData1->amount12);
+			}
+
+			$chart51 = \Chart::title([
+				'text' => 'Net Worth',
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'fifth1_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF',
+			])
+			->xaxis([
+				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21'],
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'No.'
+				],
+			])
+			->legend([
+		        'align' => 'center',
+		        'verticalAlign' => 'top'
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+						'enabled' => 'true',
+						'format' => '{y}%',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Collection',
+						'data'  => $assetData1,
+					],
+				]
+			)
+			->display(0);
+
+			$chart52 = \Chart::title([
+				'text' => 'Net Worth',
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'fifth2_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF',
+			])
+			->xaxis([
+				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21'],
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'No.'
+				],
+			])
+			->legend([
+		        'align' => 'center',
+		        'verticalAlign' => 'top'
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+						'enabled' => 'true',
+						'format' => '{y}%',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Collection',
+						'data'  => $assetData2,
+					],
+				]
+			)
+			->display(0);
+		}
 
 		//dd($chart1);
 
 		//dd($geographicalConTotalData);
 		
 		$current_year = date('Y');
-		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42]);
+		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52]);
 	}
 
 	

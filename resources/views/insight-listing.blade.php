@@ -297,6 +297,32 @@
 			@endif
 		</div>
 	</div>
+@elseif($insightCatData->id == 8)
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="white-box">
+				<div class="pool-dynamic-graph">
+					@if($chart51)
+						<div id="fifth1_chart"></div>
+
+						{!! $chart51 !!}
+					@endif
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<div class="white-box">
+				<div class="pool-dynamic-graph">
+					@if($chart52)
+						<div id="fifth2_chart"></div>
+
+						{!! $chart52 !!}
+					@endif
+				</div>
+			</div>
+		</div>
+	</div>
 @endif
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
 <script src="{{ asset('public/assets/') }}/js/owl.carousel.js"></script>
