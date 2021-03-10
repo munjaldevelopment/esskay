@@ -51,82 +51,88 @@ class LiquidityCrudController extends CrudController
             $this->crud->enableExportButtons();
             
             $this->crud->addColumn([
-                    'label'     => 'Quarter',
+                    'label'     => 'Quarter on Quarter Liquidity (in crs.)',
                     'type'      => 'text',
                     'name'      => 'quarter',
                     ]);
                     
             $this->crud->addColumn([
-                    'label'     => 'Amount1',
+                    'label'     => 'Dec-18',
                     'type'      => 'text',
                     'name'      => 'amount1',
                     ]);
 
             $this->crud->addColumn([
-                    'label'     => 'Amount2',
+                    'label'     => 'Mar-19',
                     'type'      => 'text',
                     'name'      => 'amount2',
                     ]);
                     
             $this->crud->addField([
-                    'label'     => 'Quarter',
+                    'label'     => 'Quarter on Quarter Liquidity (in crs.)',
                     'type'      => 'text',
                     'name'      => 'quarter',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount1',
+                    'label'     => 'Dec-18',
                     'type'      => 'text',
                     'name'      => 'amount1',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount2',
+                    'label'     => 'Mar-19',
                     'type'      => 'text',
                     'name'      => 'amount2',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount3',
+                    'label'     => 'Jun-19',
                     'type'      => 'text',
                     'name'      => 'amount3',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount4',
+                    'label'     => 'Sep-19',
                     'type'      => 'text',
                     'name'      => 'amount4',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount5',
+                    'label'     => 'Dec-19',
                     'type'      => 'text',
                     'name'      => 'amount5',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount6',
+                    'label'     => 'Mar-20',
                     'type'      => 'text',
                     'name'      => 'amount6',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount7',
+                    'label'     => 'Jun-20',
                     'type'      => 'text',
                     'name'      => 'amount7',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount8',
+                    'label'     => 'Sep-20',
                     'type'      => 'text',
                     'name'      => 'amount8',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Amount9',
+                    'label'     => 'Nov-20',
                     'type'      => 'text',
                     'name'      => 'amount9',
                     ]);
+
+            $this->crud->addField([
+                    'label'     => 'Status',
+                    'type'      => 'checkbox',
+                    'name'      => 'liquidity_status',
+                ]);
             
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportLiquidityButton', 'end');
             $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importLiquidityButton', 'end');

@@ -20,7 +20,7 @@ class Liquidity extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['quarter', 'amount1', 'amount2', 'amount3', 'amount4', 'amount5', 'amount6', 'amount7', 'amount8', 'amount9'];
+    protected $fillable = ['quarter', 'amount1', 'amount2', 'amount3', 'amount4', 'amount5', 'amount6', 'amount7', 'amount8', 'amount9', 'liquidity_status'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
