@@ -19,6 +19,9 @@
 	$list_net_worth_infusion = backpack_user()->hasPermissionTo('list_net_worth_infusion');
 	$list_liquidity = backpack_user()->hasPermissionTo('list_liquidity');
 
+	$list_current_deal_category = backpack_user()->hasPermissionTo('list_current_deal_category');
+	$list_current_deal = backpack_user()->hasPermissionTo('list_current_deal');
+
 
 	$list_email_sms = backpack_user()->hasPermissionTo('list_email_sms');
 	$list_lender = backpack_user()->hasPermissionTo('list_lender');
@@ -142,9 +145,17 @@
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liquidity') }}'><i class='nav-icon la la-list'></i> Liquidity</a></li>
 @php
 	endif;
-
-
-
+	if($list_current_deal_category):
+@endphp
+	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('currentdeal_category') }}'><i class='nav-icon la la-list'></i> Current Deal Category</a></li>
+@php
+	endif;
+	if($list_current_deal):
+@endphp
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('current_deal') }}'><i class='nav-icon la la-list'></i> Current Deal</a></li>
+@php
+	endif;
+	
 	if($list_lender || $list_lender_banking):
 @endphp
 <li class="nav-item nav-dropdown">
