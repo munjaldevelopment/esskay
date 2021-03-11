@@ -2143,12 +2143,12 @@ class HomeController extends Controller
 
 					$covidReliefDataTotal = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
 
-					$covidReliefDataTotal1[] = $row->april_emi + $row->may_emi;
+					$covidReliefDataTotal1[] = ($row->april_emi + $row->may_emi);
 				}
 			}
 
 			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = 0;
-			$covidData1 = $covidRelief1Data = \DB::table('covid_relief_borrowers')->where('covid_relief_borrower_status', 1)->get();
+			$covidRelief1Data = \DB::table('covid_relief_borrowers')->where('covid_relief_borrower_status', 1)->get();
 			
 		}
 

@@ -492,6 +492,7 @@
 								<td>{{ $count }}</td>
 								<td>{{ $row->bank_name }}</td>
 								<td>{{ $row->april_emi }}</td>
+								<td>{{ $row->may_emi }}</td>
 								<td>{{ $covidReliefDataTotal1[$k] }}</td>
 							</tr>
 								@php
