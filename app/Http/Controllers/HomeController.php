@@ -1554,6 +1554,9 @@ class HomeController extends Controller
 		$productConData = $productConTotalData = array();
 		$netWorthData = $netWorthData1 = $liquidityData = $liquidityDataTotal = array();
 
+		$covidReliefData = $covidReliefDataTotal = $covidReliefDataTotal1 = array();
+		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = array();
+
 		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = array();
 
 		if($request->category_id == 3)
@@ -2126,13 +2129,35 @@ class HomeController extends Controller
 			)
 			->display(0);
 		}
+		else if($request->category_id == 12)
+		{
+			$amount1 = $amount2 = $amount3 = 0;
+			$covidData = $covidReliefData = \DB::table('covid_relief_lenders')->where('covid_relief_lender_status', 1)->get();
+			if($covidData)
+			{
+				foreach($covidData as $row)
+				{
+					$amount1+= $row->april_emi;
+					$amount2+= $row->may_emi;
+					$amount3+= ($row->april_emi + $row->may_emi);
 
-		//dd($chart1);
+					$covidReliefDataTotal = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
 
-		//dd($geographicalConTotalData);
+					$covidReliefDataTotal1[] = $row->april_emi + $row->may_emi;
+				}
+			}
+
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = 0;
+			$covidData1 = $covidRelief1Data = \DB::table('covid_relief_borrowers')->where('covid_relief_borrower_status', 1)->get();
+			
+		}
+
 		
 		$current_year = date('Y');
-		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal]);
+		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
+
+			'covidReliefData' => $covidReliefData, 'covidReliefDataTotal' => $covidReliefDataTotal, 'covidReliefDataTotal1' => $covidReliefDataTotal1,
+			'covidRelief1Data' => $covidRelief1Data, 'covidRelief1DataTotal' => $covidRelief1DataTotal, 'covidRelief1DataTotal1' => $covidRelief1DataTotal1]);
 	}
 
 	

@@ -1980,15 +1980,10 @@
 	
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+p.tab-spacing {
+	color: #767676;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 19px 21px;
+    margin: 0;
+}

@@ -457,10 +457,103 @@
 						</tfoot>
 					</table>	
 
-					<p>
+					<p class="tab-spacing">
 						Note: <br />
 						1. Our mandate /threshold is to maintain minimum liquidity equivalent to 3 months disbursements (+) repayments (-) collections. <br />
 						2. Apart from the above we have undrawn sanctions amounting to Rs. 578 crores from different lenders.
+					</p>
+				</div>	
+			</div>
+		</div>
+	</div>
+@elseif($insightCatData->id == 12) 
+
+	<div class="white-box outstanding-box">
+		<div class="outstanding-table">
+			<h3>Detail of COVID relief from lenders</h3>
+			<div class="custom-table-area">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>S. No.</th>
+								<th>Name of the Bank / Institution</th>
+								<th>April EMI</th>
+								<th>May EMI</th>
+								<th>Total EMI</th>
+							</tr>
+						</thead>
+						<tbody>
+							@php
+								$count = 1;
+							@endphp
+							@foreach($covidReliefData as $k => $row)
+							<tr>
+								<td>{{ $count }}</td>
+								<td>{{ $row->bank_name }}</td>
+								<td>{{ $row->april_emi }}</td>
+								<td>{{ $covidReliefDataTotal1[$k] }}</td>
+							</tr>
+								@php
+									$count++;
+								@endphp
+							@endforeach
+						</tbody>
+
+						<tfoot>
+							<tr>
+								<td>&nbsp;</td>
+								<td>Total</td>
+								<td>{{ $covidReliefDataTotal['amount1'] }}</td>
+								<td>{{ $covidReliefDataTotal['amount2'] }}</td>
+								<td>{{ $covidReliefDataTotal['amount3'] }}</td>
+							</tr>
+						</tfoot>
+					</table>	
+
+					<p class="tab-spacing">
+						In reference to the moratorium from lenders Company had requested  moratorium 1 for EMIs  of April and May 2020 as debt servicing for March was already done. However, as on June 30, 2020 we repaid back all the EMI outflows saved pertaining to moratorium 1 phase except for Indusind Bank as they did not allow us to make repayment. Effectively for all practical purpose as we speak we have not availed moratorium from above lenders except Indusind Bank and the repayment schedule is now restated to the Originals levels for the remaining tenure.
+					</p>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+
+	<div class="white-box outstanding-box">
+		<div class="outstanding-table">
+			<h3>Detail of COVID relief to Borrowers</h3>
+			<div class="custom-table-area">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Particulars</th>
+								<th>Apr-20</th>
+								<th>May-20</th>
+								<th>Jun-20</th>
+								<th>Jul-20</th>
+								<th>Aug-20</th>
+								<th>Sep-20</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach($covidRelief1Data as $k => $row)
+							<tr>
+								<td>{{ $row->particulars }}</td>
+								<td>{{ $row->april_20 }}</td>
+								<td>{{ $row->may_20 }}</td>
+								<td>{{ $row->june_20 }}</td>
+								<td>{{ $row->july_20 }}</td>
+								<td>{{ $row->august_20 }}</td>
+								<td>{{ $row->sept_20 }}</td>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>	
+
+					<p class="tab-spacing">
+						with respect to the moratorium numbers would also like to highlight that we have also used this opportunity which in the normal course otherwise not available to borrowers wherein we extended moratorium to our overdue borrowers irrespective of the fact that they were paying EMI's in order to ensure that by the time moratorium is over they get rolled back to earlier bucket and start with the clean slate going forward when moratorium period is over.
 					</p>
 				</div>	
 			</div>
