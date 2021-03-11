@@ -1877,7 +1877,7 @@ class HomeController extends Controller
 				'series'        => ([
 					'dataLabels' => ([
 						'enabled' => 'true',
-						'format' => '{y}',
+						'format' => '{y}%',
 					]),
 				]),
 			])
@@ -1980,7 +1980,6 @@ class HomeController extends Controller
 				'series'        => ([
 					'dataLabels' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
 					]),
 				]),
 			])
@@ -1990,7 +1989,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Collection',
+						'name'  => 'Net worth (In Cr.)',
 						'data'  => $assetData1,
 					],
 				]
@@ -2026,7 +2025,6 @@ class HomeController extends Controller
 				'series'        => ([
 					'dataLabels' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
 					]),
 				]),
 			])
@@ -2036,7 +2034,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Collection',
+						'name'  => 'Debt / Net worth',
 						'data'  => $assetData2,
 					],
 				]

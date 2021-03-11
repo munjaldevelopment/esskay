@@ -861,6 +861,14 @@
     border-right: none !important;
 }
 
+.custom-table-area .table-responsive table.table tbody tr td {
+    border-right: 1px solid #E0E0E0 !important;
+}
+
+.custom-table-area .table-responsive table.table tbody tr td:nth-last-child(1) {
+    border-right: none !important;
+}
+
 .branches-map img {
     width: 100%;
 }
