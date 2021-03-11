@@ -50,6 +50,8 @@ Route::post('/document', 'HomeController@document');
 Route::post('/news', 'HomeController@news');
 Route::post('/contact_us', 'HomeController@contactUs');
 
+Route::post('/sanction-letter', 'HomeController@sanctionLetter');
+
 Route::get('/edit-password', 'HomeController@editPassword');
 Route::get('/send-user-otp', 'HomeController@sendUserOtp');
 Route::post('updatePassword', 'HomeController@updatePassword');

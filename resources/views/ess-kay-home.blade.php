@@ -77,6 +77,11 @@
 					<a class="nav-link doc-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0) active @endif" href="javascript:;">Document</a>
 				</li>
 				@endif
+				@if($lenderData->is_sanction_letter == 1)
+				<li class="nav-item">
+					<a class="nav-link sanction-letter-class @if($lenderData->is_message_md == 0) active @endif" href="javascript:;">Sanction Letter</a>
+				</li>
+				@endif
 				@if($lenderData->is_current_deal  == 1)
 				<li class="nav-item">
 				<a class="nav-link deal-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0 && $lenderData->is_document == 0) active @endif" href="javascript:;">Current Deal</a>
