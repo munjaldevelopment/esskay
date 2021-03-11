@@ -1541,9 +1541,9 @@ class HomeController extends Controller
 
 		$geographicalConData = $geographicalConTotalData = array();
 		$productConData = $productConTotalData = array();
-		$netWorthData = $netWorthData1 = array();
+		$netWorthData = $netWorthData1 = $liquidityData = $liquidityDataTotal = array();
 
-		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = array();
+		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = array();
 
 		if($request->category_id == 3)
 		{
@@ -2044,13 +2044,84 @@ class HomeController extends Controller
 			$netWorthData = \DB::table('net_worth_infusions')->where('net_worth_infusion_status', 1)->get();
 			$netWorthData1 = \DB::table('net_worth')->where('net_worth_status', 1)->get();
 		}
+		else if($request->category_id == 9)
+		{
+			$liquidityData1 = $asseliquidityData2 = array();
+
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
+			$assetConData1 = $liquidityData = \DB::table('liquidity')->where('liquidity_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$amount1+= $row->amount1;
+					$amount2+= $row->amount2;
+					$amount3+= $row->amount3;
+					$amount4+= $row->amount4;
+					$amount5+= $row->amount5;
+					$amount6+= $row->amount6;
+					$amount7+= $row->amount7;
+					$amount8+= $row->amount8;
+					$amount9+= $row->amount9;
+
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3, 'amount4' => $amount4, 'amount5' => $amount5, 'amount6' => $amount6, 'amount7' => $amount7, 'amount8' => $amount8, 'amount9' => $amount9);
+
+					$liquidityData1 = $liquidityDataTotal = array((float)round($amount1, 2), (float)round($amount2, 2), (float)round($amount3, 2), (float)round($amount4, 2), (float)round($amount5, 2), (float)round($amount6, 2), (float)round($amount7, 2), (float)round($amount8, 2), (float)round($amount9, 2));
+				}
+			}
+
+			$chart6 = \Chart::title([
+				'text' => 'Adequate Liquidity',
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'sixth_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF',
+			])
+			->xaxis([
+				'categories' => ['Dec-18', 'Mar-19', 'Jun-19', 'Sep-19', 'Dec-19', 'Mar-20', 'Jun-20', 'Sep-20', 'Nov-20'],
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'No.'
+				],
+			])
+			->legend([
+		        'align' => 'center',
+		        'verticalAlign' => 'top'
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+						'enabled' => 'true',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Adequate Liquidity',
+						'data'  => $liquidityData1,
+					],
+				]
+			)
+			->display(0);
+		}
 
 		//dd($chart1);
 
 		//dd($geographicalConTotalData);
 		
 		$current_year = date('Y');
-		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1]);
+		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal]);
 	}
 
 	

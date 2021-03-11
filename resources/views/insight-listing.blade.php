@@ -393,6 +393,79 @@
 			</div>
 		</div>
 	</div>
+@elseif($insightCatData->id == 9)
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			@if($chart6)
+				<div id="sixth_chart"></div>
+
+				{!! $chart6 !!}
+			@endif
+		</div>
+	</div>
+
+	<div class="white-box outstanding-box">
+		<div class="outstanding-table">
+			<h3>Quarter on Quarter Liquidity Position</h3>
+			<div class="custom-table-area">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th> Quarter on Quarter Liquidity (in crs.)</th>
+								<th>Dec-18</th>
+								<th>Mar-19</th>
+								<th>Jun-19</th>
+								<th>Sep-19</th>
+								<th>Dec-19</th>
+								<th>Mar-20</th>
+								<th>Jun-20</th>
+								<th>Sep-20</th>
+								<th>Nov-20</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach($liquidityData as $row)
+							<tr>
+								<td>{{ $row->quarter}}</td>
+								<td>{{ $row->amount1}}</td>
+								<td>{{ $row->amount2}}</td>
+								<td>{{ $row->amount3}}</td>
+								<td>{{ $row->amount4}}</td>
+								<td>{{ $row->amount5}}</td>
+								<td>{{ $row->amount6}}</td>
+								<td>{{ $row->amount7}}</td>
+								<td>{{ $row->amount8}}</td>
+								<td>{{ $row->amount9}}</td>
+							</tr>
+							@endforeach
+						</tbody>
+
+						<tfoot>
+							<tr>
+								<td>Total</td>
+								<td>{{ $liquidityDataTotal[0] }}</td>
+								<td>{{ $liquidityDataTotal[1] }}</td>
+								<td>{{ $liquidityDataTotal[2] }}</td>
+								<td>{{ $liquidityDataTotal[3] }}</td>
+								<td>{{ $liquidityDataTotal[4] }}</td>
+								<td>{{ $liquidityDataTotal[5] }}</td>
+								<td>{{ $liquidityDataTotal[6] }}</td>
+								<td>{{ $liquidityDataTotal[7] }}</td>
+								<td>{{ $liquidityDataTotal[8] }}</td>
+							</tr>
+						</tfoot>
+					</table>	
+
+					<p>
+						Note: <br />
+						1. Our mandate /threshold is to maintain minimum liquidity equivalent to 3 months disbursements (+) repayments (-) collections. <br />
+						2. Apart from the above we have undrawn sanctions amounting to Rs. 578 crores from different lenders.
+					</p>
+				</div>	
+			</div>
+		</div>
+	</div>
 @endif
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
 <script src="{{ asset('public/assets/') }}/js/owl.carousel.js"></script>

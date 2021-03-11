@@ -21,6 +21,8 @@
 
 	$list_current_deal_category = backpack_user()->hasPermissionTo('list_current_deal_category');
 	$list_current_deal = backpack_user()->hasPermissionTo('list_current_deal');
+	
+	$list_sanction_letter = backpack_user()->hasPermissionTo('list_sanction_letter');
 
 
 	$list_email_sms = backpack_user()->hasPermissionTo('list_email_sms');
@@ -158,16 +160,36 @@
 @endphp
 
 @php
-	if($list_current_deal_category):
+	if($list_current_deal_category || $list_current_deal):
 @endphp
-	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('currentdeal_category') }}'><i class='nav-icon la la-list'></i> Current Deal Category</a></li>
+<li class="nav-item nav-dropdown">
+	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Deal</a>
+	<ul class="nav-dropdown-items">
+	@php
+		if($list_current_deal_category):
+	@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('currentdeal_category') }}'><i class='nav-icon la la-list'></i> Current Deal Category</a></li>
+	@php
+		endif;
+		if($list_current_deal):
+	@endphp
+	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('current_deal') }}'><i class='nav-icon la la-list'></i> Current Deal</a></li>
+	@php
+		endif;
+	@endphp
+	</ul>
+</li>
 @php
 	endif;
-	if($list_current_deal):
+
+	if($list_sanction_letter):
 @endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('current_deal') }}'><i class='nav-icon la la-list'></i> Current Deal</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('sanction_letter') }}'><i class='nav-icon la la-list'></i> Sanction Letters</a></li>
 @php
 	endif;
+@endphp
+
+@php
 	
 	if($list_lender || $list_lender_banking):
 @endphp
