@@ -100,6 +100,25 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+	$('.deal-class').bind('click', function() {
+		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
+		$('.deal-class').addClass('active');
+		
+		$.ajax({
+			url: base_url+'deal',
+			type: 'post',
+			data: {_token: CSRF_TOKEN},
+			beforeSend: function() {
+				$('.preloader').show();
+			},
+			success: function(output) {
+				$('.preloader').hide();
+				$('.home-content').html(output);
+			}
+		});
+	});
 		
 	$('.doc-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');

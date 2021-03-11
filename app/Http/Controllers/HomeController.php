@@ -1526,6 +1526,17 @@ class HomeController extends Controller
 		return view('ess-kay-insight', ['parentCategoryData' => $parentCategoryData, 'lenderData' => $lenderData]);
 	}
 
+	public function deal()
+	{
+		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
+    	//dd($lenderData);
+    	$lender_id = $lenderData->id;
+
+		$sanctionData = \DB::table('sanction_letters')->where('status', '1')->where('approved_by1', '1')->where('approved_by2', '1')->where('approved_by3', '1')->first();
+		
+		return view('ess-kay-deal', ['sanctionData' => $sanctionData, 'lenderData' => $lenderData]);
+	}
+
 	public function sanctionLetter()
     {	
     	$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
