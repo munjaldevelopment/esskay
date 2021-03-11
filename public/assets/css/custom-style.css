@@ -58,7 +58,7 @@
     box-shadow: -3px 6px 17px rgb(0 0 0 / 6%);
 }
 .mtd-inner-box.mtd-doc-main .mtd-inner {
-	min-height: 100vh;
+	min-height: 180vh;
 }
 /*slide menu css*/
 .side-menu {
@@ -731,6 +731,12 @@
     border: none;
     font-size: 13px;
     font-weight: 500;
+}
+
+.tab-top-area .nav .nav-item .dropdown .btn.btn-primary.dropdown-toggle.active {
+	background: #1976D2;
+	color: #fff;
+	position: relative;
 }
 
 .tab-top-area .nav .nav-item .dropdown .btn.btn-primary.dropdown-toggle:focus {
