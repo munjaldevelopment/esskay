@@ -58,7 +58,7 @@
     box-shadow: -3px 6px 17px rgb(0 0 0 / 6%);
 }
 .mtd-inner-box.mtd-doc-main .mtd-inner {
-	min-height: 180vh;
+	min-height: 130vh;
 }
 /*slide menu css*/
 .side-menu {
@@ -88,7 +88,7 @@
 	border-bottom: none;
 }
 .side-menu .navbar-nav li a {
-	padding: 15px;
+	padding: 10px 15px;
 	color: #8C8C8C;
 	margin-left: 24px;
 	width: calc(100% - 24px);
