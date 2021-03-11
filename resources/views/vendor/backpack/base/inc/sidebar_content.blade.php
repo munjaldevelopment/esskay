@@ -24,6 +24,9 @@
 	
 	$list_sanction_letter = backpack_user()->hasPermissionTo('list_sanction_letter');
 
+	$list_covid_relief = backpack_user()->hasPermissionTo('list_covid_relief');
+	$list_covid_relief_borrower = backpack_user()->hasPermissionTo('list_covid_relief_borrower');
+
 
 	$list_email_sms = backpack_user()->hasPermissionTo('list_email_sms');
 	$list_lender = backpack_user()->hasPermissionTo('list_lender');
@@ -185,6 +188,19 @@
 	if($list_sanction_letter):
 @endphp
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('sanction_letter') }}'><i class='nav-icon la la-list'></i> Sanction Letters</a></li>
+@php
+	endif;
+
+	if($list_covid_relief):
+@endphp
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_lender') }}'><i class='nav-icon la la-list'></i> Covid Relief Lenders</a></li>
+@php
+	endif;
+
+	if($list_covid_relief_borrower):
+@endphp
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_borrower') }}'><i class='nav-icon la la-list'></i> Covid Relief
+ Borrowers</a></li>
 @php
 	endif;
 @endphp
