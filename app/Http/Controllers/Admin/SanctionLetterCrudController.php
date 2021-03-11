@@ -258,4 +258,54 @@ class SanctionLetterCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
+
+    public function store()
+    {
+        $this->crud->setRequest($this->crud->validateRequest());
+        $this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
+        $this->crud->unsetValidation(); // validation has already been run
+
+        $result = $this->traitSanctionLetterStore();
+
+        $sms_status = config('general.sms_status');
+                
+        if($sms_status)
+        {
+            $message = str_replace(" ", "%20", "Dear, Saction Letter has been created. ");
+            $lender_phone = "9462045321";
+
+            $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
+            $smsresult = $this->getContent($request_url);
+            if($smsresult['errno'] == 0){
+                \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }
+        }
+
+        return $result;
+    }
+
+    public function update()
+    {
+        $user_logged_id = \Auth::user()->id;
+        $this->crud->setRequest($this->crud->validateRequest());
+        $this->crud->unsetValidation(); // validation has already been run
+
+        $result = $this->traitSanctionLetterUpdate();
+
+        $sms_status = config('general.sms_status');
+                
+        if($sms_status)
+        {
+            $message = str_replace(" ", "%20", "Dear, Saction Letter has been updated. ");
+            $lender_phone = "9462045321";
+
+            $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
+            $smsresult = $this->getContent($request_url);
+            if($smsresult['errno'] == 0){
+                \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }
+        }
+        
+        return $result;
+    }
 }
