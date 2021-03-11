@@ -50,7 +50,17 @@ class GeographicalConcentrationSheetImport implements ToCollection, WithValidati
 		foreach($rows as $row)
 		{
 			$geographical_diversification = $row['geographical_diversification'];
-			$docp = $row['docp'];
+
+			if($row['docp'] > 0)
+			{
+				$UNIX_DATE = ($row['docp'] - 25569) * 86400;
+				$docp = gmdate("M-Y", $UNIX_DATE);
+			}
+			else 
+			{
+				$docp = $row['docp'];
+			}
+			
 			$mar_16_amount = $row['mar_16_amount'];
 			$mar_16_amount_percent = $row['mar_16_amount_percent'];
 			$mar_17_amount = $row['mar_17_amount'];
