@@ -6,7 +6,7 @@
 .tab-top-area .nav .nav-item {
 	margin-bottom: 0;
 }
-.tab-top-area .nav .nav-item .nav-link.active, .tab-top-area .nav .nav-item .dropdown.active {
+.tab-top-area .nav .nav-item .nav-link.active, .tab-top-area .nav .nav-item .dropdown .nav-link.active {
 	background: #1976D2;
 	color: #fff;
 	border: none;
