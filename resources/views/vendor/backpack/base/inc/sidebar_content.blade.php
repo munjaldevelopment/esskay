@@ -104,47 +104,60 @@
 @php
 	endif;
 
-	if($list_operational_highlight):
+	if($list_operational_highlight || $list_geographical_concentration || $list_product_concentration || $list_asset_quality || $list_collection_efficiency):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('operational_highlight') }}'><i class='nav-icon la la-list'></i> Operational Highlight</a></li>
+<li class="nav-item nav-dropdown">
+	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Insight</a>
+	<ul class="nav-dropdown-items">
+		@php
+		if($list_operational_highlight):
+		@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('operational_highlight') }}'><i class='nav-icon la la-list'></i> Operational Highlight</a></li>
+		@php
+			endif;
+			if($list_geographical_concentration):
+		@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('geographical_concentration') }}'><i class='nav-icon la la-list'></i> Graphical Con.</a></li>
+		@php
+			endif;
+			if($list_product_concentration):
+		@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('product_concentration') }}'><i class='nav-icon la la-list'></i> Product Con.</a></li>
+		@php
+			endif;
+			if($list_asset_quality):
+		@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('asset_quality') }}'><i class='nav-icon la la-list'></i> Asset Quality</a></li>
+		@php
+			endif;
+			if($list_collection_efficiency):
+		@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('collection_efficiency') }}'><i class='nav-icon la la-list'></i> Collection Efficiency</a></li>
+		@php
+			endif;
+			if($list_net_worth):
+		@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('net_worth') }}'><i class='nav-icon la la-list'></i> Net Worth</a></li>
+		@php
+			endif;
+			if($list_net_worth_infusion):
+		@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('networth_infusion') }}'><i class='nav-icon la la-list'></i> Net Worth Infusions</a></li>
+		@php
+			endif;
+			if($list_liquidity):
+	@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liquidity') }}'><i class='nav-icon la la-list'></i> Liquidity</a></li>
+	@php
+			endif;
+		@endphp
+	</ul>
+</li>
 @php
 	endif;
-	if($list_geographical_concentration):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('geographical_concentration') }}'><i class='nav-icon la la-list'></i> Graphical Con.</a></li>
+
 @php
-	endif;
-	if($list_product_concentration):
-@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('product_concentration') }}'><i class='nav-icon la la-list'></i> Product Con.</a></li>
-@php
-	endif;
-	if($list_asset_quality):
-@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('asset_quality') }}'><i class='nav-icon la la-list'></i> Asset Quality</a></li>
-@php
-	endif;
-	if($list_collection_efficiency):
-@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('collection_efficiency') }}'><i class='nav-icon la la-list'></i> Collection Efficiency</a></li>
-@php
-	endif;
-	if($list_net_worth):
-@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('net_worth') }}'><i class='nav-icon la la-list'></i> Net Worth</a></li>
-@php
-	endif;
-	if($list_net_worth_infusion):
-@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('networth_infusion') }}'><i class='nav-icon la la-list'></i> Net Worth Infusions</a></li>
-@php
-	endif;
-	
-	if($list_liquidity):
-@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liquidity') }}'><i class='nav-icon la la-list'></i> Liquidity</a></li>
-@php
-	endif;
 	if($list_current_deal_category):
 @endphp
 	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('currentdeal_category') }}'><i class='nav-icon la la-list'></i> Current Deal Category</a></li>

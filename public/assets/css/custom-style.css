@@ -212,6 +212,7 @@
 .side-menu #dropdown .panel-body ul.nav.navbar-nav li a {
 	margin-left: 55px;
 	width: calc(100% - 54px);
+	font-size: 15px;
 }
 .mtd-breadcrumb ul.breadcrumb li+li:before {
 	content: "";
