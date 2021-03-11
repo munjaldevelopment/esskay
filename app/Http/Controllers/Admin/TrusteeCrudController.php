@@ -221,6 +221,14 @@ class TrusteeCrudController extends CrudController
                                 'options' => ['0' => 'No', '1' => 'Yes'],
                                 'tab' => 'Roles'
                             ]);
+
+        $this->crud->addField([
+                                'name' => 'is_sanction_letter',
+                                'label' => 'Show Sanction Letter',
+                                'type' => 'select2_from_array',
+                                'options' => ['0' => 'No', '1' => 'Yes'],
+                                'tab' => 'Roles'
+                            ]);
     }
     
     protected function updateTrusteeFields()
@@ -338,6 +346,14 @@ class TrusteeCrudController extends CrudController
         $this->crud->addField([
                                 'name' => 'is_contact_us',
                                 'label' => 'Show Contact Us',
+                                'type' => 'select2_from_array',
+                                'options' => ['0' => 'No', '1' => 'Yes'],
+                                'tab' => 'Roles'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'is_sanction_letter',
+                                'label' => 'Show Sanction Letter',
                                 'type' => 'select2_from_array',
                                 'options' => ['0' => 'No', '1' => 'Yes'],
                                 'tab' => 'Roles'

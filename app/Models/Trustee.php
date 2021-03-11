@@ -21,7 +21,7 @@ class Trustee extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
     
-    protected $fillable = ['name', 'email','phone', 'password',  'user_id', 'is_transaction', 'is_message_md', 'is_insight', 'is_current_deal', 'is_document', 'is_financial_summary', 'is_newsletter', 'is_contact_us', 'is_onboard']; //
+    protected $fillable = ['name', 'email','phone', 'password',  'user_id', 'is_transaction', 'is_message_md', 'is_insight', 'is_current_deal', 'is_document', 'is_financial_summary', 'is_newsletter', 'is_contact_us', 'is_sanction_letter', 'is_onboard']; //
     // protected $hidden = [];
     // protected $dates = [];
 
