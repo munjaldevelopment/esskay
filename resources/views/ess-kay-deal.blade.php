@@ -10,13 +10,13 @@
 								<div class="row">
 									<div class="col-md-6 col-sm-12">
 										<div class="deal-summary-inner">
-											<div class="dsi-summary-amount">1.5K <span>cr(s)</span></div>
+											<div class="dsi-summary-amount">{{ $dealTotalData->total_amount }} <span>cr(s)</span></div>
 											<div class="dsi-summary-pera">Amount to be raised</div>
 										</div>
 									</div>
 									<div class="col-md-6 col-sm-12">
 										<div class="deal-summary-inner">
-											<div class="dsi-summary-amount">10</div>
+											<div class="dsi-summary-amount">{{ $dealTotalData->total }}</div>
 											<div class="dsi-summary-pera">Live Deals</div>
 										</div>
 									</div>
@@ -29,27 +29,27 @@
 								<div class="dfh-filter-left">
 									<ul>
 										<li>
-											<a href=""><img src="images/live-deal.svg" alt=""> LIVE DEALS</a>
+											<a href=""><img src="{{ asset('public/assets/') }}/images/live-deal.svg" alt=""> LIVE DEALS</a>
 										</li>
 									</ul>
 								</div>
 								
 								<div class="dfh-filter-right">
 									<div class="dfh-right-count">Showing 1 -10 <span>of 10</span></div>										
-									<div class="dfh-right-filter"><img src="images/filter-icon.svg" alt=""> Filter</div>										
+									<div class="dfh-right-filter"><img src="{{ asset('public/assets/') }}/images/filter-icon.svg" alt=""> Filter</div>										
 								</div>									
 							</div>
 							<div class="deal-filter-by">
 								<div class="deal-filter-left">
 									<div class="dfl-filter-text">
-										<img src="images/filter-icon.svg" alt="">Filter by
+										<img src="{{ asset('public/assets/') }}/images/filter-icon.svg" alt="">Filter by
 									</div>
 									<div class="row">
 										<div class="col-md-4 col-sm-12">
 											<div class="dfl-filter-box">
 												<div class="dfl-filter-search">
 													<input type="text" class="form-control" placeholder="Client/Deal Name">
-													<button type="button" class="dflfs-search-btn"><img src="images/search-icon.svg" alt=""></button>
+													<button type="button" class="dflfs-search-btn"><img src="{{ asset('public/assets/') }}/images/search-icon.svg" alt=""></button>
 												</div>
 											</div>
 										</div>
@@ -86,7 +86,7 @@
 								
 								<div class="deal-filter-right">
 									<div class="deal-filter-right-sort">
-										<img src="images/sort-icon.svg" alt=""> Sort by
+										<img src="{{ asset('public/assets/') }}/images/sort-icon.svg" alt=""> Sort by
 									</div>
 									<div class="custom-dropi">
 										<select>
@@ -107,17 +107,17 @@
 								<div class="deal-wall-left">
 									<ul>
 										<li class="active"><a href="">ALL</a></li>
-										<li><a href="">PTC</a></li>
-										<li><a href="">NCD</a></li>
-										<li><a href="">DA</a></li>
+										@foreach($dealCategoriesData as $row)
+										<li><a href="javascript:;">{{ $row->category_name }}</a></li>
+										@endforeach
 									</ul>
 								</div>
 								<div class="btn-group">
 									<a href="#" id="grid" class="btn btn-default btn-sm">
-										<img src="images/grid-active-icon.svg" class="deal-list-none" alt="">
+										<img src="{{ asset('public/assets/') }}/images/grid-active-icon.svg" class="deal-list-none" alt="">
 									</a>
 									<a href="current-deal-list.html" id="list" class="btn btn-default btn-sm">
-										<img src="images/list-icon.svg" class="deal-list-none" alt="">
+										<img src="{{ asset('public/assets/') }}/images/list-icon.svg" class="deal-list-none" alt="">
 									</a> 
 								</div>
 							</div>
