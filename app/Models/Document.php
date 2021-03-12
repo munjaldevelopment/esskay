@@ -44,9 +44,14 @@ class Document extends Model
         return $this->belongsTo('App\Models\Lender', 'lender_id');
     }
 
-     public function lenders()
+    public function lenders()
     {
         return $this->belongsToMany('App\Models\Lender', 'document_lender');
+    }
+
+    public function trustees()
+    {
+        return $this->belongsToMany('App\Models\Trustee', 'document_trustee');
     }
     /*
     |--------------------------------------------------------------------------

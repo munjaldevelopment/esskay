@@ -3647,6 +3647,489 @@ class HomeController extends Controller
 		Setting::assignSetting();
 		
 		return view('ess-kay-contact-trustee', ['customer_name' => $customer_name, 'page_title' => $pageInfo->title, 'page_content' => $pageInfo->content]);
+	}
+
+	public function documentTrustee()
+    {	
+    	$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
+    	//dd($trusteeData);
+    	$trustee_id = $trusteeData->id;
+
+		$parentData = \DB::table('document_category')->leftJoin('document_category_trustee', 'document_category.id', '=', 'document_category_trustee.document_category_id')->where('document_category_trustee.trustee_id',$trustee_id)->whereNull('document_category.parent_id')->orderBy('document_category.lft', 'ASC')->get();
+		//dd($parentData); 
+		$parentCategoryData = $childCategoryData = $childChildCategoryData = array();
 		
+		if($parentData)
+		{
+			foreach($parentData as $parentRow)
+			{
+				$parentCategoryData[$parentRow->id] = array('name' => $parentRow->name, 'image' => url('/')."/".$parentRow->category_image);
+				
+				//$childData = \DB::table('document_category')->where('parent_id', $parentRow->id)->orderBy('lft', 'ASC')->get();
+				$childData = \DB::table('document_category')->leftJoin('document_category_trustee', 'document_category.id', '=', 'document_category_trustee.document_category_id')->where('document_category_trustee.trustee_id',$trustee_id)->where('document_category.parent_id', $parentRow->id)->orderBy('document_category.lft', 'ASC')->get();
+				if($childData)
+				{
+					foreach($childData as $childRow)
+					{
+						$childCategoryData[$parentRow->id][$childRow->id] = array('name' => $childRow->name, 'image' => url('/')."/".$childRow->category_image);
+					}
+				}
+			}
+		}
+		
+		//echo "<pre> Parent"; print_r($parentCategoryData); 
+		//echo "child"; print_r($childCategoryData);
+		
+		
+		$document_date = array();
+		for($count=date('Y');$count>=2015;$count--)
+		{
+			$document_date[$count] = $count;
+		}
+		
+		session ( [
+			'esskay_doc_date' => date('Y')
+		] );
+
+		$current_year = date('Y');
+		
+		return view('ess-kay-document-trustee', ['documentDateData' => $document_date, 'parentCategoryData' => $parentCategoryData, 'childCategoryData' => $childCategoryData, 'childChildCategoryData' => $childChildCategoryData, 'trusteeData' => $trusteeData, 'current_year' => $current_year]);
+	}
+
+	public function showDocTrustee(Request $request)
+    {
+		//dd($request->all());
+		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
+    	//dd($trusteeData);
+    	$trustee_id = $trusteeData->id;
+    	
+		$parentData = \DB::table('document_category')->where('id', '=', $request->category_id)->first();
+		$is_timeline = 0;
+		if($parentData)
+		{
+			$is_timeline = $parentData->is_timeline;
+		}
+		
+		//echo $request->document_date;
+		
+		if($is_timeline)
+		{
+			$docData = \DB::table('documents')->leftJoin('document_trustee', 'documents.id', '=', 'document_trustee.document_id')->where('document_trustee.trustee_id',$trustee_id)->where('documents.document_category_id', '=', $request->category_id)->orWhere('documents.document_sub_category_id', '=', $request->category_id)->groupBy('document_trustee.document_id')->get();
+		}
+		else
+		{
+			$docData = \DB::table('documents')->leftJoin('document_trustee', 'documents.id', '=', 'document_trustee.document_id')->where('document_trustee.trustee_id',$trustee_id)->where('documents.document_category_id', '=', $request->category_id)->orWhere('documents.document_sub_category_id', '=', $request->category_id)->groupBy('document_trustee.document_id')->get();
+		}
+		
+		//dd($docData);
+		
+		$docArr = array();
+		foreach($docData as $doc)
+		{
+			if($is_timeline)
+			{
+				if($doc->document_date == $request->document_date)
+				{
+					if($doc->document_status == 1){
+						$ext = pathinfo($doc->document_filename, PATHINFO_EXTENSION);
+						$ext = strtolower($ext);
+						if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+						{
+							$ext = "picture";
+						}
+						else if($ext == "xls" || $ext == "xlsx")
+						{
+							$ext = "excel";
+						}
+						else if($ext == "doc" || $ext == "docx")
+						{
+							$ext = "word";
+						}
+						
+						$doc_download = \DB::table('user_document')->where('document_id', '=', $doc->id)->where('user_id', '=', session()->get('esskay_user_id'))->count();
+						$docArr[] = array('id' => $doc->id, 'category_id' => $doc->document_category_id, 'sub_category_id' => $doc->document_sub_category_id, 'document_heading' => $doc->document_heading, 'document_filename' => $doc->document_filename, 'ext' => $ext, 'document_name' => $doc->document_name, 'expiry_date' => $doc->expiry_date, 'doc_download' => $doc_download);
+					}else{
+						$docr = \DB::table('document_revisions')->where('document_id', '=', $doc->id)->where('document_status', 1)->orderBy('id', 'DESC')->first();
+
+
+						if($docr){
+							$ext = pathinfo($docr->document_filename, PATHINFO_EXTENSION);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+							
+							$doc_download = \DB::table('user_document')->where('document_id', '=', $docr->document_id)->where('user_id', '=', session()->get('esskay_user_id'))->count();
+							$docArr[] = array('id' => $docr->document_id, 'category_id' => $doc->document_category_id, 'sub_category_id' => $doc->document_sub_category_id, 'document_heading' => $docr->document_heading, 'document_filename' => $docr->document_filename, 'ext' => $ext, 'document_name' => $docr->document_name, 'expiry_date' => $docr->expiry_date, 'doc_download' => $doc_download);
+						}
+
+
+					}
+				}
+			}
+			else
+			{
+				if($doc->document_status == 1){
+					$ext = pathinfo($doc->document_filename, PATHINFO_EXTENSION);
+					$ext = strtolower($ext);
+					if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+					{
+						$ext = "picture";
+					}
+					else if($ext == "xls" || $ext == "xlsx")
+					{
+						$ext = "excel";
+					}
+					else if($ext == "doc" || $ext == "docx")
+					{
+						$ext = "word";
+					}
+					
+					$doc_download = \DB::table('user_document')->where('document_id', '=', $doc->id)->where('user_id', '=', session()->get('esskay_user_id'))->count();
+					$docArr[] = array('id' => $doc->id, 'category_id' => $doc->document_category_id, 'sub_category_id' => $doc->document_sub_category_id, 'document_heading' => $doc->document_heading, 'document_filename' => $doc->document_filename, 'ext' => $ext, 'document_name' => $doc->document_name, 'expiry_date' => $doc->expiry_date, 'doc_download' => $doc_download);
+				}else{
+					$docr = \DB::table('document_revisions')->where('document_id', '=', $doc->id)->where('document_status', 1)->orderBy('id', 'DESC')->first();
+
+
+					if($docr){
+						$ext = pathinfo($docr->document_filename, PATHINFO_EXTENSION);
+						if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+						{
+							$ext = "picture";
+						}
+						else if($ext == "xls" || $ext == "xlsx")
+						{
+							$ext = "excel";
+						}
+						else if($ext == "doc" || $ext == "docx")
+						{
+							$ext = "word";
+						}
+						
+						$doc_download = \DB::table('user_document')->where('document_id', '=', $docr->document_id)->where('user_id', '=', session()->get('esskay_user_id'))->count();
+						$docArr[] = array('id' => $docr->document_id, 'category_id' => $doc->document_category_id, 'sub_category_id' => $doc->document_sub_category_id, 'document_heading' => $docr->document_heading, 'document_filename' => $docr->document_filename, 'ext' => $ext, 'document_name' => $docr->document_name, 'expiry_date' => $docr->expiry_date, 'doc_download' => $doc_download);
+					}
+
+
+				}
+			}
+			//
+		}
+		
+		$document_date = array();
+		for($count=date('Y');$count>=2015;$count--)
+		{
+			$document_date[$count] = $count;
+		}
+		
+		$docCategoryData = \DB::table('document_category')->where('id', '=', $request->category_id)->first();
+		
+		if($docCategoryData->parent_id != null)
+		{
+			$docCategoryData1 = \DB::table('document_category')->where('id', '=', $docCategoryData->parent_id)->first();
+			
+			$docCategoryData2 = \DB::table('document_category')->where('id', '=', $docCategoryData1->parent_id)->first();
+			
+			$cat_name = '';
+			if($docCategoryData2)
+			{
+				$cat_name .= '<li><a href="#">'.$docCategoryData2->name . ' </a></li> ';
+			}
+			
+			$cat_name = '<li><a href="#">'.$docCategoryData1->name . ' </a></li><li> ' . $docCategoryData->name.'</li>';
+			
+			$is_timeline = $docCategoryData->is_timeline;
+			$category_name = $docCategoryData->name;
+		}
+		else
+		{
+			$cat_name = '<li>'.$docCategoryData->name.'</li>';
+			
+			$is_timeline = $docCategoryData->is_timeline;
+			$category_name = $docCategoryData->name;
+		}
+		
+		//dd($docArr);
+		$subCategoryArr = array();
+		$docSubCategoryData = \DB::table('document_category')->where('parent_id', '=', $request->category_id)->get();
+		if($docSubCategoryData)
+		{
+			foreach($docSubCategoryData as $docSubCategoryRow)
+			{
+				$subCategoryArr[] = array('id' => $docSubCategoryRow->id, 'name' => $docSubCategoryRow->name);
+			}
+		}
+		
+		$current_year = date('Y');
+		return view('document-file-trustee', ['documentDateData' => $document_date, 'docu_date' => $request->document_date, 'cat_name' => $cat_name, 'category_name' => $category_name, 'subCategory' => $subCategoryArr, 'is_timeline' => $is_timeline, 'docData' => $docArr, 'esskay_doc_date' => session()->get('esskay_doc_date'), 'current_year' => $current_year]);
+	}
+
+	public function showChildDocTrustee(Request $request)
+    {
+		//dd($request->all());
+		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
+    	//dd($trusteeData);
+    	$trustee_id = $trusteeData->id;
+		
+		$parentData = \DB::table('document_category')->where('id', '=', $request->category_id)->first();
+		$is_timeline = 0;
+		if($parentData)
+		{
+			$is_timeline = $parentData->is_timeline;
+		}
+		
+		//echo $request->document_date;
+		
+		if($is_timeline)
+		{
+			$docData = \DB::table('documents')->leftJoin('document_trustee', 'documents.id', '=', 'document_trustee.document_id')->where('document_trustee.trustee_id',$trustee_id)->where('documents.document_sub_category_id', '=', $request->category_id)->groupBy('document_trustee.document_id')->get();
+		}
+		else
+		{
+			$docData = \DB::table('documents')->leftJoin('document_trustee', 'documents.id', '=', 'document_trustee.document_id')->where('document_trustee.trustee_id',$trustee_id)->where('documents.document_sub_category_id', '=', $request->category_id)->groupBy('document_trustee.document_id')->get();
+		}
+		
+		//dd($docData);
+		
+		$docArr = array();
+		foreach($docData as $doc)
+		{
+			if($is_timeline)
+			{
+				if($doc->document_date == $request->document_date)
+				{
+					if($doc->document_status == 1){
+						$ext = pathinfo($doc->document_filename, PATHINFO_EXTENSION);
+						$ext = strtolower($ext);
+						if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+						{
+							$ext = "picture";
+						}
+						else if($ext == "xls" || $ext == "xlsx")
+						{
+							$ext = "excel";
+						}
+						else if($ext == "doc" || $ext == "docx")
+						{
+							$ext = "word";
+						}
+						
+						$doc_download = \DB::table('user_document')->where('document_id', '=', $doc->id)->where('user_id', '=', session()->get('esskay_user_id'))->count();
+						$docArr[] = array('id' => $doc->id, 'category_id' => $doc->document_category_id, 'sub_category_id' => $doc->document_sub_category_id, 'document_heading' => $doc->document_heading, 'document_filename' => $doc->document_filename, 'ext' => $ext, 'document_name' => $doc->document_name, 'expiry_date' => $doc->expiry_date, 'doc_download' => $doc_download);
+					}else{
+						$docr = \DB::table('document_revisions')->where('document_id', '=', $doc->id)->where('document_status', 1)->orderBy('id', 'DESC')->first();
+
+
+						if($docr){
+							$ext = pathinfo($docr->document_filename, PATHINFO_EXTENSION);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+							
+							$doc_download = \DB::table('user_document')->where('document_id', '=', $docr->document_id)->where('user_id', '=', session()->get('esskay_user_id'))->count();
+							$docArr[] = array('id' => $docr->document_id, 'category_id' => $doc->document_category_id, 'sub_category_id' => $doc->document_sub_category_id, 'document_heading' => $docr->document_heading, 'document_filename' => $docr->document_filename, 'ext' => $ext, 'document_name' => $docr->document_name, 'expiry_date' => $docr->expiry_date, 'doc_download' => $doc_download);
+						}
+
+
+					}
+				}
+			}
+			else
+			{
+				if($doc->document_status == 1){
+					$ext = pathinfo($doc->document_filename, PATHINFO_EXTENSION);
+					$ext = strtolower($ext);
+					if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+					{
+						$ext = "picture";
+					}
+					else if($ext == "xls" || $ext == "xlsx")
+					{
+						$ext = "excel";
+					}
+					else if($ext == "doc" || $ext == "docx")
+					{
+						$ext = "word";
+					}
+					
+					$doc_download = \DB::table('user_document')->where('document_id', '=', $doc->id)->where('user_id', '=', session()->get('esskay_user_id'))->count();
+					$docArr[] = array('id' => $doc->id, 'category_id' => $doc->document_category_id, 'sub_category_id' => $doc->document_sub_category_id, 'document_heading' => $doc->document_heading, 'document_filename' => $doc->document_filename, 'ext' => $ext, 'document_name' => $doc->document_name, 'expiry_date' => $doc->expiry_date, 'doc_download' => $doc_download);
+				}else{
+					$docr = \DB::table('document_revisions')->where('document_id', '=', $doc->id)->where('document_status', 1)->orderBy('id', 'DESC')->first();
+
+
+					if($docr){
+						$ext = pathinfo($docr->document_filename, PATHINFO_EXTENSION);
+						if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+						{
+							$ext = "picture";
+						}
+						else if($ext == "xls" || $ext == "xlsx")
+						{
+							$ext = "excel";
+						}
+						else if($ext == "doc" || $ext == "docx")
+						{
+							$ext = "word";
+						}
+						
+						$doc_download = \DB::table('user_document')->where('document_id', '=', $docr->document_id)->where('user_id', '=', session()->get('esskay_user_id'))->count();
+						$docArr[] = array('id' => $docr->document_id, 'category_id' => $doc->document_category_id, 'sub_category_id' => $doc->document_sub_category_id, 'document_heading' => $docr->document_heading, 'document_filename' => $docr->document_filename, 'ext' => $ext, 'document_name' => $docr->document_name, 'expiry_date' => $docr->expiry_date, 'doc_download' => $doc_download);
+					}
+
+
+				}
+			}
+			//
+		}
+		
+		$document_date = array();
+		for($count=date('Y');$count>=2015;$count--)
+		{
+			$document_date[$count] = $count;
+		}
+		
+		$docCategoryData = \DB::table('document_category')->where('id', '=', $request->category_id)->first();
+
+		$category_name = $docCategoryData->name;
+		
+		if($docCategoryData->parent_id != null)
+		{
+			$docCategoryData1 = \DB::table('document_category')->where('id', '=', $docCategoryData->parent_id)->first();
+			
+			$docCategoryData2 = \DB::table('document_category')->where('id', '=', $docCategoryData1->parent_id)->first();
+			
+			$cat_name = '';
+			if($docCategoryData2)
+			{
+				$cat_name .= '<li><a href="#">'.$docCategoryData2->name . ' </a></li> ';
+			}
+			
+			$cat_name = '<li><a href="#">'.$docCategoryData1->name . ' </a></li><li> ' . $docCategoryData->name.'</li>';
+			
+			$is_timeline = $docCategoryData->is_timeline;
+			
+		}
+		else
+		{
+			$cat_name = '<li>'.$docCategoryData->name.'</li>';
+			
+			$is_timeline = $docCategoryData->is_timeline;
+		}
+		
+		//dd($docArr);
+		$subCategoryArr = array();
+		$docSubCategoryData = \DB::table('document_category')->where('parent_id', '=', $request->category_id)->get();
+		if($docSubCategoryData)
+		{
+			foreach($docSubCategoryData as $docSubCategoryRow)
+			{
+				$subCategoryArr[] = array('id' => $docSubCategoryRow->id, 'name' => $docSubCategoryRow->name);
+			}
+		}
+		
+		return view('document-child-file-trustee', ['documentDateData' => $document_date, 'docu_date' => $request->document_date, 'cat_name' => $cat_name, 'category_name' => $category_name, 'subCategory' => $subCategoryArr, 'category_id' => $request->category_id, 'is_timeline' => $is_timeline, 'docData' => $docArr, 'esskay_doc_date' => session()->get('esskay_doc_date')]);
+	}
+
+	public function previewDocTrustee($doc_id)
+    {
+    	$customer_name = session()->get('esskay_trustee_verify');
+
+		if(!$customer_name)
+		{
+			return redirect(url('/').'/login');
+		}
+		else
+		{
+			// Download file
+			$doc_id = base64_decode($doc_id);
+			$docData  = \DB::table('documents')->where('id', '=', $doc_id)->first();
+
+			
+			if($docData)
+			{
+				$file = asset('/'). $docData->document_filename;
+				
+				header('location:'.$file);
+			}
+		}
+	}
+	
+	public function downloadFileTrustee($doc_id)
+    {	
+    	// Download file
+    	$customer_name = session()->get('esskay_trustee_verify');
+		
+		if(!$customer_name)
+		{
+			return redirect(url('/').'/login');
+		}
+		else
+		{
+			$docData  = \DB::table('articles')->where('id', '=', $doc_id)->first();
+			
+			$file= public_path(). "/".$docData->article_pdf;
+			
+			/*$headers = array(
+					  'Content-Type: application/pdf',
+					);*/
+					
+			$article_pdf = explode("/", $docData->article_pdf);
+			$doc = array_pop($article_pdf);
+
+			\DB::table('user_pdf')->insert(['user_id' => session()->get('esskay_trustee_user_id'), 'article_id' => $doc_id, 'download_date' => date('Y-m-d H:i:s'), 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+			
+			return response()->download($file, $doc);
+		}
+	}
+
+	public function downloadDocTrustee($doc_id)
+    {
+    	// Download file
+    	$customer_name = session()->get('esskay_trustee_verify');
+		
+		if(!$customer_name)
+		{
+			return redirect(url('/').'/login');
+		}
+		else
+		{
+			// Download file
+			$doc_id = base64_decode($doc_id);
+			$docData  = \DB::table('documents')->where('id', '=', $doc_id)->first();
+			
+			if($docData)
+			{
+				$file= public_path(). "/".$docData->document_filename;
+				
+				/*$headers = array(
+						  'Content-Type: application/pdf',
+						);*/
+						
+				$document_filename = explode("/", $docData->document_filename);
+				$doc = array_pop($document_filename);
+
+				\DB::table('user_document')->insert(['user_id' => session()->get('esskay_trustee_user_id'), 'document_id' => $doc_id, 'download_date' => date('Y-m-d H:i:s'), 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+				
+				return response()->download($file, $doc);
+			}
+		}
 	}
 }

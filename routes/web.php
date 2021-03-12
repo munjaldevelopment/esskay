@@ -76,6 +76,14 @@ Route::post('/dealListTrustee', 'HomeController@dealListTrustee');
 Route::post('/newsTrustee', 'HomeController@newsTrustee');
 Route::post('/contact_us_trustee', 'HomeController@contactUsTrustee');
 
+Route::post('/documentTrustee', 'HomeController@documentTrustee');
+
+Route::post('/showDocTrustee', 'HomeController@showDocTrustee');
+Route::get('/previewDocTrustee/{id}', 'HomeController@previewDocTrustee');
+Route::get('/downloadDocTrustee/{id}', 'HomeController@downloadDocTrustee');
+Route::get('/downloadFileTrustee/{id}', 'HomeController@downloadFileTrustee');
+Route::post('/showChildDocTrustee', 'HomeController@showChildDocTrustee');
+
 Route::post('/saveContactTrustee', 'HomeController@saveContactTrustee');
 
 // Graph
@@ -229,6 +237,33 @@ Route::get('/enter_current_deal_category_data', function () {
 		foreach($parentData1 as $row1)
 		{
 			\DB::table('current_deal_category_trustee')->insert(['current_deal_category_id' => $row1->id, 'trustee_id' => $row->id]);
+		}
+	}
+});
+
+Route::get('/enter_document_data', function () {
+	$parentData = \DB::table('document_category_trustee')->delete();
+	$parentData = \DB::table('document_trustee')->delete();
+
+	$parentData = \DB::table('trustees')->get();
+	$parentData1 = \DB::table('document_category')->get();
+	
+	foreach($parentData as $row)
+	{
+		foreach($parentData1 as $row1)
+		{
+			\DB::table('document_category_trustee')->insert(['document_category_id' => $row1->id, 'trustee_id' => $row->id]);
+		}
+	}
+
+	$parentData = \DB::table('trustees')->get();
+	$parentData1 = \DB::table('documents')->get();
+	
+	foreach($parentData as $row)
+	{
+		foreach($parentData1 as $row1)
+		{
+			\DB::table('document_trustee')->insert(['document_id' => $row1->id, 'trustee_id' => $row->id]);
 		}
 	}
 });
