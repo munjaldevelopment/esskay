@@ -38,6 +38,8 @@
 	$list_user_log = backpack_user()->hasPermissionTo('list_user_log');
 	
 	$list_trustee = backpack_user()->hasPermissionTo('list_trustee');
+	$list_transaction_category = backpack_user()->hasPermissionTo('list_transaction_category');
+	$list_transaction = backpack_user()->hasPermissionTo('list_transaction');
 
 	if($list_dashboard):
 @endphp
@@ -230,7 +232,7 @@
 @php
 	endif;
 
-	if($list_trustee):
+	if($list_trustee || $list_transaction_category || $list_transaction):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Trustee</a>
@@ -239,6 +241,18 @@
 	if($list_trustee):
 @endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('trustee') }}'><i class='nav-icon la la-user'></i> Trustee</a></li>
+@php
+	endif;
+
+	if($list_transaction_category):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction_category') }}'><i class='nav-icon la la-user'></i> Transaction Category</a></li>
+@php
+	endif;
+
+	if($list_transaction):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction') }}'><i class='nav-icon la la-user'></i> Transaction</a></li>
 @php
 	endif;
 @endphp
