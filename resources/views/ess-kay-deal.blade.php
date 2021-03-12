@@ -140,7 +140,7 @@
 														</li>
 														<li>
 															<div class="dpi-info-heading">Tenor</div>
-															<div class="dpi-info-details">{{ $row->tenor }}</div>
+															<div class="dpi-info-details">{{ $row->tenure }}</div>
 														</li>
 														<li>
 															<div class="dpi-info-heading">Yield</div>
