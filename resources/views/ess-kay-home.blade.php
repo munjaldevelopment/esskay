@@ -45,7 +45,9 @@
 	@endif
 		
 	<input type="hidden" id="is_message_md" class="is_message_md" value="{{ $lenderData->is_message_md }}" />
+	<input type="hidden" id="is_insight" class="is_insight" value="{{ $lenderData->is_insight }}" />
 	<input type="hidden" id="is_document" class="is_document" value="{{ $lenderData->is_document }}" />
+	<input type="hidden" id="is_sanction_letter" class="is_sanction_letter" value="{{ $lenderData->is_sanction_letter }}" />
 	<input type="hidden" id="is_financial_summary" class="is_financial_summary" value="{{ $lenderData->is_financial_summary }}" />
 	<input type="hidden" id="is_newsletter" class="is_newsletter" value="{{ $lenderData->is_newsletter }}" />
 	<input type="hidden" id="is_contact_us" class="is_contact_us" value="{{ $lenderData->is_contact_us }}" />

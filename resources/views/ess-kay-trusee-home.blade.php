@@ -8,6 +8,7 @@
 	<input type="hidden" id="is_insight" class="is_insight" value="{{ $trusteeData->is_insight }}" />
 	<input type="hidden" id="is_current_deal" class="is_current_deal" value="{{ $trusteeData->is_current_deal }}" />
 	<input type="hidden" id="is_document" class="is_document" value="{{ $trusteeData->is_document }}" />
+	<input type="hidden" id="is_sanction_letter" class="is_sanction_letter" value="{{ $trusteeData->is_sanction_letter }}" />
 	<input type="hidden" id="is_financial_summary" class="is_financial_summary" value="{{ $trusteeData->is_financial_summary }}" />
 	<input type="hidden" id="is_newsletter" class="is_newsletter" value="{{ $trusteeData->is_newsletter }}" />
 	<input type="hidden" id="is_contact_us" class="is_contact_us" value="{{ $trusteeData->is_contact_us }}" />
@@ -37,6 +38,11 @@
 				@if($trusteeData->is_document == 1)
 				<li class="nav-item">
 					<a class="nav-link doc-class @if($trusteeData->is_message_md == 0 && $trusteeData->is_insight == 0) active @endif" href="javascript:;">Documents</a>
+				</li>
+				@endif
+				@if($trusteeData->is_sanction_letter == 1)
+				<li class="nav-item">
+					<a class="nav-link sanction-letter-class @if($trusteeData->is_message_md == 0 && $trusteeData->is_insight == 0 && $trusteeData->is_document == 0) active @endif" href="javascript:;">Sanction Letter</a>
 				</li>
 				@endif
 				@if($trusteeData->is_current_deal  == 1)
