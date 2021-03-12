@@ -114,10 +114,10 @@
 								</div>
 								<div class="btn-group">
 									<a href="javascript:;" id="deal-grid" class="btn btn-default btn-sm">
-										<img src="{{ asset('public/assets/') }}/images/grid-active-icon.svg" class="deal-list-none" alt="">
+										<img src="{{ asset('public/assets/') }}/images/grid-active-icon.svg" class="grid-icon deal-list-none" alt="">
 									</a>
 									<a href="javascript:;" id="deal-list" class="btn btn-default btn-sm">
-										<img src="{{ asset('public/assets/') }}/images/list-icon.svg" class="deal-list-none" alt="">
+										<img src="{{ asset('public/assets/') }}/images/list-icon.svg" class="list-icon deal-list-none" alt="">
 									</a> 
 								</div>
 							</div>
@@ -209,54 +209,71 @@ $(document).ready(function(){
 	
 <script>
 	$(function () {
-    $('.navbar-toggle').click(function () {
-        $('.navbar-nav').toggleClass('slide-in');
-        $('.side-body').toggleClass('body-slide-in');
-        $('#search').removeClass('in').addClass('collapse').slideUp(200);
+	    $('.navbar-toggle').click(function () {
+	        $('.navbar-nav').toggleClass('slide-in');
+	        $('.side-body').toggleClass('body-slide-in');
+	        $('#search').removeClass('in').addClass('collapse').slideUp(200);
 
-        /// uncomment code for absolute positioning tweek see top comment in css
-        //$('.absolute-wrapper').toggleClass('slide-in');
-        
-    });
+	        /// uncomment code for absolute positioning tweek see top comment in css
+	        //$('.absolute-wrapper').toggleClass('slide-in');
+	        
+	    });
    
-   // Remove menu for searching
-   $('#search-trigger').click(function () {
-        $('.navbar-nav').removeClass('slide-in');
-        $('.side-body').removeClass('body-slide-in');
+	   // Remove menu for searching
+	   $('#search-trigger').click(function () {
+	        $('.navbar-nav').removeClass('slide-in');
+	        $('.side-body').removeClass('body-slide-in');
 
-        /// uncomment code for absolute positioning tweek see top comment in css
-        //$('.absolute-wrapper').removeClass('slide-in');
+	        /// uncomment code for absolute positioning tweek see top comment in css
+	        //$('.absolute-wrapper').removeClass('slide-in');
 
-    });
-		
-	(function($){
-		$(window).on("load",function(){				
-			$("#content-1").mCustomScrollbar({
-				theme:"minimal",
-				scrollInertia: 60,
-			});				
+	    });
+
+	  	$('.mtb_category_scroller').owlCarousel({
+			margin: 10,
+			loop: false,
+			nav:true,
+			navText: ["<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'>","<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'>"],  
+			autoWidth: true,
+			items: 4
 		});
-	})(jQuery);	
-		
 
-$(document).ready(function() {
-	  $('.mtb_category_scroller').owlCarousel({
-		margin: 10,
-		loop: false,
-		nav:true,
-		navText: ["<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'>","<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'>"],  
-		autoWidth: true,
-		items: 4
-	  })
-	})	
-		
-		
-/*$(function(){
-$('.deal-list-area .well.well-sm .btn-group a').on('click', function(){
-    $(this).addClass('current').siblings().removeClass('current');
-  });
-});	*/	
+		$('#deal-grid').bind('click', function() {
+			var base_url = $('base').attr('href');
+	
+			var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
-		
-});
+			$.ajax({
+				url: base_url+'dealGrid',
+				type: 'post',
+				data: {_token: CSRF_TOKEN},
+				beforeSend: function() {
+					$('.preloader').show();
+				},
+				success: function(output) {
+					$('.preloader').hide();
+					$('.deal-products-area').html(output);
+				}
+			});
+		});
+
+		$('#deal-list').bind('click', function() {
+			var base_url = $('base').attr('href');
+	
+			var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+			$.ajax({
+				url: base_url+'dealList',
+				type: 'post',
+				data: {_token: CSRF_TOKEN},
+				beforeSend: function() {
+					$('.preloader').show();
+				},
+				success: function(output) {
+					$('.preloader').hide();
+					$('.deal-products-area').html(output);
+				}
+			});
+		});
+	});
 </script>

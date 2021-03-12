@@ -54,6 +54,9 @@ Route::post('/sanction-letter', 'HomeController@sanctionLetter');
 
 Route::post('/deal', 'HomeController@deal');
 
+Route::post('/dealGrid', 'HomeController@dealGrid');
+Route::post('/dealList', 'HomeController@dealList');
+
 Route::get('/edit-password', 'HomeController@editPassword');
 Route::get('/send-user-otp', 'HomeController@sendUserOtp');
 Route::post('updatePassword', 'HomeController@updatePassword');
