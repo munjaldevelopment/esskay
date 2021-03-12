@@ -21,7 +21,7 @@ class LenderCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitLenderStore; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitLenderUpdate; }
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation { destroy as traitDestroy; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 	
 	use \Backpack\ReviseOperation\ReviseOperation;
@@ -552,5 +552,15 @@ class LenderCrudController extends CrudController
         }
 
         return $this->crud->getRequest();
+    }
+
+    public function destroy($id)
+    {
+        $this->crud->hasAccessOrFail('delete');
+
+        \DB::table('lender_banking')->where('lender_id', $id)->delete();
+        \DB::table('lender_banking_details')->where('lender_id', $id)->delete();
+
+        return $this->crud->delete($id);
     }
 }
