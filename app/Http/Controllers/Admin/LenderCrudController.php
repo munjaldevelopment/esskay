@@ -462,9 +462,9 @@ class LenderCrudController extends CrudController
 			}
 		}
 
-        \DB::statement('UPDATE `lender_banking` SET lender_banking_code = CONCAT("LENDERBANK", "0000", id) WHERE id <= 9;UPDATE `lender_banking` SET lender_banking_code = CONCAT("LENDERBANK", "000", id) WHERE id > 9 and id <= 99;UPDATE `lender_banking` SET lender_banking_code = CONCAT("LENDERBANK", "00", id) WHERE id > 99');
+        \DB::statement('UPDATE `lender_banking` SET lender_banking_code = CONCAT("LENDERBANK", "00", id) WHERE id > 99');
 
-        \DB::statement('UPDATE `lender_banking_details` SET lender_banking_detail_code = CONCAT("LENDERBANKDETAIL", "0000", id) WHERE id <= 9; UPDATE `lender_banking_details` SET lender_banking_detail_code = CONCAT("LENDERBANKDETAIL", "000", id) WHERE id > 9 and id <= 99; UPDATE `lender_banking_details` SET lender_banking_detail_code = CONCAT("LENDERBANKDETAIL", "00", id) WHERE id > 99');
+        \DB::statement('UPDATE `lender_banking_details` SET lender_banking_detail_code = CONCAT("LENDERBANKDETAIL", "00", id) WHERE id > 99');
 		
 		return $result;
 		
@@ -538,9 +538,9 @@ class LenderCrudController extends CrudController
 			}
 		}
 
-        \DB::statement('UPDATE `lender_banking` SET lender_banking_code = CONCAT("LENDERBANK", "0000", id) WHERE id <= 9;UPDATE `lender_banking` SET lender_banking_code = CONCAT("LENDERBANK", "000", id) WHERE id > 9 and id <= 99;UPDATE `lender_banking` SET lender_banking_code = CONCAT("LENDERBANK", "00", id) WHERE id > 99');
+        \DB::statement('UPDATE `lender_banking` SET lender_banking_code = CONCAT("LENDERBANK", "00", id) WHERE id > 99');
 
-        \DB::statement('UPDATE `lender_banking_details` SET lender_banking_detail_code = CONCAT("LENDERBANKDETAIL", "0000", id) WHERE id <= 9; UPDATE `lender_banking_details` SET lender_banking_detail_code = CONCAT("LENDERBANKDETAIL", "000", id) WHERE id > 9 and id <= 99; UPDATE `lender_banking_details` SET lender_banking_detail_code = CONCAT("LENDERBANKDETAIL", "00", id) WHERE id > 99');
+        \DB::statement('UPDATE `lender_banking_details` SET lender_banking_detail_code = CONCAT("LENDERBANKDETAIL", "00", id) WHERE id > 99');
 
         $result = $this->traitLenderUpdate();
 		
