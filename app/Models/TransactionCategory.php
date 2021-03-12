@@ -21,7 +21,7 @@ class TransactionCategory extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
     
-    protected $fillable = ['category_code', 'category_name', 'transaction_category_status'];
+    protected $fillable = ['category_code', 'category_name', 'is_timeline', 'category_icon', 'category_image', 'transaction_category_status'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -30,6 +30,10 @@ class TransactionCategory extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function trustees()
+    {
+        return $this->belongsToMany('App\Models\Trustee', 'transaction_category_trustee');
+    }
 
     /*
     |--------------------------------------------------------------------------

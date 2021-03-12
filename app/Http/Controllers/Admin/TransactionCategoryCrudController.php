@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Mail;
 use App\Http\Requests\TransactionCategoryRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
@@ -14,10 +15,12 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 class TransactionCategoryCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitDocumentCategoryStore; }
+    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitDocumentCategoryUpdate; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -29,6 +32,111 @@ class TransactionCategoryCrudController extends CrudController
         CRUD::setModel(\App\Models\TransactionCategory::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/transaction_category');
         CRUD::setEntityNameStrings('Transaction Category', 'Transaction Categories');
+
+        $list_document_category = backpack_user()->hasPermissionTo('list_document_category');
+        
+        if($list_document_category)
+        {
+            $this->crud->allowAccess('show');
+            $this->crud->allowAccess('reorder');
+            $this->crud->enableExportButtons();
+            
+            $this->crud->set('reorder.label', 'category_name');
+            // define how deep the admin is allowed to nest the items
+            // for infinite levels, set it to 0
+            $this->crud->set('reorder.max_level', 3);
+            $this->crud->orderBy('lft', 'ASC');
+            
+            //$this->crud->enableReorder('category_name', 2);
+            
+            //$this->crud->denyAccess(['delete']);
+            
+            $this->crud->addColumn([
+                                    'name' => 'category_name',
+                                    'label' => 'Name',
+                                    'type' => 'text',
+                                ]);
+            $this->crud->addColumn([
+                                    'name' => 'is_timeline',
+                                    'label' => 'Timeline Show',
+                                    'type' => 'check',
+                                ]);
+                                
+            $this->crud->addColumn([
+                                    'name' => 'category_icon',
+                                    'label' => 'Icon',
+                                    'type' => 'icon_picker',
+                                ]);
+
+            $this->crud->addColumn([
+                                    'name' => 'category_image',
+                                    'label' => 'Image',
+                                    'type' => 'image',
+                                ]);
+
+            
+            
+            $this->crud->addField([
+                                    'name' => 'category_code',
+                                    'label' => 'Category Code',
+                                    'type' => 'text',
+                                    'tab' => 'General'
+                                ]);
+
+            $this->crud->addField([
+                                    'name' => 'category_name',
+                                    'label' => 'Name',
+                                    'type' => 'text',
+                                    'tab' => 'General'
+                                ]);
+
+
+            $this->crud->addField([
+                                    'name' => 'is_timeline',
+                                    'label' => 'Timeline Show',
+                                    'type' => 'select2_from_array',
+                                    'options' => ['0' => 'No', '1' => 'Yes'],
+                                    'tab' => 'General'
+                                ]);
+                                
+            $this->crud->addField([
+                                    'name' => 'category_icon',
+                                    'label' => 'Icon',
+                                    'type'    => 'icon_picker',
+                                    'iconset' => 'fontawesome', // options: fontawesome, glyphicon, ionicon, weathericon, mapicon, octicon, typicon, elusiveicon, materialdesign
+                                    'tab' => 'General'
+                                ]);
+
+            $this->crud->addField([
+                                    'name' => 'category_image',
+                                    'label' => 'Image',
+                                    'type' => 'browse',
+                                    'tab' => 'General'
+                                ]);
+                                
+            $this->crud->addField([
+                                    'name' => 'transaction_category_status',
+                                    'label' => 'Status',
+                                    'type' => 'select2_from_array',
+                                    'options' => ['0' => 'Inactive', '1' => 'Active'],
+                                    'tab' => 'General'
+                                ]);
+
+            $this->crud->addField([
+                    'label'     => 'Trustee',
+                    'type'      => 'relationship ',
+                    'name'      => 'trustees',
+                    'entity'    => 'trustees', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+                    
+                    'tab' => 'Trustee'
+                    ]);
+        }
+        else
+        {
+            $this->crud->denyAccess(['list']);
+        }
     }
 
     /**
@@ -39,7 +147,7 @@ class TransactionCategoryCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
+        //CRUD::setFromDb(); // columns
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
