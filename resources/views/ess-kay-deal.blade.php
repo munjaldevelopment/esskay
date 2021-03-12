@@ -113,10 +113,10 @@
 									</ul>
 								</div>
 								<div class="btn-group">
-									<a href="#" id="grid" class="btn btn-default btn-sm">
+									<a href="javascript:;" id="deal-grid" class="btn btn-default btn-sm">
 										<img src="{{ asset('public/assets/') }}/images/grid-active-icon.svg" class="deal-list-none" alt="">
 									</a>
-									<a href="current-deal-list.html" id="list" class="btn btn-default btn-sm">
+									<a href="javascript:;" id="deal-list" class="btn btn-default btn-sm">
 										<img src="{{ asset('public/assets/') }}/images/list-icon.svg" class="deal-list-none" alt="">
 									</a> 
 								</div>
@@ -124,133 +124,9 @@
 							<div class="deal-products-area">
 								<div class="deal-product-grid">
 									<div class="row">
+										@foreach($dealsData as $k => $row)
 										<div class="col-md-4 col-sm-12">
-											<a href="" class="deal-product-box">
-												<div class="deal-product-category">
-													<div class="dpc-cate-text">NCD</div>
-												</div>
-												<div class="deal-product-amount">75 Cr(s)</div>
-												<div class="deal-product-bank">ICICI BANK</div>
-												<div class="deal-product-info">
-													<ul>
-														<li>
-															<div class="dpi-info-heading">Rating</div>
-															<div class="dpi-info-details">AA+</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Tenor</div>
-															<div class="dpi-info-details">2yrs 3m 0d</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Yield</div>
-															<div class="dpi-info-details">9.75% fixed</div>
-														</li>
-													</ul>
-												</div>
-											</a>
-										</div>
-										<div class="col-md-4 col-sm-12">
-											<div class="deal-product-box dpx-green">
-												<div class="deal-product-category">
-													<div class="dpc-cate-text">PTC</div>
-												</div>
-												<div class="deal-product-amount">143.13 Cr(s)</div>
-												<div class="deal-product-bank">HDFC BANK</div>
-												<div class="deal-product-info">
-													<ul>
-														<li>
-															<div class="dpi-info-heading">Rating</div>
-															<div class="dpi-info-details">---</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Tenor</div>
-															<div class="dpi-info-details">4yrs 5m 16d</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Yield</div>
-															<div class="dpi-info-details">9.75% fixed</div>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4 col-sm-12">
-											<div class="deal-product-box dpx-yellow">
-												<div class="deal-product-category">
-													<div class="dpc-cate-text">PLI</div>
-												</div>
-												<div class="deal-product-amount">50 Cr(s)</div>
-												<div class="deal-product-bank">AXIS BANK</div>
-												<div class="deal-product-info">
-													<ul>
-														<li>
-															<div class="dpi-info-heading">Rating</div>
-															<div class="dpi-info-details">A</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Tenor</div>
-															<div class="dpi-info-details">3yrs 0m 0d</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Yield</div>
-															<div class="dpi-info-details">9.75% fixed</div>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4 col-sm-12">
-											<div class="deal-product-box dpx-green">
-												<div class="deal-product-category">
-													<div class="dpc-cate-text">PTC</div>
-												</div>
-												<div class="deal-product-amount">143.13 Cr(s)</div>
-												<div class="deal-product-bank">HDFC BANK</div>
-												<div class="deal-product-info">
-													<ul>
-														<li>
-															<div class="dpi-info-heading">Rating</div>
-															<div class="dpi-info-details">---</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Tenor</div>
-															<div class="dpi-info-details">4yrs 5m 16d</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Yield</div>
-															<div class="dpi-info-details">9.75% fixed</div>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4 col-sm-12">
-											<div class="deal-product-box dpx-yellow">
-												<div class="deal-product-category">
-													<div class="dpc-cate-text">PLI</div>
-												</div>
-												<div class="deal-product-amount">50 Cr(s)</div>
-												<div class="deal-product-bank">AXIS BANK</div>
-												<div class="deal-product-info">
-													<ul>
-														<li>
-															<div class="dpi-info-heading">Rating</div>
-															<div class="dpi-info-details">A</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Tenor</div>
-															<div class="dpi-info-details">3yrs 0m 0d</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Yield</div>
-															<div class="dpi-info-details">9.75% fixed</div>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4 col-sm-12">
-											<div class="deal-product-box">
+											<div class="deal-product-box @if(($k % 3 == 1)) dpx-green @elseif(($k % 3 == 2)) dpx-yellow @endif">
 												<div class="deal-product-category">
 													<div class="dpc-cate-text">NCD</div>
 												</div>
@@ -274,81 +150,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-md-4 col-sm-12">
-											<div class="deal-product-box">
-												<div class="deal-product-category">
-													<div class="dpc-cate-text">NCD</div>
-												</div>
-												<div class="deal-product-amount">75 Cr(s)</div>
-												<div class="deal-product-bank">ICICI BANK</div>
-												<div class="deal-product-info">
-													<ul>
-														<li>
-															<div class="dpi-info-heading">Rating</div>
-															<div class="dpi-info-details">AA+</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Tenor</div>
-															<div class="dpi-info-details">2yrs 3m 0d</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Yield</div>
-															<div class="dpi-info-details">9.75% fixed</div>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4 col-sm-12">
-											<div class="deal-product-box dpx-green">
-												<div class="deal-product-category">
-													<div class="dpc-cate-text">PTC</div>
-												</div>
-												<div class="deal-product-amount">143.13 Cr(s)</div>
-												<div class="deal-product-bank">HDFC BANK</div>
-												<div class="deal-product-info">
-													<ul>
-														<li>
-															<div class="dpi-info-heading">Rating</div>
-															<div class="dpi-info-details">---</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Tenor</div>
-															<div class="dpi-info-details">4yrs 5m 16d</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Yield</div>
-															<div class="dpi-info-details">9.75% fixed</div>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4 col-sm-12">
-											<div class="deal-product-box dpx-yellow">
-												<div class="deal-product-category">
-													<div class="dpc-cate-text">PLI</div>
-												</div>
-												<div class="deal-product-amount">50 Cr(s)</div>
-												<div class="deal-product-bank">AXIS BANK</div>
-												<div class="deal-product-info">
-													<ul>
-														<li>
-															<div class="dpi-info-heading">Rating</div>
-															<div class="dpi-info-details">A</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Tenor</div>
-															<div class="dpi-info-details">3yrs 0m 0d</div>
-														</li>
-														<li>
-															<div class="dpi-info-heading">Yield</div>
-															<div class="dpi-info-details">9.75% fixed</div>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
+										@endforeach
 									</div>
 								</div>
 							</div>

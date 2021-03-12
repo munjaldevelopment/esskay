@@ -1535,8 +1535,10 @@ class HomeController extends Controller
 		$dealTotalData = \DB::table('current_deals')->selectRaw('count(id) as total, SUM(pricing) as total_amount')->where('status', '1')->first();
 
 		$dealCategoriesData = \DB::table('current_deal_categories')->where('status', '1')->get();
+
+		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
 		
-		return view('ess-kay-deal', ['dealTotalData' => $dealTotalData, 'dealCategoriesData' => $dealCategoriesData, 'lenderData' => $lenderData]);
+		return view('ess-kay-deal', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'lenderData' => $lenderData]);
 	}
 
 	public function sanctionLetter()
