@@ -258,6 +258,10 @@ class LenderBankingCrudController extends CrudController
 
         \DB::table('lender_banking_revisions')->insert(['lender_banking_id' => $lender_banking_id, 'lender_id' => $lender_id, 'banking_arrangment_id' => $banking_arrangment_id,'sanction_amount' => $sanction_amount, 'outstanding_amount' => $outstanding_amount, 'lender_banking_status' => $lender_banking_status]);
 
+        \DB::statement('UPDATE `lender_banking` SET lender_banking_code = CONCAT("LENDERBANK", "00", id) WHERE id > 99');
+
+        \DB::statement('UPDATE `lender_banking_details` SET lender_banking_detail_code = CONCAT("LENDERBANKDETAIL", "00", id) WHERE id > 99');
+
         return $result;
     }    
 
@@ -281,6 +285,10 @@ class LenderBankingCrudController extends CrudController
 
         \DB::table('lender_banking_revisions')->insert(['lender_banking_id' => $lender_banking_id, 'lender_id' => $lender_id, 'banking_arrangment_id' => $banking_arrangment_id,'sanction_amount' => $sanction_amount, 'outstanding_amount' => $outstanding_amount, 'lender_banking_status' => $lender_banking_status]);
     
+    	\DB::statement('UPDATE `lender_banking` SET lender_banking_code = CONCAT("LENDERBANK", "00", id) WHERE id > 99');
+
+        \DB::statement('UPDATE `lender_banking_details` SET lender_banking_detail_code = CONCAT("LENDERBANKDETAIL", "00", id) WHERE id > 99');
+        
         return $result;
     }
 
