@@ -73,6 +73,11 @@ Route::post('/dealTrustee', 'HomeController@dealTrustee');
 Route::post('/dealGridTrustee', 'HomeController@dealGridTrustee');
 Route::post('/dealListTrustee', 'HomeController@dealListTrustee');
 
+Route::post('/newsTrustee', 'HomeController@newsTrustee');
+Route::post('/contact_us_trustee', 'HomeController@contactUsTrustee');
+
+Route::post('/saveContactTrustee', 'HomeController@saveContactTrustee');
+
 // Graph
 
 Route::any('/company_graph', 'HomeController@companyGraph');

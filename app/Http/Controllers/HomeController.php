@@ -432,7 +432,24 @@ class HomeController extends Controller
 		$tempUserData = array('email' => $request->email, 'name' => $request->first_name." ".$request->last_name);
 		
 		Mail::send('emails.contact_us', $contactData, function ($message) use ($tempUserData) {
-			$message->to($tempUserData['email'], $tempUserData['name'])->subject("Contact Us");
+			$message->to($tempUserData['email'], $tempUserData['name'])->subject("Contact Us from Lender");
+			$message->from('communication@skfin.in', 'Ess Kay Fincorp');
+		});
+		
+		echo "Thanks for your contact. Our team will get back to you within 24-48 hours";
+	}
+
+	public function saveContactTrustee(Request $request)
+    {
+		\DB::table('contact_us')->insert(['first_name' => $request->first_name, 'last_name' => $request->last_name, 'email' => $request->email, 'telephone' => $request->telephone, 'message' => $request->message]);
+		
+		\DB::table('email_sms')->insert(['send_type' => 'email', 'send_to' => $request->email, 'send_subject' => 'Contact Us', 'send_message' => $request->message, 'is_deliver' => '1']);
+		
+		$contactData = array('first_name' => $request->first_name, 'last_name' => $request->last_name, 'email' => $request->email, 'telephone' => $request->telephone, 'user_message' => $request->message);
+		$tempUserData = array('email' => $request->email, 'name' => $request->first_name." ".$request->last_name);
+		
+		Mail::send('emails.contact_us', $contactData, function ($message) use ($tempUserData) {
+			$message->to($tempUserData['email'], $tempUserData['name'])->subject("Contact Us from Trustee");
 			$message->from('communication@skfin.in', 'Ess Kay Fincorp');
 		});
 		
@@ -1549,7 +1566,7 @@ class HomeController extends Controller
 
 		$dealTotalData = \DB::table('current_deals')->selectRaw('count(id) as total, SUM(amount) as total_amount')->where('status', '1')->first();
 
-		$dealCategoriesData = \DB::table('current_deal_categories')->where('status', '1')->get();
+		$dealCategoriesData = \DB::table('current_deal_categories')->leftJoin('current_deal_category_lender', 'current_deal_category_lender.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deal_category_lender.lender_id',$lender_id)->where('status', '1')->get();
 
 		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
 		
@@ -1564,7 +1581,7 @@ class HomeController extends Controller
 
 		$dealTotalData = \DB::table('current_deals')->selectRaw('count(id) as total, SUM(amount) as total_amount')->where('status', '1')->first();
 
-		$dealCategoriesData = \DB::table('current_deal_categories')->where('status', '1')->get();
+		$dealCategoriesData = \DB::table('current_deal_categories')->leftJoin('current_deal_category_lender', 'current_deal_category_lender.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deal_category_lender.lender_id',$lender_id)->where('status', '1')->get();
 
 		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
 		
@@ -3525,5 +3542,111 @@ class HomeController extends Controller
 		$sanctionData = \DB::table('sanction_letters')->where('status', '1')->where('approved_by1', '1')->where('approved_by2', '1')->where('approved_by3', '1')->first();
 		
 		return view('ess-kay-sanction-letter', ['sanctionData' => $sanctionData, 'lenderData' => $trusteeData]);
+	}
+
+
+	public function dealTrustee()
+	{
+		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
+    	//dd($trusteeData);
+    	$trustee_id = $trusteeData->id;
+
+		$dealTotalData = \DB::table('current_deals')->selectRaw('count(id) as total, SUM(amount) as total_amount')->where('status', '1')->first();
+
+		$dealCategoriesData = \DB::table('current_deal_categories')->leftJoin('current_deal_category_trustee', 'current_deal_category_trustee.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deal_category_trustee.trustee_id',$trustee_id)->where('status', '1')->get();
+
+		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
+		
+		return view('ess-kay-deal-trustee', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'trusteeData' => $trusteeData]);
+	}
+
+	public function dealGridTrustee()
+	{
+		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
+    	//dd($trusteeData);
+    	$trustee_id = $trusteeData->id;
+
+		$dealTotalData = \DB::table('current_deals')->selectRaw('count(id) as total, SUM(amount) as total_amount')->where('status', '1')->first();
+
+		$dealCategoriesData = \DB::table('current_deal_categories')->leftJoin('current_deal_category_trustee', 'current_deal_category_trustee.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deal_category_trustee.trustee_id',$trustee_id)->where('status', '1')->get();
+
+		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
+		
+		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'trusteeData' => $trusteeData]);
+	}
+
+	public function dealListTrustee()
+	{
+		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
+    	//dd($trusteeData);
+    	$trustee_id = $trusteeData->id;
+
+		$dealTotalData = \DB::table('current_deals')->selectRaw('count(id) as total, SUM(amount) as total_amount')->where('status', '1')->first();
+
+		$dealCategoriesData = \DB::table('current_deal_categories')->leftJoin('current_deal_category_trustee', 'current_deal_category_trustee.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deal_category_trustee.trustee_id',$trustee_id)->where('status', '1')->get();
+
+		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
+		
+		return view('ess-kay-deal-list', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'trusteeData' => $trusteeData]);
+	}
+
+	public function newsTrustee()
+    {	
+		$customer_name = session()->get('esskay_trustee_verify');
+		
+		$getArticles = \DB::table('articles')->where(['status' => 'PUBLISHED'])->get();
+		$articleData = array();
+		
+		if($getArticles)
+		{
+			foreach($getArticles as $getArticle)
+			{
+				$getCategories = \DB::table('categories')->leftJoin('article_category', 'categories.id', '=', 'article_category.category_id')->where('article_id', $getArticle->id)->get();
+				
+				$categoryName = $categoryName0 = "";
+				foreach($getCategories as $category)
+				{
+					$categoryName .= $category->name.", ";
+					$categoryName0 .= "post-row-".$category->name."::";
+				}
+				
+				$categoryName2 = strtolower(str_replace(" ", "-", $categoryName0));
+				$categoryName2 = str_replace("::", " ", $categoryName2);
+				$categoryName1 = substr(trim($categoryName), 0, -1);
+				//$categoryName2 = substr(trim($categoryName0), 0, -1);
+				
+				$short_description = preg_replace('/\s+?(\S+)?$/', '', substr($getArticle->short_description, 0, 120)).'...'; // $this->short_name($getArticle->short_description, 30);
+				
+				$articleData[] = array('id' => $getArticle->id, 'title' => $getArticle->title, 'short_description_full' => $getArticle->short_description, 'short_description' => $short_description, 'content' => $getArticle->content, 'image' => $getArticle->image, 'article_pdf' => $getArticle->article_pdf, 'date' => $getArticle->date, 'category_id' => $categoryName1, 'category_name' => $categoryName2);
+			}
+		}
+		
+		$getCategories = \DB::table('categories')->orderBy('depth', 'ASC')->get();
+		$categoriesData = array();
+		
+		if($getCategories)
+		{
+			foreach($getCategories as $getArticle)
+			{
+				$getArticleCount = \DB::table('article_category')->where(['category_id' => $getArticle->id])->count();
+				
+				$categoriesData[] = array('name' => $getArticle->name, 'name1' => strtolower(str_replace(" ", "-", $getArticle->name)), 'count' => $getArticleCount);
+			}
+		}
+		
+		return view('ess-kay-news-trustee', ['customer_name' => $customer_name, 'articleData' => $articleData, 'categoriesData' => $categoriesData]);
+		
+	}
+	
+	public function contactUsTrustee()
+    {	
+		$pageInfo = Page::getPageInfo(2);
+		
+		$customer_name = session()->get('esskay_trustee_verify');
+		
+		Setting::assignSetting();
+		
+		return view('ess-kay-contact-trustee', ['customer_name' => $customer_name, 'page_title' => $pageInfo->title, 'page_content' => $pageInfo->content]);
+		
 	}
 }

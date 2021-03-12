@@ -235,7 +235,7 @@ $(document).ready(function() {
 		if(error == 0)
 		{
 			$.ajax({
-				url: base_url+'saveContact',
+				url: base_url+'saveContactTrustee',
 				type: 'post',
 				data: {first_name: first_name, last_name: last_name, email: email, telephone: telephone, message: message},
 				beforeSend: function() {
