@@ -41,6 +41,13 @@ class InsightCategory extends Model
         return $this->belongsToMany('App\Models\Lender', 'insight_category_lender');
     }
 
+    public function trustees()
+    {
+        return $this->belongsToMany('App\Models\Trustee', 'insight_category_trustee');
+    }
+
+    
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

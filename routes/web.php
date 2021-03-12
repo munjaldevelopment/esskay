@@ -63,6 +63,16 @@ Route::post('updatePassword', 'HomeController@updatePassword');
 
 Route::post('/saveContact', 'HomeController@saveContact');
 
+// Trustee Part
+Route::post('/insightTrustee', 'HomeController@insightTrustee');
+Route::post('/showInsightTrustee', 'HomeController@showInsightTrustee');
+Route::post('/sanction-letter-trustee', 'HomeController@sanctionLetterTrustee');
+
+Route::post('/dealTrustee', 'HomeController@dealTrustee');
+
+Route::post('/dealGridTrustee', 'HomeController@dealGridTrustee');
+Route::post('/dealListTrustee', 'HomeController@dealListTrustee');
+
 // Graph
 
 Route::any('/company_graph', 'HomeController@companyGraph');
@@ -187,5 +197,33 @@ Route::get('/enter_data', function () {
 	foreach($parentData1 as $row)
 	{
 		\DB::table('document_lender')->insert(['document_id' => $row->id, 'lender_id' => '1']);
+	}
+});
+
+// Data
+Route::get('/enter_current_deal_category_data', function () {
+	$parentData = \DB::table('current_deal_category_lender')->delete();
+	$parentData = \DB::table('current_deal_category_trustee')->delete();
+	
+	$parentData = \DB::table('lenders')->get();
+	$parentData1 = \DB::table('current_deal_categories')->get();
+	
+	foreach($parentData as $row)
+	{
+		foreach($parentData1 as $row1)
+		{
+			\DB::table('current_deal_category_lender')->insert(['current_deal_category_id' => $row1->id, 'lender_id' => $row->id]);
+		}
+	}
+
+	$parentData = \DB::table('trustees')->get();
+	$parentData1 = \DB::table('current_deal_categories')->get();
+	
+	foreach($parentData as $row)
+	{
+		foreach($parentData1 as $row1)
+		{
+			\DB::table('current_deal_category_trustee')->insert(['current_deal_category_id' => $row1->id, 'trustee_id' => $row->id]);
+		}
 	}
 });
