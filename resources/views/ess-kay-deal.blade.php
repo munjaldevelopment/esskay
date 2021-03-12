@@ -128,23 +128,23 @@
 										<div class="col-md-4 col-sm-12">
 											<div class="deal-product-box @if(($k % 3 == 1)) dpx-green @elseif(($k % 3 == 2)) dpx-yellow @endif">
 												<div class="deal-product-category">
-													<div class="dpc-cate-text">NCD</div>
+													<div class="dpc-cate-text">{{ $row->category_code }}</div>
 												</div>
-												<div class="deal-product-amount">75 Cr(s)</div>
-												<div class="deal-product-bank">ICICI BANK</div>
+												<div class="deal-product-amount">{{ $row->amount }} Cr(s)</div>
+												<div class="deal-product-bank">{{ $row->name }}</div>
 												<div class="deal-product-info">
 													<ul>
 														<li>
 															<div class="dpi-info-heading">Rating</div>
-															<div class="dpi-info-details">AA+</div>
+															<div class="dpi-info-details">{{ $row->rating }}</div>
 														</li>
 														<li>
 															<div class="dpi-info-heading">Tenor</div>
-															<div class="dpi-info-details">2yrs 3m 0d</div>
+															<div class="dpi-info-details">{{ $row->tenor }}</div>
 														</li>
 														<li>
 															<div class="dpi-info-heading">Yield</div>
-															<div class="dpi-info-details">9.75% fixed</div>
+															<div class="dpi-info-details">{{ $row->pricing }}% fixed</div>
 														</li>
 													</ul>
 												</div>

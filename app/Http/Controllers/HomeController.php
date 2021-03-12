@@ -1532,7 +1532,7 @@ class HomeController extends Controller
     	//dd($lenderData);
     	$lender_id = $lenderData->id;
 
-		$dealTotalData = \DB::table('current_deals')->selectRaw('count(id) as total, SUM(pricing) as total_amount')->where('status', '1')->first();
+		$dealTotalData = \DB::table('current_deals')->selectRaw('count(id) as total, SUM(amount) as total_amount')->where('status', '1')->first();
 
 		$dealCategoriesData = \DB::table('current_deal_categories')->where('status', '1')->get();
 
