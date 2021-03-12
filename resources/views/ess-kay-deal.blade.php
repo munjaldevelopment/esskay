@@ -35,7 +35,7 @@
 								</div>
 								
 								<div class="dfh-filter-right">
-									<div class="dfh-right-count">Showing 1 -10 <span>of 10</span></div>										
+									<div class="dfh-right-count">Showing 1 - {{ $dealTotalData->total }} <span>of {{ $dealTotalData->total }}</span></div>										
 									<div class="dfh-right-filter"><img src="{{ asset('public/assets/') }}/images/filter-icon.svg" alt=""> Filter</div>										
 								</div>									
 							</div>
