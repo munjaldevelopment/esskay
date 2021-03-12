@@ -24,7 +24,7 @@
 	
 	$list_sanction_letter = backpack_user()->hasPermissionTo('list_sanction_letter');
 
-	$list_covid_relief = 1;/backpack_user()->hasPermissionTo('list_covid_relief');
+	$list_covid_relief = 1;//backpack_user()->hasPermissionTo('list_covid_relief');
 	$list_covid_relief_borrower = 1;//backpack_user()->hasPermissionTo('list_covid_relief_borrower');
 
 
