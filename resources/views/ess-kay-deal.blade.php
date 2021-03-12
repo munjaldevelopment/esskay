@@ -243,6 +243,9 @@ $(document).ready(function(){
 	
 			var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
+			$('.grid-icon').attr('{{ asset('public/assets/') }}/images/grid-active-icon.svg');
+			$('.list-icon').attr('{{ asset('public/assets/') }}/images/list-icon.svg');
+
 			$.ajax({
 				url: base_url+'dealGrid',
 				type: 'post',
@@ -261,6 +264,9 @@ $(document).ready(function(){
 			var base_url = $('base').attr('href');
 	
 			var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+			$('.grid-icon').attr('{{ asset('public/assets/') }}/images/grid-icon.svg');
+			$('.list-icon').attr('{{ asset('public/assets/') }}/images/list-active-icon.svg');
 
 			$.ajax({
 				url: base_url+'dealList',
