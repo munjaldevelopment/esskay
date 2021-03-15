@@ -4156,7 +4156,13 @@ class HomeController extends Controller
 
 	    	if($categoryData)
 	    	{
-	    		return view('transaction-category-trustee', ['trustee_id' => $trustee_id, 'categoryData' => $categoryData]);
+	    		$transactionLiveData = \DB::table('transactions')->leftJoin('transaction_trustee', 'transactions.id', '=', 'transaction_trustee.transaction_id')->where('transaction_trustee.trustee_id',$trustee_id)->where('transactions.transaction_category_id',$category_id)->where('transaction_type', 'Live')->groupBy('transaction_trustee.transaction_id')->get();
+
+	    		$transactionMaturedData = \DB::table('transactions')->leftJoin('transaction_trustee', 'transactions.id', '=', 'transaction_trustee.transaction_id')->where('transaction_trustee.trustee_id',$trustee_id)->where('transactions.transaction_category_id',$category_id)->where('transaction_type', 'Matured')->groupBy('transaction_trustee.transaction_id')->get();
+
+	    		
+
+	    		return view('transaction-category-trustee', ['trustee_id' => $trustee_id, 'categoryData' => $categoryData, 'transactionLiveData' => $transactionLiveData, 'transactionMaturedData' => $transactionMaturedData]);
 	    	}
 	    	else
 	    	{
