@@ -111,11 +111,57 @@ class TransactionCrudController extends CrudController
                     ]);
 
             $this->crud->addField([
+                    'label'     => 'Transaction Category',
+                    'type'      => 'select2',
+                    'name'      => 'transaction_category_id',
+                    'entity'    => 'transactionCategory', //function name
+                    'attribute' => 'category_name', //name of fields in models table like districts
+                    'model'     => "App\Models\TransactionCategory", //name of Models
+                    'tab' => 'General'
+                    ]);
+
+            $transaction_code = "";
+            $transData = \DB::table('transactions')->orderBy('id', 'DESC')->first();
+            if($transData)
+            {
+                if($transData->id <= 9)
+                {
+                    $transaction_code = "ESSKAYTRANS0000".($transData->id + 1);
+                }
+                else if($transData->id > 9 && $transData->id <= 99) 
+                {
+                    $transaction_code = "ESSKAYTRANS000".($transData->id + 1);
+                }
+                else if($transData->id > 99 && $transData->id <= 999) 
+                {
+                    $transaction_code = "ESSKAYTRANS00".($transData->id + 1);
+                }
+                else if($transData->id > 999 && $transData->id <= 9999) 
+                {
+                    $transaction_code = "ESSKAYTRANS0".($transData->id + 1);
+                }
+                else
+                {
+                    $transaction_code = "ESSKAYTRANS".($transData->id + 1);
+                }
+            }
+
+            //ESSKAYTRANS006
+            $this->crud->addField([
+                                    'name' => 'transaction_code',
+                                    'label' => 'Code',
+                                    'type' => 'text',
+                                    'value' => $transaction_code,
+                                    'tab' => 'General'
+                                ], 'create');
+
+            $this->crud->addField([
                                     'name' => 'transaction_code',
                                     'label' => 'Code',
                                     'type' => 'text',
                                     'tab' => 'General'
-                                ]);
+                                ], 'update');
+
             $this->crud->addField([
                                     'name' => 'name',
                                     'label' => 'Name',
