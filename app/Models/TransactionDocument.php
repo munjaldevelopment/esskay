@@ -20,7 +20,7 @@ class TransactionDocument extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['transaction_id', 'transaction_document_type_id', 'document_heading', 'document_type', 'document_name', 'document_guide', 'document_filename', 'document_date', 'expiry_date', 'document_status'];
+    protected $fillable = ['transaction_id', 'transaction_document_type_id', 'document_heading', 'document_type', 'document_name', 'document_filename', 'document_date', 'expiry_date', 'document_status'];
     // protected $hidden = [];
     // protected $dates = [];
 

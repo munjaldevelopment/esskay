@@ -159,17 +159,13 @@ class TransactionDocumentCrudController extends CrudController
                                     'tab' => 'General'
                                 ]);
             
+
             $this->crud->addField([
-                                    'name' => 'document_guide',
-                                    'label' => 'Document Guide',
-                                    'type' => 'text',
+                                    'name' => 'document_status',
+                                    'label' => 'Status',
+                                    'type' => 'checkbox',
                                     'tab' => 'General'
                                 ]);
-            
-
-            $document_type = array('' => 'Select', 'audio/aac' => 'AAC audio', 'application/x-abiword' => 'AbiWord document', 'application/x-freearc' => 'Archive document', 'video/x-msvideo' => 'AVI: Audio Video Interleave', 'application/vnd.amazon.ebook' => 'Amazon Kindle eBook format', 'application/octet-stream' => 'Any kind of binary data', 'image/bmp' => 'Windows OS/2 Bitmap Graphics', 'application/x-bzip' => 'BZip archive', 'application/x-bzip2' => 'BZip2 archive', 'application/x-csh' => 'C-Shell script', 'text/css' => 'Cascading Style Sheets', 'text/csv' => 'Comma-separated values', 'application/msword' => 'Microsoft Word', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' => 'Microsoft Word (OpenXML)', 'application/vnd.ms-fontobject' => 'MS Embedded OpenType fonts', 'application/epub+zip' => 'Electronic publication (EPUB)', 'application/gzip' => 'GZip Compressed Archive', 'image/gif' => 'Graphics Interchange Format (GIF)', 'text/html' => 'HyperText Markup Language (HTML)', 'image/vnd.microsoft.icon' => 'Icon format', 'text/calendar' => 'iCalendar format', 'application/java-archive' => 'Java Archive (JAR)', 'image/jpeg' => 'JPEG images', 'application/json' => 'JSON format', 'application/ld+json' => 'JSON-LD format', 'audio/midi' => 'Musical Instrument Digital Interface (MIDI)', 'text/javascript' => 'JavaScript module', 'audio/mpeg' => 'MPEG Video', 'video/mpeg' => 'MPEG Video', 'application/vnd.apple.installer+xml' => 'Apple Installer Package', 'application/vnd.oasis.opendocument.presentation' => 'OpenDocument presentation document', 'application/vnd.oasis.opendocument.spreadsheet' => 'OpenDocument spreadsheet document', 'application/vnd.oasis.opendocument.text' => 'OpenDocument text document', 'audio/ogg' => 'OGG audio', 'video/ogg' => 'OGG video', 'application/ogg' => 'OGG', 'audio/opus' => 'Opus audio', 'font/otf' => 'OpenType font', 'image/png' => 'Portable Network Graphics', 'application/pdf' => 'Adobe Portable Document Format (PDF)', 'application/x-httpd-php' => 'Hypertext Preprocessor (Personal Home Page)', 'application/vnd.ms-powerpoint' => 'Microsoft PowerPoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation' => 'Microsoft PowerPoint (OpenXML)', 'application/vnd.rar' => 'RAR archive', 'application/rtf' => 'Rich Text Format (RTF)', 'application/x-sh' => 'Bourne shell script', 'image/svg+xml' => 'Scalable Vector Graphics (SVG)', 'application/x-shockwave-flash' => 'Small web format (SWF) or Adobe Flash document', 'application/x-tar' => 'Tape Archive (TAR)', 'image/tiff' => 'Tagged Image File Format (TIFF)', 'video/mp2t' => 'MPEG transport stream', 'font/ttf' => 'TrueType Font', 'text/plain' => 'Text', 'application/vnd.visio' => 'Microsoft Visio', 'audio/wav' => 'Waveform Audio Format', 'audio/webm' => 'WEBM audio', 'video/webm' => 'WEBM video', 'image/webp' => 'WEBP image', 'font/woff' => 'Web Open Font Format (WOFF)', 'font/woff2' => 'Web Open Font Format (WOFF)', 'application/xhtml+xml' => 'XHTML', 'application/vnd.ms-excel' => 'Microsoft Excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' => 'Microsoft Excel (OpenXML)', 'application/xml' => 'XML', 'application/vnd.mozilla.xul+xml' => 'XUL', 'application/zip' => 'ZIP archive', 'video/3gpp' => '3GPP audio/video container', 'video/3gpp2' => '3GPP2 audio/video container', 'application/x-7z-compressed' => '7-zip archive');
-                                
-            
                                 
             $this->crud->addField([
                                     'name' => 'document_filename',
@@ -295,14 +291,13 @@ class TransactionDocumentCrudController extends CrudController
         $document_id =  $this->crud->entry->id;
         $document_heading = $this->crud->getRequest()->document_heading;
         $document_name = $this->crud->getRequest()->document_name;
-        $document_guide = $this->crud->getRequest()->document_guide;
         $document_filename = $this->crud->getRequest()->document_filename;
         $document_date = $this->crud->getRequest()->document_date;
         $expiry_date = $this->crud->getRequest()->expiry_date;
         $document_status = $this->crud->getRequest()->document_status;
 
 
-        \DB::table('transaction_document_revisions')->insert(['document_id' => $document_id, 'document_heading' => $document_heading, 'document_name' => $document_name,'document_guide' => $document_guide, 'document_filename' => $document_filename, 'document_date' => $document_date, 'expiry_date' => $expiry_date, 'document_status' => $document_status]);
+        \DB::table('transaction_document_revisions')->insert(['document_id' => $document_id, 'document_heading' => $document_heading, 'document_name' => $document_name, 'document_filename' => $document_filename, 'document_date' => $document_date, 'expiry_date' => $expiry_date, 'document_status' => $document_status]);
         
         //$lender_id = end($lenders);
         $sms_status = config('general.sms_status');
@@ -363,7 +358,6 @@ class TransactionDocumentCrudController extends CrudController
         $document_id =  $this->crud->getRequest()->id;
         $document_heading = $this->crud->getRequest()->document_heading;
         $document_name = $this->crud->getRequest()->document_name;
-        $document_guide = $this->crud->getRequest()->document_guide;
         $document_filename = $this->crud->getRequest()->document_filename;
         $document_date = $this->crud->getRequest()->document_date;
         $expiry_date = $this->crud->getRequest()->expiry_date;
@@ -371,7 +365,7 @@ class TransactionDocumentCrudController extends CrudController
         
 
 
-        \DB::table('transaction_document_revisions')->insert(['document_id' => $document_id, 'document_heading' => $document_heading, 'document_name' => $document_name,'document_guide' => $document_guide, 'document_filename' => $document_filename, 'document_date' => $document_date, 'expiry_date' => $expiry_date, 'document_status' => $document_status]);
+        \DB::table('transaction_document_revisions')->insert(['document_id' => $document_id, 'document_heading' => $document_heading, 'document_name' => $document_name, 'document_filename' => $document_filename, 'document_date' => $document_date, 'expiry_date' => $expiry_date, 'document_status' => $document_status]);
 
         $sms_status = config('general.sms_status');
                 
