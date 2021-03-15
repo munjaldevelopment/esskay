@@ -199,11 +199,12 @@ $(document).ready(function() {
 	$('.transaction-category-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');
 		$('.esskay-home li button').removeClass('active');
-		$('.transaction-category-class').addClass('active');
-		$('.transaction-class').addClass('active');
+		$('.esskay-home li button').removeClass('active');
+		$('.transaction-class').removeClass('active');
 
 		var cat_id = $(this).attr('data-category');
-		
+		$('a[data-category="'+cat_id+'" ]').addClass('active');
+
 		$.ajax({
 			url: base_url+'transactionCategory/'+cat_id,
 			type: 'post',
