@@ -27,7 +27,7 @@ class TransactionRequest extends FormRequest
     {
         return [
             'transaction_category_id' => 'required',
-            'transaction_code' => 'required',
+            //'transaction_code' => 'required',
             'transaction_date' => 'required',
             'transaction_type' => 'required',
             'name' => 'required|min:2|max:255'

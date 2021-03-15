@@ -149,7 +149,7 @@ class TransactionCrudController extends CrudController
             //ESSKAYTRANS006
             $this->crud->addField([
                                     'name' => 'transaction_code',
-                                    'label' => 'Code',
+                                    'label' => '',
                                     'type' => 'text',
                                     'value' => $transaction_code,
                                     'tab' => 'General',
@@ -161,7 +161,7 @@ class TransactionCrudController extends CrudController
 
             $this->crud->addField([
                                     'name' => 'transaction_code',
-                                    'label' => 'Code',
+                                    'label' => '',
                                     'type' => 'text',
                                     'tab' => 'General',
                                     'attributes' => [
