@@ -192,9 +192,13 @@ class HomeController extends Controller
 			else if($trustee_name)
 			{
 				$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
+				$trustee_id = $trusteeData->id;
 				$trusteeCode = "";
 
-				return view('ess-kay-trusee-home', ['customer_name' => $trustee_name, 'trusteeCode' => $trusteeCode, 'trusteeData' => $trusteeData, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
+				// TO DO
+				$docCategoryData = \DB::table('transaction_categories')->leftJoin('transaction_category_trustee', 'transaction_categories.id', '=', 'transaction_category_trustee.transaction_category_id')->where('transaction_category_trustee.trustee_id',$trustee_id)->groupBy('transaction_category_trustee.transaction_category_id')->get();
+
+				return view('ess-kay-trusee-home', ['customer_name' => $trustee_name, 'trusteeCode' => $trusteeCode, 'trusteeData' => $trusteeData, 'docCategoryData' => $docCategoryData, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
 			}
 		}
 		else
