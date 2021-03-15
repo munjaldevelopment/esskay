@@ -204,7 +204,7 @@ class TransactionCrudController extends CrudController
                 $this->crud->addField([
                                     'name' => 'transaction_status',
                                     'label' => 'Status',
-                                    'type' => 'checkbox',
+                                    'type' => 'hidden',
                                     'tab' => 'General'
                                 ]);
             }

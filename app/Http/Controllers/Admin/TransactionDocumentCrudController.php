@@ -70,7 +70,7 @@ class TransactionDocumentCrudController extends CrudController
             }
             
             $this->crud->addColumn([
-                    'label'     => 'Transaction',
+                    'label'     => 'Name of Transaction',
                     'type'      => 'select',
                     'name'      => 'transaction_id',
                     'entity'    => 'transaction', //function name
@@ -111,7 +111,7 @@ class TransactionDocumentCrudController extends CrudController
                                 
             
             $this->crud->addField([
-                    'label'     => 'Transaction',
+                    'label'     => 'Name of Transaction',
                     'type'      => 'select2',
                     'name'      => 'transaction_id',
                     'entity'    => 'transaction', //function name
@@ -163,14 +163,6 @@ class TransactionDocumentCrudController extends CrudController
                                     'name' => 'document_guide',
                                     'label' => 'Document Guide',
                                     'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-                                
-            $this->crud->addField([
-                                    'name' => 'document_status',
-                                    'label' => 'Document Status',
-                                    'type' => 'select2_from_array',
-                                    'options' => ['0' => 'Inactive'],
                                     'tab' => 'General'
                                 ]);
             
