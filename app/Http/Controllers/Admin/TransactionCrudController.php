@@ -138,6 +138,10 @@ class TransactionCrudController extends CrudController
                     $transaction_code = "ESSKAYTRANS".($transData->id + 1);
                 }
             }
+            else
+            {
+                $transaction_code = "ESSKAYTRANS00001";
+            }
 
             //ESSKAYTRANS006
             $this->crud->addField([
