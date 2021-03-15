@@ -10,7 +10,7 @@
 	$list_insight_category = backpack_user()->hasPermissionTo('list_insight_category');
 	$list_insight = backpack_user()->hasPermissionTo('list_insight');
 
-	$list_transaction_document_type = backpack_user()->hasPermissionTo('list_transaction_document_type');
+	$list_transaction_document_type = 1;//backpack_user()->hasPermissionTo('list_transaction_document_type');
 
 	$list_operational_highlight = backpack_user()->hasPermissionTo('list_operational_highlight');
 	$list_geographical_concentration = backpack_user()->hasPermissionTo('list_geographical_concentration');
