@@ -203,14 +203,14 @@ class TransactionCrudController extends CrudController
 
             $this->crud->addField([
                                     'name' => 'transaction_status',
-                                    'label' => 'Status',
-                                    'type' => 'checkbox',
+                                    'label' => '',
+                                    'type' => 'hidden',
                                     'tab' => 'General'
                                 ]);
 
             $this->crud->addField([
                     'label'     => 'Trustee',
-                    'type'      => 'relationship ',
+                    'type'      => 'relationship',
                     'name'      => 'trustees',
                     'entity'    => 'trustees', //function name
                     'attribute' => 'name', //name of fields in models table like districts
