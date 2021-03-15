@@ -86,7 +86,7 @@ Route::post('/showChildDocTrustee', 'HomeController@showChildDocTrustee');
 
 Route::post('/saveContactTrustee', 'HomeController@saveContactTrustee');
 
-Route::post('/transactionCategory/{id}', 'HomeController@transactionCategory');
+Route::any('/transactionCategory/{id}', 'HomeController@transactionCategory');
 
 // Graph
 
