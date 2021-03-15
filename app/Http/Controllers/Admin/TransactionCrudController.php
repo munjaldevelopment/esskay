@@ -272,7 +272,7 @@ class TransactionCrudController extends CrudController
                                 'tab' => 'General'
                             ]);
 
-        $transType = array('Live' => 'Live', 'Matured' => 'Matured');
+        $transType = array('Live' => 'Live');
         $this->crud->addField([
                                 'name' => 'transaction_type',
                                 'label' => 'Transaction Status',
@@ -285,6 +285,7 @@ class TransactionCrudController extends CrudController
                             ]);
 
         
+        $checker_transaction = backpack_user()->hasPermissionTo('checker_transaction');
         if($checker_transaction)
         {
             $this->crud->addField([

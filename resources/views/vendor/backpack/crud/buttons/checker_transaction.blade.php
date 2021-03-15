@@ -8,39 +8,63 @@
 @push('after_scripts') @if (request()->ajax()) @endpush @endif
 <script>
 	if (typeof checkerTransactionEntry != 'function') {
-	  $("[data-button-type=checkerDocument]").unbind('click');
+		$("[data-button-type=checkerDocument]").unbind('click');
 
-	  function checkerTransactionEntry(button) {
-	      // ask for confirmation before deleting an item
-	      // e.preventDefault();
-	      var button = $(button);
-	      var route = button.attr('data-route');
+	  	function checkerTransactionEntry(button) {
+			// ask for confirmation before deleting an item
+			// e.preventDefault();
+			var button = $(button);
+			var route = button.attr('data-route');
 
-          $.ajax({
-              url: route,
-              type: 'POST',
-              success: function(result) {
-                  // Show an alert with the result
-                  new Noty({
-                    type: "success",
-                    text: "{!! trans('backpack::crud.checkerDocument_success') !!}"
-                  }).show();
+			swal({
+				title: "{!! trans('backpack::base.warning') !!}",
+				text: "{!! trans('backpack::crud.delete_confirm') !!}",
+				icon: "success",
+				buttons: {
+					cancel: {
+				  text: "{!! trans('backpack::crud.cancel') !!}",
+				  value: null,
+				  visible: true,
+				  className: "bg-secondary",
+				  closeModal: true,
+				},
+				delete: {
+				  text: "{!! trans('backpack::crud.delete') !!}",
+				  value: true,
+				  visible: true,
+				  className: "bg-danger",
+				}
+			},
+	  		}).then((value) => {
+				if (value) {
+		          	$.ajax({
+						url: route,
+						type: 'POST',
+						success: function(result) {
+		                  // Show an alert with the result
+		                  new Noty({
+							type: "success",
+							text: "{!! trans('backpack::crud.checkerDocument_success') !!}"
+		                  }).show();
 
-                  // Hide the modal, if any
-                  $('.modal').modal('hide');
+		                  // Hide the modal, if any
+		                  $('.modal').modal('hide');
 
-                  if (typeof crud !== 'undefined') {
-                    crud.table.ajax.reload();
-                  }
-              },
-              error: function(result) {
-                  // Show an alert with the result
-                  new Noty({
-                    type: "warning",
-                    text: "{!! trans('backpack::crud.checkerDocument_failure') !!}"
-                  }).show();
-              }
-          });
+		                  if (typeof crud !== 'undefined') {
+		                    crud.table.ajax.reload();
+		                  }
+		              	},
+		              	error: function(result) {
+							// Show an alert with the result
+							new Noty({
+								type: "warning",
+								text: "{!! trans('backpack::crud.checkerDocument_failure') !!}"
+  							}).show();
+		              	}
+		          });
+		        }
+		});
+
       }
 	}
 
