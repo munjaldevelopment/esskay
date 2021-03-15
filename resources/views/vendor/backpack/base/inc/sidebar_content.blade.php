@@ -247,7 +247,7 @@
 
 	if($list_transaction_category):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction_category') }}'><i class='nav-icon la la-user'></i> Transaction Category</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction_category') }}'><i class='nav-icon la la-user'></i> Trans. Category</a></li>
 @php
 	endif;
 
@@ -259,7 +259,7 @@
 
 	if($list_transaction_document):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction_document') }}'><i class='nav-icon la la-user'></i> Transaction Document</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction_document') }}'><i class='nav-icon la la-user'></i> Trans. Document</a></li>
 @php
 	endif;
 @endphp
