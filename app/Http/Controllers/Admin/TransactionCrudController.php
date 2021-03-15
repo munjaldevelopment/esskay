@@ -74,8 +74,8 @@ class TransactionCrudController extends CrudController
             
             //$this->crud->denyAccess(['delete']);
             $this->crud->addColumn([
-                                    'name' => 'name of Transaction',
-                                    'label' => 'Name',
+                                    'name' => 'name',
+                                    'label' => 'Name of Transaction',
                                     'type' => 'text',
                                 ]);
 
