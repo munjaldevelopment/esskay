@@ -152,14 +152,21 @@ class TransactionCrudController extends CrudController
                                     'label' => 'Code',
                                     'type' => 'text',
                                     'value' => $transaction_code,
-                                    'tab' => 'General'
+                                    'tab' => 'General',
+                                    'attribute' => [
+                                        'style' => 'display:none'
+                                    ]
+
                                 ], 'create');
 
             $this->crud->addField([
                                     'name' => 'transaction_code',
                                     'label' => 'Code',
                                     'type' => 'text',
-                                    'tab' => 'General'
+                                    'tab' => 'General',
+                                    'attribute' => [
+                                        'style' => 'display:none'
+                                    ]
                                 ], 'update');
 
             $this->crud->addField([
