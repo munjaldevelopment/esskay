@@ -55,8 +55,16 @@ class TransactionCrudController extends CrudController
             $checker_transaction = backpack_user()->hasPermissionTo('checker_transaction');
             if($checker_transaction)
             {
-                //$this->crud->addClause('where', 'document_status', '=', "0");
-                $this->crud->allowAccess(['checker_transaction', 'revise', 'delete']);
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    //$this->crud->addClause('where', 'document_status', '=', "0");
+                    $this->crud->allowAccess(['checker_transaction', 'revise', 'delete']);
+                }
+                else
+                {
+                    $this->crud->allowAccess(['checker_transaction', 'revise']);
+                }
             }
             else
             {
