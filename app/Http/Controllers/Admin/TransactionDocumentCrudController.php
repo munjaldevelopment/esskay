@@ -265,7 +265,7 @@ class TransactionDocumentCrudController extends CrudController
         //$this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
         $this->crud->unsetValidation(); // validation has already been run
 
-        $result = $this->traitDocumentStore();
+        $result = $this->traitTransactionDocumentStore();
 
         $trustees = $this->crud->getRequest()->trustees;
         //dd($this->crud->getRequest());
@@ -332,7 +332,7 @@ class TransactionDocumentCrudController extends CrudController
         //$this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
         $this->crud->unsetValidation(); // validation has already been run
 
-        $result = $this->traitDocumentUpdate();
+        $result = $this->traitTransactionDocumentUpdate();
 
         $lenders = $this->crud->getRequest()->trustees;
         //$lender_id = end($lenders);
