@@ -3,12 +3,11 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Venturecraft\Revisionable\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class TransactionDocument extends Model
+class TransactionDocumentType extends Model
 {
-    use CrudTrait, RevisionableTrait;
+    use CrudTrait;
 
     /*
     |--------------------------------------------------------------------------
@@ -16,11 +15,12 @@ class TransactionDocument extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'transaction_documents';
+    protected $table = 'transaction_document_types';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['transaction_id', 'transaction_document_type_id', 'document_heading', 'document_type', 'document_name', 'document_guide', 'document_filename', 'document_date', 'expiry_date', 'document_status'];
+    
+    protected $fillable = ['name'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -29,22 +29,7 @@ class TransactionDocument extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function transaction()
-    {
-        return $this->belongsTo('App\Models\Transaction', 'transaction_id');
-    }
 
-
-    public function transactionDocumentType()
-    {
-        return $this->belongsTo('App\Models\TransactionDocumentType', 'transaction_document_type_id');
-    }
-    
-
-    public function trustees()
-    {
-        return $this->belongsToMany('App\Models\Trustee', 'transaction_document_trustee');
-    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

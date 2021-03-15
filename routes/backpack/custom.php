@@ -112,4 +112,5 @@ Route::group([
     Route::crud('transaction_category', 'TransactionCategoryCrudController');
     Route::crud('transaction', 'TransactionCrudController');
     Route::crud('transaction_document', 'TransactionDocumentCrudController');
+    Route::crud('transaction_document_type', 'TransactionDocumentTypeCrudController');
 }); // this should be the absolute last line of this file

@@ -80,6 +80,18 @@ class TransactionDocumentCrudController extends CrudController
                     ]);
 
             $this->crud->addColumn([
+                    'label'     => 'Trnsaction Doc Type',
+                    'type'      => 'select',
+                    'name'      => 'transaction_document_type_id',
+                    'entity'    => 'transactionDocumentType', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'model'     => "App\Models\TransactionDocumentType", //name of Models
+
+                    ]);
+
+            
+
+            $this->crud->addColumn([
                                     'name' => 'document_name',
                                     'label' => 'Doc Name',
                                     'type' => 'text',
@@ -110,6 +122,17 @@ class TransactionDocumentCrudController extends CrudController
                         'id' => 'transaction_id',
                     ],
                     'tab' => 'General'
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Trnsaction Doc Type',
+                    'type'      => 'select2',
+                    'name'      => 'transaction_document_type_id',
+                    'entity'    => 'transactionDocumentType', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'model'     => "App\Models\TransactionDocumentType", //name of Models
+                    'tab' => 'General'
+
                     ]);
             
             $this->crud->addField([

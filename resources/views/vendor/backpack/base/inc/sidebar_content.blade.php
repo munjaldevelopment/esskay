@@ -10,6 +10,8 @@
 	$list_insight_category = backpack_user()->hasPermissionTo('list_insight_category');
 	$list_insight = backpack_user()->hasPermissionTo('list_insight');
 
+	$list_transaction_document_type = backpack_user()->hasPermissionTo('list_transaction_document_type');
+
 	$list_operational_highlight = backpack_user()->hasPermissionTo('list_operational_highlight');
 	$list_geographical_concentration = backpack_user()->hasPermissionTo('list_geographical_concentration');
 	$list_product_concentration = backpack_user()->hasPermissionTo('list_product_concentration');
@@ -52,7 +54,7 @@
 {{-- <li class='nav-item'><a class='nav-link' href='{{ backpack_url('backup') }}'><i class='nav-icon la la-hdd-o'></i> Backups</a></li> --}}
 
 @php
-	if($list_lender_type || $list_trustee_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category):
+	if($list_lender_type || $list_trustee_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category || $list_transaction_document_type):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Master</a>
@@ -96,6 +98,11 @@
 			if($list_insight_category):
 		@endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('insight_category') }}'><i class='nav-icon la la-list'></i> Insight Category</a></li>
+		@php
+			endif;
+			if($list_transaction_document_type):
+		@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction_document_type') }}'><i class='nav-icon la la-list'></i> Trans. Document Type</a></li>
 		@php
 			endif;
 		@endphp
