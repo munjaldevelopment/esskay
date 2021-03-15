@@ -150,11 +150,11 @@ class TransactionCrudController extends CrudController
             $this->crud->addField([
                                     'name' => 'transaction_code',
                                     'label' => '',
-                                    'type' => 'hidden',
+                                    'type' => 'text',
                                     'value' => $transaction_code,
                                     'tab' => 'General',
                                     'attributes' => [
-                                        'style' => 'display:none'
+                                        'readonly' => 'readonly'
                                     ]
 
                                 ], 'create');
@@ -162,10 +162,10 @@ class TransactionCrudController extends CrudController
             $this->crud->addField([
                                     'name' => 'transaction_code',
                                     'label' => '',
-                                    'type' => 'hidden',
+                                    'type' => 'text',
                                     'tab' => 'General',
                                     'attributes' => [
-                                        'style' => 'display:none'
+                                        'readonly' => 'readonly'
                                     ]
                                 ], 'update');
 
@@ -193,12 +193,12 @@ class TransactionCrudController extends CrudController
             $transType = array('Live' => 'Live', 'Matured' => 'Matured');
             $this->crud->addField([
                                     'name' => 'transaction_type',
-                                    'label' => '',
+                                    'label' => 'Transaction Status',
                                     'type' => 'select_from_array',
                                     'options' => $transType,
                                     'tab' => 'General',
                                     'attributes' => [
-                                        'style' => 'display:none'
+                                        'readonly' => 'readonly'
                                     ]
                                 ]);
 
