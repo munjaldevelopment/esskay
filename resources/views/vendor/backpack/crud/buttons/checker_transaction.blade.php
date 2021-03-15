@@ -1,5 +1,5 @@
 @if ($crud->hasAccess('checker_transaction') && $entry->transaction_status == 0)
-	<a href="javascript:void(0)" onclick="checkerTransactionEntry(this)" data-route="{{ backpack_url('checkerTransaction/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-copy"></i> {{ trans('backpack::crud.checkerTransaction') }}</a>
+	<a href="javascript:void(0)" onclick="checkerTransactionEntry(this)" data-route="{{ backpack_url('checkerTransaction/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-check"></i> {{ trans('backpack::crud.checkerTransaction') }}</a>
 @endif
 
 {{-- Button Javascript --}}
@@ -17,8 +17,8 @@
 			var route = button.attr('data-route');
 
 			swal({
-				title: "{!! trans('backpack::base.warning') !!}",
-				text: "{!! trans('backpack::crud.delete_confirm') !!}",
+				title: "{!! trans('backpack::base.success') !!}",
+				text: "{!! trans('backpack::crud.approve_confirm') !!}",
 				icon: "success",
 				buttons: {
 					cancel: {
@@ -29,10 +29,10 @@
 				  closeModal: true,
 				},
 				delete: {
-				  text: "{!! trans('backpack::crud.delete') !!}",
+				  text: "{!! trans('backpack::crud.confirm') !!}",
 				  value: true,
 				  visible: true,
-				  className: "bg-danger",
+				  className: "bg-success",
 				}
 			},
 	  		}).then((value) => {

@@ -68,19 +68,19 @@ class TransactionCrudController extends CrudController
             // define how deep the admin is allowed to nest the items
             // for infinite levels, set it to 0
             $this->crud->set('reorder.max_level', 3);
-            $this->crud->orderBy('lft', 'ASC');
+            $this->crud->orderBy('updated_at', 'ASC');
             
             //$this->crud->enableReorder('name', 2);
             
             //$this->crud->denyAccess(['delete']);
             $this->crud->addColumn([
                                     'name' => 'name',
-                                    'label' => 'Name of Transaction',
+                                    'label' => 'Trans Name',
                                     'type' => 'text',
                                 ]);
 
             $this->crud->addColumn([
-                    'label'     => 'Created By',
+                    'label'     => 'Created',
                     'type'      => 'select',
                     'name'      => 'user_id',
                     'entity'    => 'user', //function name
@@ -89,7 +89,7 @@ class TransactionCrudController extends CrudController
 
                     ]);
             $this->crud->addColumn([
-                    'label'     => 'Type of Transaction',
+                    'label'     => 'Trans. Type',
                     'type'      => 'select',
                     'name'      => 'transaction_category_id',
                     'entity'    => 'transactionCategory', //function name
@@ -99,10 +99,17 @@ class TransactionCrudController extends CrudController
                     ]);
 
             $this->crud->addColumn([
-                                    'name' => 'transaction_status',
-                                    'label' => 'Status',
-                                    'type' => 'check',
+                                    'name' => 'transaction_live_date',
+                                    'label' => 'Live Date',
+                                    'type' => 'text',
                                 ]);
+
+             $this->crud->addColumn([
+                                    'name' => 'transaction_matured_date',
+                                    'label' => 'Matured Date',
+                                    'type' => 'text',
+                                ]);
+
 
 
             $this->crud->addButtonFromView('line', 'checker_transaction', 'checker_transaction', 'end');
