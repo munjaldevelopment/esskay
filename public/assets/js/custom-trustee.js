@@ -195,6 +195,28 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+	$('.transaction-category-class').bind('click', function() {
+		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
+		$('.transaction-category-class').addClass('active');
+		$('.transaction-class').addClass('active');
+
+		var cat_id = $(this).attr('data-category');
+		
+		$.ajax({
+			url: base_url+'transactionCategory/'+cat_id,
+			type: 'post',
+			data: {_token: CSRF_TOKEN},
+			beforeSend: function() {
+				$('.preloader').show();
+			},
+			success: function(output) {
+				$('.preloader').hide();
+				$('.home-content').html(output);
+			}
+		});
+	});
 	
 	var is_message_md = $('#is_message_md').val();
 	var is_document = $('#is_document').val();

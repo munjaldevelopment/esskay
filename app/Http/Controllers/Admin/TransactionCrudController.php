@@ -40,6 +40,28 @@ class TransactionCrudController extends CrudController
             $this->crud->allowAccess('show');
             $this->crud->allowAccess('reorder');
             $this->crud->enableExportButtons();
+
+            $maker_transaction = backpack_user()->hasPermissionTo('maker_transaction');
+            if($maker_transaction)
+            {
+                //$this->crud->addClause('whereIn', 'document_status', [0,1]);
+                $this->crud->allowAccess(['create', 'update']);
+            }
+            else
+            {
+                $this->crud->denyAccess(['create', 'update', 'delete']);
+            }
+            
+            $checker_transaction = backpack_user()->hasPermissionTo('checker_transaction');
+            if($checker_transaction)
+            {
+                //$this->crud->addClause('where', 'document_status', '=', "0");
+                $this->crud->allowAccess(['checker_transaction', 'revise', 'delete']);
+            }
+            else
+            {
+                $this->crud->denyAccess(['checker_transaction', 'revise', 'delete']);
+            }
             
             
             $this->crud->set('reorder.label', 'name');

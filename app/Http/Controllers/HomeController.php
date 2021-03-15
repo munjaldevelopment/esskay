@@ -4136,4 +4136,15 @@ class HomeController extends Controller
 			}
 		}
 	}
+
+	public function transactionCategory($category_id)
+    {
+    	//dd($request->all());
+		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
+    	//dd($trusteeData);
+    	$trustee_id = $trusteeData->id;
+
+    	return view('transaction-category-trustee', ['trustee_id' => $trustee_id]);
+    }
+
 }
