@@ -20,7 +20,7 @@
 										<div class="panel-body">
 											<ul class="nav navbar-nav">
 												@foreach($transactionLiveData as $k => $row)
-												<li @if($k == 0) class="active" @endif><a href="javascript:;"><span><img src="{{ asset('public/assets/') }}/images/sub-dropdown-icon.svg" alt=""></span> {{ $row->name }}</a></li>
+												<li class="transaction-content-row{{ $row->id }} @if($k == 0) active @endif"><a class="transaction-row" data-transaction="{{ $row->id }}" href="javascript:;"><span><img src="{{ asset('public/assets/') }}/images/sub-dropdown-icon.svg" alt=""></span> {{ $row->name }}</a></li>
 												@endforeach
 											</ul>
 										</div>
@@ -39,7 +39,7 @@
 										<div class="panel-body">
 											<ul class="nav navbar-nav">
 												@foreach($transactionMaturedData as $k => $row)
-												<li @if($k == 0) class="active" @endif><a href="javascript:;"><span><img src="{{ asset('public/assets/') }}/images/sub-dropdown-icon.svg" alt=""></span> {{ $row->name }}</a></li>
+												<li class="transaction-content-row{{ $row->id }} @if($k == 0) active @endif"><a class="transaction-row" data-transaction="{{ $row->id }}" href="javascript:;"><span><img src="{{ asset('public/assets/') }}/images/sub-dropdown-icon.svg" alt=""></span> {{ $row->name }}</a></li>
 												@endforeach
 											</ul>
 										</div>
@@ -58,6 +58,60 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+<div class="preloader_doc" style="display:none">
+	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;display:block;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+		<g transform="rotate(0 50 50)">
+		  <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d12aa">
+			<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.9166666666666666s" repeatCount="indefinite"></animate>
+		  </rect>
+		</g><g transform="rotate(30 50 50)">
+		  <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d12aa">
+			<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.8333333333333334s" repeatCount="indefinite"></animate>
+		  </rect>
+		</g><g transform="rotate(60 50 50)">
+		  <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d12aa">
+			<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.75s" repeatCount="indefinite"></animate>
+		  </rect>
+		</g><g transform="rotate(90 50 50)">
+		  <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d12aa">
+			<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.6666666666666666s" repeatCount="indefinite"></animate>
+		  </rect>
+		</g><g transform="rotate(120 50 50)">
+		  <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d12aa">
+			<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5833333333333334s" repeatCount="indefinite"></animate>
+		  </rect>
+		</g><g transform="rotate(150 50 50)">
+		  <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d12aa">
+			<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5s" repeatCount="indefinite"></animate>
+		  </rect>
+		</g><g transform="rotate(180 50 50)">
+		  <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d12aa">
+			<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.4166666666666667s" repeatCount="indefinite"></animate>
+		  </rect>
+		</g><g transform="rotate(210 50 50)">
+		  <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d12aa">
+			<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.3333333333333333s" repeatCount="indefinite"></animate>
+		  </rect>
+		</g><g transform="rotate(240 50 50)">
+		  <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d12aa">
+			<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.25s" repeatCount="indefinite"></animate>
+		  </rect>
+		</g><g transform="rotate(270 50 50)">
+		  <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d12aa">
+			<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.16666666666666666s" repeatCount="indefinite"></animate>
+		  </rect>
+		</g><g transform="rotate(300 50 50)">
+		  <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d12aa">
+			<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.08333333333333333s" repeatCount="indefinite"></animate>
+		  </rect>
+		</g><g transform="rotate(330 50 50)">
+		  <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d12aa">
+			<animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animate>
+		  </rect>
+		</g>
+		</svg>
 </div>
 
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
@@ -80,35 +134,34 @@ $(document).ready(function() {
         //$('.absolute-wrapper').toggleClass('slide-in');
         
     });
-   
-   // Remove menu for searching
-   $('#search-trigger').click(function () {
-        $('.navbar-nav').removeClass('slide-in');
-        $('.side-body').removeClass('body-slide-in');
 
-        /// uncomment code for absolute positioning tweek see top comment in css
-        //$('.absolute-wrapper').removeClass('slide-in');
-
-    });
-		
-	(function($){
-		$(window).on("load",function(){				
+    (function($){
+		$(window).on("load",function(){
 			$("#content-1").mCustomScrollbar({
 				theme:"minimal",
 				scrollInertia: 60,
 			});				
 		});
 	})(jQuery);	
-		
 
-	$(document).ready(function() {
-		$('.mtb_category_scroller').owlCarousel({
-			margin: 10,
-			loop: false,
-			nav:true,
-			navText: ["<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'>","<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'>"],  
-			autoWidth: true,
-			items: 4
+	$('.transaction-row').bind('click', function() {
+		var transaction_id = $(this).attr('data-transaction');
+		
+		$.ajax({
+			url: base_url+'showTrusteeTransactionInfo',
+			type: 'post',
+			data: {_token: CSRF_TOKEN, transaction_id: transaction_id},
+			beforeSend: function() {
+				var content = $('.preloader_doc').html();
+				$('.transaction-container').html(content);
+			},
+			success: function(output) {
+				$('.transaction-container').html(output);
+
+				$('.transaction-row').find('li').removeClass('active');
+
+				$('.transaction-content-row'+transaction_id).addClass('active');
+			}
 		});
 	});
 });

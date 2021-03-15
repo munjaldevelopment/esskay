@@ -78,6 +78,8 @@ Route::post('/contact_us_trustee', 'HomeController@contactUsTrustee');
 
 Route::post('/documentTrustee', 'HomeController@documentTrustee');
 
+Route::post('/showTrusteeTransactionInfo', 'HomeController@showTrusteeTransactionInfo');
+
 Route::post('/showDocTrustee', 'HomeController@showDocTrustee');
 Route::get('/previewDocTrustee/{id}', 'HomeController@previewDocTrustee');
 Route::get('/downloadDocTrustee/{id}', 'HomeController@downloadDocTrustee');
