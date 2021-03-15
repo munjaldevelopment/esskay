@@ -21,7 +21,7 @@ class Transaction extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
     
-    protected $fillable = ['transaction_category_id', 'transaction_code', 'name', 'transaction_date', 'transaction_type', 'transaction_status'];
+    protected $fillable = ['transaction_category_id', 'transaction_code', 'name', 'transaction_live_date', 'transaction_matured_date', 'transaction_type', 'transaction_status'];
     // protected $hidden = [];
     // protected $dates = [];
 

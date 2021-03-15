@@ -177,8 +177,15 @@ class TransactionCrudController extends CrudController
                                 ]);
 
             $this->crud->addField([
-                                    'name' => 'transaction_date',
-                                    'label' => 'Transaction Date',
+                                    'name' => 'transaction_live_date',
+                                    'label' => 'Transaction Live Date',
+                                    'type' => 'date',
+                                    'tab' => 'General'
+                                ]);
+
+            $this->crud->addField([
+                                    'name' => 'transaction_matured_date',
+                                    'label' => 'Transaction Matured Date',
                                     'type' => 'date',
                                     'tab' => 'General'
                                 ]);
