@@ -97,14 +97,11 @@ class TransactionCrudController extends CrudController
 
             
             $this->crud->addField([
-                    'label'     => 'Type of Transaction',
-                    'type'      => 'select2',
-                    'name'      => 'transaction_category_id',
-                    'entity'    => 'transactionCategory', //function name
-                    'attribute' => 'category_name', //name of fields in models table like districts
-                    'model'     => "App\Models\TransactionCategory", //name of Models
-                    'tab' => 'General'
-                    ]);
+                                    'name' => 'name',
+                                    'label' => 'Name of Transaction',
+                                    'type' => 'text',
+                                    'tab' => 'General'
+                                ]);
 
             $this->crud->addField([
                     'label'     => 'Type of Transaction',
@@ -146,7 +143,7 @@ class TransactionCrudController extends CrudController
             $this->crud->addField([
                                     'name' => 'transaction_code',
                                     'label' => 'Code',
-                                    'type' => 'text',
+                                    'type' => 'hidden',
                                     'value' => $transaction_code,
                                     'tab' => 'General',
                                     'attributes' => [
@@ -157,20 +154,13 @@ class TransactionCrudController extends CrudController
 
             $this->crud->addField([
                                     'name' => 'transaction_code',
-                                    'label' => '',
-                                    'type' => 'text',
+                                    'label' => 'Code',
+                                    'type' => 'hidden',
                                     'tab' => 'General',
                                     'attributes' => [
                                         'readonly' => 'readonly'
                                     ]
                                 ], 'update');
-
-            $this->crud->addField([
-                                    'name' => 'name',
-                                    'label' => 'Name of Transaction',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
 
             $this->crud->addField([
                                     'name' => 'transaction_live_date',
