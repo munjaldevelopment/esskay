@@ -80,7 +80,7 @@ class TransactionCrudController extends CrudController
                                 ]);
 
             $this->crud->addColumn([
-                    'label'     => 'Transaction Category',
+                    'label'     => 'Type of Transaction',
                     'type'      => 'select',
                     'name'      => 'transaction_category_id',
                     'entity'    => 'transactionCategory', //function name
@@ -97,7 +97,7 @@ class TransactionCrudController extends CrudController
 
             
             $this->crud->addField([
-                    'label'     => 'Transaction Category',
+                    'label'     => 'Type of Transaction',
                     'type'      => 'select2',
                     'name'      => 'transaction_category_id',
                     'entity'    => 'transactionCategory', //function name
@@ -107,7 +107,7 @@ class TransactionCrudController extends CrudController
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Transaction Category',
+                    'label'     => 'Type of Transaction',
                     'type'      => 'select2',
                     'name'      => 'transaction_category_id',
                     'entity'    => 'transactionCategory', //function name

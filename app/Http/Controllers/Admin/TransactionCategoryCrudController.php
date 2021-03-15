@@ -31,7 +31,7 @@ class TransactionCategoryCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\TransactionCategory::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/transaction_category');
-        CRUD::setEntityNameStrings('Transaction Category', 'Transaction Categories');
+        CRUD::setEntityNameStrings('Type of Transaction', 'Types of Transaction');
 
         $list_document_category = backpack_user()->hasPermissionTo('list_document_category');
         
