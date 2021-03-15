@@ -178,7 +178,7 @@ class TransactionCrudController extends CrudController
 
             $this->crud->addField([
                                     'name' => 'transaction_date',
-                                    'label' => 'Trnsaction Date',
+                                    'label' => 'Transaction Date',
                                     'type' => 'date',
                                     'tab' => 'General'
                                 ]);
@@ -186,7 +186,7 @@ class TransactionCrudController extends CrudController
             $transType = array('Live' => 'Live', 'Matured' => 'Matured');
             $this->crud->addField([
                                     'name' => 'transaction_type',
-                                    'label' => 'Trnsaction Type',
+                                    'label' => 'Transaction Type',
                                     'type' => 'select_from_array',
                                     'options' => $transType,
                                     'tab' => 'General'
