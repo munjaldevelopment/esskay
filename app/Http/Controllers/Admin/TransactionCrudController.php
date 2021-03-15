@@ -104,158 +104,6 @@ class TransactionCrudController extends CrudController
                                     'type' => 'check',
                                 ]);
 
-            
-            $this->crud->addField([
-                                    'name' => 'name',
-                                    'label' => 'Name of Transaction',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                    'label'     => 'Type of Transaction',
-                    'type'      => 'select2',
-                    'name'      => 'transaction_category_id',
-                    'entity'    => 'transactionCategory', //function name
-                    'attribute' => 'category_name', //name of fields in models table like districts
-                    'model'     => "App\Models\TransactionCategory", //name of Models
-                    'tab' => 'General'
-                    ]);
-
-            $this->crud->addField([
-                    'label'     => 'Created By',
-                    'type'      => 'hidden',
-                    'name'      => 'user_id',
-                    'entity'    => 'user', //function name
-                    'attribute' => 'name', //name of fields in models table like districts
-                    'model'     => "App\User", //name of Models
-                    'value'     => backpack_user()->id, //name of Models
-                    'tab'       => 'General'
-            ], 'create');
-
-            $this->crud->addField([
-                    'label'     => 'Created By',
-                    'type'      => 'select2',
-                    'name'      => 'user_id',
-                    'entity'    => 'user', //function name
-                    'attribute' => 'name', //name of fields in models table like districts
-                    'model'     => "App\User", //name of Models
-                    'tab'       => 'General',
-                    'attribute' => [
-                        'style' => 'display:none'
-                    ]
-
-            ], 'update');
-
-            $transaction_code = "";
-            $transData = \DB::table('transactions')->orderBy('id', 'DESC')->first();
-            if($transData)
-            {
-                if($transData->id <= 9)
-                {
-                    $transaction_code = "ESSKAYTRANS0000".($transData->id + 1);
-                }
-                else if($transData->id > 9 && $transData->id <= 99) 
-                {
-                    $transaction_code = "ESSKAYTRANS000".($transData->id + 1);
-                }
-                else if($transData->id > 99 && $transData->id <= 999) 
-                {
-                    $transaction_code = "ESSKAYTRANS00".($transData->id + 1);
-                }
-                else if($transData->id > 999 && $transData->id <= 9999) 
-                {
-                    $transaction_code = "ESSKAYTRANS0".($transData->id + 1);
-                }
-                else
-                {
-                    $transaction_code = "ESSKAYTRANS".($transData->id + 1);
-                }
-            }
-            else
-            {
-                $transaction_code = "ESSKAYTRANS00001";
-            }
-
-            //ESSKAYTRANS006
-            $this->crud->addField([
-                                    'name' => 'transaction_code',
-                                    'label' => 'Code',
-                                    'type' => 'hidden',
-                                    'value' => $transaction_code,
-                                    'tab' => 'General',
-                                    'attributes' => [
-                                        'readonly' => 'readonly'
-                                    ]
-
-                                ], 'create');
-
-            $this->crud->addField([
-                                    'name' => 'transaction_code',
-                                    'label' => 'Code',
-                                    'type' => 'hidden',
-                                    'tab' => 'General',
-                                    'attributes' => [
-                                        'readonly' => 'readonly'
-                                    ]
-                                ], 'update');
-
-            $this->crud->addField([
-                                    'name' => 'transaction_live_date',
-                                    'label' => 'Transaction Live Date',
-                                    'type' => 'date',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'transaction_matured_date',
-                                    'label' => 'Transaction Matured Date',
-                                    'type' => 'date',
-                                    'tab' => 'General'
-                                ]);
-
-            $transType = array('Live' => 'Live', 'Matured' => 'Matured');
-            $this->crud->addField([
-                                    'name' => 'transaction_type',
-                                    'label' => 'Transaction Status',
-                                    'type' => 'select_from_array',
-                                    'options' => $transType,
-                                    'tab' => 'General',
-                                    'attributes' => [
-                                        'readonly' => 'readonly'
-                                    ]
-                                ]);
-
-            
-            if($checker_transaction)
-            {
-                $this->crud->addField([
-                                    'name' => 'transaction_status',
-                                    'label' => 'Status',
-                                    'type' => 'hidden',
-                                    'tab' => 'General'
-                                ]);
-            }
-            else
-            {
-                $this->crud->addField([
-                                    'name' => 'transaction_status',
-                                    'label' => 'Status',
-                                    'type' => 'hidden',
-                                    'tab' => 'General'
-                                ]);
-            }
-
-            $this->crud->addField([
-                    'label'     => 'Trustee',
-                    'type'      => 'relationship',
-                    'name'      => 'trustees',
-                    'entity'    => 'trustees', //function name
-                    'attribute' => 'name', //name of fields in models table like districts
-                    'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
-                    
-                    'tab' => 'Trustee'
-                    ]);
 
             $this->crud->addButtonFromView('line', 'checker_transaction', 'checker_transaction', 'end');
         }
@@ -290,9 +138,10 @@ class TransactionCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
+        $this->addTransactionFields();
         CRUD::setValidation(TransactionRequest::class);
 
-        CRUD::setFromDb(); // fields
+        //CRUD::setFromDb(); // fields
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -309,6 +158,283 @@ class TransactionCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        $this->setupCreateOperation();
+        $this->updateTransactionFields();
+        CRUD::setValidation(TransactionRequest::class);
+
+        //CRUD::setFromDb(); // fields
+    }
+
+    protected function addTransactionFields()
+    {
+        $this->crud->addField([
+                                'name' => 'name',
+                                'label' => 'Name of Transaction',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                'label'     => 'Type of Transaction',
+                'type'      => 'select2',
+                'name'      => 'transaction_category_id',
+                'entity'    => 'transactionCategory', //function name
+                'attribute' => 'category_name', //name of fields in models table like districts
+                'model'     => "App\Models\TransactionCategory", //name of Models
+                'tab' => 'General'
+                ]);
+
+        $is_admin = backpack_user()->hasRole('Super Admin');
+
+        if($is_admin)
+        {
+            $userData = array();
+            $users = \DB::table('users')->where('user_status', '1')->get();
+            foreach ($users as $key => $roww) {
+                $userData[$roww->id] = $roww->name;
+            }
+
+            $this->crud->addField([
+                    'label'     => 'Created By',
+                    'type'      => 'select2_from_array',
+                    'name'      => 'user_id',
+                    'options'   => $userData,
+                    'tab'       => 'General',
+
+            ]);
+        }
+        else
+        {
+            $this->crud->addField([
+                    'label'     => 'Created By',
+                    'type'      => 'hidden',
+                    'name'      => 'user_id',
+                    'entity'    => 'user', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'model'     => "App\User", //name of Models
+                    'value'     => backpack_user()->id, //name of Models
+                    'tab'       => 'General'
+            ]);
+        }
+
+        $transaction_code = "";
+        $transData = \DB::table('transactions')->orderBy('id', 'DESC')->first();
+        if($transData)
+        {
+            if($transData->id <= 9)
+            {
+                $transaction_code = "ESSKAYTRANS0000".($transData->id + 1);
+            }
+            else if($transData->id > 9 && $transData->id <= 99) 
+            {
+                $transaction_code = "ESSKAYTRANS000".($transData->id + 1);
+            }
+            else if($transData->id > 99 && $transData->id <= 999) 
+            {
+                $transaction_code = "ESSKAYTRANS00".($transData->id + 1);
+            }
+            else if($transData->id > 999 && $transData->id <= 9999) 
+            {
+                $transaction_code = "ESSKAYTRANS0".($transData->id + 1);
+            }
+            else
+            {
+                $transaction_code = "ESSKAYTRANS".($transData->id + 1);
+            }
+        }
+        else
+        {
+            $transaction_code = "ESSKAYTRANS00001";
+        }
+
+        $this->crud->addField([
+                                'name' => 'transaction_code',
+                                'label' => 'Code',
+                                'type' => 'hidden',
+                                'value' => $transaction_code,
+                                'tab' => 'General',
+                                'attributes' => [
+                                    'readonly' => 'readonly'
+                                ]
+
+        ]);
+
+        $this->crud->addField([
+                                'name' => 'transaction_live_date',
+                                'label' => 'Transaction Live Date',
+                                'type' => 'date',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'transaction_matured_date',
+                                'label' => 'Transaction Matured Date',
+                                'type' => 'date',
+                                'tab' => 'General'
+                            ]);
+
+        $transType = array('Live' => 'Live', 'Matured' => 'Matured');
+        $this->crud->addField([
+                                'name' => 'transaction_type',
+                                'label' => 'Transaction Status',
+                                'type' => 'select_from_array',
+                                'options' => $transType,
+                                'tab' => 'General',
+                                'attributes' => [
+                                    'readonly' => 'readonly'
+                                ]
+                            ]);
+
+        
+        if($checker_transaction)
+        {
+            $this->crud->addField([
+                                'name' => 'transaction_status',
+                                'label' => 'Status',
+                                'type' => 'hidden',
+                                'tab' => 'General'
+                            ]);
+        }
+        else
+        {
+            $this->crud->addField([
+                                'name' => 'transaction_status',
+                                'label' => 'Status',
+                                'type' => 'hidden',
+                                'tab' => 'General'
+                            ]);
+        }
+
+        $this->crud->addField([
+                'label'     => 'Trustee',
+                'type'      => 'relationship',
+                'name'      => 'trustees',
+                'entity'    => 'trustees', //function name
+                'attribute' => 'name', //name of fields in models table like districts
+                'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+                
+                'tab' => 'Trustee'
+                ]);
+
+    }
+
+    protected function updateTransactionFields()
+    {
+        $this->crud->addField([
+                                'name' => 'name',
+                                'label' => 'Name of Transaction',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                'label'     => 'Type of Transaction',
+                'type'      => 'select2',
+                'name'      => 'transaction_category_id',
+                'entity'    => 'transactionCategory', //function name
+                'attribute' => 'category_name', //name of fields in models table like districts
+                'model'     => "App\Models\TransactionCategory", //name of Models
+                'tab' => 'General'
+                ]);
+
+        $checker_transaction = backpack_user()->hasPermissionTo('checker_transaction');
+        $is_admin = backpack_user()->hasRole('Super Admin');
+
+        if($is_admin)
+        {
+            $userData = array();
+            $users = \DB::table('users')->where('user_status', '1')->get();
+            foreach ($users as $key => $roww) {
+                $userData[$roww->id] = $roww->name;
+            }
+
+            $this->crud->addField([
+                    'label'     => 'Created By',
+                    'type'      => 'select2_from_array',
+                    'name'      => 'user_id',
+                    'options'   => $userData,
+                    'tab'       => 'General',
+
+            ]);
+        }
+        else
+        {
+            $this->crud->addField([
+                    'label'     => 'Created By',
+                    'type'      => 'hidden',
+                    'name'      => 'user_id',
+                    'entity'    => 'user', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'model'     => "App\User", //name of Models
+                    'tab'       => 'General',
+            ]);
+        }
+
+        $this->crud->addField([
+                'name' => 'transaction_code',
+                'label' => 'Code',
+                'type' => 'hidden',
+                'tab' => 'General',
+                'attributes' => [
+                    'readonly' => 'readonly'
+                ]
+
+        ]);
+
+        $this->crud->addField([
+                                'name' => 'transaction_live_date',
+                                'label' => 'Transaction Live Date',
+                                'type' => 'date',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'transaction_matured_date',
+                                'label' => 'Transaction Matured Date',
+                                'type' => 'date',
+                                'tab' => 'General'
+                            ]);
+
+        $transType = array('Live' => 'Live', 'Matured' => 'Matured');
+        $this->crud->addField([
+                                'name' => 'transaction_type',
+                                'label' => 'Transaction Status',
+                                'type' => 'select_from_array',
+                                'options' => $transType,
+                                'tab' => 'General',
+                                'attributes' => [
+                                    'readonly' => 'readonly'
+                                ]
+                            ]);
+
+        
+        if($checker_transaction)
+        {
+            $this->crud->addField([
+                                'name' => 'transaction_status',
+                                'label' => 'Status',
+                                'type' => 'hidden',
+                                'tab' => 'General'
+                            ]);
+        }
+        else
+        {
+            $this->crud->addField([
+                                'name' => 'transaction_status',
+                                'label' => 'Status',
+                                'type' => 'hidden',
+                                'tab' => 'General'
+                            ]);
+        }
+
+        $this->crud->addField([
+                'label'     => 'Trustee',
+                'type'      => 'relationship',
+                'name'      => 'trustees',
+                'entity'    => 'trustees', //function name
+                'attribute' => 'name', //name of fields in models table like districts
+                'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+                
+                'tab' => 'Trustee'
+                ]);
     }
 }
