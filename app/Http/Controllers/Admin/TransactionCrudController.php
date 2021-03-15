@@ -149,7 +149,7 @@ class TransactionCrudController extends CrudController
             //ESSKAYTRANS006
             $this->crud->addField([
                                     'name' => 'transaction_code',
-                                    'label' => '',
+                                    'label' => 'Code',
                                     'type' => 'text',
                                     'value' => $transaction_code,
                                     'tab' => 'General',
@@ -203,13 +203,24 @@ class TransactionCrudController extends CrudController
                                 ]);
 
             
-
-            $this->crud->addField([
+            if($checker_transaction)
+            {
+                $this->crud->addField([
                                     'name' => 'transaction_status',
                                     'label' => 'Status',
                                     'type' => 'checkbox',
                                     'tab' => 'General'
                                 ]);
+            }
+            else
+            {
+                $this->crud->addField([
+                                    'name' => 'transaction_status',
+                                    'label' => 'Status',
+                                    'type' => 'hidden',
+                                    'tab' => 'General'
+                                ]);
+            }
 
             $this->crud->addField([
                     'label'     => 'Trustee',
@@ -221,6 +232,8 @@ class TransactionCrudController extends CrudController
                     
                     'tab' => 'Trustee'
                     ]);
+
+            $this->crud->addButtonFromView('line', 'checker_transaction', 'checker_transaction', 'end');
         }
         else
         {

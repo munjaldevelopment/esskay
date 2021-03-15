@@ -45,7 +45,7 @@ class TransactionDocumentCrudController extends CrudController
             $maker_transaction_document = backpack_user()->hasPermissionTo('maker_transaction_document');
             if($maker_transaction_document)
             {
-                //$this->crud->addClause('whereIn', 'transaction_document_status', [0,1]);
+                //$this->crud->addClause('whereIn', 'document_status', [0,1]);
                 $this->crud->allowAccess(['create', 'update']);
             }
             else
@@ -56,7 +56,7 @@ class TransactionDocumentCrudController extends CrudController
             $checker_transaction_document = backpack_user()->hasPermissionTo('checker_transaction_document');
             if($checker_transaction_document)
             {
-                //$this->crud->addClause('where', 'transaction_document_status', '=', "0");
+                //$this->crud->addClause('where', 'document_status', '=', "0");
                 $this->crud->allowAccess(['checker_transaction_document', 'revise', 'delete']);
             }
             else
@@ -66,7 +66,7 @@ class TransactionDocumentCrudController extends CrudController
             
             if($checker_transaction_document && !$maker_transaction_document)
             {
-                $this->crud->addClause('where', 'transaction_document_status', '=', "0");
+                //$this->crud->addClause('where', 'document_status', '=', "0");
             }
             
             $this->crud->addColumn([
@@ -89,6 +89,12 @@ class TransactionDocumentCrudController extends CrudController
                                     'name' => 'document_date',
                                     'label' => 'Year',
                                     'type' => 'text',
+                                ]);
+
+            $this->crud->addColumn([
+                                    'name' => 'document_status',
+                                    'label' => 'Status',
+                                    'type' => 'check',
                                 ]);
                                 
             
