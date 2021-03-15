@@ -193,18 +193,21 @@ class TransactionCrudController extends CrudController
             $transType = array('Live' => 'Live', 'Matured' => 'Matured');
             $this->crud->addField([
                                     'name' => 'transaction_type',
-                                    'label' => 'Transaction Type',
+                                    'label' => '',
                                     'type' => 'select_from_array',
                                     'options' => $transType,
-                                    'tab' => 'General'
+                                    'tab' => 'General',
+                                    'attributes' => [
+                                        'style' => 'display:none'
+                                    ]
                                 ]);
 
             
 
             $this->crud->addField([
                                     'name' => 'transaction_status',
-                                    'label' => '',
-                                    'type' => 'hidden',
+                                    'label' => 'Status',
+                                    'type' => 'checkbox',
                                     'tab' => 'General'
                                 ]);
 
