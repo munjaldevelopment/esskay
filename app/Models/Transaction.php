@@ -21,7 +21,7 @@ class Transaction extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
     
-    protected $fillable = ['transaction_category_id', 'transaction_code', 'name', 'transaction_live_date', 'transaction_matured_date', 'transaction_type', 'transaction_status'];
+    protected $fillable = ['transaction_category_id', 'user_id', 'transaction_code', 'name', 'transaction_live_date', 'transaction_matured_date', 'transaction_type', 'transaction_status'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -30,6 +30,11 @@ class Transaction extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
     public function transactionCategory()
     {
         return $this->belongsTo('App\Models\TransactionCategory', 'transaction_category_id');

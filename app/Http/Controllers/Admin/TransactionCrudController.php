@@ -80,6 +80,15 @@ class TransactionCrudController extends CrudController
                                 ]);
 
             $this->crud->addColumn([
+                    'label'     => 'Created By',
+                    'type'      => 'select',
+                    'name'      => 'user_id',
+                    'entity'    => 'user', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'model'     => "App\User", //name of Models
+
+                    ]);
+            $this->crud->addColumn([
                     'label'     => 'Type of Transaction',
                     'type'      => 'select',
                     'name'      => 'transaction_category_id',
@@ -112,6 +121,31 @@ class TransactionCrudController extends CrudController
                     'model'     => "App\Models\TransactionCategory", //name of Models
                     'tab' => 'General'
                     ]);
+
+            $this->crud->addField([
+                    'label'     => 'Created By',
+                    'type'      => 'hidden',
+                    'name'      => 'user_id',
+                    'entity'    => 'user', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'model'     => "App\User", //name of Models
+                    'value'     => backpack_user()->id, //name of Models
+                    'tab'       => 'General'
+            ], 'create');
+
+            $this->crud->addField([
+                    'label'     => 'Created By',
+                    'type'      => 'select2',
+                    'name'      => 'user_id',
+                    'entity'    => 'user', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'model'     => "App\User", //name of Models
+                    'tab'       => 'General',
+                    'attribute' => [
+                        'style' => 'display:none'
+                    ]
+
+            ], 'update');
 
             $transaction_code = "";
             $transData = \DB::table('transactions')->orderBy('id', 'DESC')->first();
