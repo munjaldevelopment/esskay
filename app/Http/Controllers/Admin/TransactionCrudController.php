@@ -150,7 +150,7 @@ class TransactionCrudController extends CrudController
             $this->crud->addField([
                                     'name' => 'transaction_code',
                                     'label' => '',
-                                    'type' => 'text',
+                                    'type' => 'hidden',
                                     'value' => $transaction_code,
                                     'tab' => 'General',
                                     'attributes' => [
@@ -162,7 +162,7 @@ class TransactionCrudController extends CrudController
             $this->crud->addField([
                                     'name' => 'transaction_code',
                                     'label' => '',
-                                    'type' => 'text',
+                                    'type' => 'hidden',
                                     'tab' => 'General',
                                     'attributes' => [
                                         'style' => 'display:none'
