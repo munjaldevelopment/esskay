@@ -486,4 +486,12 @@ class DocumentCrudController extends CrudController
 		
 		\DB::table('document_revisions')->where(['document_id' => $document_id])->update($updateData);
 	}
+
+	public function checkerTransactionDocument($document_id)
+	{
+		$updateData = array('document_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('transaction_documents')->where(['id' => $document_id])->update($updateData);
+		
+		\DB::table('transaction_document_revisions')->where(['document_id' => $document_id])->update($updateData);
+	}
 }

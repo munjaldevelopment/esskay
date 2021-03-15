@@ -201,7 +201,7 @@ class TransactionDocumentCrudController extends CrudController
                     $this->crud->addClause('where', 'document_name', 'LIKE', "%$value%");
             });
             
-            $this->crud->addButtonFromView('line', 'checker_document', 'checker_document', 'end');
+            $this->crud->addButtonFromView('line', 'checker_transaction_document', 'checker_transaction_document', 'end');
             
             $this->crud->setCreateView('admin.create-document-form');
             $this->crud->setUpdateView('admin.edit-document-form');
