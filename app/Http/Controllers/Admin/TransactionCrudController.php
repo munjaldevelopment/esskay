@@ -153,7 +153,7 @@ class TransactionCrudController extends CrudController
                                     'type' => 'text',
                                     'value' => $transaction_code,
                                     'tab' => 'General',
-                                    'attribute' => [
+                                    'attributes' => [
                                         'style' => 'display:none'
                                     ]
 
@@ -164,7 +164,7 @@ class TransactionCrudController extends CrudController
                                     'label' => 'Code',
                                     'type' => 'text',
                                     'tab' => 'General',
-                                    'attribute' => [
+                                    'attributes' => [
                                         'style' => 'display:none'
                                     ]
                                 ], 'update');
