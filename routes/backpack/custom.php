@@ -42,6 +42,7 @@ Route::group([
 	Route::post('checkerDocument/{document_id}', 'DocumentCrudController@checkerDocument');
     Route::post('checkerTransactionDocument/{document_id}', 'DocumentCrudController@checkerTransactionDocument');
     Route::post('checkerTransaction/{document_id}', 'DocumentCrudController@checkerTransaction');
+    Route::post('checkerTransactionReject/{document_id}', 'DocumentCrudController@checkerTransactionReject');
 	Route::post('checkerBankingArrangment/{lender_banking_id}', 'LenderBankingCrudController@checkerBankingArrangment');
 
     Route::get('getLastLenderBanking', 'LenderBankingDetailCrudController@getLastLenderBanking');

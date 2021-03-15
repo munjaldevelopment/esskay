@@ -48,6 +48,8 @@ return [
     'details_row_loading_error' => 'There was an error loading the details. Please retry.',
     'clone'                     => 'Clone',
     'checkerDocument'           => 'Approve Document',
+    'rejectTransaction'         => 'Reject',
+
     'checkerTransaction'        => 'Approve',
     'checkerBankingArrangment'  => 'Approve',
     'clone_success'             => '<strong>Entry cloned</strong><br>A new entry has been added, with the same information as this one.',
@@ -61,6 +63,7 @@ return [
 
     // Confirmation messages and bubbles
     'approve_confirm'                             => 'Are you sure you want to approve this item?',
+    'reject_confirm'                              => 'Are you sure you want to reject this item?',
 
     'delete_confirm'                              => 'Are you sure you want to delete this item?',
     'delete_confirmation_title'                   => 'Item Deleted',
