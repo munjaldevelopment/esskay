@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class TransactionRequest extends FormRequest
+class TransactionDocumentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,12 +26,11 @@ class TransactionRequest extends FormRequest
     public function rules()
     {
         return [
-            'transaction_category_id' => 'required',
-            'transaction_code' => 'required',
-            'transaction_date' => 'required',
-            'transaction_type' => 'required',
-            'name' => 'required|min:2|max:255'
-            // 'name' => 'required|min:5|max:255'
+            'transaction_id' => 'required',
+            'document_heading' => 'required',
+            'document_name' => 'required',
+            'document_type' => 'required',
+            'document_filename' => 'required',
         ];
     }
 

@@ -109,4 +109,5 @@ Route::group([
     Route::crud('covidrelief_borrower', 'CovidReliefBorrowerCrudController');
     Route::crud('transaction_category', 'TransactionCategoryCrudController');
     Route::crud('transaction', 'TransactionCrudController');
+    Route::crud('transaction_document', 'TransactionDocumentCrudController');
 }); // this should be the absolute last line of this file
