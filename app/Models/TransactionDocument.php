@@ -24,11 +24,21 @@ class TransactionDocument extends Model
     // protected $hidden = [];
     // protected $dates = [];
 
+    protected $appends = ['document_previous'];
+
+    public function getDocumentPreviousAttribute()
+    {
+        $city_name = '';
+        return $city_name;
+    }
+
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    
+
     public function transaction()
     {
         return $this->belongsTo('App\Models\Transaction', 'transaction_id');

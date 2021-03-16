@@ -128,6 +128,16 @@ class TransactionDocumentCrudController extends CrudController
                                 ]);
 
             $this->crud->addColumn([
+                                    'name' => 'document_previous',
+                                    'label' => 'Document #1',
+                                    'type' => 'browse_previous',
+                                    'table' => 'transaction_document_revisions',
+                                    'table_field' => 'document_id',
+                                    'field_show' => 'document_filename',
+                                    'limit' => '200'
+                                ]);
+
+            $this->crud->addColumn([
                                     'name' => 'document_status',
                                     'label' => 'Status',
                                     'type' => 'check',
