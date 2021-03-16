@@ -129,7 +129,7 @@ class TransactionDocumentCrudController extends CrudController
 
             $this->crud->addColumn([
                                     'name' => 'document_previous',
-                                    'label' => 'Document #1',
+                                    'label' => 'Document Prev.',
                                     'type' => 'browse_previous',
                                     'table' => 'transaction_document_revisions',
                                     'table_field' => 'document_id',
