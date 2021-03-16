@@ -123,7 +123,8 @@ class TransactionDocumentCrudController extends CrudController
             $this->crud->addColumn([
                                     'name' => 'document_filename',
                                     'label' => 'Document',
-                                    'type' => 'file',
+                                    'type' => 'browse',
+                                    'limit' => '200'
                                 ]);
 
             $this->crud->addColumn([
