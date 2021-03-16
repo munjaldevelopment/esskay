@@ -56,8 +56,17 @@ class TransactionDocumentCrudController extends CrudController
             $checker_transaction_document = backpack_user()->hasPermissionTo('checker_transaction_document');
             if($checker_transaction_document)
             {
-                //$this->crud->addClause('where', 'document_status', '=', "0");
-                $this->crud->allowAccess(['checker_transaction_document', 'revise', 'delete']);
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    //$this->crud->addClause('where', 'document_status', '=', "0");
+                    $this->crud->allowAccess(['checker_transaction_document', 'revise', 'delete']);
+                }
+                else
+                {
+                    $this->crud->denyAccess(['revise']);
+                    $this->crud->allowAccess(['checker_transaction_document']);
+                }
             }
             else
             {
@@ -89,7 +98,15 @@ class TransactionDocumentCrudController extends CrudController
 
                     ]);
 
-            
+            $this->crud->addColumn([
+                    'label'     => 'Created',
+                    'type'      => 'select',
+                    'name'      => 'user_id',
+                    'entity'    => 'user', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'model'     => "App\User", //name of Models
+
+                    ]);
 
             $this->crud->addColumn([
                                     'name' => 'document_name',
@@ -110,7 +127,55 @@ class TransactionDocumentCrudController extends CrudController
                                 ]);
                                 
             
-            $this->crud->addField([
+            //$this->crud->enableAjaxTable();
+            
+            $this->crud->addFilter([
+                  'type' => 'text',
+                  'name' => 'document_name',
+                  'label'=> 'Name'
+                ],
+                false,
+                function($value) {
+                    $this->crud->addClause('where', 'document_name', 'LIKE', "%$value%");
+            });
+            
+            $this->crud->addButtonFromView('line', 'checker_transaction_document', 'checker_transaction_document', 'end');
+            
+            $this->crud->setCreateView('admin.create-document-form');
+            $this->crud->setUpdateView('admin.edit-document-form');
+        }
+        else
+        {
+          $this->crud->denyAccess(['list']);
+        }
+    }
+
+    /**
+     * Define what happens when the List operation is loaded.
+     * 
+     * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
+     * @return void
+     */
+    protected function setupListOperation()
+    {
+        //CRUD::setFromDb(); // columns
+
+        /**
+         * Columns can be defined using the fluent syntax or array syntax:
+         * - CRUD::column('price')->type('number');
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
+         */
+    }
+
+    /**
+     * Define what happens when the Create operation is loaded.
+     * 
+     * @see https://backpackforlaravel.com/docs/crud-operation-create
+     * @return void
+     */
+    protected function addTransactionDocumentFields()
+    {
+        $this->crud->addField([
                     'label'     => 'Name of Transaction',
                     'type'      => 'select2',
                     'name'      => 'transaction_id',
@@ -161,13 +226,6 @@ class TransactionDocumentCrudController extends CrudController
             
 
             $this->crud->addField([
-                                    'name' => 'document_status',
-                                    'label' => 'Status',
-                                    'type' => 'checkbox',
-                                    'tab' => 'General'
-                                ]);
-                                
-            $this->crud->addField([
                                     'name' => 'document_filename',
                                     'label' => 'File Name',
                                     'type' => 'browse',
@@ -178,6 +236,39 @@ class TransactionDocumentCrudController extends CrudController
             for($count=date('Y');$count>=2015;$count--)
             {
                 $document_date[$count] = $count;
+            }
+
+            $is_admin = backpack_user()->hasRole('Super Admin');
+
+            if($is_admin)
+            {
+                $userData = array();
+                $users = \DB::table('users')->where('user_status', '1')->get();
+                foreach ($users as $key => $roww) {
+                    $userData[$roww->id] = $roww->name;
+                }
+
+                $this->crud->addField([
+                        'label'     => 'Created By',
+                        'type'      => 'select2_from_array',
+                        'name'      => 'user_id',
+                        'options'   => $userData,
+                        'tab'       => 'General',
+
+                ]);
+            }
+            else
+            {
+                $this->crud->addField([
+                        'label'     => 'Created By',
+                        'type'      => 'hidden',
+                        'name'      => 'user_id',
+                        'entity'    => 'user', //function name
+                        'attribute' => 'name', //name of fields in models table like districts
+                        'model'     => "App\User", //name of Models
+                        'value'     => backpack_user()->id, //name of Models
+                        'tab'       => 'General'
+                ]);
             }
             
                                 
@@ -196,6 +287,13 @@ class TransactionDocumentCrudController extends CrudController
                                     'tab' => 'General'
                                 ]);
 
+            $this->crud->addField([
+                                    'name' => 'document_status',
+                                    'label' => 'Status',
+                                    'type' => 'checkbox',
+                                    'tab' => 'General'
+                                ]);
+
 
             $this->crud->addField([
                     'label'     => 'Trustee',
@@ -207,58 +305,148 @@ class TransactionDocumentCrudController extends CrudController
                     
                     'tab' => 'Trustee'
                     ]);
-                                
-            //$this->crud->enableAjaxTable();
-            
-            $this->crud->addFilter([
-                  'type' => 'text',
-                  'name' => 'document_name',
-                  'label'=> 'Name'
-                ],
-                false,
-                function($value) {
-                    $this->crud->addClause('where', 'document_name', 'LIKE', "%$value%");
-            });
-            
-            $this->crud->addButtonFromView('line', 'checker_transaction_document', 'checker_transaction_document', 'end');
-            
-            $this->crud->setCreateView('admin.create-document-form');
-            $this->crud->setUpdateView('admin.edit-document-form');
-        }
-        else
-        {
-          $this->crud->denyAccess(['list']);
-        }
     }
 
-    /**
-     * Define what happens when the List operation is loaded.
-     * 
-     * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
-     * @return void
-     */
-    protected function setupListOperation()
+    protected function updateTransactionDocumentFields()
     {
-        //CRUD::setFromDb(); // columns
+        $this->crud->addField([
+                    'label'     => 'Name of Transaction',
+                    'type'      => 'select2',
+                    'name'      => 'transaction_id',
+                    'entity'    => 'transaction', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'model'     => "App\Models\Transaction", //name of Models
 
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
-         */
+                    'attributes'   => [
+                        'id' => 'transaction_id',
+                    ],
+                    'tab' => 'General'
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Transaction Doc Type',
+                    'type'      => 'select2',
+                    'name'      => 'transaction_document_type_id',
+                    'entity'    => 'transactionDocumentType', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'model'     => "App\Models\TransactionDocumentType", //name of Models
+                    'tab' => 'General'
+
+                    ]);
+            
+            $this->crud->addField([
+                                    'name' => 'document_heading',
+                                    'label' => 'Document Heading',
+                                    'type' => 'text',
+                                    'tab' => 'General'
+                                ]);
+
+            $documentType = array('' => 'Select', 'Executed Report' => 'Executed Report', 'Monthly Payout Report' => 'Monthly Payout Report', 'Collection efficiency' => 'Collection efficiency', 'Pool Dynamics' => 'Pool Dynamics');
+            $this->crud->addField([
+                                    'name' => 'document_type',
+                                    'label' => 'Document Type',
+                                    'type' => 'select2_from_array',
+                                    'options' => $documentType,
+                                    'tab' => 'General'
+                                ]);
+
+                    
+            $this->crud->addField([
+                                    'name' => 'document_name',
+                                    'label' => 'Name',
+                                    'type' => 'text',
+                                    'tab' => 'General'
+                                ]);
+            
+
+            $this->crud->addField([
+                                    'name' => 'document_filename',
+                                    'label' => 'File Name',
+                                    'type' => 'browse',
+                                    'tab' => 'General'
+                                ]);
+                                
+            $document_date = array('' => 'Select');
+            for($count=date('Y');$count>=2015;$count--)
+            {
+                $document_date[$count] = $count;
+            }
+
+            $checker_transaction = backpack_user()->hasPermissionTo('checker_transaction');
+            $is_admin = backpack_user()->hasRole('Super Admin');
+
+            if($is_admin)
+            {
+                $userData = array();
+                $users = \DB::table('users')->where('user_status', '1')->get();
+                foreach ($users as $key => $roww) {
+                    $userData[$roww->id] = $roww->name;
+                }
+
+                $this->crud->addField([
+                        'label'     => 'Created By',
+                        'type'      => 'select2_from_array',
+                        'name'      => 'user_id',
+                        'options'   => $userData,
+                        'tab'       => 'General',
+
+                ]);
+            }
+            else
+            {
+                $this->crud->addField([
+                        'label'     => 'Created By',
+                        'type'      => 'hidden',
+                        'name'      => 'user_id',
+                        'entity'    => 'user', //function name
+                        'attribute' => 'name', //name of fields in models table like districts
+                        'model'     => "App\User", //name of Models
+                        'tab'       => 'General',
+                ]);
+            }
+            
+                                
+            $this->crud->addField([
+                                    'name' => 'document_date',
+                                    'label' => 'Year',
+                                    'type' => 'select2_from_array',
+                                    'options' => $document_date,
+                                    'tab' => 'General'
+                                ]);
+                                
+            $this->crud->addField([
+                                    'name' => 'expiry_date',
+                                    'label' => 'Publish Date',
+                                    'type' => 'date',
+                                    'tab' => 'General'
+                                ]);
+
+            $this->crud->addField([
+                                    'name' => 'document_status',
+                                    'label' => 'Status',
+                                    'type' => 'checkbox',
+                                    'tab' => 'General'
+                                ]);
+
+
+            $this->crud->addField([
+                    'label'     => 'Trustee',
+                    'type'      => 'relationship',
+                    'name'      => 'trustees',
+                    'entity'    => 'trustees', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+                    
+                    'tab' => 'Trustee'
+                    ]);
     }
 
-    /**
-     * Define what happens when the Create operation is loaded.
-     * 
-     * @see https://backpackforlaravel.com/docs/crud-operation-create
-     * @return void
-     */
     protected function setupCreateOperation()
     {
+        $this->addTransactionDocumentFields();
         CRUD::setValidation(TransactionDocumentRequest::class);
 
-        CRUD::setFromDb(); // fields
+        //CRUD::setFromDb(); // fields
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -275,7 +463,8 @@ class TransactionDocumentCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        $this->setupCreateOperation();
+        $this->updateTransactionDocumentFields();
+        CRUD::setValidation(TransactionDocumentRequest::class);
     }
 
     public function store()
