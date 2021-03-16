@@ -199,13 +199,6 @@ class TransactionDocumentCrudController extends CrudController
                     'tab' => 'General'
 
                     ]);
-            
-            $this->crud->addField([
-                                    'name' => 'document_heading',
-                                    'label' => 'Document Heading',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
 
             $documentType = array('' => 'Select', 'Executed Report' => 'Executed Report', 'Monthly Payout Report' => 'Monthly Payout Report', 'Collection efficiency' => 'Collection efficiency', 'Pool Dynamics' => 'Pool Dynamics');
             $this->crud->addField([
@@ -213,6 +206,13 @@ class TransactionDocumentCrudController extends CrudController
                                     'label' => 'Document Type',
                                     'type' => 'select2_from_array',
                                     'options' => $documentType,
+                                    'tab' => 'General'
+                                ]);
+            
+            $this->crud->addField([
+                                    'name' => 'document_heading',
+                                    'label' => 'Document Heading',
+                                    'type' => 'text',
                                     'tab' => 'General'
                                 ]);
 
