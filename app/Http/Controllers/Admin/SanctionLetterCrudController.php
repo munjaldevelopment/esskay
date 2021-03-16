@@ -56,8 +56,17 @@ class SanctionLetterCrudController extends CrudController
             $checker_sanction_letter = backpack_user()->hasPermissionTo('checker_sanction_letter');
             if($checker_sanction_letter)
             {
-                //$this->crud->addClause('where', 'status', '=', "0");
-                $this->crud->allowAccess(['checker_sanction_letter', 'revise', 'delete']);
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    $this->crud->allowAccess(['checker_sanction_letter', 'revise', 'delete']);
+                }
+                else
+                {
+                    //$this->crud->addClause('where', 'status', '=', "0");
+                    $this->crud->denyAccess(['revise']);
+                    $this->crud->allowAccess(['checker_sanction_letter']);
+                }
             }
             else
             {
