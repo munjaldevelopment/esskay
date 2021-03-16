@@ -57,6 +57,7 @@
 		                    <strong>{!! $column['label'] !!}:</strong>
 		                </td>
                         <td>
+                        	{!! $column['type']) !!}
 							@if (!isset($column['type']))
 		                      @include('crud::columns.text')
 		                    @else
