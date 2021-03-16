@@ -122,14 +122,14 @@ class TransactionDocumentCrudController extends CrudController
 
             $this->crud->addColumn([
                                     'name' => 'document_filename',
-                                    'label' => 'Document',
+                                    'label' => 'New Document',
                                     'type' => 'browse',
                                     'limit' => '200'
                                 ]);
 
             $this->crud->addColumn([
                                     'name' => 'document_previous',
-                                    'label' => 'Document Prev.',
+                                    'label' => 'Old Document.',
                                     'type' => 'browse_previous',
                                     'table' => 'transaction_document_revisions',
                                     'table_field' => 'document_id',
