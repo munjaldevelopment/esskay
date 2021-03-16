@@ -63,6 +63,7 @@ class TransactionCrudController extends CrudController
                 }
                 else
                 {
+                    $this->crud->denyAccess(['revise']);
                     $this->crud->allowAccess(['checker_transaction']);
                 }
             }
