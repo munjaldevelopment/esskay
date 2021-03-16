@@ -13,9 +13,9 @@
 <span>
     @includeWhen(!empty($column['wrapper']), 'crud::columns.inc.wrapper_start')
         @if($column['escaped'])
-            <a target="_blank" href="{{ $column['text'] }}">{{ $column['text'] }}</a>
+            <a target="_blank" href="{{ asset('/').$column['text'] }}">{{ $column['text'] }}</a>
         @else
-            <a target="_blank" href="{{ $column['text'] }}">{!! $column['text'] !!}</a>
+            <a target="_blank" href="{{ asset('/').$column['text'] }}">{!! $column['text'] !!}</a>
         @endif
     @includeWhen(!empty($column['wrapper']), 'crud::columns.inc.wrapper_end')
 </span>
