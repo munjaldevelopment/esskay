@@ -29,7 +29,7 @@ class TransactionDocumentRequest extends FormRequest
             'transaction_id' => 'required',
             'document_heading' => 'required',
             'document_name' => 'required',
-            'document_type' => 'required',
+            //'document_type' => 'required',
             'document_filename' => 'required',
         ];
     }
