@@ -2,7 +2,7 @@
 @php
     $current_key = $entry->getKey();
     $value = "";
-    $isExists = \DB::table($column['transaction_document_revisions'])->where($column['table_field'], $current_key)->orderBy('id', 'DESC')->first();
+    $isExists = \DB::table($column['table'])->where($column['table_field'], $current_key)->orderBy('id', 'DESC')->skip(1)->take(1)->first();
 
     if($isExists)
     {
