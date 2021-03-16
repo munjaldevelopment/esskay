@@ -80,6 +80,19 @@
 			$("#document_sub_category_id").html('<option value="">--Select--</option><option value="0">None</option>');
 		}
 	}
+
+	function getTransDocType(doc_type)
+	{
+		if(doc_type == 'Executed Report')
+		{
+			$('#transaction_document_type_id').show();
+		}
+		else
+		{
+			$('#transaction_document_type_id').select2('');
+			$('#transaction_document_type_id').hide();	
+		}
+	}
 </script>
 @endpush
 
