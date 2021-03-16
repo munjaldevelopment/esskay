@@ -6,6 +6,7 @@
 
     if($isExists)
     {
+        dd($isExists);
         $value = $isExists->$column['field_show'];
     }
 
