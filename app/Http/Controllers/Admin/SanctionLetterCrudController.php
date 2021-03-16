@@ -75,7 +75,7 @@ class SanctionLetterCrudController extends CrudController
             
             if($checker_sanction_letter && !$maker_sanction_letter)
             {
-                $this->crud->addClause('where', 'status', '=', "0");
+                //$this->crud->addClause('where', 'status', '=', "0");
             }
             
             $this->crud->addColumn([
