@@ -121,6 +121,12 @@ class TransactionDocumentCrudController extends CrudController
                                 ]);
 
             $this->crud->addColumn([
+                                    'name' => 'document_filename',
+                                    'label' => 'Document',
+                                    'type' => 'file',
+                                ]);
+
+            $this->crud->addColumn([
                                     'name' => 'document_status',
                                     'label' => 'Status',
                                     'type' => 'check',
