@@ -35,7 +35,7 @@ class SanctionLetterCrudController extends CrudController
         $list_sanction_letter = backpack_user()->hasPermissionTo('list_sanction_letter');
         if($list_sanction_letter)
         {
-            $this->crud->denyAccess(['create']);
+            //$this->crud->denyAccess(['create']);
 
             $this->crud->allowAccess('show');
             $this->crud->enableExportButtons();
@@ -46,11 +46,11 @@ class SanctionLetterCrudController extends CrudController
             if($maker_sanction_letter)
             {
                 //$this->crud->addClause('whereIn', 'status', [0,1]);
-                $this->crud->allowAccess(['update']);
+                $this->crud->allowAccess(['create', 'update']);
             }
             else
             {
-                $this->crud->denyAccess(['update', 'delete']);
+                $this->crud->denyAccess(['create', 'update', 'delete']);
             }
             
             $checker_sanction_letter = backpack_user()->hasPermissionTo('checker_sanction_letter');
