@@ -197,7 +197,7 @@ class TransactionDocumentCrudController extends CrudController
                                     'options' => $documentType,
                                     'tab' => 'General',
                                     'attributes' => [
-                                        'id' => 'document_type'.,
+                                        'id' => 'document_type',
                                         'onchange' => 'getTransDocType(this.value);'
                                     ]
                                 ]);
