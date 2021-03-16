@@ -503,7 +503,7 @@ class DocumentCrudController extends CrudController
 
 	public function checkerTransactionReject($document_id)
 	{
-		$updateData = array('transaction_status' => '0', 'updated_at' => date('Y-m-d H:i:s'));
+		$updateData = array('transaction_status' => '2', 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('transactions')->where(['id' => $document_id])->update($updateData);
 	}
 }
