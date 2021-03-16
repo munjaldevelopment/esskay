@@ -6,8 +6,8 @@
 
     if($isExists)
     {
-        dd($isExists);
-        $value = $isExists->$column['field_show'];
+        $field_show = $column['field_show'];
+        $value = $isExists->document_filename;//$field_show;
     }
 
     $column['escaped'] = true;
