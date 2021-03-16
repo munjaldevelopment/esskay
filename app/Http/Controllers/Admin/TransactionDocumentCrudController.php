@@ -195,7 +195,11 @@ class TransactionDocumentCrudController extends CrudController
                                     'label' => 'Document Type',
                                     'type' => 'select2_from_array',
                                     'options' => $documentType,
-                                    'tab' => 'General'
+                                    'tab' => 'General',
+                                    'attributes' => [
+                                        'id' => 'document_type'.,
+                                        'onchange' => 'getTransDocType(this.value);'
+                                    ]
                                 ]);
 
             $this->crud->addField([
@@ -205,7 +209,11 @@ class TransactionDocumentCrudController extends CrudController
                     'entity'    => 'transactionDocumentType', //function name
                     'attribute' => 'name', //name of fields in models table like districts
                     'model'     => "App\Models\TransactionDocumentType", //name of Models
-                    'tab' => 'General'
+                    'tab' => 'General',
+                    'attributes' => [
+                        'id' => 'transaction_document_type_id',
+                    ]
+
 
                     ]);
 
