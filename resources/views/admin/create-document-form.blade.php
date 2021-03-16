@@ -85,10 +85,12 @@
 	{
 		if(doc_type == 'Executed Report')
 		{
+			$('.trans_doc_type_container').show();
 			$('#transaction_document_type_id').next(".select2-container").show();
 		}
 		else
 		{
+			$('.trans_doc_type_container').hide();
 			$('#transaction_document_type_id').select2('');
 			$('#transaction_document_type_id').next(".select2-container").hide();
 		}
