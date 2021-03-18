@@ -53,27 +53,45 @@ class SanctionLetterCrudController extends CrudController
                 $this->crud->denyAccess(['create', 'update', 'delete']);
             }
             
-            $checker_sanction_letter = backpack_user()->hasPermissionTo('checker_sanction_letter');
-            if($checker_sanction_letter)
+            $checker_sanction_letter1 = backpack_user()->hasPermissionTo('checker_sanction_letter1');
+            $checker_sanction_letter2 = backpack_user()->hasPermissionTo('checker_sanction_letter2');
+            $checker_sanction_letter3 = backpack_user()->hasPermissionTo('checker_sanction_letter3');
+
+            if($checker_sanction_letter1 || $checker_sanction_letter2 || $checker_sanction_letter3)
             {
                 $is_admin = backpack_user()->hasRole('Super Admin');
                 if($is_admin)
                 {
-                    $this->crud->allowAccess(['checker_sanction_letter', 'revise', 'delete']);
+                    $this->crud->allowAccess(['checker_sanction_letter1', 'checker_sanction_letter2', 'checker_sanction_letter3', 'revise', 'delete']);
                 }
                 else
                 {
-                    //$this->crud->addClause('where', 'status', '=', "0");
-                    $this->crud->denyAccess(['revise']);
-                    $this->crud->allowAccess(['checker_sanction_letter']);
+                    if($checker_sanction_letter1)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_sanction_letter1']);
+                    }
+                    else if($checker_sanction_letter2)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_sanction_letter2']);
+                    }
+                    else if($checker_sanction_letter3)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_sanction_letter3']);
+                    }
                 }
             }
             else
             {
-                $this->crud->denyAccess(['checker_sanction_letter', 'revise', 'delete']);
+                $this->crud->denyAccess(['checker_sanction_letter1', 'checker_sanction_letter2', 'checker_sanction_letter3', 'revise', 'delete']);
             }
             
-            if($checker_sanction_letter && !$maker_sanction_letter)
+            if($checker_sanction_letter1 && !$maker_sanction_letter)
             {
                 //$this->crud->addClause('where', 'status', '=', "0");
             }
