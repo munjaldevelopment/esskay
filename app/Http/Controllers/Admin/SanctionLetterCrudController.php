@@ -218,6 +218,11 @@ class SanctionLetterCrudController extends CrudController
                                     'options' => ['0' => 'Inactive', '1' => 'Active'],
                                     'tab' => 'Approve'
                                 ]);
+
+            $this->crud->addButtonFromView('line', 'checker_sanction_letter', 'checker_sanction_letter', 'end');
+            
+            $this->crud->setCreateView('admin.create-document-form');
+            $this->crud->setUpdateView('admin.edit-document-form');
         }
     }
 

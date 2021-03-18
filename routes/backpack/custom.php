@@ -42,6 +42,9 @@ Route::group([
 	Route::post('checkerDocument/{document_id}', 'DocumentCrudController@checkerDocument');
     Route::post('checkerTransactionDocument/{document_id}', 'DocumentCrudController@checkerTransactionDocument');
     Route::post('checkerTransactionDocumentReject/{document_id}', 'DocumentCrudController@checkerTransactionDocumentReject');
+
+    Route::post('checkerSanctionLetter/{document_id}', 'DocumentCrudController@checkerSanctionLetter');
+    Route::post('checkerSanctionLetterReject/{document_id}', 'DocumentCrudController@checkerSanctionLetterReject');
     
     Route::post('checkerTransaction/{document_id}', 'DocumentCrudController@checkerTransaction');
     Route::post('checkerTransactionReject/{document_id}', 'DocumentCrudController@checkerTransactionReject');

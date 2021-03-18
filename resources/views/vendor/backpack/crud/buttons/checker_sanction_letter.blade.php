@@ -1,7 +1,7 @@
-@if ($crud->hasAccess('checker_transaction_document') && $entry->document_status == 0)
-	<a href="javascript:void(0)" onclick="checkertransDocumentEntry(this)" data-route="{{ backpack_url('checkerTransactionDocument/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-check"></i> {{ trans('backpack::crud.checkerDocument') }}</a>
+@if (($crud->hasAccess('checker_sanction_letter1') || $crud->hasAccess('checker_sanction_letter2') || $crud->hasAccess('checker_sanction_letter3')) && $entry->status == 0)
+	<a href="javascript:void(0)" onclick="checkersanctionLetterEntry(this)" data-route="{{ backpack_url('checkerSanctionLetter/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-check"></i> {{ trans('backpack::crud.checkerDocument') }}</a>
 
-  <a href="javascript:void(0)" onclick="checkerTransactionRejectEntry(this)" data-route="{{ backpack_url('checkerTransactionDocumentReject/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-times"></i> {{ trans('backpack::crud.rejectTransaction') }}</a>
+  <a href="javascript:void(0)" onclick="checkerSanctionLetterRejectEntry(this)" data-route="{{ backpack_url('checkerSanctionLetterReject/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-times"></i> {{ trans('backpack::crud.rejectTransaction') }}</a>
 @endif
 
 {{-- Button Javascript --}}
@@ -9,10 +9,10 @@
 {{-- - pushed to the end of the page, after jQuery is loaded, for non-AJAX operations (ex: Show) --}}
 @push('after_scripts') @if (request()->ajax()) @endpush @endif
 <script>
-  	if (typeof checkerTransactionRejectEntry != 'function') {
+  	if (typeof checkerSanctionLetterRejectEntry != 'function') {
 		$("[data-button-type=checkerDocument]").unbind('click');
 
-	  	function checkerTransactionRejectEntry(button) {
+	  	function checkerSanctionLetterRejectEntry(button) {
 			// ask for confirmation before deleting an item
 			// e.preventDefault();
 			var button = $(button);
@@ -70,10 +70,10 @@
       }
 	}
 
-	if (typeof checkertransDocumentEntry != 'function') {
+	if (typeof checkersanctionLetterEntry != 'function') {
 	  	$("[data-button-type=checkerDocument]").unbind('click');
 
-	  	function checkertransDocumentEntry(button) {
+	  	function checkersanctionLetterEntry(button) {
 	    	// ask for confirmation before deleting an item
 	      	// e.preventDefault();
 	      	var button = $(button);
@@ -132,6 +132,6 @@
 	}
 
 	// make it so that the function above is run after each DataTable draw event
-	// crud.addFunctionToDataTablesDrawEventQueue('checkertransDocumentEntry');
+	// crud.addFunctionToDataTablesDrawEventQueue('checkersanctionLetterEntry');
 </script>
 @if (!request()->ajax()) @endpush @endif

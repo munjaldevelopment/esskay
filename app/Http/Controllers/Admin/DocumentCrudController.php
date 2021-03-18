@@ -514,4 +514,16 @@ class DocumentCrudController extends CrudController
 		$updateData = array('transaction_status' => '2', 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('transactions')->where(['id' => $document_id])->update($updateData);
 	}
+
+	public function checkercheckerSanctionLetter($document_id)
+	{
+		$updateData = array('status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkercheckerSanctionLetterReject($document_id)
+	{
+		$updateData = array('status' => '2', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $document_id])->update($updateData);
+	}
 }
