@@ -4271,7 +4271,18 @@ class HomeController extends Controller
 					$docu_date = session()->get('esskay_transaction_doc_date');
 				}
 
-	    		return view('transaction-category-trustee-info-document', ['trustee_id' => $trustee_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id, 'report_type' => $report_type]);
+				$termSheetDocData = $serviceAgreementDocData = $accountAgreementDocData = $assignmentAgreementDocData = $trustDeedDocData = $imDocData = $anyotherDocData = array();
+
+				if($report_type == 1)
+				{
+
+				}
+
+	    		return view('transaction-category-trustee-info-document', ['trustee_id' => $trustee_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id, 'report_type' => $report_type,
+
+	    			'termSheetDocData' => $termSheetDocData, 'serviceAgreementDocData' => $serviceAgreementDocData, 'accountAgreementDocData' => $accountAgreementDocData, 'assignmentAgreementDocData' => $assignmentAgreementDocData, 'trustDeedDocData' => $trustDeedDocData, 'imDocData' => $imDocData, 'anyotherDocData' => $anyotherDocData
+
+	    		]);
 	    	}
 	    }
     }
