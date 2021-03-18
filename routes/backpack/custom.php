@@ -116,7 +116,14 @@ Route::group([
     Route::crud('covidrelief_lender', 'CovidReliefLenderCrudController');
     Route::crud('covidrelief_borrower', 'CovidReliefBorrowerCrudController');
     Route::crud('transaction_category', 'TransactionCategoryCrudController');
+
     Route::crud('transaction', 'TransactionCrudController');
+    Route::crud('accept_transaction', 'AcceptTransactionCrudController');
+    Route::crud('reject_transaction', 'RejectTransactionCrudController');
+    
     Route::crud('transaction_document', 'TransactionDocumentCrudController');
+    Route::crud('accept_transaction_document', 'AcceptTransactionDocumentCrudController');
+    Route::crud('reject_transaction_document', 'RejectTransactionDocumentCrudController');
+    
     Route::crud('transaction_document_type', 'TransactionDocumentTypeCrudController');
 }); // this should be the absolute last line of this file

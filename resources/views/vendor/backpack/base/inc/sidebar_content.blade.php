@@ -41,8 +41,14 @@
 	
 	$list_trustee = backpack_user()->hasPermissionTo('list_trustee');
 	$list_transaction_category = backpack_user()->hasPermissionTo('list_transaction_category');
+
 	$list_transaction = backpack_user()->hasPermissionTo('list_transaction');
+	$list_accept_transaction = backpack_user()->hasPermissionTo('list_accept_transaction');
+	$list_reject_transaction = backpack_user()->hasPermissionTo('list_reject_transaction');
+
 	$list_transaction_document = backpack_user()->hasPermissionTo('list_transaction_document');
+	$list_accept_transaction_document = backpack_user()->hasPermissionTo('list_accept_transaction_document');
+	$list_reject_transaction_document = backpack_user()->hasPermissionTo('list_reject_transaction_document');
 
 	if($list_dashboard):
 @endphp
@@ -240,7 +246,7 @@
 @php
 	endif;
 
-	if($list_trustee || $list_transaction_category || $list_transaction || $list_transaction_document):
+	if($list_trustee || $list_transaction_category || $list_transaction || $list_accept_transaction || $list_reject_transaction || $list_transaction_document || $list_accept_transaction_document || $list_reject_transaction_document):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Trustee</a>
@@ -264,9 +270,33 @@
 @php
 	endif;
 
+	if($list_accept_transaction):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('accept_transaction') }}'><i class='nav-icon la la-user'></i> Accept Transaction</a></li>
+@php
+	endif;
+
+	if($list_reject_transaction):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_transaction') }}'><i class='nav-icon la la-user'></i> Reject Transaction</a></li>
+@php
+	endif;
+
 	if($list_transaction_document):
 @endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction_document') }}'><i class='nav-icon la la-user'></i> Trans. Document</a></li>
+@php
+	endif;
+
+	if($list_accept_transaction_document):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('accept_transaction_document') }}'><i class='nav-icon la la-user'></i> Accept Transaction Document</a></li>
+@php
+	endif;
+
+	if($list_reject_transaction_document):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_transaction_document') }}'><i class='nav-icon la la-user'></i> Reject Transaction Document</a></li>
 @php
 	endif;
 @endphp
