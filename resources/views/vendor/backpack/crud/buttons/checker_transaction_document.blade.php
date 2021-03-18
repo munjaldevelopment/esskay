@@ -1,7 +1,7 @@
 @if ($crud->hasAccess('checker_transaction_document') && $entry->document_status == 0)
 	<a href="javascript:void(0)" onclick="checkertransDocumentEntry(this)" data-route="{{ backpack_url('checkerTransactionDocument/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-check"></i> {{ trans('backpack::crud.checkerDocument') }}</a>
 
-  <a href="javascript:void(0)" onclick="checkerTransactionRejectEntry(this)" data-route="{{ backpack_url('checkerTransactionDocumentReject/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-times"></i> {{ trans('backpack::crud.rejectTransaction') }}</a>
+  	<a href="javascript:void(0)" onclick="checkerTransactionRejectEntry(this)" data-route="{{ backpack_url('checkerTransactionDocumentReject/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-times"></i> {{ trans('backpack::crud.rejectTransaction') }}</a>
 @endif
 
 {{-- Button Javascript --}}

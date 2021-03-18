@@ -55,8 +55,17 @@ class DocumentCrudController extends CrudController
 			$checker_document = backpack_user()->hasPermissionTo('checker_document');
 			if($checker_document)
 			{
-				//$this->crud->addClause('where', 'document_status', '=', "0");
-				$this->crud->allowAccess(['checker_document', 'revise', 'delete']);
+				$is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    //$this->crud->addClause('where', 'document_status', '=', "0");
+                    $this->crud->allowAccess(['checker_document', 'revise', 'delete']);
+                }
+                else
+                {
+                    $this->crud->denyAccess(['revise']);
+                    $this->crud->allowAccess(['checker_document']);
+                }
 			}
 			else
 			{
@@ -65,7 +74,7 @@ class DocumentCrudController extends CrudController
 			
 			if($checker_document && !$maker_document)
 			{
-				$this->crud->addClause('where', 'document_status', '=', "0");
+				//$this->crud->addClause('where', 'document_status', '=', "0");
 			}
 			
 			$this->crud->addColumn([
@@ -99,6 +108,23 @@ class DocumentCrudController extends CrudController
 									'label' => 'Year',
 									'type' => 'text',
 								]);
+
+			$this->crud->addColumn([
+                                    'name' => 'document_filename',
+                                    'label' => 'New Document',
+                                    'type' => 'browse',
+                                    'limit' => '200'
+                                ]);
+
+            $this->crud->addColumn([
+                                    'name' => 'document_previous',
+                                    'label' => 'Old Document',
+                                    'type' => 'browse_previous',
+                                    'table' => 'document_revisions',
+                                    'table_field' => 'document_id',
+                                    'field_show' => 'document_filename',
+                                    'limit' => '200'
+                                ]);
 								
 			$document_category = array();
 			
