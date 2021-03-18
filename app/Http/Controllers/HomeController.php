@@ -4200,7 +4200,78 @@ class HomeController extends Controller
 				}
 				$docu_date = date('Y');
 
-	    		return view('transaction-category-trustee-info', ['trustee_id' => $trustee_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date]);
+	    		return view('transaction-category-trustee-info', ['trustee_id' => $trustee_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id]);
+	    	}
+	    }
+    }
+
+    public function assignTransactionDate(Request $request)
+    {
+    	// Download file
+    	$customer_name = session()->get('esskay_trustee_verify');
+		
+		if(!$customer_name)
+		{
+			return redirect(url('/').'/login');
+		}
+		else
+		{
+			$docu_date = $request->dateVal;
+
+			session ( [
+				'esskay_transaction_doc_date' => $docu_date
+			] );
+		}
+	}
+
+
+    public function showTrusteeTransactionDocumentInfo(Request $request)
+    {
+    	// Download file
+    	$customer_name = session()->get('esskay_trustee_verify');
+		
+		if(!$customer_name)
+		{
+			return redirect(url('/').'/login');
+		}
+		else
+		{
+			//dd($request->all());
+			$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
+	    	//dd($trusteeData);
+	    	$trustee_id = $trusteeData->id;
+
+	    	$transaction_id = $request->transaction_id;
+	    	$report_type = $request->report_type;
+
+	    	$transactionData = \DB::table('transactions')->leftJoin('transaction_trustee', 'transactions.id', '=', 'transaction_trustee.transaction_id')->where('transaction_trustee.trustee_id',$trustee_id)->where('transactions.id',$transaction_id)->groupBy('transaction_trustee.transaction_id')->first();
+
+	    	if($transactionData)
+	    	{
+	    		$categoryData = \DB::table('transaction_categories')->leftJoin('transaction_category_trustee', 'transaction_categories.id', '=', 'transaction_category_trustee.transaction_category_id')->where('transaction_category_trustee.trustee_id',$trustee_id)->where('transaction_categories.id',$transactionData->transaction_category_id)->groupBy('transaction_category_trustee.transaction_category_id')->first();
+
+	    		$document_date = array();
+				for($count=date('Y');$count>=2015;$count--)
+				{
+					$document_date[$count] = $count;
+				}
+
+				$sesssion_doc_date = session()->get('esskay_transaction_doc_date');
+
+				if(!$sesssion_doc_date)
+				{
+					$docu_date = date('Y');
+
+					session ( [
+						'esskay_transaction_doc_date' => $docu_date
+					] );
+				}
+				else
+				{
+					$docu_date = session()->get('esskay_transaction_doc_date');
+				}
+
+	    		return view('transaction-category-trustee-info-document', ['trustee_id' => $trustee_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id, 'report_type' => $report_type]);
 	    	}
 	    }
     }

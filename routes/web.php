@@ -79,6 +79,10 @@ Route::post('/contact_us_trustee', 'HomeController@contactUsTrustee');
 Route::post('/documentTrustee', 'HomeController@documentTrustee');
 
 Route::post('/showTrusteeTransactionInfo', 'HomeController@showTrusteeTransactionInfo');
+Route::post('/showTrusteeTransactionDocumentInfo', 'HomeController@showTrusteeTransactionDocumentInfo');
+Route::post('/assignTransactionDate', 'HomeController@assignTransactionDate');
+
+Route::post('/showTrusteeTransactionDocument', 'HomeController@showTrusteeTransactionDocument');
 
 Route::post('/showDocTrustee', 'HomeController@showDocTrustee');
 Route::get('/previewDocTrustee/{id}', 'HomeController@previewDocTrustee');
