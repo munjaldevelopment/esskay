@@ -17,6 +17,7 @@ class TransactionDocumentCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitTransactionDocumentStore; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitTransactionDocumentUpdate; }
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CloneOperation { clone as traitClone; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     
@@ -675,5 +676,21 @@ class TransactionDocumentCrudController extends CrudController
         \DB::table('documents')->where(['id' => $document_id])->update($updateData);
         
         \DB::table('transaction_document_revisions')->where(['document_id' => $document_id])->update($updateData);
+    }
+
+    public function clone($id)
+    {
+        $this->crud->hasAccessOrFail('clone');
+        $this->crud->setOperation('clone');
+
+        $clonedEntry = $this->crud->model->findOrFail($id)->replicate();
+
+        $clonedEntry->document_status = "0";
+
+
+        return (string) $clonedEntry->push();
+
+        // if you still want to call the old clone method
+        //$this->traitClone($id);
     }
 }
