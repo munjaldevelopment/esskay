@@ -107,6 +107,30 @@ class SanctionLetterCrudController extends CrudController
                                     'label' => 'Facility Type',
                                     'type' => 'text',
                                 ]);
+
+            $this->crud->addColumn([
+                                    'name' => 'facility_amount',
+                                    'label' => 'Facility Amount',
+                                    'type' => 'text',
+                                ]);
+
+            $this->crud->addColumn([
+                                    'name' => 'roi',
+                                    'label' => 'ROI',
+                                    'type' => 'text',
+                                ]);
+
+            $this->crud->addColumn([
+                                    'name' => 'all_incluside_roi',
+                                    'label' => 'All Inside ROI',
+                                    'type' => 'text',
+                                ]);
+
+            $this->crud->addColumn([
+                                    'name' => 'processing_fees',
+                                    'label' => 'Processing Fee',
+                                    'type' => 'text',
+                                ]);
                                 
             
                     
