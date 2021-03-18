@@ -17,7 +17,11 @@ Route::group([
     Route::crud('asset_class', 'AssetClassCrudController');
 	Route::crud('lender', 'LenderCrudController');
     Route::crud('document_category', 'DocumentCategoryCrudController');
+    
     Route::crud('document', 'DocumentCrudController');
+    Route::crud('accept_document', 'AcceptDocumentCrudController');
+    Route::crud('reject_document', 'RejectDocumentCrudController');
+
     Route::crud('email_sms', 'EmailSMSCrudController');
     Route::crud('lender_type', 'LenderTypeCrudController');
     Route::crud('instrument_type', 'InstrumentTypeCrudController');
@@ -40,6 +44,8 @@ Route::group([
     Route::crud('user', 'UserCrudController');
 	
 	Route::post('checkerDocument/{document_id}', 'DocumentCrudController@checkerDocument');
+    Route::post('checkerDocumentReject/{document_id}', 'DocumentCrudController@checkerDocumentReject');
+
     Route::post('checkerTransactionDocument/{document_id}', 'DocumentCrudController@checkerTransactionDocument');
     Route::post('checkerTransactionDocumentReject/{document_id}', 'DocumentCrudController@checkerTransactionDocumentReject');
 

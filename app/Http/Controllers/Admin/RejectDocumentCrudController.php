@@ -12,7 +12,7 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class DocumentCrudController extends CrudController
+class RejectDocumentCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitDocumentStore; }
@@ -30,8 +30,8 @@ class DocumentCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\Document::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/document');
-        CRUD::setEntityNameStrings('document', 'documents');
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/reject_document');
+        CRUD::setEntityNameStrings('Reject document', 'Reject documents');
 		
 		$list_document = backpack_user()->hasPermissionTo('list_document');
 		if($list_document)
@@ -72,10 +72,9 @@ class DocumentCrudController extends CrudController
 				$this->crud->denyAccess(['checker_document', 'revise', 'delete']);
 			}
 			
-			if($checker_document && !$maker_document)
-			{
-				//$this->crud->addClause('where', 'document_status', '=', "0");
-			}
+			$this->crud->denyAccess(['create', 'update', 'revise', 'delete']);
+
+            $this->crud->addClause('where', 'document_status', '=', "2");
 			
 			$this->crud->addColumn([
 					'label'     => 'Doc Category',
@@ -279,8 +278,6 @@ class DocumentCrudController extends CrudController
 				function($value) {
 					$this->crud->addClause('where', 'document_name', 'LIKE', "%$value%");
 			});
-			
-			$this->crud->addButtonFromView('line', 'checker_document', 'checker_document', 'end');
 			
 			$this->crud->setCreateView('admin.create-document-form');
 			$this->crud->setUpdateView('admin.edit-document-form');
