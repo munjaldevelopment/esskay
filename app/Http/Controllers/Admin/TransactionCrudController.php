@@ -16,8 +16,11 @@ class TransactionCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CloneOperation { clone as traitClone; }
+    use \Backpack\CRUD\app\Http\Controllers\Operations\BulkCloneOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
 
     use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
     use \Backpack\ReviseOperation\ReviseOperation;
@@ -453,5 +456,25 @@ class TransactionCrudController extends CrudController
                 
                 'tab' => 'Trustee'
                 ]);
+    }
+
+    public function clone($id)
+    {
+        $this->crud->hasAccessOrFail('clone');
+        $this->crud->setOperation('clone');
+
+        $clonedEntry = $this->crud->model->findOrFail($id)->replicate();
+
+        $lastData = \DB::table('transactions')->orderBy('id', 'DESC')->first();
+        $last_id = $lastData->id;
+        $last_id = $last_id+1;
+
+        $clonedEntry->transaction_code = "ESSKAYTRANS0000".$last_id;
+
+
+        return (string) $clonedEntry->push();
+
+        // if you still want to call the old clone method
+        //$this->traitClone($id);
     }
 }
