@@ -470,6 +470,7 @@ class TransactionCrudController extends CrudController
         $last_id = $last_id+1;
 
         $clonedEntry->transaction_code = "ESSKAYTRANS0000".$last_id;
+        $clonedEntry->articles = "0";
 
 
         return (string) $clonedEntry->push();
