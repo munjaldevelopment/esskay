@@ -343,19 +343,19 @@
 @php
 	if($list_document):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('document') }}'><i class='nav-icon la la-user'></i> Documents</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('document') }}'><i class='nav-icon la la-list'></i> Documents</a></li>
 @php
 	endif;
 
 	if($list_accept_document):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('accept_document') }}'><i class='nav-icon la la-user'></i> Accept Documents</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('accept_document') }}'><i class='nav-icon la la-check'></i> Accept Documents</a></li>
 @php
 	endif;
 
 	if($list_reject_document):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_document') }}'><i class='nav-icon la la-user'></i> Reject Documents</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_document') }}'><i class='nav-icon la la-times'></i> Reject Documents</a></li>
 @php
 	endif;
 @endphp
