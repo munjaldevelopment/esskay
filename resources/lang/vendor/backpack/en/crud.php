@@ -47,8 +47,11 @@ return [
     'details_row'               => 'This is the details row. Modify as you please.',
     'details_row_loading_error' => 'There was an error loading the details. Please retry.',
     'clone'                     => 'Clone',
+
     'checkerDocument'           => 'Approve Document',
     'rejectTransaction'         => 'Reject',
+
+    'checkerSanctionLetter'     => 'Approve San. Letter',
 
     'checkerTransaction'        => 'Approve',
     'checkerBankingArrangment'  => 'Approve',

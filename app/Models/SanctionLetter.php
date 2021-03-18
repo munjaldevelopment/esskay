@@ -21,8 +21,7 @@ class SanctionLetter extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
     
-    protected $fillable = ['bank_name', 'type_facility', 'facility_amount', 'roi', 'all_incluside_roi', 'processing_fees', 'arranger_fees', 'stamp_duty_fees', 'tenor', 'security_cover', 'cash_collateral', 'personal_guarantee', 'intermediary', 'sanction_letter', 'approved_by1',
-         'approved_by2', 'approved_by3', 'status'];
+    protected $fillable = ['bank_name', 'type_facility', 'facility_amount', 'roi', 'all_incluside_roi', 'processing_fees', 'arranger_fees', 'stamp_duty_fees', 'tenor', 'security_cover', 'cash_collateral', 'personal_guarantee', 'intermediary', 'sanction_letter', 'status'];
     // protected $hidden = [];
     // protected $dates = [];
 

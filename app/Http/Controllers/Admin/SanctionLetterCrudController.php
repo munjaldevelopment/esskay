@@ -209,27 +209,6 @@ class SanctionLetterCrudController extends CrudController
                                 ]);
 
             $this->crud->addField([
-                                    'name' => 'approved_by1',
-                                    'label' => 'Approve #1',
-                                    'type' => 'checkbox',
-                                    'tab' => 'Approve'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'approved_by2',
-                                    'label' => 'Approve #2',
-                                    'type' => 'checkbox',
-                                    'tab' => 'Approve'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'approved_by3',
-                                    'label' => 'Approve #2',
-                                    'type' => 'checkbox',
-                                    'tab' => 'Approve'
-                                ]);
-
-            $this->crud->addField([
                                     'name' => 'status',
                                     'label' => 'Status',
                                     'type' => 'select2_from_array',
@@ -299,6 +278,29 @@ class SanctionLetterCrudController extends CrudController
 
         $result = $this->traitSanctionLetterStore();
 
+        $sanction_letter_id =  $this->crud->entry->id;
+        $bank_name = $this->crud->getRequest()->bank_name;
+        $type_facility = $this->crud->getRequest()->type_facility;
+        $facility_amount = $this->crud->getRequest()->facility_amount;
+        $roi = $this->crud->getRequest()->roi;
+        $all_incluside_roi = $this->crud->getRequest()->all_incluside_roi;
+
+        $processing_fees = $this->crud->getRequest()->processing_fees;
+        $arranger_fees = $this->crud->getRequest()->arranger_fees;
+        $stamp_duty_fees = $this->crud->getRequest()->stamp_duty_fees;
+        $tenor = $this->crud->getRequest()->tenor;
+        $security_cover = $this->crud->getRequest()->security_cover;
+        $cash_collateral = $this->crud->getRequest()->cash_collateral;
+        $personal_guarantee = $this->crud->getRequest()->personal_guarantee;
+        $intermediary = $this->crud->getRequest()->intermediary;
+        $sanction_letter = $this->crud->getRequest()->sanction_letter;
+
+
+        $sanction_letter_status = $this->crud->getRequest()->status;
+
+
+        \DB::table('sanction_letter_revisions')->insert(['sanction_letter_id' => $sanction_letter_id, 'bank_name' => $bank_name, 'type_facility' => $type_facility, 'facility_amount' => $facility_amount, 'roi' => $roi, 'all_incluside_roi' => $all_incluside_roi, 'processing_fees' => $processing_fees, 'arranger_fees' => $arranger_fees, 'stamp_duty_fees' => $stamp_duty_fees, 'tenor' => $tenor, 'security_cover' => $security_cover, 'cash_collateral' => $cash_collateral, 'personal_guarantee' => $personal_guarantee, 'intermediary' => $intermediary, 'sanction_letter' => $sanction_letter, 'sanction_letter_status' => $sanction_letter_status]);
+
         $sms_status = config('general.sms_status');
                 
         if($sms_status)
@@ -324,6 +326,28 @@ class SanctionLetterCrudController extends CrudController
 
         $result = $this->traitSanctionLetterUpdate();
 
+        // To Do
+        $sanction_letter_id =  $this->crud->getRequest()->id;
+        $bank_name = $this->crud->getRequest()->bank_name;
+        $type_facility = $this->crud->getRequest()->type_facility;
+        $facility_amount = $this->crud->getRequest()->facility_amount;
+        $roi = $this->crud->getRequest()->roi;
+        $all_incluside_roi = $this->crud->getRequest()->all_incluside_roi;
+                          
+        $processing_fees = $this->crud->getRequest()->processing_fees;
+        $arranger_fees = $this->crud->getRequest()->arranger_fees;
+        $stamp_duty_fees = $this->crud->getRequest()->stamp_duty_fees;
+        $tenor = $this->crud->getRequest()->tenor;
+        $security_cover = $this->crud->getRequest()->security_cover;
+        $cash_collateral = $this->crud->getRequest()->cash_collateral;
+        $personal_guarantee = $this->crud->getRequest()->personal_guarantee;
+        $intermediary = $this->crud->getRequest()->intermediary;
+        $sanction_letter = $this->crud->getRequest()->sanction_letter;
+        $sanction_letter_status = $this->crud->getRequest()->status;
+
+
+        \DB::table('sanction_letter_revisions')->insert(['sanction_letter_id' => $sanction_letter_id, 'bank_name' => $bank_name, 'type_facility' => $type_facility, 'facility_amount' => $facility_amount, 'roi' => $roi, 'all_incluside_roi' => $all_incluside_roi, 'processing_fees' => $processing_fees, 'arranger_fees' => $arranger_fees, 'stamp_duty_fees' => $stamp_duty_fees, 'tenor' => $tenor, 'security_cover' => $security_cover, 'cash_collateral' => $cash_collateral, 'personal_guarantee' => $personal_guarantee, 'intermediary' => $intermediary, 'sanction_letter' => $sanction_letter, 'sanction_letter_status' => $sanction_letter_status]);
+
         $sms_status = config('general.sms_status');
                 
         if($sms_status)
@@ -339,5 +363,36 @@ class SanctionLetterCrudController extends CrudController
         }
         
         return $result;
+    }
+
+    public function getContent($request_url)
+    {
+        $options = array(
+          CURLOPT_RETURNTRANSFER => true,     // return web page
+          CURLOPT_HEADER         => false,    // don't return headers
+          CURLOPT_FOLLOWLOCATION => true,     // follow redirects
+          CURLOPT_ENCODING       => "",       // handle all encodings
+          CURLOPT_USERAGENT      => "spider", // who am i
+          CURLOPT_AUTOREFERER    => true,     // set referer on redirect
+          CURLOPT_CONNECTTIMEOUT => 120,      // timeout on connect
+          CURLOPT_TIMEOUT        => 120,      // timeout on response
+          CURLOPT_MAXREDIRS      => 10,       // stop after 10 redirects
+          CURLOPT_SSL_VERIFYPEER => false     // Disabled SSL Cert checks
+        );
+
+        $ch      = curl_init( $request_url );
+        curl_setopt_array( $ch, $options );
+        $content = curl_exec( $ch );
+        $err     = curl_errno( $ch );
+        $errmsg  = curl_error( $ch );
+        $header  = curl_getinfo( $ch );
+        curl_close( $ch );
+
+        $header['errno']   = $err;
+        $header['errmsg']  = $errmsg;
+        $header['content'] = $content;
+        
+        //echo '<pre>';print_r($header); exit;
+        return $header;
     }
 }

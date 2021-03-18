@@ -1,5 +1,5 @@
 @if (($crud->hasAccess('checker_sanction_letter1') || $crud->hasAccess('checker_sanction_letter2') || $crud->hasAccess('checker_sanction_letter3')) && $entry->status == 0)
-	<a href="javascript:void(0)" onclick="checkersanctionLetterEntry(this)" data-route="{{ backpack_url('checkerSanctionLetter/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-check"></i> {{ trans('backpack::crud.checkerDocument') }}</a>
+	<a href="javascript:void(0)" onclick="checkersanctionLetterEntry(this)" data-route="{{ backpack_url('checkerSanctionLetter/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-check"></i> {{ trans('backpack::crud.checkerSanctionLetter') }}</a>
 
   <a href="javascript:void(0)" onclick="checkerSanctionLetterRejectEntry(this)" data-route="{{ backpack_url('checkerSanctionLetterReject/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-times"></i> {{ trans('backpack::crud.rejectTransaction') }}</a>
 @endif
