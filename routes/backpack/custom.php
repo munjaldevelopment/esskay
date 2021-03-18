@@ -112,7 +112,11 @@ Route::group([
     Route::crud('networth_infusion', 'NetWorthInfusionCrudController');
     Route::crud('currentdeal_category', 'CurrentDealCategoryCrudController');
     Route::crud('current_deal', 'CurrentDealCrudController');
+    
     Route::crud('sanction_letter', 'SanctionLetterCrudController');
+    Route::crud('approve_sanction_letter', 'ApproveSanctionLetterCrudController');
+    Route::crud('reject_sanction_letter', 'RejectSanctionLetterCrudController');
+
     Route::crud('covidrelief_lender', 'CovidReliefLenderCrudController');
     Route::crud('covidrelief_borrower', 'CovidReliefBorrowerCrudController');
     Route::crud('transaction_category', 'TransactionCategoryCrudController');

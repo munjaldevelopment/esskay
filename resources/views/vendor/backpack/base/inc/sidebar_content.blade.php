@@ -25,6 +25,8 @@
 	$list_current_deal = backpack_user()->hasPermissionTo('list_current_deal');
 	
 	$list_sanction_letter = backpack_user()->hasPermissionTo('list_sanction_letter');
+	$list_approve_sanction_letter = backpack_user()->hasPermissionTo('list_approve_sanction_letter');
+	$list_reject_sanction_letter = backpack_user()->hasPermissionTo('list_reject_sanction_letter');
 
 	$list_covid_relief = backpack_user()->hasPermissionTo('list_covid_relief');
 	$list_covid_relief_borrower = backpack_user()->hasPermissionTo('list_covid_relief_borrower');
@@ -201,9 +203,32 @@
 @php
 	endif;
 
-	if($list_sanction_letter):
+	if($list_sanction_letter || $list_approve_sanction_letter || $list_reject_sanction_letter):
 @endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('sanction_letter') }}'><i class='nav-icon la la-list'></i> Sanction Letters</a></li>
+<li class="nav-item nav-dropdown">
+	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Sanction Letter</a>
+	<ul class="nav-dropdown-items">
+		@php
+			if($list_sanction_letter):
+		@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('sanction_letter') }}'><i class='nav-icon la la-list'></i> Sanction Letters</a></li>
+	@php
+			endif;
+
+			if($list_approve_sanction_letter):
+		@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('approve_sanction_letter') }}'><i class='nav-icon la la-check'></i> Approve Sanction Letters</a></li>
+	@php
+			endif;
+
+			if($list_reject_sanction_letter):
+		@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_sanction_letter') }}'><i class='nav-icon la la-times'></i> Reject Sanction Letters</a></li>
+	@php
+			endif;
+	@endphp
+	</ul>
+</li>
 @php
 	endif;
 
@@ -266,7 +291,7 @@
 
 	if($list_transaction):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction') }}'><i class='nav-icon la la-user'></i> Transaction</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction') }}'><i class='nav-icon la la-list'></i> Transaction</a></li>
 @php
 	endif;
 
@@ -284,7 +309,7 @@
 
 	if($list_transaction_document):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction_document') }}'><i class='nav-icon la la-user'></i> Trans. Document</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction_document') }}'><i class='nav-icon la la-list'></i> Trans. Document</a></li>
 @php
 	endif;
 

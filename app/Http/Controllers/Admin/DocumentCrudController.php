@@ -515,7 +515,7 @@ class DocumentCrudController extends CrudController
 		\DB::table('transactions')->where(['id' => $document_id])->update($updateData);
 	}
 
-	public function checkercheckerSanctionLetter($sanction_letter_id)
+	public function checkerSanctionLetter($sanction_letter_id)
 	{
 		$updateData = array('status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->update($updateData);
@@ -524,7 +524,7 @@ class DocumentCrudController extends CrudController
 		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
 	}
 
-	public function checkercheckerSanctionLetterReject($sanction_letter_id)
+	public function checkerSanctionLetterReject($sanction_letter_id)
 	{
 		$updateData = array('status' => '2', 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->update($updateData);
