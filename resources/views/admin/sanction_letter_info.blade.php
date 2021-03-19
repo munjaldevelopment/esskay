@@ -10,7 +10,7 @@
 				@include('crud::inc.field_attributes')
 			>
 		
-		<label>{!! $field['label'] !!} Quantity #</label>
+		<label>{!! $label !!} Quantity #</label>
 		<textarea
 				name="{{ $name }}_value[]"
 				id="invoice_info_quantity_{{ $count }}"
