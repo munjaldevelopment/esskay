@@ -270,7 +270,7 @@ class SanctionLetterCrudController extends CrudController
             $this->crud->addField([
                                     'name' => 'sanction_letter',
                                     'label' => 'Sanction Letter',
-                                    'type' => 'text',
+                                    'type' => 'browse',
                                     'tab' => 'General'
                                 ]);
 
@@ -279,7 +279,7 @@ class SanctionLetterCrudController extends CrudController
                                     'label' => 'Status',
                                     'type' => 'select2_from_array',
                                     'options' => ['0' => 'Inactive', '1' => 'Active'],
-                                    'tab' => 'Approve'
+                                    'tab' => 'General'
                                 ]);
 
             $this->crud->addButtonFromView('line', 'checker_sanction_letter', 'checker_sanction_letter', 'end');
