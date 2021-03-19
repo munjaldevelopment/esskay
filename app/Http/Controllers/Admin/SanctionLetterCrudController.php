@@ -638,12 +638,17 @@ class SanctionLetterCrudController extends CrudController
         $personal_guarantee = $this->crud->getRequest()->personal_guarantee;
         $intermediary = $this->crud->getRequest()->intermediary;
         $sanction_letter = $this->crud->getRequest()->sanction_letter;
-
-
         $sanction_letter_status = $this->crud->getRequest()->status;
 
-
         \DB::table('sanction_letter_revisions')->insert(['sanction_letter_id' => $sanction_letter_id, 'bank_name' => $bank_name, 'type_facility' => $type_facility, 'facility_amount' => $facility_amount, 'roi' => $roi, 'all_incluside_roi' => $all_incluside_roi, 'processing_fees' => $processing_fees, 'arranger_fees' => $arranger_fees, 'stamp_duty_fees' => $stamp_duty_fees, 'tenor' => $tenor, 'security_cover' => $security_cover, 'cash_collateral' => $cash_collateral, 'personal_guarantee' => $personal_guarantee, 'intermediary' => $intermediary, 'sanction_letter' => $sanction_letter, 'sanction_letter_status' => $sanction_letter_status]);
+
+        if($request->sanction_letter_info)
+        {
+            foreach($request->sanction_letter_info as $k => $sanction_letter_info)
+            {
+                $dispatch_invoice_info_id = \DB::table('sanction_letter_info')->insertGetId(['sanction_letter_id' => $sanction_letter_id, 'sanction_letter_field' => $sanction_letter_info, 'sanction_letter_value' => $request->sanction_letter_info_value[$k], 'created_at' => date('Y-m-d H:i:s')]);
+            }
+        }
 
         $sms_status = config('general.sms_status');
                 
@@ -691,6 +696,16 @@ class SanctionLetterCrudController extends CrudController
 
 
         \DB::table('sanction_letter_revisions')->insert(['sanction_letter_id' => $sanction_letter_id, 'bank_name' => $bank_name, 'type_facility' => $type_facility, 'facility_amount' => $facility_amount, 'roi' => $roi, 'all_incluside_roi' => $all_incluside_roi, 'processing_fees' => $processing_fees, 'arranger_fees' => $arranger_fees, 'stamp_duty_fees' => $stamp_duty_fees, 'tenor' => $tenor, 'security_cover' => $security_cover, 'cash_collateral' => $cash_collateral, 'personal_guarantee' => $personal_guarantee, 'intermediary' => $intermediary, 'sanction_letter' => $sanction_letter, 'sanction_letter_status' => $sanction_letter_status]);
+
+        if($request->sanction_letter_info)
+        {
+            \DB::table('sanction_letter_info')->where('sanction_letter_id', '=', $sanction_letter_id)->delete();
+            
+            foreach($request->sanction_letter_info as $k => $sanction_letter_info)
+            {
+                $dispatch_invoice_info_id = \DB::table('sanction_letter_info')->insertGetId(['sanction_letter_id' => $sanction_letter_id, 'sanction_letter_field' => $sanction_letter_info, 'sanction_letter_value' => $request->sanction_letter_info_value[$k], 'created_at' => date('Y-m-d H:i:s')]);
+            }
+        }
 
         $sms_status = config('general.sms_status');
                 
