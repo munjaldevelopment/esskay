@@ -252,7 +252,7 @@
 
 @php
 	
-	if($list_lender || $list_lender_banking):
+	if($list_lender || $list_lender_banking || $list_document || $list_accept_document || $list_reject_document):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Lender</a>
@@ -267,6 +267,23 @@
 @endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking') }}'><i class='nav-icon la la-file-o'></i> Lender Banking</a></li>
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('lender_banking_detail') }}'><i class='nav-icon la la-file-o'></i> Lender Banking Detail</a></li>
+@php
+	endif;
+	if($list_document):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('document') }}'><i class='nav-icon la la-list'></i> Documents</a></li>
+@php
+	endif;
+
+	if($list_accept_document):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('accept_document') }}'><i class='nav-icon la la-check'></i> Accept Documents</a></li>
+@php
+	endif;
+
+	if($list_reject_document):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_document') }}'><i class='nav-icon la la-times'></i> Reject Documents</a></li>
 @php
 	endif;
 @endphp
@@ -334,34 +351,6 @@
 @php
 	endif;
 
-	if($list_document || $list_accept_document || $list_reject_document):
-@endphp
-<li class="nav-item nav-dropdown">
-	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Document</a>
-	<ul class="nav-dropdown-items">
-@php
-	if($list_document):
-@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('document') }}'><i class='nav-icon la la-list'></i> Documents</a></li>
-@php
-	endif;
-
-	if($list_accept_document):
-@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('accept_document') }}'><i class='nav-icon la la-check'></i> Accept Documents</a></li>
-@php
-	endif;
-
-	if($list_reject_document):
-@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_document') }}'><i class='nav-icon la la-times'></i> Reject Documents</a></li>
-@php
-	endif;
-@endphp
-	</ul>
-</li>
-@php
-	endif;
 	if($list_user_log):
 @endphp
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('user_document') }}'><i class='nav-icon la la-file-o'></i> Documents Download</a></li>
