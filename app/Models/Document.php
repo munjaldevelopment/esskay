@@ -20,7 +20,7 @@ class Document extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['document_category_id', 'document_sub_category_id', 'document_heading', 'document_name', 'document_guide', 'document_filename', 'document_date', 'expiry_date', 'document_status'];
+    protected $fillable = ['user_id', 'document_category_id', 'document_sub_category_id', 'document_heading', 'document_name', 'document_guide', 'document_filename', 'document_date', 'expiry_date', 'document_status'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -29,6 +29,11 @@ class Document extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id');
+    }
+    
 	public function documentCategory()
 	{
 		return $this->belongsTo('App\Models\DocumentCategory', 'document_category_id');

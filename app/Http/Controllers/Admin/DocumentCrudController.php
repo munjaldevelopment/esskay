@@ -76,6 +76,16 @@ class DocumentCrudController extends CrudController
 			{
 				//$this->crud->addClause('where', 'document_status', '=', "0");
 			}
+
+			$this->crud->addColumn([
+                    'label'     => 'Created',
+                    'type'      => 'select',
+                    'name'      => 'user_id',
+                    'entity'    => 'user', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'model'     => "App\User", //name of Models
+
+                    ]);
 			
 			$this->crud->addColumn([
 					'label'     => 'Doc Category',
@@ -161,6 +171,39 @@ class DocumentCrudController extends CrudController
 					],
 					'tab' => 'General'
 			]);
+
+			$is_admin = backpack_user()->hasRole('Super Admin');
+
+            if($is_admin)
+            {
+                $userData = array();
+                $users = \DB::table('users')->where('user_status', '1')->get();
+                foreach ($users as $key => $roww) {
+                    $userData[$roww->id] = $roww->name;
+                }
+
+                $this->crud->addField([
+                        'label'     => 'Created By',
+                        'type'      => 'select2_from_array',
+                        'name'      => 'user_id',
+                        'options'   => $userData,
+                        'tab'       => 'General',
+
+                ]);
+            }
+            else
+            {
+                $this->crud->addField([
+                        'label'     => 'Created By',
+                        'type'      => 'hidden',
+                        'name'      => 'user_id',
+                        'entity'    => 'user', //function name
+                        'attribute' => 'name', //name of fields in models table like districts
+                        'model'     => "App\User", //name of Models
+                        'value'     => backpack_user()->id, //name of Models
+                        'tab'       => 'General'
+                ]);
+            }
 					
 			/*
 					
