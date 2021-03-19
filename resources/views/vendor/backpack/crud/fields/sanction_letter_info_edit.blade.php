@@ -37,6 +37,8 @@
 			>{{ $invoiceInfoRow['sanction_letter_value'] }}</textarea>
 			
 		<div id="pump_quantity_container{{ $k }}"></div>
+
+		<i class="la la-times btn btn-info pull-right" onclick="removePumpContainer({{ $k }});"></i>
 			
 		{{-- HINT --}}
 		@if (isset($field['hint']))
