@@ -4275,8 +4275,17 @@ class HomeController extends Controller
 
 				if($report_type == 1)
 				{
+					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transaction', 'transaction_documents.transaction_id', '=', 'transaction.id')->where('document_type', 'Executed Report')->where('transaction_document_type_id', '1')->where('transaction_id',$transaction_id)->get();
 
+					if($termSheetDoc)
+					{
+						foreach($termSheetDoc as $row)
+						{
+							$termSheetDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('m d Y', strtotime($row->expiry_date)));	
+						}
+					}
 				}
+
 
 	    		return view('transaction-category-trustee-info-document', ['trustee_id' => $trustee_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id, 'report_type' => $report_type,
 

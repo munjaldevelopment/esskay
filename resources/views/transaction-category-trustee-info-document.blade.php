@@ -29,6 +29,7 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@foreach($termSheetDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -47,6 +48,7 @@
 										</div>
 									</div>
 								</div>
+								@ednforeach
 							</div>
 						</div>
 				  	</div>
