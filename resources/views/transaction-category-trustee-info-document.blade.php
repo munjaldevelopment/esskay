@@ -48,7 +48,7 @@
 										</div>
 									</div>
 								</div>
-								@ednforeach
+								@endforeach
 							</div>
 						</div>
 				  	</div>
@@ -67,6 +67,7 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@foreach($serviceAgreementDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -85,6 +86,7 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
 							</div>
 						</div>
 					</div>
@@ -103,6 +105,7 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@foreach($accountAgreementDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -121,6 +124,7 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
 							</div>
 						</div>
 				  	</div>
@@ -139,6 +143,7 @@
 				  <div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@foreach($assignmentAgreementDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -157,6 +162,7 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
 							</div>
 						</div>
 				  	</div>

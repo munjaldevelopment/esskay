@@ -4281,7 +4281,34 @@ class HomeController extends Controller
 					{
 						foreach($termSheetDoc as $row)
 						{
-							$termSheetDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('m d Y', strtotime($row->expiry_date)));	
+							if($row->transaction_document_type_id == 1)
+							{
+								$termSheetDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('m d Y', strtotime($row->expiry_date)));	
+							}
+							else if($row->transaction_document_type_id == 2)
+							{
+								$serviceAgreementDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('m d Y', strtotime($row->expiry_date)));
+							}
+							else if($row->transaction_document_type_id == 3)
+							{
+								$accountAgreementDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('m d Y', strtotime($row->expiry_date)));
+							}
+							else if($row->transaction_document_type_id == 4)
+							{
+								$assignmentAgreementDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('m d Y', strtotime($row->expiry_date)));
+							}
+							else if($row->transaction_document_type_id == 5)
+							{
+								$trustDeedDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('m d Y', strtotime($row->expiry_date)));
+							}
+							else if($row->transaction_document_type_id == 6)
+							{
+								$imDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('m d Y', strtotime($row->expiry_date)));
+							}
+							else if($row->transaction_document_type_id == 7)
+							{
+								$anyotherDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('m d Y', strtotime($row->expiry_date)));
+							}
 						}
 					}
 				}
