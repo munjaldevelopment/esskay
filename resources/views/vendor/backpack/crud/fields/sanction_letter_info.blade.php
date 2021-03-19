@@ -19,7 +19,7 @@
 			
 		<div id="pump_quantity_container1"></div>
 		
-		<i class="la la-plus btn btn-info pull-right" onclick="addNextPump(2);"></i>
+		<i class="la la-plus btn btn-info pull-right" onclick="addNextPump(1);"></i>
 			
 		{{-- HINT --}}
 		@if (isset($field['hint']))
