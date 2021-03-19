@@ -132,7 +132,7 @@
 @php
 	endif;
 
-	if($list_operational_highlight || $list_geographical_concentration || $list_product_concentration || $list_asset_quality || $list_collection_efficiency):
+	if($list_operational_highlight || $list_geographical_concentration || $list_product_concentration || $list_asset_quality || $list_collection_efficiency || $list_covid_relief || $list_covid_relief_borrower):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Insight</a>
@@ -178,6 +178,18 @@
 			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liquidity') }}'><i class='nav-icon la la-list'></i> Liquidity</a></li>
 	@php
 			endif;
+			if($list_covid_relief):
+@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_lender') }}'><i class='nav-icon la la-list'></i> Covid Relief Lenders</a></li>
+@php
+	endif;
+
+	if($list_covid_relief_borrower):
+@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_borrower') }}'><i class='nav-icon la la-list'></i> Covid Relief
+ Borrowers</a></li>
+@php
+	endif;
 		@endphp
 	</ul>
 </li>
@@ -234,19 +246,6 @@
 	@endphp
 	</ul>
 </li>
-@php
-	endif;
-
-	if($list_covid_relief):
-@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_lender') }}'><i class='nav-icon la la-list'></i> Covid Relief Lenders</a></li>
-@php
-	endif;
-
-	if($list_covid_relief_borrower):
-@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_borrower') }}'><i class='nav-icon la la-list'></i> Covid Relief
- Borrowers</a></li>
 @php
 	endif;
 @endphp
