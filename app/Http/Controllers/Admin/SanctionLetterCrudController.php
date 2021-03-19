@@ -141,202 +141,6 @@ class SanctionLetterCrudController extends CrudController
                                     'label' => 'Processing Fee',
                                     'type' => 'text',
                                 ]);
-                        
-            $is_admin = backpack_user()->hasRole('Super Admin');
-
-            if($is_admin)
-            {
-                $userData = array();
-                $users = \DB::table('users')->where('user_status', '1')->get();
-                foreach ($users as $key => $roww) {
-                    $userData[$roww->id] = $roww->name;
-                }
-
-                $this->crud->addField([
-                        'label'     => 'Created By',
-                        'type'      => 'select2_from_array',
-                        'name'      => 'user_id',
-                        'options'   => $userData,
-                        'tab'       => 'General',
-
-                ]);
-            }
-            else
-            {
-                $this->crud->addField([
-                        'label'     => 'Created By',
-                        'type'      => 'hidden',
-                        'name'      => 'user_id',
-                        'entity'    => 'user', //function name
-                        'attribute' => 'name', //name of fields in models table like districts
-                        'model'     => "App\User", //name of Models
-                        'value'     => backpack_user()->id, //name of Models
-                        'tab'       => 'General'
-                ]);
-            }        
-            
-                    
-            $this->crud->addField([
-                                    'name' => 'bank_name',
-                                    'label' => 'Bank Name',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-                    
-            $this->crud->addField([
-                                    'name' => 'type_facility',
-                                    'label' => 'Type of Facility',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'facility_amount',
-                                    'label' => 'Facility Amount',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'roi',
-                                    'label' => 'ROI',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'all_incluside_roi',
-                                    'label' => 'All-inclusive ROI',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'processing_fees',
-                                    'label' => 'Processing Fees %',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'processing_fees_amount',
-                                    'label' => 'Processing Fees Amount',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'arranger_fees',
-                                    'label' => 'Arranger Fees %',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'arranger_fees_amount',
-                                    'label' => 'Arranger Fees Amount',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'other_charges_doc',
-                                    'label' => 'Other Charges Doc',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'total_associated_cost',
-                                    'label' => 'total Associated Cost',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'all_inclusive_cost',
-                                    'label' => 'All Inclusive Cost',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'financial_covenant',
-                                    'label' => 'Financial Covenant',
-                                    'type' => 'ckeditor',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'rationale_availing',
-                                    'label' => 'Rationale for Availing facility',
-                                    'type' => 'ckeditor',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'blended_cost',
-                                    'label' => 'Blended Cost',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'stamp_duty_fees',
-                                    'label' => 'Stamp Duty Fees',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'tenor',
-                                    'label' => 'Tenor',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'security_cover',
-                                    'label' => 'Security Cover',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'cash_collateral',
-                                    'label' => 'Cash Collateral',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'personal_guarantee',
-                                    'label' => 'Personal Guarantee',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'intermediary',
-                                    'label' => 'Intermediary',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'sanction_letter',
-                                    'label' => 'Sanction Letter',
-                                    'type' => 'browse',
-                                    'tab' => 'General'
-                                ]);
-
-            $this->crud->addField([
-                                    'name' => 'status',
-                                    'label' => 'Status',
-                                    'type' => 'select2_from_array',
-                                    'options' => ['0' => 'Inactive', '1' => 'Active'],
-                                    'tab' => 'General'
-                                ]);
 
             $this->crud->addButtonFromView('line', 'checker_sanction_letter', 'checker_sanction_letter', 'end');
             
@@ -368,11 +172,428 @@ class SanctionLetterCrudController extends CrudController
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
+    public function createSanctionLetterField()
+    {
+        $is_admin = backpack_user()->hasRole('Super Admin');
+
+        if($is_admin)
+        {
+            $userData = array();
+            $users = \DB::table('users')->where('user_status', '1')->get();
+            foreach ($users as $key => $roww) {
+                $userData[$roww->id] = $roww->name;
+            }
+
+            $this->crud->addField([
+                    'label'     => 'Created By',
+                    'type'      => 'select2_from_array',
+                    'name'      => 'user_id',
+                    'options'   => $userData,
+                    'tab'       => 'General',
+
+            ]);
+        }
+        else
+        {
+            $this->crud->addField([
+                    'label'     => 'Created By',
+                    'type'      => 'hidden',
+                    'name'      => 'user_id',
+                    'entity'    => 'user', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'model'     => "App\User", //name of Models
+                    'value'     => backpack_user()->id, //name of Models
+                    'tab'       => 'General'
+            ]);
+        }        
+        
+                
+        $this->crud->addField([
+                                'name' => 'bank_name',
+                                'label' => 'Bank Name',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+                
+        $this->crud->addField([
+                                'name' => 'type_facility',
+                                'label' => 'Type of Facility',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'facility_amount',
+                                'label' => 'Facility Amount',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'roi',
+                                'label' => 'ROI',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'all_incluside_roi',
+                                'label' => 'All-inclusive ROI',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'processing_fees',
+                                'label' => 'Processing Fees %',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'processing_fees_amount',
+                                'label' => 'Processing Fees Amount',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'arranger_fees',
+                                'label' => 'Arranger Fees %',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'arranger_fees_amount',
+                                'label' => 'Arranger Fees Amount',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'other_charges_doc',
+                                'label' => 'Other Charges Doc',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'total_associated_cost',
+                                'label' => 'Total Associated Cost',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'all_inclusive_cost',
+                                'label' => 'All Inclusive Cost',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'financial_covenant',
+                                'label' => 'Financial Covenant',
+                                'type' => 'ckeditor',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'rationale_availing',
+                                'label' => 'Rationale for Availing facility',
+                                'type' => 'ckeditor',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'blended_cost',
+                                'label' => 'Blended Cost',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'stamp_duty_fees',
+                                'label' => 'Stamp Duty Fees',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'tenor',
+                                'label' => 'Tenor',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'security_cover',
+                                'label' => 'Security Cover',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'cash_collateral',
+                                'label' => 'Cash Collateral',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'personal_guarantee',
+                                'label' => 'Personal Guarantee',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'intermediary',
+                                'label' => 'Intermediary',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'sanction_letter',
+                                'label' => 'Sanction Letter',
+                                'type' => 'browse',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'status',
+                                'label' => 'Status',
+                                'type' => 'select2_from_array',
+                                'options' => ['0' => 'Inactive', '1' => 'Active'],
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'sanction_letter_info',
+                                'label' => 'Sanction Letter',
+                                'type' => 'sanction_letter_info',
+                                //'allows_multiple' => 'true',
+                                'tab'   => 'Sanction Letter Info',
+                            ]);
+    }
+
+    public function updateSanctionLetterField()
+    {
+        $is_admin = backpack_user()->hasRole('Super Admin');
+
+        if($is_admin)
+        {
+            $userData = array();
+            $users = \DB::table('users')->where('user_status', '1')->get();
+            foreach ($users as $key => $roww) {
+                $userData[$roww->id] = $roww->name;
+            }
+
+            $this->crud->addField([
+                    'label'     => 'Created By',
+                    'type'      => 'select2_from_array',
+                    'name'      => 'user_id',
+                    'options'   => $userData,
+                    'tab'       => 'General',
+
+            ]);
+        }
+        else
+        {
+            $this->crud->addField([
+                    'label'     => 'Created By',
+                    'type'      => 'hidden',
+                    'name'      => 'user_id',
+                    'entity'    => 'user', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'model'     => "App\User", //name of Models
+                    'value'     => backpack_user()->id, //name of Models
+                    'tab'       => 'General'
+            ]);
+        }        
+        
+                
+        $this->crud->addField([
+                                'name' => 'bank_name',
+                                'label' => 'Bank Name',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+                
+        $this->crud->addField([
+                                'name' => 'type_facility',
+                                'label' => 'Type of Facility',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'facility_amount',
+                                'label' => 'Facility Amount',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'roi',
+                                'label' => 'ROI',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'all_incluside_roi',
+                                'label' => 'All-inclusive ROI',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'processing_fees',
+                                'label' => 'Processing Fees %',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'processing_fees_amount',
+                                'label' => 'Processing Fees Amount',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'arranger_fees',
+                                'label' => 'Arranger Fees %',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'arranger_fees_amount',
+                                'label' => 'Arranger Fees Amount',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'other_charges_doc',
+                                'label' => 'Other Charges Doc',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'total_associated_cost',
+                                'label' => 'Total Associated Cost',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'all_inclusive_cost',
+                                'label' => 'All Inclusive Cost',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'financial_covenant',
+                                'label' => 'Financial Covenant',
+                                'type' => 'ckeditor',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'rationale_availing',
+                                'label' => 'Rationale for Availing facility',
+                                'type' => 'ckeditor',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'blended_cost',
+                                'label' => 'Blended Cost',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'stamp_duty_fees',
+                                'label' => 'Stamp Duty Fees',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'tenor',
+                                'label' => 'Tenor',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'security_cover',
+                                'label' => 'Security Cover',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'cash_collateral',
+                                'label' => 'Cash Collateral',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'personal_guarantee',
+                                'label' => 'Personal Guarantee',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'intermediary',
+                                'label' => 'Intermediary',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'sanction_letter',
+                                'label' => 'Sanction Letter',
+                                'type' => 'browse',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'status',
+                                'label' => 'Status',
+                                'type' => 'select2_from_array',
+                                'options' => ['0' => 'Inactive', '1' => 'Active'],
+                                'tab' => 'General'
+                            ]);
+
+
+        $this->crud->addField([
+                                'name' => 'sanction_letter_info',
+                                'label' => 'Sanction Letter',
+                                'type' => 'sanction_letter_info_edit',
+                                'allows_multiple' => 'true',
+                                'tab'   => 'Sanction Letter Info',
+                            ]);
+    }
+
+
     protected function setupCreateOperation()
     {
+        $this->createSanctionLetterField();
         CRUD::setValidation(SanctionLetterRequest::class);
 
-        CRUD::setFromDb(); // fields
+        //CRUD::setFromDb(); // fields
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -389,7 +610,8 @@ class SanctionLetterCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        $this->setupCreateOperation();
+        $this->updateSanctionLetterField();
+        CRUD::setValidation(SanctionLetterRequest::class);
     }
 
     public function store()
