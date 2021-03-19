@@ -645,7 +645,10 @@ class SanctionLetterCrudController extends CrudController
         {
             foreach($this->crud->getRequest()->sanction_letter_info as $k => $sanction_letter_info)
             {
-                $dispatch_invoice_info_id = \DB::table('sanction_letter_info')->insertGetId(['sanction_letter_id' => $sanction_letter_id, 'sanction_letter_field' => $sanction_letter_info, 'sanction_letter_value' => $this->crud->getRequest()->sanction_letter_info_value[$k], 'created_at' => date('Y-m-d H:i:s')]);
+                if($sanction_letter_info != "")
+                {
+                    $dispatch_invoice_info_id = \DB::table('sanction_letter_info')->insertGetId(['sanction_letter_id' => $sanction_letter_id, 'sanction_letter_field' => $sanction_letter_info, 'sanction_letter_value' => $this->crud->getRequest()->sanction_letter_info_value[$k], 'created_at' => date('Y-m-d H:i:s')]);
+                }
             }
         }
 
@@ -702,7 +705,10 @@ class SanctionLetterCrudController extends CrudController
 
             foreach($this->crud->getRequest()->sanction_letter_info as $k => $sanction_letter_info)
             {
-                $dispatch_invoice_info_id = \DB::table('sanction_letter_info')->insertGetId(['sanction_letter_id' => $sanction_letter_id, 'sanction_letter_field' => $sanction_letter_info, 'sanction_letter_value' => $this->crud->getRequest()->sanction_letter_info_value[$k], 'created_at' => date('Y-m-d H:i:s')]);
+                if($sanction_letter_info != "")
+                {
+                    $dispatch_invoice_info_id = \DB::table('sanction_letter_info')->insertGetId(['sanction_letter_id' => $sanction_letter_id, 'sanction_letter_field' => $sanction_letter_info, 'sanction_letter_value' => $this->crud->getRequest()->sanction_letter_info_value[$k], 'created_at' => date('Y-m-d H:i:s')]);
+                }
             }
         }
 
