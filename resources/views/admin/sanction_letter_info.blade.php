@@ -19,8 +19,8 @@
 			
 		<div id="pump_quantity_container{{ $count }}"></div>
 		
-		<i class="fa fa-plus btn btn-info pull-right" onclick="addNextPump({{ $count }});"></i>
-		<i class="fa fa-times btn btn-info pull-right" onclick="removePumpContainer({{ $count }});"></i>
+		<i class="la la-plus btn btn-info pull-right" onclick="addNextPump({{ $count }});"></i>
+		<i class="la la-times btn btn-info pull-right" onclick="removePumpContainer({{ $count }});"></i>
 	</div>
 </div>
 
