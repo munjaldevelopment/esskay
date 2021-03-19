@@ -28,7 +28,7 @@
 	</div>
 </div>
 
-<div class="pump_output_container"></div>
+<div class="pump_output_container col-sm-12"></div>
 
 <style>
 	.cross-box {
