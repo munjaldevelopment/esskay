@@ -617,7 +617,6 @@ class SanctionLetterCrudController extends CrudController
     public function store()
     {
         $this->crud->setRequest($this->crud->validateRequest());
-        $this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
         $this->crud->unsetValidation(); // validation has already been run
 
         $result = $this->traitSanctionLetterStore();
@@ -700,7 +699,7 @@ class SanctionLetterCrudController extends CrudController
         if($this->crud->getRequest()->sanction_letter_info)
         {
             \DB::table('sanction_letter_info')->where('sanction_letter_id', '=', $sanction_letter_id)->delete();
-            
+
             foreach($this->crud->getRequest()->sanction_letter_info as $k => $sanction_letter_info)
             {
                 $dispatch_invoice_info_id = \DB::table('sanction_letter_info')->insertGetId(['sanction_letter_id' => $sanction_letter_id, 'sanction_letter_field' => $sanction_letter_info, 'sanction_letter_value' => $this->crud->getRequest()->sanction_letter_info_value[$k], 'created_at' => date('Y-m-d H:i:s')]);
