@@ -656,7 +656,7 @@ class SanctionLetterCrudController extends CrudController
                 
         if($sms_status)
         {
-            $message = str_replace(" ", "%20", "Dear, Saction Letter has been created. ");
+            $message = str_replace(" ", "%20", "Dear Sir, Saction Letter of ".$facility_amount." from Bank ".$bank_name." is initialized. Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/preview")." ESS KAY FINCORP LIMITED.");
             $lender_phone = "9462045321";
 
             $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
@@ -716,7 +716,7 @@ class SanctionLetterCrudController extends CrudController
                 
         if($sms_status)
         {
-            $message = str_replace(" ", "%20", "Dear, Saction Letter has been updated. ");
+            $message = str_replace(" ", "%20", "Dear Sir, Saction Letter of ".$facility_amount." from Bank ".$bank_name." is updated. Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/preview")." ESS KAY FINCORP LIMITED.");
             $lender_phone = "9462045321";
 
             $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
