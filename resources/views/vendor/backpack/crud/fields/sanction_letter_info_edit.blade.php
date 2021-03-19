@@ -1,6 +1,6 @@
 <?php
 	$sanction_letter_id = $entry->getKey();
-	$invoiceInfo = \DB::table('sanction_letter_info')->where('sanction_letter_id', $sanction_letter_id)->get();
+	$invoiceInfo = \DB::table('sanction_letter_info')->where('sanction_letter_id', $sanction_letter_id)->orderBy('id', 'ASC')->get();
 	
 	$invoiceInfoArr = array();
 	if($invoiceInfo)
