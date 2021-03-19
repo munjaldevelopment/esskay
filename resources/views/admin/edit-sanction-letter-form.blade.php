@@ -70,63 +70,6 @@
 
 @push('after_scripts')
 <script>
-	function getSubCategory(document_category_id)
-	{
-		if(document_category_id != "")
-		{
-			$("#document_sub_category_id").html('<option value="">--Select--</option>');
-			$.ajax({
-				type:"GET",
-				url:"{{ backpack_url('getSubCategory') }}/"+document_category_id,
-				success:function(res){ 
-					if(res){
-						$("#document_sub_category_id").append('<option value="0">None</option>');
-						$.each(res,function(key,value){
-							$("#document_sub_category_id").append('<option value="'+key+'">'+value+'</option>');
-						});
-				  	}
-				}
-			});
-		}
-		else
-		{
-			$("#document_sub_category_id").html('<option value="">--Select--</option><option value="0">None</option>');
-		}
-	}
-	
-	function showSubCategory(document_category_id, document_sub_category_id)
-	{
-		if(document_category_id != "")
-		{
-			$("#document_sub_category_id").html('<option value="">--Select--</option>');
-			$.ajax({
-				type:"GET",
-				url:"{{ backpack_url('getSubCategory') }}/"+document_category_id,
-				success:function(res){ 
-					if(res){
-						$("#person_id").append('<option value="0">None</option>');
-						$.each(res,function(key,value){
-							if(key == document_sub_category_id)
-							{
-								$("#document_sub_category_id").append('<option value="'+key+'" selected="selected">'+value+'</option>');
-							}
-							else
-							{
-								$("#document_sub_category_id").append('<option value="'+key+'">'+value+'</option>');
-							}
-						});
-				  	}
-				}
-			});
-		}
-		else
-		{
-			$("#document_sub_category_id").html('<option value="">--Select--</option><option value="0">None</option>');
-		}
-	}
-	
-	showSubCategory('{{ $entry->document_category_id }}', '{{ $entry->document_sub_category_id }}');
-
 	function addNextPump(count)
 	{
 		$.ajax({

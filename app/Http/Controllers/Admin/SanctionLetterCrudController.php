@@ -144,8 +144,8 @@ class SanctionLetterCrudController extends CrudController
 
             $this->crud->addButtonFromView('line', 'checker_sanction_letter', 'checker_sanction_letter', 'end');
             
-            $this->crud->setCreateView('admin.create-document-form');
-            $this->crud->setUpdateView('admin.edit-document-form');
+            $this->crud->setCreateView('admin.create-sanction-letter-form');
+            $this->crud->setUpdateView('admin.edit-sanction-letter-form');
         }
     }
 
