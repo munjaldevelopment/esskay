@@ -1598,7 +1598,7 @@ class HomeController extends Controller
     	//dd($lenderData);
     	$lender_id = $lenderData->id;
 
-		$sanctionData = \DB::table('sanction_letters')->where('status', '1')->where('approved_by1', '1')->where('approved_by2', '1')->where('approved_by3', '1')->first();
+		$sanctionData = \DB::table('sanction_letters')->where('status', '1')->first();
 		
 		return view('ess-kay-sanction-letter', ['sanctionData' => $sanctionData, 'lenderData' => $lenderData]);
 	}
@@ -3543,7 +3543,7 @@ class HomeController extends Controller
     	//dd($trusteeData);
     	$trustee_id = $trusteeData->id;
 
-		$sanctionData = \DB::table('sanction_letters')->where('status', '1')->where('approved_by1', '1')->where('approved_by2', '1')->where('approved_by3', '1')->first();
+		$sanctionData = \DB::table('sanction_letters')->where('status', '1')->first();
 		
 		return view('ess-kay-sanction-letter', ['sanctionData' => $sanctionData, 'lenderData' => $trusteeData]);
 	}
