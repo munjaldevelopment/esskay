@@ -4,7 +4,7 @@
 		<label>{!! $label !!}</label>
 		<input
 				type="text"
-				name="{{ $field['name'] }}[]"
+				name="{{ $name }}[]"
 				value=""
 				style="width: 100%"
 				@include('crud::inc.field_attributes')
@@ -12,7 +12,7 @@
 		
 		<label>{!! $field['label'] !!} Quantity #</label>
 		<textarea
-				name="{{ $field['name'] }}_value[]"
+				name="{{ $name }}_value[]"
 				id="invoice_info_quantity_{{ $count }}"
 				@include('crud::inc.field_attributes')
 			></textarea>
