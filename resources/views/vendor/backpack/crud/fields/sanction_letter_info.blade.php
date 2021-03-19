@@ -1,7 +1,7 @@
 <!-- select2 from array -->
 <div class="pump_container_1 col-sm-12">
 	<div @include('crud::inc.field_wrapper_attributes') >
-		<label>{!! $field['label'] !!}</label>
+		<label>{!! $field['label'] !!} #1</label>
 		<input
 				type="text"
 				name="{{ $field['name'] }}[]"
@@ -10,7 +10,7 @@
 				@include('crud::inc.field_attributes')
 			>
 		
-		<label>{!! $field['label'] !!} Quantity #</label>
+		<label>{!! $field['label'] !!} Quantity #1</label>
 		<textarea
 				name="{{ $field['name'] }}_value[]"
 				id="invoice_info_quantity_1"
