@@ -74,7 +74,7 @@
 			
 		<div id="pump_quantity_container{{ $next_count }}"></div>
 		
-		<i class="fa fa-plus btn btn-info pull-right" onclick="addNextPump({{ $next_count + 1 }});"></i>
+		<i class="la la-plus btn btn-info pull-right" onclick="addNextPump({{ $next_count + 1 }});"></i>
 			
 		{{-- HINT --}}
 		@if (isset($field['hint']))
@@ -112,42 +112,8 @@
     {{-- FIELD JS - will be loaded in the after_scripts section --}}
     @push('crud_fields_scripts')
     <!-- include select2 js-->
-    <script src="{{ asset('vendor/adminlte/bower_components/select2/dist/js/select2.min.js') }}"></script>
     <script>
-        jQuery(document).ready(function($) {
-            // trigger select2 for each untriggered select2 box
-            $('.select2_from_array').each(function (i, obj) {
-                if (!$(obj).hasClass("select2-hidden-accessible"))
-                {
-                    $(obj).select2({
-                        theme: "bootstrap"
-                    });
-                }
-            });
-        });
 		
-		function getPumpEditQuantity(sanction_letter_id, sanction_letter_info_id, pump_id, quantity, pump_count)
-		{
-			$.ajax({
-				type:"GET",
-				url:"{{ backpack_url('getEditPumpUserInfo') }}/"+sanction_letter_id+"/"+sanction_letter_info_id+"/"+pump_id+"/"+quantity+"/"+pump_count,
-				success:function(result){
-					$('#pump_quantity_container'+pump_count).html(result);
-				}
-			});
-		}
-		
-		<?php
-			if($invoiceInfoArr)
-			{
-				foreach($invoiceInfoArr as $k => $invoiceInfoRow)
-				{
-		?>
-		getPumpEditQuantity('{{ $invoiceInfoRow['sanction_letter_id'] }}', '{{ $invoiceInfoRow['sanction_letter_info_id'] }}', '{{ $invoiceInfoRow['pump_id'] }}', '{{ $invoiceInfoRow['quantity'] }}', '{{ $k }}');
-		<?php
-				}
-			}
-		?>
     </script>
     @endpush
 

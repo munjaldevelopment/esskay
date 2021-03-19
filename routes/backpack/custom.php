@@ -136,4 +136,6 @@ Route::group([
     Route::crud('reject_transaction_document', 'RejectTransactionDocumentCrudController');
     
     Route::crud('transaction_document_type', 'TransactionDocumentTypeCrudController');
+
+    Route::get('getSanctionLetter/{count}', 'SanctionLetterCrudController@getSanctionLetter');
 }); // this should be the absolute last line of this file

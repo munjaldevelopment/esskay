@@ -739,4 +739,10 @@ class SanctionLetterCrudController extends CrudController
         //echo '<pre>';print_r($header); exit;
         return $header;
     }
+
+    public function getSanctionLetter($count)
+    {
+        ++$count;
+        return view('admin/sanction_letter_info', ['count' => $count, 'label' => 'Sanction Letter', 'name' => 'sanction_letter_info']);
+    }
 }
