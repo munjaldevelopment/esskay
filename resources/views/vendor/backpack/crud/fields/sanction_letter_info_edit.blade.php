@@ -70,7 +70,7 @@
 			
 		<div id="pump_quantity_container{{ $next_count }}"></div>
 		
-		<i class="la la-plus btn btn-info pull-right" onclick="addNextPump({{ $next_count + 1 }});"></i>
+		<i class="la la-plus btn btn-info pull-right" onclick="addNextPump({{ $next_count }});"></i>
 			
 		{{-- HINT --}}
 		@if (isset($field['hint']))
