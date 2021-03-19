@@ -18,7 +18,7 @@
 		foreach($invoiceInfoArr as $k => $invoiceInfoRow)
 		{
 ?>
-<div class="pump_container_{{ $k }}">
+<div class="pump_container_{{ $k }} col-sm-12">
 	<div @include('crud::inc.field_wrapper_attributes') >
 		<label>{!! $field['label'] !!}</label>
 		<input
@@ -52,7 +52,7 @@
 ?>
 
 <!-- select2 from array -->
-<div class="pump_container_{{ $next_count }}">
+<div class="pump_container_{{ $next_count }} col-sm-12">
 	<div @include('crud::inc.field_wrapper_attributes') >
 		<label>{!! $field['label'] !!}</label>
 		<input

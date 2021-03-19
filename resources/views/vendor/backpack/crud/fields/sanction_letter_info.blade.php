@@ -1,5 +1,5 @@
 <!-- select2 from array -->
-<div class="pump_container_1">
+<div class="pump_container_1 col-sm-12">
 	<div @include('crud::inc.field_wrapper_attributes') >
 		<label>{!! $field['label'] !!}</label>
 		<input
