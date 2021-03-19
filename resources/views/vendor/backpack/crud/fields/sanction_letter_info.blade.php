@@ -11,13 +11,11 @@
 			>
 		
 		<label>{!! $field['label'] !!} Quantity #</label>
-		<input
-				type="text"
+		<textarea
 				name="{{ $field['name'] }}_value[]"
-				value=""
 				id="invoice_info_quantity_1"
 				@include('crud::inc.field_attributes')
-			>
+			></textarea>
 			
 		<div id="pump_quantity_container1"></div>
 		

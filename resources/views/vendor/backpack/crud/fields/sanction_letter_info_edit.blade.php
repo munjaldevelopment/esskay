@@ -30,13 +30,11 @@
 			>
 		
 		<label>{!! $field['label'] !!} Value</label>
-		<input
-				type="text"
+		<textarea
 				name="{{ $field['name'] }}_value[]"
-				value="{{ $invoiceInfoRow['sanction_letter_value'] }}"
 				id="invoice_info_quantity_{{ $k }}"
 				@include('crud::inc.field_attributes')
-			>
+			>{{ $invoiceInfoRow['sanction_letter_value'] }}</textarea>
 			
 		<div id="pump_quantity_container{{ $k }}"></div>
 			
@@ -64,13 +62,11 @@
 			>
 		
 		<label>{!! $field['label'] !!} Value</label>
-		<input
-				type="text"
+		<textarea
 				name="{{ $field['name'] }}_value[]"
-				value=""
 				id="invoice_info_quantity_{{ $next_count }}"
 				@include('crud::inc.field_attributes')
-			>
+			></textarea>
 			
 		<div id="pump_quantity_container{{ $next_count }}"></div>
 		
