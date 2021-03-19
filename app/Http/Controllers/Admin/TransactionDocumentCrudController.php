@@ -107,7 +107,7 @@ class TransactionDocumentCrudController extends CrudController
                     ]);
 
             $this->crud->addColumn([
-                    'label'     => 'Created',
+                    'label'     => 'Created By',
                     'type'      => 'select',
                     'name'      => 'user_id',
                     'entity'    => 'user', //function name
