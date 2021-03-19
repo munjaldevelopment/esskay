@@ -213,14 +213,70 @@ class SanctionLetterCrudController extends CrudController
 
             $this->crud->addField([
                                     'name' => 'processing_fees',
-                                    'label' => 'Processing Fees',
+                                    'label' => 'Processing Fees %',
+                                    'type' => 'text',
+                                    'tab' => 'General'
+                                ]);
+
+            $this->crud->addField([
+                                    'name' => 'processing_fees_amount',
+                                    'label' => 'Processing Fees Amount',
                                     'type' => 'text',
                                     'tab' => 'General'
                                 ]);
 
             $this->crud->addField([
                                     'name' => 'arranger_fees',
-                                    'label' => 'Arranger Fees',
+                                    'label' => 'Arranger Fees %',
+                                    'type' => 'text',
+                                    'tab' => 'General'
+                                ]);
+
+            $this->crud->addField([
+                                    'name' => 'arranger_fees_amount',
+                                    'label' => 'Arranger Fees Amount',
+                                    'type' => 'text',
+                                    'tab' => 'General'
+                                ]);
+
+            $this->crud->addField([
+                                    'name' => 'other_charges_doc',
+                                    'label' => 'Other Charges Doc',
+                                    'type' => 'text',
+                                    'tab' => 'General'
+                                ]);
+
+            $this->crud->addField([
+                                    'name' => 'total_associated_cost',
+                                    'label' => 'total Associated Cost',
+                                    'type' => 'text',
+                                    'tab' => 'General'
+                                ]);
+
+            $this->crud->addField([
+                                    'name' => 'all_inclusive_cost',
+                                    'label' => 'All Inclusive Cost',
+                                    'type' => 'text',
+                                    'tab' => 'General'
+                                ]);
+
+            $this->crud->addField([
+                                    'name' => 'financial_covenant',
+                                    'label' => 'Financial Covenant',
+                                    'type' => 'ckeditor',
+                                    'tab' => 'General'
+                                ]);
+
+            $this->crud->addField([
+                                    'name' => 'rationale_availing',
+                                    'label' => 'Rationale for Availing facility',
+                                    'type' => 'ckeditor',
+                                    'tab' => 'General'
+                                ]);
+
+            $this->crud->addField([
+                                    'name' => 'blended_cost',
+                                    'label' => 'Blended Cost',
                                     'type' => 'text',
                                     'tab' => 'General'
                                 ]);
