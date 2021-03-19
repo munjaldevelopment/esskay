@@ -6,6 +6,7 @@
 			<div class="custom-table-area">
 				<div class="row-fluid">
 					<div class="col-sm-6 offset-3">
+						@foreach($sanctionData as $sanctionRow)
 						<div class="table-responsive">
 							<table class="table">
 								<thead>
@@ -17,63 +18,64 @@
 								<tbody>
 									<tr>
 										<td>Bank</td>
-										<td>{{ $sanctionData->bank_name }}</td>
+										<td>{{ $sanctionRow->bank_name }}</td>
 									</tr>
 									<tr>
 										<td>Type of Facility</td>
-										<td>{{ $sanctionData->type_facility }}</td>
+										<td>{{ $sanctionRow->type_facility }}</td>
 									</tr>
 									<tr>
 										<td>Facility Amount</td>
-										<td>{{ $sanctionData->facility_amount }}</td>
+										<td>{{ $sanctionRow->facility_amount }}</td>
 									</tr>
 									<tr>
 										<td>ROI</td>
-										<td>{{ $sanctionData->roi }}</td>
+										<td>{{ $sanctionRow->roi }}</td>
 									</tr>
 									<tr>
 										<td>All-inclusive ROI</td>
-										<td>{{ $sanctionData->all_incluside_roi }}</td>
+										<td>{{ $sanctionRow->all_incluside_roi }}</td>
 									</tr>
 									<tr>
 										<td>Processing Fees</td>
-										<td>{{ $sanctionData->processing_fees }}</td>
+										<td>{{ $sanctionRow->processing_fees }}</td>
 									</tr>
 									<tr>
 										<td>Arranger Fees</td>
-										<td>{{ $sanctionData->arranger_fees }}</td>
+										<td>{{ $sanctionRow->arranger_fees }}</td>
 									</tr>
 									<tr>
 										<td>Stamp Duty Fees</td>
-										<td>{{ $sanctionData->stamp_duty_fees }}</td>
+										<td>{{ $sanctionRow->stamp_duty_fees }}</td>
 									</tr>
 									<tr>
 										<td>Tenor</td>
-										<td>{{ $sanctionData->tenor }}</td>
+										<td>{{ $sanctionRow->tenor }}</td>
 									</tr>
 									<tr>
 										<td>Security Cover</td>
-										<td>{{ $sanctionData->security_cover }}</td>
+										<td>{{ $sanctionRow->security_cover }}</td>
 									</tr>
 									<tr>
 										<td>Cash Collateral</td>
-										<td>{{ $sanctionData->cash_collateral }}</td>
+										<td>{{ $sanctionRow->cash_collateral }}</td>
 									</tr>
 									<tr>
 										<td>Personal Guarantee</td>
-										<td>{{ $sanctionData->personal_guarantee }}</td>
+										<td>{{ $sanctionRow->personal_guarantee }}</td>
 									</tr>
 									<tr>
 										<td>Intermediary</td>
-										<td>{{ $sanctionData->intermediary }}</td>
+										<td>{{ $sanctionRow->intermediary }}</td>
 									</tr>
 									<tr>
 										<td>Sanction letter</td>
-										<td>{{ $sanctionData->sanction_letter }}</td>
+										<td>{{ $sanctionRow->sanction_letter }}</td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
+						@endforeach
 					</div>
 				</div>
 			</div>
