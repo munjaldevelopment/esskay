@@ -39,9 +39,10 @@
         <div class="login_container_table-cell">
           <div class="login-main-box">
             <div class="login-logo">
-             <a href=""><img src="images/sk-logo.png" alt=""></a>  
+             <a href=""><img src="{{ asset('public/assets/') }}/images/sk-logo.png" alt=""></a>  
             </div>
-            <form action="">
+            <form class="log-in-form" action="{{ asset('/')}}saveLogin" method="post" name="loginForm">
+                {{ csrf_field() }}
               <div class="row">
                <div class="col-md-12">
                  <div class="form-group">
@@ -67,6 +68,19 @@
                </div> 
               </div>
 
+              <input type="hidden" name="recaptcha" id="recaptcha">
+              <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.sitekey') }}"></script>
+              <script>
+                       grecaptcha.ready(function() {
+                           grecaptcha.execute('{{ config('services.recaptcha.sitekey') }}', {action: "login"}).then(function(token) {
+
+                              if (token) {
+                                document.getElementById('recaptcha').value = token;
+                              }
+                           });
+                       });
+              </script>
+
               <div class="row login-phone-row">  
                <div class="col-md-6 col-sm-6 col-xs-6">
                  <div class="login-phone">
@@ -75,7 +89,7 @@
                </div> 
                 <div class="col-md-6 col-sm-6 col-xs-6">
                  <div class="forgot-password">
-                  <a href="" data-toggle="modal" data-target="#forgot_modal">Forgot Passowrd?</a>
+                  <a href="" data-toggle="modal" data-target="#forgot_modal">Forgot Password?</a>
                  </div>
                </div> 
               </div>
@@ -85,7 +99,7 @@
                  <div class="checkbox">
                   <label>
                     <input type="checkbox" value="">
-                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                    <span class="cr"><input type="checkbox" value="check" id="agree" name="agree" /></span>
                     <span class="check-content">I have read and agree to the <a href="">Terms and Conditions</a> & <a href="">Disclaimer</a></span>
                   </label>
                 </div>
@@ -110,7 +124,7 @@
         <div class="login_container_table-cell">
         <div class="login-main-box hover_scroll">
             <div class="login-logo">
-             <a href=""><img src="images/sk-logo.png" alt=""></a>  
+             <a href=""><img src="{{ asset('public/assets/') }}/images/sk-logo.png" alt=""></a>  
             </div>
             <form action="">
               <div class="row">
@@ -217,7 +231,7 @@
       <div class="modal-header">
         <h5 class="modal-title">Login with Phone</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true"><img src="images/modal-close-icon.svg" alt=""></span>
+          <span aria-hidden="true"><img src="{{ asset('public/assets/') }}/images/modal-close-icon.svg" alt=""></span>
         </button>
       </div>
       <div class="modal-body">
@@ -269,7 +283,7 @@
       <div class="modal-header">
         <h5 class="modal-title">Forgot Password</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true"><img src="images/modal-close-icon.svg" alt=""></span>
+          <span aria-hidden="true"><img src="{{ asset('public/assets/') }}/images/modal-close-icon.svg" alt=""></span>
         </button>
       </div>
       <div class="modal-body">
