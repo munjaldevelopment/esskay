@@ -109,7 +109,8 @@
 										<div class="col-md-12">
 											<div class="checkbox">
 												<label>
-													<span class="cr"><input type="checkbox" value="check" id="agree" name="agree" /></span>
+													<input type="checkbox" name="agree_login" value="check" id="agree_login" />
+													<span class="cr"><i class="cr-icon fa fa-check"></i></span>
 													<span class="check-content">I have read and agree to the <a href="{{ asset('/')}}uploads/page/terms-conditions.pdf" target="_blank">Terms and Conditions</a> & <a href="{{ asset('/')}}uploads/page/disclaimer.pdf" target="_blank">Disclaimer</a></span>
 												</label>
 											</div>

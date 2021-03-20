@@ -1273,7 +1273,7 @@ class HomeController extends Controller
     {
 		// TO DO
 		$messages = [
-			'agree.required' => 'You must agree to the Terms and Conditions',
+			'agree_login.required' => 'You must agree to the Terms and Conditions',
 		];
 
 		$rules = array (
