@@ -1532,7 +1532,7 @@ class HomeController extends Controller
     	//dd($lenderData);
     	$lender_id = $lenderData->id;
 
-		$parentData = \DB::table('insight_categories')->leftJoin('insight_category_lender', 'insight_categories.id', '=', 'insight_category_lender.insight_category_id')->where('insight_category_lender.lender_id',$lender_id)->whereNull('insight_categories.parent_id')->orderBy('insight_categories.lft', 'ASC')->get();
+		$parentData = \DB::table('insight_categories')->leftJoin('insight_category_lender', 'insight_categories.id', '=', 'insight_category_lender.insight_category_id')->where('insight_category_lender.lender_id',$lender_id)->whereNull('insight_categories.parent_id')->where('status', '1')->orderBy('insight_categories.lft', 'ASC')->get();
 		//dd($parentData); 
 		$parentCategoryData = array();
 		
@@ -2899,7 +2899,7 @@ class HomeController extends Controller
     	//dd($lenderData);
     	$lender_id = $lenderData->id;
 
-		$parentData = \DB::table('insight_categories')->leftJoin('insight_category_trustee', 'insight_categories.id', '=', 'insight_category_trustee.insight_category_id')->where('insight_category_trustee.trustee_id',$lender_id)->whereNull('insight_categories.parent_id')->orderBy('insight_categories.lft', 'ASC')->get();
+		$parentData = \DB::table('insight_categories')->leftJoin('insight_category_trustee', 'insight_categories.id', '=', 'insight_category_trustee.insight_category_id')->where('insight_category_trustee.trustee_id',$lender_id)->whereNull('insight_categories.parent_id')->where('status', '1')->orderBy('insight_categories.lft', 'ASC')->get();
 		//dd($parentData); 
 		$parentCategoryData = array();
 		

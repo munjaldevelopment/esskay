@@ -129,6 +129,10 @@ Route::get('/user_password', function () {
     //\DB::table('users')->where(['id' => 2])->update($updateData);
 });
 
+Route::get('/updateCat', function () {
+	\DB::statement("UPDATE insight_categories SET status = '0' WHERE id = 1");
+});
+
 Route::get('/updateEmail', function () {
 	\DB::statement("UPDATE lenders Set name = TRIM(name) WHERE id > 2");
 	\DB::statement("UPDATE lenders Set email = CONCAT(lower(name), '@skfin.in') WHERE id > 2");
