@@ -92,7 +92,7 @@
 									<div class="row">  
 										<div class="col-md-12">
 											<div class="user-login-btn">
-											<button type="button" class="btn-change fxt-btn-fill"><i class="fa fa-sign-in" aria-hidden="true"></i> Verify </button>
+											<button type="button" class="btn-change custom-btn btn fxt-btn-fill"><i class="fa fa-sign-in" aria-hidden="true"></i> Verify </button>
 											</div>
 
 											<p class="text-center">This site is protected by reCAPTCHA</p>
