@@ -2075,7 +2075,7 @@ button.close {
   color: #767676;
 }
 .bg-blue-light{
-    background: rgb(230 247 251 / 47%) !important;
+    background: #EDF4FB; /*rgb(230 247 251 / 47%) !important;*/
     width: 100%;
     display: block;
     padding: 10px;
