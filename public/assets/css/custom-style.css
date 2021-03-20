@@ -1987,3 +1987,7 @@ p.tab-spacing {
     padding: 19px 21px;
     margin: 0;
 }
+
+.border-right {
+	border-right: 2px #000000 solid;
+}
