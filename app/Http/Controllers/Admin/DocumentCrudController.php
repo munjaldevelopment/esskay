@@ -607,7 +607,7 @@ class DocumentCrudController extends CrudController
                 
         if($sms_status)
         {
-            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been approved by ".backpack_user()->idname.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been approved by ".backpack_user()->name.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
             $lender_phone = "9462045321";
 
             $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
@@ -632,7 +632,7 @@ class DocumentCrudController extends CrudController
                 
         if($sms_status)
         {
-            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been rejected by ".backpack_user()->idname.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been rejected by ".backpack_user()->name.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
             $lender_phone = "9462045321";
 
             $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
@@ -657,7 +657,7 @@ class DocumentCrudController extends CrudController
                 
         if($sms_status)
         {
-            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been approved by ".backpack_user()->idname.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been approved by ".backpack_user()->name.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
             $lender_phone = "9462045321";
 
             $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
@@ -682,7 +682,7 @@ class DocumentCrudController extends CrudController
                 
         if($sms_status)
         {
-            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been rejected by ".backpack_user()->idname.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been rejected by ".backpack_user()->name.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
             $lender_phone = "9462045321";
 
             $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
@@ -708,7 +708,7 @@ class DocumentCrudController extends CrudController
                 
         if($sms_status)
         {
-            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been approved by ".backpack_user()->idname.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been approved by ".backpack_user()->name.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
             $lender_phone = "9462045321";
 
             $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
@@ -733,7 +733,7 @@ class DocumentCrudController extends CrudController
                 
         if($sms_status)
         {
-            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been rejected by ".backpack_user()->idname.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been rejected by ".backpack_user()->name.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
             $lender_phone = "9462045321";
 
             $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
