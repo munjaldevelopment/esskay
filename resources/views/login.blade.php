@@ -63,7 +63,7 @@
 												<input type="email" id="email" class="form-control" name="email" placeholder="Your Email Address">
 											</div>  
 										</div>  
-									</div>  s
+									</div>
 
 									<div class="row">  
 										<div class="col-md-12">
@@ -145,7 +145,7 @@
 
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group">
+											<div class="form-group name-container">
 												<div class="user-login-icon">
 												<i class="fa fa-user"></i>
 												</div>
@@ -156,7 +156,7 @@
 
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group">
+											<div class="email-container form-group">
 												<div class="user-login-icon">
 												<i class="fa fa-envelope"></i>
 												</div>
@@ -167,7 +167,7 @@
 
 									<div class="row">
 										<div class="col-md-12">
-										<div class="form-group">
+										<div class="telephone-container form-group">
 										<div class="user-login-icon">   
 										<i class="fa fa-phone-square"></i>
 										</div>
@@ -178,7 +178,7 @@
 
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group">
+											<div class="organization-container form-group">
 												<div class="user-login-icon">   
 												<i class="fa fa-building"></i>
 												</div>
@@ -189,7 +189,7 @@
 
 									<div class="row">
 										<div class="col-md-12">
-											<div class="form-group">
+											<div class="designation-container form-group">
 												<div class="user-login-icon">   
 												<i class="fa fa-database"></i>
 												</div>
@@ -198,36 +198,36 @@
 										</div>  
 									</div>
 
-				<div class="row">
-				<div class="col-md-12">
-				<div class="form-group textarea-user-icon">
-				<div class="user-login-icon">   
-				<i class="fa fa-comment"></i>
-				</div>
-				<textarea class="form-control-textarea" placeholder="Enter message"></textarea>
-				</div>  
-				</div>  
-				</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="message-container form-group textarea-user-icon">
+												<div class="user-login-icon">   
+												<i class="fa fa-comment"></i>
+												</div>
+												<textarea required id="message" class="form-control-textarea resize-none" name="message" placeholder="Enter message"></textarea>
+											</div>
+										</div>  
+									</div>
 
-				<div class="row">  
-				<div class="col-md-12">
-				<div class="checkbox">
-				<label>
-				<input type="checkbox" value="">
-				<span class="cr"><i class="cr-icon fa fa-check"></i></span>
-				<span class="check-content">I have read and agree to the <a href="">Terms and Conditions</a> & <a href="">Disclaimer</a></span>
-				</label>
-				</div>
-				</div>  
-				</div>
+									<div class="row">  
+										<div class="col-md-12">
+											<div class="checkbox">
+												<label>
+												<input type="checkbox" name="agree" value="check" id="agree" />
+												<span class="cr"><i class="cr-icon fa fa-check"></i></span>
+												<span class="check-content">I have read and agree to the <a href="{{ asset('/')}}uploads/page/terms-conditions.pdf" target="_blank">Terms and Conditions</a> & <a href="{{ asset('/')}}uploads/page/disclaimer.pdf" target="_blank">Disclaimer</a></span>
+												</label>
+											</div>
+										</div>  
+									</div>
 
-				<div class="row">  
-				<div class="col-md-12">
-				<div class="user-login-btn">
-				<button type="button" class="custom-btn btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign in</button>
-				</div>
-				</div>  
-				</div>
+									<div class="row">  
+										<div class="col-md-12">
+											<div class="user-login-btn">
+											<button type="button" class="custom-btn btn btn-register"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign in</button>
+											</div>
+										</div>  
+									</div>
 
 				</form>
 				</div>
@@ -480,5 +480,220 @@ $(".info-item .btn").click(function(){
 });
 </script>
 
+
+<script>
+	function numberOnly(id) {
+	    // Get element by id which passed as parameter within HTML element event
+	    var element = document.getElementById(id);
+	    // Use numbers only pattern, from 0 to 9
+	    var regex = /[^0-9]/gi;
+	    // This removes any other character but numbers as entered by user
+	    element.value = element.value.replace(regex, "");
+	}
+
+$(document).ready(function() {
+	
+	var base_url = $('base').attr('href');
+	
+	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+	
+	$('.btn-register').bind('click', function() {
+		var name = $("input[name=name]").val();
+		var email = $("input[name=email]").val();
+		var telephone = $("input[name=telephone]").val();
+		var organization = $("input[name=organization]").val();
+		var designation = $("input[name=designation]").val();
+		var message = $("textarea[name=message]").val();
+		var agree = $("input[name=agree]").prop("checked");
+		//alert(agree);
+		
+		var error = 0;
+		
+		if(agree == false)
+		{
+			swal({
+				title: "",
+				text: "Please accept terms and conditions",
+				icon: "warning",
+				button: "Ok",
+			});
+			
+			error = 1;
+		}
+		
+		if(message == "")
+		{
+			swal({
+				title: "",
+				text: "Please enter message",
+				icon: "warning",
+				button: "Ok",
+			});
+			
+			error = 1;
+			
+			$('.name-container').removeClass('has-error');
+			$('.email-container').removeClass('has-error');
+			$('.telephone-container').removeClass('has-error');
+			$('.organization-container').removeClass('has-error');
+			$('.designation-container').removeClass('has-error');
+			$('.message-container').addClass('has-error');
+		}
+		
+		if(designation == "")
+		{
+			swal({
+				title: "",
+				text: "Please enter designation",
+				icon: "warning",
+				button: "Ok",
+			});
+			
+			error = 1;
+			
+			$('.name-container').removeClass('has-error');
+			$('.email-container').removeClass('has-error');
+			$('.telephone-container').removeClass('has-error');
+			$('.organization-container').removeClass('has-error');
+			$('.designation-container').addClass('has-error');
+		}
+		
+		if(organization == "")
+		{
+			swal({
+				title: "",
+				text: "Please enter organization name",
+				icon: "warning",
+				button: "Ok",
+			});
+			
+			error = 1;
+			
+			$('.name-container').removeClass('has-error');
+			$('.email-container').removeClass('has-error');
+			$('.telephone-container').removeClass('has-error');
+			$('.organization-container').addClass('has-error');
+		}
+		
+		if(telephone == "")
+		{
+			swal({
+				title: "",
+				text: "Please enter telephone number",
+				icon: "warning",
+				button: "Ok",
+			});
+			
+			error = 1;
+			
+			$('.name-container').removeClass('has-error');
+			$('.email-container').removeClass('has-error');
+			$('.telephone-container').addClass('has-error');
+		}
+		
+		if(email == "")
+		{
+			swal({
+				title: "",
+				text: "Please enter email-address",
+				icon: "warning",
+				button: "Ok",
+			});
+			
+			error = 1;
+			
+			$('.name-container').removeClass('has-error');
+			$('.email-container').addClass('has-error');
+		}
+		else
+		{
+			var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
+			if(!pattern.test(email))
+			{
+				swal({
+					title: "",
+					text: "Please enter valid email-address",
+					icon: "warning",
+					button: "Ok",
+				});
+				
+				error = 1;
+				
+				$('.name-container').removeClass('has-error');
+				$('.email-container').addClass('has-error');
+			}
+		}
+		
+		
+		if(name == "")
+		{
+			swal({
+				title: "",
+				text: "Please enter name",
+				icon: "warning",
+				button: "Ok",
+			});
+			
+			error = 1;
+			
+			$('.email-container').removeClass('has-error');
+			$('.telephone-container').removeClass('has-error');
+			$('.organization-container').removeClass('has-error');
+			$('.designation-container').removeClass('has-error');
+			$('.message-container').removeClass('has-error');
+			$('.name-container').addClass('has-error');
+			
+			
+		}
+		
+		var name = $("input[name=name]").val();
+		var email = $("input[name=email]").val();
+		var telephone = $("input[name=telephone]").val();
+		var organization = $("input[name=organization]").val();
+		var designation = $("input[name=designation]").val();
+		var message = $("textarea[name=message]").val();
+
+		
+		if(error == 0)
+		{
+			if(document.getElementById('agree').checked) {
+				$.ajax({
+					url: base_url+'saveRegister',
+					type: 'post',
+					data: {name: name, email: email, telephone: telephone, organization: organization, designation: designation, message: message},
+					beforeSend: function() {
+					},
+					success: function(output) {
+						swal({
+							title: "",
+							text: "Thanks for registering with us. We will get back to you shortly.",
+							icon: "success",
+							button: "Ok",
+						});
+						
+						$("input[name=name]").val('');
+						$("input[name=email]").val('');
+						$("input[name=telephone]").val('');
+						$("input[name=organization]").val('');
+						$("input[name=designation]").val('');
+						$("textarea[name=message]").val('');
+							
+						//$('.register-result').html(output);
+					}
+				});
+			} else { 
+				swal({
+					title: "",
+					text: "Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy",
+					icon: "warning",
+					button: "Ok",
+				});
+				
+				 return false;
+			}
+		}
+	});
+});
+</script>
 
 @include('common.footer_body')
