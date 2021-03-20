@@ -1279,7 +1279,7 @@ class HomeController extends Controller
 		$rules = array (
 			'email' => 'required',
 			'password' => 'required',
-			'agree' => 'required',
+			'agree_login' => 'required',
 			'recaptcha' => 'required',
 		);
 
