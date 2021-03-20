@@ -6,7 +6,7 @@
 	@if($lenderData->is_banking_arrangement == 1)
 	<div class="row-fluid">
 		<div class="col-md-12">
-			<h2> Loan Summary (In Cr.)</h2><span class="loan-summary-total">Total Outstanding (7 Cr)  |  Total Sanctioned (10 Cr)</span></h2>
+			<h2> Loan Summary (In Cr.) <span class="loan-summary-total">Total Outstanding (7 Cr)  |  Total Sanctioned (10 Cr)</span></h2>
 			<div class="swiper-viewport">
 				<div id="carousel0" class="swiper-container">
 					<div class="swiper-wrapper">
