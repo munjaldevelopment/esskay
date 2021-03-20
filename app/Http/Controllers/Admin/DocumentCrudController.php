@@ -592,9 +592,10 @@ class DocumentCrudController extends CrudController
 		\DB::table('transactions')->where(['id' => $document_id])->update($updateData);
 	}
 
+	//'is_approve1', 'approve1_user', 'is_approve2', 'approve2_user', 'is_approve3', 'approve3_user', 
 	public function checkerSanctionLetter($sanction_letter_id)
 	{
-		$updateData = array('status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+		$updateData = array('is_approve1' => '1', 'approve1_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->update($updateData);
 		
 		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
@@ -603,7 +604,43 @@ class DocumentCrudController extends CrudController
 
 	public function checkerSanctionLetterReject($sanction_letter_id)
 	{
-		$updateData = array('status' => '2', 'updated_at' => date('Y-m-d H:i:s'));
+		$updateData = array('is_approve1' => '2', 'approve1_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->update($updateData);
+		
+		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+	}
+
+	public function checkerSanctionLetter2($sanction_letter_id)
+	{
+		$updateData = array('is_approve2' => '1', 'approve2_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->update($updateData);
+		
+		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+	}
+
+	public function checkerSanctionLetterReject2($sanction_letter_id)
+	{
+		$updateData = array('is_approve2' => '2', 'approve2_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->update($updateData);
+		
+		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+	}
+
+	public function checkerSanctionLetter3($sanction_letter_id)
+	{
+		$updateData = array('is_approve3' => '1', 'approve3_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->update($updateData);
+		
+		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+	}
+
+	public function checkerSanctionLetterReject3($sanction_letter_id)
+	{
+		$updateData = array('is_approve3' => '2', 'approve3_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->update($updateData);
 		
 		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
