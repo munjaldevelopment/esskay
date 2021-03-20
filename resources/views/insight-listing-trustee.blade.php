@@ -54,6 +54,7 @@
 					@endforeach
 				</div>
 				<div class="operation-highlight-year">
+					<div class="ohbh-box-insight-left">&nbsp;</div>
 					<div class="ohbh-box-insight-right">
 						2021
 					</div>
