@@ -33,11 +33,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -71,11 +71,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -109,11 +109,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -147,11 +147,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -184,11 +184,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -220,11 +220,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -256,11 +256,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -302,11 +302,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -338,11 +338,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -374,11 +374,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -410,11 +410,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -446,11 +446,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -482,11 +482,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -518,11 +518,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -554,11 +554,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -590,11 +590,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -626,11 +626,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -662,11 +662,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
@@ -698,11 +698,11 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $row['ext'] }}" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
-											<h4>Capital Adequacy Statement </h4>	
-											<p>September 30, 2020</p>													
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{{ $row['expiry_date'] }}</p>													
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
