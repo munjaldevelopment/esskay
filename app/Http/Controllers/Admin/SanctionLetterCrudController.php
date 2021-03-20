@@ -142,6 +142,26 @@ class SanctionLetterCrudController extends CrudController
                                     'type' => 'text',
                                 ]);
 
+            $this->crud->addColumn([
+                                    'name' => 'is_approve1',
+                                    'label' => 'Approve #1',
+                                    'type' => 'check',
+                                ]);
+
+            $this->crud->addColumn([
+                                    'name' => 'is_approve2',
+                                    'label' => 'Approve #2',
+                                    'type' => 'check',
+                                ]);
+
+            $this->crud->addColumn([
+                                    'name' => 'is_approve3',
+                                    'label' => 'Approve #3',
+                                    'type' => 'check',
+                                ]);
+
+            
+
             $this->crud->addButtonFromView('line', 'checker_sanction_letter', 'checker_sanction_letter', 'end');
             
             $this->crud->setCreateView('admin.create-sanction-letter-form');
