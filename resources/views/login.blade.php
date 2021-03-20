@@ -1,241 +1,239 @@
 @include('common.header_login')
-
-<!--header end here-->
-<!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->     
+  
 <div class="login-main-area">
-  <div class="login_container">
-    <div class="container-forms">
-    <div class="container-info">
-      <div class="info-item info-item-login">
-      <div class="login_container_table">
-        <div class="login_container_table-cell">
-        <p>
-          Already have account?
-        </p>
-        <div class="switch-btn btn">
-          Log in
-        </div>
-        </div>
-      </div>
-      </div>
-      <div class="info-item info-item-signup">
-      <div class="login_container_table">
-        <div class="login_container_table-cell">
-        <p>
-          Don't have an account?
-        </p>
-        <div class="switch-btn btn">
-          Sign up
-        </div>
-        </div>
-      </div>
-      </div>
-    </div>
-    <div class="container-form">
-      <div class="form-item log-in">
-      <div class="login_container_table">
-        <div class="login_container_table-cell">
-          <div class="login-main-box">
-            <div class="login-logo">
-             <a href=""><img src="{{ asset('public/assets/') }}/images/sk-logo.png" alt=""></a>  
-            </div>
+	<div class="login_container">
+		<div class="container-forms">
+			<div class="container-info">
+				<div class="info-item info-item-login">
+					<div class="login_container_table">
+					<div class="login_container_table-cell">
+					<p>
+					  Already have account?
+					</p>
+					<div class="switch-btn btn">
+					  Log in
+					</div>
+					</div>
+					</div>
+				</div>
+				<div class="info-item info-item-signup">
+					<div class="login_container_table">
+					<div class="login_container_table-cell">
+					<p>
+					  Don't have an account?
+					</p>
+					<div class="switch-btn btn">
+					  Sign up
+					</div>
+					</div>
+					</div>
+				</div>
+			</div>
 
-            @if (count($errors->login) > 0)
-              <div class="alert alert-danger">
-                <ul>
-                  @foreach ($errors->login->all() as $error)
-                  <P>{{ $error }}</p>
-                  @endforeach
-                </ul>
-              </div>
-              @endif 
-              @if (Session::has('message'))
-              <div class="alert alert-warning">{{ Session::get('message') }}</div>
-              @endif
-              
-            <form class="log-in-form" action="{{ asset('/')}}saveLogin" method="post" name="loginForm">
-                {{ csrf_field() }}
-              <div class="row">
-               <div class="col-md-12">
-                 <div class="form-group">
-                  <div class="user-login-icon">   
-                    <i class="fa fa-envelope"></i>
-                  </div>
-                  <input type="email" id="email" class="form-control" name="email" placeholder="Your Email Address">
-                 </div>  
-               </div>  
-              </div>  
+    		<div class="container-form">
+				<div class="form-item log-in">
+					<div class="login_container_table">
+						<div class="login_container_table-cell">
+							<div class="login-main-box">
+								<div class="login-logo">
+								 <a href=""><img src="{{ asset('public/assets/') }}/images/sk-logo.png" alt=""></a>  
+								</div>
 
-              <div class="row">  
-               <div class="col-md-12">
-                 <div class="form-group password-login-box">
-                  <div class="user-login-icon">   
-                    <i class="fa fa-key"></i>
-                  </div>
-                  <input id="password" type="password" class="form-control" name="password" placeholder="Your Password">
-                   <div class="user-password-icon">   
-                    <i class="fa fa-eye"></i>
-                  </div>
-                 </div>  
-               </div> 
-              </div>
+            					@if (count($errors->login) > 0)
+								<div class="alert alert-danger">
+								<ul>
+								@foreach ($errors->login->all() as $error)
+								{{ $error }}<br />
+								@endforeach
+								</ul>
+								</div>
+								@endif 
+								@if (Session::has('message'))
+								<div class="alert alert-warning">{{ Session::get('message') }}</div>
+								@endif
 
-              <input type="hidden" name="recaptcha" id="recaptcha">
-              <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.sitekey') }}"></script>
-              <script>
-                       grecaptcha.ready(function() {
-                           grecaptcha.execute('{{ config('services.recaptcha.sitekey') }}', {action: "login"}).then(function(token) {
+								<form class="log-in-form" action="{{ asset('/')}}saveLogin" method="post" name="loginForm">
+									{{ csrf_field() }}
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<div class="user-login-icon">   
+												<i class="fa fa-envelope"></i>
+												</div>
+												<input type="email" id="email" class="form-control" name="email" placeholder="Your Email Address">
+											</div>  
+										</div>  
+									</div>  s
 
-                              if (token) {
-                                document.getElementById('recaptcha').value = token;
-                              }
-                           });
-                       });
-              </script>
+									<div class="row">  
+										<div class="col-md-12">
+											<div class="form-group password-login-box">
+												<div class="user-login-icon">   
+												<i class="fa fa-key"></i>
+												</div>
+												<input id="password" type="password" class="form-control" name="password" placeholder="Your Password">
+												<div class="user-password-icon">   
+												<i toggle="#password" class="fa fa-eye"></i>
+												</div>
+											</div>  
+										</div> 
+									</div>
 
-              <div class="row login-phone-row">  
-               <div class="col-md-6 col-sm-6 col-xs-6">
-                 <div class="login-phone">
-                  <a href="" data-toggle="modal" data-target="#login_phone_modal">Login with Phone</a>
-                 </div>
-               </div> 
-                <div class="col-md-6 col-sm-6 col-xs-6">
-                 <div class="forgot-password">
-                  <a href="" data-toggle="modal" data-target="#forgot_modal">Forgot Password?</a>
-                 </div>
-               </div> 
-              </div>
+									<input type="hidden" name="recaptcha" id="recaptcha">
+									<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.sitekey') }}"></script>
+									<script>
+									grecaptcha.ready(function() {
+									grecaptcha.execute('{{ config('services.recaptcha.sitekey') }}', {action: "login"}).then(function(token) {
 
-              <div class="row">  
-               <div class="col-md-12">
-                 <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">
-                    <span class="cr"><input type="checkbox" value="check" id="agree" name="agree" /></span>
-                    <span class="check-content">I have read and agree to the <a href="{{ asset('/')}}uploads/page/terms-conditions.pdf" target="_blank">Terms and Conditions</a> & <a href="{{ asset('/')}}uploads/page/disclaimer.pdf" target="_blank">Disclaimer</a></span>
-                  </label>
-                </div>
-               </div>  
-              </div>
+									if (token) {
+									document.getElementById('recaptcha').value = token;
+									}
+									});
+									});
+									</script>
 
-              <div class="row">  
-               <div class="col-md-12">
-                 <div class="user-login-btn">
-                   <button type="submit" class="custom-btn btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</button>
-                 </div>
+									<div class="row login-phone-row">  
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<div class="login-phone">
+											<a href="javascript:;" data-toggle="modal" data-target="#login_phone_modal">Login with Phone</a>
+											</div>
+										</div> 
+										<div class="col-md-6 col-sm-6 col-xs-6">
+											<div class="forgot-password">
+											<a href="javascript:;" data-toggle="modal" data-target="#forgot_modal">Forgot Password?</a>
+											</div>
+										</div> 
+									</div>
 
-                 <p class="text-center">This site is protected by reCAPTCHA</p>
-               </div>  
-              </div>
+									<div class="row">  
+										<div class="col-md-12">
+											<div class="checkbox">
+												<label>
+													<span class="cr"><input type="checkbox" value="check" id="agree" name="agree" /></span>
+													<span class="check-content">I have read and agree to the <a href="{{ asset('/')}}uploads/page/terms-conditions.pdf" target="_blank">Terms and Conditions</a> & <a href="{{ asset('/')}}uploads/page/disclaimer.pdf" target="_blank">Disclaimer</a></span>
+												</label>
+											</div>
+										</div>  
+									</div>
 
-            </form>
-          </div>
-        </div>
-      </div>
-      </div>
-      <div class="form-item sign-up">
-      <div class="login_container_table">
-        <div class="login_container_table-cell">
-        <div class="login-main-box hover_scroll">
-            <div class="login-logo">
-             <a href=""><img src="{{ asset('public/assets/') }}/images/sk-logo.png" alt=""></a>  
-            </div>
-            <form class="log-in-form" action="{{ asset('/')}}saveUserOTP" method="post" name="loginForm" >
+									<div class="row">  
+										<div class="col-md-12">
+											<div class="user-login-btn">
+											<button type="submit" class="custom-btn btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</button>
+											</div>
 
-                {{ csrf_field() }}
-              <div class="row">
-               <div class="col-md-12">
-                 <div class="form-group">
-                  <div class="user-login-icon">   
-                    <i class="fa fa-user"></i>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Name">
-                 </div>  
-               </div>  
-              </div>
-              
-              <div class="row">
-               <div class="col-md-12">
-                 <div class="form-group">
-                  <div class="user-login-icon">   
-                    <i class="fa fa-envelope"></i>
-                  </div>
-                  <input type="email" class="form-control" placeholder="Your Email Address">
-                 </div>  
-               </div>  
-              </div>
-              
-              <div class="row">
-               <div class="col-md-12">
-                 <div class="form-group">
-                  <div class="user-login-icon">   
-                    <i class="fa fa-phone-square"></i>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Phone">
-                 </div>  
-               </div>  
-              </div>
-              
-              <div class="row">
-               <div class="col-md-12">
-                 <div class="form-group">
-                  <div class="user-login-icon">   
-                    <i class="fa fa-building"></i>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Organization">
-                 </div>  
-               </div>  
-              </div>
-              
-              <div class="row">
-               <div class="col-md-12">
-                 <div class="form-group">
-                  <div class="user-login-icon">   
-                    <i class="fa fa-database"></i>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Designation">
-                 </div>  
-               </div>  
-              </div>
-              
-              <div class="row">
-               <div class="col-md-12">
-                 <div class="form-group textarea-user-icon">
-                  <div class="user-login-icon">   
-                    <i class="fa fa-comment"></i>
-                  </div>
-                  <textarea class="form-control-textarea" placeholder="Enter message"></textarea>
-                 </div>  
-               </div>  
-              </div>
+											<p class="text-center">This site is protected by reCAPTCHA</p>
+										</div>  
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
 
-              <div class="row">  
-               <div class="col-md-12">
-                 <div class="checkbox">
-                  <label>
-                    <input type="checkbox" value="">
-                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
-                    <span class="check-content">I have read and agree to the <a href="">Terms and Conditions</a> & <a href="">Disclaimer</a></span>
-                  </label>
-                </div>
-               </div>  
-              </div>
+				<div class="form-item sign-up">
+					<div class="login_container_table">
+						<div class="login_container_table-cell">
+							<div class="login-main-box hover_scroll">
+								<div class="login-logo">
+								<a href=""><img src="{{ asset('public/assets/') }}/images/sk-logo.png" alt=""></a>  
+								</div>
 
-              <div class="row">  
-               <div class="col-md-12">
-                 <div class="user-login-btn">
-                   <button type="button" class="custom-btn btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign in</button>
-                 </div>
-               </div>  
-              </div>
+								<form class="log-in-form" action="{{ asset('/')}}saveUserOTP" method="post" name="loginForm" >
 
-            </form>
-          </div>
-        </div>
-      </div>
-      </div>
+									{{ csrf_field() }}
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<div class="user-login-icon">
+												<i class="fa fa-user"></i>
+												</div>
+												<input type="text" required id="name" class="form-control" name="name" placeholder="Name">
+											</div>
+										</div>  
+									</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<div class="user-login-icon">
+												<i class="fa fa-envelope"></i>
+												</div>
+												<input type="email" required id="email" class="form-control" name="email" placeholder="Your Email Address">
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-12">
+										<div class="form-group">
+										<div class="user-login-icon">   
+										<i class="fa fa-phone-square"></i>
+										</div>
+										<input type="text" oninput="numberOnly(this.id);" id="telephone" required id="telephone" class="form-control" maxlength="10" name="telephone" placeholder="Phone">
+										</div>  
+										</div>  
+									</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<div class="user-login-icon">   
+												<i class="fa fa-building"></i>
+												</div>
+												<input type="text" required id="organization" class="form-control" name="organization" placeholder="Organization">
+											</div>  
+										</div>  
+									</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<div class="user-login-icon">   
+												<i class="fa fa-database"></i>
+												</div>
+												<input type="text" required id="designation" class="form-control" name="designation" placeholder="Designation">
+											</div>  
+										</div>  
+									</div>
+
+				<div class="row">
+				<div class="col-md-12">
+				<div class="form-group textarea-user-icon">
+				<div class="user-login-icon">   
+				<i class="fa fa-comment"></i>
+				</div>
+				<textarea class="form-control-textarea" placeholder="Enter message"></textarea>
+				</div>  
+				</div>  
+				</div>
+
+				<div class="row">  
+				<div class="col-md-12">
+				<div class="checkbox">
+				<label>
+				<input type="checkbox" value="">
+				<span class="cr"><i class="cr-icon fa fa-check"></i></span>
+				<span class="check-content">I have read and agree to the <a href="">Terms and Conditions</a> & <a href="">Disclaimer</a></span>
+				</label>
+				</div>
+				</div>  
+				</div>
+
+				<div class="row">  
+				<div class="col-md-12">
+				<div class="user-login-btn">
+				<button type="button" class="custom-btn btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign in</button>
+				</div>
+				</div>  
+				</div>
+
+				</form>
+				</div>
+				</div>
+				</div>
+				</div>
     </div>
     </div>
   </div>    
