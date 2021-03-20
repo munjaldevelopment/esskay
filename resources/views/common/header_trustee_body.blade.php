@@ -73,7 +73,7 @@
 							<span class="mr-1 rounded-circle heading-jhone">{{ substr($trusteeData->name, 0, 1) }}</span>
 						</a>
 						
-						<div class="dropdown-menu dropdown-menu-right mt-2">
+						<div class="dropdown-menu dropdown-menu-right m">
 							{{--<a class="dropdown-item" href="#">My Profile</a>
 							<a class="dropdown-item" href="#">Dashboard</a>--}}
 							<a class="dropdown-item" href="{{ asset('/edit-password') }}">Change Password</a>
