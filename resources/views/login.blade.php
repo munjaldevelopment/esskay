@@ -322,7 +322,7 @@
 								<div class="col-md-12">
 								<div class="checkbox">
 								<label>
-								<input type="checkbox" value="">
+								<input type="checkbox" checked value="">
 								<span class="cr"><i class="cr-icon fa fa-check"></i></span>
 								<span class="check-content">I have read and agree to the <a href="">Terms and Conditions</a> &amp; <a href="">Disclaimer</a></span>
 								</label>
