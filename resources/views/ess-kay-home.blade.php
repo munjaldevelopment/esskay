@@ -14,7 +14,7 @@
 						<div class="swiper-slide text-center">
 							<div class="row">
 								<div class="col-md-12">
-									<div class="card no-border border-right">
+									<div class="card no-border card-border-right">
 										<div class="card-body">
 											<td><span class="bg-blue-light cursor-pointer" data-toggle="modal" data-target="#staticBackdrop{{ $k }}">{!! $bdetail['banking_arrangment_name'] !!}</span></td>
 											<td><span class="spn">Sanctioned: <br /> <i class="fa fa-inr" aria-hidden="true"></i> {!! $bdetail['sanction_amount'] !!}</span></td>
