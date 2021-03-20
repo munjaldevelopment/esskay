@@ -112,7 +112,7 @@
                    <button type="submit" class="custom-btn btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</button>
                  </div>
 
-                 <p>This site is protected by reCAPTCHA</p>
+                 <p class="text-center">This site is protected by reCAPTCHA</p>
                </div>  
               </div>
 
