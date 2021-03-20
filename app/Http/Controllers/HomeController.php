@@ -4275,7 +4275,7 @@ class HomeController extends Controller
 
 				if($report_type == 1)
 				{
-					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transaction', 'transaction_documents.transaction_id', '=', 'transaction.id')->where('document_type', 'Executed Report')->where('transaction_document_type_id', '1')->where('transaction_id',$transaction_id)->get();
+					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Executed Report')->where('transaction_document_type_id', '1')->where('transaction_id',$transaction_id)->get();
 
 					if($termSheetDoc)
 					{
