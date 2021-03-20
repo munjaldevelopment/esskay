@@ -129,6 +129,6 @@ $(document).ready(function() {
 		$(this).parent('.item').addClass("active");
 	});
 
-	$('.insight-category-cat1').trigger('click');
+	$('.insight-category-cat2').trigger('click');
 });
 </script>
