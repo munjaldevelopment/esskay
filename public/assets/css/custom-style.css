@@ -1805,7 +1805,7 @@
 	-o-transition: all 0.5s;
 	-webkit-transition: all 0.5s;
 	border-radius: 0;
-	z-index: 1;
+	z-index: 0;
 	transition: all 0.5s;
 }
 .login_container .container-forms {
