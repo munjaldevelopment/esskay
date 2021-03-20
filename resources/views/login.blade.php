@@ -100,7 +100,7 @@
                   <label>
                     <input type="checkbox" value="">
                     <span class="cr"><input type="checkbox" value="check" id="agree" name="agree" /></span>
-                    <span class="check-content">I have read and agree to the <a href="">Terms and Conditions</a> & <a href="">Disclaimer</a></span>
+                    <span class="check-content">I have read and agree to the <a href="{{ asset('/')}}uploads/page/terms-conditions.pdf" target="_blank">Terms and Conditions</a> & <a href="{{ asset('/')}}uploads/page/disclaimer.pdf" target="_blank">Disclaimer</a></span>
                   </label>
                 </div>
                </div>  
@@ -111,6 +111,8 @@
                  <div class="user-login-btn">
                    <button type="submit" class="custom-btn btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</button>
                  </div>
+
+                 <p>This site is protected by reCAPTCHA</p>
                </div>  
               </div>
 
