@@ -228,119 +228,121 @@
 											</div>
 										</div>  
 									</div>
-
-				</form>
+								</form>
+							</div>
+						</div>
+					</div>
 				</div>
-				</div>
-				</div>
-				</div>
-    </div>
-    </div>
-  </div>    
+			</div>
+		</div>
+  	</div>
 </div>
   
 
 <!-- login with phone modal start -->
 <div class="modal fade" id="login_phone_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">   
-    <div class="modal-dialog loan-summry-modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Login with Phone</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true"><img src="{{ asset('public/assets/') }}/images/modal-close-icon.svg" alt=""></span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="login-main-box">
-      <form action="">
-        <div class="row">
-         <div class="col-md-12">
-           <div class="form-group">
-            <div class="user-login-icon">   
-              <i class="fa fa-phone-square"></i>
-            </div>
-            <input type="phone" class="form-control" placeholder="Your Contact Number">
-           </div>  
-         </div>  
-        </div>  
+	<div class="modal-dialog loan-summry-modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Login with Phone</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true"><img src="{{ asset('public/assets/') }}/images/modal-close-icon.svg" alt=""></span>
+				</button>
+			</div>
 
-        <div class="row">  
-         <div class="col-md-12">
-           <div class="checkbox">
-            <label>
-              <input type="checkbox" value="">
-              <span class="cr"><i class="cr-icon fa fa-check"></i></span>
-              <span class="check-content">I have read and agree to the <a href="">Terms and Conditions</a> &amp; <a href="">Disclaimer</a></span>
-            </label>
-          </div>
-         </div>  
-        </div>
+			<div class="modal-body">
+				<div class="login-main-box">
+					<form class="log-in-form" action="{{ asset('/')}}saveLoginOtp" method="post" name="loginForm">
+						{{ csrf_field() }}
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<div class="user-login-icon">   
+									  <i class="fa fa-phone-square"></i>
+									</div>
+									<input type="tel" id="phone" class="form-control" name="phone" placeholder="Your Contact Number">
+								</div>  
+							</div>  
+						</div>
 
-        <div class="row">  
-         <div class="col-md-12">
-           <div class="user-login-btn">
-             <button type="button" class="custom-btn btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</button>
-           </div>
-         </div>  
-        </div>
+						<div class="row">  
+							<div class="col-md-12">
+								<div class="checkbox">
+									<label>
+								  		<input type="checkbox" value="check" id="agree" name="agree" />
+								 		<span class="cr"><i class="cr-icon fa fa-check"></i></span>
+								  		<span class="check-content">I have read and agree to the <a href="{{ asset('/')}}uploads/page/terms-conditions.pdf" target="_blank">Terms and Conditions</a> & <a href="{{ asset('/')}}uploads/page/disclaimer.pdf" target="_blank">Disclaimer</a></span>
+									</label>
+								</div>
+							</div>  
+						</div>
 
-      </form>
-    </div>
-      </div>
-    </div>
-  </div>
-  </div>  
+						<div class="row">  
+							<div class="col-md-12">
+								<div class="user-login-btn">
+									<button button type="submit" class="custom-btn btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</button>
+								</div>
+							</div>  
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>  
 <!-- login with phone modal end --> 
 
 <!-- Forgot modal start --> 
 <div class="modal fade" id="forgot_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">    
-    <div class="modal-dialog loan-summry-modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Forgot Password</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true"><img src="{{ asset('public/assets/') }}/images/modal-close-icon.svg" alt=""></span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="login-main-box">
-      <form action="">
-        <div class="row">
-         <div class="col-md-12">
-           <div class="form-group">
-            <div class="user-login-icon">   
-              <i class="fa fa-phone-square"></i>
-            </div>
-            <input type="phone" class="form-control" placeholder="Your Contact Number">
-           </div>  
-         </div>  
-        </div>  
+	<div class="modal-dialog loan-summry-modal">
+    	<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Forgot Password</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true"><img src="{{ asset('public/assets/') }}/images/modal-close-icon.svg" alt=""></span>
+				</button>
+			</div>
 
-        <div class="row">  
-         <div class="col-md-12">
-           <div class="checkbox">
-            <label>
-              <input type="checkbox" value="">
-              <span class="cr"><i class="cr-icon fa fa-check"></i></span>
-              <span class="check-content">I have read and agree to the <a href="">Terms and Conditions</a> &amp; <a href="">Disclaimer</a></span>
-            </label>
-          </div>
-         </div>  
-        </div>
+			<div class="modal-body">
+				<div class="login-main-box">
+					<form class="log-in-form" action="{{ asset('/')}}saveForgotPhone" method="post" name="loginForm">
+						{{ csrf_field() }}
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<div class="user-login-icon">   
+										<i class="fa fa-phone-square"></i>
+										</div>
+										<input type="text" oninput="numberOnly(this.id);" id="telephone" maxlength="10" required id="phone" class="form-control" name="phone" placeholder="Your Contact Number">
+									</div>  
+								</div>  
+							</div>  
 
-        <div class="row">  
-         <div class="col-md-12">
-           <div class="user-login-btn">
-             <button type="button" class="custom-btn btn"><i class="fa fa-lock" aria-hidden="true"></i> Change Password</button>
-           </div>
-         </div>  
-        </div>
+							<div class="row">  
+								<div class="col-md-12">
+								<div class="checkbox">
+								<label>
+								<input type="checkbox" value="">
+								<span class="cr"><i class="cr-icon fa fa-check"></i></span>
+								<span class="check-content">I have read and agree to the <a href="">Terms and Conditions</a> &amp; <a href="">Disclaimer</a></span>
+								</label>
+								</div>
+								</div>  
+							</div>
 
-      </form>
-    </div>
-      </div>
-    </div>
-  </div>
+							<div class="row">  
+								<div class="col-md-12">
+									<div class="user-login-btn">
+									<button type="submit" class="custom-btn btn"><i class="fa fa-lock" aria-hidden="true"></i> Change Password</button>
+									</div>
+								</div>  
+							</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
   </div>  
 <!-- Forgot modal end -->   
 
