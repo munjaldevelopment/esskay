@@ -33,7 +33,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -71,7 +71,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -109,7 +109,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -147,7 +147,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -184,7 +184,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -220,7 +220,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -256,7 +256,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -302,7 +302,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -338,7 +338,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -374,7 +374,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -410,7 +410,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -446,7 +446,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -482,7 +482,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -518,7 +518,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -554,7 +554,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -590,7 +590,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -626,7 +626,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -662,7 +662,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
@@ -698,7 +698,7 @@
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
-											<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+											<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>Capital Adequacy Statement </h4>	
