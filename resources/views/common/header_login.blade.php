@@ -12,16 +12,20 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<link rel="stylesheet" href="{{ asset('public/assets/') }}/css/bootstrap.css">
-	<link rel="stylesheet" href="{{ asset('public/assets/') }}/css/fontawesome-all.min.css">
-	<link rel="stylesheet" href="{{ asset('public/assets/') }}/css/flaticon.css">
-	
+	<link rel="stylesheet" href="{{ asset('public/assets/') }}/css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ asset('public/assets/') }}/css/swiper.min.css">
+	<link rel="stylesheet" href="{{ asset('public/assets/') }}/css/esskay-swiper.css">
+	<link rel="stylesheet" href="{{ asset('public/assets/') }}/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{ asset('public/assets/') }}/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="{{ asset('public/assets/') }}/css/owl.carousel.min.css">		
+	<link rel="stylesheet" href="{{ asset('public/assets/') }}/css/custom-style.css">
+
 	<!--font family placed by ranveer -->
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-	
-	<!-- Google Web Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="{{ asset('public/assets/') }}/css/style_login.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	
