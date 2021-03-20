@@ -27,7 +27,12 @@
 					@endforeach
 				</div>
 				<div class="operation-highlight-year">
-					{{ $insightFirst->operation_row1_year }}
+					<div class="ohbh-box-insight-left">
+						{{ $insightFirst->operation_row1_year }}
+					</div>
+					<div class="ohbh-box-insight-right">
+						{{ $insightFirst->operation_row2_year }}
+					</div>
 				</div>
 			</div>
 			
@@ -49,7 +54,9 @@
 					@endforeach
 				</div>
 				<div class="operation-highlight-year">
-					{{ $insightFirst->operation_row2_year }}
+					<div class="ohbh-box-insight-right">
+						2021
+					</div>
 				</div>
 			</div>
 		</div>
