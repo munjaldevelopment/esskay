@@ -1,17 +1,17 @@
 @if (($crud->hasAccess('checker_sanction_letter1') || $crud->hasAccess('checker_sanction_letter2') || $crud->hasAccess('checker_sanction_letter3')))
-	@if(($crud->hasAccess('checker_sanction_letter1')) && ($entry->is_approve1 == 0))
+	@if(($crud->hasAccess('checker_sanction_letter1')) && ($entry->is_approve1 != 1))
 	<a href="javascript:void(0)" onclick="checkersanctionLetterEntry(this)" data-route="{{ backpack_url('checkerSanctionLetter/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-check"></i> {{ trans('backpack::crud.checkerSanctionLetter') }}</a>
 
 	<a href="javascript:void(0)" onclick="checkerSanctionLetterRejectEntry(this)" data-route="{{ backpack_url('checkerSanctionLetterReject/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-times"></i> {{ trans('backpack::crud.rejectTransaction') }}</a>
 	@endif
 
-	@if(($crud->hasAccess('checker_sanction_letter2')) && ($entry->is_approve2 == 0))
+	@if(($crud->hasAccess('checker_sanction_letter2')) && ($entry->is_approve2 != 1))
 	<a href="javascript:void(0)" onclick="checkersanctionLetterEntry(this)" data-route="{{ backpack_url('checkerSanctionLetter2/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-check"></i> {{ trans('backpack::crud.checkerSanctionLetter2') }}</a>
 
 	<a href="javascript:void(0)" onclick="checkerSanctionLetterRejectEntry(this)" data-route="{{ backpack_url('checkerSanctionLetterReject2/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-times"></i> {{ trans('backpack::crud.rejectTransaction') }}</a>
 	@endif
 
-	@if(($crud->hasAccess('checker_sanction_letter3')) && ($entry->is_approve3 == 0))
+	@if(($crud->hasAccess('checker_sanction_letter3')) && ($entry->is_approve3 != 1))
 	<a href="javascript:void(0)" onclick="checkersanctionLetterEntry(this)" data-route="{{ backpack_url('checkerSanctionLetter3/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-check"></i> {{ trans('backpack::crud.checkerSanctionLetter3') }}</a>
 
 	<a href="javascript:void(0)" onclick="checkerSanctionLetterRejectEntry(this)" data-route="{{ backpack_url('checkerSanctionLetterReject3/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerDocument"><i class="la la-times"></i> {{ trans('backpack::crud.rejectTransaction') }}</a>
