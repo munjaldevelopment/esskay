@@ -49,7 +49,7 @@
                   <div class="user-login-icon">   
                     <i class="fa fa-envelope"></i>
                   </div>
-                  <input type="email" class="form-control" placeholder="Your Email Address">
+                  <input type="email" id="email" class="form-control" name="email" placeholder="Your Email Address">
                  </div>  
                </div>  
               </div>  
@@ -60,7 +60,7 @@
                   <div class="user-login-icon">   
                     <i class="fa fa-key"></i>
                   </div>
-                  <input type="password" class="form-control" placeholder="Your Password">
+                  <input id="password" type="password" class="form-control" name="password" placeholder="Your Password">
                    <div class="user-password-icon">   
                     <i class="fa fa-eye"></i>
                   </div>
@@ -109,7 +109,7 @@
               <div class="row">  
                <div class="col-md-12">
                  <div class="user-login-btn">
-                   <button type="button" class="custom-btn btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</button>
+                   <button type="submit" class="custom-btn btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</button>
                  </div>
                </div>  
               </div>
@@ -126,7 +126,9 @@
             <div class="login-logo">
              <a href=""><img src="{{ asset('public/assets/') }}/images/sk-logo.png" alt=""></a>  
             </div>
-            <form action="">
+            <form class="log-in-form" action="{{ asset('/')}}saveUserOTP" method="post" name="loginForm" >
+
+                {{ csrf_field() }}
               <div class="row">
                <div class="col-md-12">
                  <div class="form-group">
