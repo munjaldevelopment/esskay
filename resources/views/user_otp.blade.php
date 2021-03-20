@@ -68,7 +68,7 @@
 									<div class="row">  
 										<div class="col-md-12">
 											<div class="user-login-btn">
-											<button type="submit" class="custom-btn btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</button>
+											<button type="submit" class="custom-btn btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Verify </button>
 											</div>
 
 											<p class="text-center">This site is protected by reCAPTCHA</p>
