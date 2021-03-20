@@ -600,6 +600,22 @@ class DocumentCrudController extends CrudController
 		
 		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+
+		$sanctionData = \DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->first();
+
+		$sms_status = config('general.sms_status');
+                
+        if($sms_status)
+        {
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been approved by ".backpack_user()->idname.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $lender_phone = "9462045321";
+
+            $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
+            $smsresult = $this->getContent($request_url);
+            if($smsresult['errno'] == 0){
+                \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }
+        }
 	}
 
 	public function checkerSanctionLetterReject($sanction_letter_id)
@@ -609,6 +625,22 @@ class DocumentCrudController extends CrudController
 		
 		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+
+		$sanctionData = \DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->first();
+
+		$sms_status = config('general.sms_status');
+                
+        if($sms_status)
+        {
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been rejected by ".backpack_user()->idname.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $lender_phone = "9462045321";
+
+            $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
+            $smsresult = $this->getContent($request_url);
+            if($smsresult['errno'] == 0){
+                \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }
+        }
 	}
 
 	public function checkerSanctionLetter2($sanction_letter_id)
@@ -618,6 +650,22 @@ class DocumentCrudController extends CrudController
 		
 		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+
+		$sanctionData = \DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->first();
+
+		$sms_status = config('general.sms_status');
+                
+        if($sms_status)
+        {
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been approved by ".backpack_user()->idname.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $lender_phone = "9462045321";
+
+            $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
+            $smsresult = $this->getContent($request_url);
+            if($smsresult['errno'] == 0){
+                \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }
+        }
 	}
 
 	public function checkerSanctionLetterReject2($sanction_letter_id)
@@ -627,6 +675,23 @@ class DocumentCrudController extends CrudController
 		
 		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+
+		$sanctionData = \DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->first();
+
+		$sms_status = config('general.sms_status');
+                
+        if($sms_status)
+        {
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been rejected by ".backpack_user()->idname.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $lender_phone = "9462045321";
+
+            $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
+            $smsresult = $this->getContent($request_url);
+            if($smsresult['errno'] == 0){
+                \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }
+        }
+
 	}
 
 	public function checkerSanctionLetter3($sanction_letter_id)
@@ -636,6 +701,22 @@ class DocumentCrudController extends CrudController
 		
 		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+
+		$sanctionData = \DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->first();
+
+		$sms_status = config('general.sms_status');
+                
+        if($sms_status)
+        {
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been approved by ".backpack_user()->idname.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $lender_phone = "9462045321";
+
+            $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
+            $smsresult = $this->getContent($request_url);
+            if($smsresult['errno'] == 0){
+                \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }
+        }
 	}
 
 	public function checkerSanctionLetterReject3($sanction_letter_id)
@@ -645,5 +726,21 @@ class DocumentCrudController extends CrudController
 		
 		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+
+		$sanctionData = \DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->first();
+
+		$sms_status = config('general.sms_status');
+                
+        if($sms_status)
+        {
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been rejected by ".backpack_user()->idname.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $lender_phone = "9462045321";
+
+            $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
+            $smsresult = $this->getContent($request_url);
+            if($smsresult['errno'] == 0){
+                \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }
+        }
 	}
 }
