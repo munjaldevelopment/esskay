@@ -41,6 +41,20 @@
             <div class="login-logo">
              <a href=""><img src="{{ asset('public/assets/') }}/images/sk-logo.png" alt=""></a>  
             </div>
+
+            @if (count($errors->login) > 0)
+              <div class="alert alert-danger">
+                <ul>
+                  @foreach ($errors->login->all() as $error)
+                  <P>{{ $error }}</p>
+                  @endforeach
+                </ul>
+              </div>
+              @endif 
+              @if (Session::has('message'))
+              <div class="alert alert-warning">{{ Session::get('message') }}</div>
+              @endif
+              
             <form class="log-in-form" action="{{ asset('/')}}saveLogin" method="post" name="loginForm">
                 {{ csrf_field() }}
               <div class="row">
