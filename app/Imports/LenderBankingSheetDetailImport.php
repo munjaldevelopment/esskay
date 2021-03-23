@@ -84,7 +84,15 @@ class LenderBankingSheetDetailImport implements ToCollection, WithValidation, Wi
 			}
 		}
 
-		$result = LenderBankingDetail::selectRaw('lender_id, lender_banking_id, SUM(sanction_amount), SUM(outstanding_amount)')->groupBy('lender_banking_id')->get();
+		$result = LenderBankingDetail::selectRaw('lender_id, lender_banking_id, SUM(sanction_amount) as total_sanction_amount, SUM(outstanding_amount)  as total_outstanding_amount')->groupBy('lender_banking_id')->get();
+
+		if($result)
+		{
+			foreach($result as $row)
+			{
+				//$lenderBankingData = LenderBanking::where(['lender_id' => $row->lender_id, 'id' => $row->lender_banking_id])->update(['sanction_amount' => $row->total_sanction_amount, 'outstanding_amount' => $row->total_outstanding_amount]);
+			}
+		}
 
 		dd($result);
 
