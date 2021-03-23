@@ -93,8 +93,6 @@ class LenderBankingSheetDetailImport implements ToCollection, WithValidation, Wi
 				LenderBanking::where(['lender_id' => $row->lender_id, 'id' => $row->lender_banking_id])->update(['sanction_amount' => $row->total_sanction_amount, 'outstanding_amount' => $row->total_outstanding_amount]);
 			}
 		}
-
-		exit;
     }
 
 	public function rules(): array
