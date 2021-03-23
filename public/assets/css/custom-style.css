@@ -94,6 +94,7 @@
 	width: calc(100% - 24px);
 	display: inline-block;
 	font-weight: 500;
+	font-size: 14px;
 }
 .side-menu .navbar-nav li a .glyphicon {
 	padding-right: 10px;
