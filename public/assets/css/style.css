@@ -2064,7 +2064,7 @@ button.close {
   margin-top: 7px;
   width: 49%;
   text-align: center;
-  font-size: 12px;
+  font-size: 13px;
 }
 .spn-bdr{
   border-left: 1px solid #0000003b;
@@ -2081,7 +2081,7 @@ button.close {
     padding: 10px;
     font-weight: 100;
     text-align: center;
-    font-size: 12px;
+    font-size: 13px;
     color: white;/*#767676;*/
 }
 
