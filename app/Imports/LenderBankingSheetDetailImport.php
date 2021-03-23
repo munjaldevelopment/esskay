@@ -22,7 +22,7 @@ class LenderBankingSheetDetailImport implements ToCollection, WithValidation, Wi
 	
 	public function collection(Collection $rows)
 	{
-		dd($rows);
+		//dd($rows);
 		//"lender" => "A K Capital Services Limited"
         //"lender_banking_code" => "LENDERBANK00529"
         //"lender_banking_detail_code" => "LENDERBANKDETAIL00001"
