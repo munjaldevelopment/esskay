@@ -90,11 +90,9 @@ class LenderBankingSheetDetailImport implements ToCollection, WithValidation, Wi
 		{
 			foreach($result as $row)
 			{
-				//$lenderBankingData = LenderBanking::where(['lender_id' => $row->lender_id, 'id' => $row->lender_banking_id])->update(['sanction_amount' => $row->total_sanction_amount, 'outstanding_amount' => $row->total_outstanding_amount]);
+				LenderBanking::where(['lender_id' => $row->lender_id, 'id' => $row->lender_banking_id])->update(['sanction_amount' => $row->total_sanction_amount, 'outstanding_amount' => $row->total_outstanding_amount]);
 			}
 		}
-
-		dd($result);
 
 		exit;
     }
