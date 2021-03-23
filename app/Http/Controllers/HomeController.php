@@ -1224,14 +1224,17 @@ class HomeController extends Controller
 		}
 		else
 		{
-			$userRecord = \DB::table('users')->where(['id' => session()->get('forget_user_id'), 'user_status' => '1'])->first();
+			$userRecord = \DB::table('users')->where(['id' => session()->get('esskay_user_id'), 'user_status' => '1'])->first();
 			
 			if($userRecord)
 			{
 				if($userRecord->user_otp == $request->user_otp)
 				{
 					$updateData = array('password' => Hash::make($request->password), 'updated_at' => date('Y-m-d H:i:s'));
-					\DB::table('users')->where(['id' => session()->get('forget_user_id')])->update($updateData);
+					\DB::table('users')->where(['id' => session()->get('esskay_user_id')])->update($updateData);
+
+					$updateData = array('password' => Hash::make($request->password), 'updated_at' => date('Y-m-d H:i:s'));
+					\DB::table('lenders')->where(['user_id' => session()->get('esskay_user_id')])->update($updateData);
 					
 					// Send SMS
 					$sms_status = config('general.sms_status');
@@ -1253,8 +1256,6 @@ class HomeController extends Controller
 						$message->cc('communication@skfin.in');
 						$message->from('communication@skfin.in', 'Ess Kay Fincorp');
 					});
-	
-					session()->forget('forget_user_id');
 				
 					echo 1;
 				}
@@ -1264,7 +1265,51 @@ class HomeController extends Controller
 				}
 				
 			} else {
-				echo "<div class='alert alert-danger'>User not exists. Please try again.</div>";
+				$userRecord = \DB::table('users')->where(['id' => session()->get('esskay_trustee_user_id'), 'user_status' => '1'])->first();
+			
+				if($userRecord)
+				{
+					if($userRecord->user_otp == $request->user_otp)
+					{
+						$updateData = array('password' => Hash::make($request->password), 'updated_at' => date('Y-m-d H:i:s'));
+						\DB::table('users')->where(['id' => session()->get('esskay_trustee_user_id')])->update($updateData);
+
+						$updateData = array('password' => Hash::make($request->password), 'updated_at' => date('Y-m-d H:i:s'));
+						\DB::table('trustes')->where(['user_id' => session()->get('esskay_trustee_user_id')])->update($updateData);
+						
+						// Send SMS
+						$sms_status = config('general.sms_status');
+						
+						if($sms_status)
+						{
+							$message = str_replace(" ", "%20", "Dear ".$userRecord->name.", your password has been changed successfully. In case you haven't changed the password recently, please contact us at +91-7014592698");
+							
+							$request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$userRecord->phone."&message=".$message."&sender=EssKay&route=4&country=0";
+							$result = $this->getContent($request_url);
+						}
+						
+						// Send Mail
+						$contactData = array('first_name' => $userRecord->name, 'email' => $userRecord->email, 'telephone' => $userRecord->phone);
+						$tempUserData = array('email' => $userRecord->email, 'name' => $userRecord->name);
+						
+						Mail::send('emails.change_password', $contactData, function ($message) use ($tempUserData) {
+							$message->to($tempUserData['email'], $tempUserData['name'])->subject("Change Password");
+							$message->cc('communication@skfin.in');
+							$message->from('communication@skfin.in', 'Ess Kay Fincorp');
+						});
+					
+						echo 1;
+					}
+					else
+					{
+						echo "<div class='alert alert-danger'>OTP Mistamtch. Please try again.</div>";
+					}
+					
+				}
+				else
+				{
+					echo "<div class='alert alert-danger'>User not exists. Please try again.</div>";
+				}
 			}
 		}
 	}
@@ -2819,10 +2864,15 @@ class HomeController extends Controller
 		else
 		{
 			$userRecord = \DB::table('users')->where(['id' => session()->get('esskay_user_id'), 'user_status' => '1'])->first();
+
+			if(!$userRecord)
+			{
+				$userRecord = \DB::table('users')->where(['id' => session()->get('esskay_trustee_user_id'), 'user_status' => '1'])->first();
+			}
 			//dd($userRecord);
 			
 			$riders = array();
-			return view('edit-password', ['customer_name' => $userRecord->name, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
+			return view('edit-password', ['current_user_id' => $userRecord->id, 'customer_name' => $userRecord->name, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
 		}
 	}
 	

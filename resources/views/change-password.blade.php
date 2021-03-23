@@ -56,6 +56,8 @@
 								<form class="log-in-form" action="{{ asset('/')}}saveChangePassword" method="post" name="loginForm">
 									{{ csrf_field() }}
 
+									<input type="hidden" name="current_user_id" value="{{ $current_user_id }}">
+
 									<div class="row">
 										<div class="col-md-12">
 											<div class="userotp-container form-group">
