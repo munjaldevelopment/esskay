@@ -56,6 +56,16 @@ class LenderBankingSheetDetailImport implements ToCollection, WithValidation, Wi
 				
 				if($isExists > 0 && $isExists1 > 0 && $isExists2 > 0)
 				{
+					if($row['banking_date'] > 0)
+					{
+						$UNIX_DATE = ($row['banking_date'] - 25569) * 86400;
+						$banking_date = gmdate("Y-m-d", $UNIX_DATE);
+					}
+					else 
+					{
+						$banking_date = $row['banking_date'];
+					}
+
 					$lenderData = Lender::where('name', '=', $lender)->first();
 					$lenderBankingData = LenderBanking::where('lender_banking_code', '=', $lender_banking_code)->first();
 					$bankingData = BankingArrangment::where('name', '=', $banking_arrangment)->first();
@@ -65,7 +75,7 @@ class LenderBankingSheetDetailImport implements ToCollection, WithValidation, Wi
 					$lenderBanking->lender_banking_id = $lenderBankingData->id;
 					$lenderBanking->lender_banking_detail_code = $row['lender_banking_detail_code'];
 					$lenderBanking->banking_arrangment_id = $bankingData->id;
-					$lenderBanking->lender_banking_date = $row['banking_date'];
+					$lenderBanking->lender_banking_date = $banking_date;
 					$lenderBanking->sanction_amount = $row['sanction'];
 					$lenderBanking->outstanding_amount = $row['outstanding'];
 					$lenderBanking->lender_banking_status = ($row['status'] == "Yes" ? "1" : "0");
@@ -73,6 +83,8 @@ class LenderBankingSheetDetailImport implements ToCollection, WithValidation, Wi
 				}
 			}
 		}
+
+		exit;
     }
 
 	public function rules(): array
