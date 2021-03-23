@@ -55,6 +55,8 @@
 								<form class="log-in-form" action="{{ asset('/')}}updatePassword" method="post" name="loginForm">
 									{{ csrf_field() }}
 
+									<input type="hidden" name="current_user_id" value="{{ $current_user_id }}">
+
 									<div class="row">
 										<div class="col-md-12">
 											<div class="userotp-container form-group">
@@ -156,6 +158,7 @@ $(document).ready(function() {
 	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 	
 	$('.btn-change').bind('click', function() {
+		var current_user_id = $("input[name=current_user_id]").val();
 		var name = $("input[name=user_otp]").val();
 		var email = $("input[name=password]").val();
 		var telephone = $("input[name=password_confirmation]").val();
@@ -235,7 +238,7 @@ $(document).ready(function() {
 			$.ajax({
 				url: base_url+'updatePassword',
 				type: 'post',
-				data: {user_otp: name, password: email},
+				data: {current_user_id: current_user_id, user_otp: name, password: email},
 				beforeSend: function() {
 				},
 				success: function(output) {

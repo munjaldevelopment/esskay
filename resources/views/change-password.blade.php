@@ -56,7 +56,7 @@
 								<form class="log-in-form" action="{{ asset('/')}}saveChangePassword" method="post" name="loginForm">
 									{{ csrf_field() }}
 
-									<input type="hidden" name="current_user_id" value="{{ $current_user_id }}">
+									
 
 									<div class="row">
 										<div class="col-md-12">
@@ -222,6 +222,7 @@ $(document).ready(function() {
 			$('.confirm-container').removeClass('has-error');
 			$('.userotp-container').addClass('has-error');
 		}
+		
 		
 		var name = $("input[name=user_otp]").val();
 		var email = $("input[name=password]").val();
