@@ -415,6 +415,56 @@ class TrusteeCrudController extends CrudController
         // create role entry-
         \DB::table('model_has_roles')->insert(['role_id' => '11', 'model_type' => 'App\User', 'model_id' => $user_id]);
 
+        // Assign values (default)
+        $parentData1 = \DB::table('current_deal_categories')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('current_deal_category_trustee')->insert(['current_deal_category_id' => $row1->id, 'trustee_id' => $id]);
+        }
+
+        $parentData1 = \DB::table('document_category')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('document_category_trustee')->insert(['document_id' => $row1->id, 'trustee_id' => $id]);
+        }
+
+        $parentData1 = \DB::table('documents')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('document_trustee')->insert(['document_id' => $row1->id, 'trustee_id' => $id]);
+        }
+
+        $parentData1 = \DB::table('insight_categories')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('insight_category_trustee')->insert(['insight_category_id' => $row1->id, 'trustee_id' => $id]);
+        }
+
+        $parentData1 = \DB::table('transactions')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('transaction_trustee')->insert(['transaction_id' => $row1->id, 'trustee_id' => $id]);
+        }
+
+        $parentData1 = \DB::table('transaction_categories')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('transaction_category_trustee')->insert(['transaction_category_id' => $row1->id, 'trustee_id' => $id]);
+        }
+
+        $parentData1 = \DB::table(' transaction_documents')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('transaction_document_trustee')->insert(['transaction_document_id' => $row1->id, 'trustee_id' => $id]);
+        }
+
         return $result;
     }
 

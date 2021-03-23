@@ -466,9 +466,43 @@ class LenderCrudController extends CrudController
 
         \DB::statement('UPDATE `lender_banking_details` SET lender_banking_detail_code = CONCAT("LENDERBANKDETAIL", "00", id) WHERE id > 99');
 		
+        // Assign values (default)
+        $parentData1 = \DB::table('current_deal_categories')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('current_deal_category_lender')->insert(['current_deal_category_id' => $row1->id, 'lender_id' => $id]);
+        }
+
+        $parentData1 = \DB::table('document_category')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('document_category_lender')->insert(['document_id' => $row1->id, 'lender_id' => $id]);
+        }
+
+        $parentData1 = \DB::table('documents')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('document_lender')->insert(['document_id' => $row1->id, 'lender_id' => $id]);
+        }
+
+        $parentData1 = \DB::table('insight_categories')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('insight_category_lender')->insert(['insight_category_id' => $row1->id, 'lender_id' => $id]);
+        }
+
+        $parentData1 = \DB::table('insights')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('insight_lender')->insert(['insight_category_id' => $row1->id, 'lender_id' => $id]);
+        }
+
 		return $result;
-		
-		
     }
 
     /**
