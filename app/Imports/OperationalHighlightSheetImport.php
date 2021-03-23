@@ -48,6 +48,7 @@ class OperationalHighlightSheetImport implements ToCollection, WithValidation, W
 			$operation_row2_income_percentage = $row['value2_heading_percentage'];
 			$operation_row2_year = $row['value2_year'];
 			$operation_row3_value = $row['value3_amount'];
+			$operation_row3_year = $row['value3_year'];
 			
 			$lenderBanking = new OperationalHighlight;
 			$lenderBanking->operation_row1_value = $operation_row1_value;
@@ -59,6 +60,7 @@ class OperationalHighlightSheetImport implements ToCollection, WithValidation, W
 			$lenderBanking->operation_row2_income_percentage = $operation_row2_income_percentage;
 			$lenderBanking->operation_row2_year = $operation_row2_year;
 			$lenderBanking->operation_row3_value = $operation_row3_value;
+			$lenderBanking->operation_row3_year = $operation_row3_year;
 			$lenderBanking->operational_highlight_status = ($row['status'] == "Yes" ? "1" : "0");
 			$lenderBanking->save();
 		}

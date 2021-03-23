@@ -20,7 +20,7 @@ class OperationalHighlight extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['operation_row1_value', 'operation_row1_income', 'operation_row1_income_percentage', 'operation_row1_year', 'operation_row2_value', 'operation_row2_income', 'operation_row2_income_percentage', 'operation_row2_year', 'operation_row3_value', 'operational_highlight_status'];
+    protected $fillable = ['operation_row1_value', 'operation_row1_income', 'operation_row1_income_percentage', 'operation_row1_year', 'operation_row2_value', 'operation_row2_income', 'operation_row2_income_percentage', 'operation_row2_year', 'operation_row3_value', 'operational_highlight_status', 'operation_row3_year'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];

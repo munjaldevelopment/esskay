@@ -133,6 +133,12 @@ class OperationalHighlightCrudController extends CrudController
                     'type'      => 'checkbox',
                     'name'      => 'operational_highlight_status',
                 ]);
+
+            $this->crud->addField([
+                    'label'     => 'Value3 Year',
+                    'type'      => 'text',
+                    'name'      => 'operation_row3_year',
+                    ]);
 					
 			
 			$this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportOperationalHighlightButton', 'end');

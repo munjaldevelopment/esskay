@@ -29,6 +29,7 @@ class OperationalHighlightSheet implements FromArray, WithTitle, WithHeadings, S
             'Value2 Heading Percentage',
             'Value2 Year',
             'Value3 Amount',
+            'Value3 Year',
             'Status',
         ];
     }
@@ -41,7 +42,7 @@ class OperationalHighlightSheet implements FromArray, WithTitle, WithHeadings, S
 		if($factories){
 			foreach($factories as $k => $factory)
 			{
-				$factoryData[$k] = array('ID' => $factory['id'], 'Value1 Amount' => $factory['operation_row1_value'], 'Value1 Heading' => $factory['operation_row1_income'], 'Value1 Heading Percentage' => $factory['operation_row1_income_percentage'], 'Value1 Year' => $factory['operation_row1_year'], 'Value2 Amount' => $factory['operation_row2_value'], 'Value2 Heading' => $factory['operation_row2_income'], 'Value2 Heading  Percentage' => $factory['operation_row2_income_percentage'], 'Value2 Year' => $factory['operation_row2_year'], 'Value3 Amount' => $factory['operation_row3_value'], 'Status' => ($factory['operational_highlight_status'] ? "Yes" : "No"));
+				$factoryData[$k] = array('ID' => $factory['id'], 'Value1 Amount' => $factory['operation_row1_value'], 'Value1 Heading' => $factory['operation_row1_income'], 'Value1 Heading Percentage' => $factory['operation_row1_income_percentage'], 'Value1 Year' => $factory['operation_row1_year'], 'Value2 Amount' => $factory['operation_row2_value'], 'Value2 Heading' => $factory['operation_row2_income'], 'Value2 Heading  Percentage' => $factory['operation_row2_income_percentage'], 'Value2 Year' => $factory['operation_row2_year'], 'Value3 Amount' => $factory['operation_row3_value'], 'Value3 Year' => $factory['operation_row3_year'], 'Status' => ($factory['operational_highlight_status'] ? "Yes" : "No"));
 			}
 		}
 		

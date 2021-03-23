@@ -129,6 +129,12 @@ Route::get('/user_password', function () {
     //\DB::table('users')->where(['id' => 2])->update($updateData);
 });
 
+Route::get('/operationalHighlight', function () {
+	\DB::statement("ALTER TABLE operational_highlights ADD operation_row3_year VARCHAR(4) NULL DEFAULT NULL AFTER `operational_highlight_status`");
+});
+
+
+
 Route::get('/updateCat', function () {
 	\DB::statement("UPDATE insight_categories SET status = '0' WHERE id = 1");
 });
