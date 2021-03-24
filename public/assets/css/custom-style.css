@@ -1989,9 +1989,10 @@
 }
 .login-main-box .form-group {
 	border: 1px solid #E4E4E4;
-	background: #fff;
+	background: #eef5f3;
 	position: relative;
 	padding-left: 44px;
+	border-radius: 20px;
 }
 .user-login-icon {
 	position: absolute;
@@ -2004,7 +2005,7 @@
 	border: none;
 	box-shadow: none;
 	outline: none;
-	border-radius: 20px;
+	border-radius: 0px;
 	padding: 11px 10px 11px 0;
 	height: auto;
 	background: #eef5f3;
