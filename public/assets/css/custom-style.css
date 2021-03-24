@@ -516,6 +516,7 @@
 }
 .mtd-breadcrumb ul.breadcrumb {
 	float: left;
+	width: 100%;
 }
 .mtd-toggle {
 	margin-top: 1px;
@@ -833,6 +834,7 @@
 
 .custom-inner-heading.center-text {
     text-align: center;
+    width: 100%;
 }
 
 .white-box.outstanding-box {
