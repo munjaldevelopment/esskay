@@ -146,8 +146,8 @@
 	}
 	a.fxt-btn-fill.float-right {
     	position: relative;
-        top: -33px;
-	    right: -23%;
+        top: -35px;
+	    right: -28%;
 	}
 </style>
 <script>
