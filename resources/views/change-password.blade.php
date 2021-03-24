@@ -37,7 +37,7 @@
 						<div class="login_container_table-cell">
 							<div class="login-main-box">
 								<div class="login-logo">
-								 <a href=""><img src="{{ asset('public/assets/') }}/images/sk-logo.png" alt=""></a>  
+								 <a href=""><img src="{{ asset('public/') }}/{{ site_logo }}" alt=""></a>  
 								</div>
 
             					@if (count($errors->login) > 0)
