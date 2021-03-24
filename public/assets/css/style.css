@@ -64,7 +64,7 @@ ul.navbar-nav.ml-auto.nav-custome li a:hover{ color:#556ee6; }
 }
 
 .esskay-home .nav-link:before {
-    content: "";
+    /*content: "";*/
     width: 0;
     left: 50%;
     height: 0;
@@ -73,9 +73,7 @@ ul.navbar-nav.ml-auto.nav-custome li a:hover{ color:#556ee6; }
     border-color: transparent transparent #ffffff transparent;
     top: 0px;
     position: absolute;
-    transform: translateX(-50%) rotate(
-180deg
-);
+    transform: translateX(-50%) rotate(180deg);
 }
 
 span.last-dropdown {
