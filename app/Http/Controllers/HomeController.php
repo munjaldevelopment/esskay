@@ -1316,7 +1316,7 @@ class HomeController extends Controller
 		else
 		{
 			if ($resultJson->success != true) {
-				Session::flash ( 'message', "Please fill all information and try again" );
+				Session::flash ( 'message', "Please refresh the page and try login in again" );
 				return Redirect::back ();
 				
 			}
