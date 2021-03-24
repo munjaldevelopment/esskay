@@ -73,7 +73,7 @@
 												</div>
 												<input id="password" type="password" class="form-control" name="password" placeholder="Your Password">
 												<div class="user-password-icon">   
-												<i toggle="#password" class="fa fa-eye toggle-password"></i>
+												<i toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></i>
 												</div>
 											</div>  
 										</div> 
