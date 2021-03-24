@@ -2059,6 +2059,19 @@
 	text-transform: uppercase;
 	border-radius: 100px;
 }
+
+.user-login-btn .custom-btn1.btn {
+ 	background: #3ab19b;
+    color: #fff;
+    padding: 11px 26px;
+    letter-spacing: 3px;
+    width: 37%;
+    margin: 0% 8% 5% 5%;
+    display: table;
+    text-transform: uppercase;
+    border-radius: 100px;
+    float: left;
+ }
 .form-control-textarea {
 	width: 100%;
 	border: none;
