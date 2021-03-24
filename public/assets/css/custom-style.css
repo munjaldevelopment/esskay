@@ -2263,6 +2263,62 @@
 }
 
 @media only screen and (max-width: 639px) {
+.forgot-password a, .login-phone a {
+	font-size: 14px;
+}
+.login-phone-row .col-md-6.col-sm-6.col-xs-6 {
+	max-width: 50%;
+	flex: 0 0 50%;
+}
+.login-main-area, .login_container {
+	height: auto;
+}
+.info-item {
+	width: 100% !important;
+}
+.login_container .container-form {
+	position: initial;
+	width: 100%;
+	border-radius: 15px;
+	display: inline-block;
+}
+.form-item.log-in {
+	position: initial;
+}
+.login_container .container-forms .container-info .info-item.info-item-login {
+	display: none !important;
+}
+.login_container .container-forms .container-info .info-item {
+	margin: 2px 0 28px 0;
+}
+.login_container.log-in .info-item.info-item-signup {
+	display: none;
+}
+.login_container.log-in .container-forms .container-info .info-item.info-item-login {
+	display: block !important;
+}
+.login_container .form-item.sign-up {
+	position: initial;
+}
+.login-main-box.hover_scroll {
+	height: auto;
+	touch-action: initial;
+}
+.login_container .form-item.sign-up {
+	display: none;
+}
+.login_container.log-in .container-form .form-item.log-in {
+	display: none;
+}
+.login_container.log-in .container-form .form-item.sign-up {
+	display: block;
+}
+.login_container_table-cell {
+	padding: 15px;
+}
+.login_container.log-in .container-form {
+	border-radius: 15px;
+}
 .operation-highlights-area {
     display: inline-block;
     width: 100%;
