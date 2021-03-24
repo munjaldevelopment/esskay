@@ -51,7 +51,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -93,7 +93,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -135,7 +135,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -177,7 +177,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -219,7 +219,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -261,7 +261,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -303,7 +303,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -355,7 +355,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -397,7 +397,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -439,7 +439,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -481,7 +481,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -523,7 +523,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -565,7 +565,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -607,7 +607,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -649,7 +649,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -691,7 +691,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -733,7 +733,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -775,7 +775,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -817,7 +817,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
