@@ -160,7 +160,7 @@ $(document).ready(function() {
 	$('.send-otp').bind('click', function() {
 		$.ajax({
 			url: base_url+'send-user-otp',
-			type: 'post',
+			type: 'get',
 			beforeSend: function() {
 			},
 			success: function(output) {
