@@ -1,71 +1,113 @@
-<div class="outer-bg">
-	<div class="inner-bg" style="background: white !important;">
-		<div class="container-fluid">  
-			<section class="fxt-template-animation fxt-template-layout4">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-6 col-12 fxt-bg-wrap">
-							<div class="fxt-bg-img" data-bg-image="{{ asset('public/') }}/{{ forgot_password_page_background }}">
-		                        <div class="fxt-header">
-		                            <div class="fxt-transformY-50 fxt-transition-delay-1 visibility-hidden">
-		                                <a href="{{ asset('/')}}login" class="fxt-logo"><img src="{{ asset('public/') }}/{{ site_logo }}" alt="Logo"></a>
-		                            </div>
-		                            <div class="fxt-transformY-50 fxt-transition-delay-2 visibility-hidden">
-		                                <h1>Welcome To EssKay</h1>
-		                            </div>
-									<div class="fxt-transformY-50 fxt-transition-delay-3 visibility-hidden">
-										{!! forgot_password_page_content !!}
-		                            </div>
-		                        </div>
-		                    </div>
-						</div>
-						
-						<div class="col-md-6 col-12 fxt-bg-color">
-							<div class="fxt-content">
-								<div class="fxt-form">
-									<h1>Contact Us</h1>
-								
-									<div class="contact-result"></div>
-									
-									<div class="form-group fname-container">  
-										<!-- <label for="email" class="input-label">First Name</label> -->                                              
-										<input type="text" id="first_name" class="form-control" name="first_name" placeholder="Your First Name" >
-									</div>
-									
-									<div class="form-group lname-container">  
-										<!-- <label for="email" class="input-label">Last Name</label> -->                                              
-										<input type="text" id="last_name" class="form-control" name="last_name" placeholder="Your Last Name" >
-									</div>
-									
-									<div class="form-group email-container">  
-										<!-- <label for="email" class="input-label">Email Address</label> -->                                              
-										<input type="email" required id="email" class="form-control" name="email" placeholder="Your Email" >
-									</div>
-									
-									<div class="form-group telephone-container">  
-										<!-- <label for="email" class="input-label">Telephone</label> -->                                              
-										<input type="tel" required id="telephone" maxlength="12" class="form-control" name="telephone" placeholder="Your Contact Number" >
-									</div>
-									
-									<div class="form-group message-container">
-										<!-- <label for="email" class="input-label">Message</label>  -->    
-										<textarea required name="message" class="form-control" placeholder="Please enter your message" cols="5"></textarea>
+<div class="login-main-area">
+	<div class="login_container">
+		<div class="container-forms">
+			<div class="container-info">
+				<div class="info-item info-item-login">
+					<div class="login_container_table">
+					<div class="login_container_table-cell">
+					<p>
+					  Already have account?
+					</p>
+					<div class="switch-btn btn">
+					  Log in
+					</div>
+					</div>
+					</div>
+				</div>
+				<div class="info-item info-item-signup">
+					<div class="login_container_table">
+					<div class="login_container_table-cell">
+					<p>
+					  Don't have an account?
+					</p>
+					<div class="switch-btn btn">
+					  Sign up
+					</div>
+					</div>
+					</div>
+				</div>
+			</div>
 
-									</div>
-									
-									<div class="form-group d-flex">
-										<button type="button" class="fxt-btn-fill btn-contact">Submit</button>
-									</div>
-								</div> 
-								<div class="fxt-footer">
-								</div>                          
+			<div class="container-form">
+				<div class="form-item log-in">
+					<div class="login_container_table">
+						<div class="login_container_table-cell">
+							<div class="login-main-box">
+								<div class="login-logo">
+								 <a href=""><img src="{{ asset('public/') }}/{{ site_logo }}" alt=""></a>  
+								</div>
+
+            					<div class="contact-result"></div>
+
+								<div class="row">
+									<div class="col-md-12">
+										<div class="fname-container form-group">
+											<div class="user-login-icon">   
+											<i class="fa fa-envelope"></i>
+											</div>
+											<input type="text" id="first_name" class="form-control" name="first_name" placeholder="Your First Name">
+										</div>  
+									</div>  
+								</div>
+
+								<div class="row">
+									<div class="col-md-12">
+										<div class="lname-container form-group">
+											<div class="user-login-icon">   
+											<i class="fa fa-envelope"></i>
+											</div>
+											<input type="text" id="last_name" class="form-control" name="last_name" placeholder="Your Last Name">
+										</div>  
+									</div>  
+								</div>
+
+								<div class="row">
+									<div class="col-md-12">
+										<div class="email-container form-group">
+											<div class="user-login-icon">   
+											<i class="fa fa-envelope"></i>
+											</div>
+											<input type="email" required id="email" class="form-control" name="email" placeholder="Your Email">
+										</div>  
+									</div>  
+								</div>
+
+								<div class="row">
+									<div class="col-md-12">
+										<div class="telephone-container form-group">
+											<div class="user-login-icon">   
+											<i class="fa fa-envelope"></i>
+											</div>
+											<input type="tel" required id="telephone" maxlength="12" class="form-control" name="telephone" placeholder="Your Contact Number">
+										</div>  
+									</div>  
+								</div>
+
+								<div class="row">
+									<div class="col-md-12">
+										<div class="message-container form-group">
+											<div class="user-login-icon">   
+											<i class="fa fa-envelope"></i>
+											</div>
+											<textarea required id="class" class="form-control-textarea resize-none" name="class" placeholder="Enter message"></textarea>
+										</div>  
+									</div>  
+								</div>
+
+								<div class="row">  
+									<div class="col-md-12">
+										<div class="user-login-btn">
+										<button type="button" class="custom-btn btn btn-contact"><i class="fa fa-sign-in" aria-hidden="true"></i> Submit</button>
+										</div>
+									</div>  
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
+			</div>
 		</div>
-	</div>
+  	</div>
 </div>
 
 <!-- Google Web Fonts -->
@@ -106,6 +148,15 @@
 </style>
 
 <script>
+	function numberOnly(id) {
+	    // Get element by id which passed as parameter within HTML element event
+	    var element = document.getElementById(id);
+	    // Use numbers only pattern, from 0 to 9
+	    var regex = /[^0-9]/gi;
+	    // This removes any other character but numbers as entered by user
+	    element.value = element.value.replace(regex, "");
+	}
+	
 $(document).ready(function() {
 	var base_url = $('base').attr('href');
 	
