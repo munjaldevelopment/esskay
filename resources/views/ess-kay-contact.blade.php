@@ -20,9 +20,6 @@
 					<p>
 					  We are happy to assist you for any query or request you may have. Just send the message by filling up the form and our team will get back to you.
 					</p>
-					<div class="switch-btn btn">
-					  Contact Us
-					</div>
 					</div>
 					</div>
 				</div>
