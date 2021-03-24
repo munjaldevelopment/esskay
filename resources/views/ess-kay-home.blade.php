@@ -58,7 +58,7 @@
 				@if($lenderData->is_message_md == 1)
 				<li class="nav-item">
 					<!-- Single button -->
-					<div class="dropdown">
+					<div class="dropdown dropdown-lender">
 						<button type="button" class="active nav-link btn btn-primary about-class dropdown-toggle" data-toggle="dropdown">About Us</button>
 					  	<div class="dropdown-menu">
 							<a class="dropdown-item home-class" href="javascript:;">Message from MD</a>
@@ -177,7 +177,7 @@
 </style>
 <script> 
 
-	$('.dropdown').hover(function(){ 
+	$('.dropdown-lender').hover(function(){ 
   		$('.dropdown-toggle', this).trigger('click'); 
 	});
 

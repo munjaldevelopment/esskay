@@ -19,7 +19,7 @@
 				@if($trusteeData->is_message_md == 1)
 				<li class="nav-item">
 					<!-- Single button -->
-					<div class="dropdown">
+					<div class="dropdown dropdown-trustee">
 						<button type="button" class="active nav-link btn btn-primary about-class dropdown-toggle" data-toggle="dropdown">About Us</button>
 					  	<div class="dropdown-menu">
 							<a class="dropdown-item home-class" href="javascript:;">Message from MD</a>
@@ -53,7 +53,7 @@
 
 				@if($trusteeData->is_transaction == 1)
 				<li class="nav-item">
-					<div class="dropdown">
+					<div class="dropdown dropdown-trustee">
 						<button type="button" class="nav-link btn btn-primary transaction-class dropdown-toggle" data-toggle="dropdown">Transaction</button>
 					  	<div class="dropdown-menu">
 					  		@foreach($docCategoryData as $row)
@@ -101,7 +101,7 @@
 </style>
 <script> 
 
-	$('.dropdown').hover(function(){ 
+	$('.dropdown-trustee').hover(function(){ 
   		$('.dropdown-toggle', this).trigger('click'); 
 	});
 
