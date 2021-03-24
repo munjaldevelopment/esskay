@@ -68,7 +68,7 @@
 							<button id="lender_banking" class="lender_blankingbtn-1">{{ $lenderData->is_onboard }} </button>
 						</div> 
 					</li>
-					<li class="nav-item dropdown pr-0">
+					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 							<span class="mr-1 rounded-circle heading-jhone">{{ substr($lenderData->name, 0, 1) }}</span>
 						</a>

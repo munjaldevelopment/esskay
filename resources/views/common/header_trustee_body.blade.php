@@ -68,12 +68,12 @@
 							<button id="lender_banking" class="lender_blankingbtn-1">{{ $trusteeData->is_onboard }} </button>
 						</div> 
 					</li>
-					<li class="nav-item dropdown pr-0">
+					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 							<span class="mr-1 rounded-circle heading-jhone">{{ substr($trusteeData->name, 0, 1) }}</span>
 						</a>
 						
-						<div class="dropdown-menu dropdown-menu-right m">
+						<div class="dropdown-menu dropdown-menu-right">
 							{{--<a class="dropdown-item" href="#">My Profile</a>
 							<a class="dropdown-item" href="#">Dashboard</a>--}}
 							<a class="dropdown-item" href="{{ asset('/edit-password') }}">Change Password</a>
