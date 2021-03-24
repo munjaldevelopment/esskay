@@ -64,7 +64,7 @@
 												<i class="fa fa-envelope"></i>
 												</div>
 												<input type="text" maxlength="6" required name="user_otp" class="form-control" placeholder="User OTP*">
-												<a href="{{ asset('/')}}send-user-otp" class="fxt-btn-fill float-right">Send OTP</a>
+												<a href="javascript:;" class="fxt-btn-fill send-otp float-right">Send OTP</a>
 											</div>  
 										</div>  
 									</div>
@@ -75,7 +75,7 @@
 												<div class="user-login-icon">   
 												<i class="fa fa-envelope"></i>
 												</div>
-												<input type="password" required name="password" class="form-control" placeholder="Password">
+												<input type="password" required name="password" readonly="" class="user-password form-control" placeholder="Password">
 											</div>  
 										</div>  
 									</div>
@@ -86,7 +86,7 @@
 												<div class="user-login-icon">   
 												<i class="fa fa-envelope"></i>
 												</div>
-												<input type="password" required name="password_confirmation" class="form-control" placeholder="Confirm  Password">
+												<input type="password" required name="password_confirmation" readonly="" class="user-password form-control" placeholder="Confirm  Password">
 											</div>  
 										</div>  
 									</div>
@@ -94,7 +94,7 @@
 									<div class="row">  
 										<div class="col-md-12">
 											<div class="user-login-btn">
-												<button type="button" class="btn-change custom-btn1 btn fxt-btn-fill"><i class="fa fa-sign-in" aria-hidden="true"></i> Verify </button>
+												<button readonly type="button" class="btn-change submit-btn custom-btn1 btn fxt-btn-fill"><i class="fa fa-sign-in" aria-hidden="true"></i> Verify </button>
 												<a href="{{ asset('/')}}" class="custom-btn1 btn fxt-btn-fill">Back</a>
 											</div>
 
@@ -156,6 +156,20 @@ $(document).ready(function() {
 	var base_url = $('base').attr('href');
 	
 	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+	$('.send-otp').bind('click', function() {
+		$.ajax({
+			url: base_url+'send-user-otp',
+			type: 'post',
+			beforeSend: function() {
+			},
+			success: function(output) {
+				$('.submit-btn').removeAttr('readonly');
+				$('.user-password').removeAttr('readonly');
+				$('.send-otp').html('Resend OTP');
+			}
+		});
+	});
 	
 	$('.btn-change').bind('click', function() {
 		var current_user_id = $("input[name=current_user_id]").val();
