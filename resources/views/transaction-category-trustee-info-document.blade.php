@@ -51,7 +51,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -93,7 +93,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -135,7 +135,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -177,7 +177,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -219,7 +219,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -261,7 +261,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -303,7 +303,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -355,7 +355,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -397,7 +397,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -439,7 +439,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -481,7 +481,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -523,7 +523,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -543,6 +543,8 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($monthlyJuneDocData)
+								@foreach($monthlyJuneDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -561,6 +563,10 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@else
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
@@ -579,6 +585,8 @@
 				  <div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($monthlyJulyDocData)
+								@foreach($monthlyJulyDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -597,6 +605,10 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@else
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
@@ -615,6 +627,8 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($monthlyAugDocData)
+								@foreach($monthlyAugDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -633,6 +647,10 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@else
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
@@ -651,6 +669,8 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($monthlySepDocData)
+								@foreach($monthlySepDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -669,6 +689,10 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@else
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
@@ -687,6 +711,8 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($monthlyOctDocData)
+								@foreach($monthlyOctDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -705,6 +731,10 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@else
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
@@ -723,6 +753,8 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($monthlyNovDocData)
+								@foreach($monthlyNovDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -741,6 +773,10 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@else
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
@@ -759,6 +795,8 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($monthlyDecDocData)
+								@foreach($monthlyDecDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -777,6 +815,10 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@else
+								<div class="col-md-12 col-sm-12 alert alert-warning">Sorry, no transaction in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
