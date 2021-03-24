@@ -18,10 +18,10 @@
 					<div class="login_container_table">
 					<div class="login_container_table-cell">
 					<p>
-					  Don't have an account?
+					  We are happy to assist you for any query or request you may have. Just send the message by filling up the form and our team will get back to you.
 					</p>
 					<div class="switch-btn btn">
-					  Sign up
+					  Contact Us
 					</div>
 					</div>
 					</div>
@@ -156,7 +156,7 @@
 	    // This removes any other character but numbers as entered by user
 	    element.value = element.value.replace(regex, "");
 	}
-	
+
 $(document).ready(function() {
 	var base_url = $('base').attr('href');
 	
