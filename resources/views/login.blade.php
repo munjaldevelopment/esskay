@@ -73,7 +73,7 @@
 												</div>
 												<input id="password" type="password" class="form-control" name="password" placeholder="Your Password">
 												<div class="user-password-icon">   
-												<i toggle="#password" class="fa fa-eye"></i>
+												<i toggle="#password" class="fa fa-eye toggle-password"></i>
 												</div>
 											</div>  
 										</div> 
@@ -495,6 +495,18 @@ $(".info-item .btn").click(function(){
 	}
 
 $(document).ready(function() {
+
+	$('.toggle-password').on('click', function() {
+		$(this).toggleClass('fa-eye fa-eye-slash');
+		let input = $($(this).attr('toggle'));
+		if (input.attr('type') == 'password') {
+			input.attr('type', 'text');
+		}
+		else {
+			input.attr('type', 'password');
+		}
+	});
+
 	
 	var base_url = $('base').attr('href');
 	
