@@ -4,7 +4,7 @@
 		 <div class="mtd-inner-box">
 			<div class="mtd-inner">
 				@if($parentCategoryData)
-				<div class="side-body side-body-full">
+				<div class="side-body side-body-content side-body-full">
 					<div class="mtb-inner-category">
 						<div class="owl-carousel mtb_category_scroller">
 							@php
