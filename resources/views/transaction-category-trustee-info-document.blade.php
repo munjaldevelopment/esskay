@@ -51,7 +51,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -93,7 +93,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -135,7 +135,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -177,7 +177,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -219,7 +219,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -261,7 +261,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -303,7 +303,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -355,7 +355,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -397,7 +397,7 @@
 								</div>
 								@endforeach
 								@else
-								<div class="alert alert-warning">No document exists in this category.</div>
+								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
 								@endif
 							</div>
 						</div>
@@ -417,6 +417,8 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($monthlyMarDocData)
+								@foreach($monthlyMarDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -435,6 +437,10 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@else
+								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
@@ -453,6 +459,8 @@
 				  <div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($monthlyAprDocData)
+								@foreach($monthlyAprDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -471,6 +479,10 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@else
+								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
@@ -489,6 +501,8 @@
 				  <div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($monthlyMayDocData)
+								@foreach($monthlyMayDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -507,6 +521,10 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@else
+								<div class="col-md-12 col-sm-12 alert alert-warning">No document exists in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
