@@ -1,6 +1,6 @@
 <div class="mtd-breadcrumb">		   
 	<ul class="breadcrumb">
-	  <li><a href="#">{{ $categoryData->category_name }}</a></li>
+	  <li><a href="javascript:;">{{ $categoryData->category_name }}</a></li>
 	  <li>{{ $transactionData->name }}</li>
 	</ul>
 </div>

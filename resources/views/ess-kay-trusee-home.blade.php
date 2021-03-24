@@ -51,6 +51,19 @@
 				</li>
 				@endif
 
+				@if($trusteeData->is_transaction == 1)
+				<li class="nav-item">
+					<div class="dropdown">
+						<button type="button" class="nav-link btn btn-primary transaction-class dropdown-toggle" data-toggle="dropdown">Transaction</button>
+					  	<div class="dropdown-menu">
+					  		@foreach($docCategoryData as $row)
+							<a class="dropdown-item transaction-category-class" data-category="{{ $row->id }}" href="javascript:;">{{ $row->category_name }}</a>
+							@endforeach
+					  	</div>
+					</div>
+				</li>
+				@endif
+				
 				@if($trusteeData->is_financial_summary == 1)
 				<!--<li class="nav-item">
 				<a class="nav-link graph-class @if($trusteeData->is_message_md == 0 && $trusteeData->is_document == 0) active @endif" href="javascript:;">Financial Summary</a>
@@ -67,18 +80,7 @@
 				</li>
 				@endif
 
-				@if($trusteeData->is_transaction == 1)
-				<li class="nav-item">
-					<div class="dropdown">
-						<button type="button" class="nav-link btn btn-primary transaction-class dropdown-toggle" data-toggle="dropdown">Transaction</button>
-					  	<div class="dropdown-menu">
-					  		@foreach($docCategoryData as $row)
-							<a class="dropdown-item transaction-category-class" data-category="{{ $row->id }}" href="javascript:;">{{ $row->category_name }}</a>
-							@endforeach
-					  	</div>
-					</div>
-				</li>
-				@endif
+				
 			</ul>
 		</div>
 	
