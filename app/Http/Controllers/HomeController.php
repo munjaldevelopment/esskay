@@ -185,9 +185,17 @@ class HomeController extends Controller
 						}
 					}
 				}
+
+				$total_outstanding = $total_sanction = 0;
+
+				foreach($lenderBankingData as $row)
+				{
+					$total_outstanding+= $row['outstanding_amount'];
+					$total_sanction+= $row['sanction_amount'];
+				}
 				
 				$lenderCode = "";
-				return view('ess-kay-home', ['customer_name' => $customer_name, 'parentCategoryData' => $parentCategoryData, 'childCategoryData' => $childCategoryData, 'lenderData' => $lenderData, 'lenderCode' => $lenderCode, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords, 'lenderBankingData' => $lenderBankingData, 'lenderBankingDetailData' => $lenderBankingDetailData, 'lenderCount' => count($lenderBankingData)]);
+				return view('ess-kay-home', ['customer_name' => $customer_name, 'parentCategoryData' => $parentCategoryData, 'childCategoryData' => $childCategoryData, 'lenderData' => $lenderData, 'lenderCode' => $lenderCode, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords, 'lenderBankingData' => $lenderBankingData, 'lenderBankingDetailData' => $lenderBankingDetailData, 'lenderCount' => count($lenderBankingData), 'total_outstanding' => $total_outstanding, 'total_sanction' => $total_sanction]);
 			}
 			else if($trustee_name)
 			{
@@ -4379,11 +4387,11 @@ class HomeController extends Controller
 				}
 				else if($report_type == 2)
 				{
-					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'document_type')->where('document_date', $docu_date)->where('transaction_id',$transaction_id)->get();
+					$monthlyJanDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'document_type')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '1')->where('transaction_id',$transaction_id)->get();
 
-					if($termSheetDoc)
+					if($monthlyJanDoc)
 					{
-						foreach($termSheetDoc as $row)
+						foreach($monthlyJanDoc as $row)
 						{
 							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
 							$ext = strtolower($ext);
@@ -4399,6 +4407,8 @@ class HomeController extends Controller
 							{
 								$ext = "word";
 							}
+
+							$monthlyJanDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('F d Y', strtotime($row->expiry_date)), 'ext' => $ext);
 						}
 					}
 				}
