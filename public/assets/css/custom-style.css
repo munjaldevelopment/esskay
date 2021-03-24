@@ -192,6 +192,11 @@
 	margin-left: 365px;
 	padding: 25px 41px;
 }
+
+.side-body.side-body-content {
+	padding: 5px 41px;
+}
+
 .mtd-inner .side-menu nav.navbar {
 	background: transparent;
 	padding: 0;

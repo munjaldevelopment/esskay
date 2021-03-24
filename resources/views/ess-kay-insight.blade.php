@@ -23,7 +23,7 @@
 				</div>
 				@endif
 
-				<div class="side-body side-body-full">
+				<div class="side-body side-body-content side-body-full">
 					<div class="insight-container">
 						<div class="alert alert-warning">
 							Please click on top section to get data
