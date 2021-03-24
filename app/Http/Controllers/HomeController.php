@@ -4321,6 +4321,8 @@ class HomeController extends Controller
 
 				$termSheetDocData = $serviceAgreementDocData = $accountAgreementDocData = $assignmentAgreementDocData = $trustDeedDocData = $imDocData = $anyotherDocData = array();
 
+				$monthlyJanDocData = $monthlyFebDocData = $monthlyMarDocData = $monthlyAprDocData = $monthlyMayDocData = $monthlyJuneDocData = $monthlyJulyDocData = $monthlyAugDocData = $monthlySepDocData = $monthlyOctDocData = $monthlyNovDocData = $monthlyDecDocData = array();
+
 				if($report_type == 1)
 				{
 					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Executed Report')->where('transaction_document_type_id', '1')->where('transaction_id',$transaction_id)->get();
@@ -4375,11 +4377,38 @@ class HomeController extends Controller
 						}
 					}
 				}
+				else if($report_type == 2)
+				{
+					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'document_type')->where('document_date', $docu_date)->where('transaction_id',$transaction_id)->get();
+
+					if($termSheetDoc)
+					{
+						foreach($termSheetDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+						}
+					}
+				}
 
 
 	    		return view('transaction-category-trustee-info-document', ['trustee_id' => $trustee_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id, 'report_type' => $report_type,
 
-	    			'termSheetDocData' => $termSheetDocData, 'serviceAgreementDocData' => $serviceAgreementDocData, 'accountAgreementDocData' => $accountAgreementDocData, 'assignmentAgreementDocData' => $assignmentAgreementDocData, 'trustDeedDocData' => $trustDeedDocData, 'imDocData' => $imDocData, 'anyotherDocData' => $anyotherDocData
+	    			'termSheetDocData' => $termSheetDocData, 'serviceAgreementDocData' => $serviceAgreementDocData, 'accountAgreementDocData' => $accountAgreementDocData, 'assignmentAgreementDocData' => $assignmentAgreementDocData, 'trustDeedDocData' => $trustDeedDocData, 'imDocData' => $imDocData, 'anyotherDocData' => $anyotherDocData,
+
+	    			'monthlyJanDocData' => $monthlyJanDocData, 'monthlyFebDocData' => $monthlyFebDocData, 'monthlyMarDocData' => $monthlyMarDocData, 'monthlyAprDocData' => $monthlyAprDocData, 'monthlyMayDocData' => $monthlyMayDocData, 'monthlyJuneDocData' => $monthlyJuneDocData, 'monthlyJulyDocData' => $monthlyJulyDocData, 'monthlyAugDocData' => $monthlyAugDocData, 'monthlySepDocData' => $monthlySepDocData, 'monthlyOctDocData' => $monthlyOctDocData, 'monthlyNovDocData' => $monthlyNovDocData, 'monthlyDecDocData' => $monthlyDecDocData 
 
 	    		]);
 	    	}

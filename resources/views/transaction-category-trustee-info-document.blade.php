@@ -29,6 +29,7 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($termSheetDocData)
 								@foreach($termSheetDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -49,6 +50,9 @@
 									</div>
 								</div>
 								@endforeach
+								@else
+								<div class="alert alert-warning">No document exists in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
@@ -67,6 +71,7 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($serviceAgreementDocData)
 								@foreach($serviceAgreementDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -87,6 +92,9 @@
 									</div>
 								</div>
 								@endforeach
+								@else
+								<div class="alert alert-warning">No document exists in this category.</div>
+								@endif
 							</div>
 						</div>
 					</div>
@@ -105,6 +113,7 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($accountAgreementDocData)
 								@foreach($accountAgreementDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -125,6 +134,9 @@
 									</div>
 								</div>
 								@endforeach
+								@else
+								<div class="alert alert-warning">No document exists in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
@@ -143,6 +155,7 @@
 				  <div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($assignmentAgreementDocData)
 								@foreach($assignmentAgreementDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -163,6 +176,9 @@
 									</div>
 								</div>
 								@endforeach
+								@else
+								<div class="alert alert-warning">No document exists in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
@@ -181,6 +197,8 @@
 				  <div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($trustDeedDocData)
+								@foreach($trustDeedDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -199,6 +217,10 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@else
+								<div class="alert alert-warning">No document exists in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
@@ -217,6 +239,8 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($imDocData)
+								@foreach($imDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -235,6 +259,10 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@else
+								<div class="alert alert-warning">No document exists in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
@@ -253,6 +281,8 @@
 				  <div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($anyotherDocData)
+								@foreach($anyotherDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -271,6 +301,10 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@else
+								<div class="alert alert-warning">No document exists in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
@@ -299,6 +333,8 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($monthlyJanDocData)
+								@foreach($monthlyJanDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -317,6 +353,10 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@else
+								<div class="alert alert-warning">No document exists in this category.</div>
+								@endif
 							</div>
 						</div>
 				  	</div>
@@ -335,6 +375,8 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
+								@if($monthlyFebDocData)
+								@foreach($monthlyFebDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
 										<div class="mtdd-doc-img">
@@ -353,6 +395,10 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
+								@else
+								<div class="alert alert-warning">No document exists in this category.</div>
+								@endif
 							</div>
 						</div>
 					</div>

@@ -29,14 +29,14 @@
 								<div class="dfh-filter-left">
 									<ul>
 										<li>
-											<a href=""><img src="{{ asset('public/assets/') }}/images/live-deal.svg" alt=""> LIVE DEALS</a>
+											<a href="javascript:;"><img src="{{ asset('public/assets/') }}/images/live-deal.svg" alt=""> LIVE DEALS</a>
 										</li>
 									</ul>
 								</div>
 								
 								<div class="dfh-filter-right">
 									<div class="dfh-right-count">Showing 1 - {{ $dealTotalData->total }} <span>of {{ $dealTotalData->total }}</span></div>										
-									<div class="dfh-right-filter"><img src="{{ asset('public/assets/') }}/images/filter-icon.svg" alt=""> Filter</div>										
+									<div class="dfh-right-filter d-none hide"><img src="{{ asset('public/assets/') }}/images/filter-icon.svg" alt=""> Filter</div>										
 								</div>									
 							</div>
 							<div class="deal-filter-by">
@@ -68,7 +68,7 @@
 											</div>
 										</div>
 										<div class="col-md-4 col-sm-12">
-											<div class="dfl-filter-box">
+											<div class="d-none hide dfl-filter-box">
 												<div class="custom-dropi">
 													<select>
 														<option>Asset Class</option>																
