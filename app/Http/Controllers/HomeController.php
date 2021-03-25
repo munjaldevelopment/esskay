@@ -1595,7 +1595,7 @@ class HomeController extends Controller
 			$where1['current_deals.rating'] = $deal_rating;
 		}
 
-		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where($where1)->where($where2)->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
+		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where($where1)->where($where2)->selectRaw('current_deals.*, current_deal_categories.category_code1')->get();
 		
 		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'lenderData' => $lenderData]);
 	}
