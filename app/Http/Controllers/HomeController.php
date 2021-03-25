@@ -1585,10 +1585,10 @@ class HomeController extends Controller
 		$dealCategoriesData = \DB::table('current_deal_categories')->leftJoin('current_deal_category_lender', 'current_deal_category_lender.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deal_category_lender.lender_id',$lender_id)->where('status', '1')->get();
 
 		$where1 = array();
-		$where2 = "";
+		$where2 = array();
 		if($deal_filterby != "")
 		{
-			$where2 = 'current_deals.name', 'LIKE', '%'.$deal_filterby.'%';
+			$where2 = ('current_deals.name', 'LIKE', '%'.$deal_filterby.'%');
 		}
 		if($deal_rating != "")
 		{
@@ -3685,10 +3685,10 @@ class HomeController extends Controller
 		$dealCategoriesData = \DB::table('current_deal_categories')->leftJoin('current_deal_category_trustee', 'current_deal_category_trustee.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deal_category_trustee.trustee_id',$trustee_id)->where('status', '1')->get();
 
 		$where1 = array();
-		$where2 = "";
+		$where2 = array();
 		if($deal_filterby != "")
 		{
-			$where2 = 'current_deals.name', 'LIKE', '%'.$deal_filterby.'%';
+			$where2 = ('current_deals.name', 'LIKE', '%'.$deal_filterby.'%');
 		}
 		if($deal_rating != "")
 		{
