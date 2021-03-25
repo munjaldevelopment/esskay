@@ -1,8 +1,10 @@
+@if($insightCatData->description)
 <div class="mtd-breadcrumb">		   
 	<ul class="breadcrumb">
 		{!! $insightCatData->description !!}
 	</ul>
 </div>
+@endif
 
 @if($insightCatData->id == 1)
 	<div class="alert alert-success text-center">Coming Soon</div>
