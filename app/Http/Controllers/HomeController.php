@@ -4411,6 +4411,281 @@ class HomeController extends Controller
 							$monthlyJanDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('F d Y', strtotime($row->expiry_date)), 'ext' => $ext);
 						}
 					}
+
+					$monthlyFebDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'document_type')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '2')->where('transaction_id',$transaction_id)->get();
+
+					if($monthlyFebDoc)
+					{
+						foreach($monthlyFebDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$monthlyFebDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('F d Y', strtotime($row->expiry_date)), 'ext' => $ext);
+						}
+					}
+
+					$monthlyMarDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'document_type')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '3')->where('transaction_id',$transaction_id)->get();
+
+					if($monthlyMarDoc)
+					{
+						foreach($monthlyMarDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$monthlyMarDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('F d Y', strtotime($row->expiry_date)), 'ext' => $ext);
+						}
+					}
+
+					$monthlyAprDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'document_type')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '4')->where('transaction_id',$transaction_id)->get();
+
+					if($monthlyAprDoc)
+					{
+						foreach($monthlyAprDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$monthlyAprDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('F d Y', strtotime($row->expiry_date)), 'ext' => $ext);
+						}
+					}
+
+					$monthlyMayDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'document_type')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '5')->where('transaction_id',$transaction_id)->get();
+
+					if($monthlyMayDoc)
+					{
+						foreach($monthlyMayDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$monthlyMayDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('F d Y', strtotime($row->expiry_date)), 'ext' => $ext);
+						}
+					}
+
+					$monthlyJuneDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'document_type')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '6')->where('transaction_id',$transaction_id)->get();
+
+					if($monthlyJuneDoc)
+					{
+						foreach($monthlyJuneDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$monthlyJuneDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('F d Y', strtotime($row->expiry_date)), 'ext' => $ext);
+						}
+					}
+
+					$monthlyJulyDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'document_type')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '7')->where('transaction_id',$transaction_id)->get();
+
+					if($monthlyJulyDoc)
+					{
+						foreach($monthlyJulyDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$monthlyJulyDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('F d Y', strtotime($row->expiry_date)), 'ext' => $ext);
+						}
+					}
+
+					$monthlyAugDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'document_type')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '8')->where('transaction_id',$transaction_id)->get();
+
+					if($monthlyAugDoc)
+					{
+						foreach($monthlyAugDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$monthlyAugDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('F d Y', strtotime($row->expiry_date)), 'ext' => $ext);
+						}
+					}
+
+					$monthlySepDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'document_type')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '9')->where('transaction_id',$transaction_id)->get();
+
+					if($monthlySepDoc)
+					{
+						foreach($monthlySepDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$monthlySepDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('F d Y', strtotime($row->expiry_date)), 'ext' => $ext);
+						}
+					}
+
+					$monthlyOctDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'document_type')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '10')->where('transaction_id',$transaction_id)->get();
+
+					if($monthlyOctDoc)
+					{
+						foreach($monthlyOctDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$monthlyOctDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('F d Y', strtotime($row->expiry_date)), 'ext' => $ext);
+						}
+					}
+
+					$monthlyNovDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'document_type')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '11')->where('transaction_id',$transaction_id)->get();
+
+					if($monthlyNovDoc)
+					{
+						foreach($monthlyNovDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$monthlyNovDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('F d Y', strtotime($row->expiry_date)), 'ext' => $ext);
+						}
+					}
+
+					$monthlyDecDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'document_type')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '12')->where('transaction_id',$transaction_id)->get();
+
+					if($monthlyDecDoc)
+					{
+						foreach($monthlyDecDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$monthlyDecDocData[] = array('document_name' => $row->document_name, 'expiry_date' => date('F d Y', strtotime($row->expiry_date)), 'ext' => $ext);
+						}
+					}
 				}
 
 
