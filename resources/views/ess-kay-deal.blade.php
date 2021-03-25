@@ -64,8 +64,6 @@
 													</select>
 												</div>
 											</div>
-										</div>
-										<div class="col-md-4 col-sm-12">
 											<button type="button" class="dflfs-search-btn"><img src="{{ asset('public/assets/') }}/images/search-icon.svg" alt=""></button>
 										</div>
 									</div>
