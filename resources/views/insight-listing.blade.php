@@ -1,4 +1,4 @@
-@if($insightCatData->description)
+@if(trim($insightCatData->description) != "")
 <div class="mtd-breadcrumb">		   
 	<ul class="breadcrumb">
 		{!! $insightCatData->description !!}
