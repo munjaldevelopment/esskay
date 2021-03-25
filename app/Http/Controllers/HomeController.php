@@ -1587,14 +1587,14 @@ class HomeController extends Controller
 		$where = array();
 		if($deal_filterby != "")
 		{
-			$where['name'] = 'LIKE %'.$deal_filterby.'%';
+			$where['current_deals.name'] = 'LIKE %'.$deal_filterby.'%';
 		}
 		if($deal_rating != "")
 		{
-			$where['rating'] = $deal_rating;
+			$where['current_deals.rating'] = $deal_rating;
 		}
 
-		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where($where)->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
+		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id1')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where($where)->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
 		
 		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'lenderData' => $lenderData]);
 	}
@@ -3686,11 +3686,11 @@ class HomeController extends Controller
 		$where = array();
 		if($deal_filterby != "")
 		{
-			$where['name'] = 'LIKE %'.$deal_filterby.'%';
+			$where['current_deals.name'] = 'LIKE %'.$deal_filterby.'%';
 		}
 		if($deal_rating != "")
 		{
-			$where['rating'] = $deal_rating;
+			$where['current_deals.rating'] = $deal_rating;
 		}
 
 		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where($where)->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
