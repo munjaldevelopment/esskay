@@ -56,9 +56,9 @@
 											<div class="dfl-filter-box">
 												<div class="custom-dropi">
 													<select name="deal_rating" class="deal_rating">
-														<option>Rating</option>																
-														<option value="A+">A+</option>																
-														<option value="AA+">AA+</option>																
+														<option value="">Rating</option>
+														<option value="A+">A+</option>
+														<option value="AA+">AA+</option>
 														<option value="AB+">AB+</option>
 														<option value="B+">B+</option>
 													</select>
