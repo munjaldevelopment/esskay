@@ -1587,7 +1587,7 @@ class HomeController extends Controller
 		$where = array();
 		if($deal_filterby != "")
 		{
-			$where['current_deals.name'] = 'LIKE %'.$deal_filterby.'%';
+			$where['current_deals.name1'] = 'LIKE %'.$deal_filterby.'%';
 		}
 		if($deal_rating != "")
 		{
