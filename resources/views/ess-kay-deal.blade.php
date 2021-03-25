@@ -65,7 +65,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-md-2 col-sm-12">
+										<div class="col-md-1 col-sm-12">
 											<button type="button" class="dflfs-search-btn"><img src="{{ asset('public/assets/') }}/images/search-icon.svg" alt=""></button>
 										</div>
 									</div>
@@ -219,6 +219,27 @@ $(document).ready(function(){
 			navText: ["<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'>","<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'>"],  
 			autoWidth: true,
 			items: 4
+		});
+
+		$('.deal_sort').bind('change', function() {
+			var base_url = $('base').attr('href');
+	
+			var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+			var sort_value = $(this).val();
+
+			$.ajax({
+				url: base_url+'dealSort',
+				type: 'post',
+				data: {_token: CSRF_TOKEN, sort_value: sort_value},
+				beforeSend: function() {
+					$('.preloader').show();
+				},
+				success: function(output) {
+					$('.preloader').hide();
+					$('.deal-products-area').html(output);
+				}
+			});
 		});
 
 		$('#deal-grid').bind('click', function() {
