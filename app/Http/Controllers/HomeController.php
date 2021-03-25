@@ -1570,6 +1570,35 @@ class HomeController extends Controller
 		return view('ess-kay-deal', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'lenderData' => $lenderData]);
 	}
 
+	// Search
+	public function dealSearch(Request $request)
+	{
+		$deal_filterby = $request->deal_filterby;
+		$deal_rating = $request->deal_rating;
+
+		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
+    	//dd($lenderData);
+    	$lender_id = $lenderData->id;
+
+		$dealTotalData = \DB::table('current_deals')->selectRaw('count(id) as total, SUM(amount) as total_amount')->where('status', '1')->first();
+
+		$dealCategoriesData = \DB::table('current_deal_categories')->leftJoin('current_deal_category_lender', 'current_deal_category_lender.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deal_category_lender.lender_id',$lender_id)->where('status', '1')->get();
+
+		$where = array();
+		if($deal_filterby != "")
+		{
+			$where['name'] = 'LIKE %'.$deal_filterby.'%';
+		}
+		if($deal_rating != "")
+		{
+			$where['rating'] = $deal_rating;
+		}
+
+		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where($where)->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
+		
+		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'lenderData' => $lenderData]);
+	}
+
 	// Sort
 	public function dealSort(Request $request)
 	{
@@ -3639,6 +3668,36 @@ class HomeController extends Controller
 		
 		return view('ess-kay-deal-trustee', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'trusteeData' => $trusteeData]);
 	}
+
+	// Search
+	public function dealSearchTrustee(Request $request)
+	{
+		$deal_filterby = $request->deal_filterby;
+		$deal_rating = $request->deal_rating;
+
+		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
+    	//dd($trusteeData);
+    	$trustee_id = $trusteeData->id;
+
+		$dealTotalData = \DB::table('current_deals')->selectRaw('count(id) as total, SUM(amount) as total_amount')->where('status', '1')->first();
+
+		$dealCategoriesData = \DB::table('current_deal_categories')->leftJoin('current_deal_category_trustee', 'current_deal_category_trustee.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deal_category_trustee.trustee_id',$trustee_id)->where('status', '1')->get();
+
+		$where = array();
+		if($deal_filterby != "")
+		{
+			$where['name'] = 'LIKE %'.$deal_filterby.'%';
+		}
+		if($deal_rating != "")
+		{
+			$where['rating'] = $deal_rating;
+		}
+
+		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where($where)->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
+		
+		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'trusteeData' => $trusteeData]);
+	}
+	
 
 	// Sort
 	public function dealSortTrustee(Request $request)

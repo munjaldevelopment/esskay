@@ -222,6 +222,28 @@ $(document).ready(function(){
 			items: 4
 		});
 
+		$('.dflfs-search-btn').bind('click', function() {
+			var base_url = $('base').attr('href');
+	
+			var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+			var deal_filterby = $('.deal_filterby').val();
+			var deal_rating = $('.deal_rating option:selected').val();
+
+			$.ajax({
+				url: base_url+'dealSearchTrustee',
+				type: 'post',
+				data: {_token: CSRF_TOKEN, deal_filterby: deal_filterby, deal_rating: deal_rating},
+				beforeSend: function() {
+					$('.preloader').show();
+				},
+				success: function(output) {
+					$('.preloader').hide();
+					$('.deal-products-area').html(output);
+				}
+			});
+		});
+
 		$('.deal_sort').bind('change', function() {
 			var base_url = $('base').attr('href');
 	

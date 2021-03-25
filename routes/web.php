@@ -61,6 +61,10 @@ Route::post('/dealList', 'HomeController@dealList');
 Route::post('/dealSort', 'HomeController@dealSort');
 Route::post('/dealSortTrustee', 'HomeController@dealSortTrustee');
 
+
+Route::post('/dealSearch', 'HomeController@dealSearch');
+Route::post('/dealSearchTrustee', 'HomeController@dealSearchTrustee');
+
 Route::get('/edit-password', 'HomeController@editPassword');
 Route::get('/send-user-otp', 'HomeController@sendUserOtp');
 Route::post('updatePassword', 'HomeController@updatePassword');
