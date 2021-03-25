@@ -1,4 +1,4 @@
-
+@if($dealsData)
 <div class="deal-product-grid">
 	<div class="row">
 		@foreach($dealsData as $k => $row)
@@ -30,3 +30,6 @@
 		@endforeach
 	</div>
 </div>
+@else
+<div class="alert alert-danger">No deals available</div>
+@endif
