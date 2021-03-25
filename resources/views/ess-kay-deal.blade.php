@@ -77,8 +77,8 @@
 									</div>
 									<div class="custom-dropi">
 										<select name="deal_sort" class="deal_sort">
-											<option value="date.desc">Latest First</option>
-											<option value="date.asc">Oldest First</option>										
+											<option value="current_deals.created_at-desc">Latest First</option>
+											<option value="current_deals.created_at-asc">Oldest First</option>										
 										</select>
 									</div>
 								</div>
