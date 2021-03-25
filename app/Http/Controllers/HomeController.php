@@ -1584,17 +1584,18 @@ class HomeController extends Controller
 
 		$dealCategoriesData = \DB::table('current_deal_categories')->leftJoin('current_deal_category_lender', 'current_deal_category_lender.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deal_category_lender.lender_id',$lender_id)->where('status', '1')->get();
 
-		$where = array();
+		$where1 = array();
+		$where2 = "";
 		if($deal_filterby != "")
 		{
-			$where['current_deals.name1'] = 'LIKE %'.$deal_filterby.'%';
+			$where2 = 'current_deals.name', 'LIKE', '%'.$deal_filterby.'%';
 		}
 		if($deal_rating != "")
 		{
-			$where['current_deals.rating'] = $deal_rating;
+			$where1['current_deals.rating'] = $deal_rating;
 		}
 
-		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where($where)->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
+		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where($where1)->where($where2)->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
 		
 		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'lenderData' => $lenderData]);
 	}
@@ -3683,17 +3684,18 @@ class HomeController extends Controller
 
 		$dealCategoriesData = \DB::table('current_deal_categories')->leftJoin('current_deal_category_trustee', 'current_deal_category_trustee.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deal_category_trustee.trustee_id',$trustee_id)->where('status', '1')->get();
 
-		$where = array();
+		$where1 = array();
+		$where2 = "";
 		if($deal_filterby != "")
 		{
-			$where['current_deals.name'] = 'LIKE %'.$deal_filterby.'%';
+			$where2 = 'current_deals.name', 'LIKE', '%'.$deal_filterby.'%';
 		}
 		if($deal_rating != "")
 		{
-			$where['current_deals.rating'] = $deal_rating;
+			$where1['current_deals.rating'] = $deal_rating;
 		}
 
-		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where($where)->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
+		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where($where1)->where($where2)->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
 		
 		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'trusteeData' => $trusteeData]);
 	}
