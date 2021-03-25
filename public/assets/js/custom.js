@@ -9,7 +9,7 @@ $(document).ready(function() {
 		$('.home-class').addClass('active');
 		$('.about-class').addClass('active');
 
-		$('.about-container').removeClass('show');
+		
 		
 		$.ajax({
 			url: base_url+'homepage',
@@ -20,6 +20,7 @@ $(document).ready(function() {
 			},
 			success: function(output) {
 				$('.preloader').hide();
+				$('.about-container').removeClass('show');
 				$('.home-content').html(output);
 			}
 		});

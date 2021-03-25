@@ -178,7 +178,7 @@
 <script> 
 
 	$('.dropdown-lender').hover(function(){ 
-  		$('.dropdown-toggle', this).trigger('click'); 
+  		//$('.dropdown-toggle', this).trigger('click'); 
 	});
 
 $(document).ready(function(){

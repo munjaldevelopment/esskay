@@ -20,6 +20,7 @@ $(document).ready(function() {
 			},
 			success: function(output) {
 				$('.preloader').hide();
+				$('.about-container').removeClass('show');
 				$('.home-content').html(output);
 			}
 		});
@@ -42,6 +43,7 @@ $(document).ready(function() {
 			},
 			success: function(output) {
 				$('.preloader').hide();
+				$('.about-container').removeClass('show');
 				$('.home-content').html(output);
 			}
 		});
@@ -64,6 +66,7 @@ $(document).ready(function() {
 			},
 			success: function(output) {
 				$('.preloader').hide();
+				$('.about-container').removeClass('show');
 				$('.home-content').html(output);
 			}
 		});
