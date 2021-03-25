@@ -79,7 +79,7 @@ $(document).ready(function() {
 		});
 	});
 
-	$('.btn-report-type').trigger('click');
+	$('.btn-report-type[data-val="1"]').trigger('click');
 });	
 
 $(document).ready(function() {
