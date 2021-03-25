@@ -78,6 +78,8 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+	$('.btn-report-type').trigger('click');
 });	
 
 $(document).ready(function() {
