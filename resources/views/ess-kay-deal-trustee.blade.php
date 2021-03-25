@@ -48,38 +48,25 @@
 										<div class="col-md-4 col-sm-12">
 											<div class="dfl-filter-box">
 												<div class="dfl-filter-search">
-													<input type="text" class="form-control" placeholder="Client/Deal Name">
-													<button type="button" class="dflfs-search-btn"><img src="{{ asset('public/assets/') }}/images/search-icon.svg" alt=""></button>
+													<input type="text" class="form-control deal_filterby" name="deal_filterby" placeholder="Client/Deal Name">
 												</div>
 											</div>
 										</div>
 										<div class="col-md-4 col-sm-12">
 											<div class="dfl-filter-box">
 												<div class="custom-dropi">
-													<select>
+													<select name="deal_rating" class="deal_rating">
 														<option>Rating</option>																
-														<option>1</option>																
-														<option>2</option>																
-														<option>3</option>																
-														<option>4</option>																
-														<option>5</option>																
+														<option value="A+">A+</option>																
+														<option value="AA+">AA+</option>																
+														<option value="AB+">AB+</option>
+														<option value="B+">B+</option>
 													</select>
 												</div>
 											</div>
 										</div>
 										<div class="col-md-4 col-sm-12">
-											<div class="d-none hide dfl-filter-box">
-												<div class="custom-dropi">
-													<select>
-														<option>Asset Class</option>																
-														<option>Asset 1</option>																
-														<option>Asset 2</option>																
-														<option>Asset 3</option>																
-														<option>Asset 4</option>																
-														<option>Asset 5</option>																
-													</select>
-												</div>
-											</div>
+											<button type="button" class="dflfs-search-btn"><img src="{{ asset('public/assets/') }}/images/search-icon.svg" alt=""></button>
 										</div>
 									</div>
 								</div>
@@ -89,13 +76,9 @@
 										<img src="{{ asset('public/assets/') }}/images/sort-icon.svg" alt=""> Sort by
 									</div>
 									<div class="custom-dropi">
-										<select>
-											<option>Created On</option>																
-											<option>Sort 1</option>																
-											<option>Sort 2</option>																
-											<option>Sort 3</option>																
-											<option>Sort 4</option>																
-											<option>Sort 5</option>																
+										<select name="deal_sort" class="deal_sort">
+											<option value="date.desc">Latest First</option>
+											<option value="date.asc">Oldest First</option>										
 										</select>
 									</div>
 								</div>
