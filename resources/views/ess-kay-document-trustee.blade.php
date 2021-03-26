@@ -12,7 +12,8 @@
 						@foreach($parentCategoryData as $id => $parentCategoryRow)
 							<li @if(isset($childCategoryData[$id])) class="panel panel-default" id="dropdown" @endif>
 								<a @if(isset($childCategoryData[$id])) data-toggle="collapse" href="#dropdown-lv{{$id}}" @else class="doc-category-list" data-category="{{$id}}" href="javascript:;" @endif data-category="{{$id}}">
-									<span><img src="{{ $parentCategoryRow['image'] }}" alt=""></span> {{ $parentCategoryRow['name'] }} <span class="caret-icon"><img src="{{ asset('public/assets/') }}/images/slide-menu-dropi.svg" alt=""></span>
+									<span><img src="{{ $parentCategoryRow['image'] }}" alt=""></span> {{ $parentCategoryRow['name'] }} 
+									@if(isset($childCategoryData[$id])) <span class="caret-icon"><img src="{{ asset('public/assets/') }}/images/slide-menu-dropi.svg" alt=""></span> @endif
 								</a>
 
 								@if(isset($childCategoryData[$id]))
