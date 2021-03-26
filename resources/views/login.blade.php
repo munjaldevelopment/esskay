@@ -647,7 +647,7 @@ $(document).ready(function() {
 						});
 						
 						$("input[name=name]").val('');
-						$("input[name=email]").val('');
+						$("input[name=signup_email]").val('');
 						$("input[name=telephone]").val('');
 						$("input[name=organization]").val('');
 						$("input[name=designation]").val('');
