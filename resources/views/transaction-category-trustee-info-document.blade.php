@@ -38,18 +38,18 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>
-													@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif
 												</li>
 												<li>
-													<a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a>
 												</li>
 											</ul>
 										</div>
@@ -86,15 +86,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -130,15 +130,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -174,15 +174,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -218,15 +218,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -262,15 +262,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -306,15 +306,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -360,15 +360,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -404,15 +404,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -448,15 +448,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -492,15 +492,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -536,15 +536,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -580,15 +580,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -624,15 +624,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -668,15 +668,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -712,15 +712,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -756,15 +756,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -800,15 +800,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
@@ -844,15 +844,15 @@
 										</div>
 										<div class="mtdd-doc-cont">
 											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
 										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
 										<div class="mtd-doc-hover">
 											<ul>
-												<li>@if($doc['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
 													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
 										</div>
 									</div>
