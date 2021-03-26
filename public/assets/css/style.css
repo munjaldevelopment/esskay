@@ -420,6 +420,24 @@ ul.navbar-nav.ml-auto.nav-custome li a.nav-link.dropdown-toggle {
     padding: 0; font-weight: normal;
 }
 
+.mtdd-doc-img i {
+    color: red;
+    font-size: 27px;
+    padding: 10px;
+}
+
+.mtdd-doc-img i.fa-file-pdf-o {
+  color: red;
+}
+
+.mtdd-doc-img i.fa-file-word-o {
+  color: blue;
+}
+
+.mtdd-doc-img i.fa-file-excel-o {
+  color: green;
+}
+
 .notifiation-icon1 i {
     color: red;
     font-size: 27px;
