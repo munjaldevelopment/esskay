@@ -458,9 +458,8 @@ $(document).ready(function() {
 		$(this).toggleClass('fa-eye fa-eye-slash');
 		let input = $($(this).attr('toggle'));
 		console.log($(this).attr('toggle'));
-		console.log(input.attr('type'));
 
-		if (input.attr('type') == 'password') {
+		if (input.attr('type') == 'text') {
 			input.attr('type', 'text');
 		}
 		else {
