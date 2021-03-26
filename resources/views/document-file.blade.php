@@ -47,19 +47,30 @@
 				@if($docData)
 					@foreach($docData as $id1 => $doc)
 					<div class="col-md-6 col-sm-12">
-						<div class="mtd-doc-box">											
+						<div class="mtd-doc-box">
 							<div class="mtdd-doc-img">
-								<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+								<i class="fa fa-file-{{ $doc['ext'] }}-o" aria-hidden="true"></i>
 							</div>
 							<div class="mtdd-doc-cont">
-								<h4>Capital Adequacy Statement </h4>	
-								<p>September 30, 2020</p>													
+								<h4> {{ $doc['document_heading'] }} </h4>	
+								<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>													
 							</div>
-							<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+							<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+								@if($doc['doc_download'] > 0)
+								<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+								@endif
+							</div>
 							<div class="mtd-doc-hover">
 								<ul>
-									<li><a href=""><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
-									<li><a href=""><i class="fa fa-download" aria-hidden="true"></i></a></li>
+									<li>
+										@if($doc['ext'] == 'pdf')
+										<a href="{{ asset('/') }}previewDoc/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+										@endif
+									</li>
+
+									<li>
+										<a href="{{ asset('/') }}downloadDoc/{{ base64_encode($doc['id']) }}" onclick="showDownloadIcon('{{ $doc['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a>
+									</li>
 								</ul>
 							</div>
 						</div>
