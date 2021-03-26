@@ -166,16 +166,16 @@ $(document).ready(function() {
 			}
 		});
 	});
-	
+
 	$('.btn-date').bind('click', function() {
 		var date1 = $(this).attr('data-date');		
 		
 		//alert(date1);
 		$('.assign_date').val(date1);
 		
-		$('.time-container').removeClass('active-time');
+		$('.time-container').removeClass('active');
 				
-		$('li[name="'+date1+'"]').addClass("active-time");
+		$('li[name="'+date1+'"]').addClass("active");
 		
 		$('.category-listing li.active .sub-dropdown-box').trigger('click');
 	});
