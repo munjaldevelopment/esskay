@@ -4471,31 +4471,31 @@ class HomeController extends Controller
 							
 							if($row->transaction_document_type_id == 1)
 							{
-								$termSheetDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);	
+								$termSheetDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);	
 							}
 							else if($row->transaction_document_type_id == 2)
 							{
-								$serviceAgreementDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+								$serviceAgreementDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 							}
 							else if($row->transaction_document_type_id == 3)
 							{
-								$accountAgreementDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+								$accountAgreementDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 							}
 							else if($row->transaction_document_type_id == 4)
 							{
-								$assignmentAgreementDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+								$assignmentAgreementDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 							}
 							else if($row->transaction_document_type_id == 5)
 							{
-								$trustDeedDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+								$trustDeedDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 							}
 							else if($row->transaction_document_type_id == 6)
 							{
-								$imDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+								$imDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 							}
 							else if($row->transaction_document_type_id == 7)
 							{
-								$anyotherDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+								$anyotherDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 							}
 						}
 					}
@@ -4523,7 +4523,7 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyJanDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$monthlyJanDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 						}
 					}
 
@@ -4548,7 +4548,7 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyFebDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$monthlyFebDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 						}
 					}
 
@@ -4573,7 +4573,7 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyMarDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$monthlyMarDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 						}
 					}
 
@@ -4598,7 +4598,7 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyAprDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$monthlyAprDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 						}
 					}
 
@@ -4623,7 +4623,7 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyMayDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$monthlyMayDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 						}
 					}
 
@@ -4648,7 +4648,7 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyJuneDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$monthlyJuneDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 						}
 					}
 
@@ -4673,7 +4673,7 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyJulyDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$monthlyJulyDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 						}
 					}
 
@@ -4698,7 +4698,7 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyAugDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$monthlyAugDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 						}
 					}
 
@@ -4723,7 +4723,7 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlySepDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$monthlySepDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 						}
 					}
 
@@ -4748,7 +4748,7 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyOctDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$monthlyOctDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 						}
 					}
 
@@ -4773,7 +4773,7 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyNovDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$monthlyNovDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 						}
 					}
 
@@ -4798,7 +4798,7 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyDecDocData[] = array('document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$monthlyDecDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
 						}
 					}
 				}
