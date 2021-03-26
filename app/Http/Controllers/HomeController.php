@@ -471,7 +471,7 @@ class HomeController extends Controller
 	public function browserInfo(Request $request)
     {
 		$browserDetails = $request->header('User-Agent');
-		dd($browserDetails);
+		//dd($browserDetails);
 	}
 	
 	public function changeQuery()
@@ -4237,7 +4237,7 @@ class HomeController extends Controller
 			// Download file
 			$doc_id = base64_decode($doc_id);
 			$docData  = \DB::table('transaction_documents')->where('id', '=', $doc_id)->first();
-			dd($docData);
+			//dd($docData);
 
 			
 			if($docData)
