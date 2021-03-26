@@ -4223,6 +4223,32 @@ class HomeController extends Controller
 		return view('document-child-file-trustee', ['documentDateData' => $document_date, 'docu_date' => $request->document_date, 'cat_name' => $cat_name, 'category_name' => $category_name, 'subCategory' => $subCategoryArr, 'category_id' => $request->category_id, 'is_timeline' => $is_timeline, 'docData' => $docArr, 'esskay_doc_date' => session()->get('esskay_doc_date')]);
 	}
 
+	// Download Trans Doc
+	public function previewTransDocTrustee($doc_id)
+    {
+    	$customer_name = session()->get('esskay_trustee_verify');
+
+		if(!$customer_name)
+		{
+			return redirect(url('/').'/login');
+		}
+		else
+		{
+			// Download file
+			$doc_id = base64_decode($doc_id);
+			$docData  = \DB::table('transaction_documents')->where('id', '=', $doc_id)->first();
+
+			
+			if($docData)
+			{
+				$file = asset('/'). $docData->document_filename;
+				
+				header('location:'.$file);
+			}
+		}
+	}
+	
+
 	public function previewDocTrustee($doc_id)
     {
     	$customer_name = session()->get('esskay_trustee_verify');
@@ -4272,6 +4298,40 @@ class HomeController extends Controller
 			\DB::table('user_pdf')->insert(['user_id' => session()->get('esskay_trustee_user_id'), 'article_id' => $doc_id, 'download_date' => date('Y-m-d H:i:s'), 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 			
 			return response()->download($file, $doc);
+		}
+	}
+
+	// Download trans Doc
+	public function downloadTransDocTrustee($doc_id)
+    {
+    	// Download file
+    	$customer_name = session()->get('esskay_trustee_verify');
+		
+		if(!$customer_name)
+		{
+			return redirect(url('/').'/login');
+		}
+		else
+		{
+			// Download file
+			$doc_id = base64_decode($doc_id);
+			$docData  = \DB::table('transaction_documents')->where('id', '=', $doc_id)->first();
+			
+			if($docData)
+			{
+				$file= public_path(). "/".$docData->document_filename;
+				
+				/*$headers = array(
+						  'Content-Type: application/pdf',
+						);*/
+						
+				$document_filename = explode("/", $docData->document_filename);
+				$doc = array_pop($document_filename);
+
+				\DB::table('user_transaction_document')->insert(['user_id' => session()->get('esskay_trustee_user_id'), 'transaction_document_id' => $doc_id, 'download_date' => date('Y-m-d H:i:s'), 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+				
+				return response()->download($file, $doc);
+			}
 		}
 	}
 

@@ -102,6 +102,10 @@ Route::post('/saveContactTrustee', 'HomeController@saveContactTrustee');
 
 Route::any('/transactionCategory/{id}', 'HomeController@transactionCategory');
 
+// Trans Doc
+Route::get('/previewTransDocTrustee/{id}', 'HomeController@previewTransDocTrustee');
+Route::get('/downloadTransDocTrustee/{id}', 'HomeController@downloadTransDocTrustee');
+
 // Graph
 
 Route::any('/company_graph', 'HomeController@companyGraph');
