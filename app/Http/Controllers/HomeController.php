@@ -4509,7 +4509,7 @@ class HomeController extends Controller
 
 				if($report_type == 1)
 				{
-					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Executed Report')->where('transaction_document_type_id', '1')->where('transaction_id',$transaction_id)->get();
+					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Executed Report')->selectRaw('transaction_documents.*,transactions.name')->where('transaction_document_type_id', '1')->where('transaction_id',$transaction_id)->get();
 
 					if($termSheetDoc)
 					{
@@ -4565,7 +4565,7 @@ class HomeController extends Controller
 				}
 				else if($report_type == 2)
 				{
-					$monthlyJanDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '1')->where('transaction_id',$transaction_id)->get();
+					$monthlyJanDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '1')->selectRaw('transaction_documents.*,transactions.name')->where('transaction_id',$transaction_id)->get();
 
 					if($monthlyJanDoc)
 					{
@@ -4592,7 +4592,7 @@ class HomeController extends Controller
 						}
 					}
 
-					$monthlyFebDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '2')->where('transaction_id',$transaction_id)->get();
+					$monthlyFebDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '2')->selectRaw('transaction_documents.*,transactions.name')->where('transaction_id',$transaction_id)->get();
 
 					if($monthlyFebDoc)
 					{
@@ -4619,7 +4619,7 @@ class HomeController extends Controller
 						}
 					}
 
-					$monthlyMarDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '3')->where('transaction_id',$transaction_id)->get();
+					$monthlyMarDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '3')->selectRaw('transaction_documents.*,transactions.name')->where('transaction_id',$transaction_id)->get();
 
 					if($monthlyMarDoc)
 					{
@@ -4646,7 +4646,7 @@ class HomeController extends Controller
 						}
 					}
 
-					$monthlyAprDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '4')->where('transaction_id',$transaction_id)->get();
+					$monthlyAprDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '4')->selectRaw('transaction_documents.*,transactions.name')->where('transaction_id',$transaction_id)->get();
 
 					if($monthlyAprDoc)
 					{
@@ -4673,7 +4673,7 @@ class HomeController extends Controller
 						}
 					}
 
-					$monthlyMayDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '5')->where('transaction_id',$transaction_id)->get();
+					$monthlyMayDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '5')->selectRaw('transaction_documents.*,transactions.name')->where('transaction_id',$transaction_id)->get();
 
 					if($monthlyMayDoc)
 					{
@@ -4700,7 +4700,7 @@ class HomeController extends Controller
 						}
 					}
 
-					$monthlyJuneDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '6')->where('transaction_id',$transaction_id)->get();
+					$monthlyJuneDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '6')->selectRaw('transaction_documents.*,transactions.name')->where('transaction_id',$transaction_id)->get();
 
 					if($monthlyJuneDoc)
 					{
@@ -4727,7 +4727,7 @@ class HomeController extends Controller
 						}
 					}
 
-					$monthlyJulyDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '7')->where('transaction_id',$transaction_id)->get();
+					$monthlyJulyDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '7')->selectRaw('transaction_documents.*,transactions.name')->where('transaction_id',$transaction_id)->get();
 
 					if($monthlyJulyDoc)
 					{
@@ -4754,7 +4754,7 @@ class HomeController extends Controller
 						}
 					}
 
-					$monthlyAugDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '8')->where('transaction_id',$transaction_id)->get();
+					$monthlyAugDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '8')->selectRaw('transaction_documents.*,transactions.name')->where('transaction_id',$transaction_id)->get();
 
 					if($monthlyAugDoc)
 					{
@@ -4781,7 +4781,7 @@ class HomeController extends Controller
 						}
 					}
 
-					$monthlySepDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '9')->where('transaction_id',$transaction_id)->get();
+					$monthlySepDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '9')->selectRaw('transaction_documents.*,transactions.name')->where('transaction_id',$transaction_id)->get();
 
 					if($monthlySepDoc)
 					{
@@ -4808,7 +4808,7 @@ class HomeController extends Controller
 						}
 					}
 
-					$monthlyOctDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '10')->where('transaction_id',$transaction_id)->get();
+					$monthlyOctDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '10')->selectRaw('transaction_documents.*,transactions.name')->where('transaction_id',$transaction_id)->get();
 
 					if($monthlyOctDoc)
 					{
@@ -4835,7 +4835,7 @@ class HomeController extends Controller
 						}
 					}
 
-					$monthlyNovDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '11')->where('transaction_id',$transaction_id)->get();
+					$monthlyNovDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '11')->selectRaw('transaction_documents.*,transactions.name')->where('transaction_id',$transaction_id)->get();
 
 					if($monthlyNovDoc)
 					{
@@ -4862,7 +4862,7 @@ class HomeController extends Controller
 						}
 					}
 
-					$monthlyDecDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '12')->where('transaction_id',$transaction_id)->get();
+					$monthlyDecDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Monthly Payout Report')->where('document_date', $docu_date)->whereYear('expiry_date', $docu_date)->whereMonth('expiry_date', '12')->selectRaw('transaction_documents.*,transactions.name')->where('transaction_id',$transaction_id)->get();
 
 					if($monthlyDecDoc)
 					{
