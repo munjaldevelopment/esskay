@@ -1204,11 +1204,12 @@ class HomeController extends Controller
 		Setting::assignSetting();
 		
 		$customer_name = session()->get('esskay_verify');
+		$customer_name1 = session()->get('esskay_trustee_verify');
 		
 		$pageInfo = Page::getPageInfo(3);
 		$pageData = json_decode($pageInfo['extras']);
 		
-		if($customer_name)
+		if($customer_name || $customer_name1)
 		{
 			return redirect(url('/'));
 		}
