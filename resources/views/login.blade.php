@@ -161,7 +161,7 @@
 												<div class="user-login-icon">
 												<i class="fa fa-envelope"></i>
 												</div>
-												<input type="email" required id="email" class="form-control" name="email" placeholder="Your Email Address">
+												<input type="email" required id="signup_email" class="form-control" name="signup_email" placeholder="Your Email Address">
 											</div>
 										</div>
 									</div>
@@ -474,7 +474,7 @@ $(document).ready(function() {
 	
 	$('.btn-register').bind('click', function() {
 		var name = $("input[name=name]").val();
-		var email = $("input[name=email]").val();
+		var email = $("input[name=signup_email]").val();
 		var telephone = $("input[name=telephone]").val();
 		var organization = $("input[name=organization]").val();
 		var designation = $("input[name=designation]").val();
@@ -622,7 +622,7 @@ $(document).ready(function() {
 		}
 		
 		var name = $("input[name=name]").val();
-		var email = $("input[name=email]").val();
+		var email = $("input[name=signup_email]").val();
 		var telephone = $("input[name=telephone]").val();
 		var organization = $("input[name=organization]").val();
 		var designation = $("input[name=designation]").val();
