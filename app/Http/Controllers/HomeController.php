@@ -328,6 +328,7 @@ class HomeController extends Controller
 					}
 
 					$modelRole = \DB::table('model_has_roles')->where('model_id', $user_id)->first();
+					dd($modelRole);
 
 					$is_model = 0;
 					if($modelRole)
