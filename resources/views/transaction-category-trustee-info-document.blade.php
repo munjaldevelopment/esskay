@@ -40,7 +40,11 @@
 											<h4>{{ $row['document_name'] }} </h4>
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>
@@ -88,7 +92,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -132,7 +140,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -176,7 +188,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -220,7 +236,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -264,7 +284,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -308,7 +332,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -362,7 +390,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -406,7 +438,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -450,7 +486,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -494,7 +534,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -538,7 +582,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -582,7 +630,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -626,7 +678,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -670,7 +726,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -714,7 +774,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -758,7 +822,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -802,7 +870,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
@@ -846,7 +918,11 @@
 											<h4>{{ $row['document_name'] }} </h4>	
 											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
 										</div>
-										<div class="mtdd-doc-check"><img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt=""></div>
+										<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
+											@if($doc['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')

@@ -4468,34 +4468,36 @@ class HomeController extends Controller
 							{
 								$ext = "word";
 							}
+
+							$doc_download = \DB::table('user_transaction_document')->where('document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
 							
 							if($row->transaction_document_type_id == 1)
 							{
-								$termSheetDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);	
+								$termSheetDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);	
 							}
 							else if($row->transaction_document_type_id == 2)
 							{
-								$serviceAgreementDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+								$serviceAgreementDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 							}
 							else if($row->transaction_document_type_id == 3)
 							{
-								$accountAgreementDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+								$accountAgreementDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 							}
 							else if($row->transaction_document_type_id == 4)
 							{
-								$assignmentAgreementDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+								$assignmentAgreementDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 							}
 							else if($row->transaction_document_type_id == 5)
 							{
-								$trustDeedDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+								$trustDeedDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 							}
 							else if($row->transaction_document_type_id == 6)
 							{
-								$imDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+								$imDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 							}
 							else if($row->transaction_document_type_id == 7)
 							{
-								$anyotherDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+								$anyotherDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 							}
 						}
 					}
@@ -4523,7 +4525,9 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyJanDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$doc_download = \DB::table('user_transaction_document')->where('document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+
+							$monthlyJanDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 						}
 					}
 
@@ -4548,7 +4552,9 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyFebDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$doc_download = \DB::table('user_transaction_document')->where('document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+
+							$monthlyFebDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 						}
 					}
 
@@ -4573,7 +4579,9 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyMarDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$doc_download = \DB::table('user_transaction_document')->where('document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+
+							$monthlyMarDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 						}
 					}
 
@@ -4598,7 +4606,9 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyAprDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$doc_download = \DB::table('user_transaction_document')->where('document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+
+							$monthlyAprDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 						}
 					}
 
@@ -4623,7 +4633,9 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyMayDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$doc_download = \DB::table('user_transaction_document')->where('document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+
+							$monthlyMayDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 						}
 					}
 
@@ -4648,7 +4660,9 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyJuneDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$doc_download = \DB::table('user_transaction_document')->where('document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+
+							$monthlyJuneDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 						}
 					}
 
@@ -4673,7 +4687,9 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyJulyDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$doc_download = \DB::table('user_transaction_document')->where('document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+
+							$monthlyJulyDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 						}
 					}
 
@@ -4698,7 +4714,9 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyAugDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$doc_download = \DB::table('user_transaction_document')->where('document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+
+							$monthlyAugDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 						}
 					}
 
@@ -4723,7 +4741,9 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlySepDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$doc_download = \DB::table('user_transaction_document')->where('document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+
+							$monthlySepDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 						}
 					}
 
@@ -4748,7 +4768,9 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyOctDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$doc_download = \DB::table('user_transaction_document')->where('document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+
+							$monthlyOctDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 						}
 					}
 
@@ -4773,7 +4795,9 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyNovDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$doc_download = \DB::table('user_transaction_document')->where('document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+
+							$monthlyNovDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 						}
 					}
 
@@ -4798,7 +4822,9 @@ class HomeController extends Controller
 								$ext = "word";
 							}
 
-							$monthlyDecDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext);
+							$doc_download = \DB::table('user_transaction_document')->where('document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+
+							$monthlyDecDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
 						}
 					}
 				}
