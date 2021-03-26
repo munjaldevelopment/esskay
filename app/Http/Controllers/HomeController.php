@@ -328,7 +328,7 @@ class HomeController extends Controller
 					}
 
 					$modelRole = \DB::table('model_has_roles')->where('model_id', $user_id)->first();
-					
+
 
 					$is_model = 0;
 					if($modelRole)
@@ -417,6 +417,7 @@ class HomeController extends Controller
 		Setting::assignSetting();
 		
 		$customer_name = session()->get('esskay_name');
+		$customer_name1 = session()->get('esskay_trustee_name');
 		
 		$pageInfo = Page::getPageInfo(3);
 		$pageData = json_decode($pageInfo['extras']);
@@ -427,6 +428,14 @@ class HomeController extends Controller
 			
 			$user_otp = $checkRecord->user_otp;
 			return view('user_otp', ['customer_name' => $customer_name, 'user_otp' => $user_otp, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
+			
+		}
+		else if($customer_name1)
+		{
+			$checkRecord = \DB::table('users')->where(['email' => $customer_name1])->first();
+			
+			$user_otp = $checkRecord->user_otp;
+			return view('user_otp', ['customer_name' => $customer_name1, 'user_otp' => $user_otp, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
 			
 		}
 		else
