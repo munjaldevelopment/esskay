@@ -1478,6 +1478,7 @@ class HomeController extends Controller
 		else
 		{
 			$checkRecord = \DB::table('users')->where(['email' => session()->get('esskay_name')])->where(['user_otp' => $request->user_otp])->first();
+			$checkRecord1 = \DB::table('users')->where(['email' => session()->get('esskay_trustee_name')])->where(['user_otp' => $request->user_otp])->first();
 			
 			if($checkRecord)
 			{
@@ -1487,6 +1488,18 @@ class HomeController extends Controller
 				
 				session ( [
 					'esskay_verify' => '1'
+				] );
+				
+				return redirect(url('/'));
+			} 
+			else if($checkRecord1)
+			{
+				$user_otp = rand(111111, 999999);
+				$updateData = array('user_otp' => $user_otp, 'updated_at' => date('Y-m-d H:i:s'));
+				\DB::table('users')->where(['id' => $checkRecord1->id])->update($updateData);
+				
+				session ( [
+					'esskay_trustee_verify' => '1'
 				] );
 				
 				return redirect(url('/'));
