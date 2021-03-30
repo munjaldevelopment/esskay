@@ -2511,7 +2511,8 @@ h1.text-heading {
 }
 
 h1.login__content-title {
-	font-size: 2.525rem;
+	font-size: 2.425rem;
+	font-weight: 700;
     line-height: 52px;
     margin-bottom: 8px;
 	color: #202121;
