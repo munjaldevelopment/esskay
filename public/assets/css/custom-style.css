@@ -2507,6 +2507,9 @@ h1.text-heading {
 }
 
 h1.login__content-title {
+	font-size: 2.625rem;
+    line-height: 52px;
+    margin-bottom: 8px;
 	color: #202121;
 	letter-spacing: 0;
     margin: 0 0 16px;
