@@ -946,6 +946,14 @@
 		</div>
 	</div>
 </div>
+@else
+<div class="mtd-timeline-content">
+	<div class="border-title">	
+		<span>Lorem Ipsum is Dummy Text</span>
+	</div>
+
+	<div class="alert alert-warning">Coming soon</div>
+</div>
 @endif
 
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
