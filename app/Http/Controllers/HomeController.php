@@ -315,9 +315,9 @@ class HomeController extends Controller
 				}
 
 				// update otp
-				$user_otp = rand(111111, 999999);
+				/*$user_otp = rand(111111, 999999);
 				$updateData = array('user_otp' => $user_otp, 'updated_at' => date('Y-m-d H:i:s'));
-				\DB::table('users')->where(['id' => $user_id])->update($updateData);
+				\DB::table('users')->where(['id' => $user_id])->update($updateData);*/
 
 				$modelRole = \DB::table('model_has_roles')->where('model_id', $user_id)->first();
 
