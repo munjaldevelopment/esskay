@@ -57,7 +57,7 @@
 								<form class="log-in-form" action="{{ asset('/')}}saveLogin" method="post" name="loginForm">
 									{{ csrf_field() }}
 
-									<h1 class="text-heading" class="login__content-title">Login to Your Account</h1>
+									<h1 class="login__content-title">Login to Your Account</h1>
 									<div class="row">
 										<div class="col-md-12">
 											<div class="form-group">
