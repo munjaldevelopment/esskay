@@ -1867,7 +1867,8 @@
 	box-shadow: 0 12px 24px rgb(34 51 49 / 13%);
 	/*letter-spacing: 3px;*/
 	font-size: 15px;
-	padding: 11px 42px;
+	padding: 11px 82px;
+	font-weight: 700;
 	color: #1a1e1d;
 	border-radius: 30px;
 	/*text-transform: uppercase;*/
