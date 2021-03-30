@@ -3793,7 +3793,7 @@ class HomeController extends Controller
 
 		$dealCategoriesData = \DB::table('current_deal_categories')->leftJoin('current_deal_category_trustee', 'current_deal_category_trustee.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deal_category_trustee.trustee_id',$trustee_id)->where('status', '1')->get();
 
-		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_code')->get();
+		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_name')->get();
 		
 		return view('ess-kay-deal-trustee', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'trusteeData' => $trusteeData]);
 	}
