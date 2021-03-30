@@ -39,9 +39,9 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="fname-container form-group">
-											<div class="user-login-icon">   
+											<!--<div class="user-login-icon">   
 											<i class="fa fa-envelope"></i>
-											</div>
+											</div>-->
 											<input type="text" id="first_name" class="form-control" name="first_name" placeholder="Your First Name">
 										</div>  
 									</div>  
@@ -50,9 +50,9 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="lname-container form-group">
-											<div class="user-login-icon">   
+											<!--<div class="user-login-icon">   
 											<i class="fa fa-envelope"></i>
-											</div>
+											</div>-->
 											<input type="text" id="last_name" class="form-control" name="last_name" placeholder="Your Last Name">
 										</div>  
 									</div>  
@@ -61,9 +61,9 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="email-container form-group">
-											<div class="user-login-icon">   
+											<!--<div class="user-login-icon">   
 											<i class="fa fa-envelope"></i>
-											</div>
+											</div>-->
 											<input type="email" required id="email" class="form-control" name="email" placeholder="Your Email">
 										</div>  
 									</div>  
@@ -72,9 +72,9 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="telephone-container form-group">
-											<div class="user-login-icon">   
+											<!--<div class="user-login-icon">   
 											<i class="fa fa-envelope"></i>
-											</div>
+											</div>-->
 											<input type="tel" required id="telephone" maxlength="12" class="form-control" name="telephone" placeholder="Your Contact Number">
 										</div>  
 									</div>  
@@ -83,9 +83,9 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="message-container form-group">
-											<div class="user-login-icon">   
+											<!--<div class="user-login-icon">   
 											<i class="fa fa-envelope"></i>
-											</div>
+											</div>-->
 											<textarea required id="class" class="form-control-textarea resize-none" name="class" placeholder="Enter message"></textarea>
 										</div>  
 									</div>  
