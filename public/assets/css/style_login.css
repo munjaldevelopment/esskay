@@ -12233,7 +12233,7 @@ ul.nav.custome-navbread li a.active {
   border: none;
   box-shadow: none;
   outline: none;
-  border-radius: 0;
+  border-radius: 20px;
   padding: 11px 10px 11px 0;
   height: auto;
 }
