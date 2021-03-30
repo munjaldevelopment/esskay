@@ -293,7 +293,7 @@
 						<div class="row">  
 							<div class="col-md-12">
 								<div class="user-login-btn">
-									<button button type="submit" class="custom-btn btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in</button>
+									<button button type="submit" class="custom-btn btn"><i class="fa fa-sign-in d-none hide" aria-hidden="true"></i> Log in</button>
 								</div>
 							</div>  
 						</div>
@@ -346,7 +346,7 @@
 							<div class="row">  
 								<div class="col-md-12">
 									<div class="user-login-btn">
-									<button type="submit" class="custom-btn btn"><i class="fa fa-lock" aria-hidden="true"></i> Change Password</button>
+									<button type="submit" class="custom-btn btn"><i class="fa fa-lock d-none hide" aria-hidden="true"></i> Change Password</button>
 									</div>
 								</div>  
 							</div>
