@@ -1591,8 +1591,8 @@ class HomeController extends Controller
 					else if($modelRole->role_id == '11')
 					{
 						session ( [
-							'esskay_trustee_name' => $checkRecord1->email,
-							'esskay_trustee_user_id' => $checkRecord1->id,
+							'esskay_trustee_name' => $checkRecord->email,
+							'esskay_trustee_user_id' => $checkRecord->id,
 							'esskay_trustee_verify' => '1',
 							'role_id' => $modelRole->role_id
 						] );
