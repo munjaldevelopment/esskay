@@ -1857,9 +1857,8 @@
 	width: 68.5%;
 }
 .login_container .container-forms .container-info .info-item p {
-	font-size: 20px;
+	font-size: 18px;
 	margin: 20px;
-	font-weight: 700;
 }
 .login_container .container-forms .container-info .info-item .switch-btn.btn {
 	background-color: transparent;
