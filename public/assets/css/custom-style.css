@@ -2505,3 +2505,10 @@ h1.text-heading {
     letter-spacing: 0;
     font-weight: 700;
 }
+
+h1.login__content-title {
+	color: #202121;
+	letter-spacing: 0;
+    margin: 0 0 16px;
+    text-align: center;
+}
