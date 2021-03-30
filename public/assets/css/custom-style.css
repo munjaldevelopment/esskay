@@ -1862,13 +1862,14 @@
 	line-height: 36px;
 }
 .login_container .container-forms .container-info .info-item .switch-btn.btn {
-	background-color: transparent;
-	border: 1px solid #fff;
-	letter-spacing: 3px;
+	background: #fff;
+	border: none;
+	box-shadow: 0 12px 24px rgb(34 51 49 / 13%);
+	/*letter-spacing: 3px;*/
 	font-size: 15px;
 	padding: 11px 42px;
-	color: #fff;
-	border-radius: 100px;
+	color: #1a1e1d;
+	border-radius: 30px;
 	/*text-transform: uppercase;*/
 }
 .login_container .container-forms .container-info .info-item .table-cell {
@@ -2510,7 +2511,7 @@ h1.text-heading {
 }
 
 h1.login__content-title {
-	font-size: 2.625rem;
+	font-size: 2.525rem;
     line-height: 52px;
     margin-bottom: 8px;
 	color: #202121;
