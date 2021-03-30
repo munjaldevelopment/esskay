@@ -1564,8 +1564,8 @@ class HomeController extends Controller
 		}
 		else
 		{
-			$checkRecord = \DB::table('users')->where(['email' => session()->get('esskay_name')])->where(['user_otp' => $request->user_otp])->first();
-			$checkRecord1 = \DB::table('users')->where(['email' => session()->get('esskay_trustee_name')])->where(['user_otp' => $request->user_otp])->first();
+			$checkRecord = \DB::table('users')->where(['phone' => session()->get('login_phone_number')])->where(['user_otp' => $request->user_otp])->first();
+			$checkRecord1 = \DB::table('users')->where(['phone' => session()->get('login_phone_number')])->where(['user_otp' => $request->user_otp])->first();
 			
 			if($checkRecord)
 			{
