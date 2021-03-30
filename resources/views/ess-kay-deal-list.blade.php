@@ -16,7 +16,7 @@
 					</thead>
 					<tbody>
 						@foreach($dealsData as $k => $row)
-						<tr>
+						<tr class="blog-item post-row-{{ strtolower($row->category_name) }}">
 							<td>
 							<a href="">
 							<div class="deal-list-info">  
