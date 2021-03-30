@@ -149,6 +149,23 @@
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
 <script src="{{ asset('public/assets/') }}/js/owl.carousel.js"></script>	
 <script> 
+	function clearAllDeal()
+	{
+		$('.blog-item').show();
+	}
+	
+	function showDealCategoryData(cat_name)
+	{
+		$('.blog-item').hide();
+		
+		//alert(cat_name);
+		
+		if($('.blog-item').hasClass('post-row-'+cat_name))
+		{
+			$('.post-row-'+cat_name).show();
+		}
+	}
+	
 $(document).ready(function(){
 	$('#carousel0').swiper({
 		mode: 'horizontal',
