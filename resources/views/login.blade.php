@@ -270,9 +270,9 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<div class="user-login-icon">   
+									<!--<div class="user-login-icon">   
 									  <i class="fa fa-phone-square"></i>
-									</div>
+									</div>-->
 									<input type="tel" id="phone" class="form-control" name="phone" placeholder="Your Contact Number">
 								</div>  
 							</div>  
@@ -323,9 +323,9 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<div class="user-login-icon">   
+										<!--<div class="user-login-icon">   
 										<i class="fa fa-phone-square"></i>
-										</div>
+										</div>-->
 										<input type="text" oninput="numberOnly(this.id);" id="telephone" maxlength="10" required id="phone" class="form-control" name="phone" placeholder="Your Contact Number">
 									</div>  
 								</div>  

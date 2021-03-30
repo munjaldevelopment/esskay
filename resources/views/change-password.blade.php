@@ -61,9 +61,9 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="userotp-container form-group">
-												<div class="user-login-icon">   
+												<!--<div class="user-login-icon">   
 												<i class="fa fa-envelope"></i>
-												</div>
+												</div>-->
 												<input type="text" maxlength="6" required name="user_otp" class="form-control" placeholder="User OTP*">
 											</div>  
 										</div>  
@@ -72,9 +72,9 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="password-container form-group">
-												<div class="user-login-icon">   
+												<!--<div class="user-login-icon">   
 												<i class="fa fa-envelope"></i>
-												</div>
+												</div>-->
 												<input type="password" required name="password" class="form-control" placeholder="Password">
 											</div>  
 										</div>  
@@ -83,9 +83,9 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="confirm-container form-group">
-												<div class="user-login-icon">   
+												<!--<div class="user-login-icon">   
 												<i class="fa fa-envelope"></i>
-												</div>
+												</div>-->
 												<input type="password" required name="password_confirmation" class="form-control" placeholder="Confirm Password">
 											</div>  
 										</div>  
