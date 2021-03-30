@@ -510,7 +510,7 @@ class HomeController extends Controller
 		
 		if($customer_name)
 		{
-			$checkRecord = \DB::table('users')->where(['telephone' => $customer_name])->first();
+			$checkRecord = \DB::table('users')->where(['phone' => $customer_name])->first();
 			
 			$user_otp = $checkRecord->user_otp;
 			return view('user_otp', ['customer_name' => $customer_name, 'user_otp' => $user_otp, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
@@ -518,7 +518,7 @@ class HomeController extends Controller
 		}
 		else if($customer_name1)
 		{
-			$checkRecord = \DB::table('users')->where(['telephone' => $customer_name])->first();
+			$checkRecord = \DB::table('users')->where(['phone' => $customer_name])->first();
 			
 			$user_otp = $checkRecord->user_otp;
 			return view('user_otp', ['customer_name' => $customer_name1, 'user_otp' => $user_otp, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
