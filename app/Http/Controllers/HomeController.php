@@ -310,9 +310,14 @@ class HomeController extends Controller
 						\DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $user->phone, 'send_subject' => 'User OTP', 'send_message' => $message, 'is_deliver' => '1']);
 					} else {
 						Session::flash ( 'message', "Error in sending message. Please re-try" );
-						return Redirect::back ();
+						return 0;
 					}
 				}
+
+				// update otp
+				$user_otp = rand(111111, 999999);
+				$updateData = array('user_otp' => $user_otp, 'updated_at' => date('Y-m-d H:i:s'));
+				\DB::table('users')->where(['id' => $user_id])->update($updateData);
 
 				$modelRole = \DB::table('model_has_roles')->where('model_id', $user_id)->first();
 
