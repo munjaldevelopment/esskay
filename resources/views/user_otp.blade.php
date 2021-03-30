@@ -104,10 +104,6 @@
 	.swal-text {
 		font-size: 20px;
 	}
-	
-	.register-result {
-		color: #000000;
-	}
 	a.fxt-btn-fill.float-right {
     	position: relative;
         top: -35px;
@@ -126,7 +122,7 @@ $(document).ready(function() {
 	$('.send-otp').bind('click', function() {
 		$.ajax({
 			url: base_url+'saveResendLoginOtp',
-			type: 'get',
+			type: 'post',
 			beforeSend: function() {
 			},
 			success: function(output) {
