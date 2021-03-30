@@ -1790,7 +1790,7 @@
 }
 /*login css start*/
 .login-main-area {
-	background: linear-gradient( 270deg, #f5f6ff 31.59%, #FFFFFF 100%);
+	background-image: linear-gradient(253deg,#3ba5b4 0,#38ba8a 100%);
 	height: calc(100vh);
 	position: relative;
 }
