@@ -2049,15 +2049,18 @@
 	margin-bottom: 34px;
 }
 .user-login-btn .custom-btn.btn {
-	background: #3ab19b;
+	background-color: #39ab90;
+	border-radius: 30px;
+    outline: 0;
+    border: none;
+    cursor: pointer;
 	color: #fff;
 	padding: 11px 42px;
-	letter-spacing: 3px;
+	/*letter-spacing: 3px;*/
 	width: auto;
 	margin: 0 auto;
 	display: table;
 	/*text-transform: uppercase;*/
-	border-radius: 100px;
 }
 
 .user-login-btn .custom-btn1.btn {
