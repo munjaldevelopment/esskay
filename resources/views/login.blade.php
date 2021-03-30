@@ -1,5 +1,5 @@
 @include('common.header_login')
-  
+
 <div class="login-main-area">
 	<div class="login_container">
 		<div class="container-forms">
@@ -127,6 +127,19 @@
 										</div>  
 									</div>
 								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="info-item info-item-signup info-signup-mobile">
+					<div class="login_container_table">
+						<div class="login_container_table-cell">
+							<p>
+							  Don't have an account?
+							</p>
+							<div class="switch-btn btn">
+							  Sign up
 							</div>
 						</div>
 					</div>
