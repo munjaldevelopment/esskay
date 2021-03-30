@@ -100,6 +100,21 @@
 <!-- Custom Js -->
 <script src="{{ asset('public/assets/') }}/js/main.js"></script>
 
+<style>
+	.swal-text {
+		font-size: 20px;
+	}
+	
+	.register-result {
+		color: #000000;
+	}
+	a.fxt-btn-fill.float-right {
+    	position: relative;
+        top: -35px;
+	    right: -28%;
+	}
+</style>
+
 <script>
 
 $(document).ready(function() {
