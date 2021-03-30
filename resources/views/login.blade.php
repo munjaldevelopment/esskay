@@ -160,17 +160,17 @@
 									<div class="row">
 										<div class="col-md-6">
 											<div class="form-group name-container">
-												<div class="user-login-icon">
+												<!--<div class="user-login-icon">
 												<i class="fa fa-user"></i>
-												</div>
+												</div>-->
 												<input type="text" required id="name" class="form-control" name="name" placeholder="Name">
 											</div>
 										</div> 
 										<div class="col-md-6">
 											<div class="email-container form-group">
-												<div class="user-login-icon">
+												<!--<div class="user-login-icon">
 												<i class="fa fa-envelope"></i>
-												</div>
+												</div>-->
 												<input type="email" required id="signup_email" class="form-control" name="signup_email" placeholder="Your Email Address">
 											</div>
 										</div>
@@ -179,18 +179,18 @@
 									<div class="row">
 										<div class="col-md-6">
 											<div class="telephone-container form-group">
-											<div class="user-login-icon">   
+											<!--<div class="user-login-icon">   
 											<i class="fa fa-phone-square"></i>
-											</div>
+											</div>-->
 											<input type="text" oninput="numberOnly(this.id);" id="telephone" required id="telephone" class="form-control" maxlength="10" name="telephone" placeholder="Phone">
 											</div>  
 										</div>  
 
 										<div class="col-md-6">
 											<div class="organization-container form-group">
-												<div class="user-login-icon">   
+												<!--<div class="user-login-icon">   
 												<i class="fa fa-building"></i>
-												</div>
+												</div>-->
 												<input type="text" required id="organization" class="form-control" name="organization" placeholder="Organization">
 											</div>  
 										</div>  
@@ -199,18 +199,18 @@
 									<div class="row">
 										<div class="col-md-6">
 											<div class="designation-container form-group">
-												<div class="user-login-icon">   
+												<!--<div class="user-login-icon">   
 												<i class="fa fa-database"></i>
-												</div>
+												</div>-->
 												<input type="text" required id="designation" class="form-control" name="designation" placeholder="Designation">
 											</div>  
 										</div>
 
 										<div class="col-md-6">
 											<div class="message-container form-group textarea-user-icon">
-												<div class="user-login-icon">   
+												<!--<div class="user-login-icon">   
 												<i class="fa fa-comment"></i>
-												</div>
+												</div>-->
 												<textarea required id="message" class="form-control-textarea resize-none" name="message" placeholder="Enter message"></textarea>
 											</div>
 										</div>  
