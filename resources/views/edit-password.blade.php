@@ -60,9 +60,9 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="userotp-container form-group">
-												<div class="user-login-icon">   
+												<!--<div class="user-login-icon">   
 												<i class="fa fa-envelope"></i>
-												</div>
+												</div>-->
 												<input type="text" maxlength="6" required name="user_otp" class="form-control" placeholder="User OTP*">
 												<a href="javascript:;" class="fxt-btn-fill send-otp float-right">Send OTP</a>
 											</div>  
@@ -72,9 +72,9 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="password-container form-group">
-												<div class="user-login-icon">   
+												<!--<div class="user-login-icon">   
 												<i class="fa fa-envelope"></i>
-												</div>
+												</div>-->
 												<input type="password" required name="password" readonly="" class="user-password form-control" placeholder="Password">
 											</div>  
 										</div>  
