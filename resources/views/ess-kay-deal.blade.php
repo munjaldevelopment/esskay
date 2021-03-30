@@ -90,7 +90,7 @@
 							<div class="well well-sm">
 								<div class="deal-wall-left">
 									<ul>
-										<li class="active"><a href="">ALL</a></li>
+										<li class="active"><a href="javascript:;">ALL</a></li>
 										@foreach($dealCategoriesData as $row)
 										<li><a href="javascript:;">{{ $row->category_name }}</a></li>
 										@endforeach
