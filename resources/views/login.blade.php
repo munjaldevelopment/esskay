@@ -7,7 +7,7 @@
 				<div class="info-item info-item-login">
 					<div class="login_container_table">
 					<div class="login_container_table-cell">
-						<p>One Of Us?</p>
+						<h1 class="text-heading">One Of Us?</h1>
 					<p>
 					  If you already have an account, just sign in. We've missed you!
 					</p>
@@ -20,7 +20,7 @@
 				<div class="info-item info-item-signup">
 					<div class="login_container_table">
 					<div class="login_container_table-cell">
-						<p>New Here?</p>
+						<h1 class="text-heading">New Here?</h1>
 					<p>
 					  Sign up and discover a great amount of new opportunities!
 					</p>
@@ -57,7 +57,7 @@
 								<form class="log-in-form" action="{{ asset('/')}}saveLogin" method="post" name="loginForm">
 									{{ csrf_field() }}
 
-									<h1 class="login__content-title">Login to Your Account</h1>
+									<h1 class="text-heading" class="login__content-title">Login to Your Account</h1>
 									<div class="row">
 										<div class="col-md-12">
 											<div class="form-group">
@@ -139,7 +139,7 @@
 				<div class="info-item info-item-signup info-signup-mobile">
 					<div class="login_container_table">
 						<div class="login_container_table-cell">
-							<p>New Here?</p>
+							<h1 class="text-heading">New Here?</h1>
 							<p>
 							  Sign up and discover a great amount of new opportunities!
 							</p>
@@ -161,7 +161,7 @@
 								<form class="log-in-form" action="{{ asset('/')}}saveUserOTP" method="post" name="loginForm" >
 
 									{{ csrf_field() }}
-									<h1>Create Free Account</h1>
+									<h1 class="text-heading">Create Free Account</h1>
 
 									<div class="row">
 										<div class="col-md-6">
