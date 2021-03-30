@@ -99,7 +99,7 @@
 
 											<p class="text-center">This site is protected by reCAPTCHA</p>
 
-											<p class="text-center">Don't have an account?<a href="{{ asset('/')}}login" class="switcher-text">Register</a></p>
+											<!--<p class="text-center">Don't have an account?<a href="{{ asset('/')}}login" class="switcher-text">Register</a></p>-->
 										</div>  
 									</div>
 								</form>
