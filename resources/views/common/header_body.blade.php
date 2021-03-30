@@ -30,7 +30,7 @@
 	<script src="{{ asset('public/assets/') }}/js/swiper.jquery.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/custom.js"></script>
 	
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/sweetalert.min.js"></script>
 	
 	<script src="{{ asset('public/assets/') }}/js/highcharts.js"></script>
 	<script src="//code.highcharts.com/modules/series-label.js"></script>
