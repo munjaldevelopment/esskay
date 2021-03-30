@@ -1579,6 +1579,8 @@ class HomeController extends Controller
 					'esskay_verify' => '1',
 					'role_id' => $checkRecord->role_id
 				] );
+
+				session()->forget('login_phone_number');
 				
 				return redirect(url('/'));
 			} 
@@ -1594,6 +1596,8 @@ class HomeController extends Controller
 					'esskay_trustee_verify' => '1',
 					'role_id' => $checkRecord1->role_id
 				] );
+
+				session()->forget('login_phone_number');
 				
 				return redirect(url('/'));
 			} else {
