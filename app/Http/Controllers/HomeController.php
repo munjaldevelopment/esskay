@@ -1573,11 +1573,13 @@ class HomeController extends Controller
 				$updateData = array('user_otp' => $user_otp, 'updated_at' => date('Y-m-d H:i:s'));
 				\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
 
+				$modelRole = \DB::table('model_has_roles')->where('model_id', $checkRecord->id)->first();
+
 				session ( [
 					'esskay_name' => $checkRecord->email,
 					'esskay_user_id' => $checkRecord->id,
 					'esskay_verify' => '1',
-					'role_id' => $checkRecord->role_id
+					'role_id' => $modelRole->role_id
 				] );
 
 				session()->forget('login_phone_number');
@@ -1589,12 +1591,14 @@ class HomeController extends Controller
 				$user_otp = rand(111111, 999999);
 				$updateData = array('user_otp' => $user_otp, 'updated_at' => date('Y-m-d H:i:s'));
 				\DB::table('users')->where(['id' => $checkRecord1->id])->update($updateData);
+
+				$modelRole = \DB::table('model_has_roles')->where('model_id', $checkRecord1->id)->first();
 				
 				session ( [
 					'esskay_trustee_name' => $checkRecord1->email,
 					'esskay_trustee_user_id' => $checkRecord1->id,
 					'esskay_trustee_verify' => '1',
-					'role_id' => $checkRecord1->role_id
+					'role_id' => $modelRole->role_id
 				] );
 
 				session()->forget('login_phone_number');
