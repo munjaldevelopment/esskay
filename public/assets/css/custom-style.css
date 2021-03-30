@@ -2118,6 +2118,11 @@
 }
 
 
+.info-item.info-item-signup.info-signup-mobile{
+    display: none;
+}
+
+
 @media only screen and (max-width: 1366px) {
 .login-logo img {
 	height: 65px;
@@ -2213,6 +2218,9 @@
 }
 
 @media only screen and (max-width: 767px) {
+.login-main-area {
+    padding: 0 0 20px 0;
+}
 .about-testimonial-area, .about-video-area {
     padding: 0 15px;
 }	
@@ -2263,6 +2271,50 @@
 }
 
 @media only screen and (max-width: 639px) {
+.info-item.info-item-signup.info-signup-mobile {
+    display: block !important;
+}	
+	
+.info-item.info-item-signup.info-signup-mobile {
+    display: block !important;
+    background-image: linear-gradient( 
+0deg
+ , rgba(58,175,157,1) 0%, rgba(58,169,171,1) 100%);
+    border-radius: 0;
+    text-align: center;
+}
+	
+.info-item.info-item-signup.info-signup-mobile .login_container_table-cell p {
+    font-size: 20px;
+    margin: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+	
+.info-item.info-item-signup.info-signup-mobile .switch-btn.btn {
+    background-color: transparent;
+    border: 1px solid #fff;
+    letter-spacing: 3px;
+    font-size: 15px;
+    padding: 11px 42px;
+    color: #fff;
+    border-radius: 100px;
+    text-transform: uppercase;
+}	
+	
+.login_container.log-in .info-item.info-item-signup.info-signup-mobile {
+    display: none !important;
+}	
+	
+.info-item.info-item-signup {
+    display: none !important;
+}
+	
+.login_container.log-in {
+    background-image: linear-gradient( 
+0deg
+, rgba(58,175,157,1) 0%, rgba(58,169,171,1) 100%);
+}	
 .forgot-password a, .login-phone a {
 	font-size: 14px;
 }

@@ -203,7 +203,7 @@ class OperationalHighlightCrudController extends CrudController
         $this->setupCreateOperation();
     }
 
-	public function store()
+	 public function store()
     {
       	$this->crud->setRequest($this->crud->validateRequest());
         //$this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));

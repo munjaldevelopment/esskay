@@ -467,6 +467,10 @@ $(document).ready(function() {
 		}
 	});
 
+	$(".info-item .btn").click(function(){
+  		$(".login_container").toggleClass("log-in");
+	});	
+
 	
 	var base_url = $('base').attr('href');
 	
