@@ -165,7 +165,7 @@ $(document).ready(function() {
 		});
 	});
 
-	@if($transactionLiveData)
+	@if(isset($transactionLiveData[0]))
 	$('.transaction-content-container{{ $transactionLiveData[0]->id }}').trigger('click');
 	@endif
 });
