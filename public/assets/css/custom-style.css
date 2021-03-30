@@ -1859,6 +1859,7 @@
 .login_container .container-forms .container-info .info-item p {
 	font-size: 18px;
 	margin: 10px 0px;
+	line-height: 36px;
 }
 .login_container .container-forms .container-info .info-item .switch-btn.btn {
 	background-color: transparent;
