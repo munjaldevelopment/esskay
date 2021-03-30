@@ -57,9 +57,9 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="form-group">
-												<div class="user-login-icon">   
+												<!--<div class="user-login-icon">   
 												<i class="fa fa-envelope"></i>
-												</div>
+												</div>-->
 												<input type="text" maxlength="6" required id="user_otp" class="form-control" name="user_otp" placeholder="Please enter OTP">
 											</div>  
 										</div>  
