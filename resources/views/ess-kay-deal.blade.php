@@ -90,9 +90,9 @@
 							<div class="well well-sm">
 								<div class="deal-wall-left">
 									<ul>
-										<li class="active"><a href="javascript:;">ALL</a></li>
+										<li class="active"><a onclick="clearAllDeal();" href="javascript:;">ALL</a></li>
 										@foreach($dealCategoriesData as $row)
-										<li><a href="javascript:;">{{ $row->category_name }}</a></li>
+										<li><a href="javascript:;" onclick="showDealCategoryData('{{ strtolower($row->category_name) }}');">{{ $row->category_name }}</a></li>
 										@endforeach
 									</ul>
 								</div>
@@ -109,7 +109,7 @@
 								<div class="deal-product-grid">
 									<div class="row">
 										@foreach($dealsData as $k => $row)
-										<div class="col-md-4 col-sm-12">
+										<div class="blog-item col-md-4 col-sm-12 post-row-{{ strtolower($row->category_name) }}">
 											<div class="deal-product-box @if(($k % 3 == 1)) dpx-green @elseif(($k % 3 == 2)) dpx-yellow @endif">
 												<div class="deal-product-category">
 													<div class="dpc-cate-text">{{ $row->category_code }}</div>
@@ -149,6 +149,23 @@
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
 <script src="{{ asset('public/assets/') }}/js/owl.carousel.js"></script>	
 <script> 
+	function clearAllDeal()
+	{
+		$('.blog-item').show();
+	}
+	
+	function showDealCategoryData(cat_name)
+	{
+		$('.blog-item').hide();
+		
+		//alert(cat_name);
+		
+		if($('.blog-item').hasClass('post-row-'+cat_name))
+		{
+			$('.post-row-'+cat_name).show();
+		}
+	}
+
 $(document).ready(function(){
 	$('#carousel0').swiper({
 		mode: 'horizontal',
