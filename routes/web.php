@@ -21,6 +21,8 @@ Route::post('saveLogin', 'HomeController@saveLogin');
 Route::get('/login-otp', 'HomeController@loginOtp');
 Route::post('saveLoginOtp', 'HomeController@saveLoginOtp');
 
+Route::post('saveResendLoginOtp', 'HomeController@saveResendLoginOtp');
+
 
 Route::get('/forgot-password', 'HomeController@forgotPassword');
 Route::post('saveForgot', 'HomeController@saveForgot');

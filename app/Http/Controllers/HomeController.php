@@ -280,6 +280,96 @@ class HomeController extends Controller
 		}
 	}
 
+	
+	public function saveResendLoginOtp(Request $request)
+    {
+    	$login_phone_number = session()->get('login_phone_number');
+    	$checkRecord = \DB::table('users')->where(['phone' => $login_phone_number, 'user_status' => '1'])->first();
+				
+		if($checkRecord)
+		{
+			$user_id = $checkRecord->id;
+			
+			$user = User::findOrFail($user_id);
+			if($user) {
+				// Find User ID
+				backpack_auth()->login($user);
+				
+				$sms_status = config('general.sms_status');
+				
+				if($sms_status)
+				{
+					$message = str_replace(" ", "%20", "Dear ".$user->name.", please use this OTP ".$user->user_otp." to login");
+					
+					$request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$user->phone."&message=".$message."&sender=EssKay&route=4&country=0";
+					$result = $this->getContent($request_url);
+					
+					
+					if($result['errno'] == 0)
+					{
+						\DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $user->phone, 'send_subject' => 'User OTP', 'send_message' => $message, 'is_deliver' => '1']);
+					} else {
+						Session::flash ( 'message', "Error in sending message. Please re-try" );
+						return Redirect::back ();
+					}
+				}
+
+				$modelRole = \DB::table('model_has_roles')->where('model_id', $user_id)->first();
+
+				$is_model = 0;
+				if($modelRole)
+				{
+					if($modelRole->role_id == '4')
+					{
+						$is_model = 1;							
+					}
+					else if($modelRole->role_id == '11')
+					{
+						$is_model = 1;
+					}
+				}
+
+				$agent = new Agent();
+				$browser = $agent->browser();
+				$version = $agent->version($browser);
+				
+				$desktop = $agent->isDesktop();
+				$mobile = $agent->isMobile();
+				$tablet = $agent->isTablet();
+				
+				$device_type = "";
+				if($desktop == 1)
+				{
+					$device_type = "Desktop";
+				}
+				else if($mobile == 1)
+				{
+					$device_type = "Mobile";
+				}
+				else if($tablet == 1)
+				{
+					$device_type = "Tablet";
+				}
+				
+				//\DB::table('user_login')->insert(['user_id' => $user_id, 'user_ip' => $request->ip(), 'user_browser' => $browser." ".$version, 'device_type' => $device_type, 'login_type' => 'phone', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+
+				if($is_model == 1)
+				{
+					return 1;
+				} else {
+					Session::flash ( 'message', "Something went wrong or you do not have permission to access this page." );
+					return 0;
+				}
+			} else {
+				Session::flash ( 'message', "Invalid Credentials, Please try again." );
+				return 0;
+			}
+		} else {
+			Session::flash ( 'message', "Phone Number not exists or not activated yet. Please try again." );
+			return 0;
+		}
+	}
+
 	public function saveLoginOTP(Request $request)
     {
 		// TO DO
@@ -329,29 +419,20 @@ class HomeController extends Controller
 
 					$modelRole = \DB::table('model_has_roles')->where('model_id', $user_id)->first();
 
+					session ( [
+						'login_phone_number' => $request->phone
+					] );
 
 					$is_model = 0;
 					if($modelRole)
 					{
 						if($modelRole->role_id == '4')
 						{
-							$is_model = 1;
-							session ( [
-								'esskay_name' => $checkRecord->email,
-								'esskay_user_id' => $user_id,
-								'esskay_verify' => '1',
-								'role_id' => $modelRole->role_id
-							] );
+							$is_model = 1;							
 						}
 						else if($modelRole->role_id == '11')
 						{
 							$is_model = 1;
-							session ( [
-								'esskay_trustee_name' => $checkRecord->email,
-								'esskay_trustee_user_id' => $user_id,
-								'esskay_trustee_verify' => '1',
-								'role_id' => $modelRole->role_id
-							] );
 						}
 					}
 
@@ -1486,9 +1567,12 @@ class HomeController extends Controller
 				$user_otp = rand(111111, 999999);
 				$updateData = array('user_otp' => $user_otp, 'updated_at' => date('Y-m-d H:i:s'));
 				\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
-				
+
 				session ( [
-					'esskay_verify' => '1'
+					'esskay_name' => $checkRecord->email,
+					'esskay_user_id' => $checkRecord->id,
+					'esskay_verify' => '1',
+					'role_id' => $checkRecord->role_id
 				] );
 				
 				return redirect(url('/'));
@@ -1500,7 +1584,10 @@ class HomeController extends Controller
 				\DB::table('users')->where(['id' => $checkRecord1->id])->update($updateData);
 				
 				session ( [
-					'esskay_trustee_verify' => '1'
+					'esskay_trustee_name' => $checkRecord1->email,
+					'esskay_trustee_user_id' => $checkRecord1->id,
+					'esskay_trustee_verify' => '1',
+					'role_id' => $checkRecord1->role_id
 				] );
 				
 				return redirect(url('/'));

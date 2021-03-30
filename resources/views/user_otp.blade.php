@@ -61,6 +61,7 @@
 												<i class="fa fa-envelope"></i>
 												</div>-->
 												<input type="text" maxlength="6" required id="user_otp" class="form-control" name="user_otp" placeholder="Please enter OTP">
+												<a href="javascript:;" class="fxt-btn-fill send-otp float-right">Resend OTP</a>
 											</div>  
 										</div>  
 									</div>
@@ -98,5 +99,27 @@
 <script src="{{ asset('public/assets/') }}/js/validator.min.js"></script>
 <!-- Custom Js -->
 <script src="{{ asset('public/assets/') }}/js/main.js"></script>
+
+<script>
+
+$(document).ready(function() {
+	
+	var base_url = $('base').attr('href');
+	
+	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+	$('.send-otp').bind('click', function() {
+		$.ajax({
+			url: base_url+'saveResendLoginOtp',
+			type: 'get',
+			beforeSend: function() {
+			},
+			success: function(output) {
+				$('.send-otp').html('Resend OTP');
+			}
+		});
+	});
+});
+</script>
 
 @include('common.footer_body')
