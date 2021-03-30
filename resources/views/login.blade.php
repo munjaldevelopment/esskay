@@ -158,18 +158,15 @@
 									{{ csrf_field() }}
 
 									<div class="row">
-										<div class="col-md-12">
+										<div class="col-md-6">
 											<div class="form-group name-container">
 												<div class="user-login-icon">
 												<i class="fa fa-user"></i>
 												</div>
 												<input type="text" required id="name" class="form-control" name="name" placeholder="Name">
 											</div>
-										</div>  
-									</div>
-
-									<div class="row">
-										<div class="col-md-12">
+										</div> 
+										<div class="col-md-6">
 											<div class="email-container form-group">
 												<div class="user-login-icon">
 												<i class="fa fa-envelope"></i>
@@ -180,18 +177,16 @@
 									</div>
 
 									<div class="row">
-										<div class="col-md-12">
-										<div class="telephone-container form-group">
-										<div class="user-login-icon">   
-										<i class="fa fa-phone-square"></i>
-										</div>
-										<input type="text" oninput="numberOnly(this.id);" id="telephone" required id="telephone" class="form-control" maxlength="10" name="telephone" placeholder="Phone">
+										<div class="col-md-6">
+											<div class="telephone-container form-group">
+											<div class="user-login-icon">   
+											<i class="fa fa-phone-square"></i>
+											</div>
+											<input type="text" oninput="numberOnly(this.id);" id="telephone" required id="telephone" class="form-control" maxlength="10" name="telephone" placeholder="Phone">
+											</div>  
 										</div>  
-										</div>  
-									</div>
 
-									<div class="row">
-										<div class="col-md-12">
+										<div class="col-md-6">
 											<div class="organization-container form-group">
 												<div class="user-login-icon">   
 												<i class="fa fa-building"></i>
