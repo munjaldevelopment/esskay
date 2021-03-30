@@ -2110,11 +2110,18 @@
     font-size: 13px;
 }
 
-.login-main-box {
+.log-in .login-main-box {
     width: 100%;
     margin: 0 auto;
     display: table;
     max-width: 460px;
+}
+
+.sign-up .login-main-box {
+    width: 100%;
+    margin: 0 auto;
+    display: table;
+    max-width: 690px;
 }
 
 
