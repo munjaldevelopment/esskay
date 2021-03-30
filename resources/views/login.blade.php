@@ -197,18 +197,16 @@
 									</div>
 
 									<div class="row">
-										<div class="col-md-12">
+										<div class="col-md-6">
 											<div class="designation-container form-group">
 												<div class="user-login-icon">   
 												<i class="fa fa-database"></i>
 												</div>
 												<input type="text" required id="designation" class="form-control" name="designation" placeholder="Designation">
 											</div>  
-										</div>  
-									</div>
+										</div>
 
-									<div class="row">
-										<div class="col-md-12">
+										<div class="col-md-6">
 											<div class="message-container form-group textarea-user-icon">
 												<div class="user-login-icon">   
 												<i class="fa fa-comment"></i>
