@@ -53,6 +53,7 @@
 
 				<div class="side-body">
 					<div class="transaction-container">
+						<div class="alert alert-warning">There are no transaction in this category.</div>
 					</div>
 				</div>
 			</div>
