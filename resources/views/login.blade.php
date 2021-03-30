@@ -57,9 +57,9 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="form-group">
-												<div class="user-login-icon">   
+												<!--<div class="user-login-icon">   
 												<i class="fa fa-envelope"></i>
-												</div>
+												</div>-->
 												<input type="email" id="email" class="form-control" name="email" placeholder="Your Email Address">
 											</div>  
 										</div>  
@@ -68,9 +68,9 @@
 									<div class="row">  
 										<div class="col-md-12">
 											<div class="form-group password-login-box">
-												<div class="user-login-icon">   
+												<!--<div class="user-login-icon">   
 												<i class="fa fa-key"></i>
-												</div>
+												</div>-->
 												<input id="password" type="password" class="form-control" name="password" placeholder="Your Password">
 												<div class="user-password-icon">   
 												<i toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></i>
