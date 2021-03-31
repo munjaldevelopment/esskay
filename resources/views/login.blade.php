@@ -113,7 +113,7 @@
 										<div class="col-md-12">
 											<div class="checkbox">
 												<label>
-													<input type="checkbox" name="agree_login" value="check" id="agree_login" />
+													<input type="checkbox" name="agree_login" value="check" class="agree_login" id="agree_login" />
 													<span class="cr"><i class="cr-icon fa fa-check"></i></span>
 													<span class="check-content">I have read and agree to the <a href="{{ asset('/')}}uploads/page/terms-conditions.pdf" target="_blank">Terms and Conditions</a> & <a href="{{ asset('/')}}uploads/page/disclaimer.pdf" target="_blank">Disclaimer</a></span>
 												</label>
@@ -124,7 +124,7 @@
 									<div class="row">  
 										<div class="col-md-12">
 											<div class="user-login-btn">
-											<button type="submit" class="custom-btn btn"><i class="fa fa-sign-in d-none hide" aria-hidden="true"></i> Sign in</button>
+											<button type="submit" disabled="" class="login-btn custom-btn btn"><i class="fa fa-sign-in d-none hide" aria-hidden="true"></i> Sign in</button>
 											</div>
 
 											<p class="text-center">This site is protected by reCAPTCHA</p>
@@ -465,6 +465,22 @@ $(".info-item .btn").click(function(){
 	}
 
 $(document).ready(function() {
+
+	$(".agree_login").change(function() {
+	    if(this.checked) {
+	        //Do stuff
+	        var login = $('#email').val();
+	        var password = $('#password').val();
+
+	        alert(login);
+	        alert(password);
+
+	        if(login != "" && password != "")
+	        {
+	        	$('.login-btn').removeAttr('disabled');
+	        }
+	    }
+	});
 
 	$('.toggle-password').on('click', function() {
 		$(this).toggleClass('fa-eye fa-eye-slash');
