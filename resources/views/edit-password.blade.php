@@ -97,10 +97,14 @@
 												<button disabled type="button" class="btn-change submit-btn custom-btn1 btn fxt-btn-fill"><i class="fa fa-sign-in" aria-hidden="true"></i> Verify </button>
 												<a href="{{ asset('/')}}" class="custom-btn1 btn fxt-btn-fill">Back</a>
 											</div>
+										</div>
+									</div>
 
+									<div class="row">  
+										<div class="col-md-12">
 											<p class="text-center">This site is protected by reCAPTCHA</p>
 
-											<p class="text-center">Don't have an account?<a href="{{ asset('/')}}" class="switcher-text">Register</a></p>
+											<!--<p class="text-center">Don't have an account?<a href="{{ asset('/')}}" class="switcher-text">Register</a></p>-->
 										</div>  
 									</div>
 								</form>
