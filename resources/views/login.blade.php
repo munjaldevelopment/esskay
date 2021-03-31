@@ -485,9 +485,9 @@ $(document).ready(function() {
         var login = $('#email').val();
         var password = $('#password').val();
         var agree_login = $('.agree_login:checked').val();
-        alert(agree_login);
 
-        if(login != "" && password != "" && agree_login != "")
+
+        if(login != "" && password != "" && agree_login == "check")
         {
         	$('.login-btn').removeAttr('disabled');
         }
@@ -500,7 +500,7 @@ $(document).ready(function() {
         var password = $('#password').val();
         var agree_login = $('.agree_login:checked').val();
 
-        if(login != "" && password != "" && agree_login != "")
+        if(login != "" && password != "" && agree_login == "check")
         {
         	$('.login-btn').removeAttr('disabled');
         }
