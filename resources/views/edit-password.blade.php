@@ -83,9 +83,9 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="confirm-container form-group">
-												<div class="user-login-icon">   
+												<!--<div class="user-login-icon">   
 												<i class="fa fa-envelope"></i>
-												</div>
+												</div>-->
 												<input type="password" required name="password_confirmation" readonly="" class="user-password form-control" placeholder="Confirm  Password">
 											</div>  
 										</div>  
