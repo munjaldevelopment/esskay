@@ -2998,22 +2998,27 @@ class HomeController extends Controller
 		$pageInfo = Page::getPageInfo(3);
 		$pageData = json_decode($pageInfo['extras']);
 		
-		if(!session()->get('esskay_user_id'))
-		{
-			return redirect(url('/'));
-		}
-		else
+		if(session()->get('esskay_user_id'))
 		{
 			$userRecord = \DB::table('users')->where(['id' => session()->get('esskay_user_id'), 'user_status' => '1'])->first();
 
-			if(!$userRecord)
-			{
-				$userRecord = \DB::table('users')->where(['id' => session()->get('esskay_trustee_user_id'), 'user_status' => '1'])->first();
-			}
 			//dd($userRecord);
 			
 			$riders = array();
 			return view('edit-password', ['current_user_id' => $userRecord->id, 'customer_name' => $userRecord->name, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
+		}
+		else if(session()->get('esskay_trustee_user_id'))
+		{
+			$userRecord = \DB::table('users')->where(['id' => session()->get('esskay_trustee_user_id'), 'user_status' => '1'])->first();
+
+			//dd($userRecord);
+			
+			$riders = array();
+			return view('edit-password', ['current_user_id' => $userRecord->id, 'customer_name' => $userRecord->name, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
+		}
+		else
+		{
+			return redirect(url('/'));
 		}
 	}
 	
