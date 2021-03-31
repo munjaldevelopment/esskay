@@ -481,6 +481,10 @@ $(document).ready(function() {
 	        	$('.login-btn').removeAttr('disabled');
 	        }
 	    }
+	    else
+	    {
+	    	$('.login-btn').attr('disabled', 'disabled');
+	    }
 	});
 
 	$("#email").keyup(function() {
