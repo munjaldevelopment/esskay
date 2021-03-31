@@ -472,13 +472,13 @@ $(document).ready(function() {
 	        var login = $('#email').val();
 	        var password = $('#password').val();
 
-	        if(login != "" && password != "")
+	        if(login == "" || password == "")
 	        {
-	        	$('.login-btn').removeAttr('disabled');
+	        	$('.login-btn').attr('disabled', 'disabled');
 	        }
 	        else
 	        {
-	        	$('.login-btn').attr('disabled');
+	        	$('.login-btn').removeAttr('disabled');
 	        }
 	    }
 	});
@@ -491,13 +491,13 @@ $(document).ready(function() {
         var agree_login = $('.agree_login:checked').val();
 
 
-        if(login != "" && password != "" && agree_login == "check")
+        if(login == "" || password !== "" || agree_login == "undefined")
         {
-        	$('.login-btn').removeAttr('disabled');
+        	$('.login-btn').attr('disabled', 'disabled');
         }
         else
         {
-        	$('.login-btn').attr('disabled');
+        	$('.login-btn').removeAttr('disabled');
         }
 	});
 
@@ -508,13 +508,13 @@ $(document).ready(function() {
         var password = $('#password').val();
         var agree_login = $('.agree_login:checked').val();
 
-        if(login != "" && password != "" && agree_login == "check")
+        if(login == "" || password !== "" || agree_login == "undefined")
         {
-        	$('.login-btn').removeAttr('disabled');
+        	$('.login-btn').attr('disabled', 'disabled');
         }
         else
         {
-        	$('.login-btn').attr('disabled');
+        	$('.login-btn').removeAttr('disabled');
         }
 	});
 
