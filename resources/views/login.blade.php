@@ -472,14 +472,38 @@ $(document).ready(function() {
 	        var login = $('#email').val();
 	        var password = $('#password').val();
 
-	        alert(login);
-	        alert(password);
-
 	        if(login != "" && password != "")
 	        {
 	        	$('.login-btn').removeAttr('disabled');
 	        }
 	    }
+	});
+
+	$("#email").keyup(function() {
+	    
+        //Do stuff
+        var login = $('#email').val();
+        var password = $('#password').val();
+        var agree_login = $('.agree_login:checked').val();
+        alert(agree_login);
+
+        if(login != "" && password != "" && agree_login != "")
+        {
+        	$('.login-btn').removeAttr('disabled');
+        }
+	});
+
+	$("#password").keyup(function() {
+	    
+        //Do stuff
+        var login = $('#email').val();
+        var password = $('#password').val();
+        var agree_login = $('.agree_login:checked').val();
+
+        if(login != "" && password != "" && agree_login != "")
+        {
+        	$('.login-btn').removeAttr('disabled');
+        }
 	});
 
 	$('.toggle-password').on('click', function() {
