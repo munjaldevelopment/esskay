@@ -491,7 +491,7 @@ $(document).ready(function() {
         var agree_login = $('.agree_login:checked').val();
 
 
-        if(login == "" || password !== "" || agree_login == "undefined")
+        if(login == "" || password == "" || agree_login == "undefined")
         {
         	$('.login-btn').attr('disabled', 'disabled');
         }
@@ -508,7 +508,7 @@ $(document).ready(function() {
         var password = $('#password').val();
         var agree_login = $('.agree_login:checked').val();
 
-        if(login == "" || password !== "" || agree_login == "undefined")
+        if(login == "" || password == "" || agree_login == "undefined")
         {
         	$('.login-btn').attr('disabled', 'disabled');
         }
