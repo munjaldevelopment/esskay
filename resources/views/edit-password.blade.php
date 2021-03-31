@@ -94,7 +94,7 @@
 									<div class="row">  
 										<div class="col-md-12">
 											<div class="user-login-btn">
-												<button disabled type="button" class="btn-change submit-btn custom-btn1 btn fxt-btn-fill"><i class="fa fa-sign-in" aria-hidden="true"></i> Verify </button>
+												<button disabled type="button" class="btn-change submit-btn custom-btn1 btn fxt-btn-fill"><i class="fa fa-sign-in d-none hide" aria-hidden="true"></i> Verify </button>
 												<a href="{{ asset('/')}}" class="custom-btn1 btn fxt-btn-fill">Back</a>
 											</div>
 										</div>
