@@ -49,6 +49,73 @@
 				<span class=""><i class="fa fa-bars"></i></span>
 			</button>
 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav ml-auto nav-custome hidden-sm hidden-lg">
+					@if($trusteeData->is_message_md == 1)
+					<li class="nav-item">
+						<!-- Single button -->
+						<div class="dropdown dropdown-trustee">
+							<button type="button" class="active nav-link btn btn-primary about-class dropdown-toggle" data-toggle="dropdown">About Us</button>
+						  	<div class="dropdown-menu about-container">
+								<a class="dropdown-item home-class" href="javascript:;">Message from MD</a>
+								<a class="dropdown-item board-class" href="javascript:;">Board of  Directors</a>
+								<a class="dropdown-item key-manager-class" href="javascript:;">Key Managerial Person</a>
+						  	</div>
+						</div>
+					</li>
+
+					@endif
+					@if($trusteeData->is_insight == 1)
+					<li class="nav-item">
+						<a class="nav-link insight-class @if($trusteeData->is_message_md == 0) active @endif" href="javascript:;">Insight</a>
+					</li>
+					@endif
+					@if($trusteeData->is_document == 1)
+					<li class="nav-item">
+						<a class="nav-link doc-class @if($trusteeData->is_message_md == 0 && $trusteeData->is_insight == 0) active @endif" href="javascript:;">Documents</a>
+					</li>
+					@endif
+					@if($trusteeData->is_sanction_letter == 1)
+					<li class="nav-item">
+						<a class="nav-link sanction-letter-class @if($trusteeData->is_message_md == 0 && $trusteeData->is_insight == 0 && $trusteeData->is_document == 0) active @endif" href="javascript:;">Sanction Letter</a>
+					</li>
+					@endif
+					@if($trusteeData->is_current_deal  == 1)
+					<li class="nav-item">
+					<a class="nav-link deal-class @if($trusteeData->is_message_md == 0 && $trusteeData->is_insight == 0 && $trusteeData->is_document == 0) active @endif" href="javascript:;">Current Deal</a>
+					</li>
+					@endif
+
+					@if($trusteeData->is_transaction == 1)
+					<li class="nav-item">
+						<div class="dropdown dropdown-trustee">
+							<button type="button" class="nav-link btn btn-primary transaction-class dropdown-toggle" data-toggle="dropdown">Transaction</button>
+						  	<div class="dropdown-menu">
+						  		@foreach($docCategoryData as $row)
+								<a class="dropdown-item transaction-category-class" data-category="{{ $row->id }}" href="javascript:;">{{ $row->category_name }}</a>
+								@endforeach
+						  	</div>
+						</div>
+					</li>
+					@endif
+					
+					@if($trusteeData->is_financial_summary == 1)
+					<!--<li class="nav-item">
+					<a class="nav-link graph-class @if($trusteeData->is_message_md == 0 && $trusteeData->is_document == 0) active @endif" href="javascript:;">Financial Summary</a>
+					</li>-->
+					@endif
+					@if($trusteeData->is_newsletter == 1)
+					<li class="nav-item">
+					<a class="nav-link news-class @if($trusteeData->is_message_md == 0 && $trusteeData->is_insight == 0 && $trusteeData->is_document == 0 && $trusteeData->is_financial_summary == 0) active @endif" href="javascript:;">Newsletters</a>
+					</li>
+					@endif
+					@if($trusteeData->is_contact_us == 1)
+					<li class="nav-item">
+					<a class="nav-link contact-class @if($trusteeData->is_message_md == 0 && $trusteeData->is_insight == 0 && $trusteeData->is_document == 0 && $trusteeData->is_financial_summary == 0 && $trusteeData->is_newsletter == 0) active @endif" href="javascript:;">Contact Us</a>
+					</li>
+					@endif
+
+				</ul>
+
 				<ul class="navbar-nav ml-auto nav-custome">
 					@if($customer_name)
 					{{--<li class="nav-item">

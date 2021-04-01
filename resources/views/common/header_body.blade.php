@@ -49,6 +49,59 @@
 				<span class=""><i class="fa fa-bars"></i></span>
 			</button>
 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav ml-auto nav-custome hidden-sm hidden-lg">
+					@if($lenderData->is_message_md == 1)
+					<li class="nav-item">
+						<!-- Single button -->
+						<div class="dropdown dropdown-lender">
+							<button type="button" class="active nav-link btn btn-primary about-class dropdown-toggle" data-toggle="dropdown">About Us</button>
+						  	<div class="dropdown-menu about-container">
+								<a class="dropdown-item home-class" href="javascript:;">Message from MD</a>
+								<a class="dropdown-item board-class" href="javascript:;">Board of  Directors</a>
+								<a class="dropdown-item key-manager-class" href="javascript:;">Key Managerial Person</a>
+						  	</div>
+						</div>
+					</li>
+
+					@endif
+					@if($lenderData->is_insight == 1)
+					<li class="nav-item">
+						<a class="nav-link insight-class @if($lenderData->is_message_md == 0) active @endif" href="javascript:;">Insights</a>
+					</li>
+					@endif
+					@if($lenderData->is_document == 1)
+					<li class="nav-item">
+						<a class="nav-link doc-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0) active @endif" href="javascript:;">Document</a>
+					</li>
+					@endif
+					@if($lenderData->is_sanction_letter == 1)
+					<li class="nav-item">
+						<a class="nav-link sanction-letter-class @if($lenderData->is_message_md == 0) active @endif" href="javascript:;">Sanction Letter</a>
+					</li>
+					@endif
+					@if($lenderData->is_current_deal  == 1)
+					<li class="nav-item">
+					<a class="nav-link deal-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0 && $lenderData->is_document == 0) active @endif" href="javascript:;">Current Deal</a>
+					</li>
+					@endif
+
+					@if($lenderData->is_financial_summary == 1)
+					<!--<li class="nav-item">
+					<a class="nav-link graph-class @if($lenderData->is_message_md == 0 && $lenderData->is_document == 0) active @endif" href="javascript:;">Financial Summary</a>
+					</li>-->
+					@endif
+					@if($lenderData->is_newsletter == 1)
+					<li class="nav-item">
+					<a class="nav-link news-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0 && $lenderData->is_document == 0 && $lenderData->is_financial_summary == 0) active @endif" href="javascript:;">Newsletters</a>
+					</li>
+					@endif
+					@if($lenderData->is_contact_us == 1)
+					<li class="nav-item">
+					<a class="nav-link contact-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0 && $lenderData->is_document == 0 && $lenderData->is_financial_summary == 0 && $lenderData->is_newsletter == 0) active @endif" href="javascript:;">Contact Us</a>
+					</li>
+					@endif
+				</ul>
+
 				<ul class="navbar-nav ml-auto nav-custome">
 					@if($customer_name)
 					{{--<li class="nav-item">
@@ -63,6 +116,8 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#">resources</a>
 					</li>--}} 
+
+
 					<li class="operation-li"><h5 class="custome-syle">{{ $lenderData->name }}<span class="inner-inner">({{ substr($lenderData->name, 0, 1) }})</span></h5>
 						<div class="onbrd-btn">
 							<button id="lender_banking" class="lender_blankingbtn-1">{{ $lenderData->is_onboard }} </button>

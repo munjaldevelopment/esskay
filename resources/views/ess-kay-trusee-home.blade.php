@@ -14,7 +14,7 @@
 	<input type="hidden" id="is_contact_us" class="is_contact_us" value="{{ $trusteeData->is_contact_us }}" />
 		
 	<div class="main-tab-area">
-		<div class="tab-top-area">
+		<div class="tab-top-area hidden-xs">
 			<ul class="nav esskay-home">
 				@if($trusteeData->is_message_md == 1)
 				<li class="nav-item">
