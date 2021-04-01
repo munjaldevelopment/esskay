@@ -66,7 +66,7 @@
 						
 							<ul>
 								@foreach($categoriesData as $k => $category)
-								<li class="cat-item cat-item-206"><a href="javascript:;" class="category-link category-{{ $category['name'] }}"  onclick="showCategoryData('{{ $category['name'] }}', '{{ strtolower($category['name1']) }}');">{{ $category['name'] }} ({{ $category['count'] }})</a></li>
+								<li class="cat-item cat-item-206"><a href="javascript:;" class="category-link category-{{ strtolower($category['name1']) }}"  onclick="showCategoryData('{{ strtolower($category['name1']) }}');">{{ $category['name'] }} ({{ $category['count'] }})</a></li>
 								@endforeach
 							</ul>
 							
@@ -149,14 +149,14 @@
 		$('.blog-item').show();
 	}
 	
-	function showCategoryData(cate_name1, cat_name)
+	function showCategoryData(cat_name)
 	{
 		$('.category-link').removeClass('active');
 		$('.blog-item').hide();
 		
 		//alert(cat_name);
 		
-		$('.category-'+cate_name1).addClass('active');
+		$('.category-'+cat_name).addClass('active');
 
 		if($('.blog-item').hasClass('post-row-'+cat_name))
 		{
