@@ -9,7 +9,12 @@ $(document).ready(function() {
 		$('.home-class').addClass('active');
 		$('.about-class').addClass('active');
 
-		
+		$('.board-class').removeClass('active');
+		$('.key-manager-class').removeClass('active');
+
+		$('.about-container').removeClass('show');
+
+		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
 			url: base_url+'homepage',
@@ -30,9 +35,14 @@ $(document).ready(function() {
 		$('.esskay-home li a').removeClass('active');
 		$('.esskay-home li button').removeClass('active');
 		$('.board-class').addClass('active');
-		$('.about-class').addClass('active');
+
+		$('.home-class').removeClass('active');
+		$('.about-class').removeClass('active');
+		$('.key-manager-class').removeClass('active');
 
 		$('.about-container').removeClass('show');
+
+		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
 			url: base_url+'board',
@@ -52,9 +62,14 @@ $(document).ready(function() {
 		$('.esskay-home li a').removeClass('active');
 		$('.esskay-home li button').removeClass('active');
 		$('.key-manager-class').addClass('active');
-		$('.about-class').addClass('active');
+
+		$('.home-class').removeClass('active');
+		$('.about-class').removeClass('active');
+		$('.board-class').removeClass('active');
 
 		$('.about-container').removeClass('show');
+
+		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
 			url: base_url+'keymanager',
@@ -74,6 +89,8 @@ $(document).ready(function() {
 		$('.esskay-home li a').removeClass('active');
 		$('.esskay-home li button').removeClass('active');
 		$('.insight-class').addClass('active');
+
+		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
 			url: base_url+'insight',
@@ -93,6 +110,8 @@ $(document).ready(function() {
 		$('.esskay-home li a').removeClass('active');
 		$('.esskay-home li button').removeClass('active');
 		$('.sanction-letter-class').addClass('active');
+
+		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
 			url: base_url+'sanction-letter',
@@ -112,6 +131,8 @@ $(document).ready(function() {
 		$('.esskay-home li a').removeClass('active');
 		$('.esskay-home li button').removeClass('active');
 		$('.deal-class').addClass('active');
+
+		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
 			url: base_url+'deal',
@@ -131,6 +152,8 @@ $(document).ready(function() {
 		$('.esskay-home li a').removeClass('active');
 		$('.esskay-home li button').removeClass('active');
 		$('.doc-class').addClass('active');
+
+		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
 			url: base_url+'document',
@@ -150,6 +173,8 @@ $(document).ready(function() {
 		$('.esskay-home li a').removeClass('active');
 		$('.esskay-home li button').removeClass('active');
 		$('.news-class').addClass('active');
+
+		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
 			url: base_url+'news',
@@ -169,6 +194,8 @@ $(document).ready(function() {
 		$('.esskay-home li a').removeClass('active');
 		$('.esskay-home li button').removeClass('active');
 		$('.contact-class').addClass('active');
+
+		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
 			url: base_url+'contact_us',
@@ -188,6 +215,8 @@ $(document).ready(function() {
 		$('.esskay-home li a').removeClass('active');
 		$('.esskay-home li button').removeClass('active');
 		$('.graph-class').addClass('active');
+
+		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
 			url: base_url+'company_graph',
