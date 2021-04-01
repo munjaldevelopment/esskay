@@ -2523,9 +2523,9 @@ h1.login__content-title {
     text-align: center;
 }
 
-.btn.btn-menu, .btn.btn-menu:active {
-	background: none;
-    border-color: transparent;
-    color: #676767;
-    font-size: 13px;
+.btn.btn-menu, .btn.btn-menu:active, .btn.btn-menu.active {
+	background: none !important;
+    border-color: transparent !important;
+    color: #676767 !important;
+    font-size: 13px !important;
 }
