@@ -109,7 +109,7 @@
 					</li>
 				</ul>
 
-				<ul class="navbar-nav ml-auto nav-custome d-lg-block d-sm-none d-none">
+				<ul class="navbar-nav ml-auto nav-custome d-lg-inline-block d-sm-none d-none">
 					@if($customer_name)
 					{{--<li class="nav-item">
 						<a class="nav-link" href="#">Dashboard</a>
