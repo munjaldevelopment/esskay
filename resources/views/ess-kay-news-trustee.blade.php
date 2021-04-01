@@ -66,7 +66,7 @@
 						
 							<ul>
 								@foreach($categoriesData as $k => $category)
-								<li class="cat-item cat-item-206"><a href="javascript:;" class="category-link category-{{ $category['name'] }}"  onclick="showCategoryData('{{ $category['name'] }}, {{ strtolower($category['name1']) }}');">{{ $category['name'] }} ({{ $category['count'] }})</a></li>
+								<li class="cat-item cat-item-206"><a href="javascript:;" class="category-link category-{{ $category['name'] }}"  onclick="showCategoryData('{{ $category['name'] }}', '{{ strtolower($category['name1']) }}');">{{ $category['name'] }} ({{ $category['count'] }})</a></li>
 								@endforeach
 							</ul>
 							
