@@ -12335,7 +12335,7 @@ ul.nav.custome-navbread li a.active {
   height: 65px;
 }
 .login-main-area {
-  padding: 20px 0;
+  padding: 0;
 }
 .login_container {
   height: calc(100vh - 40px);
