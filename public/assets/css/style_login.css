@@ -12062,7 +12062,7 @@ ul.nav.custome-navbread li a.active {
 .login_container .container-forms .container-info .info-item {
   text-align: center;
   font-size: 16px;
-  width: 40%;
+  width: 31.5%;
   height: 100%;
   display: inline-block;
   vertical-align: top;
@@ -12074,16 +12074,16 @@ ul.nav.custome-navbread li a.active {
   transition: all 0.3s;
 }
 .login_container .container-forms .container-info .info-item:nth-child(1) {
-  width: 60%;
+  width: 68.5%;
 }
 .login_container.log-in .container-forms .container-info .info-item:nth-child(1) {
-  width: 40%;
+  width: 31.5%;
 }
 .login_container.log-in .container-forms .container-info .info-item:nth-child(2) {
-  width: 40%;
+  width: 31.5%;
 }
 .login_container.log-in .container-forms .container-info .info-item:nth-child(2) {
-  width: 60%;
+  width: 68.5%;
 }
 .login_container .container-forms .container-info .info-item p {
   font-size: 20px;
@@ -12112,7 +12112,7 @@ ul.nav.custome-navbread li a.active {
   position: absolute;
   left: 0;
   top: 0;
-  width: 60%;
+  width: 68.5%;
   height: 100%;
   background-color: #fff;
   box-shadow: 0 0 15px 0 rgb(0 0 0 / 20%);
