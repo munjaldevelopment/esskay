@@ -49,7 +49,7 @@
 				<span class=""><i class="fa fa-bars"></i></span>
 			</button>
 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
-				<ul class="navbar-nav ml-auto nav-custome d-lg-none">
+				<ul class="navbar-nav ml-auto nav-custome d-sm-none">
 					@if($trusteeData->is_message_md == 1)
 					<li class="nav-item">
 						<!-- Single button -->
