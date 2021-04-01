@@ -2522,3 +2522,10 @@ h1.login__content-title {
     margin: 0 0 16px;
     text-align: center;
 }
+
+.btn.btn-menu, .btn.btn-menu:active {
+	background: none;
+    border-color: transparent;
+    color: #676767;
+    font-size: 13px;
+}

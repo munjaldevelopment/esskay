@@ -54,7 +54,7 @@
 					<li class="nav-item">
 						<!-- Single button -->
 						<div class="dropdown dropdown-trustee">
-							<button type="button" class="active nav-link btn btn-primary about-class dropdown-toggle" data-toggle="dropdown">About Us</button>
+							<button type="button" class="active btn-menu nav-link btn btn-primary about-class dropdown-toggle" data-toggle="dropdown">About Us</button>
 						  	<div class="dropdown-menu about-container">
 								<a class="dropdown-item home-class" href="javascript:;">Message from MD</a>
 								<a class="dropdown-item board-class" href="javascript:;">Board of  Directors</a>
@@ -88,7 +88,7 @@
 					@if($trusteeData->is_transaction == 1)
 					<li class="nav-item">
 						<div class="dropdown dropdown-trustee">
-							<button type="button" class="nav-link btn btn-primary transaction-class dropdown-toggle" data-toggle="dropdown">Transaction</button>
+							<button type="button" class="nav-link btn-menu btn btn-primary transaction-class dropdown-toggle" data-toggle="dropdown">Transaction</button>
 						  	<div class="dropdown-menu">
 						  		@foreach($docCategoryData as $row)
 								<a class="dropdown-item transaction-category-class" data-category="{{ $row->id }}" href="javascript:;">{{ $row->category_name }}</a>

@@ -54,7 +54,7 @@
 					<li class="nav-item">
 						<!-- Single button -->
 						<div class="dropdown dropdown-lender">
-							<button type="button" class="active nav-link btn btn-primary about-class dropdown-toggle" data-toggle="dropdown">About Us</button>
+							<button type="button" class="active btn-menu nav-link btn btn-primary about-class dropdown-toggle" data-toggle="dropdown">About Us</button>
 						  	<div class="dropdown-menu about-container">
 								<a class="dropdown-item home-class" href="javascript:;">Message from MD</a>
 								<a class="dropdown-item board-class" href="javascript:;">Board of  Directors</a>
