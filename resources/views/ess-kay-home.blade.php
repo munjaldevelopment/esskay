@@ -53,7 +53,7 @@
 	<input type="hidden" id="is_contact_us" class="is_contact_us" value="{{ $lenderData->is_contact_us }}" />
 		
 	<div class="main-tab-area">
-		<div class="tab-top-area d-lg-block d-sm-none">
+		<div class="tab-top-area d-lg-block d-sm-none d-none">
 			<ul class="nav esskay-home">
 				@if($lenderData->is_message_md == 1)
 				<li class="nav-item">
