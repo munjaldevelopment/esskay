@@ -12282,7 +12282,7 @@ ul.nav.custome-navbread li a.active {
   width: auto;
   margin: 0 auto;
   display: table;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   border-radius: 100px;
 }
 .form-control-textarea {
