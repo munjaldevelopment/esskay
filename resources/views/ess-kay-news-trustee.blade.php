@@ -70,7 +70,7 @@
 								@endforeach
 							</ul>
 							
-							<div class="pull-right"><a href="javascript:;" class="btn btn-info" onclick="clearAll();">Clear</a></div>
+							<div class="pull-right"><a href="javascript:;" class="btn btn-info clear-all d-none" onclick="clearAll();">Clear</a></div>
 						</section>
 					</div>
 				</aside>
@@ -146,12 +146,14 @@
 	
 	function clearAll()
 	{
+		$('.category-link').removeClass('active');
 		$('.blog-item').show();
 	}
 	
 	function showCategoryData(cat_name)
 	{
 		$('.category-link').removeClass('active');
+		$('.clear-all').removeClass('d-none');
 		$('.blog-item').hide();
 		
 		//alert(cat_name);
