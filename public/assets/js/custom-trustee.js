@@ -9,6 +9,9 @@ $(document).ready(function() {
 		$('.home-class').addClass('active');
 		$('.about-class').addClass('active');
 
+		$('.board-class').removeClass('active');
+		$('.key-manager-class').removeClass('active');
+
 		$('.about-container').removeClass('show');
 		
 		$.ajax({
@@ -29,8 +32,11 @@ $(document).ready(function() {
 	$('.board-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');
 		$('.esskay-home li button').removeClass('active');
+		$('.home-class').addClass('active');
 		$('.board-class').addClass('active');
-		$('.about-class').addClass('active');
+
+		$('.about-class').removeClass('active');
+		$('.key-manager-class').removeClass('active');
 
 		$('.about-container').removeClass('show');
 		
@@ -52,8 +58,11 @@ $(document).ready(function() {
 	$('.key-manager-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');
 		$('.esskay-home li button').removeClass('active');
+		$('.home-class').addClass('active');
 		$('.key-manager-class').addClass('active');
-		$('.about-class').addClass('active');
+
+		$('.about-class').removeClass('active');
+		$('.board-class').removeClass('active');
 
 		$('.about-container').removeClass('show');
 		
