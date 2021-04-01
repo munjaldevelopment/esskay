@@ -12086,9 +12086,10 @@ ul.nav.custome-navbread li a.active {
   width: 68.5%;
 }
 .login_container .container-forms .container-info .info-item p {
-  font-size: 20px;
-  margin: 20px;
+  font-size: 18px;
+  margin: 10px 0px;
   font-weight: 400;
+  line-height: 36px;
 }
 .login_container .container-forms .container-info .info-item .switch-btn.btn {
   background-color: transparent;
