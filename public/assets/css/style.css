@@ -40,8 +40,8 @@ a.navbar-brand:focus {
 
 .bg-serchbox{ background-color: #f3f3f9; }
 ul.navbar-nav.ml-auto.nav-custome li a {
-    color: #3e4095;
-    font-weight: 600;
+    color: #676767;
+    font-weight: 400;
     font-size: 13px;
     /* text-transform: uppercase;*/
 } 
