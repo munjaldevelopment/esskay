@@ -1,6 +1,24 @@
 <div class="outer-bg">
 	<div class="container-fluid inner-bg">
 		<div class="row">
+			<div class="col-md-3 d-none d-sm-block">
+				<aside id="secondary" class="widget-area inner-bg1">
+					<div class="bs-sidebar dynamic-sidebar">
+						<section id="categories-2" class="widget widget_categories loaded">
+							<h2 class="widget-title">Categories</h2>
+						
+							<ul>
+								@foreach($categoriesData as $k => $category)
+								<li class="cat-item cat-item-206"><a href="javascript:;" class="category-link category-{{ strtolower($category['name1']) }}"  onclick="showCategoryData('{{ strtolower($category['name1']) }}');">{{ $category['name'] }} ({{ $category['count'] }})</a></li>
+								@endforeach
+							</ul>
+							
+							<div class="pull-right"><a href="javascript:;" class="btn btn-info clear-all d-none" onclick="clearAll();">Clear</a></div>
+						</section>
+					</div>
+				</aside>
+			</div>
+
 			<div class="col-md-9 ">
 				<div class="wpb_wrapper"><div class="rs-blog "><div class="row">
 					@foreach($articleData as $k => $article)
@@ -58,7 +76,7 @@
 
 
 
-			<div class="col-md-3">
+			<div class="col-md-3 d-none d-lg-block">
 				<aside id="secondary" class="widget-area inner-bg1">
 					<div class="bs-sidebar dynamic-sidebar">
 						<section id="categories-2" class="widget widget_categories loaded">
