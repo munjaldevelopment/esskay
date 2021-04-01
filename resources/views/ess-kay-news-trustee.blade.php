@@ -18,7 +18,7 @@
 					</div>
 				</aside>
 			</div>
-			
+
 			<div class="col-md-9 ">
 				<div class="wpb_wrapper"><div class="rs-blog "><div class="row">
 					@foreach($articleData as $k => $article)
@@ -76,7 +76,7 @@
 
 
 
-			<div class="col-md-3 d-none d-lg-block">
+			<div class="col-md-3 d-sm-none d-md-block d-md-block d-xl-block d-lg-block">
 				<aside id="secondary" class="widget-area inner-bg1">
 					<div class="bs-sidebar dynamic-sidebar">
 						<section id="categories-2" class="widget widget_categories loaded">
