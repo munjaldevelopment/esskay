@@ -89,7 +89,7 @@
 					<li class="nav-item">
 						<div class="dropdown dropdown-trustee">
 							<button type="button" class="nav-link btn-menu btn btn-primary transaction-class dropdown-toggle" data-toggle="dropdown">Transaction</button>
-						  	<div class="dropdown-menu">
+						  	<div class="dropdown-menu transaction-category-container">
 						  		@foreach($docCategoryData as $row)
 								<a class="dropdown-item transaction-category-class" data-category="{{ $row->id }}" href="javascript:;">{{ $row->category_name }}</a>
 								@endforeach
