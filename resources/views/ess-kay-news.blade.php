@@ -156,7 +156,7 @@
 		
 		//alert(cat_name);
 		
-		$('.category-link'+cate_name1).Class('active');
+		$('.category-link'+cate_name1).addClass('active');
 
 		if($('.blog-item').hasClass('post-row-'+cat_name))
 		{
