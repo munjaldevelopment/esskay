@@ -2541,3 +2541,10 @@ h1.login__content-title {
 ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml-auto.nav-custome li .transaction-category-container a.active {
 	color: #fff;
 }
+
+.widget_categories ul li a.category-link.active {
+	background: #1976D2;
+    padding: 7px;
+    color: #fff;
+    border-radius: 10px;
+}
