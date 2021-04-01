@@ -135,6 +135,12 @@ class DocumentCrudController extends CrudController
                                     'field_show' => 'document_filename',
                                     'limit' => '200'
                                 ]);
+
+            $this->crud->addColumn([
+									'name' => 'expiry_date',
+									'label' => 'Publish Date',
+									'type' => 'date'
+								]);
 								
 			$document_category = array();
 			
