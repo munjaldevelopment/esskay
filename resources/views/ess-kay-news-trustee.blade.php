@@ -1,7 +1,7 @@
 <div class="outer-bg">
 	<div class="container-fluid inner-bg">
 		<div class="row">
-			<div class="col-md-3 d-none d-sm-block">
+			<div class="col-md-3 d-block d-sm-none">
 				<aside id="secondary" class="widget-area inner-bg1">
 					<div class="bs-sidebar dynamic-sidebar">
 						<section id="categories-2" class="widget widget_categories loaded">
