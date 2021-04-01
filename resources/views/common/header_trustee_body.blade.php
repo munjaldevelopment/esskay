@@ -114,9 +114,16 @@
 					</li>
 					@endif
 
+					<li class="nav-item">
+						<a class="nav-link" href="{{ asset('/edit-password') }}">Change Password</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ asset('/logout') }}">Logout</a>
+					</li>
+
 				</ul>
 
-				<ul class="navbar-nav ml-auto nav-custome">
+				<ul class="navbar-nav ml-auto nav-custome d-lg-block d-sm-none d-none">
 					@if($customer_name)
 					{{--<li class="nav-item">
 						<a class="nav-link" href="#">Dashboard</a>
