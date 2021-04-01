@@ -665,12 +665,19 @@
     text-align: center;
     margin-bottom: 0;
 }
-.custom-table-area .table-responsive table.table thead tr th, .custom-table-area .table-responsive table.table tbody tr td,
+.custom-table-area .table-responsive table.table thead tr th, .custom-table-area .table-responsive table.table tbody tr td {
+	color: #767676;
+	font-size: 14px;
+	font-weight: 400;
+	padding: 12px 10px;
+}
+
 .custom-table-area .table-responsive table.table tfoot tr th, .custom-table-area .table-responsive table.table tfoot tr td {
 	color: #767676;
 	font-size: 14px;
 	font-weight: 400;
 	padding: 12px 10px;
+	font-weight: 700;
 }
 .custom-table-area tbody tr {
 	background: #fff;
