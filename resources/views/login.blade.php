@@ -464,22 +464,7 @@ $(".info-item .btn").click(function(){
 	    element.value = element.value.replace(regex, "");
 	}
 
-	$( window ).load(function() {
-		//Do stuff
-        var login = $('#email').val();
-        var password = $('#password').val();
-        var agree_login = $('.agree_login:checked').val();
-        alert(agree_login);
 
-        if(login == "" || password == "" || typeof agree_login == "undefined")
-        {
-        	$('.login-btn').attr('disabled', 'disabled');
-        }
-        else
-        {
-        	$('.login-btn').removeAttr('disabled');
-        }
-	});
 
 $(document).ready(function() {
 
@@ -752,6 +737,22 @@ $(document).ready(function() {
 			}
 		}
 	});
+});
+
+$( window ).load(function() {
+    var login = $('#email').val();
+    var password = $('#password').val();
+    var agree_login = $('.agree_login:checked').val();
+    alert(agree_login);
+
+    if(login == "" || password == "" || typeof agree_login == "undefined")
+    {
+    	$('.login-btn').attr('disabled', 'disabled');
+    }
+    else
+    {
+    	$('.login-btn').removeAttr('disabled');
+    }
 });
 </script>
 
