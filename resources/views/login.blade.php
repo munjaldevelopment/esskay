@@ -464,6 +464,22 @@ $(".info-item .btn").click(function(){
 	    element.value = element.value.replace(regex, "");
 	}
 
+	$(window).load(function() {
+		//Do stuff
+        var login = $('#email').val();
+        var password = $('#password').val();
+        var agree_login = $('.agree_login:checked').val();
+
+        if(login == "" || password == "" || typeof agree_login == "undefined")
+        {
+        	$('.login-btn').attr('disabled', 'disabled');
+        }
+        else
+        {
+        	$('.login-btn').removeAttr('disabled');
+        }
+	});
+
 $(document).ready(function() {
 
 	$(".agree_login").change(function() {
@@ -495,7 +511,7 @@ $(document).ready(function() {
         var agree_login = $('.agree_login:checked').val();
 
 
-        if(login == "" || password == "" || agree_login == "undefined")
+        if(login == "" || password == "" || typeof agree_login == "undefined")
         {
         	$('.login-btn').attr('disabled', 'disabled');
         }
@@ -512,7 +528,7 @@ $(document).ready(function() {
         var password = $('#password').val();
         var agree_login = $('.agree_login:checked').val();
 
-        if(login == "" || password == "" || agree_login == "undefined")
+        if(login == "" || password == "" || typeof agree_login == "undefined")
         {
         	$('.login-btn').attr('disabled', 'disabled');
         }
