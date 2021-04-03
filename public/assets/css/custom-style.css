@@ -2369,16 +2369,19 @@ a.fxt-btn-fill.float-right {
 }
 	
 .ohb-highlights-box {
-    width: 237px;
+    width: 247px;
+    margin: 0 auto;
 }
 	
 .ohbh-box-insight-left {
-    width: 24%;
+    width: 33%;
+    padding-left: 43px;
 }	
 
-	
-
-	
+.operation-highlights-area.operation-single-highlighs .ohb-highlights-box {
+    width: 124px;
+    margin: 0 auto;
+}	
 	
 .operation-highlights-area.operation-single-highlighs .ohbh-box-insight-left {
     display: none;
@@ -2511,7 +2514,7 @@ a.fxt-btn-fill.float-right {
 }
 	
 .operation-highlight-cont::before {
-    left: 115px;
+    left: 47%;
 }
 	
 .ohbh-box-right {
@@ -2519,15 +2522,16 @@ a.fxt-btn-fill.float-right {
 }
 	
 .operation-highlight-year {
-    width: 301px;
+    width: 322px;
+    margin: 0 auto;
 }
 	
 .operation-highlights-area.operation-single-highlighs .ohb-highlights-box .ohbh-box-mid {
-    left: 64px;
+    left: 0;
 }
 	
 .operation-highlights-area.operation-single-highlighs .ohb-highlights-box .ohbh-box-right {
-    right: -162px;
+    right: -52px;
 }	
 	
 .deal-list-area .well.well-sm .btn-group {
