@@ -9,7 +9,7 @@
 	<meta name="description" content="{{ $meta_description }}" />
 	<meta name="keywords" content="{{ $meta_keywords }}" />
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0" />
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/css/style.css">
 	<link rel="stylesheet" href="{{ asset('public/assets/') }}/css/bootstrap.min.css">
 	<link rel="stylesheet" href="{{ asset('public/assets/') }}/css/swiper.min.css">
