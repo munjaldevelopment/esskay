@@ -469,6 +469,7 @@ $(".info-item .btn").click(function(){
         var login = $('#email').val();
         var password = $('#password').val();
         var agree_login = $('.agree_login:checked').val();
+        alert(agree_login);
 
         if(login == "" || password == "" || typeof agree_login == "undefined")
         {
