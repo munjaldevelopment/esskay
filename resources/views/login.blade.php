@@ -737,10 +737,8 @@ $(document).ready(function() {
 			}
 		}
 	});
-});
 
-$( window ).load(function() {
-    var login = $('#email').val();
+	var login = $('#email').val();
     var password = $('#password').val();
     var agree_login = $('.agree_login:checked').val();
     alert(agree_login);
@@ -754,6 +752,8 @@ $( window ).load(function() {
     	$('.login-btn').removeAttr('disabled');
     }
 });
+
+    
 </script>
 
 @include('common.footer_body')
