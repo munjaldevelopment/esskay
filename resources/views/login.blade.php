@@ -464,7 +464,7 @@ $(".info-item .btn").click(function(){
 	    element.value = element.value.replace(regex, "");
 	}
 
-	$(window).load(function() {
+	$( window ).load(function() {
 		//Do stuff
         var login = $('#email').val();
         var password = $('#password').val();
