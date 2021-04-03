@@ -2148,6 +2148,12 @@
     display: inline-block !important;
 }
 
+.user-login-btn.change-passowrd .custom-btn1.btn {
+    float: left;
+    width: 40%;
+    margin: 0;
+}
+
 
 @media only screen and (max-width: 1366px) {
 .login-logo img {
