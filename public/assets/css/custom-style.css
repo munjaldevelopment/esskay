@@ -2151,7 +2151,17 @@
 .user-login-btn.change-passowrd .custom-btn1.btn {
     float: left;
     width: 40%;
+    padding: 16px 15px;
     margin: 0;
+}
+
+.user-login-btn.change-passowrd a.custom-btn1.btn {
+    float: right;
+}
+
+.user-login-btn.change-passowrd {
+    display: inline-block;
+    width: 100%;
 }
 
 
