@@ -123,7 +123,7 @@
 
 				</ul>
 
-				<ul class="navbar-nav ml-auto nav-custome">
+				<ul class="navbar-nav ml-auto nav-custome d-none d-sm-flex-block">
 					@if($customer_name)
 					{{--<li class="nav-item">
 						<a class="nav-link" href="#">Dashboard</a>
