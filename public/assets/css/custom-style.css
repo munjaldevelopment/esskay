@@ -2144,6 +2144,10 @@
     display: none;
 }
 
+.heading-jhone {
+    display: inline-block !important;
+}
+
 
 @media only screen and (max-width: 1366px) {
 .login-logo img {
@@ -2293,6 +2297,57 @@
 }
 
 @media only screen and (max-width: 639px) {
+.side-body.side-body-content {
+    padding: 5px 15px;
+}	
+	
+.operation-highlights-area.operation-single-highlighs {
+    margin-left: 0;
+}	
+	
+.operation-highlights-area.operation-single-highlighs .operation-highlight-year {
+    width: 100%;
+}
+	
+.operation-highlights-area.operation-single-highlighs .ohbh-box-insight-right {
+    width: auto;
+    float: right;
+    padding-right: 51px;
+}
+	
+.ohbh-mid-heading {
+    font-size: 10px;
+}	
+	
+.ohbh-mid-result {
+    font-size: 12px;
+}
+	
+.ohbh-box-left {
+    font-size: 13px;
+	width: 75px;
+}	
+	
+.ohbh-box-right {
+    width: 75px;
+    font-size: 13px;
+}
+	
+.ohb-highlights-box {
+    width: 237px;
+}
+	
+.ohbh-box-insight-left {
+    width: 24%;
+}	
+
+	
+
+	
+	
+.operation-highlights-area.operation-single-highlighs .ohbh-box-insight-left {
+    display: none;
+}	
 .info-item.info-item-signup.info-signup-mobile {
     display: block !important;
 }	
@@ -2417,11 +2472,11 @@
 }
 	
 .ohbh-box-mid {
-    left: 94px;
+    left: 63px;
 }
 	
 .operation-highlight-cont::before {
-    left: 145px;
+    left: 115px;
 }
 	
 .ohbh-box-right {
@@ -2433,11 +2488,11 @@
 }
 	
 .operation-highlights-area.operation-single-highlighs .ohb-highlights-box .ohbh-box-mid {
-    left: 93px;
+    left: 64px;
 }
 	
 .operation-highlights-area.operation-single-highlighs .ohb-highlights-box .ohbh-box-right {
-    right: -224px;
+    right: -162px;
 }	
 	
 .deal-list-area .well.well-sm .btn-group {
