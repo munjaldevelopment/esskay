@@ -2313,6 +2313,25 @@
 }
 
 @media only screen and (max-width: 639px) {
+a.fxt-btn-fill.float-right {
+    position: relative;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    width: 100%;
+    margin-top: 17px;
+    text-align: right;
+    margin-bottom: 20px;
+}		
+	
+.operation-highlights-area.operation-single-highlighs .ohbh-box-insight-right {
+    width: 100%;
+    float: left;
+    padding-right: 51px;
+    text-align: left;
+    padding-left: 178px;
+}	
+	
 .side-body.side-body-content {
     padding: 5px 15px;
 }	
