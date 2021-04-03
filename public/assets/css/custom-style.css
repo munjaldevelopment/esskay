@@ -2313,6 +2313,10 @@
 }
 
 @media only screen and (max-width: 639px) {
+.operation-highlights-area.operation-single-highlighs .ohbh-box-insight-right {
+    width: 46%;
+}	
+	
 a.fxt-btn-fill.float-right {
     position: relative;
     top: 0;
@@ -2587,7 +2591,7 @@ a.fxt-btn-fill.float-right {
 }
 
 @media only screen and (max-width: 400px) {
-.operation-highlight-year {
+.operation-highlight-year, .operation-highlights-area.operation-single-highlighs .operation-highlight-year {
     width: 260px;
 }	
 	
@@ -2598,6 +2602,10 @@ a.fxt-btn-fill.float-right {
 	
 .ohbh-box-insight-right {
     width: 58%;
+}	
+	
+.operation-highlights-area.operation-single-highlighs .ohbh-box-insight-right {
+    width: 55%;
 }	
 	
 	
