@@ -46,16 +46,17 @@ ul.navbar-nav.ml-auto.nav-custome li a {
     /* text-transform: uppercase;*/
 } 
 ul.navbar-nav.ml-auto.nav-custome li a:hover{ color:#556ee6; }
-   .heading-jhone {
+
+.heading-jhone {
     background-image: linear-gradient(to top, #00904e , #3c3e96);
     width: 40px;
     height: 40px;
     text-align: center;
     line-height: 40px;
     font-weight: 600;
-    font-size: 30px;
+    font-size: 24px;
     color: #ffffff;
-    padding: 2px 9px;
+    padding: 2px 0;
     box-shadow: 0px 0px 10px #7c7da9;
 }
 

@@ -90,9 +90,9 @@
 							<div class="well well-sm">
 								<div class="deal-wall-left">
 									<ul>
-										<li class="active"><a onclick="clearAllDeal();" href="javascript:;">ALL</a></li>
+										<li class="deal-category-list deal-category-list-all active"><a onclick="clearAllDeal();" href="javascript:;">ALL</a></li>
 										@foreach($dealCategoriesData as $row)
-										<li><a href="javascript:;" onclick="showDealCategoryData('{{ strtolower($row->category_name) }}');">{{ $row->category_name }}</a></li>
+										<li class="deal-category-list deal-category-{{ strtolower($row->category_name) }}"><a href="javascript:;" onclick="showDealCategoryData('{{ strtolower($row->category_name) }}');">{{ $row->category_name }}</a></li>
 										@endforeach
 									</ul>
 								</div>
@@ -151,11 +151,17 @@
 <script> 
 	function clearAllDeal()
 	{
+		$('.deal-category-list').removeClass('active');
+		$('.deal-category-list-all').addClass('active');
+
 		$('.blog-item').show();
 	}
 	
 	function showDealCategoryData(cat_name)
 	{
+		$('.deal-category-list').removeClass('active');
+		$('.deal-category-'+cat_name).addClass('active');
+
 		$('.blog-item').hide();
 		
 		//alert(cat_name);
