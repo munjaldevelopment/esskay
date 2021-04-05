@@ -87,7 +87,7 @@
 											<!--<div class="user-login-icon">   
 											<i class="fa fa-envelope"></i>
 											</div>-->
-											<textarea required id="class" class="form-control-textarea resize-none" name="class" placeholder="Enter message"></textarea>
+											<textarea required id="message" class="form-control-textarea resize-none" name="message" placeholder="Enter message"></textarea>
 										</div>  
 									</div>  
 								</div>
