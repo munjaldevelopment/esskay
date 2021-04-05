@@ -11,7 +11,7 @@
 								$count = 1;
 							@endphp
 							@foreach($parentCategoryData as $cat_id => $name)
-							<div class="item @if($count == 1) active @endif">
+							<div class="item">
 								<a class="insight-category-list insight-category-cat{{ $cat_id }}" data-insight="{{ $cat_id }}" href="javascript:;">{{ $name }}</a>
 							</div>
 								@php
