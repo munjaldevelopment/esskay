@@ -62,6 +62,18 @@ class CollectionEfficiencyCrudController extends CrudController
                     'name'      => 'amount_graph1',
                     ]);
 
+            $this->crud->addColumn([
+                     'label'     => 'Heading Bottom Graph',
+                    'type'      => 'text',
+                    'name'      => 'heading_graph2',
+                    ]);
+
+            $this->crud->addColumn([
+                    'label'     => 'Amount Bottom Graph',
+                    'type'      => 'text',
+                    'name'      => 'amount_graph2',
+                    ]);
+
             $this->crud->addField([
                     'label'     => 'Heading Top Graph',
                     'type'      => 'text',
