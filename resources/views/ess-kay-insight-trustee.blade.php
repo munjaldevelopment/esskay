@@ -105,7 +105,19 @@ $(document).ready(function() {
 		nav:true,
 		navText: ["<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'>","<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'>"],  
 		autoWidth: true,
-		items: 4
+		items: 4,
+		responsive:{
+			0:{
+				items:1,
+				nav:true,
+				autoWidth:true,
+			},
+			600:{
+				items:1,
+				nav:true,
+				autoWidth:true,
+			},
+		}
 	});
 
 	$('.insight-category-list').bind('click', function() {
