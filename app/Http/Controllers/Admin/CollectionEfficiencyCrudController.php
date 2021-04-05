@@ -51,25 +51,25 @@ class CollectionEfficiencyCrudController extends CrudController
             $this->crud->enableExportButtons();
             
             $this->crud->addColumn([
-                    'label'     => 'Heading Top Graph',
+                    'label'     => 'Heading Top',
                     'type'      => 'text',
                     'name'      => 'heading_graph1',
                     ]);
 
             $this->crud->addColumn([
-                    'label'     => 'Amount Top Graph',
+                    'label'     => 'Amount Top',
                     'type'      => 'text',
                     'name'      => 'amount_graph1',
                     ]);
 
             $this->crud->addColumn([
-                     'label'     => 'Heading Bottom Graph',
+                     'label'     => 'Heading Bottom',
                     'type'      => 'text',
                     'name'      => 'heading_graph2',
                     ]);
 
             $this->crud->addColumn([
-                    'label'     => 'Amount Bottom Graph',
+                    'label'     => 'Amount Bottom',
                     'type'      => 'text',
                     'name'      => 'amount_graph2',
                     ]);

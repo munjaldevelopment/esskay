@@ -23,7 +23,7 @@
 					  Don't have an account?
 					</p>
 					<div class="switch-btn btn">
-						<a class="btn" href="{{ asset('/')}}login"> Sign up</a>
+						Sign up
 					</div>
 					</div>
 					</div>
