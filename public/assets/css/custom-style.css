@@ -2319,7 +2319,22 @@
 
 .mtb-inner-category .item a {
     font-size: 11px;
+    margin-left: 0;
     padding: 12px 10px;
+}
+
+.mtb-inner-category {
+    padding: 0 25px;
+}
+
+.mtb-inner-category .owl-nav .owl-prev {
+    left: -34px;
+    top: 7px;
+}
+
+.mtb-inner-category .owl-nav .owl-next {
+    right: -34px;
+    top: 7px;
 }
 
 .operation-highlights-area.operation-single-highlighs .ohbh-box-insight-right {
