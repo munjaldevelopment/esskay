@@ -2313,6 +2313,15 @@
 }
 
 @media only screen and (max-width: 639px) {
+.owl-carousel .owl-nav button img {
+    height: 25px;
+}
+
+.mtb-inner-category .item a {
+    font-size: 11px;
+    padding: 12px 10px;
+}
+
 .operation-highlights-area.operation-single-highlighs .ohbh-box-insight-right {
     width: 46%;
 }	
