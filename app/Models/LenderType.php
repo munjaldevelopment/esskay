@@ -29,6 +29,10 @@ class LenderType extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function lenderType()
+    {
+        return $this->belongsTo('App\Models\LenderType', 'parent_id');
+    }
 
     /*
     |--------------------------------------------------------------------------

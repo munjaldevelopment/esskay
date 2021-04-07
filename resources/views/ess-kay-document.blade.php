@@ -5,7 +5,7 @@
 			<nav class="navbar" role="navigation">
 				<!-- Main Menu -->
 				<div class="side-menu-container">
-					<ul class="nav navbar-nav" id="menu-accordian">
+					<ul class="nav navbar-nav category-listing" id="menu-accordian">
 						@php
 							$count = 1;
 						@endphp
@@ -16,11 +16,17 @@
 								</a>
 
 								@if(isset($childCategoryData[$id]))
-								<div id="dropdown-lv{{$id}}" class="panel-collapse collapse" data-parent="#menu-accordian">
+								<div id="dropdown-lv{{$id}}" class="panel-collapse collapse @if($count == 1) collapse show @endif" data-parent="#menu-accordian">
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
+											@php
+												$count1 = 1;
+											@endphp
 											@foreach($childCategoryData[$id] as $id1 => $childCategoryRow)
-											<li><a href="javascript:;" class="doc-category-list dropdown-box" data-level="2" data-category="{{$id1}}"><span><img src="{{ asset('public/assets/') }}/images/sub-dropdown-icon.svg" alt=""></span> {{ $childCategoryRow['name'] }}</a></li>
+											<li><a href="javascript:;" class="doc-category-list dropdown-box @if($count == 1 && $count1 == 1) first-child @endif" data-level="2" data-category="{{$id1}}"><span><img src="{{ asset('public/assets/') }}/images/sub-dropdown-icon.svg" alt=""></span> {{ $childCategoryRow['name'] }}</a></li>
+											@php
+												$count1++;
+											@endphp
 											@endforeach
 										</ul>
 									</div>
@@ -40,6 +46,9 @@
 
 		<div class="side-body">
 			<div class="doc-container">
+				<div class="alert alert-warning">
+					Please click on left section to get products
+				</div>
 			</div>
 		</div>
 	</div>
@@ -146,6 +155,6 @@ $(document).ready(function() {
 	});
 	
 	
-	$('ul.category-listing > li:first-child > a.dropdown-box').trigger('click');
+	$('ul.category-listing > li:first-child a.first-child').trigger('click');
 });
 </script>

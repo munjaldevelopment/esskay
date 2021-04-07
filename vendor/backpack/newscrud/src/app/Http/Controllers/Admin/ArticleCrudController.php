@@ -61,19 +61,13 @@ class ArticleCrudController extends CrudController
             $this->crud->addColumn('tags');
 
             $this->crud->addFilter([ // select2 filter
-                'name' => 'category',
-                'type' => 'select2_multiple',
+                'name' => 'category_id',
+                'type' => 'select2',
                 'label'=> 'Category',
             ], function () {
                 return \Backpack\NewsCRUD\app\Models\Category::all()->keyBy('id')->pluck('name', 'id')->toArray();
             }, function ($value) { // if the filter is active
-				foreach (json_decode($values) as $key => $value) {
-					if ($key == 0) {
-						$q->where('category.id', $value);
-					} else {
-						$q->orWhere('category.id', $value);
-					}
-				}
+                $this->crud->addClause('where', 'category_id', $value);
             });
 
             $this->crud->addFilter([ // select2_multiple filter
@@ -123,12 +117,6 @@ class ArticleCrudController extends CrudController
                 'default' => date('Y-m-d'),
             ]);
             $this->crud->addField([
-                'name' => 'short_description',
-                'label' => 'Short description',
-                'type' => 'textarea',
-                'placeholder' => 'Your textarea text here',
-            ]);
-			$this->crud->addField([
                 'name' => 'content',
                 'label' => 'Content',
                 'type' => 'ckeditor',
@@ -139,19 +127,13 @@ class ArticleCrudController extends CrudController
                 'label' => 'Image',
                 'type' => 'browse',
             ]);
-			$this->crud->addField([
-                'name' => 'article_pdf',
-                'label' => 'File',
-                'type' => 'browse',
-            ]);
             $this->crud->addField([
                 'label' => 'Category',
                 'type' => 'relationship',
-                'name' => 'category',
+                'name' => 'category_id',
                 'entity' => 'category',
                 'attribute' => 'name',
-				'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
-                'inline_create' => ['entity' => 'category'],
+                'inline_create' => true,
                 'ajax' => true,
             ]);
             $this->crud->addField([

@@ -24,7 +24,7 @@
 	<script src="{{ asset('public/assets/') }}/js/swiper.jquery.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/custom.js"></script>
 	
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/sweetalert.min.js"></script>
 
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 </head>

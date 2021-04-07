@@ -26,7 +26,6 @@ class UserStoreCrudRequest extends FormRequest
     {
         return [
             'email'    => 'required|unique:'.config('permission.table_names.users', 'users').',email',
-            'phone'    => 'required|unique:'.config('permission.table_names.users', 'users').',phone',
             'name'     => 'required',
             'password' => 'required|confirmed',
         ];

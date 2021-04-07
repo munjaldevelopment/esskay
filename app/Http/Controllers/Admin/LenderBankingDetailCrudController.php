@@ -86,7 +86,7 @@ class LenderBankingDetailCrudController extends CrudController
 				$this->crud->addClause('where', 'lender_banking_status', '=', "0");
 			}
 			
-			$this->crud->addColumn([
+			/*$this->crud->addColumn([
 					'label'     => 'Lender',
 					'type'      => 'select',
 					'name'      => 'lender_id',
@@ -94,7 +94,7 @@ class LenderBankingDetailCrudController extends CrudController
 					'attribute' => 'name', //name of fields in models table like districts
 					'model'     => "App\Models\Lender", //name of Models
 
-					]);
+					]);*/
 
             $this->crud->addColumn([
                     'label'     => 'Lender Banking',
@@ -154,6 +154,15 @@ class LenderBankingDetailCrudController extends CrudController
                     ]
 
                     ]);
+
+            $this->crud->addField([
+                    'label'     => 'Lender Banking Detail Code',
+                    'type'      => 'text',
+                    'name'      => 'lender_banking_detail_code',
+                    'attributes' => [
+                        'id' => 'lender_banking_detail_code'
+                    ]
+                    ]);
 					
 			$this->crud->addField([
 					'label'     => 'Banking Arrangment',
@@ -164,7 +173,13 @@ class LenderBankingDetailCrudController extends CrudController
 					'model'     => "App\Models\BankingArrangment", //name of Models
 
 					]);
-					
+
+            $this->crud->addField([
+                    'label'     => 'Banking Date',
+                    'type'      => 'date',
+                    'name'      => 'lender_banking_date',
+                    ]);
+
 			$this->crud->addField([
 					'label'     => 'Sanction Amount',
 					'type'      => 'number',
@@ -185,13 +200,13 @@ class LenderBankingDetailCrudController extends CrudController
 					
 				]);
 					
-			$this->crud->addButtonFromView('line', 'checker_banking_arrangment', 'checker_banking_arrangment', 'end');
+			$this->crud->addButtonFromView('line', 'checker_banking_arrangment_detail', 'checker_banking_arrangment_detail', 'end');
 			
 			$this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportLenderBankingDetailButton', 'end');
 			$this->crud->addButtonFromModelFunction('top', 'import_xls', 'importLenderBankingDetailButton', 'end');
 
             $this->crud->setCreateView('admin.create-lender-banking-detail-form');
-            $this->crud->setUpdateView('admin.update-lender-banking-detail-form');
+            $this->crud->setUpdateView('admin.edit-lender-banking-detail-form');
 		}
 		else
 		{
@@ -246,12 +261,12 @@ class LenderBankingDetailCrudController extends CrudController
         $this->setupCreateOperation();
     }
 	
-	public function checkerBankingArrangment($lender_banking_id)
+	public function checkerBankingArrangmentDetail($lender_banking_id)
 	{
 		$updateData = array('lender_banking_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
-		\DB::table('lender_banking')->where(['id' => $lender_banking_id])->update($updateData);
+		\DB::table('lender_banking_details')->where(['id' => $lender_banking_id])->update($updateData);
 
-		\DB::table('lender_banking_detail_revisions')->where(['lender_banking_id' => $lender_banking_id])->update($updateData);
+		\DB::table('lender_banking_detail_revisions')->where(['lender_banking_detail_id' => $lender_banking_id])->update($updateData);
 	}
 
 	public function store()
@@ -262,8 +277,9 @@ class LenderBankingDetailCrudController extends CrudController
 
         $result = $this->traitLenderBankingDetailStore();
 
-        $lender_banking_id =  $this->crud->entry->id;
+        $lender_banking_detail_id =  $this->crud->entry->id;
         $lender_id = $this->crud->getRequest()->lender_id;
+        $lender_banking_id = $this->crud->getRequest()->lender_banking_id;
         $banking_arrangment_id = $this->crud->getRequest()->banking_arrangment_id;
         $sanction_amount = $this->crud->getRequest()->sanction_amount;
         $outstanding_amount = $this->crud->getRequest()->outstanding_amount;
@@ -272,7 +288,11 @@ class LenderBankingDetailCrudController extends CrudController
         $document_status = $this->crud->getRequest()->document_status;
 
 
-        \DB::table('lender_banking_detail_revisions')->insert(['lender_banking_detail_id' => $lender_banking_id, 'lender_id' => $lender_id, 'banking_arrangment_id' => $banking_arrangment_id,'sanction_amount' => $sanction_amount, 'outstanding_amount' => $outstanding_amount, 'lender_banking_status' => $lender_banking_status]);
+        \DB::table('lender_banking_detail_revisions')->insert(['lender_banking_detail_id' => $lender_banking_detail_id, 'lender_id' => $lender_id, 'lender_banking_id' => $lender_banking_id, 'banking_arrangment_id' => $banking_arrangment_id,'sanction_amount' => $sanction_amount, 'outstanding_amount' => $outstanding_amount, 'lender_banking_status' => $lender_banking_status]);
+
+        \DB::statement('UPDATE `lender_banking` SET lender_banking_code = CONCAT("LENDERBANK", "00", id) WHERE id > 99');
+
+        \DB::statement('UPDATE `lender_banking_details` SET lender_banking_detail_code = CONCAT("LENDERBANKDETAIL", "00", id) WHERE id > 99');
 
         return $result;
     }    
@@ -285,8 +305,9 @@ class LenderBankingDetailCrudController extends CrudController
 
         $result = $this->traitLenderBankingDetailUpdate();
 
-        $lender_banking_id =  $this->crud->getRequest()->id;
+        $lender_banking_detail_id =  $this->crud->getRequest()->id;
         $lender_id = $this->crud->getRequest()->lender_id;
+        $lender_banking_id = $this->crud->getRequest()->lender_banking_id;
         $banking_arrangment_id = $this->crud->getRequest()->banking_arrangment_id;
         $sanction_amount = $this->crud->getRequest()->sanction_amount;
         $outstanding_amount = $this->crud->getRequest()->outstanding_amount;
@@ -295,8 +316,64 @@ class LenderBankingDetailCrudController extends CrudController
         $document_status = $this->crud->getRequest()->document_status;
 
 
-        \DB::table('lender_banking_detail_revisions')->insert(['lender_banking_detail_id' => $lender_banking_id, 'lender_id' => $lender_id, 'banking_arrangment_id' => $banking_arrangment_id,'sanction_amount' => $sanction_amount, 'outstanding_amount' => $outstanding_amount, 'lender_banking_status' => $lender_banking_status]);
+        \DB::table('lender_banking_detail_revisions')->insert(['lender_banking_detail_id' => $lender_banking_detail_id, 'lender_id' => $lender_id, 'lender_banking_id' => $lender_banking_id, 'banking_arrangment_id' => $banking_arrangment_id,'sanction_amount' => $sanction_amount, 'outstanding_amount' => $outstanding_amount, 'lender_banking_status' => $lender_banking_status]);
+
+        \DB::statement('UPDATE `lender_banking` SET lender_banking_code = CONCAT("LENDERBANK", "00", id) WHERE id > 99');
+
+        \DB::statement('UPDATE `lender_banking_details` SET lender_banking_detail_code = CONCAT("LENDERBANKDETAIL", "00", id) WHERE id > 99');
     
         return $result;
+    }
+
+    public function getLastLenderBanking()
+    {
+        $personInfo = \DB::table("lender_banking")
+                    ->orderBy("id",'DESC')
+                    ->first();
+
+        $personInfoData = "00001";
+        if($personInfo)
+        {
+            if($personInfo->id <= 8)
+            {
+                $personInfoData = "0000".($personInfo->id + 1);
+            }
+            else if($personInfo->id > 8 && $personInfo->id <= 98)
+            {
+                $personInfoData = "000".($personInfo->id + 1);
+            }
+            else 
+            {
+                $personInfoData = "00".($personInfo->id + 1);
+            }
+        }
+
+        return $personInfoData;
+    }
+
+    public function getLastLenderBankingDetail()
+    {
+        $personInfo = \DB::table("lender_banking_details")
+                    ->orderBy("id",'DESC')
+                    ->first();
+
+        $personInfoData = "00001";
+        if($personInfo)
+        {
+            if($personInfo->id <= 8)
+            {
+                $personInfoData = "0000".($personInfo->id + 1);
+            }
+            else if($personInfo->id > 8 && $personInfo->id <= 98)
+            {
+                $personInfoData = "000".($personInfo->id + 1);
+            }
+            else 
+            {
+                $personInfoData = "00".($personInfo->id + 1);
+            }
+        }
+
+        return $personInfoData;
     }
 }

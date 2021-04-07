@@ -45,7 +45,7 @@ trait PageTemplates
                         'label' => trans('backpack::pagemanager.meta_keywords'),
                         'fake' => true,
                         'store_in' => 'extras',
-						]);
+                    ]);
         $this->crud->addField([   // CustomHTML
                         'name' => 'content_separator',
                         'type' => 'custom_html',

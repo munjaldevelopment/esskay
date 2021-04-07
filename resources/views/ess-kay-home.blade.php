@@ -6,7 +6,7 @@
 	@if($lenderData->is_banking_arrangement == 1)
 	<div class="row-fluid">
 		<div class="col-md-12">
-			<h2> Loan Summary (In Cr.)</h2>
+			<h2> Loan Summary (In Cr.) <span class="loan-summary-total">Total Outstanding ({{ $total_outstanding }} Cr)  |  Total Sanctioned ({{ $total_sanction }} Cr)</span></h2>
 			<div class="swiper-viewport">
 				<div id="carousel0" class="swiper-container">
 					<div class="swiper-wrapper">
@@ -14,9 +14,9 @@
 						<div class="swiper-slide text-center">
 							<div class="row">
 								<div class="col-md-12">
-									<div class="card no-border">
+									<div class="card no-border card-border-right">
 										<div class="card-body">
-											<td><span class="bg-blue-light">{!! $bdetail['banking_arrangment_name'] !!}</span></td>
+											<td><span class="bg-blue-light cursor-pointer" data-toggle="modal" data-target="#staticBackdrop{{ $k }}">{!! $bdetail['banking_arrangment_name'] !!}</span></td>
 											<td><span class="spn">Sanctioned: <br /> <i class="fa fa-inr" aria-hidden="true"></i> {!! $bdetail['sanction_amount'] !!}</span></td>
 											<td><span class="spn spn-bdr">Outstanding: <br /> <i class="fa fa-inr" aria-hidden="true"></i> {!! $bdetail['outstanding_amount'] !!}</span></td>
 										</div>
@@ -36,7 +36,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="row-fluid mb-2">
 		<div class="col-md-12">
 			<hr />
@@ -45,61 +45,122 @@
 	@endif
 		
 	<input type="hidden" id="is_message_md" class="is_message_md" value="{{ $lenderData->is_message_md }}" />
+	<input type="hidden" id="is_insight" class="is_insight" value="{{ $lenderData->is_insight }}" />
 	<input type="hidden" id="is_document" class="is_document" value="{{ $lenderData->is_document }}" />
+	<input type="hidden" id="is_sanction_letter" class="is_sanction_letter" value="{{ $lenderData->is_sanction_letter }}" />
 	<input type="hidden" id="is_financial_summary" class="is_financial_summary" value="{{ $lenderData->is_financial_summary }}" />
 	<input type="hidden" id="is_newsletter" class="is_newsletter" value="{{ $lenderData->is_newsletter }}" />
 	<input type="hidden" id="is_contact_us" class="is_contact_us" value="{{ $lenderData->is_contact_us }}" />
 		
 	<div class="main-tab-area">
-		<div class="tab-top-area">
+		<div class="tab-top-area d-lg-block d-sm-none d-none">
 			<ul class="nav esskay-home">
 				@if($lenderData->is_message_md == 1)
 				<li class="nav-item">
 					<!-- Single button -->
-					<div class="dropdown">
-						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-							About Us
-					  	</button>
-					  	<div class="dropdown-menu">
-							<a class="dropdown-item home-class active" href="javascript:;">Message from MD</a>
-							<a class="dropdown-item home1-class active" href="javascript:;">Board of  Directors</a>
-							<a class="dropdown-item home2-class active" href="javascript:;">Key Managerial Person</a>
+					<div class="dropdown dropdown-lender">
+						<button type="button" class="active nav-link btn btn-primary about-class dropdown-toggle" data-toggle="dropdown">About Us</button>
+					  	<div class="dropdown-menu about-container">
+							<a class="dropdown-item home-class" href="javascript:;">Message from MD</a>
+							<a class="dropdown-item board-class" href="javascript:;">Board of  Directors</a>
+							<a class="dropdown-item key-manager-class" href="javascript:;">Key Managerial Person</a>
 					  	</div>
 					</div>
+				</li>
+
+				@endif
+				@if($lenderData->is_insight == 1)
+				<li class="nav-item">
+					<a class="nav-link insight-class @if($lenderData->is_message_md == 0) active @endif" href="javascript:;">Insights</a>
 				</li>
 				@endif
 				@if($lenderData->is_document == 1)
 				<li class="nav-item">
-					<a class="nav-link doc-class @if($lenderData->is_message_md == 0) active @endif" href="javascript:;">Documents</a>
+					<a class="nav-link doc-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0) active @endif" href="javascript:;">Document</a>
 				</li>
 				@endif
-				@if($lenderData->is_financial_summary == 1)
+				@if($lenderData->is_sanction_letter == 1)
 				<li class="nav-item">
-				<a class="nav-link graph-class @if($lenderData->is_message_md == 0 && $lenderData->is_document == 0) active @endif" href="javascript:;">Financial Summary</a>
+					<a class="nav-link sanction-letter-class @if($lenderData->is_message_md == 0) active @endif" href="javascript:;">Sanction Letter</a>
 				</li>
+				@endif
+				@if($lenderData->is_current_deal  == 1)
+				<li class="nav-item">
+				<a class="nav-link deal-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0 && $lenderData->is_document == 0) active @endif" href="javascript:;">Current Deal</a>
+				</li>
+				@endif
+
+				@if($lenderData->is_financial_summary == 1)
+				<!--<li class="nav-item">
+				<a class="nav-link graph-class @if($lenderData->is_message_md == 0 && $lenderData->is_document == 0) active @endif" href="javascript:;">Financial Summary</a>
+				</li>-->
 				@endif
 				@if($lenderData->is_newsletter == 1)
 				<li class="nav-item">
-				<a class="nav-link news-class @if($lenderData->is_message_md == 0 && $lenderData->is_document == 0 && $lenderData->is_financial_summary == 0) active @endif" href="javascript:;">Newsletters</a>
+				<a class="nav-link news-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0 && $lenderData->is_document == 0 && $lenderData->is_financial_summary == 0) active @endif" href="javascript:;">Newsletters</a>
 				</li>
 				@endif
 				@if($lenderData->is_contact_us == 1)
 				<li class="nav-item">
-				<a class="nav-link contact-class @if($lenderData->is_message_md == 0 && $lenderData->is_document == 0 && $lenderData->is_financial_summary == 0 && $lenderData->is_newsletter == 0) active @endif" href="javascript:;">Contact Us</a>
+				<a class="nav-link contact-class @if($lenderData->is_message_md == 0 && $lenderData->is_insight == 0 && $lenderData->is_document == 0 && $lenderData->is_financial_summary == 0 && $lenderData->is_newsletter == 0) active @endif" href="javascript:;">Contact Us</a>
 				</li>
 				@endif
 			</ul>
 		</div>
-	</div>
-
-	<div class="main-tab-details">
-		<!-- Tab panes -->
-		<div class="tab-content">
-			<div class="home-content">
+	
+		<div class="main-tab-details">
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="home-content">
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+<!-- Modal -->
+@foreach($lenderBankingData as $k => $bdetail)
+<div class="modal fade" id="staticBackdrop{{ $k }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{ $k }}" aria-hidden="true">
+  <div class="modal-dialog loan-summry-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel{{ $k }}">{!! $bdetail['banking_arrangment_name'] !!}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><img src="{{ asset('public/assets/') }}/images/modal-close-icon.svg" alt=""></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="custom-table-area">
+        	@if(isset($lenderBankingDetailData[$bdetail['banking_arrangment_id']]))
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+					  <tr>
+						<th>#</th>
+						<th>Date</th>
+						<th>Sanctioned (in Cr.)</th>
+						<th>Outstanding (in Cr.)</th>
+					  </tr>
+					</thead>
+					<tbody>
+						@foreach($lenderBankingDetailData[$bdetail['banking_arrangment_id']] as $k1 => $row1)
+					  	<tr>
+							<td>{{ $k1 + 1}}</td>
+							<td>{{ $row1['lender_banking_date'] }}</td>
+							<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> {{ $row1['sanction_amount'] }}</td>
+							<td><img src="{{ asset('public/assets/') }}/images/rupees-icon.svg" alt=""> {{ $row1['outstanding_amount'] }}</td>
+					  	</tr>
+					  	@endforeach
+					</tbody>
+				</table>	
+			</div>
+			@endif
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
 
 <style>
 	.carousel-control-next, .carousel-control-prev {
@@ -115,6 +176,11 @@
 	}
 </style>
 <script> 
+
+	$('.dropdown-lender').hover(function(){ 
+  		//$('.dropdown-toggle', this).trigger('click'); 
+	});
+
 $(document).ready(function(){
 	$('#carousel0').swiper({
 		mode: 'horizontal',

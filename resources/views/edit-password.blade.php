@@ -1,77 +1,121 @@
 @include('common.header_login')
 
-<!--header end here-->
-<!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->     
-    <section class="fxt-template-animation fxt-template-layout4">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 col-12 fxt-bg-wrap">
-					<div class="fxt-bg-img" data-bg-image="{{ asset('public/') }}/{{ forgot_password_page_background }}">
-                        <div class="fxt-header">
-                            <div class="fxt-transformY-50 fxt-transition-delay-1 visibility-hidden">
-                                <a href="{{ asset('/')}}login" class="fxt-logo"><img src="{{ asset('public/') }}/{{ site_logo }}" alt="Logo"></a>
-                            </div>
-                            <div class="fxt-transformY-50 fxt-transition-delay-2 visibility-hidden">
-                                <h1>Welcome to EssKay</h1>
-                            </div>
-							<div class="fxt-transformY-50 fxt-transition-delay-3 visibility-hidden">
-								{!! login_page_content !!}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-				
-				<div class="col-md-6 col-12 fxt-bg-color">
-                    <div class="fxt-content">
-                        <div class="fxt-form">
-							<h1>Update Password</h1>
-							
-							@if (count($errors->login) > 0)
-							<div class="alert alert-danger">
+<div class="login-main-area">
+	<div class="login_container">
+		<div class="container-forms">
+			<div class="container-info">
+				<div class="info-item info-item-login">
+					<div class="login_container_table">
+					<div class="login_container_table-cell">
+					<p>
+					  Already have account?
+					</p>
+					<div class="switch-btn btn">
+					  Log in
+					</div>
+					</div>
+					</div>
+				</div>
+				<div class="info-item info-item-signup">
+					<div class="login_container_table">
+					<div class="login_container_table-cell">
+					<p>
+					  Don't have an account?
+					</p>
+					<div class="switch-btn btn">
+						Sign up
+					</div>
+					</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-form">
+				<div class="form-item log-in">
+					<div class="login_container_table">
+						<div class="login_container_table-cell">
+							<div class="login-main-box">
+								<div class="login-logo">
+								 <a href=""><img src="{{ asset('public/') }}/{{ site_logo }}" alt=""></a>  
+								</div>
+
+            					@if (count($errors->login) > 0)
+								<div class="alert alert-danger">
 								<ul>
-									@foreach ($errors->login->all() as $error)
-									<P>{{ $error }}</p>
-									@endforeach
+								@foreach ($errors->login->all() as $error)
+								{{ $error }}<br />
+								@endforeach
 								</ul>
+								</div>
+								@endif 
+								@if (Session::has('message'))
+								<div class="alert alert-warning">{{ Session::get('message') }}</div>
+								@endif
+
+								<form class="log-in-form" action="{{ asset('/')}}updatePassword" method="post" name="loginForm">
+									{{ csrf_field() }}
+
+									<input type="hidden" name="current_user_id" value="{{ $current_user_id }}">
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="userotp-container form-group">
+												<!--<div class="user-login-icon">   
+												<i class="fa fa-envelope"></i>
+												</div>-->
+												<input type="text" maxlength="6" required name="user_otp" class="form-control" placeholder="User OTP*">
+												<a href="javascript:;" class="fxt-btn-fill send-otp float-right">Send OTP</a>
+											</div>  
+										</div>  
+									</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="password-container form-group">
+												<!--<div class="user-login-icon">   
+												<i class="fa fa-envelope"></i>
+												</div>-->
+												<input type="password" required name="password" readonly="" class="user-password form-control" placeholder="Password">
+											</div>  
+										</div>  
+									</div>
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="confirm-container form-group">
+												<!--<div class="user-login-icon">   
+												<i class="fa fa-envelope"></i>
+												</div>-->
+												<input type="password" required name="password_confirmation" readonly="" class="user-password form-control" placeholder="Confirm  Password">
+											</div>  
+										</div>  
+									</div>
+
+									<div class="row">  
+										<div class="col-md-12">
+											<div class="user-login-btn change-passowrd">
+												<button disabled type="button" class="btn-change submit-btn custom-btn1 btn fxt-btn-fill"><i class="fa fa-sign-in d-none hide" aria-hidden="true"></i> Verify </button>
+												<a href="{{ asset('/')}}" class="custom-btn1 btn fxt-btn-fill">Back</a>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">  
+										<div class="col-md-12">
+											<p class="text-center">This site is protected by reCAPTCHA</p>
+
+											<!--<p class="text-center">Don't have an account?<a href="{{ asset('/')}}" class="switcher-text">Register</a></p>-->
+										</div>  
+									</div>
+								</form>
 							</div>
-							@endif 
-							@if (Session::has('message'))
-							<div class="alert alert-warning">{{ Session::get('message') }}</div>
-							@endif
-						
-							<form class="log-in-form" action="{{ asset('/')}}updatePassword" method="post" name="loginForm">
-								{{ csrf_field() }}
-								
-								<div class="form-group userotp-container">  
-                                    <label for="name" class="input-label"><span data-toggle="tooltip" data-placement="top" title="Please enter your name">User OTP*</span></label>
-									<input type="text" maxlength="6" required name="user_otp" class="form-control" placeholder="">
-									
-									<a href="{{ asset('/')}}send-user-otp" class="fxt-btn-fill float-right">Send OTP</a>
-								
-								</div>
-								
-								<div class="form-group password-container">  
-                                    <label for="name" class="input-label"><span data-toggle="tooltip" data-placement="top" title="Please enter your name">Password*</span></label>
-									<input type="password" required name="password" class="form-control" placeholder="Password">
-								</div>
-								
-								<div class="form-group confirm-container">  
-                                    <label for="name" class="input-label"><span data-toggle="tooltip" data-placement="top" title="Please enter your name">Confirm Password*</span></label>
-									<input type="password" required name="password_confirmation" class="form-control" placeholder="Confirm Password">
-								</div>
-								<div class="form-group">
-									<button type="button" class="fxt-btn-fill btn-change">Submit</button> &nbsp;&nbsp;<a href="{{ asset('/')}}" class="fxt-btn-fill">Back</a>
-								</div>
-							</form>
-						</div> 
-						                         
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  	</div>
+</div>
 
 <!-- jquery-->
 <script src="{{ asset('public/assets/') }}/js/jquery-3.5.0.min.js"></script>
@@ -105,9 +149,10 @@
 		color: #000000;
 	}
 	a.fxt-btn-fill.float-right {
-    position: relative;
-    top: -44px;
-}
+    	position: relative;
+        top: -35px;
+	    right: -28%;
+	}
 </style>
 <script>
 
@@ -116,8 +161,23 @@ $(document).ready(function() {
 	var base_url = $('base').attr('href');
 	
 	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+	$('.send-otp').bind('click', function() {
+		$.ajax({
+			url: base_url+'send-user-otp',
+			type: 'get',
+			beforeSend: function() {
+			},
+			success: function(output) {
+				$('.submit-btn').removeAttr('disabled');
+				$('.user-password').removeAttr('readonly');
+				$('.send-otp').html('Resend OTP');
+			}
+		});
+	});
 	
 	$('.btn-change').bind('click', function() {
+		var current_user_id = $("input[name=current_user_id]").val();
 		var name = $("input[name=user_otp]").val();
 		var email = $("input[name=password]").val();
 		var telephone = $("input[name=password_confirmation]").val();
@@ -197,7 +257,7 @@ $(document).ready(function() {
 			$.ajax({
 				url: base_url+'updatePassword',
 				type: 'post',
-				data: {user_otp: name, password: email},
+				data: {current_user_id: current_user_id, user_otp: name, password: email},
 				beforeSend: function() {
 				},
 				success: function(output) {

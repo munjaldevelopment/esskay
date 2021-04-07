@@ -96,7 +96,7 @@
 
 	function showLenderBanking(lender_id, lender_banking_id)
 	{
-		if(document_category_id != "")
+		if(lender_id != "")
 		{
 			$("#lender_banking_id").html('<option value="">--Select--</option>');
 			$.ajax({

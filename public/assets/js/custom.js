@@ -5,10 +5,137 @@ $(document).ready(function() {
 	
 	$('.home-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
 		$('.home-class').addClass('active');
+		$('.about-class').addClass('active');
+
+		$('.board-class').removeClass('active');
+		$('.key-manager-class').removeClass('active');
+
+		$('.about-container').removeClass('show');
+
+		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
 			url: base_url+'homepage',
+			type: 'post',
+			data: {_token: CSRF_TOKEN},
+			beforeSend: function() {
+				$('.preloader').show();
+			},
+			success: function(output) {
+				$('.preloader').hide();
+				$('.about-container').removeClass('show');
+				$('.home-content').html(output);
+			}
+		});
+	});
+
+	$('.board-class').bind('click', function() {
+		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
+		$('.board-class').addClass('active');
+
+		$('.home-class').removeClass('active');
+		$('.about-class').removeClass('active');
+		$('.key-manager-class').removeClass('active');
+
+		$('.about-container').removeClass('show');
+
+		$('#collapsibleNavbar').removeClass('show');
+		
+		$.ajax({
+			url: base_url+'board',
+			type: 'post',
+			data: {_token: CSRF_TOKEN},
+			beforeSend: function() {
+				$('.preloader').show();
+			},
+			success: function(output) {
+				$('.preloader').hide();
+				$('.home-content').html(output);
+			}
+		});
+	});
+
+	$('.key-manager-class').bind('click', function() {
+		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
+		$('.key-manager-class').addClass('active');
+
+		$('.home-class').removeClass('active');
+		$('.about-class').removeClass('active');
+		$('.board-class').removeClass('active');
+
+		$('.about-container').removeClass('show');
+
+		$('#collapsibleNavbar').removeClass('show');
+		
+		$.ajax({
+			url: base_url+'keymanager',
+			type: 'post',
+			data: {_token: CSRF_TOKEN},
+			beforeSend: function() {
+				$('.preloader').show();
+			},
+			success: function(output) {
+				$('.preloader').hide();
+				$('.home-content').html(output);
+			}
+		});
+	});
+	
+	$('.insight-class').bind('click', function() {
+		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
+		$('.insight-class').addClass('active');
+
+		$('#collapsibleNavbar').removeClass('show');
+		
+		$.ajax({
+			url: base_url+'insight',
+			type: 'post',
+			data: {_token: CSRF_TOKEN},
+			beforeSend: function() {
+				$('.preloader').show();
+			},
+			success: function(output) {
+				$('.preloader').hide();
+				$('.home-content').html(output);
+			}
+		});
+	});
+
+	$('.sanction-letter-class').bind('click', function() {
+		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
+		$('.sanction-letter-class').addClass('active');
+
+		$('#collapsibleNavbar').removeClass('show');
+		
+		$.ajax({
+			url: base_url+'sanction-letter',
+			type: 'post',
+			data: {_token: CSRF_TOKEN},
+			beforeSend: function() {
+				$('.preloader').show();
+			},
+			success: function(output) {
+				$('.preloader').hide();
+				$('.home-content').html(output);
+			}
+		});
+	});
+
+	$('.deal-class').bind('click', function() {
+		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
+		$('.deal-class').addClass('active');
+
+		$('#collapsibleNavbar').removeClass('show');
+		
+		$.ajax({
+			url: base_url+'deal',
 			type: 'post',
 			data: {_token: CSRF_TOKEN},
 			beforeSend: function() {
@@ -23,7 +150,10 @@ $(document).ready(function() {
 		
 	$('.doc-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
 		$('.doc-class').addClass('active');
+
+		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
 			url: base_url+'document',
@@ -41,7 +171,10 @@ $(document).ready(function() {
 
 	$('.news-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
 		$('.news-class').addClass('active');
+
+		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
 			url: base_url+'news',
@@ -59,7 +192,10 @@ $(document).ready(function() {
 
 	$('.contact-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
 		$('.contact-class').addClass('active');
+
+		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
 			url: base_url+'contact_us',
@@ -77,7 +213,10 @@ $(document).ready(function() {
 	
 	$('.graph-class').bind('click', function() {
 		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
 		$('.graph-class').addClass('active');
+
+		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
 			url: base_url+'company_graph',

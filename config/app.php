@@ -162,23 +162,13 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-        /*
-         * Package Service Providers...
-         */
-
-        /*
-         * Application Service Providers...
-         */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-		
 		Venturecraft\Revisionable\RevisionableServiceProvider::class,
 		PragmaRX\Tracker\Vendor\Laravel\ServiceProvider::class,
 		RezaAr\Highcharts\Provider::class,
-		
 		Jenssegers\Agent\AgentServiceProvider::class,
 		Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
@@ -238,5 +228,4 @@ return [
 		'Agent' => Jenssegers\Agent\Facades\Agent::class,
 		'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
-
 ];

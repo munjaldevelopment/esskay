@@ -54,7 +54,6 @@ class LenderBankingSheetImport implements ToCollection, WithValidation, WithHead
 					$bankingData = BankingArrangment::where('name', '=', $banking_arrangment)->first();
 					
 					$lenderBanking = new LenderBanking;
-					$lenderBanking->id = $lender_banking_id;
 					$lenderBanking->lender_id = $lenderData->id;
 					$lenderBanking->banking_arrangment_id = $bankingData->id;
 					$lenderBanking->lender_banking_code = $row['lender_banking_code'];
@@ -72,6 +71,7 @@ class LenderBankingSheetImport implements ToCollection, WithValidation, WithHead
 		return [
 			'id' => 'required',
             'lender' => 'required',
+            'lender_banking_code' => 'required',
             'banking_arrangment' => 'required',
             'sanction' => 'required',
             'outstanding' => 'required',
@@ -84,6 +84,7 @@ class LenderBankingSheetImport implements ToCollection, WithValidation, WithHead
 		return [
 			'id' => 'Message 1.',
 			'lender' => 'Message 2.',
+            'lender_banking_code' => 'Message 2.',
 			'banking_arrangment' => 'Message 2.',
 			'sanction' => 'Message 2.',
 			'outstanding' => 'Message 2.',

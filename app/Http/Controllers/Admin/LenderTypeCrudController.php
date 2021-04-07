@@ -56,10 +56,13 @@ class LenderTypeCrudController extends CrudController
 									'type' => 'text',
 								]);
 								
-			$this->crud->addField([
-									'name' => 'name',
-									'label' => 'Name',
-									'type' => 'text',
+			$this->crud->addColumn([
+									'name' => 'parent_id',
+                                    'type'      => 'select',
+                                    'name'      => 'parent_id',
+                                    'entity'    => 'lenderType', //function name
+                                    'attribute' => 'name', //name of fields in models table like districts
+                                    'model'     => "App\Models\LenderType", //name of Models
 								]);
 		}
 		else
@@ -95,7 +98,22 @@ class LenderTypeCrudController extends CrudController
     {
         CRUD::setValidation(LenderTypeRequest::class);
 
-        CRUD::setFromDb(); // fields
+        //CRUD::setFromDb(); // fields
+
+        $this->crud->addField([
+                                    'name' => 'name',
+                                    'label' => 'Name',
+                                    'type' => 'text',
+                                ]);
+
+        $this->crud->addField([
+                                    'name' => 'parent_id',
+                                    'type'      => 'select2',
+                                    'name'      => 'parent_id',
+                                    'entity'    => 'lenderType', //function name
+                                    'attribute' => 'name', //name of fields in models table like districts
+                                    'model'     => "App\Models\LenderType", //name of Models
+                                ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

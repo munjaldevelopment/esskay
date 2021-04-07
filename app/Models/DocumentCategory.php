@@ -30,9 +30,14 @@ class DocumentCategory extends Model
     |--------------------------------------------------------------------------
     */
 
-     public function lenders()
+    public function lenders()
     {
         return $this->belongsToMany('App\Models\Lender', 'document_category_lender');
+    }
+
+    public function trustees()
+    {
+        return $this->belongsToMany('App\Models\Trustee', 'document_category_trustee');
     }
 
     /*

@@ -21,7 +21,7 @@ class LenderCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitLenderStore; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitLenderUpdate; }
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation { destroy as traitDestroy; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 	
 	use \Backpack\ReviseOperation\ReviseOperation;
@@ -59,18 +59,6 @@ class LenderCrudController extends CrudController
     		$this->crud->addColumn([
                                     'name' => 'name',
                                     'label' => 'Name',
-                                    'type' => 'text',
-                                ]);
-    							
-    		$this->crud->addColumn([
-                                    'name' => 'code',
-                                    'label' => 'Code',
-                                    'type' => 'text',
-                                ]);
-    							
-    		$this->crud->addColumn([
-                                    'name' => 'lot_name',
-                                    'label' => 'Lot Name',
                                     'type' => 'text',
                                 ]);
     					
@@ -158,176 +146,6 @@ class LenderCrudController extends CrudController
                                 'type' => 'password',
 								'tab' => 'User'
                             ]);
-							
-		$this->crud->addField([
-                                'name' => 'code',
-                                'label' => 'Code',
-                                'type' => 'hidden',
-								'tab' => 'User'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'slug',
-                                'label' => 'Slug',
-                                'type' => 'hidden',
-								'tab' => 'User'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'lot_name',
-                                'label' => 'Lot Name',
-                                'type' => 'hidden',
-								'tab' => 'User'
-                            ]);
-							
-		/*$this->crud->addField([
-                                'name' => 'availment_date',
-                                'label' => 'Availment Date',
-                                'type' => 'date',
-								'tab' => 'Avail'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'sanction_date',
-                                'label' => 'Sanction Date',
-                                'type' => 'date',
-								'tab' => 'Avail'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'sanction_amount',
-                                'label' => 'Sanction Amount',
-                                'type' => 'number',
-								'tab' => 'Avail'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'principal_assigned',
-                                'label' => 'Principal Assigned',
-                                'type' => 'number',
-								'tab' => 'Avail'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'outstanding',
-                                'label' => 'Outstanding',
-                                'type' => 'number',
-								'tab' => 'Avail'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'interest_rate',
-                                'label' => 'Int. Rate',
-                                'type' => 'number',
-								'tab' => 'Interest'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'inclusive_irr',
-                                'label' => 'Inc. IRR',
-                                'type' => 'number',
-								'tab' => 'Interest'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'processing_fee',
-                                'label' => 'Processing Fee',
-                                'type' => 'number',
-								'tab' => 'Interest'
-                            ]);
-							
-		$freq = array('' => '-Select-', 'Monthly' => 'Monthly', 'Quarterly' => 'Quarterly', 'Half Yearly' => 'Half Yearly', 'Yearly' => 'Yearly');
-		
-		$this->crud->addField([
-                                'name' => 'principal_repayment_frequency',
-                                'label' => 'Principal Repayment Freq.',
-                                'type' => 'select2_from_array',
-								'options' => $freq,
-								'tab' => 'Freqquence'
-                            ]);
-					
-		$this->crud->addField([
-                                'name' => 'interest_payment_frequency',
-                                'label' => 'Interest Payment Freq.',
-                                'type' => 'select2_from_array',
-								'options' => $freq,
-								'tab' => 'Freqquence'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'door_to_door',
-                                'label' => 'Door to Door',
-                                'type' => 'number',
-								'tab' => 'Other'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'maturity_date',
-                                'label' => 'Maturity Date',
-                                'type' => 'date',
-								'tab' => 'Other'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'security_margin_receivables',
-                                'label' => 'Security Margin on receivables',
-                                'type' => 'number',
-								'tab' => 'Other'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'security_required',
-                                'label' => 'Security required',
-                                'type' => 'number',
-								'tab' => 'Other'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'fixed_deposit_required',
-                                'label' => 'Fixed Deposit Required',
-                                'type' => 'number',
-								'tab' => 'Other'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'personal_guarantee',
-                                'label' => 'Personal Guarantee',
-                                'type' => 'text',
-								'tab' => 'Other'
-                            ]);
-							
-		$this->crud->addField([
-                'label'     => 'Lender Type',
-                'type'      => 'select2',
-                'name'      => 'lender_type_id',
-                'entity'    => 'lenderType', //function name
-                'attribute' => 'name', //name of fields in models table like districts
-                'model'     => "App\Models\LenderType", //name of Models
-				'tab' => 'Type'
-
-                ]);
-				
-		$this->crud->addField([
-                'label'     => 'Instrument Type',
-                'type'      => 'select2',
-                'name'      => 'instrument_type_id',
-                'entity'    => 'instrumentType', //function name
-                'attribute' => 'name', //name of fields in models table like districts
-                'model'     => "App\Models\InstrumentType", //name of Models
-				'tab' => 'Type'
-
-                ]);
-				
-		$this->crud->addField([
-                'label'     => 'Facility Type',
-                'type'      => 'select2',
-                'name'      => 'facility_type_id',
-                'entity'    => 'facilityType', //function name
-                'attribute' => 'name', //name of fields in models table like districts
-                'model'     => "App\Models\FacilityType", //name of Models
-				'tab' => 'Type'
-
-                ]);*/
 		
 		$this->crud->addField([
                                 'name' => 'is_onboard',
@@ -363,6 +181,22 @@ class LenderCrudController extends CrudController
 								'options' => ['0' => 'No', '1' => 'Yes'],
 								'tab' => 'Roles'
                             ]);
+
+        $this->crud->addField([
+                                'name' => 'is_insight',
+                                'label' => 'Show Insight',
+                                'type' => 'select2_from_array',
+                                'options' => ['0' => 'No', '1' => 'Yes'],
+                                'tab' => 'Roles'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'is_current_deal',
+                                'label' => 'Show Current Deal',
+                                'type' => 'select2_from_array',
+                                'options' => ['0' => 'No', '1' => 'Yes'],
+                                'tab' => 'Roles'
+                            ]);
 		
 							
 		$this->crud->addField([
@@ -395,6 +229,14 @@ class LenderCrudController extends CrudController
                                 'type' => 'select2_from_array',
 								'options' => ['0' => 'No', '1' => 'Yes'],
 								'tab' => 'Roles'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'is_sanction_letter',
+                                'label' => 'Show Sanction Letter',
+                                'type' => 'select2_from_array',
+                                'options' => ['0' => 'No', '1' => 'Yes'],
+                                'tab' => 'Roles'
                             ]);
 	}
 	
@@ -461,155 +303,6 @@ class LenderCrudController extends CrudController
                                 'type' => 'hidden',
 								'tab' => 'User'
                             ]);
-							
-		/*$this->crud->addField([
-                                'name' => 'availment_date',
-                                'label' => 'Availment Date',
-                                'type' => 'date',
-								'tab' => 'Avail'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'sanction_date',
-                                'label' => 'Sanction Date',
-                                'type' => 'date',
-								'tab' => 'Avail'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'sanction_amount',
-                                'label' => 'Sanction Amount',
-                                'type' => 'number',
-								'tab' => 'Avail'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'principal_assigned',
-                                'label' => 'Principal Assigned',
-                                'type' => 'number',
-								'tab' => 'Avail'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'outstanding',
-                                'label' => 'Outstanding',
-                                'type' => 'number',
-								'tab' => 'Avail'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'interest_rate',
-                                'label' => 'Int. Rate',
-                                'type' => 'number',
-								'tab' => 'Interest'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'inclusive_irr',
-                                'label' => 'Inc. IRR',
-                                'type' => 'number',
-								'tab' => 'Interest'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'processing_fee',
-                                'label' => 'Processing Fee',
-                                'type' => 'number',
-								'tab' => 'Interest'
-                            ]);
-							
-		$freq = array('' => '-Select-', 'Monthly' => 'Monthly', 'Quarterly' => 'Quarterly', 'Half Yearly' => 'Half Yearly', 'Yearly' => 'Yearly');
-		
-		$this->crud->addField([
-                                'name' => 'principal_repayment_frequency',
-                                'label' => 'Principal Repayment Freq.',
-                                'type' => 'select2_from_array',
-								'options' => $freq,
-								'tab' => 'Freqquence'
-                            ]);
-					
-		$this->crud->addField([
-                                'name' => 'interest_payment_frequency',
-                                'label' => 'Interest Payment Freq.',
-                                'type' => 'select2_from_array',
-								'options' => $freq,
-								'tab' => 'Freqquence'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'door_to_door',
-                                'label' => 'Door to Door',
-                                'type' => 'number',
-								'tab' => 'Other'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'maturity_date',
-                                'label' => 'Maturity Date',
-                                'type' => 'date',
-								'tab' => 'Other'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'security_margin_receivables',
-                                'label' => 'Security Margin on receivables',
-                                'type' => 'number',
-								'tab' => 'Other'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'security_required',
-                                'label' => 'Security required',
-                                'type' => 'number',
-								'tab' => 'Other'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'fixed_deposit_required',
-                                'label' => 'Fixed Deposit Required',
-                                'type' => 'number',
-								'tab' => 'Other'
-                            ]);
-							
-		$this->crud->addField([
-                                'name' => 'personal_guarantee',
-                                'label' => 'Personal Guarantee',
-                                'type' => 'text',
-								'tab' => 'Other'
-                            ]);
-							
-		$this->crud->addField([
-                'label'     => 'Lender Type',
-                'type'      => 'select2',
-                'name'      => 'lender_type_id',
-                'entity'    => 'lenderType', //function name
-                'attribute' => 'name', //name of fields in models table like districts
-                'model'     => "App\Models\LenderType", //name of Models
-				'tab' => 'Type'
-
-                ]);
-				
-		$this->crud->addField([
-                'label'     => 'Instrument Type',
-                'type'      => 'select2',
-                'name'      => 'instrument_type_id',
-                'entity'    => 'instrumentType', //function name
-                'attribute' => 'name', //name of fields in models table like districts
-                'model'     => "App\Models\InstrumentType", //name of Models
-				'tab' => 'Type'
-
-                ]);
-				
-		$this->crud->addField([
-                'label'     => 'Facility Type',
-                'type'      => 'select2',
-                'name'      => 'facility_type_id',
-                'entity'    => 'facilityType', //function name
-                'attribute' => 'name', //name of fields in models table like districts
-                'model'     => "App\Models\FacilityType", //name of Models
-				'tab' => 'Type'
-
-                ]);*/
 		
 		$this->crud->addField([
                                 'name' => 'is_onboard',
@@ -645,6 +338,22 @@ class LenderCrudController extends CrudController
 								'options' => ['0' => 'No', '1' => 'Yes'],
 								'tab' => 'Roles'
                             ]);
+
+        $this->crud->addField([
+                                'name' => 'is_insight',
+                                'label' => 'Show Insight',
+                                'type' => 'select2_from_array',
+                                'options' => ['0' => 'No', '1' => 'Yes'],
+                                'tab' => 'Roles'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'is_current_deal',
+                                'label' => 'Show Current Deal',
+                                'type' => 'select2_from_array',
+                                'options' => ['0' => 'No', '1' => 'Yes'],
+                                'tab' => 'Roles'
+                            ]);
 							
 		$this->crud->addField([
                                 'name' => 'is_document',
@@ -676,6 +385,14 @@ class LenderCrudController extends CrudController
                                 'type' => 'select2_from_array',
 								'options' => ['0' => 'No', '1' => 'Yes'],
 								'tab' => 'Roles'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'is_sanction_letter',
+                                'label' => 'Show Sanction Letter',
+                                'type' => 'select2_from_array',
+                                'options' => ['0' => 'No', '1' => 'Yes'],
+                                'tab' => 'Roles'
                             ]);
 	}
 	
@@ -744,10 +461,48 @@ class LenderCrudController extends CrudController
 				}
 			}
 		}
+
+        \DB::statement('UPDATE `lender_banking` SET lender_banking_code = CONCAT("LENDERBANK", "00", id) WHERE id > 99');
+
+        \DB::statement('UPDATE `lender_banking_details` SET lender_banking_detail_code = CONCAT("LENDERBANKDETAIL", "00", id) WHERE id > 99');
 		
+        // Assign values (default)
+        $parentData1 = \DB::table('current_deal_categories')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('current_deal_category_lender')->insert(['current_deal_category_id' => $row1->id, 'lender_id' => $id]);
+        }
+
+        $parentData1 = \DB::table('document_category')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('document_category_lender')->insert(['document_id' => $row1->id, 'lender_id' => $id]);
+        }
+
+        $parentData1 = \DB::table('documents')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('document_lender')->insert(['document_id' => $row1->id, 'lender_id' => $id]);
+        }
+
+        $parentData1 = \DB::table('insight_categories')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('insight_category_lender')->insert(['insight_category_id' => $row1->id, 'lender_id' => $id]);
+        }
+
+        $parentData1 = \DB::table('insights')->get();
+        
+        foreach($parentData1 as $row1)
+        {
+            \DB::table('insight_lender')->insert(['insight_category_id' => $row1->id, 'lender_id' => $id]);
+        }
+
 		return $result;
-		
-		
     }
 
     /**
@@ -817,6 +572,10 @@ class LenderCrudController extends CrudController
 			}
 		}
 
+        \DB::statement('UPDATE `lender_banking` SET lender_banking_code = CONCAT("LENDERBANK", "00", id) WHERE id > 99');
+
+        \DB::statement('UPDATE `lender_banking_details` SET lender_banking_detail_code = CONCAT("LENDERBANKDETAIL", "00", id) WHERE id > 99');
+
         $result = $this->traitLenderUpdate();
 		
 		return $result;
@@ -835,5 +594,15 @@ class LenderCrudController extends CrudController
         }
 
         return $this->crud->getRequest();
+    }
+
+    public function destroy($id)
+    {
+        $this->crud->hasAccessOrFail('delete');
+
+        \DB::table('lender_banking')->where('lender_id', $id)->delete();
+        \DB::table('lender_banking_details')->where('lender_id', $id)->delete();
+
+        return $this->crud->delete($id);
     }
 }

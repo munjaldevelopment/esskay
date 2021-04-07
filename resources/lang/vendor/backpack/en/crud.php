@@ -42,11 +42,20 @@ return [
     'actions'                   => 'Actions',
     'preview'                   => 'Preview',
     'delete'                    => 'Delete',
+    'confirm'                   => 'Confirm',
     'admin'                     => 'Admin',
     'details_row'               => 'This is the details row. Modify as you please.',
     'details_row_loading_error' => 'There was an error loading the details. Please retry.',
     'clone'                     => 'Clone',
+
     'checkerDocument'           => 'Approve Document',
+    'rejectTransaction'         => 'Reject',
+
+    'checkerSanctionLetter'     => 'Approve San. Letter',
+    'checkerSanctionLetter2'    => 'Approve 2 San. Letter',
+    'checkerSanctionLetter3'    => 'Approve 3 San. Letter',
+
+    'checkerTransaction'        => 'Approve',
     'checkerBankingArrangment'  => 'Approve',
     'clone_success'             => '<strong>Entry cloned</strong><br>A new entry has been added, with the same information as this one.',
     'clone_failure'             => '<strong>Cloning failed</strong><br>The new entry could not be created. Please try again.',
@@ -58,6 +67,9 @@ return [
 	'checkerBankingArrangment_failure'   => '<strong>Banking Arrangement approve failed</strong>',
 
     // Confirmation messages and bubbles
+    'approve_confirm'                             => 'Are you sure you want to approve this item?',
+    'reject_confirm'                              => 'Are you sure you want to reject this item?',
+
     'delete_confirm'                              => 'Are you sure you want to delete this item?',
     'delete_confirmation_title'                   => 'Item Deleted',
     'delete_confirmation_message'                 => 'The item has been deleted successfully.',

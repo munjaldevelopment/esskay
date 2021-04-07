@@ -126,6 +126,22 @@
 	}
 	
 	showSubCategory('{{ $entry->document_category_id }}', '{{ $entry->document_sub_category_id }}');
+
+	function addNextPump(count)
+	{
+		$.ajax({
+			type:"GET",
+			url:"{{ backpack_url('getSanctionLetter') }}/"+count,
+			success:function(result){
+				$('.pump_output_container').append(result);
+			}
+		});
+	}
+	
+	function removePumpContainer(count)
+	{
+		$('.pump_container_'+count).remove();
+	}
 </script>
 @endpush
 

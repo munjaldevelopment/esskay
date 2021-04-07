@@ -25,13 +25,12 @@ class LenderUpdateRequest extends FormRequest
      */
     public function rules()
     {
+        $user_id = request('user_id');
+        
         return [
-            // 'name' => 'required|min:5|max:255'
-			'name' => 'required',
-			'email' => 'required|unique:lenders,email,'.$this->id,
-			//'code' => 'required|unique:lenders,code,'.$this->id,
-			//'slug' => 'required|unique:lenders,slug,'.$this->id,
-			//'lot_name' => 'required'
+            'name' => 'required',
+            'email' => 'required|unique:users,email,'.$user_id,
+            'phone' => 'required|unique:users,phone,'.$user_id,
         ];
     }
 

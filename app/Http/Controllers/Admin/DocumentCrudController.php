@@ -32,6 +32,7 @@ class DocumentCrudController extends CrudController
         CRUD::setModel(\App\Models\Document::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/document');
         CRUD::setEntityNameStrings('document', 'documents');
+		
 		$list_document = backpack_user()->hasPermissionTo('list_document');
 		if($list_document)
 		{
@@ -54,8 +55,17 @@ class DocumentCrudController extends CrudController
 			$checker_document = backpack_user()->hasPermissionTo('checker_document');
 			if($checker_document)
 			{
-				//$this->crud->addClause('where', 'document_status', '=', "0");
-				$this->crud->allowAccess(['checker_document', 'revise', 'delete']);
+				$is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    //$this->crud->addClause('where', 'document_status', '=', "0");
+                    $this->crud->allowAccess(['checker_document', 'revise', 'delete']);
+                }
+                else
+                {
+                    $this->crud->denyAccess(['revise']);
+                    $this->crud->allowAccess(['checker_document']);
+                }
 			}
 			else
 			{
@@ -64,8 +74,18 @@ class DocumentCrudController extends CrudController
 			
 			if($checker_document && !$maker_document)
 			{
-				$this->crud->addClause('where', 'document_status', '=', "0");
+				//$this->crud->addClause('where', 'document_status', '=', "0");
 			}
+
+			$this->crud->addColumn([
+                    'label'     => 'Created',
+                    'type'      => 'select',
+                    'name'      => 'user_id',
+                    'entity'    => 'user', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'model'     => "App\User", //name of Models
+
+                    ]);
 			
 			$this->crud->addColumn([
 					'label'     => 'Doc Category',
@@ -97,6 +117,29 @@ class DocumentCrudController extends CrudController
 									'name' => 'document_date',
 									'label' => 'Year',
 									'type' => 'text',
+								]);
+
+			$this->crud->addColumn([
+                                    'name' => 'document_filename',
+                                    'label' => 'New Document',
+                                    'type' => 'browse',
+                                    'limit' => '200'
+                                ]);
+
+            $this->crud->addColumn([
+                                    'name' => 'document_previous',
+                                    'label' => 'Old Document',
+                                    'type' => 'browse_previous',
+                                    'table' => 'document_revisions',
+                                    'table_field' => 'document_id',
+                                    'field_show' => 'document_filename',
+                                    'limit' => '200'
+                                ]);
+
+            $this->crud->addColumn([
+									'name' => 'expiry_date',
+									'label' => 'Publish Date',
+									'type' => 'date'
 								]);
 								
 			$document_category = array();
@@ -134,6 +177,39 @@ class DocumentCrudController extends CrudController
 					],
 					'tab' => 'General'
 			]);
+
+			$is_admin = backpack_user()->hasRole('Super Admin');
+
+            if($is_admin)
+            {
+                $userData = array();
+                $users = \DB::table('users')->where('user_status', '1')->get();
+                foreach ($users as $key => $roww) {
+                    $userData[$roww->id] = $roww->name;
+                }
+
+                $this->crud->addField([
+                        'label'     => 'Created By',
+                        'type'      => 'select2_from_array',
+                        'name'      => 'user_id',
+                        'options'   => $userData,
+                        'tab'       => 'General',
+
+                ]);
+            }
+            else
+            {
+                $this->crud->addField([
+                        'label'     => 'Created By',
+                        'type'      => 'hidden',
+                        'name'      => 'user_id',
+                        'entity'    => 'user', //function name
+                        'attribute' => 'name', //name of fields in models table like districts
+                        'model'     => "App\User", //name of Models
+                        'value'     => backpack_user()->id, //name of Models
+                        'tab'       => 'General'
+                ]);
+            }
 					
 			/*
 					
@@ -211,13 +287,24 @@ class DocumentCrudController extends CrudController
 
 			$this->crud->addField([
 					'label'     => 'Lender',
-					'type'      => 'relationship ',
+					'type'      => 'relationship',
 					'name'      => 'lenders',
 					'entity'    => 'lenders', //function name
 					'attribute' => 'name', //name of fields in models table like districts
 					'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
 					
 					'tab' => 'Lender'
+					]);
+
+			$this->crud->addField([
+					'label'     => 'Trustee',
+					'type'      => 'relationship',
+					'name'      => 'trustees',
+					'entity'    => 'trustees', //function name
+					'attribute' => 'name', //name of fields in models table like districts
+					'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+					
+					'tab' => 'Trustee'
 					]);
 								
 			//$this->crud->enableAjaxTable();
@@ -437,34 +524,34 @@ class DocumentCrudController extends CrudController
     }
 	
 	public function getContent($request_url)
-  {
-    $options = array(
-      CURLOPT_RETURNTRANSFER => true,     // return web page
-      CURLOPT_HEADER         => false,    // don't return headers
-      CURLOPT_FOLLOWLOCATION => true,     // follow redirects
-      CURLOPT_ENCODING       => "",       // handle all encodings
-      CURLOPT_USERAGENT      => "spider", // who am i
-      CURLOPT_AUTOREFERER    => true,     // set referer on redirect
-      CURLOPT_CONNECTTIMEOUT => 120,      // timeout on connect
-      CURLOPT_TIMEOUT        => 120,      // timeout on response
-      CURLOPT_MAXREDIRS      => 10,       // stop after 10 redirects
-      CURLOPT_SSL_VERIFYPEER => false     // Disabled SSL Cert checks
-    );
+  	{
+	    $options = array(
+	      CURLOPT_RETURNTRANSFER => true,     // return web page
+	      CURLOPT_HEADER         => false,    // don't return headers
+	      CURLOPT_FOLLOWLOCATION => true,     // follow redirects
+	      CURLOPT_ENCODING       => "",       // handle all encodings
+	      CURLOPT_USERAGENT      => "spider", // who am i
+	      CURLOPT_AUTOREFERER    => true,     // set referer on redirect
+	      CURLOPT_CONNECTTIMEOUT => 120,      // timeout on connect
+	      CURLOPT_TIMEOUT        => 120,      // timeout on response
+	      CURLOPT_MAXREDIRS      => 10,       // stop after 10 redirects
+	      CURLOPT_SSL_VERIFYPEER => false     // Disabled SSL Cert checks
+	    );
 
-    $ch      = curl_init( $request_url );
-    curl_setopt_array( $ch, $options );
-    $content = curl_exec( $ch );
-    $err     = curl_errno( $ch );
-    $errmsg  = curl_error( $ch );
-    $header  = curl_getinfo( $ch );
-    curl_close( $ch );
+	    $ch      = curl_init( $request_url );
+	    curl_setopt_array( $ch, $options );
+	    $content = curl_exec( $ch );
+	    $err     = curl_errno( $ch );
+	    $errmsg  = curl_error( $ch );
+	    $header  = curl_getinfo( $ch );
+	    curl_close( $ch );
 
-    $header['errno']   = $err;
-    $header['errmsg']  = $errmsg;
-    $header['content'] = $content;
-    
-    //echo '<pre>';print_r($header); exit;
-    return $header;
+	    $header['errno']   = $err;
+	    $header['errmsg']  = $errmsg;
+	    $header['content'] = $content;
+	    
+	    //echo '<pre>';print_r($header); exit;
+	    return $header;
 	}
 	
 	public function checkerDocument($document_id)
@@ -473,5 +560,193 @@ class DocumentCrudController extends CrudController
 		\DB::table('documents')->where(['id' => $document_id])->update($updateData);
 		
 		\DB::table('document_revisions')->where(['document_id' => $document_id])->update($updateData);
+	}
+
+	public function checkerDocumentReject($document_id)
+	{
+		$updateData = array('document_status' => '2', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('documents')->where(['id' => $document_id])->update($updateData);
+		
+		\DB::table('document_revisions')->where(['document_id' => $document_id])->update($updateData);
+	}
+
+	public function checkerTransactionDocument($document_id)
+	{
+		$updateData = array('document_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('transaction_documents')->where(['id' => $document_id])->update($updateData);
+		
+		\DB::table('transaction_document_revisions')->where(['document_id' => $document_id])->update($updateData);
+	}
+
+	public function checkerTransactionDocumentReject($document_id)
+	{
+		$updateData = array('document_status' => '2', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('transaction_documents')->where(['id' => $document_id])->update($updateData);
+		
+		\DB::table('transaction_document_revisions')->where(['document_id' => $document_id])->update($updateData);
+	}
+
+	public function checkerTransaction($document_id)
+	{
+		$updateData = array('transaction_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('transactions')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerTransactionReject($document_id)
+	{
+		$updateData = array('transaction_status' => '2', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('transactions')->where(['id' => $document_id])->update($updateData);
+	}
+
+	//'is_approve1', 'approve1_user', 'is_approve2', 'approve2_user', 'is_approve3', 'approve3_user', 
+	public function checkerSanctionLetter($sanction_letter_id)
+	{
+		$updateData = array('is_approve1' => '1', 'approve1_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->update($updateData);
+		
+		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+
+		$sanctionData = \DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->first();
+
+		$sms_status = config('general.sms_status');
+                
+        if($sms_status)
+        {
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been approved by ".backpack_user()->name.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $lender_phone = "9462045321";
+
+            $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
+            $smsresult = $this->getContent($request_url);
+            if($smsresult['errno'] == 0){
+                \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }
+        }
+	}
+
+	public function checkerSanctionLetterReject($sanction_letter_id)
+	{
+		$updateData = array('is_approve1' => '2', 'approve1_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->update($updateData);
+		
+		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+
+		$sanctionData = \DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->first();
+
+		$sms_status = config('general.sms_status');
+                
+        if($sms_status)
+        {
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been rejected by ".backpack_user()->name.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $lender_phone = "9462045321";
+
+            $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
+            $smsresult = $this->getContent($request_url);
+            if($smsresult['errno'] == 0){
+                \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }
+        }
+	}
+
+	public function checkerSanctionLetter2($sanction_letter_id)
+	{
+		$updateData = array('is_approve2' => '1', 'approve2_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->update($updateData);
+		
+		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+
+		$sanctionData = \DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->first();
+
+		$sms_status = config('general.sms_status');
+                
+        if($sms_status)
+        {
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been approved by ".backpack_user()->name.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $lender_phone = "9462045321";
+
+            $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
+            $smsresult = $this->getContent($request_url);
+            if($smsresult['errno'] == 0){
+                \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }
+        }
+	}
+
+	public function checkerSanctionLetterReject2($sanction_letter_id)
+	{
+		$updateData = array('is_approve2' => '2', 'approve2_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->update($updateData);
+		
+		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+
+		$sanctionData = \DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->first();
+
+		$sms_status = config('general.sms_status');
+                
+        if($sms_status)
+        {
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been rejected by ".backpack_user()->name.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $lender_phone = "9462045321";
+
+            $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
+            $smsresult = $this->getContent($request_url);
+            if($smsresult['errno'] == 0){
+                \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }
+        }
+
+	}
+
+	public function checkerSanctionLetter3($sanction_letter_id)
+	{
+		$updateData = array('is_approve3' => '1', 'approve3_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->update($updateData);
+		
+		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+
+		$sanctionData = \DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->first();
+
+		$sms_status = config('general.sms_status');
+                
+        if($sms_status)
+        {
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been approved by ".backpack_user()->name.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $lender_phone = "9462045321";
+
+            $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
+            $smsresult = $this->getContent($request_url);
+            if($smsresult['errno'] == 0){
+                \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }
+        }
+	}
+
+	public function checkerSanctionLetterReject3($sanction_letter_id)
+	{
+		$updateData = array('is_approve3' => '2', 'approve3_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->update($updateData);
+		
+		$updateData = array('sanction_letter_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letter_revisions')->where(['sanction_letter_id' => $sanction_letter_id])->update($updateData);
+
+		$sanctionData = \DB::table('sanction_letters')->where(['id' => $sanction_letter_id])->first();
+
+		$sms_status = config('general.sms_status');
+                
+        if($sms_status)
+        {
+            $message = str_replace(" ", "%20", "Dear Sir, The new sanction letter approval of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." has been rejected by ".backpack_user()->name.". Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            $lender_phone = "9462045321";
+
+            $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
+            $smsresult = $this->getContent($request_url);
+            if($smsresult['errno'] == 0){
+                \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }
+        }
 	}
 }

@@ -1,4 +1,6 @@
-body{font-family: 'Montserrat', sans-serif !important;
+body{
+  font-family: 'Montserrat', sans-serif !important;
+  color: #767676;
 }
 @font-face {
    font-family: 'Montserrat', sans-serif;
@@ -38,23 +40,43 @@ a.navbar-brand:focus {
 
 .bg-serchbox{ background-color: #f3f3f9; }
 ul.navbar-nav.ml-auto.nav-custome li a {
-    color: #3e4095;
-    font-weight: 600;
-    font-size: 13px; text-transform: uppercase;
+    color: #676767;
+    font-weight: 400;
+    font-size: 13px;
+    /* text-transform: uppercase;*/
 } 
 ul.navbar-nav.ml-auto.nav-custome li a:hover{ color:#556ee6; }
-   .heading-jhone {
+
+.heading-jhone {
     background-image: linear-gradient(to top, #00904e , #3c3e96);
     width: 40px;
     height: 40px;
     text-align: center;
     line-height: 40px;
     font-weight: 600;
-    font-size: 30px;
+    font-size: 24px;
     color: #ffffff;
-    padding: 2px 9px;
+    padding: 2px 0;
     box-shadow: 0px 0px 10px #7c7da9;
 }
+
+.esskay-home .nav-link:hover {
+    background: #1976D2;
+}
+
+.esskay-home .nav-link:before {
+    /*content: "";*/
+    width: 0;
+    left: 50%;
+    height: 0;
+    border-style: solid;
+    border-width: 0 13px 17px 13px;
+    border-color: transparent transparent #ffffff transparent;
+    top: 0px;
+    position: absolute;
+    transform: translateX(-50%) rotate(180deg);
+}
+
 span.last-dropdown {
     background: #cff1f0;
     border-radius: 50%;
@@ -183,10 +205,10 @@ ul.breadcrumb li+li:before {
   color: black;
   content: "/\00a0";
 }
-.priceadd{ color: #4b4b4d; }
+.priceadd{ color: #767676; }
 /* Add a color to all links inside the list */
 ul.breadcrumb li a {
-  color: #4b4b4d;
+  color: #767676;
   text-decoration: none;
 }
 
@@ -318,8 +340,8 @@ nav.side-navbar ul li i {
 }
 
 .custome-syle {
-    color: #4b4b4d;
-    margin-top: 15px;
+    color: #767676;
+    margin-top: 0px;
     margin-right: 10px;
     font-size: 16px;
     font-weight: 800;
@@ -342,7 +364,7 @@ nav.side-navbar ul li i {
     border-radius: 5px;
 }
 .notification-box .content-right p {
-    color: #4b4b4d;
+    color: #767676;
     font-size: 12px;
     font-weight: 500; margin: 0;
 }
@@ -392,11 +414,29 @@ p.right-arrow i { font-size: 12px;
     margin: 0px auto;
 }
 .nav-boxupar ul li {
-    color: #4b4b4d;
+    color: #767676;
 }
 .nav-boxupar ul li a{ text-decoration: none; }
 ul.navbar-nav.ml-auto.nav-custome li a.nav-link.dropdown-toggle {
     padding: 0; font-weight: normal;
+}
+
+.mtdd-doc-img i {
+    color: red;
+    font-size: 27px;
+    padding: 10px;
+}
+
+.mtdd-doc-img i.fa-file-pdf-o {
+  color: red;
+}
+
+.mtdd-doc-img i.fa-file-word-o {
+  color: blue;
+}
+
+.mtdd-doc-img i.fa-file-excel-o {
+  color: green;
 }
 
 .notifiation-icon1 i {
@@ -518,7 +558,7 @@ ul.navbar-nav.ml-auto.nav-custome li a.nav-link.dropdown-toggle {
     font-size: 26px;
     font-weight: 600;
     padding-top: 15px;
-    color: #4b4b4d;
+    color: #767676;
 }
 
 .s130 form .inner-form .input-field.first-wrap .svg-wrapper {
@@ -580,8 +620,8 @@ ul.navbar-nav.ml-auto.nav-custome li a.nav-link.dropdown-toggle {
 .tabs-search ul li {
     margin: 8px;      
 }
-.tabs-search ul li a { border: 2px solid #4b4b4d;
-    color: #4b4b4d;  padding: 6px 40px;    border-radius: 50px;
+.tabs-search ul li a { border: 2px solid #767676;
+    color: #767676;  padding: 6px 40px;    border-radius: 50px;
     text-decoration: none; display: inline-block; 
 }
 .tabs-search ul li a.active{ position: relative; background: #3e4095; color: white;    border: 2px solid #fff;}
@@ -1255,21 +1295,21 @@ ul.breadcrumb {
 .blog-desc p {
     font-size: 12px;
     text-align: justify;
-    color: #636363!important;
+    color: #676767 !important;
 	margin-bottom: 0.5rem;
 }
 
 .blog-desc1 p {
     font-size: 16px;
     text-align: justify;
-    color: #636363!important;
+    color: #676767 !important;
 	margin-bottom: 0.5rem;
 }
 
 .blog-short-desc p {
     font-size: 14px;
     text-align: justify;
-    color: #636363!important;
+    color: #676767 !important;
 	margin-bottom: 0.5rem;
 	font-style: italic;
 }
@@ -1303,13 +1343,14 @@ ul.breadcrumb {
     font-family: system-ui;
 }
 .rs-blog .blog-item .blog-title a:hover{
-  color: #000;
+  color: #676767;
 }
 
 .rs-blog .blog-item .blog-meta .blog-date {
     display: inline-block;
     font-weight: 400;
     font-size: 12px;
+    color: #676767;
 }
 
 .sticky.hentry .blog-title a, .sticky.hentry .blog-title:before, code, pre, samp, .widget ul li:before, .btm-cate i, .btm-cate .tag-line:before, .rs-blog-details .bs-meta li i, .btm-cate .tag-line a:hover, .btm-cate li a:hover, .blog-date i, li.category-name ul.post-categories:before, .rs-blog-details .bs-meta li a:hover {
@@ -1355,7 +1396,7 @@ span.author {
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 15px;
-    color: #464646 !important;
+    color: #676767 !important;
     line-height: 28px;
 }
 
@@ -1415,7 +1456,7 @@ aside#secondary {
   font-size: 12px;
 }
 .bs-sidebar .widget-title, .bs-sidebar ul a:hover, .bs-sidebar .widget-title, .bs-sidebar ul a:active{
-  color: #000;
+  color: #676767;
 }
 section#categories-2 ul li.cat-item {
     font-size: 13px;
@@ -1787,7 +1828,7 @@ nav.navbar {
 
 .center-content p {
     font-size: 12px;
-    color: #0000009e !important;
+    color: #676767 !important;
 }
 #panel .table {
     color: #000;
@@ -1933,7 +1974,7 @@ p.designation {
 h1 {
     font-size: 16px;
     font-weight: 800;
-    color: #4b4b4d;
+    color: #767676;
 }
 .doc-container h2 {
 	font-size: 18px;
@@ -2060,7 +2101,7 @@ button.close {
   margin-top: 7px;
   width: 49%;
   text-align: center;
-  font-size: 12px;
+  font-size: 13px;
 }
 .spn-bdr{
   border-left: 1px solid #0000003b;
@@ -2068,15 +2109,17 @@ button.close {
 }
 .custom-linear h2{
   font-size: 14px;
+  color: #767676;
 }
 .bg-blue-light{
-    background: rgb(230 247 251 / 47%) !important;
+    background: #1976D2;/*#EDF4FB; /*rgb(230 247 251 / 47%) !important;*/
     width: 100%;
     display: block;
     padding: 10px;
-    font-weight: 600;
+    font-weight: 100;
     text-align: center;
-    font-size: 12px;
+    font-size: 13px;
+    color: white;/*#767676;*/
 }
 
 
@@ -2088,6 +2131,10 @@ button.close {
 
 nav.side-navbar a[aria-expanded="true"]::before{
   display: none;
+}
+
+.cursor-pointer {
+  cursor:pointer !important;
 }
 
 

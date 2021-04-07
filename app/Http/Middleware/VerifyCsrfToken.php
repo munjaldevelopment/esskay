@@ -15,7 +15,9 @@ class VerifyCsrfToken extends Middleware
         //
 		'saveRegister',
 		'saveContact',
+        'saveContactTrustee',
 		'saveChangePassword',
         'updatePassword',
+        'saveResendLoginOtp',
     ];
 }

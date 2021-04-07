@@ -4,7 +4,7 @@
   $defaultBreadcrumbs = [
     trans('backpack::crud.admin') => url(config('backpack.base.route_prefix'), 'dashboard'),
     
-    trans('Banking arrangement') => false,
+    trans('Lender Banking') => false,
   ];
 
   // if breadcrumbs aren't defined in the CrudController, use the default breadcrumbs
@@ -14,7 +14,7 @@
 @section('header')
 <div class="container-fluid">
     <h2>
-      <span class="text-capitalize">Import Banking arrangement Sheet</span>
+      <span class="text-capitalize">Import Lender Banking Sheet</span>
 	  <small id="datatable_info_stack"></small>
 	</h2>
 </div>
@@ -54,7 +54,7 @@
 						<div class="btn-group">
 							<button type="submit" class="btn btn-success"><i class="fa fa-cloud"></i> Import Excel File</button>
 							&nbsp;&nbsp; </div>
-						<a href="{{ URL::to('admin/lender_banking') }}" class="btn btn-default"><span class="fa fa-ban"></span> &nbsp;Cancel</a> </div>
+						<a href="{{ URL::to('esskayadmin/lender_banking') }}" class="btn btn-default"><span class="fa fa-ban"></span> &nbsp;Cancel</a> </div>
 				</div>
 			</div>
 		</form>

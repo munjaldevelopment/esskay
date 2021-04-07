@@ -82,6 +82,18 @@
 	}
 
 	getLenderBanking($('#lender_id option:selected').val());
+
+	$.ajax({
+		type:"GET",
+		url:"{{ backpack_url('getLastLenderBankingDetail') }}",
+		success:function(res){ 
+			if(res){
+				$('#lender_banking_detail_code').val('LENDERBANKDETAIL'+ res);
+		  	}
+		}
+	});
+
+	
 </script>
 @endpush
 
