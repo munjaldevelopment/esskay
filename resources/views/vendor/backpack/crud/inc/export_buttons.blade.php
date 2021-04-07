@@ -1,12 +1,12 @@
 @if ($crud->exportButtons())
-  <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js" type="text/javascript"></script>
-  <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.bootstrap4.min.js" type="text/javascript"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.18/pdfmake.min.js" type="text/javascript"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.18/vfs_fonts.js" type="text/javascript"></script>
-  <script src="//cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js" type="text/javascript"></script>
-  <script src="//cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js" type="text/javascript"></script>
-  <script src="//cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js" type="text/javascript"></script>
+  <script src="{{ asset('public/assets/') }}/js/datatable/dataTables.buttons.min.js" type="text/javascript"></script>
+  <script src="{{ asset('public/assets/') }}/js/datatable/buttons.bootstrap4.min.js" type="text/javascript"></script>
+  <script src="{{ asset('public/assets/') }}/js/datatable/jszip.min.js" type="text/javascript"></script>
+  <script src="{{ asset('public/assets/') }}/js/datatable/pdfmake.min.js" type="text/javascript"></script>
+  <script src="{{ asset('public/assets/') }}/js/datatable/vfs_fonts.js" type="text/javascript"></script>
+  <script src="{{ asset('public/assets/') }}/js/datatable/buttons.html5.min.js" type="text/javascript"></script>
+  <script src="{{ asset('public/assets/') }}/js/datatable/buttons.print.min.js" type="text/javascript"></script>
+  <script src="{{ asset('public/assets/') }}/js/datatable/buttons.colVis.min.js" type="text/javascript"></script>
   <script>
     crud.dataTableConfiguration.buttons = [
         {
