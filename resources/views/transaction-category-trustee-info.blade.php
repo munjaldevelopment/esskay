@@ -72,6 +72,7 @@ $(document).ready(function() {
 			},
 			success: function(output) {
 				$('.report-type-container').removeClass('active');
+				console.log($(this).parent());
 
 				$(this).parent().addClass('active');
 				$('.trustee-transaction-document-container').html(output);
