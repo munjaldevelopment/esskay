@@ -184,7 +184,7 @@ Route::get('/updateAll', function () {
 Route::get('/terms', 'HomeController@termsPage');
 
 
-Route::get('/enter_transaction_categor_data', function () {
+Route::get('/enter_transaction_category_data', function () {
 	\DB::table('transaction_category_trustee')->delete();
 	
 	$parentData = \DB::table('trustees')->get();
