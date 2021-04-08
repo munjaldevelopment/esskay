@@ -67,7 +67,7 @@
 {{-- <li class='nav-item'><a class='nav-link' href='{{ backpack_url('backup') }}'><i class='nav-icon la la-hdd-o'></i> Backups</a></li> --}}
 
 @php
-	if($list_lender_type || $list_trustee_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category || $list_transaction_document_type):
+	if($list_lender_type || $list_trustee_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category || $list_transaction_document_type || $list_transaction_category):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Master</a>
@@ -116,6 +116,12 @@
 			if($list_transaction_document_type):
 		@endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction_document_type') }}'><i class='nav-icon la la-list'></i> Trans. Document Type</a></li>
+		@php
+			endif;
+
+			if($list_transaction_category):
+		@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction_category') }}'><i class='nav-icon la la-user'></i> Trans. Category</a></li>
 		@php
 			endif;
 		@endphp
@@ -292,7 +298,7 @@
 @php
 	endif;
 
-	if($list_trustee || $list_transaction_category || $list_transaction || $list_accept_transaction || $list_reject_transaction || $list_transaction_document || $list_accept_transaction_document || $list_reject_transaction_document):
+	if($list_trustee || $list_transaction || $list_accept_transaction || $list_reject_transaction || $list_transaction_document || $list_accept_transaction_document || $list_reject_transaction_document):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Trustee</a>
@@ -301,12 +307,6 @@
 	if($list_trustee):
 @endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('trustee') }}'><i class='nav-icon la la-user'></i> Trustee</a></li>
-@php
-	endif;
-
-	if($list_transaction_category):
-@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction_category') }}'><i class='nav-icon la la-user'></i> Trans. Category</a></li>
 @php
 	endif;
 
