@@ -32,6 +32,6 @@
 	<![endif]-->
 	
 	<script src="{{ asset('public/assets/') }}/js/highcharts.js"></script>
-	<script src="//code.highcharts.com/modules/series-label.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/series-label.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/exporting.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/export-data.js"></script>

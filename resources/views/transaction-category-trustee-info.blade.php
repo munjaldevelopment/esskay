@@ -7,16 +7,16 @@
 
 <div class="mtb-inner-category">
 	<div class="owl-carousel mtb_category_scroller">
-		<div class="item report-type-container active">
+		<div class="item report-type-container report-type-container1 active">
 			<a class="btn-report-type" data-val="1" href="javascript:;">Executed Report</a>
 		</div>
-		<div class="item report-type-container">
+		<div class="item report-type-container report-type-container2">
 			<a class="btn-report-type" data-val="2" href="javascript:;">Monthly Payout Report</a>
 		</div>
-		<div class="item report-type-container">
+		<div class="item report-type-container report-type-container3">
 			<a class="btn-report-type" data-val="3" href="javascript:;">Collection efficiency</a>
 		</div>
-		<div class="item report-type-container">
+		<div class="item report-type-container report-type-container4">
 			<a class="btn-report-type" data-val="4" href="javascript:;">Pool Dynamics</a>
 		</div>
 	  </div>
@@ -72,8 +72,8 @@ $(document).ready(function() {
 			},
 			success: function(output) {
 				$('.report-type-container').removeClass('active');
-
-				$(this).parent().find('.report-type-container').addClass('active');
+				
+				$('.report-type-container'+report_type).addClass('active');
 				$('.trustee-transaction-document-container').html(output);
 			}
 		});

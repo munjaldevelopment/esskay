@@ -179,6 +179,8 @@ $(document).ready(function() {
 		
 		$('.category-listing li.active .sub-dropdown-box').trigger('click');
 	});
+
+	$('.sub-dropdown-box[data-category="{{ $subCategory[0]['id'] }}"]').trigger('click');
 });
 </script>
 <script>
