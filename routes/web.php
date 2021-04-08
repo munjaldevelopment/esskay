@@ -183,6 +183,22 @@ Route::get('/updateAll', function () {
 
 Route::get('/terms', 'HomeController@termsPage');
 
+
+Route::get('/enter_transaction_categor_data', function () {
+	\DB::table('transaction_category_trustee')->delete();
+	
+	$parentData = \DB::table('trustees')->get();
+	$parentData1 = \DB::table('transaction_categories')->get();
+	
+	foreach($parentData as $row)
+	{
+		foreach($parentData1 as $row1)
+		{
+			\DB::table('transaction_category_trustee')->insert(['transaction_category_id' => $row1->id, 'trustee_id' => $row->id]);
+		}
+	}
+});
+
 Route::get('/enter_insight_category_data', function () {
 	$parentData = \DB::table('insight_category_lender')->delete();
 	
