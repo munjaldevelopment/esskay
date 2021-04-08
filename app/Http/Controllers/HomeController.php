@@ -5019,8 +5019,27 @@ class HomeController extends Controller
 
 				//dd($monthlyFebDocData);
 
+				$heading_title = "";
 
-	    		return view('transaction-category-trustee-info-document', ['trustee_id' => $trustee_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id, 'report_type' => $report_type,
+				if($report_type == 1)
+				{
+					$heading_title = "Executed Report";
+				}
+				else if($report_type == 2)
+				{
+					$heading_title = "Monthly Payout Report";
+				}
+				else if($report_type == 3)
+				{
+					$heading_title = "Collection Efficiency";
+				}
+				else if($report_type == 4)
+				{
+					$heading_title = "Pool Dynamics";
+				}
+
+
+	    		return view('transaction-category-trustee-info-document', ['trustee_id' => $trustee_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id, 'report_type' => $report_type, 'heading_title' => $heading_title,
 
 	    			'termSheetDocData' => $termSheetDocData, 'serviceAgreementDocData' => $serviceAgreementDocData, 'accountAgreementDocData' => $accountAgreementDocData, 'assignmentAgreementDocData' => $assignmentAgreementDocData, 'trustDeedDocData' => $trustDeedDocData, 'imDocData' => $imDocData, 'anyotherDocData' => $anyotherDocData,
 

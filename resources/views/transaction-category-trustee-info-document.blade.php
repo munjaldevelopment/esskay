@@ -12,7 +12,7 @@
 @if($report_type == 1)
 <div class="mtd-timeline-content">
 	<div class="border-title">	
-		<span>Lorem Ipsum is Dummy Text</span>
+		<span>{{ $heading_title }}</span>
 	</div>
 
 	<div class="mtd-accordian">
@@ -362,7 +362,7 @@
 @elseif($report_type == 2)
 <div class="mtd-timeline-content">
 	<div class="border-title">	
-		<span>Lorem Ipsum is Dummy Text</span>
+		<span>{{ $heading_title }}</span>
 	</div>
 
 	<div class="mtd-accordian">
@@ -949,7 +949,7 @@
 @else
 <div class="mtd-timeline-content">
 	<div class="border-title">	
-		<span>Lorem Ipsum is Dummy Text</span>
+		<span>{{ $heading_title }}</span>
 	</div>
 
 	<div class="alert alert-warning">Coming soon</div>
