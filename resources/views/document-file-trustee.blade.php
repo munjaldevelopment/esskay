@@ -177,16 +177,14 @@ $(document).ready(function() {
 				
 		$('li[name="'+date1+'"]').addClass("active");
 		
+		@if($subCategory)
 		$('.category-listing li.active .sub-dropdown-box').trigger('click');
+		@endif
 	});
 
-	@php
-		if(isset($subCategory[0]['id'])):
-	@endphp
+	@if($subCategory)
 	$('.sub-dropdown-box[data-category="{{ $subCategory[0]['id'] }}"]').trigger('click');
-	@php
-		endif;
-	@endphp
+	@endif;
 });
 </script>
 <script>
