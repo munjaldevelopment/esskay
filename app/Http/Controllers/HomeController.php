@@ -4171,7 +4171,7 @@ class HomeController extends Controller
 		}
 		
 		$current_year = date('Y');
-		return view('document-file-trustee', ['documentDateData' => $document_date, 'docu_date' => $request->document_date, 'cat_name' => $cat_name, 'category_name' => $category_name, 'subCategory' => $subCategoryArr, 'is_timeline' => $is_timeline, 'docData' => $docArr, 'esskay_doc_date' => session()->get('esskay_doc_date'), 'current_year' => $current_year]);
+		return view('document-file-trustee', ['documentDateData' => $document_date, 'docu_date' => $request->document_date, 'cat_name' => $cat_name, 'category_name' => $category_name, 'subCategory' => $subCategoryArr, 'is_timeline' => $is_timeline, 'docData' => $docArr, 'esskay_doc_date' => session()->get('esskay_doc_date'), 'current_year' => $current_year, 'category_id' => $request->category_id]);
 	}
 
 	public function showChildDocTrustee(Request $request)

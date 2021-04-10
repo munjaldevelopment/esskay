@@ -184,6 +184,28 @@ $(document).ready(function() {
 
 	@if($subCategory)
 	$('.sub-dropdown-box[data-category="{{ $subCategory[0]['id'] }}"]').trigger('click');
+	@else
+	var document_date = $('.assign_date').val();
+	var category = {{ $category_id }};
+		
+	$.ajax({
+		url: base_url+'showChildDocTrustee',
+		type: 'post',
+		data: {_token: CSRF_TOKEN, category_id: category, document_date: document_date},
+		beforeSend: function() {
+			var content = $('.preloader_doc').html();
+			$('.sub-doc-container').html(content);
+		},
+		success: function(output) {
+			$('.sub-doc-container').html(output);
+
+			$('.assign_date').val('{{ $current_year }}');
+
+			$('.sub-category-row').removeClass('active');
+
+			$('.sub-sub-category'+category).addClass('active');
+		}
+	});
 	@endif;
 });
 </script>
