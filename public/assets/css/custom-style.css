@@ -376,6 +376,7 @@
 .mtdd-doc-cont {
 	display: inline-block;
 	width: 100%;
+	padding-left: 10px;
 }
 .mtdd-doc-cont h4 {
 	font-size: 14px;
