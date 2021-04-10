@@ -180,7 +180,13 @@ $(document).ready(function() {
 		$('.category-listing li.active .sub-dropdown-box').trigger('click');
 	});
 
+	@php
+		if(isset($subCategory[0]['id'])):
+	@endphp
 	$('.sub-dropdown-box[data-category="{{ $subCategory[0]['id'] }}"]').trigger('click');
+	@php
+		endif;
+	@endphp
 });
 </script>
 <script>
