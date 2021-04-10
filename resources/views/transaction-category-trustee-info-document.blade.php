@@ -49,7 +49,7 @@
 											<ul>
 												<li>
 													@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif
 												</li>
 												<li>
@@ -100,7 +100,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -148,7 +148,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -196,7 +196,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -244,7 +244,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -292,7 +292,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -340,7 +340,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -398,7 +398,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -446,7 +446,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -494,7 +494,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -542,7 +542,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -590,7 +590,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -638,7 +638,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -686,7 +686,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -734,7 +734,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -782,7 +782,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -830,7 +830,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -878,7 +878,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
@@ -926,7 +926,7 @@
 										<div class="mtd-doc-hover">
 											<ul>
 												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 													@endif</li>
 												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
 											</ul>
