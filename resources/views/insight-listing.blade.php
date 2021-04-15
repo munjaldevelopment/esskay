@@ -572,11 +572,13 @@
 	</div>
 @endif
 
+@if($insightCatData->id == 2)
 <script src="{{ asset('public/assets/') }}/js/highcharts.js"></script>
 <script src="{{ asset('public/assets/') }}/js/series-label.js"></script>
 <script src="{{ asset('public/assets/') }}/js/exporting.js"></script>
 <script src="{{ asset('public/assets/') }}/js/export-data.js"></script>
-	
+@endif
+
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
 <script src="{{ asset('public/assets/') }}/js/owl.carousel.js"></script>
 
