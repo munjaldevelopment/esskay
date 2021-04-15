@@ -2235,7 +2235,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'Percentage'
+					'text' => ''
 				],
 			])
 			->legend([
@@ -2280,7 +2280,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'Percentage'
+					'text' => ''
 				],
 			])
 			->legend([
@@ -3599,7 +3599,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'Percentage'
+					'text' => ''
 				],
 			])
 			->legend([
@@ -3644,7 +3644,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'Percentage'
+					'text' => ''
 				],
 			])
 			->legend([
