@@ -153,6 +153,15 @@ Route::get('/updateCat', function () {
 	\DB::statement("UPDATE insight_categories SET status = '0' WHERE id = 1");
 });
 
+Route::get('/updateGeo', function () {
+	\DB::statement("UPDATE `geographical_concentrations` set amount_percentage1 = amount_percentage1 * 100;");
+	\DB::statement("UPDATE `geographical_concentrations` set amount_percentage2 = amount_percentage2 * 100;");
+	\DB::statement("UPDATE `geographical_concentrations` set amount_percentage3 = amount_percentage3 * 100;");
+	\DB::statement("UPDATE `geographical_concentrations` set amount_percentage4 = amount_percentage4 * 100;");
+	\DB::statement("UPDATE `geographical_concentrations` set amount_percentage5 = amount_percentage5 * 100;");
+	\DB::statement("UPDATE `geographical_concentrations` set amount_percentage6 = amount_percentage6 * 100;");
+});
+
 Route::get('/updateEmail', function () {
 	\DB::statement("UPDATE lenders Set name = TRIM(name) WHERE id > 2");
 	\DB::statement("UPDATE lenders Set email = CONCAT(lower(name), '@skfin.in') WHERE id > 2");
