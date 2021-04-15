@@ -1883,7 +1883,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => 'Percentage'
 				],
 			])
 			/*->legend([
