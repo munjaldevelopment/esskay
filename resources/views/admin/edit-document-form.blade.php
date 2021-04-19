@@ -82,7 +82,9 @@
 					if(res){
 						$("#document_sub_category_id").append('<option value="0">None</option>');
 						$.each(res,function(key,value){
-							$("#document_sub_category_id").append('<option value="'+key+'">'+value+'</option>');
+							$.each(value,function(key1,value1){
+								$("#document_sub_category_id").append('<option value="'+key1+'">'+value1+'</option>');
+							});
 						});
 				  	}
 				}
