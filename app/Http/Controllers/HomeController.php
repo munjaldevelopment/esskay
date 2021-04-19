@@ -2056,7 +2056,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY14', 'FY15', 'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21'
+					'FY14', 'FY15', 'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'
 				],
 			])
 			->yaxis([
@@ -2231,7 +2231,7 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21'],
+				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
 			])
 			->yaxis([
 				'title' => [
@@ -2276,7 +2276,7 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21'],
+				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
 			])
 			->yaxis([
 				'title' => [
@@ -3420,7 +3420,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY14', 'FY15', 'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21'
+					'FY14', 'FY15', 'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'
 				],
 			])
 			->yaxis([
@@ -3595,7 +3595,7 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21'],
+				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
 			])
 			->yaxis([
 				'title' => [
@@ -3640,7 +3640,7 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21'],
+				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
 			])
 			->yaxis([
 				'title' => [
