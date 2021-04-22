@@ -108,13 +108,15 @@
 					if(res){
 						$("#person_id").append('<option value="0">None</option>');
 						$.each(res,function(key,value){
-							if(key == document_sub_category_id)
-							{
-								$("#document_sub_category_id").append('<option value="'+key+'" selected="selected">'+value+'</option>');
-							}
-							else
-							{
-								$("#document_sub_category_id").append('<option value="'+key+'">'+value+'</option>');
+							$.each(value,function(key1,value1){
+								if(key1 == document_sub_category_id)
+								{
+									$("#document_sub_category_id").append('<option value="'+key1+'" selected="selected">'+value1+'</option>');
+								}
+								else
+								{
+									$("#document_sub_category_id").append('<option value="'+key1+'">'+value1+'</option>');
+								}
 							}
 						});
 				  	}
