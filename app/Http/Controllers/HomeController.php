@@ -1878,7 +1878,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'Nov-20', 'FY21', 'FY22', 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22', 'FY23'
 				],
 			])
 			->yaxis([
@@ -1983,7 +1983,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'Nov-20', 'FY21', 'FY22', 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22', 'FY23'
 				],
 			])
 			->yaxis([
@@ -3347,7 +3347,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'Nov-20', 'FY21', 'FY22', 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22', 'FY23'
 				],
 			])
 			->yaxis([
