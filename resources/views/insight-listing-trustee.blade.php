@@ -83,7 +83,7 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th rowspan="2">Geographical <br /> Diversification</th>
+								<th style="min-width: 140px;" rowspan="2">Geographical <br /> Diversification</th>
 								<th style="min-width: 90px;" rowspan="2">DOCP</th>
 								<th colspan="2" class="border-bottom">Mar-16</th>
 								<th colspan="2" class="border-bottom">Mar-17</th>
