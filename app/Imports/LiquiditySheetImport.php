@@ -47,7 +47,8 @@ class LiquiditySheetImport implements ToCollection, WithValidation, WithHeadingR
 			$mar_20 = $row['mar_20'];
 			$jun_20 = $row['jun_20'];
 			$sep_20 = $row['sep_20'];
-			$nov_20 = $row['nov_20'];
+			$nov_20 = $row['dec_20'];
+			$mar_21 = $row['mar_21'];
 
 			$lenderBanking = new Liquidity;
 			$lenderBanking->quarter = $quarter_on_quarter_liquidity;
@@ -60,6 +61,7 @@ class LiquiditySheetImport implements ToCollection, WithValidation, WithHeadingR
 			$lenderBanking->amount7 = $jun_20;
 			$lenderBanking->amount8 = $sep_20;
 			$lenderBanking->amount9 = $nov_20;
+			$lenderBanking->amount10 = $mar_21;
 
 			$lenderBanking->liquidity_status = ($row['status'] == "Yes" ? "1" : "0");
 			$lenderBanking->save();
@@ -80,7 +82,7 @@ class LiquiditySheetImport implements ToCollection, WithValidation, WithHeadingR
 		return [
 			'id' => 'Message 1.',
 			'quarter_on_quarter_liquidity' => 'Message 2.',
-            'status' => 'Message 15.',
+            'status' => 'Message 16.',
 		];
 	}
 	
