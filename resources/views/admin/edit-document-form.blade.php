@@ -117,7 +117,7 @@
 								{
 									$("#document_sub_category_id").append('<option value="'+key1+'">'+value1+'</option>');
 								}
-							}
+							});
 						});
 				  	}
 				}
