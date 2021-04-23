@@ -1815,7 +1815,7 @@ class HomeController extends Controller
 		{
 			$geographicalConData = \DB::table('geographical_concentrations')->where('geographical_concentration_status', 1)->get();
 
-			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = $amount10 = 0;
 
 			$raj_amount1 = $raj_amount2 = $raj_amount3 = $raj_amount4 = $raj_amount5 = $raj_amount6 = $raj_amount7 = $raj_amount8 = $raj_amount9 = 0;
 			$other_amount1 = $other_amount2 = $other_amount3 = $other_amount4 = $other_amount5 = $other_amount6 = $other_amount7 = $other_amount8 = $other_amount9 = 0;
@@ -1920,7 +1920,7 @@ class HomeController extends Controller
 		{
 			$productConData = \DB::table('product_concentrations')->where('product_concentration_status', 1)->get();
 
-			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = $amount10 = 0;
 
 			$raj_amount1 = $raj_amount2 = $raj_amount3 = $raj_amount4 = $raj_amount5 = $raj_amount6 = $raj_amount7 = $raj_amount8 = $raj_amount9 = 0;
 			$other_amount1 = $other_amount2 = $other_amount3 = $other_amount4 = $other_amount5 = $other_amount6 = $other_amount7 = $other_amount8 = $other_amount9 = 0;
@@ -2314,7 +2314,7 @@ class HomeController extends Controller
 		{
 			$liquidityData1 = $asseliquidityData2 = array();
 
-			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = $amount10 = 0;
 			$assetConData1 = $liquidityData = \DB::table('liquidity')->where('liquidity_status', 1)->get();
 			if($assetConData1)
 			{
@@ -3679,7 +3679,7 @@ class HomeController extends Controller
 		{
 			$liquidityData1 = $asseliquidityData2 = array();
 
-			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = $amount10 = 0;
 			$assetConData1 = $liquidityData = \DB::table('liquidity')->where('liquidity_status', 1)->get();
 			if($assetConData1)
 			{
