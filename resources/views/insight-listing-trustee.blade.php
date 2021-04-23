@@ -227,24 +227,24 @@
 							@foreach($productConData as $row)
 							<tr>
 								<td>{{ $row->product_diversification }}</td>
-								<td>{{ $row->amount1 }}</td>
-								<td>{{ $row->amount_percentage1 }}%</td>
-								<td>{{ $row->amount2 }}</td>
-								<td>{{ $row->amount_percentage2 }}%</td>
-								<td>{{ $row->amount3 }}</td>
-								<td>{{ $row->amount_percentage3 }}%</td>
-								<td>{{ $row->amount4 }}</td>
-								<td>{{ $row->amount_percentage4 }}%</td>
-								<td>{{ $row->amount5 }}</td>
-								<td>{{ $row->amount_percentage5 }}%</td>
-								<td>{{ $row->amount6 }}</td>
-								<td>{{ $row->amount_percentage6 }}%</td>
-								<td>{{ $row->amount7 }}</td>
-								<td>{{ $row->amount_percentage7 }}%</td>
-								<td>{{ $row->amount8 }}</td>
-								<td>{{ $row->amount_percentage8 }}%</td>
-								<td>{{ $row->amount9 }}</td>
-								<td>{{ $row->amount_percentage9 }}%</td>
+								<td>{{ number_format($row->amount1, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage1, 0) }}%</td>
+								<td>{{ number_format($row->amount2, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage2, 0) }}%</td>
+								<td>{{ number_format($row->amount3, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage3, 0) }}%</td>
+								<td>{{ number_format($row->amount4, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage4, 0) }}%</td>
+								<td>{{ number_format($row->amount5, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage5, 0) }}%</td>
+								<td>{{ number_format($row->amount6, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage6, 0) }}%</td>
+								<td>{{ number_format($row->amount7, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage7, 0) }}%</td>
+								<td>{{ number_format($row->amount8, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage8, 0) }}%</td>
+								<td>{{ number_format($row->amount9, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage9, 0) }}%</td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -382,7 +382,7 @@
 								<th>FY-18</th>
 								<th>FY-19</th>
 								<th>FY-20</th>
-								<th>H1FY-21</th>
+								<th>FY-21</th>
 							</tr>
 						</thead>
 						<tbody>
