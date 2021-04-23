@@ -43,7 +43,7 @@
 				<div class="operation-highlight-year">
 					<div class="ohbh-box-insight-left">&nbsp;</div>
 					<div class="ohbh-box-insight-right">
-						{{ $insightFirst->operation_row2_year }}
+						{{ $insightFirst->operation_row3_year }}
 					</div>
 				</div>
 				<div class="operation-highlight-cont">
