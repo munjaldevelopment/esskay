@@ -29,7 +29,7 @@
 	font-size: 13px;
 	font-weight: 500;
 	color: #fff;
-	padding: 30px;
+	padding: 27px;
 }
 .tab-top-area .nav .nav-item .nav-link:hover {
 	color: #fff !important;
@@ -376,6 +376,7 @@
 .mtdd-doc-cont {
 	display: inline-block;
 	width: 100%;
+	padding-left: 10px;
 }
 .mtdd-doc-cont h4 {
 	font-size: 14px;
@@ -785,7 +786,7 @@
     font-weight: 500;
     font-size: 13px;
     color: #767676;
-    padding: 14px 21px;
+    padding: 11px 21px;
 }
 
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item:hover {

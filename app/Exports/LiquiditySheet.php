@@ -29,7 +29,8 @@ class LiquiditySheet implements FromArray, WithTitle, WithHeadings, ShouldAutoSi
             'Mar-20',
             'Jun-20',
             'Sep-20',
-            'Nov-20',
+            'Dec-20',
+            'Mar-21',
             'Status',
         ];
     }
@@ -53,7 +54,8 @@ class LiquiditySheet implements FromArray, WithTitle, WithHeadings, ShouldAutoSi
 		            'Mar-20' => $factory['amount6'],
 		            'Jun-20' => $factory['amount7'],
 		            'Sep-20' => $factory['amount8'],
-		            'Nov-20' => $factory['amount9'],
+		            'Dec-20' => $factory['amount9'],
+		            'Mar-21' => $factory['amount10'],
 		            'Status' => ($factory['liquidity_status'] ? "Yes" : "No"));
 			}
 		}

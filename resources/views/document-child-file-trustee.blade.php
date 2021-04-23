@@ -45,7 +45,7 @@
 							<ul>
 								<li>
 									@if($doc['ext'] == 'pdf')
-									<a href="{{ asset('/') }}previewDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+									<a href="{{ asset('/') }}previewDocTrustee/{{ base64_encode($doc['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
 									@endif
 								</li>
 

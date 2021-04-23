@@ -12,6 +12,14 @@
 	<div class="white-box">
 		<div class="operational-highlights-main">
 			<div class="operation-highlights-area">
+				<div class="operation-highlight-year">
+					<div class="ohbh-box-insight-left">
+						{{ $insightFirst->operation_row1_year }}
+					</div>
+					<div class="ohbh-box-insight-right">
+						{{ $insightFirst->operation_row2_year }}
+					</div>
+				</div>
 				<div class="operation-highlight-cont">
 					@foreach($insightData as $insightRow)
 					<div class="ohb-highlights-box">
@@ -28,18 +36,16 @@
 					</div>
 					@endforeach
 				</div>
-				<div class="operation-highlight-year">
-					<div class="ohbh-box-insight-left">
-						{{ $insightFirst->operation_row1_year }}
-					</div>
-					<div class="ohbh-box-insight-right">
-						{{ $insightFirst->operation_row2_year }}
-					</div>
-				</div>
 			</div>
 			
 
 			<div class="operation-highlights-area operation-single-highlighs">
+				<div class="operation-highlight-year">
+					<div class="ohbh-box-insight-left">&nbsp;</div>
+					<div class="ohbh-box-insight-right">
+						{{ $insightFirst->operation_row3_year }}
+					</div>
+				</div>
 				<div class="operation-highlight-cont">
 					@foreach($insightData as $insightRow)
 					<div class="ohb-highlights-box">
@@ -55,12 +61,7 @@
 					</div>
 					@endforeach
 				</div>
-				<div class="operation-highlight-year">
-					<div class="ohbh-box-insight-left">&nbsp;</div>
-					<div class="ohbh-box-insight-right">
-						{{ $insightFirst->operation_row3_year }}
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -83,8 +84,8 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th rowspan="2">Geographical <br /> Diversification</th>
-								<th rowspan="2">DOCP</th>
+								<th style="min-width: 140px;" rowspan="2">Geographical <br /> Diversification</th>
+								<th style="min-width: 90px;" rowspan="2">DOCP</th>
 								<th colspan="2" class="border-bottom">Mar-16</th>
 								<th colspan="2" class="border-bottom">Mar-17</th>
 								<th colspan="2" class="border-bottom">Mar-18</th>
@@ -121,24 +122,24 @@
 							<tr>
 								<td>{{ $row->geographical_diversification }}</td>
 								<td>{{ $row->docp }}</td>
-								<td>{{ $row->amount1 }}</td>
-								<td>{{ $row->amount_percentage1 }}%</td>
-								<td>{{ $row->amount2 }}</td>
-								<td>{{ $row->amount_percentage2 }}%</td>
-								<td>{{ $row->amount3 }}</td>
-								<td>{{ $row->amount_percentage3 }}%</td>
-								<td>{{ $row->amount4 }}</td>
-								<td>{{ $row->amount_percentage4 }}%</td>
-								<td>{{ $row->amount5 }}</td>
-								<td>{{ $row->amount_percentage5 }}%</td>
-								<td>{{ $row->amount6 }}</td>
-								<td>{{ $row->amount_percentage6 }}%</td>
-								<td>{{ $row->amount7 }}</td>
-								<td>{{ $row->amount_percentage7 }}%</td>
-								<td>{{ $row->amount8 }}</td>
-								<td>{{ $row->amount_percentage8 }}%</td>
-								<td>{{ $row->amount9 }}</td>
-								<td>{{ $row->amount_percentage9 }}%</td>
+								<td>{{ number_format($row->amount1, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage1, 0) }}%</td>
+								<td>{{ number_format($row->amount2, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage2, 0) }}%</td>
+								<td>{{ number_format($row->amount3, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage3, 0) }}%</td>
+								<td>{{ number_format($row->amount4, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage4, 0) }}%</td>
+								<td>{{ number_format($row->amount5, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage5, 0) }}%</td>
+								<td>{{ number_format($row->amount6, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage6, 0) }}%</td>
+								<td>{{ number_format($row->amount7, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage7, 0) }}%</td>
+								<td>{{ number_format($row->amount8, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage8, 0) }}%</td>
+								<td>{{ number_format($row->amount9, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage9, 0) }}%</td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -191,7 +192,7 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th rowspan="2">Product <br /> Diversification</th>
+								<th style="min-width: 170px;" rowspan="2">Product <br /> Diversification</th>
 								<th colspan="2" class="border-bottom">Mar-16</th>
 								<th colspan="2" class="border-bottom">Mar-17</th>
 								<th colspan="2" class="border-bottom">Mar-18</th>
@@ -227,24 +228,24 @@
 							@foreach($productConData as $row)
 							<tr>
 								<td>{{ $row->product_diversification }}</td>
-								<td>{{ $row->amount1 }}</td>
-								<td>{{ $row->amount_percentage1 }}%</td>
-								<td>{{ $row->amount2 }}</td>
-								<td>{{ $row->amount_percentage2 }}%</td>
-								<td>{{ $row->amount3 }}</td>
-								<td>{{ $row->amount_percentage3 }}%</td>
-								<td>{{ $row->amount4 }}</td>
-								<td>{{ $row->amount_percentage4 }}%</td>
-								<td>{{ $row->amount5 }}</td>
-								<td>{{ $row->amount_percentage5 }}%</td>
-								<td>{{ $row->amount6 }}</td>
-								<td>{{ $row->amount_percentage6 }}%</td>
-								<td>{{ $row->amount7 }}</td>
-								<td>{{ $row->amount_percentage7 }}%</td>
-								<td>{{ $row->amount8 }}</td>
-								<td>{{ $row->amount_percentage8 }}%</td>
-								<td>{{ $row->amount9 }}</td>
-								<td>{{ $row->amount_percentage9 }}%</td>
+								<td>{{ number_format($row->amount1, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage1, 0) }}%</td>
+								<td>{{ number_format($row->amount2, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage2, 0) }}%</td>
+								<td>{{ number_format($row->amount3, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage3, 0) }}%</td>
+								<td>{{ number_format($row->amount4, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage4, 0) }}%</td>
+								<td>{{ number_format($row->amount5, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage5, 0) }}%</td>
+								<td>{{ number_format($row->amount6, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage6, 0) }}%</td>
+								<td>{{ number_format($row->amount7, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage7, 0) }}%</td>
+								<td>{{ number_format($row->amount8, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage8, 0) }}%</td>
+								<td>{{ number_format($row->amount9, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage9, 0) }}%</td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -382,7 +383,7 @@
 								<th>FY-18</th>
 								<th>FY-19</th>
 								<th>FY-20</th>
-								<th>H1FY-21</th>
+								<th>FY-21</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -431,7 +432,8 @@
 								<th>Mar-20</th>
 								<th>Jun-20</th>
 								<th>Sep-20</th>
-								<th>Nov-20</th>
+								<th>Dec-20</th>
+								<th>Mar-21</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -447,6 +449,7 @@
 								<td>{{ $row->amount7}}</td>
 								<td>{{ $row->amount8}}</td>
 								<td>{{ $row->amount9}}</td>
+								<td>{{ $row->amount10}}</td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -463,6 +466,7 @@
 								<td>{{ $liquidityDataTotal[6] }}</td>
 								<td>{{ $liquidityDataTotal[7] }}</td>
 								<td>{{ $liquidityDataTotal[8] }}</td>
+								<td>{{ $liquidityDataTotal[9] }}</td>
 							</tr>
 						</tfoot>
 					</table>	
@@ -571,6 +575,14 @@
 		</div>
 	</div>
 @endif
+
+@if($insightCatData->id == 2)
+<script src="{{ asset('public/assets/') }}/js/highcharts.js"></script>
+<script src="{{ asset('public/assets/') }}/js/series-label.js"></script>
+<script src="{{ asset('public/assets/') }}/js/exporting.js"></script>
+<script src="{{ asset('public/assets/') }}/js/export-data.js"></script>
+@endif
+
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
 <script src="{{ asset('public/assets/') }}/js/owl.carousel.js"></script>
 

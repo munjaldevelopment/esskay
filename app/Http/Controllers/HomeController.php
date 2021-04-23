@@ -1815,7 +1815,7 @@ class HomeController extends Controller
 		{
 			$geographicalConData = \DB::table('geographical_concentrations')->where('geographical_concentration_status', 1)->get();
 
-			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = $amount10 = 0;
 
 			$raj_amount1 = $raj_amount2 = $raj_amount3 = $raj_amount4 = $raj_amount5 = $raj_amount6 = $raj_amount7 = $raj_amount8 = $raj_amount9 = 0;
 			$other_amount1 = $other_amount2 = $other_amount3 = $other_amount4 = $other_amount5 = $other_amount6 = $other_amount7 = $other_amount8 = $other_amount9 = 0;
@@ -1878,12 +1878,12 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'Nov-20', 'FY21', 'FY22', 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22', 'FY23'
 				],
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => 'Percentage'
 				],
 			])
 			/*->legend([
@@ -1920,7 +1920,7 @@ class HomeController extends Controller
 		{
 			$productConData = \DB::table('product_concentrations')->where('product_concentration_status', 1)->get();
 
-			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = $amount10 = 0;
 
 			$raj_amount1 = $raj_amount2 = $raj_amount3 = $raj_amount4 = $raj_amount5 = $raj_amount6 = $raj_amount7 = $raj_amount8 = $raj_amount9 = 0;
 			$other_amount1 = $other_amount2 = $other_amount3 = $other_amount4 = $other_amount5 = $other_amount6 = $other_amount7 = $other_amount8 = $other_amount9 = 0;
@@ -1983,12 +1983,12 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'Nov-20', 'FY21', 'FY22', 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22', 'FY23'
 				],
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => 'Percentage'
 				],
 			])
 			/*->legend([
@@ -2056,12 +2056,12 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY14', 'FY15', 'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21'
+					'FY14', 'FY15', 'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'
 				],
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => 'Percentage'
 				],
 			])
 			->legend([
@@ -2132,7 +2132,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => 'Percentage'
 				],
 			])
 			->legend([
@@ -2178,7 +2178,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => 'Percentage'
 				],
 			])
 			->legend([
@@ -2231,11 +2231,11 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21'],
+				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => ''
 				],
 			])
 			->legend([
@@ -2276,11 +2276,11 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21'],
+				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => ''
 				],
 			])
 			->legend([
@@ -2314,7 +2314,7 @@ class HomeController extends Controller
 		{
 			$liquidityData1 = $asseliquidityData2 = array();
 
-			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = $amount10 = 0;
 			$assetConData1 = $liquidityData = \DB::table('liquidity')->where('liquidity_status', 1)->get();
 			if($assetConData1)
 			{
@@ -2329,10 +2329,11 @@ class HomeController extends Controller
 					$amount7+= $row->amount7;
 					$amount8+= $row->amount8;
 					$amount9+= $row->amount9;
+					$amount10+= $row->amount10;
 
-					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3, 'amount4' => $amount4, 'amount5' => $amount5, 'amount6' => $amount6, 'amount7' => $amount7, 'amount8' => $amount8, 'amount9' => $amount9);
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3, 'amount4' => $amount4, 'amount5' => $amount5, 'amount6' => $amount6, 'amount7' => $amount7, 'amount8' => $amount8, 'amount9' => $amount9, 'amount10' => $amount10);
 
-					$liquidityData1 = $liquidityDataTotal = array((float)round($amount1, 2), (float)round($amount2, 2), (float)round($amount3, 2), (float)round($amount4, 2), (float)round($amount5, 2), (float)round($amount6, 2), (float)round($amount7, 2), (float)round($amount8, 2), (float)round($amount9, 2));
+					$liquidityData1 = $liquidityDataTotal = array((float)round($amount1, 2), (float)round($amount2, 2), (float)round($amount3, 2), (float)round($amount4, 2), (float)round($amount5, 2), (float)round($amount6, 2), (float)round($amount7, 2), (float)round($amount8, 2), (float)round($amount9, 2), (float)round($amount10, 2));
 				}
 			}
 
@@ -2354,7 +2355,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => 'Percentage'
 				],
 			])
 			->legend([
@@ -3247,7 +3248,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => 'Percentage'
 				],
 			])
 			/*->legend([
@@ -3347,12 +3348,12 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'Nov-20', 'FY21', 'FY22', 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22', 'FY23'
 				],
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => 'Percentage'
 				],
 			])
 			/*->legend([
@@ -3420,12 +3421,12 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY14', 'FY15', 'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21'
+					'FY14', 'FY15', 'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'
 				],
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => 'Percentage'
 				],
 			])
 			->legend([
@@ -3496,7 +3497,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => 'Percentage'
 				],
 			])
 			->legend([
@@ -3542,7 +3543,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => 'Percentage'
 				],
 			])
 			->legend([
@@ -3595,11 +3596,11 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21'],
+				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => ''
 				],
 			])
 			->legend([
@@ -3640,11 +3641,11 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21'],
+				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => ''
 				],
 			])
 			->legend([
@@ -3678,7 +3679,7 @@ class HomeController extends Controller
 		{
 			$liquidityData1 = $asseliquidityData2 = array();
 
-			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = $amount10 = 0;
 			$assetConData1 = $liquidityData = \DB::table('liquidity')->where('liquidity_status', 1)->get();
 			if($assetConData1)
 			{
@@ -3693,10 +3694,11 @@ class HomeController extends Controller
 					$amount7+= $row->amount7;
 					$amount8+= $row->amount8;
 					$amount9+= $row->amount9;
+					$amount10+= $row->amount10;
 
-					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3, 'amount4' => $amount4, 'amount5' => $amount5, 'amount6' => $amount6, 'amount7' => $amount7, 'amount8' => $amount8, 'amount9' => $amount9);
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3, 'amount4' => $amount4, 'amount5' => $amount5, 'amount6' => $amount6, 'amount7' => $amount7, 'amount8' => $amount8, 'amount9' => $amount9, 'amount10' => $amount10);
 
-					$liquidityData1 = $liquidityDataTotal = array((float)round($amount1, 2), (float)round($amount2, 2), (float)round($amount3, 2), (float)round($amount4, 2), (float)round($amount5, 2), (float)round($amount6, 2), (float)round($amount7, 2), (float)round($amount8, 2), (float)round($amount9, 2));
+					$liquidityData1 = $liquidityDataTotal = array((float)round($amount1, 2), (float)round($amount2, 2), (float)round($amount3, 2), (float)round($amount4, 2), (float)round($amount5, 2), (float)round($amount6, 2), (float)round($amount7, 2), (float)round($amount8, 2), (float)round($amount9, 2), (float)round($amount10, 2));
 				}
 			}
 
@@ -3718,7 +3720,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'No.'
+					'text' => 'Percentage'
 				],
 			])
 			->legend([
@@ -4171,7 +4173,7 @@ class HomeController extends Controller
 		}
 		
 		$current_year = date('Y');
-		return view('document-file-trustee', ['documentDateData' => $document_date, 'docu_date' => $request->document_date, 'cat_name' => $cat_name, 'category_name' => $category_name, 'subCategory' => $subCategoryArr, 'is_timeline' => $is_timeline, 'docData' => $docArr, 'esskay_doc_date' => session()->get('esskay_doc_date'), 'current_year' => $current_year]);
+		return view('document-file-trustee', ['documentDateData' => $document_date, 'docu_date' => $request->document_date, 'cat_name' => $cat_name, 'category_name' => $category_name, 'subCategory' => $subCategoryArr, 'is_timeline' => $is_timeline, 'docData' => $docArr, 'esskay_doc_date' => session()->get('esskay_doc_date'), 'current_year' => $current_year, 'category_id' => $request->category_id]);
 	}
 
 	public function showChildDocTrustee(Request $request)

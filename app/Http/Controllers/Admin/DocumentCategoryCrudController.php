@@ -202,24 +202,28 @@ class DocumentCategoryCrudController extends CrudController
     {
         $personInfo = \DB::table("document_category")
                     ->where("parent_id",$document_category_id)
+                    ->orderBy('lft', 'ASC')
                     ->get();
 					
 		$personInfoData = array();
 		foreach($personInfo as $row)
 		{
-			$personInfoData[$row->id] = $row->name;
+			$personInfoData[$row->lft][$row->id] = $row->name;
 			
 			$personInfo1 = \DB::table("document_category")
                     ->where("parent_id",$row->id)
+                    ->orderBy('lft', 'ASC')
                     ->get();
 					
 			foreach($personInfo1 as $row1)
 			{
-				$personInfoData[$row1->id] = "&nbsp;&nbsp;&nbsp;".$row1->name;
+				$personInfoData[$row1->lft][$row1->id] = "&nbsp;&nbsp;&nbsp;".$row1->name;
 			}
-		
 		}
-        return response()->json($personInfoData);
+
+		//dd($personInfoData);
+
+        return $personInfoData; //response()->json(
     }
 
     public function store()
