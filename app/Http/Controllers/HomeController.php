@@ -2329,10 +2329,11 @@ class HomeController extends Controller
 					$amount7+= $row->amount7;
 					$amount8+= $row->amount8;
 					$amount9+= $row->amount9;
+					$amount10+= $row->amount10;
 
-					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3, 'amount4' => $amount4, 'amount5' => $amount5, 'amount6' => $amount6, 'amount7' => $amount7, 'amount8' => $amount8, 'amount9' => $amount9);
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3, 'amount4' => $amount4, 'amount5' => $amount5, 'amount6' => $amount6, 'amount7' => $amount7, 'amount8' => $amount8, 'amount9' => $amount9, 'amount10' => $amount10);
 
-					$liquidityData1 = $liquidityDataTotal = array((float)round($amount1, 2), (float)round($amount2, 2), (float)round($amount3, 2), (float)round($amount4, 2), (float)round($amount5, 2), (float)round($amount6, 2), (float)round($amount7, 2), (float)round($amount8, 2), (float)round($amount9, 2));
+					$liquidityData1 = $liquidityDataTotal = array((float)round($amount1, 2), (float)round($amount2, 2), (float)round($amount3, 2), (float)round($amount4, 2), (float)round($amount5, 2), (float)round($amount6, 2), (float)round($amount7, 2), (float)round($amount8, 2), (float)round($amount9, 2), (float)round($amount10, 2));
 				}
 			}
 

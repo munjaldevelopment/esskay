@@ -123,9 +123,15 @@ class LiquidityCrudController extends CrudController
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Nov-20',
+                    'label'     => 'Dec-20',
                     'type'      => 'text',
                     'name'      => 'amount9',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Mar-21',
+                    'type'      => 'text',
+                    'name'      => 'amount10',
                     ]);
 
             $this->crud->addField([

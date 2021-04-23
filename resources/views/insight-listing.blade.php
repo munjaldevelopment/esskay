@@ -432,7 +432,8 @@
 								<th>Mar-20</th>
 								<th>Jun-20</th>
 								<th>Sep-20</th>
-								<th>Nov-20</th>
+								<th>Dec-20</th>
+								<th>Mar-21</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -448,6 +449,7 @@
 								<td>{{ $row->amount7}}</td>
 								<td>{{ $row->amount8}}</td>
 								<td>{{ $row->amount9}}</td>
+								<td>{{ $row->amount10}}</td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -464,6 +466,7 @@
 								<td>{{ $liquidityDataTotal[6] }}</td>
 								<td>{{ $liquidityDataTotal[7] }}</td>
 								<td>{{ $liquidityDataTotal[8] }}</td>
+								<td>{{ $liquidityDataTotal[9] }}</td>
 							</tr>
 						</tfoot>
 					</table>	
