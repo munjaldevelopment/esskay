@@ -6,7 +6,7 @@ use Maatwebsite\Excel\Concerns\WithTitle;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-use App\Models\StrongLiability;
+use App\Models\StrongLiabilityProfile;
 
 class StrongLiabilitySheet implements FromArray, WithTitle, WithHeadings, ShouldAutoSize
 {
@@ -30,7 +30,7 @@ class StrongLiabilitySheet implements FromArray, WithTitle, WithHeadings, Should
 	
 	public function array(): array
     {
-		$factories = StrongLiability::orderBy('id', 'ASC')->get()->toArray();
+		$factories = StrongLiabilityProfile::orderBy('id', 'ASC')->get()->toArray();
 		//dd($factories);
 		$factoryData = array();
 		if($factories){
