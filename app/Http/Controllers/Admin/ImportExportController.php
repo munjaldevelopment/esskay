@@ -16,6 +16,7 @@ use App\Exports\AssetQualityExport;
 use App\Exports\CollectionEfficiencyExport;
 use App\Exports\NetWorthExport;
 use App\Exports\LiquidityExport;
+use App\Exports\StrongLiabilityExport;
 use App\Exports\CurrentDealExport;
 
 use App\Imports\LenderBankingImport;
@@ -27,6 +28,7 @@ use App\Imports\AssetQualityImport;
 use App\Imports\CollectionEfficiencyImport;
 use App\Imports\NetWorthImport;
 use App\Imports\LiquidityImport;
+use App\Imports\StrongLiabilityImport;
 use App\Imports\CurrentDealImport;
 
 use Auth;
@@ -637,6 +639,70 @@ class ImportExportController extends Controller
 		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
 	}
 	// END Liquidity
+
+	// START StrongLiability
+	public function exportStrongLiability(Request $request)
+	{
+		$this->data['title'] = trans('backpack::base.dashboard'); // set the page title
+		
+		return (new StrongLiabilityExport())->download('StrongLiability_'.date('Y-m-d').'.xls');
+	}
+	
+	public function importStrongLiability()
+    {
+        $this->data['title'] = 'Import StrongLiability';//trans('backpack::base.dashboard'); // set the page title
+
+        return view('backpack::import_strong_liability', $this->data);
+    }
+	
+	public function insertStrongLiability(Request $request)
+	{
+		$user = Auth::user();
+		$user_id = $user->id;
+		
+		if($request->hasFile('strong_liability_file')){
+			$fileName = $request->file('strong_liability_file')->getClientOriginalName();
+			$path = $request->file('strong_liability_file')->getRealPath();
+			
+			$fileNameTemp = time()."_".$user_id."_".$fileName;
+			copy($path, public_path().'/uploads/import_file/strong_liability_file/'.$fileNameTemp);
+			
+			$error = $success = '';
+			
+			try {
+			
+				Excel::import(new StrongLiabilityImport, public_path().'/uploads/import_file/strong_liability_file/'.$fileNameTemp);
+				$success = 'Your sheet has been imported successfully.';
+				
+				return back()->with('success', $success);
+			} catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+				$failures = $e->failures();
+				//dd($failures);
+				
+				$error = "";
+				 
+				foreach ($failures as $failure) {
+					$failure->row(); // row that went wrong
+					$failure->attribute(); // either heading key (if using heading row concern) or column index
+					foreach($failure->errors() as $err)
+					{
+						$error .= $err;
+					}
+					
+					$error .= " on line number ".$failure->row().' <br />';
+					// Actual error messages from Laravel validator
+					$failure->values(); // The values of the row that has failed.
+				}
+				
+				//echo $error; exit;
+				
+				return back()->with('error', $error);
+			}
+		}
+		
+		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
+	}
+	// END StrongLiability
 	
 	// START CurrentDeal
 	public function exportCurrentDeal(Request $request)

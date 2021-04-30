@@ -106,6 +106,13 @@ Route::group([
     Route::get('importLiquidity', 'ImportExportController@importLiquidity');
     Route::post('insertLiquidity', 'ImportExportController@insertLiquidity');
 
+    // New
+    Route::get('exportStrongLiability', 'ImportExportController@exportStrongLiability');
+    Route::get('importStrongLiability', 'ImportExportController@importStrongLiability');
+    Route::post('insertStrongLiability', 'ImportExportController@insertStrongLiability');
+
+    
+
     Route::get('exportCurrentDeal', 'ImportExportController@exportCurrentDeal');
     Route::get('importCurrentDeal', 'ImportExportController@importCurrentDeal');
     Route::post('insertCurrentDeal', 'ImportExportController@insertCurrentDeal');
@@ -144,4 +151,6 @@ Route::group([
     Route::crud('transaction_document_type', 'TransactionDocumentTypeCrudController');
 
     Route::get('getSanctionLetter/{count}', 'SanctionLetterCrudController@getSanctionLetter');
+    Route::crud('strongliabilityprofile', 'StrongLiabilityProfileCrudController');
+    Route::crud('strongliabilityprofiletable', 'StrongLiabilityProfileTableCrudController');
 }); // this should be the absolute last line of this file
