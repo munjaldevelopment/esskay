@@ -424,3 +424,7 @@
 @php
 	endif;
 @endphp
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileratio') }}'><i class='nav-icon la la-question'></i> StrongLiabilityProfileRatios</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofiledriving') }}'><i class='nav-icon la la-question'></i> StrongLiabilityProfileDrivings</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofilewelltable') }}'><i class='nav-icon la la-question'></i> StrongLiabilityProfileWellTables</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileoverall') }}'><i class='nav-icon la la-question'></i> StrongLiabilityProfileOveralls</a></li>

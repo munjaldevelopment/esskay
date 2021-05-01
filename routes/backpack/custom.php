@@ -158,6 +158,11 @@ Route::group([
     Route::crud('transaction_document_type', 'TransactionDocumentTypeCrudController');
 
     Route::get('getSanctionLetter/{count}', 'SanctionLetterCrudController@getSanctionLetter');
+    
     Route::crud('strongliabilityprofile', 'StrongLiabilityProfileCrudController');
     Route::crud('strongliabilityprofiletable', 'StrongLiabilityProfileTableCrudController');
+    Route::crud('strongliabilityprofileratio', 'StrongLiabilityProfileRatioCrudController');
+    Route::crud('strongliabilityprofiledriving', 'StrongLiabilityProfileDrivingCrudController');
+    Route::crud('strongliabilityprofilewelltable', 'StrongLiabilityProfileWellTableCrudController');
+    Route::crud('strongliabilityprofileoverall', 'StrongLiabilityProfileOverallCrudController');
 }); // this should be the absolute last line of this file
