@@ -111,6 +111,13 @@ Route::group([
     Route::get('importStrongLiability', 'ImportExportController@importStrongLiability');
     Route::post('insertStrongLiability', 'ImportExportController@insertStrongLiability');
 
+
+    Route::get('exportStrongLiabilityTable', 'ImportExportController@exportStrongLiabilityTable');
+    Route::get('importStrongLiabilityTable', 'ImportExportController@importStrongLiabilityTable');
+    Route::post('insertStrongLiabilityTable', 'ImportExportController@insertStrongLiabilityTable');
+
+    
+
     
 
     Route::get('exportCurrentDeal', 'ImportExportController@exportCurrentDeal');
