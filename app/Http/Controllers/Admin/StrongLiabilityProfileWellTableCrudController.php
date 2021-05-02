@@ -54,13 +54,13 @@ class StrongLiabilityProfileWellTableCrudController extends CrudController
                     ]);
                     
             $this->crud->addColumn([
-                    'label'     => 'Tier1',
+                    'label'     => 'As per IGAAP FY16',
                     'type'      => 'text',
                     'name'      => 'amount1',
                     ]);
 
             $this->crud->addColumn([
-                    'label'     => 'Tier2',
+                    'label'     => 'As per IGAAP FY17',
                     'type'      => 'text',
                     'name'      => 'amount2',
                     ]);
@@ -68,7 +68,7 @@ class StrongLiabilityProfileWellTableCrudController extends CrudController
             $this->crud->addColumn([
                     'label'     => 'Status',
                     'type'      => 'check',
-                    'name'      => 'strong_liability_driving_status',
+                    'name'      => 'strong_liability_well_status',
                 ]);
                     
             $this->crud->addField([
@@ -78,21 +78,45 @@ class StrongLiabilityProfileWellTableCrudController extends CrudController
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Tier1',
+                    'label'     => 'As per IGAAP FY16',
                     'type'      => 'text',
                     'name'      => 'amount1',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'Tier2',
+                    'label'     => 'As per IGAAP FY17',
                     'type'      => 'text',
                     'name'      => 'amount2',
-                    ]);                    
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'As per IGAAP FY18',
+                    'type'      => 'text',
+                    'name'      => 'amount3',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'As per IND AS FY16',
+                    'type'      => 'text',
+                    'name'      => 'amount4',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'As per IND AS FY17',
+                    'type'      => 'text',
+                    'name'      => 'amount5',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'As per IGAAP FY18',
+                    'type'      => 'text',
+                    'name'      => 'amount6',
+                    ]);
 
             $this->crud->addField([
                     'label'     => 'Status',
                     'type'      => 'checkbox',
-                    'name'      => 'strong_liability_driving_status',
+                    'name'      => 'strong_liability_well_status',
                 ]);
             
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportStrongLiabilityWellTableButton', 'end');
