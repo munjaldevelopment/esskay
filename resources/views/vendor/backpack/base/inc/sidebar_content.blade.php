@@ -36,6 +36,9 @@
 	$list_strong_liability_profile_well_table = backpack_user()->hasPermissionTo('list_strong_liability_profile_well_table');
 	$list_strong_liability_profile_overall = backpack_user()->hasPermissionTo('list_strong_liability_profile_overall');
 
+	$list_liability_profile_category = backpack_user()->hasPermissionTo('list_liability_profile_category');
+	$list_liability_profile_slider = backpack_user()->hasPermissionTo('list_liability_profile_slider');
+
 	$list_covid_relief = backpack_user()->hasPermissionTo('list_covid_relief');
 	$list_covid_relief_borrower = backpack_user()->hasPermissionTo('list_covid_relief_borrower');
 
@@ -146,7 +149,7 @@
 @php
 	endif;
 
-	if($list_operational_highlight || $list_geographical_concentration || $list_product_concentration || $list_asset_quality || $list_collection_efficiency || $list_strong_liability_profile || $list_strong_liability_profile_table || $list_strong_liability_profile_ratio || $list_strong_liability_profile_driving || $list_strong_liability_profile_well_table || 	$list_strong_liability_profile_overall || $list_covid_relief || $list_covid_relief_borrower):
+	if($list_operational_highlight || $list_geographical_concentration || $list_product_concentration || $list_asset_quality || $list_collection_efficiency || $list_strong_liability_profile || $list_strong_liability_profile_table || $list_strong_liability_profile_ratio || $list_strong_liability_profile_driving || $list_strong_liability_profile_well_table || 	$list_strong_liability_profile_overall || $list_liability_profile_category || $list_liability_profile_slider || $list_covid_relief || $list_covid_relief_borrower):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Insight</a>
@@ -226,6 +229,18 @@
 			if($list_strong_liability_profile_overall):
 	@endphp
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileoverall') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile Overall</a></li>
+	@php
+			endif;
+
+			if($list_liability_profile_category):
+	@endphp
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liabilityprofilecategory') }}'><i class='nav-icon la la-list'></i> Liabity Profile Categories</a></li>
+	@php
+			endif;
+
+			if($list_liability_profile_slider):
+	@endphp
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liabilityprofileslider') }}'><i class='nav-icon la la-list'></i> Liabity Profile Sliders</a></li>
 	@php
 			endif;
 

@@ -165,4 +165,6 @@ Route::group([
     Route::crud('strongliabilityprofiledriving', 'StrongLiabilityProfileDrivingCrudController');
     Route::crud('strongliabilityprofilewelltable', 'StrongLiabilityProfileWellTableCrudController');
     Route::crud('strongliabilityprofileoverall', 'StrongLiabilityProfileOverallCrudController');
+    Route::crud('liabilityprofilecategory', 'LiabilityProfileCategoryCrudController');
+    Route::crud('liabilityprofileslider', 'LiabilityProfileSliderCrudController');
 }); // this should be the absolute last line of this file
