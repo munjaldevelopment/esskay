@@ -486,6 +486,18 @@
 			</div>
 		</div>
 	</div>
+@elseif($insightCatData->id == 10)
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			@if($chart7)
+				<div id="seventh_chart"></div>
+
+				{!! $chart7 !!}
+			@endif
+		</div>
+	</div>
+@elseif($insightCatData->id == 11)
+TO DO1
 @elseif($insightCatData->id == 12) 
 
 	<div class="white-box outstanding-box">
