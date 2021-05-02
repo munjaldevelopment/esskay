@@ -4071,12 +4071,11 @@ class HomeController extends Controller
 		        'shadow' => 'false'
 			])
 			->plotOptions([
-				'column'        => ([
-					'stacking' => 'normal',
+				'column'        => [
 					'dataLabels' => ([
 						'enabled' => 'true',
 					]),
-				]),
+				],
 			])
 			->credits([
 				'enabled' => 'false'
