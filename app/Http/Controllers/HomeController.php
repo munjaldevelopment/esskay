@@ -1804,7 +1804,7 @@ class HomeController extends Controller
 
 		$geographicalConData = $geographicalConTotalData = array();
 		$productConData = $productConTotalData = array();
-		$netWorthData = $netWorthData1 = $liquidityData = $liquidityDataTotal = array();
+		$netWorthData = $netWorthData1 = $liquidityData = $liabilityProfileData = $liabilityProfile11Data = $liquidityDataTotal = array();
 
 		$covidReliefData = $covidReliefDataTotal = $covidReliefDataTotal1 = array();
 		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = array();
@@ -3169,12 +3169,13 @@ class HomeController extends Controller
 
 		$geographicalConData = $geographicalConTotalData = array();
 		$productConData = $productConTotalData = array();
-		$netWorthData = $netWorthData1 = $liquidityData = $liquidityDataTotal = array();
+		$netWorthData = $netWorthData1 = $liquidityData = $liabilityProfileData = $liabilityProfile11Data = $liabilityProfileTableData = array();
+		$liabilityProfileDataTotal = $liquidityDataTotal = array();
 
 		$covidReliefData = $covidReliefDataTotal = $covidReliefDataTotal1 = array();
 		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = array();
 
-		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = $chart7 = array();
+		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = $chart7 = $chart8 = $chart9 = $chart10 = array();
 
 		if($request->category_id == 3)
 		{
@@ -3749,7 +3750,7 @@ class HomeController extends Controller
 		}
 		else if($request->category_id == 10)
 		{
-			$liquidityData1 = $asseliquidityData2 = $profileCategory = $profileCategory1 = array();
+			$strongLiabilityProfileData1 = $asseliquidityData2 = $profileCategory = $profileCategory1 = array();
 			$liabilityProfileData1 = $liabilityProfileData2 = $liabilityProfileData3 = array();
 
 			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = 0;
@@ -3841,19 +3842,178 @@ class HomeController extends Controller
 				[
 					[
 						'name'  => 'Bank/FI',
+						'color' => '#11a9dc',
 						'data'  => $liabilityProfileData1,
 					],
 					[
 						'name'  => 'CME With MF',
+						'color' => '#336699',
 						'data'  => $liabilityProfileData2,
 					],
 					[
 						'name'  => 'Others',
+						'color' => '#25a7a4',
 						'data'  => $liabilityProfileData3,
 					],
 				]
 			)
 			->display(0);
+		}
+		else if($request->category_id == 11)
+		{
+
+			$profileCategory = $profileCategory1 = $liabilityProfileData11 = $liabilityProfileData12 = array();
+
+			$amount1 = $amount2 = $amount3 = 0;
+			
+			$assetConData1 = $liabilityProfile11Data = \DB::table('strong_liability_profile_ratio')->where('strong_liability_ratio_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$amount1+= $row->amount1;
+					$amount2+= $row->amount2;
+
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
+
+					$profileCategory[] = $profileCategory1[] = $row->financial_year;
+
+					$liabilityProfileData11[] = (int)$row->amount1;
+					$liabilityProfileData12[] = (int)$row->amount2;
+				}
+			}
+
+			$chart8 = \Chart::title([
+				'text' => 'Network & Employees',
+			])
+			->chart([
+				'type'     => 'column', // pie , columnt ect
+				'renderTo' => 'eighth_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF',
+			])
+			->xaxis([
+				'categories' => $profileCategory1,
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+			])
+			->legend([
+		        'align' => 'center',
+		        'verticalAlign' => 'top'
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+						'enabled' => 'true',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Branches',
+						'color' => '#336699',
+						'data'  => $liabilityProfileData11,
+					],
+					[
+						'name'  => 'Employee Strength',
+						'color' => '#11a9dc',
+						'data'  => $liabilityProfileData12,
+					],
+				]
+			)
+			->display(0);
+
+			$profileCategory = $profileCategory1 = $liabilityProfileData11 = $liabilityProfileData12 = array();
+
+			$amount1 = $amount2 = $amount3 = 0;
+			
+			$assetConData1 = $liabilityProfile11Data = \DB::table('strong_liability_profile_driving')->where('strong_liability_driving_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$amount1+= $row->amount1;
+					$amount2+= $row->amount2;
+
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
+
+					$profileCategory[] = $profileCategory1[] = $row->financial_year;
+
+					$liabilityProfileData11[] = (float)$row->amount1;
+					$liabilityProfileData12[] = (float)$row->amount2;
+				}
+			}
+
+			$chart9 = \Chart::title([
+				'text' => 'Healthy CRAR',
+			])
+			->chart([
+				'type'     => 'column', // pie , columnt ect
+				'renderTo' => 'ninth_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+			])
+			->xaxis([
+				'categories' => $profileCategory1,
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+				'stackLabels' => [
+		            'enabled' => 'true',
+		            'style' => [
+		                'fontWeight' => 'bold',
+		            ]
+		        ]
+			])
+			->legend([
+				'align' => 'right',
+		        'x' => '-30',
+		        'verticalAlign' => 'top',
+		        'y' => '25',
+		        'floating' => 'true',
+		        'shadow' => 'false'
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+						'enabled' => 'true',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Tier1',
+						'color' => '#336699',
+						'data'  => $liabilityProfileData11,
+					],
+					[
+						'name'  => 'Tier2',
+						'color' => '#11a9dc',
+						'data'  => $liabilityProfileData12,
+					],
+				]
+			)
+			->display(1);
 		}
 		else if($request->category_id == 12)
 		{
@@ -3882,7 +4042,7 @@ class HomeController extends Controller
 
 		
 		$current_year = date('Y');
-		return view('insight-listing-trustee', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'chart7' => $chart7, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
+		return view('insight-listing-trustee', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'chart7' => $chart7, 'chart8' => $chart8, 'chart9' => $chart9, 'chart10' => $chart10, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
 
 			'liabilityProfileData' => $liabilityProfileData,
 			'liabilityProfileTableData' => $liabilityProfileTableData,
