@@ -213,10 +213,21 @@
 
 			if($list_strong_liability_profile_driving):
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofiledriving') }}'><i class='nav-icon la la-list'></i> StrongLiabilityProfileDrivings</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofilewelltable') }}'><i class='nav-icon la la-list'></i> StrongLiabilityProfileWellTables</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileoverall') }}'><i class='nav-icon la la-list'></i> StrongLiabilityProfileOveralls</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofiledriving') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile Driving</a></li>
+	@php
+			endif;
 
+			if($list_strong_liability_profile_well_table):
+	@endphp
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofilewelltable') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile WellTables</a></li>
+	@php
+			endif;
+
+			if($list_strong_liability_profile_overall):
+	@endphp
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileoverall') }}'><i class='nav-icon la la-list'></i> StrongLiabilityProfileOveralls</a></li>
+	@php
+			endif;
 
 			if($list_covid_relief):
 @endphp
