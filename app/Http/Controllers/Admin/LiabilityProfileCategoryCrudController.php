@@ -17,7 +17,9 @@ class LiabilityProfileCategoryCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\InlineCreateOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -39,7 +41,11 @@ class LiabilityProfileCategoryCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
+        //CRUD::setFromDb(); // columns
+
+        CRUD::addColumn('category_code');
+        CRUD::addColumn('name');
+        CRUD::addColumn('parent');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -58,7 +64,27 @@ class LiabilityProfileCategoryCrudController extends CrudController
     {
         CRUD::setValidation(LiabilityProfileCategoryRequest::class);
 
-        CRUD::setFromDb(); // fields
+        //CRUD::setFromDb(); // fields
+
+        CRUD::addField([
+            'name' => 'category_code',
+            'label' => 'category code',
+        ]);
+        CRUD::addField([
+            'name' => 'name',
+            'label' => 'category name',
+        ]);
+        CRUD::addField([
+            'label' => 'Parent',
+            'type' => 'select',
+            'name' => 'parent_id',
+            'entity' => 'parent',
+            'attribute' => 'name',
+        ]);
+        CRUD::addField([
+            'name' => 'status',
+            'label' => 'Status',
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -76,5 +102,11 @@ class LiabilityProfileCategoryCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    protected function setupReorderOperation()
+    {
+        CRUD::set('reorder.label', 'name');
+        CRUD::set('reorder.max_level', 2);
     }
 }

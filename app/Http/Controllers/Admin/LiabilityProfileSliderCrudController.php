@@ -27,8 +27,8 @@ class LiabilityProfileSliderCrudController extends CrudController
     public function setup()
     {
         CRUD::setModel(\App\Models\LiabilityProfileSlider::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/liabityprofileslider');
-        CRUD::setEntityNameStrings('liabityprofileslider', 'liabity_profile_sliders');
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/liabilityprofileslider');
+        CRUD::setEntityNameStrings('liability profile slider', 'liability profile sliders');
     }
 
     /**
@@ -39,7 +39,12 @@ class LiabilityProfileSliderCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
+        //CRUD::setFromDb(); // columns
+
+        CRUD::addColumn('slider_code');
+        CRUD::addColumn('name');
+        CRUD::addColumn('image');
+        CRUD::addColumn('profileCategory');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -56,9 +61,29 @@ class LiabilityProfileSliderCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(LiabityProfileSliderRequest::class);
+        CRUD::setValidation(LiabilityProfileSliderRequest::class);
 
-        CRUD::setFromDb(); // fields
+        //CRUD::setFromDb(); // fields
+
+        CRUD::addField([
+            'name' => 'slider_code',
+            'label' => 'Slider code',
+        ]);
+        CRUD::addField([
+            'name' => 'name',
+            'label' => 'Slider name',
+        ]);
+        CRUD::addField([
+            'label' => 'Category',
+            'type' => 'select',
+            'name' => 'liability_profile_category_id',
+            'entity' => 'profileCategory',
+            'attribute' => 'name',
+        ]);
+        CRUD::addField([
+            'name' => 'status',
+            'label' => 'Status',
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

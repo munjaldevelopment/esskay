@@ -15,11 +15,11 @@ class LiabilityProfileSlider extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'liability_profile_sliders';
+    protected $table = 'liability_profile_slider';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    // protected $fillable = [];
+    protected $fillable = ['liability_profile_category_id', 'slider_code', 'name', 'image', 'status'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -28,6 +28,10 @@ class LiabilityProfileSlider extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function profileCategory()
+    {
+        return $this->belongsTo('app\Models\LiabilityProfileCategory', 'liability_profile_category_id');
+    }
 
     /*
     |--------------------------------------------------------------------------

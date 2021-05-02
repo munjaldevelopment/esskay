@@ -19,7 +19,7 @@ class LiabilityProfileCategory extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['category_code', 'category_name', 'status'];
+    protected $fillable = ['category_code', 'name', 'status'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -47,7 +47,7 @@ class LiabilityProfileCategory extends Model
 
     /*
     |--------------------------------------------------------------------------
-    | ACCESSORS
+    | ACCESSORSs
     |--------------------------------------------------------------------------
     */
 
