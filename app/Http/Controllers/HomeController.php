@@ -3169,7 +3169,7 @@ class HomeController extends Controller
 
 		$geographicalConData = $geographicalConTotalData = array();
 		$productConData = $productConTotalData = array();
-		$netWorthData = $netWorthData1 = $liquidityData = $liabilityProfileData = $liabilityProfile11Data = $liabilityProfileTableData = array();
+		$netWorthData = $netWorthData1 = $liquidityData = $liabilityProfileData = $liabilityProfile11Data = $liabilityProfileTableData = $liabilityProfileTable11Data = array();
 		$liabilityProfileDataTotal = $liquidityDataTotal = array();
 
 		$covidReliefData = $covidReliefDataTotal = $covidReliefDataTotal1 = array();
@@ -3990,7 +3990,8 @@ class HomeController extends Controller
 		        'shadow' => 'false'
 			])
 			->plotOptions([
-				'series'        => ([
+				'column'        => ([
+					'stacking' => 'normal',
 					'dataLabels' => ([
 						'enabled' => 'true',
 					]),
@@ -4014,6 +4015,84 @@ class HomeController extends Controller
 				]
 			)
 			->display(1);
+
+			$profileCategory = $profileCategory1 = $liabilityProfileData11 = $liabilityProfileData12 = array();
+
+			$amount1 = $amount2 = $amount3 = 0;
+			
+			$assetConData1 = $liabilityProfile11Data = \DB::table('strong_liability_profile_overall')->where('strong_liability_overall_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$amount1+= $row->amount1;
+
+					$asseliquidityData2 = array('amount1' => $amount1);
+
+					$profileCategory[] = $profileCategory1[] = $row->financial_year;
+
+					$liabilityProfileData11[] = (float)$row->amount1;
+				}
+			}
+			
+
+			$chart10 = \Chart::title([
+				'text' => 'Driving down cost of borrowings',
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'tenth_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+			])
+			->xaxis([
+				'categories' => $profileCategory1,
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+				'stackLabels' => [
+		            'enabled' => 'true',
+		            'style' => [
+		                'fontWeight' => 'bold',
+		            ]
+		        ]
+			])
+			->legend([
+				'align' => 'right',
+		        'x' => '-30',
+		        'verticalAlign' => 'top',
+		        'y' => '25',
+		        'floating' => 'true',
+		        'shadow' => 'false'
+			])
+			->plotOptions([
+				'column'        => ([
+					'stacking' => 'normal',
+					'dataLabels' => ([
+						'enabled' => 'true',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Overall cost',
+						'color' => '#336699',
+						'data'  => $liabilityProfileData11,
+					]
+				]
+			)
+			->display(1);
+
+			$assetConData2 = $liabilityProfileTable11Data = \DB::table('strong_liability_profile_well_table')->where('strong_liability_well_status', 1)->get();
 		}
 		else if($request->category_id == 12)
 		{
@@ -4046,6 +4125,7 @@ class HomeController extends Controller
 
 			'liabilityProfileData' => $liabilityProfileData,
 			'liabilityProfileTableData' => $liabilityProfileTableData,
+			'liabilityProfileTable11Data' => $liabilityProfileTable11Data,
 			'liabilityProfileDataTotal' => $liabilityProfileDataTotal,
 
 			'covidReliefData' => $covidReliefData, 'covidReliefDataTotal' => $covidReliefDataTotal, 'covidReliefDataTotal1' => $covidReliefDataTotal1,

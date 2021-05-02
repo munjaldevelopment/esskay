@@ -598,46 +598,30 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th rowspan="2">Lender</th>
-								<th colspan="2">Mar-16</th>
-								<th colspan="2">Mar-17</th>
-								<th colspan="2">Mar-18</th>
-								<th colspan="2">Mar-19</th>
-								<th colspan="2">Mar-20</th>
-								<th colspan="2">Nov-20</th>
+								<th rowspan="2">Particulars</th>
+								<th colspan="3">As per IGAAP</th>
+								<th colspan="3">As per IND AS</th>
 							</tr>
 
 							<tr>
-								<th>Amount</th>
-								<th>No. of <br />Lenders</th>
-								<th>Amount</th>
-								<th>No. of <br />Lenders</th>
-								<th>Amount</th>
-								<th>No. of <br />Lenders</th>
-								<th>Amount</th>
-								<th>No. of <br />Lenders</th>
-								<th>Amount</th>
-								<th>No. of <br />Lenders</th>
-								<th>Amount</th>
-								<th>No. of <br />Lenders</th>
+								<th>FY 16</th>
+								<th>FY 17</th>
+								<th>FY 18</th>
+								<th>FY 19</th>
+								<th>FY 20</th>
+								<th>H1FY 21</th>
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($liabilityProfileTableData as $row)
+							@foreach($liabilityProfileTable11Data as $k => $row)
 							<tr>
-								<td>{{ $row->lender}}</td>
-								<td>{{ $row->amount1}}</td>
-								<td>{{ $row->amount1_lender}}</td>
-								<td>{{ $row->amount2}}</td>
-								<td>{{ $row->amount2_lender}}</td>
-								<td>{{ $row->amount3}}</td>
-								<td>{{ $row->amount3_lender}}</td>
-								<td>{{ $row->amount4}}</td>
-								<td>{{ $row->amount4_lender}}</td>
-								<td>{{ $row->amount5}}</td>
-								<td>{{ $row->amount5_lender}}</td>
-								<td>{{ $row->amount6}}</td>
-								<td>{{ $row->amount6_lender}}</td>
+								<td>{{ $row->particulars}}</td>
+								<td>{{ $row->amount1}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount2}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount3}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount4}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount5}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount6}}@if($k != 1)% @endif</td>
 							</tr>
 							@endforeach
 						</tbody>
