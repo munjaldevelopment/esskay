@@ -61,6 +61,7 @@
 					</div>
 					@endforeach
 				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -170,6 +171,12 @@
 					</table>	
 				</div>	
 			</div>
+		</div>
+	</div>
+
+	<div class="white-box outstanding-box">
+		<div class="outstanding-table">
+			<div id="map"></div>
 		</div>
 	</div>
 @elseif($insightCatData->id == 4)
@@ -581,6 +588,14 @@
 <script src="{{ asset('public/assets/') }}/js/exporting.js"></script>
 <script src="{{ asset('public/assets/') }}/js/export-data.js"></script>
 @endif
+
+<style type="text/css">
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+</style>
 
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
 <script src="{{ asset('public/assets/') }}/js/owl.carousel.js"></script>
