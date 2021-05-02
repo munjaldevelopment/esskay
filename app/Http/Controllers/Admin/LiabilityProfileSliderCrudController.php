@@ -43,8 +43,17 @@ class LiabilityProfileSliderCrudController extends CrudController
 
         CRUD::addColumn('slider_code');
         CRUD::addColumn('name');
-        CRUD::addColumn('image');
-        CRUD::addColumn('profileCategory');
+        CRUD::addColumn([
+            'name' => 'image',
+            'type' => 'image'
+        ]);
+        CRUD::addColumn([
+            'label' => 'Category',
+            'type' => 'select',
+            'name' => 'liability_profile_category_id',
+            'entity' => 'profileCat',
+            'attribute' => 'name',
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -74,10 +83,15 @@ class LiabilityProfileSliderCrudController extends CrudController
             'label' => 'Slider name',
         ]);
         CRUD::addField([
+            'name' => 'image',
+            'label' => 'Image',
+            'type' => 'browse',
+        ]);
+        CRUD::addField([
             'label' => 'Category',
             'type' => 'select',
             'name' => 'liability_profile_category_id',
-            'entity' => 'profileCategory',
+            'entity' => 'profileCat',
             'attribute' => 'name',
         ]);
         CRUD::addField([

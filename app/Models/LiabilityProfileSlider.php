@@ -28,9 +28,9 @@ class LiabilityProfileSlider extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function profileCategory()
+    public function profileCat()
     {
-        return $this->belongsTo('app\Models\LiabilityProfileCategory', 'liability_profile_category_id');
+        return $this->belongsTo('App\Models\LiabilityProfileCategory', 'liability_profile_category_id');
     }
 
     /*
