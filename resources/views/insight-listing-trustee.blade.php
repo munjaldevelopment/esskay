@@ -496,6 +496,86 @@
 			@endif
 		</div>
 	</div>
+
+	<div class="white-box outstanding-box">
+		<div class="outstanding-table">
+			<div class="custom-table-area">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th rowspan="2">Lender</th>
+								<th colspan="2">Mar-16</th>
+								<th colspan="2">Mar-17</th>
+								<th colspan="2">Mar-18</th>
+								<th colspan="2">Mar-19</th>
+								<th colspan="2">Mar-20</th>
+								<th colspan="2">Nov-20</th>
+							</tr>
+
+							<tr>
+								<th>Amount</th>
+								<th>No. of <br />Lenders</th>
+								<th>Amount</th>
+								<th>No. of <br />Lenders</th>
+								<th>Amount</th>
+								<th>No. of <br />Lenders</th>
+								<th>Amount</th>
+								<th>No. of <br />Lenders</th>
+								<th>Amount</th>
+								<th>No. of <br />Lenders</th>
+								<th>Amount</th>
+								<th>No. of <br />Lenders</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach($liabilityProfileTableData as $row)
+							<tr>
+								<td>{{ $row->lender}}</td>
+								<td>{{ $row->amount1}}</td>
+								<td>{{ $row->amount1_lender}}</td>
+								<td>{{ $row->amount2}}</td>
+								<td>{{ $row->amount2_lender}}</td>
+								<td>{{ $row->amount3}}</td>
+								<td>{{ $row->amount3_lender}}</td>
+								<td>{{ $row->amount4}}</td>
+								<td>{{ $row->amount4_lender}}</td>
+								<td>{{ $row->amount5}}</td>
+								<td>{{ $row->amount5_lender}}</td>
+								<td>{{ $row->amount6}}</td>
+								<td>{{ $row->amount6_lender}}</td>
+							</tr>
+							@endforeach
+						</tbody>
+
+						<tfoot>
+							<tr>
+								<td>Total</td>
+								<td>{{ $liabilityProfileDataTotal[0] }}</td>
+								<td>{{ $liabilityProfileDataTotal[1] }}</td>
+								<td>{{ $liabilityProfileDataTotal[2] }}</td>
+								<td>{{ $liabilityProfileDataTotal[3] }}</td>
+								<td>{{ $liabilityProfileDataTotal[4] }}</td>
+								<td>{{ $liabilityProfileDataTotal[5] }}</td>
+								<td>{{ $liabilityProfileDataTotal[6] }}</td>
+								<td>{{ $liabilityProfileDataTotal[7] }}</td>
+								<td>{{ $liabilityProfileDataTotal[8] }}</td>
+								<td>{{ $liabilityProfileDataTotal[9] }}</td>
+								<td>{{ $liabilityProfileDataTotal[10] }}</td>
+								<td>{{ $liabilityProfileDataTotal[11] }}</td>
+							</tr>
+						</tfoot>
+					</table>	
+
+					<p class="tab-spacing">
+						Note: <br />
+						1. Our mandate /threshold is to maintain minimum liquidity equivalent to 3 months disbursements (+) repayments (-) collections. <br />
+						2. Apart from the above we have undrawn sanctions amounting to Rs. 578 crores from different lenders.
+					</p>
+				</div>	
+			</div>
+		</div>
+	</div>
 @elseif($insightCatData->id == 11)
 TO DO1
 @elseif($insightCatData->id == 12) 

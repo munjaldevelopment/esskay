@@ -3749,11 +3749,13 @@ class HomeController extends Controller
 		}
 		else if($request->category_id == 10)
 		{
-			$liquidityData1 = $asseliquidityData2 = $profileCategory = array();
+			$liquidityData1 = $asseliquidityData2 = $profileCategory = $profileCategory1 = array();
 			$liabilityProfileData1 = $liabilityProfileData2 = $liabilityProfileData3 = array();
 
-			$amount1 = $amount2 = $amount3 = 0;
-			$assetConData1 = $liquidityData = \DB::table('strong_liability_profiles')->where('strong_liability_status', 1)->get();
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = 0;
+			$amount1_lender = $amount2_lender = $amount3_lender = $amount4_lender = $amount5_lender = $amount6_lender = 0;
+
+			$assetConData1 = $liabilityProfileData = \DB::table('strong_liability_profiles')->where('strong_liability_status', 1)->get();
 			if($assetConData1)
 			{
 				foreach($assetConData1 as $row)
@@ -3764,13 +3766,39 @@ class HomeController extends Controller
 
 					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
 
-					$liquidityData1 = $liquidityDataTotal = array((float)round($amount1, 2), (float)round($amount2, 2), (float)round($amount3, 2));
-
-					$profileCategory[] = $row->quarter;
+					$profileCategory[] = $profileCategory1[] = $row->quarter;
 
 					$liabilityProfileData1[] = (int)$row->amount1;
 					$liabilityProfileData2[] = (int)$row->amount2;
 					$liabilityProfileData3[] = (int)$row->amount3;
+				}
+			}
+
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = 0;
+			$amount1_lender = $amount2_lender = $amount3_lender = $amount4_lender = $amount5_lender = $amount6_lender = 0;
+
+			$assetConData2 = $liabilityProfileTableData = \DB::table('strong_liability_profile_tables')->where('strong_liability_table_status', 1)->get();
+			if($assetConData2)
+			{
+				foreach($assetConData2 as $row)
+				{
+					$amount1+= $row->amount1;
+					$amount1_lender+= $row->amount1_lender;
+					$amount2+= $row->amount2;
+					$amount2_lender+= $row->amount2_lender;
+					$amount3+= $row->amount3;
+					$amount3_lender+= $row->amount3_lender;
+
+					$amount4+= $row->amount4;
+					$amount4_lender+= $row->amount4_lender;
+					$amount5+= $row->amount5;
+					$amount5_lender+= $row->amount5_lender;
+					$amount6+= $row->amount6;
+					$amount6_lender+= $row->amount6_lender;
+
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
+
+					$liabilityProfileDataTotal = array((float)round($amount1, 2), (float)round($amount1_lender, 2), (float)round($amount2, 2), (float)round($amount2_lender, 2), (float)round($amount3, 2),  (float)round($amount3_lender, 2), (float)round($amount4, 2),  (float)round($amount4_lender, 2), (float)round($amount5, 2),  (float)round($amount5_lender, 2), (float)round($amount6, 2),  (float)round($amount6_lender, 2));
 				}
 			}
 
@@ -3850,9 +3878,15 @@ class HomeController extends Controller
 			
 		}
 
+		//dd($liabilityProfileDataTotal);
+
 		
 		$current_year = date('Y');
 		return view('insight-listing-trustee', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'chart7' => $chart7, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
+
+			'liabilityProfileData' => $liabilityProfileData,
+			'liabilityProfileTableData' => $liabilityProfileTableData,
+			'liabilityProfileDataTotal' => $liabilityProfileDataTotal,
 
 			'covidReliefData' => $covidReliefData, 'covidReliefDataTotal' => $covidReliefDataTotal, 'covidReliefDataTotal1' => $covidReliefDataTotal1,
 			'covidRelief1Data' => $covidRelief1Data, 'covidRelief1DataTotal' => $covidRelief1DataTotal, 'covidRelief1DataTotal1' => $covidRelief1DataTotal1]);
