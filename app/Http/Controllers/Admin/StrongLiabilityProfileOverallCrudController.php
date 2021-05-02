@@ -28,11 +28,11 @@ class StrongLiabilityProfileOverallCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\StrongLiabilityProfileOverall::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/strongliabilityprofileoverall');
-        CRUD::setEntityNameStrings('strongliabilityprofileoverall', 'strong_liability_profile_overalls');
+        CRUD::setEntityNameStrings('strong liability profile overall', 'strong liability profile overalls');
 
-        $list_strong_liability_profile_well_table = backpack_user()->hasPermissionTo('list_strong_liability_profile_well_table');
+        $list_strong_liability_profile_overall = backpack_user()->hasPermissionTo('list_strong_liability_profile_overall');
         
-        if($list_strong_liability_profile_well_table)
+        if($list_strong_liability_profile_overall)
         {
             $adminRolesRow  = \DB::table('model_has_roles')->where('role_id', '=', '1')->get();
             
@@ -48,75 +48,39 @@ class StrongLiabilityProfileOverallCrudController extends CrudController
             $this->crud->enableExportButtons();
 
             $this->crud->addColumn([
-                    'label'     => 'Particulars',
+                    'label'     => 'Financial Year',
                     'type'      => 'text',
-                    'name'      => 'particulars',
+                    'name'      => 'financial_year',
                     ]);
                     
             $this->crud->addColumn([
-                    'label'     => 'As per IGAAP FY16',
+                    'label'     => 'Amount',
                     'type'      => 'text',
                     'name'      => 'amount1',
-                    ]);
-
-            $this->crud->addColumn([
-                    'label'     => 'As per IGAAP FY17',
-                    'type'      => 'text',
-                    'name'      => 'amount2',
                     ]);
 
             $this->crud->addColumn([
                     'label'     => 'Status',
                     'type'      => 'check',
-                    'name'      => 'strong_liability_well_status',
+                    'name'      => 'strong_liability_overall_status',
                 ]);
                     
             $this->crud->addField([
-                    'label'     => 'Particulars',
+                    'label'     => 'Financial Year',
                     'type'      => 'text',
-                    'name'      => 'particulars',
+                    'name'      => 'financial_year',
                     ]);
 
             $this->crud->addField([
-                    'label'     => 'As per IGAAP FY16',
+                    'label'     => 'Amount',
                     'type'      => 'text',
                     'name'      => 'amount1',
                     ]);
-
-            $this->crud->addField([
-                    'label'     => 'As per IGAAP FY17',
-                    'type'      => 'text',
-                    'name'      => 'amount2',
-                    ]);
-
-            $this->crud->addField([
-                    'label'     => 'As per IGAAP FY18',
-                    'type'      => 'text',
-                    'name'      => 'amount3',
-                    ]);
-
-            $this->crud->addField([
-                    'label'     => 'As per IND AS FY16',
-                    'type'      => 'text',
-                    'name'      => 'amount4',
-                    ]);
-
-            $this->crud->addField([
-                    'label'     => 'As per IND AS FY17',
-                    'type'      => 'text',
-                    'name'      => 'amount5',
-                    ]);
-
-            $this->crud->addField([
-                    'label'     => 'As per IGAAP FY18',
-                    'type'      => 'text',
-                    'name'      => 'amount6',
-                    ]);
-
+            
             $this->crud->addField([
                     'label'     => 'Status',
                     'type'      => 'checkbox',
-                    'name'      => 'strong_liability_well_status',
+                    'name'      => 'strong_liability_overall_status',
                 ]);
             
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportStrongLiabilityOverallButton', 'end');

@@ -19,7 +19,7 @@ class StrongLiabilityProfileOverall extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['financial_year', 'amount1', 'amount2', 'strong_liability_overall_status'];
+    protected $fillable = ['financial_year', 'amount1', 'strong_liability_overall_status']; //'amount2'
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
