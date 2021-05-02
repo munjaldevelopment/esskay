@@ -14,8 +14,8 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 class StrongLiabilityProfileOverallCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitStrongLiabilityProfileTableStore; }
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitStrongLiabilityProfileTableUpdate; }
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitStrongLiabilityProfileOverallStore; }
+    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitStrongLiabilityProfileOverallUpdate; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
@@ -29,6 +29,106 @@ class StrongLiabilityProfileOverallCrudController extends CrudController
         CRUD::setModel(\App\Models\StrongLiabilityProfileOverall::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/strongliabilityprofileoverall');
         CRUD::setEntityNameStrings('strongliabilityprofileoverall', 'strong_liability_profile_overalls');
+
+        $list_strong_liability_profile_well_table = backpack_user()->hasPermissionTo('list_strong_liability_profile_well_table');
+        
+        if($list_strong_liability_profile_well_table)
+        {
+            $adminRolesRow  = \DB::table('model_has_roles')->where('role_id', '=', '1')->get();
+            
+            $adminRolesData = array();
+            foreach($adminRolesRow as $row)
+            {
+                $adminRolesData[] = $row->model_id;
+            }
+            
+            $this->crud->orderBy('updated_at', 'DESC');
+            
+            $this->crud->allowAccess('show');
+            $this->crud->enableExportButtons();
+
+            $this->crud->addColumn([
+                    'label'     => 'Particulars',
+                    'type'      => 'text',
+                    'name'      => 'particulars',
+                    ]);
+                    
+            $this->crud->addColumn([
+                    'label'     => 'As per IGAAP FY16',
+                    'type'      => 'text',
+                    'name'      => 'amount1',
+                    ]);
+
+            $this->crud->addColumn([
+                    'label'     => 'As per IGAAP FY17',
+                    'type'      => 'text',
+                    'name'      => 'amount2',
+                    ]);
+
+            $this->crud->addColumn([
+                    'label'     => 'Status',
+                    'type'      => 'check',
+                    'name'      => 'strong_liability_well_status',
+                ]);
+                    
+            $this->crud->addField([
+                    'label'     => 'Particulars',
+                    'type'      => 'text',
+                    'name'      => 'particulars',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'As per IGAAP FY16',
+                    'type'      => 'text',
+                    'name'      => 'amount1',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'As per IGAAP FY17',
+                    'type'      => 'text',
+                    'name'      => 'amount2',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'As per IGAAP FY18',
+                    'type'      => 'text',
+                    'name'      => 'amount3',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'As per IND AS FY16',
+                    'type'      => 'text',
+                    'name'      => 'amount4',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'As per IND AS FY17',
+                    'type'      => 'text',
+                    'name'      => 'amount5',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'As per IGAAP FY18',
+                    'type'      => 'text',
+                    'name'      => 'amount6',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Status',
+                    'type'      => 'checkbox',
+                    'name'      => 'strong_liability_well_status',
+                ]);
+            
+            $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportStrongLiabilityOverallButton', 'end');
+            $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importStrongLiabilityOverallButton', 'end');
+
+            $this->crud->setCreateView('admin.create-lender-banking-form');
+            $this->crud->setUpdateView('admin.edit-lender-banking-form');
+        }
+        else
+        {
+            $this->crud->denyAccess(['list']);
+        }
     }
 
     /**
@@ -39,7 +139,7 @@ class StrongLiabilityProfileOverallCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
+        //CRUD::setFromDb(); // columns
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -76,5 +176,27 @@ class StrongLiabilityProfileOverallCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    public function store()
+    {
+        $this->crud->setRequest($this->crud->validateRequest());
+        //$this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
+        $this->crud->unsetValidation(); // validation has already been run
+
+        $result = $this->traitStrongLiabilityProfileOverallStore();
+
+        return $result;
+    }    
+
+    public function update()
+    {
+        $this->crud->setRequest($this->crud->validateRequest());
+        //$this->crud->setRequest($this->handlePasswordInput($this->crud->getRequest()));
+        $this->crud->unsetValidation(); // validation has already been run
+
+        $result = $this->traitStrongLiabilityProfileOverallUpdate();
+
+        return $result;
     }
 }

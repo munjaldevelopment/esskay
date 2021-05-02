@@ -225,7 +225,7 @@
 
 			if($list_strong_liability_profile_overall):
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileoverall') }}'><i class='nav-icon la la-list'></i> StrongLiabilityProfileOveralls</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileoverall') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile Overall</a></li>
 	@php
 			endif;
 
