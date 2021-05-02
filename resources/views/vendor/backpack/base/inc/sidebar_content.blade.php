@@ -31,6 +31,11 @@
 	$list_strong_liability_profile = backpack_user()->hasPermissionTo('list_strong_liability_profile');
 	$list_strong_liability_profile_table = backpack_user()->hasPermissionTo('list_strong_liability_profile_table');
 
+	$list_strong_liability_profile_ratio = backpack_user()->hasPermissionTo('list_strong_liability_profile_ratio');
+	$list_strong_liability_profile_driving = backpack_user()->hasPermissionTo('list_strong_liability_profile_driving');
+	$list_strong_liability_profile_well_table = backpack_user()->hasPermissionTo('list_strong_liability_profile_well_table');
+	$list_strong_liability_profile_overall = backpack_user()->hasPermissionTo('list_strong_liability_profile_overall');
+
 	$list_covid_relief = backpack_user()->hasPermissionTo('list_covid_relief');
 	$list_covid_relief_borrower = backpack_user()->hasPermissionTo('list_covid_relief_borrower');
 
@@ -141,7 +146,7 @@
 @php
 	endif;
 
-	if($list_operational_highlight || $list_geographical_concentration || $list_product_concentration || $list_asset_quality || $list_collection_efficiency || $list_strong_liability_profile || $list_strong_liability_profile_table || $list_covid_relief || $list_covid_relief_borrower):
+	if($list_operational_highlight || $list_geographical_concentration || $list_product_concentration || $list_asset_quality || $list_collection_efficiency || $list_strong_liability_profile || $list_strong_liability_profile_table || $list_strong_liability_profile_ratio || $list_strong_liability_profile_driving || $list_strong_liability_profile_well_table || 	$list_strong_liability_profile_overall || $list_covid_relief || $list_covid_relief_borrower):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Insight</a>
@@ -199,6 +204,19 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofiletable') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile Table</a></li>
 	@php
 			endif;
+
+			if($list_strong_liability_profile_ratio):
+	@endphp
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileratio') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile Ratios</a></li>
+	@php
+			endif;
+
+			if($list_strong_liability_profile_driving):
+	@endphp
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofiledriving') }}'><i class='nav-icon la la-list'></i> StrongLiabilityProfileDrivings</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofilewelltable') }}'><i class='nav-icon la la-list'></i> StrongLiabilityProfileWellTables</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileoverall') }}'><i class='nav-icon la la-list'></i> StrongLiabilityProfileOveralls</a></li>
+
 
 			if($list_covid_relief):
 @endphp
@@ -424,7 +442,3 @@
 @php
 	endif;
 @endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileratio') }}'><i class='nav-icon la la-question'></i> StrongLiabilityProfileRatios</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofiledriving') }}'><i class='nav-icon la la-question'></i> StrongLiabilityProfileDrivings</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofilewelltable') }}'><i class='nav-icon la la-question'></i> StrongLiabilityProfileWellTables</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileoverall') }}'><i class='nav-icon la la-question'></i> StrongLiabilityProfileOveralls</a></li>
