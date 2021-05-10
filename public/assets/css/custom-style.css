@@ -387,6 +387,8 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
+
+
 }
 .mtdd-doc-cont p {
 	color: #515151;
@@ -1609,6 +1611,7 @@
     margin: 8px;
 }
 
+
 /* Mid section */
 .ohbh-box-insight-left {
     left: -5px;
@@ -1818,6 +1821,7 @@
 	transition: all 0.5s;
 	padding: 0 40px;
 }
+
 .login_container {
 	position: relative;
 	width: 100%;
@@ -2165,6 +2169,55 @@
     width: 100%;
 }
 
+p.tab-spacing {
+	color: #767676;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 19px 21px;
+    margin: 0;
+}
+
+.border-right {
+	border-right: 2px #000000 solid;
+}
+
+h1.text-heading {
+	font-size: 2.125rem;
+    margin-bottom: 16px;
+    color: #fff;
+    letter-spacing: 0;
+    font-weight: 700;
+}
+
+h1.login__content-title {
+	font-size: 2.425rem;
+	font-weight: 700;
+    line-height: 52px;
+    margin-bottom: 8px;
+	color: #202121;
+	letter-spacing: 0;
+    margin: 0 0 16px;
+    text-align: center;
+}
+
+.btn.btn-menu, .btn.btn-menu:active, .btn.btn-menu.active {
+	background: none !important;
+    border-color: transparent !important;
+    color: #676767 !important;
+    font-size: 13px !important;
+}
+
+ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml-auto.nav-custome li .transaction-category-container a.active {
+	color: #fff;
+}
+
+.widget_categories ul li a.category-link.active {
+	background: #1976D2;
+    padding: 7px;
+    color: #fff;
+    border-radius: 10px;
+}
+
 
 @media only screen and (max-width: 1366px) {
 .login-logo img {
@@ -2255,8 +2308,51 @@
     margin-bottom: 20px;
     margin-top: 12px;
 }	
+
+.navbar-expand-md .navbar-toggler {
+    display: block !important;
+}	
+
+.navbar-collapse.collapse:not(.show) {
+    display: none !important;
+}	
 	
+.navbar-expand-md .navbar-collapse {
+    display: initial !important;
+    -ms-flex-preferred-size: auto;
+    flex-basis: 100%;
+    flex-grow: 1;
+}	
 	
+.navbar-expand-md .navbar-collapse .navbar-nav.ml-auto.nav-custome.d-none.d-sm-flex-block {
+    display: none !important;
+}	
+	
+.navbar-expand-md .navbar-collapse .navbar-nav.ml-auto.nav-custome.d-sm-none {
+    display: block !important;
+}	
+	
+.navbar {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+}	
+	
+.navbar-expand-md .navbar-toggler:focus {
+    outline: none;
+}	
+	
+.navbar-expand-md .navbar-collapse .navbar-nav .btn-menu.nav-link:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}	
 	
 }
 
@@ -2280,6 +2376,17 @@
 	
 .deal-summary-box .row .col-md-6.col-sm-12:nth-last-child(1) .deal-summary-inner {
     margin-bottom: 0;
+}
+	
+.content-area-custom .msg-img {
+    right: 50% !important;
+    width: 80px !important;
+    transform: translateX(50%) !important;
+    bottom: 0px !important;
+}
+	
+.content-area-custom .card-body {
+    padding-bottom: 60px !important;
 }	
 	
 }
