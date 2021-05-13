@@ -19,7 +19,7 @@ class StrongLiabilityProfileWellTable extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['particulars', 'amount1', 'amount2', 'amount3', 'amount4',  'amount5',  'amount6', 'strong_liability_well_status']; //'amount7', 'amount8',  'amount9',
+    protected $fillable = ['particulars', 'amount1', 'amount2', 'amount3', 'amount4',  'amount5',  'amount6', 'amount7', 'strong_liability_well_status']; //'amount7', 'amount8',  'amount9',
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
