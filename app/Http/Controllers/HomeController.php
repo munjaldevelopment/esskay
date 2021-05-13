@@ -2115,7 +2115,7 @@ class HomeController extends Controller
 			}
 
 			$chart41 = \Chart::title([
-				'text' => 'Collection Efficiency',
+				'text' => 'Collection Efficiency (Pre-payment)',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -2161,7 +2161,7 @@ class HomeController extends Controller
 			->display(0);
 
 			$chart42 = \Chart::title([
-				'text' => 'Collection Efficiency',
+				'text' => 'Collection Efficiency (Excluding Pre-payment)',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3481,7 +3481,7 @@ class HomeController extends Controller
 			}
 
 			$chart41 = \Chart::title([
-				'text' => 'Collection Efficiency',
+				'text' => 'Collection Efficiency (Pre-payment)',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3527,7 +3527,7 @@ class HomeController extends Controller
 			->display(0);
 
 			$chart42 = \Chart::title([
-				'text' => 'Collection Efficiency',
+				'text' => 'Collection Efficiency (Excluding Pre-payment)',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
