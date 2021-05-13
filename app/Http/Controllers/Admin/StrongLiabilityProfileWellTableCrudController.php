@@ -119,6 +119,12 @@ class StrongLiabilityProfileWellTableCrudController extends CrudController
                     ]);
 
             $this->crud->addField([
+                    'label'     => 'As per IGAAP FY21',
+                    'type'      => 'text',
+                    'name'      => 'amount7',
+                    ]);
+
+            $this->crud->addField([
                     'label'     => 'Status',
                     'type'      => 'checkbox',
                     'name'      => 'strong_liability_well_status',

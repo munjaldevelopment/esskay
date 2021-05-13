@@ -600,7 +600,7 @@
 							<tr>
 								<th rowspan="2">Particulars</th>
 								<th colspan="3">As per IGAAP</th>
-								<th colspan="3">As per IND AS</th>
+								<th colspan="4">As per IND AS</th>
 							</tr>
 
 							<tr>
@@ -610,6 +610,7 @@
 								<th>FY 19</th>
 								<th>FY 20</th>
 								<th>H1FY 21</th>
+								<th>FY 21</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -622,6 +623,7 @@
 								<td>{{ $row->amount4}}@if($k != 1)% @endif</td>
 								<td>{{ $row->amount5}}@if($k != 1)% @endif</td>
 								<td>{{ $row->amount6}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount7}}@if($k != 1)% @endif</td>
 							</tr>
 							@endforeach
 						</tbody>
