@@ -192,7 +192,7 @@
 	
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">
-			<h3>Outstanding As on</h3>
+			<h3>Outstanding As on (In Cr.)</h3>
 			<div class="custom-table-area">
 				<div class="table-responsive">
 					<table class="table">
