@@ -149,7 +149,19 @@ class StrongLiabilityProfileTableCrudController extends CrudController
                     'label'     => 'Nov-20 Lenders',
                     'type'      => 'text',
                     'name'      => 'amount6_lender',
-                    ]);                    
+                    ]); 
+
+            $this->crud->addField([
+                    'label'     => 'Mar-21 Amount',
+                    'type'      => 'text',
+                    'name'      => 'amount7',
+                    ]);
+
+            $this->crud->addField([
+                    'label'     => 'Mar-21 Lenders',
+                    'type'      => 'text',
+                    'name'      => 'amount7_lender',
+                    ]);
 
             $this->crud->addField([
                     'label'     => 'Status',

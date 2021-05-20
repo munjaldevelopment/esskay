@@ -94,7 +94,7 @@
 								<th colspan="2" class="border-bottom">Sep-20</th>
 								<th colspan="2" class="border-bottom">Mar-21</th>
 								<th colspan="2" class="border-bottom">Mar-22</th>
-								<th colspan="2" class="border-bottom">Mar-23</th>
+								<!--<th colspan="2" class="border-bottom">Mar-23</th>-->
 							</tr>
 							<tr>
 								<th>Amount</th>
@@ -113,8 +113,8 @@
 								<th>%</th>
 								<th>Amount</th>
 								<th>%</th>
-								<th>Amount</th>
-								<th>%</th>
+								<!--<th>Amount</th>
+								<th>%</th>-->
 							</tr>
 						</thead>
 						<tbody>
@@ -138,8 +138,8 @@
 								<td>{{ number_format($row->amount_percentage7, 0) }}%</td>
 								<td>{{ number_format($row->amount8, 0) }}</td>
 								<td>{{ number_format($row->amount_percentage8, 0) }}%</td>
-								<td>{{ number_format($row->amount9, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage9, 0) }}%</td>
+								<!--<td>{{ number_format($row->amount9, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage9, 0) }}%</td>-->
 							</tr>
 							@endforeach
 						</tbody>
@@ -164,8 +164,8 @@
 								<td>100%</td>
 								<td>{{ $geographicalConTotalData['amount8'] }}</td>
 								<td>100%</td>
-								<td>{{ $geographicalConTotalData['amount9'] }}</td>
-								<td>100%</td>
+								<!--<td>{{ $geographicalConTotalData['amount9'] }}</td>
+								<td>100%</td>-->
 							</tr>
 						</tfoot>
 					</table>	
@@ -207,7 +207,7 @@
 								<th colspan="2" class="border-bottom">Sep-20</th>
 								<th colspan="2" class="border-bottom">Mar-21</th>
 								<th colspan="2" class="border-bottom">Mar-22</th>
-								<th colspan="2" class="border-bottom">Mar-23</th>
+								<!--<th colspan="2" class="border-bottom">Mar-23</th>-->
 							</tr>
 							<tr>
 								<th>Amount</th>
@@ -226,8 +226,8 @@
 								<th>%</th>
 								<th>Amount</th>
 								<th>%</th>
-								<th>Amount</th>
-								<th>%</th>
+								<!--<th>Amount</th>
+								<th>%</th>-->
 							</tr>
 						</thead>
 						<tbody>
@@ -250,8 +250,8 @@
 								<td>{{ number_format($row->amount_percentage7, 0) }}%</td>
 								<td>{{ number_format($row->amount8, 0) }}</td>
 								<td>{{ number_format($row->amount_percentage8, 0) }}%</td>
-								<td>{{ number_format($row->amount9, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage9, 0) }}%</td>
+								<!--<td>{{ number_format($row->amount9, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage9, 0) }}%</td>-->
 							</tr>
 							@endforeach
 						</tbody>
@@ -275,8 +275,8 @@
 								<td>100%</td>
 								<td>{{ $productConTotalData['amount8'] }}</td>
 								<td>100%</td>
-								<td>{{ $productConTotalData['amount9'] }}</td>
-								<td>100%</td>
+								<!--<td>{{ $productConTotalData['amount9'] }}</td>
+								<td>100%</td>-->
 							</tr>
 						</tfoot>
 					</table>	

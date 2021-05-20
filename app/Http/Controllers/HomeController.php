@@ -1878,7 +1878,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22', 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22',//, 'FY23'
 				],
 			])
 			->yaxis([
@@ -1905,12 +1905,12 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Commercial Vehicle',
-						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
+						'name'  => 'Rajasthan',
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8], //, $raj_amount9
 					],
 					[
-						'name'  => 'Other Products',
-						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
+						'name'  => 'Other States',
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8], // $other_amount9
 					],
 				]
 			)
@@ -2300,7 +2300,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Debt / Net worth',
+						'name'  => 'Debt / Net worth (In Times)',
 						'data'  => $assetData2,
 					],
 				]
@@ -3244,7 +3244,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22', 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22',//, 'FY23'
 				],
 			])
 			->yaxis([
@@ -3271,12 +3271,12 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Commercial Vehicle',
-						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
+						'name'  => 'Rajasthan',
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8], //, $raj_amount9
 					],
 					[
-						'name'  => 'Other Products',
-						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
+						'name'  => 'Other States',
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8], //, $other_amount9
 					],
 				]
 			)
@@ -3349,7 +3349,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22', 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22',//, 'FY23'
 				],
 			])
 			->yaxis([
@@ -3377,11 +3377,11 @@ class HomeController extends Controller
 				[
 					[
 						'name'  => 'Commercial Vehicle',
-						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8], //, $raj_amount9
 					],
 					[
 						'name'  => 'Other Products',
-						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8], //, $other_amount9
 					],
 				]
 			)
@@ -3666,7 +3666,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Debt / Net worth',
+						'name'  => 'Debt / Net worth (In Times)',
 						'data'  => $assetData2,
 					],
 				]
@@ -3775,8 +3775,8 @@ class HomeController extends Controller
 				}
 			}
 
-			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = 0;
-			$amount1_lender = $amount2_lender = $amount3_lender = $amount4_lender = $amount5_lender = $amount6_lender = 0;
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = 0;
+			$amount1_lender = $amount2_lender = $amount3_lender = $amount4_lender = $amount5_lender = $amount6_lender = $amount7_lender = 0;
 
 			$assetConData2 = $liabilityProfileTableData = \DB::table('strong_liability_profile_tables')->where('strong_liability_table_status', 1)->get();
 			if($assetConData2)
@@ -3796,10 +3796,12 @@ class HomeController extends Controller
 					$amount5_lender+= $row->amount5_lender;
 					$amount6+= $row->amount6;
 					$amount6_lender+= $row->amount6_lender;
+					$amount7+= $row->amount7;
+					$amount7_lender+= $row->amount7_lender;
 
 					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
 
-					$liabilityProfileDataTotal = array((float)round($amount1, 2), (float)round($amount1_lender, 2), (float)round($amount2, 2), (float)round($amount2_lender, 2), (float)round($amount3, 2),  (float)round($amount3_lender, 2), (float)round($amount4, 2),  (float)round($amount4_lender, 2), (float)round($amount5, 2),  (float)round($amount5_lender, 2), (float)round($amount6, 2),  (float)round($amount6_lender, 2));
+					$liabilityProfileDataTotal = array((float)round($amount1, 2), (float)round($amount1_lender, 2), (float)round($amount2, 2), (float)round($amount2_lender, 2), (float)round($amount3, 2),  (float)round($amount3_lender, 2), (float)round($amount4, 2),  (float)round($amount4_lender, 2), (float)round($amount5, 2),  (float)round($amount5_lender, 2), (float)round($amount6, 2),  (float)round($amount6_lender, 2), (float)round($amount7_lender, 2));
 				}
 			}
 
