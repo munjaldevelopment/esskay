@@ -1905,11 +1905,11 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Rajasthan',
+						'name'  => 'Commercial Vehicle',
 						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
 					],
 					[
-						'name'  => 'Other States',
+						'name'  => 'Other Products',
 						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
 					],
 				]
@@ -2010,11 +2010,11 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Rajasthan',
+						'name'  => 'Commercial Vehicle',
 						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
 					],
 					[
-						'name'  => 'Other States',
+						'name'  => 'Other Products',
 						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
 					],
 				]
@@ -2115,7 +2115,7 @@ class HomeController extends Controller
 			}
 
 			$chart41 = \Chart::title([
-				'text' => 'Collection Efficiency (Pre-payment)',
+				'text' => 'Collection Efficiency (Including Pre-payment)',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3271,11 +3271,11 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Rajasthan',
+						'name'  => 'Commercial Vehicle',
 						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
 					],
 					[
-						'name'  => 'Other States',
+						'name'  => 'Other Products',
 						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
 					],
 				]
@@ -3376,11 +3376,11 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Rajasthan',
+						'name'  => 'Commercial Vehicle',
 						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
 					],
 					[
-						'name'  => 'Other States',
+						'name'  => 'Other Products',
 						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
 					],
 				]
@@ -3481,7 +3481,7 @@ class HomeController extends Controller
 			}
 
 			$chart41 = \Chart::title([
-				'text' => 'Collection Efficiency (Pre-payment)',
+				'text' => 'Collection Efficiency (Including Pre-payment)',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
