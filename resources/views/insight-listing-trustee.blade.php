@@ -511,9 +511,12 @@
 								<th colspan="2">Mar-19</th>
 								<th colspan="2">Mar-20</th>
 								<th colspan="2">Sep-20</th>
+								<th colspan="2">Mar-21</th>
 							</tr>
 
 							<tr>
+								<th>Amount (In Cr.)</th>
+								<th>No. of <br />Lenders</th>
 								<th>Amount (In Cr.)</th>
 								<th>No. of <br />Lenders</th>
 								<th>Amount (In Cr.)</th>
@@ -544,6 +547,8 @@
 								<td>{{ $row->amount5_lender}}</td>
 								<td>{{ $row->amount6}}</td>
 								<td>{{ $row->amount6_lender}}</td>
+								<td>{{ $row->amount7}}</td>
+								<td>{{ $row->amount7_lender}}</td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -563,6 +568,7 @@
 								<td>{{ $liabilityProfileDataTotal[9] }}</td>
 								<td>{{ $liabilityProfileDataTotal[10] }}</td>
 								<td>{{ $liabilityProfileDataTotal[11] }}</td>
+								<td>{{ $liabilityProfileDataTotal[12] }}</td>
 							</tr>
 						</tfoot>
 					</table>
