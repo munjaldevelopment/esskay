@@ -417,13 +417,13 @@
 
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">
-			<h3>Quarter on Quarter Liquidity Position</h3>
+			<h3>Quarter on Quarter Liquidity Position (In Cr.)</h3>
 			<div class="custom-table-area">
 				<div class="table-responsive">
 					<table class="table">
 						<thead>
 							<tr>
-								<th> Quarter on Quarter Liquidity (in crs.)</th>
+								<th> Quarter on Quarter Liquidity</th>
 								<th>Dec-18</th>
 								<th>Mar-19</th>
 								<th>Jun-19</th>
