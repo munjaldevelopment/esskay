@@ -22,7 +22,7 @@
 			<div class="col-md-9 ">
 				<div class="wpb_wrapper"><div class="rs-blog "><div class="row">
 					@foreach($articleData as $k => $article)
-					<div class="blog-item col-md-4 col-sm-12 col-xs-12 {{ $article['category_name'] }}">
+					<div class="blog-item col-md-6 col-lg-4 col-sm-12 col-xs-12 {{ $article['category_name'] }}">
 						<div class="blog-content-main">
 							<div class="blog-img"> 
 								<a href="javascript:;" data-toggle="modal" data-target="#exampleModal{{ $article['id'] }}"><img src="{{ asset('public/') }}/{{ $article['image'] }}" class="img-fluid" alt="{{ $article['title'] }}"></a>

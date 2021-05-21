@@ -147,6 +147,10 @@ $(document).ready(function() {
 
 	$('.transaction-row').bind('click', function() {
 		var transaction_id = $(this).attr('data-transaction');
+
+		$('.transaction-contentainer').removeClass('active');
+
+		$('.transaction-content-row'+transaction_id).addClass('active');
 		
 		$.ajax({
 			url: base_url+'showTrusteeTransactionInfo',
@@ -159,9 +163,7 @@ $(document).ready(function() {
 			success: function(output) {
 				$('.transaction-container').html(output);
 
-				$('.transaction-contentainer').removeClass('active');
-
-				$('.transaction-content-row'+transaction_id).addClass('active');
+				
 			}
 		});
 	});
