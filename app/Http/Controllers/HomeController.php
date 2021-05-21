@@ -4249,6 +4249,10 @@ class HomeController extends Controller
 		$deal_filterby = $request->deal_filterby;
 		$deal_rating = $request->deal_rating;
 
+		if($sort_value == "")
+		{
+			$sort_value = "current_deals.created_at-desc";
+		}
 		$sortData = explode("-", $sort_value);
 
 		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
@@ -4290,6 +4294,10 @@ class HomeController extends Controller
 		$deal_filterby = $request->deal_filterby;
 		$deal_rating = $request->deal_rating;
 
+		if($sort_value == "")
+		{
+			$sort_value = "current_deals.created_at-desc";
+		}
 		$sortData = explode("-", $sort_value);
 
 		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
