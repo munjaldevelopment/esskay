@@ -4244,6 +4244,8 @@ class HomeController extends Controller
 
 	public function dealGridTrustee(Request $request)
 	{
+		$sort_value = $request->sort_value;
+
 		$deal_filterby = $request->deal_filterby;
 		$deal_rating = $request->deal_rating;
 
@@ -4283,6 +4285,8 @@ class HomeController extends Controller
 
 	public function dealListTrustee(Request $request)
 	{
+		$sort_value = $request->sort_value;
+
 		$deal_filterby = $request->deal_filterby;
 		$deal_rating = $request->deal_rating;
 
