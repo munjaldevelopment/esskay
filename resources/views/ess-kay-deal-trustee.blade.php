@@ -157,6 +157,34 @@
 		$('.deal-category-list-all').addClass('active');
 
 		$('.blog-item').show();
+
+		$('.category_name').val('');
+
+		var base_url = $('base').attr('href');
+	
+		var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+		var sort_value = $('.deal_sort option:selected').val();
+
+		var deal_filterby = $('.deal_filterby').val();
+		var category_name = $('.category_name').val();
+		var deal_rating = $('.deal_rating option:selected').val();
+
+		$('.grid-icon').attr('src', '{{ asset('public/assets/') }}/images/grid-active-icon.svg');
+		$('.list-icon').attr('src', '{{ asset('public/assets/') }}/images/list-icon.svg');
+
+		$.ajax({
+			url: base_url+'dealGridTrustee',
+			type: 'post',
+			data: {_token: CSRF_TOKEN, sort_value: sort_value, deal_filterby: deal_filterby, deal_rating: deal_rating, category_name: category_name},
+			beforeSend: function() {
+				$('.preloader').show();
+			},
+			success: function(output) {
+				$('.preloader').hide();
+				$('.deal-products-area').html(output);
+			}
+		});
 	}
 	
 	function showDealCategoryData(cat_name, category_name)
