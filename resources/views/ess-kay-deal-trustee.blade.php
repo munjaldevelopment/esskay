@@ -296,13 +296,18 @@ $(document).ready(function(){
 	
 			var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
+			var sort_value = $('.deal_sort option:selected').val();
+
+			var deal_filterby = $('.deal_filterby').val();
+			var deal_rating = $('.deal_rating option:selected').val();
+
 			$('.grid-icon').attr('src', '{{ asset('public/assets/') }}/images/grid-active-icon.svg');
 			$('.list-icon').attr('src', '{{ asset('public/assets/') }}/images/list-icon.svg');
 
 			$.ajax({
 				url: base_url+'dealGridTrustee',
 				type: 'post',
-				data: {_token: CSRF_TOKEN},
+				data: {_token: CSRF_TOKEN, sort_value: sort_value, deal_filterby: deal_filterby, deal_rating: deal_rating},
 				beforeSend: function() {
 					$('.preloader').show();
 				},
@@ -318,13 +323,18 @@ $(document).ready(function(){
 	
 			var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
+			var sort_value = $('.deal_sort option:selected').val();
+
+			var deal_filterby = $('.deal_filterby').val();
+			var deal_rating = $('.deal_rating option:selected').val();
+
 			$('.grid-icon').attr('src', '{{ asset('public/assets/') }}/images/grid-icon.svg');
 			$('.list-icon').attr('src', '{{ asset('public/assets/') }}/images/list-active-icon.svg');
 
 			$.ajax({
 				url: base_url+'dealListTrustee',
 				type: 'post',
-				data: {_token: CSRF_TOKEN},
+				data: {_token: CSRF_TOKEN, sort_value: sort_value, deal_filterby: deal_filterby, deal_rating: deal_rating},
 				beforeSend: function() {
 					$('.preloader').show();
 				},
