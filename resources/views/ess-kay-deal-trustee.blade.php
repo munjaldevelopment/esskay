@@ -96,6 +96,8 @@
 										@endforeach
 									</ul>
 								</div>
+
+								<input type="hidden" name="category_name" class="category_name" value="">
 								<div class="btn-group">
 									<a href="javascript:;" id="deal-grid" class="btn btn-default btn-sm">
 										<img src="{{ asset('public/assets/') }}/images/grid-active-icon.svg" class="grid-icon deal-list-none" alt="">
@@ -164,8 +166,8 @@
 
 		$('.blog-item').hide();
 		
-		//alert(cat_name);
-		
+		$('.category_name').val(cat_name);
+
 		if($('.blog-item').hasClass('post-row-'+cat_name))
 		{
 			$('.post-row-'+cat_name).show();
@@ -299,6 +301,7 @@ $(document).ready(function(){
 			var sort_value = $('.deal_sort option:selected').val();
 
 			var deal_filterby = $('.deal_filterby').val();
+			var category_name = $('.category_name').val();
 			var deal_rating = $('.deal_rating option:selected').val();
 
 			$('.grid-icon').attr('src', '{{ asset('public/assets/') }}/images/grid-active-icon.svg');
@@ -307,7 +310,7 @@ $(document).ready(function(){
 			$.ajax({
 				url: base_url+'dealGridTrustee',
 				type: 'post',
-				data: {_token: CSRF_TOKEN, sort_value: sort_value, deal_filterby: deal_filterby, deal_rating: deal_rating},
+				data: {_token: CSRF_TOKEN, sort_value: sort_value, deal_filterby: deal_filterby, deal_rating: deal_rating, category_name: category_name},
 				beforeSend: function() {
 					$('.preloader').show();
 				},
@@ -326,6 +329,7 @@ $(document).ready(function(){
 			var sort_value = $('.deal_sort option:selected').val();
 
 			var deal_filterby = $('.deal_filterby').val();
+			var category_name = $('.category_name').val();
 			var deal_rating = $('.deal_rating option:selected').val();
 
 			$('.grid-icon').attr('src', '{{ asset('public/assets/') }}/images/grid-icon.svg');
@@ -334,7 +338,7 @@ $(document).ready(function(){
 			$.ajax({
 				url: base_url+'dealListTrustee',
 				type: 'post',
-				data: {_token: CSRF_TOKEN, sort_value: sort_value, deal_filterby: deal_filterby, deal_rating: deal_rating},
+				data: {_token: CSRF_TOKEN, sort_value: sort_value, deal_filterby: deal_filterby, deal_rating: deal_rating, category_name: category_name},
 				beforeSend: function() {
 					$('.preloader').show();
 				},
