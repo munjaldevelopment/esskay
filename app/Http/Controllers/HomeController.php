@@ -716,27 +716,32 @@ class HomeController extends Controller
     {	
     	// Download file
     	$customer_name = session()->get('esskay_verify');
+    	$customer_name1 = session()->get('esskay_trustee_verify');
 		
-		if(!$customer_name)
-		{
-			return redirect(url('/').'/login');
-		}
-		else
+		if($customer_name || $customer_name1)
 		{
 			$docData  = \DB::table('articles')->where('id', '=', $doc_id)->first();
 			
 			$file= public_path(). "/".$docData->article_pdf;
 			
-			/*$headers = array(
-					  'Content-Type: application/pdf',
-					);*/
-					
 			$article_pdf = explode("/", $docData->article_pdf);
 			$doc = array_pop($article_pdf);
 
-			\DB::table('user_pdf')->insert(['user_id' => session()->get('esskay_user_id'), 'article_id' => $doc_id, 'download_date' => date('Y-m-d H:i:s'), 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+			if($customer_name)
+			{
+				\DB::table('user_pdf')->insert(['user_id' => session()->get('esskay_user_id'), 'article_id' => $doc_id, 'download_date' => date('Y-m-d H:i:s'), 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+			}
+
+			if($customer_name1)
+			{
+				\DB::table('user_pdf')->insert(['user_id' => session()->get('esskay_trustee_user_id'), 'article_id' => $doc_id, 'download_date' => date('Y-m-d H:i:s'), 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+			}
 			
 			return response()->download($file, $doc);
+		}
+		else
+		{
+			return redirect(url('/').'/login');
 		}
 	}
 	
