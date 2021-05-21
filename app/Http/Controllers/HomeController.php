@@ -3704,7 +3704,7 @@ class HomeController extends Controller
 			}
 
 			$chart6 = \Chart::title([
-				'text' => 'Adequate Liquidity',
+				'text' => 'Adequate Liquidity (In Cr.)',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3721,7 +3721,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'Percentage'
+					'text' => ''
 				],
 			])
 			->legend([
@@ -3823,7 +3823,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'Percentage'
+					'text' => ''
 				],
 			])
 			->legend([
@@ -3886,7 +3886,7 @@ class HomeController extends Controller
 			}
 
 			$chart8 = \Chart::title([
-				'text' => 'Network & Employees',
+				'text' => 'Network & Employees (In Nos.)',
 			])
 			->chart([
 				'type'     => 'column', // pie , columnt ect
@@ -3903,7 +3903,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'Percentage'
+					'text' => ''
 				],
 			])
 			->legend([
@@ -4055,7 +4055,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'Percentage'
+					'text' => ''
 				],
 				'stackLabels' => [
 		            'enabled' => 'true',
@@ -4065,19 +4065,15 @@ class HomeController extends Controller
 		        ]
 			])
 			->legend([
-				'align' => 'right',
-		        'x' => '-30',
-		        'verticalAlign' => 'top',
-		        'y' => '25',
-		        'floating' => 'true',
-		        'shadow' => 'false'
+		        'align' => 'center',
+		        'verticalAlign' => 'top'
 			])
 			->plotOptions([
-				'column'        => [
+				'series'        => ([
 					'dataLabels' => ([
 						'enabled' => 'true',
 					]),
-				],
+				]),
 			])
 			->credits([
 				'enabled' => 'false'
