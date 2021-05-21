@@ -92,7 +92,7 @@
 									<ul>
 										<li class="deal-category-list deal-category-list-all active"><a onclick="clearAllDeal();" href="javascript:;">ALL</a></li>
 										@foreach($dealCategoriesData as $row)
-										<li class="deal-category-list deal-category-{{ strtolower($row->category_name) }}"><a href="javascript:;" onclick="showDealCategoryData('{{ strtolower($row->category_name) }}');">{{ $row->category_name }}</a></li>
+										<li class="deal-category-list deal-category-{{ strtolower($row->category_name) }}"><a href="javascript:;" onclick="showDealCategoryData('{{ strtolower($row->category_name) }}', '{{ $row->category_name }}');">{{ $row->category_name }}</a></li>
 										@endforeach
 									</ul>
 								</div>
@@ -159,14 +159,14 @@
 		$('.blog-item').show();
 	}
 	
-	function showDealCategoryData(cat_name)
+	function showDealCategoryData(cat_name, category_name)
 	{
 		$('.deal-category-list').removeClass('active');
 		$('.deal-category-'+cat_name).addClass('active');
 
 		$('.blog-item').hide();
 		
-		$('.category_name').val(cat_name);
+		$('.category_name').val(category_name);
 
 		if($('.blog-item').hasClass('post-row-'+cat_name))
 		{
