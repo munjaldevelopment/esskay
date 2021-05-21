@@ -1703,6 +1703,9 @@ class HomeController extends Controller
 		$deal_filterby = $request->deal_filterby;
 		$deal_rating = $request->deal_rating;
 
+
+		$category_name = "";
+
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
     	//dd($lenderData);
     	$lender_id = $lenderData->id;
@@ -1730,12 +1733,13 @@ class HomeController extends Controller
 			}
 		}
 		
-		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'lenderData' => $lenderData]);
+		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'category_name' => $category_name, 'lenderData' => $lenderData]);
 	}
 
 	// Sort
 	public function dealSort(Request $request)
 	{
+		$category_name = '';
 		$sort_value = $request->sort_value;
 
 		$sortData = explode("-", $sort_value);
@@ -1750,11 +1754,12 @@ class HomeController extends Controller
 
 		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name, current_deal_categories.category_name')->orderBy($sortData[0], $sortData[1])->get();
 		
-		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'lenderData' => $lenderData]);
+		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'category_name' => $category_name, 'lenderData' => $lenderData]);
 	}
 
 	public function dealGrid()
 	{
+		$category_name = "";
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
     	//dd($lenderData);
     	$lender_id = $lenderData->id;
@@ -1765,7 +1770,7 @@ class HomeController extends Controller
 
 		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name, current_deal_categories.category_name')->get();
 		
-		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'lenderData' => $lenderData]);
+		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'category_name' => $category_name, 'lenderData' => $lenderData]);
 	}
 
 	public function dealList()
@@ -4166,6 +4171,7 @@ class HomeController extends Controller
 	{
 		$deal_filterby = $request->deal_filterby;
 		$deal_rating = $request->deal_rating;
+		$category_name = $request->category_name;
 
 		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
     	//dd($trusteeData);
@@ -4196,7 +4202,7 @@ class HomeController extends Controller
 			}
 		}
 		
-		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'trusteeData' => $trusteeData]);
+		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'category_name' => $category_name, 'trusteeData' => $trusteeData]);
 	}
 	
 
@@ -4207,6 +4213,8 @@ class HomeController extends Controller
 
 		$deal_filterby = $request->deal_filterby;
 		$deal_rating = $request->deal_rating;
+
+		$category_name = $request->category_name;
 
 		$sortData = explode("-", $sort_value);
 
@@ -4239,7 +4247,7 @@ class HomeController extends Controller
 			}
 		}
 		
-		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'trusteeData' => $trusteeData]);
+		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'category_name' => $category_name, 'trusteeData' => $trusteeData]);
 	}
 
 	public function dealGridTrustee(Request $request)
@@ -4249,6 +4257,8 @@ class HomeController extends Controller
 		$deal_filterby = $request->deal_filterby;
 		$deal_rating = $request->deal_rating;
 
+		$category_name = $request->category_name;
+
 		if($sort_value == "")
 		{
 			$sort_value = "current_deals.created_at-desc";
@@ -4284,7 +4294,7 @@ class HomeController extends Controller
 			}
 		}
 		
-		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'trusteeData' => $trusteeData]);
+		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'category_name' => $category_name, 'trusteeData' => $trusteeData]);
 	}
 
 	public function dealListTrustee(Request $request)
@@ -4294,6 +4304,8 @@ class HomeController extends Controller
 		$deal_filterby = $request->deal_filterby;
 		$deal_rating = $request->deal_rating;
 
+		$category_name = $request->category_name;
+
 		if($sort_value == "")
 		{
 			$sort_value = "current_deals.created_at-desc";
@@ -4329,7 +4341,7 @@ class HomeController extends Controller
 			}
 		}
 		
-		return view('ess-kay-deal-list', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'trusteeData' => $trusteeData]);
+		return view('ess-kay-deal-list', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'category_name' => $category_name, 'trusteeData' => $trusteeData]);
 	}
 
 	public function newsTrustee()

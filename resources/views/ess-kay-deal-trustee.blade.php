@@ -252,13 +252,14 @@ $(document).ready(function(){
 	
 			var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
+			var category_name = $('.category_name').val();
 			var deal_filterby = $('.deal_filterby').val();
 			var deal_rating = $('.deal_rating option:selected').val();
 
 			$.ajax({
 				url: base_url+'dealSearchTrustee',
 				type: 'post',
-				data: {_token: CSRF_TOKEN, deal_filterby: deal_filterby, deal_rating: deal_rating},
+				data: {_token: CSRF_TOKEN, deal_filterby: deal_filterby, deal_rating: deal_rating, category_name: category_name},
 				beforeSend: function() {
 					$('.preloader').show();
 				},
@@ -276,13 +277,14 @@ $(document).ready(function(){
 
 			var sort_value = $(this).val();
 
+			var category_name = $('.category_name').val();
 			var deal_filterby = $('.deal_filterby').val();
 			var deal_rating = $('.deal_rating option:selected').val();
 
 			$.ajax({
 				url: base_url+'dealSortTrustee',
 				type: 'post',
-				data: {_token: CSRF_TOKEN, sort_value: sort_value, deal_filterby: deal_filterby, deal_rating: deal_rating},
+				data: {_token: CSRF_TOKEN, sort_value: sort_value, deal_filterby: deal_filterby, deal_rating: deal_rating, deal_rating: deal_rating},
 				beforeSend: function() {
 					$('.preloader').show();
 				},
