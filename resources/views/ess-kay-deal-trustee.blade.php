@@ -274,10 +274,13 @@ $(document).ready(function(){
 
 			var sort_value = $(this).val();
 
+			var deal_filterby = $('.deal_filterby').val();
+			var deal_rating = $('.deal_rating option:selected').val();
+
 			$.ajax({
 				url: base_url+'dealSortTrustee',
 				type: 'post',
-				data: {_token: CSRF_TOKEN, sort_value: sort_value},
+				data: {_token: CSRF_TOKEN, sort_value: sort_value, deal_filterby: deal_filterby, deal_rating: deal_rating},
 				beforeSend: function() {
 					$('.preloader').show();
 				},
