@@ -357,7 +357,7 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td>Capital Infusion</td>
+								<td>Capital Infusion (In Cr.)</td>
 								@foreach($netWorthData as $row)
 								<td>{{ $row->capital_infusion }}</td>
 								@endforeach
