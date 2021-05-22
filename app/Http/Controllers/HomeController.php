@@ -3834,7 +3834,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'In Nos.'
+					'text' => ''
 				],
 			])
 			->legend([
