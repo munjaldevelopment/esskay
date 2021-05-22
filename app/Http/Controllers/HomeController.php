@@ -4066,7 +4066,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => ''
+					'text' => 'Percentage'
 				],
 				'stackLabels' => [
 		            'enabled' => 'true',
@@ -4083,6 +4083,7 @@ class HomeController extends Controller
 				'series'        => ([
 					'dataLabels' => ([
 						'enabled' => 'true',
+						'format' => '{y}%',
 					]),
 				]),
 			])
