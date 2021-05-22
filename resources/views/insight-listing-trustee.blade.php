@@ -652,7 +652,7 @@
 
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">
-			<h3>Detail of COVID relief from lenders</h3>
+			<h3>Detail of COVID relief from lenders (In Cr.)</h3>
 			<div class="custom-table-area">
 				<div class="table-responsive">
 					<table class="table">
