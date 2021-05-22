@@ -3817,7 +3817,7 @@ class HomeController extends Controller
 			}
 
 			$chart7 = \Chart::title([
-				'text' => 'Diversified Lender Base And Access to different Pools of Capital',
+				'text' => 'Diversified Lender Base And Access to different Pools of Capital (In Nos.)',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3834,7 +3834,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => ''
+					'text' => 'In Nos.'
 				],
 			])
 			->legend([
