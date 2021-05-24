@@ -18,7 +18,7 @@ class ProductConcentrationSheet implements FromArray, WithTitle, WithHeadings, S
 	
 	public function headings(): array
     {
-        return [
+    	return [
             'ID',
             'Product Diversification',
             'Mar-16 Amount',
@@ -45,7 +45,7 @@ class ProductConcentrationSheet implements FromArray, WithTitle, WithHeadings, S
 	
 	public function array(): array
     {
-		$factories = ProductConcentration::orderBy('id', 'ASC')->get()->toArray();
+    	$factories = ProductConcentration::orderBy('id', 'ASC')->get()->toArray();
 		//dd($factories);
 		$factoryData = array();
 		if($factories){

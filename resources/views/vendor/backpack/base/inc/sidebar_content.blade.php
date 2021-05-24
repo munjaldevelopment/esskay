@@ -343,13 +343,13 @@
 
 	if($list_accept_document):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('accept_document') }}'><i class='nav-icon la la-check'></i> Accept Lender Documents</a></li>
+	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('accept_document') }}'><i class='nav-icon la la-check'></i> Accepted Lender Documents</a></li>
 @php
 	endif;
 
 	if($list_reject_document):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_document') }}'><i class='nav-icon la la-times'></i> Reject Lender Documents</a></li>
+	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_document') }}'><i class='nav-icon la la-times'></i> Rejected Lender Documents</a></li>
 @php
 	endif;
 @endphp

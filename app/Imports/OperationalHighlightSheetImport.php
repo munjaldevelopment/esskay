@@ -19,7 +19,7 @@ class OperationalHighlightSheetImport implements ToCollection, WithValidation, W
 	
 	public function collection(Collection $rows)
 	{
-		//dd($rows);
+		dd($rows);
 		/*"value1_amount" => 381
         "value1_heading" => "Total Income"
         "value1_heading_percentage" => 52.75
