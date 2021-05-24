@@ -120,6 +120,11 @@ Route::group([
     Route::get('importStrongLiabilityTable', 'ImportExportController@importStrongLiabilityTable');
     Route::post('insertStrongLiabilityTable', 'ImportExportController@insertStrongLiabilityTable');
 
+    Route::get('exportStrongLiabilityRatio', 'ImportExportController@exportStrongLiabilityRatio');
+    Route::get('importStrongLiabilityRatio', 'ImportExportController@importStrongLiabilityRatio');
+    Route::post('insertStrongLiabilityRatio', 'ImportExportController@insertStrongLiabilityRatio');
+    
+    
     
 
     

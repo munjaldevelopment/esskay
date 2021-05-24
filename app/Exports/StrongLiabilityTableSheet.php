@@ -72,6 +72,6 @@ class StrongLiabilityTableSheet implements FromArray, WithTitle, WithHeadings, S
 	
 	public function title(): string
     {
-		return "Strong Liability";
+		return "Strong Liability Table";
 	}
 }

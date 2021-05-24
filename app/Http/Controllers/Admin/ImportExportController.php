@@ -19,6 +19,7 @@ use App\Exports\NetWorthInfusionExport;
 use App\Exports\LiquidityExport;
 use App\Exports\StrongLiabilityExport;
 use App\Exports\StrongLiabilityTableExport;
+use App\Exports\StrongLiabilityRatioExport;
 use App\Exports\CurrentDealExport;
 
 use App\Imports\LenderBankingImport;
@@ -33,6 +34,7 @@ use App\Imports\NetWorthInfusionImport;
 use App\Imports\LiquidityImport;
 use App\Imports\StrongLiabilityImport;
 use App\Imports\StrongLiabilityTableImport;
+use App\Imports\StrongLiabilityRatioImport;
 use App\Imports\CurrentDealImport;
 
 use Auth;
@@ -775,7 +777,7 @@ class ImportExportController extends Controller
 	{
 		$this->data['title'] = trans('backpack::base.dashboard'); // set the page title
 		
-		return (new StrongLiabilityTableExport())->download('StrongLiability_'.date('Y-m-d').'.xls');
+		return (new StrongLiabilityTableExport())->download('StrongLiabilityTable_'.date('Y-m-d').'.xls');
 	}
 	
 	public function importStrongLiabilityTable()
@@ -834,6 +836,70 @@ class ImportExportController extends Controller
 	}
 	// END StrongLiability
 	
+	// START StrongLiability
+	public function exportStrongLiabilityRatio(Request $request)
+	{
+		$this->data['title'] = trans('backpack::base.dashboard'); // set the page title
+		
+		return (new StrongLiabilityRatioExport())->download('StrongLiabilityRatio_'.date('Y-m-d').'.xls');
+	}
+	
+	public function importStrongLiabilityRatio()
+    {
+        $this->data['title'] = 'Import Strong Liability Ratio';//trans('backpack::base.dashboard'); // set the page title
+
+        return view('backpack::import_strong_liability_ratio', $this->data);
+    }
+	
+	public function insertStrongLiabilityRatio(Request $request)
+	{
+		$user = Auth::user();
+		$user_id = $user->id;
+		
+		if($request->hasFile('strong_liability_ratio_file')){
+			$fileName = $request->file('strong_liability_ratio_file')->getClientOriginalName();
+			$path = $request->file('strong_liability_ratio_file')->getRealPath();
+			
+			$fileNameTemp = time()."_".$user_id."_".$fileName;
+			copy($path, public_path().'/uploads/import_file/strong_liability_ratio_file/'.$fileNameTemp);
+			
+			$error = $success = '';
+			
+			try {
+			
+				Excel::import(new StrongLiabilityRatioImport, public_path().'/uploads/import_file/strong_liability_ratio_file/'.$fileNameTemp);
+				$success = 'Your sheet has been imported successfully.';
+				
+				return back()->with('success', $success);
+			} catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+				$failures = $e->failures();
+				//dd($failures);
+				
+				$error = "";
+				 
+				foreach ($failures as $failure) {
+					$failure->row(); // row that went wrong
+					$failure->attribute(); // either heading key (if using heading row concern) or column index
+					foreach($failure->errors() as $err)
+					{
+						$error .= $err;
+					}
+					
+					$error .= " on line number ".$failure->row().' <br />';
+					// Actual error messages from Laravel validator
+					$failure->values(); // The values of the row that has failed.
+				}
+				
+				//echo $error; exit;
+				
+				return back()->with('error', $error);
+			}
+		}
+		
+		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
+	}
+	// END StrongLiability
+
 	// START CurrentDeal
 	public function exportCurrentDeal(Request $request)
 	{

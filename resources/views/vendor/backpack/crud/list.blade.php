@@ -28,7 +28,7 @@
     <div class="{{ $crud->getListContentClass() }}">
 
         <div class="row mb-0">
-          <div class="col-sm-8">
+          <div class="col-sm-9">
             @if ( $crud->buttons()->where('stack', 'top')->count() ||  $crud->exportButtons())
               <div class="d-print-none {{ $crud->hasAccess('create')?'with-border':'' }}">
 
@@ -37,7 +37,7 @@
               </div>
             @endif
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <div id="datatable_search_stack" class="mt-sm-0 mt-2 d-print-none"></div>
           </div>
         </div>
