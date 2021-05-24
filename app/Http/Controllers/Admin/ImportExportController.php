@@ -15,6 +15,7 @@ use App\Exports\ProductConcentrationExport;
 use App\Exports\AssetQualityExport;
 use App\Exports\CollectionEfficiencyExport;
 use App\Exports\NetWorthExport;
+use App\Exports\NetWorthInfusionExport;
 use App\Exports\LiquidityExport;
 use App\Exports\StrongLiabilityExport;
 use App\Exports\StrongLiabilityTableExport;
@@ -28,6 +29,7 @@ use App\Imports\ProductConcentrationImport;
 use App\Imports\AssetQualityImport;
 use App\Imports\CollectionEfficiencyImport;
 use App\Imports\NetWorthImport;
+use App\Imports\NetWorthInfusionImport;
 use App\Imports\LiquidityImport;
 use App\Imports\StrongLiabilityImport;
 use App\Imports\StrongLiabilityTableImport;
@@ -577,6 +579,68 @@ class ImportExportController extends Controller
 		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
 	}
 	// END NetWorth
+
+	public function exportNetWorthInfusion(Request $request)
+	{
+		$this->data['title'] = trans('backpack::base.dashboard'); // set the page title
+		
+		return (new NetWorthInfusionExport())->download('NetWorthInfusion_'.date('Y-m-d').'.xls');
+	}
+	
+	public function importNetWorthInfusion()
+    {
+        $this->data['title'] = 'Import Net Worth';//trans('backpack::base.dashboard'); // set the page title
+
+        return view('backpack::import_net_worth_infusion', $this->data);
+    }
+	
+	public function insertNetWorthInfusion(Request $request)
+	{
+		$user = Auth::user();
+		$user_id = $user->id;
+		
+		if($request->hasFile('net_worth_infusion_file')){
+			$fileName = $request->file('net_worth_infusion_file')->getClientOriginalName();
+			$path = $request->file('net_worth_infusion_file')->getRealPath();
+			
+			$fileNameTemp = time()."_".$user_id."_".$fileName;
+			copy($path, public_path().'/uploads/import_file/net_worth_infusion_file/'.$fileNameTemp);
+			
+			$error = $success = '';
+			
+			try {
+			
+				Excel::import(new NetWorthInfusionImport, public_path().'/uploads/import_file/net_worth_infusion_file/'.$fileNameTemp);
+				$success = 'Your sheet has been imported successfully.';
+				
+				return back()->with('success', $success);
+			} catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+				$failures = $e->failures();
+				//dd($failures);
+				
+				$error = "";
+				 
+				foreach ($failures as $failure) {
+					$failure->row(); // row that went wrong
+					$failure->attribute(); // either heading key (if using heading row concern) or column index
+					foreach($failure->errors() as $err)
+					{
+						$error .= $err;
+					}
+					
+					$error .= " on line number ".$failure->row().' <br />';
+					// Actual error messages from Laravel validator
+					$failure->values(); // The values of the row that has failed.
+				}
+				
+				//echo $error; exit;
+				
+				return back()->with('error', $error);
+			}
+		}
+		
+		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
+	}
 	
 	// START Liquidity
 	public function exportLiquidity(Request $request)

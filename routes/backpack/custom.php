@@ -102,6 +102,10 @@ Route::group([
     Route::get('importNetWorth', 'ImportExportController@importNetWorth');
     Route::post('insertNetWorth', 'ImportExportController@insertNetWorth');
 
+    Route::get('exportNetWorthInfusion', 'ImportExportController@exportNetWorthInfusion');
+    Route::get('importNetWorthInfusion', 'ImportExportController@importNetWorthInfusion');
+    Route::post('insertNetWorthInfusion', 'ImportExportController@insertNetWorthInfusion');
+
     Route::get('exportLiquidity', 'ImportExportController@exportLiquidity');
     Route::get('importLiquidity', 'ImportExportController@importLiquidity');
     Route::post('insertLiquidity', 'ImportExportController@insertLiquidity');
