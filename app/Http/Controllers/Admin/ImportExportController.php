@@ -21,6 +21,7 @@ use App\Exports\StrongLiabilityExport;
 use App\Exports\StrongLiabilityTableExport;
 use App\Exports\StrongLiabilityRatioExport;
 use App\Exports\StrongLiabilityDrivingExport;
+use App\Exports\StrongLiabilityWellTableExport;
 use App\Exports\CurrentDealExport;
 
 use App\Imports\LenderBankingImport;
@@ -37,6 +38,7 @@ use App\Imports\StrongLiabilityImport;
 use App\Imports\StrongLiabilityTableImport;
 use App\Imports\StrongLiabilityRatioImport;
 use App\Imports\StrongLiabilityDrivingImport;
+use App\Imports\StrongLiabilityWellTableImport;
 use App\Imports\CurrentDealImport;
 
 use Auth;
@@ -934,6 +936,70 @@ class ImportExportController extends Controller
 			try {
 			
 				Excel::import(new StrongLiabilityDrivingImport, public_path().'/uploads/import_file/strong_liability_driving_file/'.$fileNameTemp);
+				$success = 'Your sheet has been imported successfully.';
+				
+				return back()->with('success', $success);
+			} catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+				$failures = $e->failures();
+				//dd($failures);
+				
+				$error = "";
+				 
+				foreach ($failures as $failure) {
+					$failure->row(); // row that went wrong
+					$failure->attribute(); // either heading key (if using heading row concern) or column index
+					foreach($failure->errors() as $err)
+					{
+						$error .= $err;
+					}
+					
+					$error .= " on line number ".$failure->row().' <br />';
+					// Actual error messages from Laravel validator
+					$failure->values(); // The values of the row that has failed.
+				}
+				
+				//echo $error; exit;
+				
+				return back()->with('error', $error);
+			}
+		}
+		
+		return back()->with('error','Please choose export sheet. You haven\'t chosen any file.');
+	}
+	// END StrongLiability
+
+	// START StrongLiability
+	public function exportStrongLiabilityWellTable(Request $request)
+	{
+		$this->data['title'] = trans('backpack::base.dashboard'); // set the page title
+		
+		return (new StrongLiabilityWellTableExport())->download('StrongLiabilityWellTable_'.date('Y-m-d').'.xls');
+	}
+	
+	public function importStrongLiabilityWellTable()
+    {
+        $this->data['title'] = 'Import Strong Liability Well Table';//trans('backpack::base.dashboard'); // set the page title
+
+        return view('backpack::import_strong_liability_well_table', $this->data);
+    }
+	
+	public function insertStrongLiabilityWellTable(Request $request)
+	{
+		$user = Auth::user();
+		$user_id = $user->id;
+		
+		if($request->hasFile('strong_liability_well_table_file')){
+			$fileName = $request->file('strong_liability_well_table_file')->getClientOriginalName();
+			$path = $request->file('strong_liability_well_table_file')->getRealPath();
+			
+			$fileNameTemp = time()."_".$user_id."_".$fileName;
+			copy($path, public_path().'/uploads/import_file/strong_liability_well_table_file/'.$fileNameTemp);
+			
+			$error = $success = '';
+			
+			try {
+			
+				Excel::import(new StrongLiabilityWellTableImport, public_path().'/uploads/import_file/strong_liability_well_table_file/'.$fileNameTemp);
 				$success = 'Your sheet has been imported successfully.';
 				
 				return back()->with('success', $success);

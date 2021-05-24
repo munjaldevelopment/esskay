@@ -128,6 +128,10 @@ Route::group([
     Route::get('importStrongLiabilityDriving', 'ImportExportController@importStrongLiabilityDriving');
     Route::post('insertStrongLiabilityDriving', 'ImportExportController@insertStrongLiabilityDriving');
 
+    Route::get('exportStrongLiabilityWellTable', 'ImportExportController@exportStrongLiabilityWellTable');
+    Route::get('importStrongLiabilityWellTable', 'ImportExportController@importStrongLiabilityWellTable');
+    Route::post('insertStrongLiabilityWellTable', 'ImportExportController@insertStrongLiabilityWellTable');
+
     
     
 
