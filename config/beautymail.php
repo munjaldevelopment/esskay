@@ -24,13 +24,13 @@ return [
         'address'     => null,
 
         'logo'        => [
-            'path'   => '%PUBLIC%/vendor/beautymail/assets/images/sunny/logo.png',
+            'path'   => '%PUBLIC%/public/uploads/logo/SK_Logo_Squre_new.png',
             'width'  => '',
             'height' => '',
         ],
 
-        'twitter'  => null,
-        'facebook' => null,
+        'twitter'  => 'https://www.twitter.com',
+        'facebook' => 'https://www.facebook.com',
         'flickr'   => null,
     ],
 
