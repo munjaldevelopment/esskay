@@ -23,7 +23,6 @@ return [
     'from'                 => 'from',
     'to'                   => 'to',
     'undo'                 => 'Undo',
-    'reject'                 => 'Reject',
     'revision_restored'    => 'Revision successfully restored',
     'guest_user'           => 'Guest User',
 ];

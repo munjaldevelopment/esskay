@@ -33,6 +33,7 @@
         "muhamadrezaar/highcharts": "^2.0",
         "pragmarx/firewall": "^2.3",
         "pragmarx/tracker": "^4.0",
+        "snowfire/beautymail": "^1.1",
         "venturecraft/revisionable": "^1.35"
     },
     "require-dev": {
