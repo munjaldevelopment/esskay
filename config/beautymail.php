@@ -12,7 +12,7 @@ return [
 
     'colors' => [
 
-        'highlight' => '#004ca3',
+        'highlight' => '#ff50b3',
         'button'    => '#004cad',
 
     ],
