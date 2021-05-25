@@ -171,6 +171,7 @@ return [
 		RezaAr\Highcharts\Provider::class,
 		Jenssegers\Agent\AgentServiceProvider::class,
 		Maatwebsite\Excel\ExcelServiceProvider::class,
+        Snowfire\Beautymail\BeautymailServiceProvider::class,
     ],
 
     /*
