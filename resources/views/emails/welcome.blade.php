@@ -2,7 +2,7 @@
 
 @section('content')
 
-	@include('beautymail::templates.minty.contentStart')
+	@include('beautymail::templates.minty.contentStart', ['color' => '#0000FF'])
 		<tr>
 			<td class="title">
 				Welcome Steve
