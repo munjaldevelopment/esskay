@@ -1,48 +1,20 @@
-@extends('beautymail::templates.minty')
+@extends('beautymail::templates.widgets')
 
 @section('content')
 
-	@include('beautymail::templates.minty.contentStart', ['color' => '#0000FF'])
-		<tr>
-			<td class="title">
-				Welcome Steve
-			</td>
-		</tr>
-		<tr>
-			<td width="100%" height="10"></td>
-		</tr>
-		<tr>
-			<td class="paragraph">
-				This is a paragraph text
-			</td>
-		</tr>
-		<tr>
-			<td width="100%" height="25"></td>
-		</tr>
-		<tr>
-			<td class="title">
-				This is a heading
-			</td>
-		</tr>
-		<tr>
-			<td width="100%" height="10"></td>
-		</tr>
-		<tr>
-			<td class="paragraph">
-				More paragraph text.
-			</td>
-		</tr>
-		<tr>
-			<td width="100%" height="25"></td>
-		</tr>
-		<tr>
-			<td>
-				@include('beautymail::templates.minty.button', ['text' => 'Sign in', 'link' => '#'])
-			</td>
-		</tr>
-		<tr>
-			<td width="100%" height="25"></td>
-		</tr>
-	@include('beautymail::templates.minty.contentEnd')
+	@include('beautymail::templates.widgets.articleStart')
+
+		<h4 class="secondary"><strong>Hello World</strong></h4>
+		<p>This is a test</p>
+
+	@include('beautymail::templates.widgets.articleEnd')
+
+
+	@include('beautymail::templates.widgets.newfeatureStart')
+
+		<h4 class="secondary"><strong>Hello World again</strong></h4>
+		<p>This is another test</p>
+
+	@include('beautymail::templates.widgets.newfeatureEnd')
 
 @stop
