@@ -26,7 +26,7 @@
 					<!-- Spacing -->
 					<tr>
 						<td align="right" valign="middle" style="font-family: Helvetica, arial, sans-serif; font-size: 10px;color: #999999" st-content="preheader">
-<!--							If you cannot read this email, please  <a class="hlite" href="#" style="text-decoration: none; color: {{ Config::get('beautymail.colors.highlight', '#004cad') }}">click here</a>-->
+							If you cannot read this email, please  <a class="hlite" href="#" style="text-decoration: none; color: {{ Config::get('beautymail.colors.highlight', '#004cad') }}">click here</a>
 						</td>
 					</tr>
 					<!-- Spacing -->
