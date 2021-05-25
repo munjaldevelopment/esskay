@@ -1,20 +1,29 @@
-@extends('beautymail::templates.widgets')
+@extends('beautymail::templates.ark')
 
 @section('content')
 
-	@include('beautymail::templates.widgets.articleStart')
+    @include('beautymail::templates.ark.heading', [
+		'heading' => 'Hello World!',
+		'level' => 'h1'
+	])
 
-		<h4 class="secondary"><strong>Hello World</strong></h4>
-		<p>This is a test</p>
+    @include('beautymail::templates.ark.contentStart')
 
-	@include('beautymail::templates.widgets.articleEnd')
+        <h4 class="secondary"><strong>Hello World</strong></h4>
+        <p>This is a test</p>
 
+    @include('beautymail::templates.ark.contentEnd')
 
-	@include('beautymail::templates.widgets.newfeatureStart')
+    @include('beautymail::templates.ark.heading', [
+		'heading' => 'Another headline',
+		'level' => 'h2'
+	])
 
-		<h4 class="secondary"><strong>Hello World again</strong></h4>
-		<p>This is another test</p>
+    @include('beautymail::templates.ark.contentStart')
 
-	@include('beautymail::templates.widgets.newfeatureEnd')
+        <h4 class="secondary"><strong>Hello World again</strong></h4>
+        <p>This is another test</p>
+
+    @include('beautymail::templates.ark.contentEnd')
 
 @stop
