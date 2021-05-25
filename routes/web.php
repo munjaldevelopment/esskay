@@ -334,6 +334,7 @@ Route::get('/test', function()
 		$message
 			->from('communication@skfin.in', 'ESSKAY FINCORP')
 			->to('munjaldevelopment@gmail.com', 'Munjal Mayank')
+			->cc('abhishekdevelopment@gmail.com', 'Abhishek')
 			->subject('Welcome!');
 	});
 
