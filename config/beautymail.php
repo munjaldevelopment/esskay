@@ -18,10 +18,10 @@ return [
     ],
 
     'view' => [
-        'senderName'  => 1,
-        'reminder'    => 1,
-        'unsubscribe' => 1,
-        'address'     => 1,
+        'senderName'  => null,
+        'reminder'    => 'true',
+        'unsubscribe' => 'true',
+        'address'     => null,
 
         'logo'        => [
             'path'   => '%PUBLIC%/public/uploads/logo/SK_Logo_Squre_new.png',
