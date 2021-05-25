@@ -324,3 +324,17 @@ Route::get('/enter_document_data', function () {
 		}
 	}
 });
+
+// Send mail
+Route::get('/test', function()
+{
+	$beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
+	$beautymail->send('emails.welcome', [], function($message)
+	{
+		$message
+			->from('communication@skfin.in')
+			->to('munjaldevelopment@gmail.com', 'Munjal Mayank')
+			->subject('Welcome!');
+	});
+
+});
