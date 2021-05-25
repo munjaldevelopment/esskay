@@ -332,7 +332,7 @@ Route::get('/test', function()
 	$beautymail->send('emails.welcome', [], function($message)
 	{
 		$message
-			->from('communication@skfin.in')
+			->from('communication@skfin.in', 'ESSKAY FINCORP')
 			->to('munjaldevelopment@gmail.com', 'Munjal Mayank')
 			->subject('Welcome!');
 	});
