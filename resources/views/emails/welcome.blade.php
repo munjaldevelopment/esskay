@@ -1,29 +1,21 @@
-@extends('beautymail::templates.ark')
+@extends('beautymail::templates.sunny')
 
 @section('content')
 
-    @include('beautymail::templates.ark.heading', [
-		'heading' => 'Hello World!',
-		'level' => 'h1'
-	])
+    @include ('beautymail::templates.sunny.heading' , [
+        'heading' => 'Hello!',
+        'level' => 'h1',
+    ])
 
-    @include('beautymail::templates.ark.contentStart')
+    @include('beautymail::templates.sunny.contentStart')
 
-        <h4 class="secondary"><strong>Hello World</strong></h4>
-        <p>This is a test</p>
+        <p>Today will be a great day!</p>
 
-    @include('beautymail::templates.ark.contentEnd')
+    @include('beautymail::templates.sunny.contentEnd')
 
-    @include('beautymail::templates.ark.heading', [
-		'heading' => 'Another headline',
-		'level' => 'h2'
-	])
-
-    @include('beautymail::templates.ark.contentStart')
-
-        <h4 class="secondary"><strong>Hello World again</strong></h4>
-        <p>This is another test</p>
-
-    @include('beautymail::templates.ark.contentEnd')
+    @include('beautymail::templates.sunny.button', [
+        	'title' => 'Click me',
+        	'link' => 'http://google.com'
+    ])
 
 @stop
