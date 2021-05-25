@@ -328,7 +328,7 @@ Route::get('/enter_document_data', function () {
 // Send mail
 Route::get('/test', function()
 {
-	$beautymail = app()->make(Snowfire\Beautymail\Beautymail::class);
+	$beautymail = app()->make(Snowfire\Beautymail\Beautymail::class, ['settings' => null]);
 	$beautymail->send('emails.welcome', [], function($message)
 	{
 		$message
