@@ -20,7 +20,7 @@ return [
     'view' => [
         'senderName'  => null,
         'reminder'    => 'true',
-        'unsubscribe' => 'true',
+        'unsubscribe' => 'You are receiving this because you are ESSKAY Subscribers or subscribed via <a href-"http://www.microprixs.com">our site</a>',
         'address'     => null,
 
         'logo'        => [
