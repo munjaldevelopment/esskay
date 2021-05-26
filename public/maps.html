@@ -48,16 +48,12 @@
 				  map.panTo(marker.getPosition());
 				}, 3000);
 			});
-
-			google.maps.event.addListener(marker, 'click', (function(marker, i) {
-				return function() {
-					map.setZoom(12);
-					infowindow.setContent(locations[i][0]);
-					infowindow.open(map, marker);
-					
-					
-				}
-			})(marker, i));
+			
+			marker.addListener("click", () => {
+				map.setZoom(12);
+				infowindow.setContent(locations[i][0]);
+				infowindow.open(map, marker);
+			});
 		}
 	}
 
