@@ -1,9 +1,9 @@
 @if ($crud->hasAccess('checker_operational_highlight'))
-	@if(($crud->hasAccess('checker_operational_highlight')) && ($entry->status != 1))
+	@if(($crud->hasAccess('checker_operational_highlight')) && ($entry->operational_highlight_status != 1))
 	<a href="javascript:void(0)" onclick="checkeroperationalHighlightEntry(this)" data-route="{{ backpack_url('checkerOperationalHighlight/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerOperationalHighlight"><i class="la la-check"></i> {{ trans('backpack::crud.checkerOperationalHighlight') }}</a>
 	@endif
 
-	@if(($crud->hasAccess('checker_operational_highlight')) && ($entry->status != 2))
+	@if(($crud->hasAccess('checker_operational_highlight')) && ($entry->operational_highlight_status != 2))
 	<a href="javascript:void(0)" onclick="checkerOperationalHighlightRejectEntry(this)" data-route="{{ backpack_url('checkerOperationalHighlightReject/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerOperationalHighlight"><i class="la la-times"></i> {{ trans('backpack::crud.rejectTransaction') }}</a>
 	@endif
 @endif
