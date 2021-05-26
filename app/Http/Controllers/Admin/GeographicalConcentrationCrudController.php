@@ -49,6 +49,30 @@ class GeographicalConcentrationCrudController extends CrudController
             
             $this->crud->allowAccess('show');
             $this->crud->enableExportButtons();
+
+            $checker_geographical_concentration = backpack_user()->hasPermissionTo('checker_geographical_concentration');
+
+            if($checker_geographical_concentration)
+            {
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    $this->crud->allowAccess(['checker_geographical_concentration', 'revise', 'delete']);
+                }
+                else
+                {
+                    if($checker_geographical_concentration)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_geographical_concentration']);
+                    }
+                }
+            }
+            else
+            {
+                $this->crud->denyAccess(['checker_geographical_concentration', 'revise', 'delete']);
+            }
             
             $this->crud->addColumn([
                     'label'     => 'Geographical Diversification',

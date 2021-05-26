@@ -1,6 +1,6 @@
 @if ($crud->hasAccess('checker_geographical_concentration'))
 	@if(($crud->hasAccess('checker_geographical_concentration')) && ($entry->geographical_concentration_status != 1))
-	<a href="javascript:void(0)" onclick="checkergeographicalConcentrationEntry(this)" data-route="{{ backpack_url('checkergeographicalConcentration/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkergeographicalConcentration"><i class="la la-check"></i> {{ trans('backpack::crud.checkergeographicalConcentration') }}</a>
+	<a href="javascript:void(0)" onclick="checkergeographicalConcentrationEntry(this)" data-route="{{ backpack_url('checkergeographicalConcentration/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkergeographicalConcentration"><i class="la la-check"></i> {{ trans('backpack::crud.approveTransaction') }}</a>
 	@endif
 
 	@if(($crud->hasAccess('checker_geographical_concentration')) && ($entry->geographical_concentration_status != 2))

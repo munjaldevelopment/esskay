@@ -51,6 +51,8 @@ return [
     'checkerDocument'           => 'Approve Document',
     'rejectTransaction'         => 'Reject',
 
+    'approveTransaction'         => 'Approve',
+
     'checkerOperationalHighlight' => 'Approve Op. Highlight',
 
     'checkerSanctionLetter'     => 'Approve San. Letter',
