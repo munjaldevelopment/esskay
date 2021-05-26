@@ -49,11 +49,11 @@
 				}, 3000);
 			});
 			
-			marker.addListener("click", () => {
+			marker.addListener("click", (function(marker, i) => {
 				map.setZoom(12);
 				infowindow.setContent(locations[i][0]);
 				infowindow.open(map, marker);
-			});
+			}));
 			
 			/*google.maps.event.addListener(marker, 'click', (function(marker, i) {
 				return function() {
