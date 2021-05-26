@@ -840,4 +840,17 @@ class DocumentCrudController extends CrudController
 		$updateData = array('net_worth_infusion_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('net_worth_infusions')->where(['id' => $document_id])->update($updateData);
 	}
+
+	// liquidity_status
+	public function checkerLiquidity($document_id)
+	{
+		$updateData = array('liquidity_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('liquidity')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerLiquidityReject($document_id)
+	{
+		$updateData = array('liquidity_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('liquidity')->where(['id' => $document_id])->update($updateData);
+	}
 }

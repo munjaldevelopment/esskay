@@ -90,6 +90,10 @@ Route::group([
     Route::post('checkernetWorthInfusion/{document_id}', 'DocumentCrudController@checkernetWorthInfusion');
     Route::post('checkernetWorthInfusionReject/{document_id}', 'DocumentCrudController@checkernetWorthInfusionReject');
 
+    //liquidity_status
+    Route::post('checkerLiquidity/{document_id}', 'DocumentCrudController@checkerLiquidity');
+    Route::post('checkerLiquidityReject/{document_id}', 'DocumentCrudController@checkerLiquidityReject');
+
     Route::get('getLastLenderBanking', 'LenderBankingDetailCrudController@getLastLenderBanking');
     Route::get('getLastLenderBankingDetail', 'LenderBankingDetailCrudController@getLastLenderBankingDetail');
     
