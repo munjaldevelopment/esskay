@@ -762,4 +762,17 @@ class DocumentCrudController extends CrudController
 		$updateData = array('operational_highlight_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('operational_highlights')->where(['id' => $document_id])->update($updateData);
 	}
+
+	// geographicalConcentration
+	public function checkergeographicalConcentration($document_id)
+	{
+		$updateData = array('geographical_concentration_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('geographical_concentrations')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkergeographicalConcentrationReject($document_id)
+	{
+		$updateData = array('geographical_concentration_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('geographical_concentrations')->where(['id' => $document_id])->update($updateData);
+	}
 }

@@ -206,6 +206,9 @@ class GeographicalConcentrationCrudController extends CrudController
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportGeographicalConcentrationButton', 'end');
             $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importGeographicalConcentrationButton', 'end');
 
+            $this->crud->addButtonFromView('line', 'checker_geographical_concentration', 'checker_geographical_concentration', 'end');
+
+
             $this->crud->setCreateView('admin.create-lender-banking-form');
             $this->crud->setUpdateView('admin.edit-lender-banking-form');
         }
