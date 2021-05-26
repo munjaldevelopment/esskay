@@ -788,4 +788,17 @@ class DocumentCrudController extends CrudController
 		$updateData = array('product_concentration_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('product_concentrations')->where(['id' => $document_id])->update($updateData);
 	}
+
+	// asset_quality
+	public function checkerassetQuality($document_id)
+	{
+		$updateData = array('asset_quality_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('asset_quality')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerassetQualityReject($document_id)
+	{
+		$updateData = array('asset_quality_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('asset_quality')->where(['id' => $document_id])->update($updateData);
+	}
 }
