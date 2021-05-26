@@ -62,6 +62,10 @@ Route::group([
     Route::post('checkerTransactionReject/{document_id}', 'DocumentCrudController@checkerTransactionReject');
 	Route::post('checkerBankingArrangment/{lender_banking_id}', 'LenderBankingCrudController@checkerBankingArrangment');
 
+    // Insight
+    Route::post('checkerOperationalHighlight/{document_id}', 'DocumentCrudController@checkerOperationalHighlight');
+    Route::post('checkerOperationalHighlightReject/{document_id}', 'DocumentCrudController@checkerOperationalHighlightReject');
+
     Route::get('getLastLenderBanking', 'LenderBankingDetailCrudController@getLastLenderBanking');
     Route::get('getLastLenderBankingDetail', 'LenderBankingDetailCrudController@getLastLenderBankingDetail');
     

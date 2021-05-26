@@ -48,7 +48,41 @@ class OperationalHighlightCrudController extends CrudController
 			
 			$this->crud->allowAccess('show');
 			$this->crud->enableExportButtons();
+
+			$maker_operational_highlight = backpack_user()->hasPermissionTo('maker_operational_highlight');
+            if($maker_operational_highlight)
+            {
+                //$this->crud->addClause('whereIn', 'status', [0,1]);
+                $this->crud->allowAccess(['create', 'update']);
+            }
+            else
+            {
+                $this->crud->denyAccess(['create', 'update', 'delete']);
+            }
 			
+			$checker_operational_highlight = backpack_user()->hasPermissionTo('checker_operational_highlight');
+
+			if($checker_operational_highlight)
+            {
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    $this->crud->allowAccess(['checker_operational_highlight', 'revise', 'delete']);
+                }
+                else
+                {
+                    if($checker_operational_highlight)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_operational_highlight']);
+                    }
+				}
+			}
+			else
+            {
+                $this->crud->denyAccess(['checker_operational_highlight', 'revise', 'delete']);
+            }
 			
 			$this->crud->addColumn([
 					'label'     => 'Value1 Amount',
@@ -136,15 +170,15 @@ class OperationalHighlightCrudController extends CrudController
 
             $this->crud->addField([
                     'label'     => 'Status',
-                    'type'      => 'checkbox',
+                    'type'      => 'select2_from_array',
                     'name'      => 'operational_highlight_status',
+                    'options'   => array('0' => 'Pending', '1' => 'Accept', '2' => 'Reject')
                 ]);
 
-            
-					
-			
-			$this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportOperationalHighlightButton', 'end');
+            $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportOperationalHighlightButton', 'end');
 			$this->crud->addButtonFromModelFunction('top', 'import_xls', 'importOperationalHighlightButton', 'end');
+
+			$this->crud->addButtonFromView('line', 'checker_operational_highlight', 'checker_operational_highlight', 'end');
 
 			$this->crud->setCreateView('admin.create-lender-banking-form');
             $this->crud->setUpdateView('admin.edit-lender-banking-form');
