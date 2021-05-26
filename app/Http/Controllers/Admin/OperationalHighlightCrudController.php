@@ -107,6 +107,12 @@ class OperationalHighlightCrudController extends CrudController
                     'type'      => 'text',
                     'name'      => 'operation_row2_income',
                     ]);
+
+            $this->crud->addColumn([
+                    'label'     => 'Status',
+                    'type'      => 'check',
+                    'name'      => 'operational_highlight_status'
+                ]);
 					
 			$this->crud->addField([
 					'label'     => 'Value1 Amount',
