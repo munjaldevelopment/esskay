@@ -54,7 +54,6 @@
 			
 			google.maps.event.addListener(marker, 'click', (function(marker, i) {
 				return function() {
-					//alert(locations[i][0]);
 					map.setZoom(14);
 					infowindow.setContent(locations[i][0]);
 					infowindow.open(map, marker);
@@ -62,14 +61,6 @@
 					map.setCenter(marker.getPosition());
 			}
 			})(marker, i));
-			
-			/*google.maps.event.addListener(marker, 'click', (function(marker, i) {
-				return function() {
-					map.setZoom(12);
-					infowindow.setContent(locations[i][0]);
-					infowindow.open(map, marker);
-				}
-			})(marker, i));*/
 		}
 	}
 
