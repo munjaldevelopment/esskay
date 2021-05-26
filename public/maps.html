@@ -38,7 +38,7 @@
 			marker = new google.maps.Marker({
 				position: new google.maps.LatLng(locations[i][1], locations[i][2]),
 				map: map,
-				title: "Click to zoom",
+				title: locations[i][0],
 			});
 			
 			map.addListener("center_changed", () => {
@@ -51,7 +51,8 @@
 			
 			marker.addListener("click", (function(marker, i) {
 				map.setZoom(12);
-				infowindow.setContent(locations[i][0]);
+				infowindow.setContent(marker.getTitle());
+				infowindow.setCenter(marker.getPosition());
 				infowindow.open(map, marker);
 			}));
 			
