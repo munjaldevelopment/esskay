@@ -49,12 +49,12 @@
 				}, 3000);
 			});
 			
-			marker.addListener("click", (function(marker1) {
-				//alert(i);
+			google.maps.event.addListener(marker, 'click', (function(marker, i) {
+				alert(locations[i]);
 				map.setZoom(14);
-				infowindow.setContent(marker.title);
-				infowindow.open(map, marker);
-				map.setCenter(marker.getPosition()); //position
+				//infowindow.setContent(marker.title);
+				//infowindow.open(map, marker);
+				map.setCenter(marker.getPosition());
 			}));
 			
 			/*google.maps.event.addListener(marker, 'click', (function(marker, i) {
