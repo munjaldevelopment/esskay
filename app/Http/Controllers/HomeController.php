@@ -1498,7 +1498,7 @@ class HomeController extends Controller
 											
 											\DB::table('user_login')->insert(['user_id' => $user_id, 'user_ip' => $request->ip(), 'user_browser' => $browser." ".$version, 'device_type' => $device_type, 'login_type' => 'email', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 
-											return redirect(url('/'));
+											return redirect()->route('dashboard');
 										}
 										else
 										{
