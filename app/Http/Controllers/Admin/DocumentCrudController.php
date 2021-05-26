@@ -814,4 +814,30 @@ class DocumentCrudController extends CrudController
 		$updateData = array('collection_efficiency_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('collection_efficiency')->where(['id' => $document_id])->update($updateData);
 	}
+
+	// net_worth
+	public function checkernetWorth($document_id)
+	{
+		$updateData = array('net_worth_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('net_worth')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkernetWorthReject($document_id)
+	{
+		$updateData = array('net_worth_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('net_worth')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// net_worth_infusion
+	public function checkernetWorthInfusion($document_id)
+	{
+		$updateData = array('net_worth_infusion_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('net_worth_infusions')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkernetWorthInfusionReject($document_id)
+	{
+		$updateData = array('net_worth_infusion_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('net_worth_infusions')->where(['id' => $document_id])->update($updateData);
+	}
 }

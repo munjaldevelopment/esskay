@@ -82,6 +82,14 @@ Route::group([
     Route::post('checkercollectionEfficiency/{document_id}', 'DocumentCrudController@checkercollectionEfficiency');
     Route::post('checkercollectionEfficiencyReject/{document_id}', 'DocumentCrudController@checkercollectionEfficiencyReject');
 
+    //net_worth
+    Route::post('checkernetWorth/{document_id}', 'DocumentCrudController@checkernetWorth');
+    Route::post('checkernetWorthReject/{document_id}', 'DocumentCrudController@checkernetWorthReject');
+
+    //net_worth_infusion
+    Route::post('checkernetWorthInfusion/{document_id}', 'DocumentCrudController@checkernetWorthInfusion');
+    Route::post('checkernetWorthInfusionReject/{document_id}', 'DocumentCrudController@checkernetWorthInfusionReject');
+
     Route::get('getLastLenderBanking', 'LenderBankingDetailCrudController@getLastLenderBanking');
     Route::get('getLastLenderBankingDetail', 'LenderBankingDetailCrudController@getLastLenderBankingDetail');
     

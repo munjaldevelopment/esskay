@@ -54,6 +54,30 @@ class NetWorthInfusionCrudController extends CrudController
             
             $this->crud->allowAccess('show');
             $this->crud->enableExportButtons();
+
+            $checker_net_worth_infusion = backpack_user()->hasPermissionTo('checker_net_worth_infusion');
+
+            if($checker_net_worth_infusion)
+            {
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    $this->crud->allowAccess(['checker_net_worth_infusion', 'revise', 'delete']);
+                }
+                else
+                {
+                    if($checker_net_worth_infusion)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_net_worth_infusion']);
+                    }
+                }
+            }
+            else
+            {
+                $this->crud->denyAccess(['checker_net_worth_infusion', 'revise', 'delete']);
+            }
             
             $this->crud->addColumn([
                     'label'     => 'Month',
@@ -85,14 +109,19 @@ class NetWorthInfusionCrudController extends CrudController
                     'name'      => 'investors',
                     ]);
 
+            
             $this->crud->addField([
                     'label'     => 'Status',
-                    'type'      => 'checkbox',
+                    'type'      => 'select2_from_array',
                     'name'      => 'net_worth_infusion_status',
+                    'options'   => array('0' => 'Pending', '1' => 'Accept', '2' => 'Reject')
                 ]);
             
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportNetWorthInfusionButton', 'end');
             $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importNetWorthInfusionButton', 'end');
+
+            $this->crud->addButtonFromView('line', 'checker_net_worth_infusion', 'checker_net_worth_infusion', 'end');
+
 
             $this->crud->setCreateView('admin.create-lender-banking-form');
             $this->crud->setUpdateView('admin.edit-lender-banking-form');

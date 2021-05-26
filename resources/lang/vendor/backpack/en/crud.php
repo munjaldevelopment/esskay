@@ -53,6 +53,10 @@ return [
 
     'approveTransaction'         => 'Approve',
 
+    'successTransaction'         => 'Status updated successfully',
+
+    'failureTransaction'   => '<strong>Unable to update, Please try again.</strong>',
+
     'checkerOperationalHighlight' => 'Approve Op. Highlight',
 
     'checkerSanctionLetter'     => 'Approve San. Letter',

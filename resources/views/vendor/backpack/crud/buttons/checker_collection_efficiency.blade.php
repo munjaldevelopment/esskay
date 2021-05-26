@@ -50,7 +50,7 @@
 		                  // Show an alert with the result
 		                  new Noty({
 							type: "success",
-							text: "{!! trans('backpack::crud.checkercollectionEfficiency_success') !!}"
+							text: "{!! trans('backpack::crud.successTransaction') !!}"
 		                  }).show();
 
 		                  // Hide the modal, if any
@@ -64,7 +64,7 @@
 							// Show an alert with the result
 							new Noty({
 								type: "warning",
-								text: "{!! trans('backpack::crud.checkercollectionEfficiency_failure') !!}"
+								text: "{!! trans('backpack::crud.failureTransaction') !!}"
   							}).show();
 		              	}
 		          });
@@ -111,7 +111,7 @@
 		                  // Show an alert with the result
 		                  new Noty({
 		                    type: "success",
-		                    text: "{!! trans('backpack::crud.checkercollectionEfficiency_success') !!}"
+		                    text: "{!! trans('backpack::crud.successTransaction') !!}"
 		                  }).show();
 
 		                  // Hide the modal, if any
@@ -125,7 +125,7 @@
 		                  // Show an alert with the result
 		                  new Noty({
 		                    type: "warning",
-		                    text: "{!! trans('backpack::crud.checkercollectionEfficiency_failure') !!}"
+		                    text: "{!! trans('backpack::crud.failureTransaction') !!}"
 		                  }).show();
 		              }
 		          });
