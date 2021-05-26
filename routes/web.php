@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Hash;
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('dashboard');
 Route::get('/login', 'HomeController@login');
-Route::post('saveLogin', 'HomeController@saveLogin');
+Route::any('saveLogin', 'HomeController@saveLogin');
 
 Route::get('/login-otp', 'HomeController@loginOtp');
 Route::post('saveLoginOtp', 'HomeController@saveLoginOtp');
@@ -323,4 +323,19 @@ Route::get('/enter_document_data', function () {
 			\DB::table('document_trustee')->insert(['document_id' => $row1->id, 'trustee_id' => $row->id]);
 		}
 	}
+});
+
+// Send mail
+Route::get('/test', function()
+{
+	$beautymail = app()->make(Snowfire\Beautymail\Beautymail::class, ['settings' => null]);
+	$beautymail->send('emails.welcome', [], function($message)
+	{
+		$message
+			->from('communication@skfin.in', 'ESSKAY FINCORP')
+			->to('munjaldevelopment@gmail.com', 'Munjal Mayank')
+			->cc('abhishekdevelopment@gmail.com', 'Abhishek')
+			->subject('Welcome!');
+	});
+
 });

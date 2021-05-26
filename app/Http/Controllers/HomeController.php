@@ -716,27 +716,32 @@ class HomeController extends Controller
     {	
     	// Download file
     	$customer_name = session()->get('esskay_verify');
+    	$customer_name1 = session()->get('esskay_trustee_verify');
 		
-		if(!$customer_name)
-		{
-			return redirect(url('/').'/login');
-		}
-		else
+		if($customer_name || $customer_name1)
 		{
 			$docData  = \DB::table('articles')->where('id', '=', $doc_id)->first();
 			
 			$file= public_path(). "/".$docData->article_pdf;
 			
-			/*$headers = array(
-					  'Content-Type: application/pdf',
-					);*/
-					
 			$article_pdf = explode("/", $docData->article_pdf);
 			$doc = array_pop($article_pdf);
 
-			\DB::table('user_pdf')->insert(['user_id' => session()->get('esskay_user_id'), 'article_id' => $doc_id, 'download_date' => date('Y-m-d H:i:s'), 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+			if($customer_name)
+			{
+				\DB::table('user_pdf')->insert(['user_id' => session()->get('esskay_user_id'), 'article_id' => $doc_id, 'download_date' => date('Y-m-d H:i:s'), 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+			}
+
+			if($customer_name1)
+			{
+				\DB::table('user_pdf')->insert(['user_id' => session()->get('esskay_trustee_user_id'), 'article_id' => $doc_id, 'download_date' => date('Y-m-d H:i:s'), 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+			}
 			
 			return response()->download($file, $doc);
+		}
+		else
+		{
+			return redirect(url('/').'/login');
 		}
 	}
 	
@@ -1374,8 +1379,17 @@ class HomeController extends Controller
 		}
 	}
 	
+
 	public function saveLogin(Request $request)
     {
+    	$customer_name = session()->get('esskay_verify');
+		$trustee_name = session()->get('esskay_trustee_verify');
+		
+		if($customer_name || $trustee_name)
+		{
+			return redirect()->route('dashboard');
+		}
+
 		// TO DO
 		$messages = [
 			'agree_login.required' => 'You must agree to the Terms and Conditions',
@@ -1493,7 +1507,7 @@ class HomeController extends Controller
 											
 											\DB::table('user_login')->insert(['user_id' => $user_id, 'user_ip' => $request->ip(), 'user_browser' => $browser." ".$version, 'device_type' => $device_type, 'login_type' => 'email', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 
-											return redirect(url('/'));
+											return redirect()->route('dashboard');
 										}
 										else
 										{
@@ -1698,6 +1712,9 @@ class HomeController extends Controller
 		$deal_filterby = $request->deal_filterby;
 		$deal_rating = $request->deal_rating;
 
+
+		$category_name = "";
+
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
     	//dd($lenderData);
     	$lender_id = $lenderData->id;
@@ -1725,12 +1742,13 @@ class HomeController extends Controller
 			}
 		}
 		
-		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'lenderData' => $lenderData]);
+		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'category_name' => $category_name, 'lenderData' => $lenderData]);
 	}
 
 	// Sort
 	public function dealSort(Request $request)
 	{
+		$category_name = '';
 		$sort_value = $request->sort_value;
 
 		$sortData = explode("-", $sort_value);
@@ -1745,11 +1763,12 @@ class HomeController extends Controller
 
 		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name, current_deal_categories.category_name')->orderBy($sortData[0], $sortData[1])->get();
 		
-		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'lenderData' => $lenderData]);
+		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'category_name' => $category_name, 'lenderData' => $lenderData]);
 	}
 
 	public function dealGrid()
 	{
+		$category_name = "";
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
     	//dd($lenderData);
     	$lender_id = $lenderData->id;
@@ -1760,7 +1779,7 @@ class HomeController extends Controller
 
 		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name, current_deal_categories.category_name')->get();
 		
-		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'lenderData' => $lenderData]);
+		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'category_name' => $category_name, 'lenderData' => $lenderData]);
 	}
 
 	public function dealList()
@@ -1768,6 +1787,7 @@ class HomeController extends Controller
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
     	//dd($lenderData);
     	$lender_id = $lenderData->id;
+    	$category_name = "";
 
 		$dealTotalData = \DB::table('current_deals')->selectRaw('count(id) as total, SUM(amount) as total_amount')->where('status', '1')->first();
 
@@ -1775,7 +1795,7 @@ class HomeController extends Controller
 
 		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name, current_deal_categories.category_name')->get();
 		
-		return view('ess-kay-deal-list', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'lenderData' => $lenderData]);
+		return view('ess-kay-deal-list', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'category_name' => $category_name, 'lenderData' => $lenderData]);
 	}
 
 	public function sanctionLetter()
@@ -1804,12 +1824,12 @@ class HomeController extends Controller
 
 		$geographicalConData = $geographicalConTotalData = array();
 		$productConData = $productConTotalData = array();
-		$netWorthData = $netWorthData1 = $liquidityData = $liquidityDataTotal = array();
+		$netWorthData = $netWorthData1 = $liquidityData = $liabilityProfileData = $liabilityProfile11Data = $liquidityDataTotal = array();
 
 		$covidReliefData = $covidReliefDataTotal = $covidReliefDataTotal1 = array();
 		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = array();
 
-		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = array();
+		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = $chart7 = array();
 
 		if($request->category_id == 3)
 		{
@@ -1878,7 +1898,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22', 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22',//, 'FY23'
 				],
 			])
 			->yaxis([
@@ -1906,11 +1926,11 @@ class HomeController extends Controller
 				[
 					[
 						'name'  => 'Rajasthan',
-						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8], //, $raj_amount9
 					],
 					[
 						'name'  => 'Other States',
-						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8], // $other_amount9
 					],
 				]
 			)
@@ -2010,11 +2030,11 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Rajasthan',
+						'name'  => 'Commercial Vehicle',
 						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
 					],
 					[
-						'name'  => 'Other States',
+						'name'  => 'Other Products',
 						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
 					],
 				]
@@ -2115,7 +2135,7 @@ class HomeController extends Controller
 			}
 
 			$chart41 = \Chart::title([
-				'text' => 'Collection Efficiency',
+				'text' => 'Collection Efficiency (Including Pre-payment)',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -2161,7 +2181,7 @@ class HomeController extends Controller
 			->display(0);
 
 			$chart42 = \Chart::title([
-				'text' => 'Collection Efficiency',
+				'text' => 'Collection Efficiency (Excluding Pre-payment)',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -2300,7 +2320,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Debt / Net worth',
+						'name'  => 'Debt / Net worth (In Times)',
 						'data'  => $assetData2,
 					],
 				]
@@ -2351,7 +2371,7 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['Dec-18', 'Mar-19', 'Jun-19', 'Sep-19', 'Dec-19', 'Mar-20', 'Jun-20', 'Sep-20', 'Nov-20'],
+				'categories' => ['Dec-18', 'Mar-19', 'Jun-19', 'Sep-19', 'Dec-19', 'Mar-20', 'Jun-20', 'Sep-20', 'Dec-20', 'Mar-21'],
 			])
 			->yaxis([
 				'title' => [
@@ -3169,12 +3189,13 @@ class HomeController extends Controller
 
 		$geographicalConData = $geographicalConTotalData = array();
 		$productConData = $productConTotalData = array();
-		$netWorthData = $netWorthData1 = $liquidityData = $liquidityDataTotal = array();
+		$netWorthData = $netWorthData1 = $liquidityData = $liabilityProfileData = $liabilityProfile11Data = $liabilityProfileTableData = $liabilityProfileTable11Data = array();
+		$liabilityProfileDataTotal = $liquidityDataTotal = array();
 
 		$covidReliefData = $covidReliefDataTotal = $covidReliefDataTotal1 = array();
 		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = array();
 
-		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = array();
+		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = $chart7 = $chart8 = $chart9 = $chart10 = array();
 
 		if($request->category_id == 3)
 		{
@@ -3243,7 +3264,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'Nov-20', 'FY21', 'FY22', 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22',//, 'FY23'
 				],
 			])
 			->yaxis([
@@ -3271,11 +3292,11 @@ class HomeController extends Controller
 				[
 					[
 						'name'  => 'Rajasthan',
-						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8], //, $raj_amount9
 					],
 					[
 						'name'  => 'Other States',
-						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8], //, $other_amount9
 					],
 				]
 			)
@@ -3348,7 +3369,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22', 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22',//, 'FY23'
 				],
 			])
 			->yaxis([
@@ -3375,12 +3396,12 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Rajasthan',
-						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
+						'name'  => 'Commercial Vehicle',
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8], //, $raj_amount9
 					],
 					[
-						'name'  => 'Other States',
-						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
+						'name'  => 'Other Products',
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8], //, $other_amount9
 					],
 				]
 			)
@@ -3480,7 +3501,7 @@ class HomeController extends Controller
 			}
 
 			$chart41 = \Chart::title([
-				'text' => 'Collection Efficiency',
+				'text' => 'Collection Efficiency (Including Pre-payment)',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3526,7 +3547,7 @@ class HomeController extends Controller
 			->display(0);
 
 			$chart42 = \Chart::title([
-				'text' => 'Collection Efficiency',
+				'text' => 'Collection Efficiency (Excluding Pre-payment)',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3665,7 +3686,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Debt / Net worth',
+						'name'  => 'Debt / Net worth (In Times)',
 						'data'  => $assetData2,
 					],
 				]
@@ -3703,7 +3724,7 @@ class HomeController extends Controller
 			}
 
 			$chart6 = \Chart::title([
-				'text' => 'Adequate Liquidity',
+				'text' => 'Adequate Liquidity (In Cr.)',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3716,11 +3737,11 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['Dec-18', 'Mar-19', 'Jun-19', 'Sep-19', 'Dec-19', 'Mar-20', 'Jun-20', 'Sep-20', 'Nov-20'],
+				'categories' => ['Dec-18', 'Mar-19', 'Jun-19', 'Sep-19', 'Dec-19', 'Mar-20', 'Jun-20', 'Sep-20', 'Dec-20', 'Mar-21'],
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'Percentage'
+					'text' => ''
 				],
 			])
 			->legend([
@@ -3747,6 +3768,350 @@ class HomeController extends Controller
 			)
 			->display(0);
 		}
+		else if($request->category_id == 10)
+		{
+			$strongLiabilityProfileData1 = $asseliquidityData2 = $profileCategory = $profileCategory1 = array();
+			$liabilityProfileData1 = $liabilityProfileData2 = $liabilityProfileData3 = array();
+
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = 0;
+			$amount1_lender = $amount2_lender = $amount3_lender = $amount4_lender = $amount5_lender = $amount6_lender = 0;
+
+			$assetConData1 = $liabilityProfileData = \DB::table('strong_liability_profiles')->where('strong_liability_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$amount1+= $row->amount1;
+					$amount2+= $row->amount2;
+					$amount3+= $row->amount3;
+
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
+
+					$profileCategory[] = $profileCategory1[] = $row->quarter;
+
+					$liabilityProfileData1[] = (int)$row->amount1;
+					$liabilityProfileData2[] = (int)$row->amount2;
+					$liabilityProfileData3[] = (int)$row->amount3;
+				}
+			}
+
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = 0;
+			$amount1_lender = $amount2_lender = $amount3_lender = $amount4_lender = $amount5_lender = $amount6_lender = $amount7_lender = 0;
+
+			$assetConData2 = $liabilityProfileTableData = \DB::table('strong_liability_profile_tables')->where('strong_liability_table_status', 1)->get();
+			if($assetConData2)
+			{
+				foreach($assetConData2 as $row)
+				{
+					$amount1+= $row->amount1;
+					$amount1_lender+= $row->amount1_lender;
+					$amount2+= $row->amount2;
+					$amount2_lender+= $row->amount2_lender;
+					$amount3+= $row->amount3;
+					$amount3_lender+= $row->amount3_lender;
+
+					$amount4+= $row->amount4;
+					$amount4_lender+= $row->amount4_lender;
+					$amount5+= $row->amount5;
+					$amount5_lender+= $row->amount5_lender;
+					$amount6+= $row->amount6;
+					$amount6_lender+= $row->amount6_lender;
+					$amount7+= $row->amount7;
+					$amount7_lender+= $row->amount7_lender;
+
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
+
+					$liabilityProfileDataTotal = array((float)round($amount1, 2), (float)round($amount1_lender, 2), (float)round($amount2, 2), (float)round($amount2_lender, 2), (float)round($amount3, 2),  (float)round($amount3_lender, 2), (float)round($amount4, 2),  (float)round($amount4_lender, 2), (float)round($amount5, 2),  (float)round($amount5_lender, 2), (float)round($amount6, 2),  (float)round($amount6_lender, 2), (float)round($amount7_lender, 2));
+				}
+			}
+
+			$chart7 = \Chart::title([
+				'text' => 'Diversified Lender Base And Access to different Pools of Capital (In Nos.)',
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'seventh_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF',
+			])
+			->xaxis([
+				'categories' => $profileCategory,
+			])
+			->yaxis([
+				'title' => [
+					'text' => ''
+				],
+			])
+			->legend([
+		        'align' => 'center',
+		        'verticalAlign' => 'top'
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+						'enabled' => 'true',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Bank/FI',
+						'color' => '#11a9dc',
+						'data'  => $liabilityProfileData1,
+					],
+					[
+						'name'  => 'CME With MF',
+						'color' => '#336699',
+						'data'  => $liabilityProfileData2,
+					],
+					[
+						'name'  => 'Others',
+						'color' => '#25a7a4',
+						'data'  => $liabilityProfileData3,
+					],
+				]
+			)
+			->display(0);
+		}
+		else if($request->category_id == 11)
+		{
+
+			$profileCategory = $profileCategory1 = $liabilityProfileData11 = $liabilityProfileData12 = array();
+
+			$amount1 = $amount2 = $amount3 = 0;
+			
+			$assetConData1 = $liabilityProfile11Data = \DB::table('strong_liability_profile_ratio')->where('strong_liability_ratio_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$amount1+= $row->amount1;
+					$amount2+= $row->amount2;
+
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
+
+					$profileCategory[] = $profileCategory1[] = $row->financial_year;
+
+					$liabilityProfileData11[] = (int)$row->amount1;
+					$liabilityProfileData12[] = (int)$row->amount2;
+				}
+			}
+
+			$chart8 = \Chart::title([
+				'text' => 'Network & Employees (In Nos.)',
+			])
+			->chart([
+				'type'     => 'column', // pie , columnt ect
+				'renderTo' => 'eighth_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF',
+			])
+			->xaxis([
+				'categories' => $profileCategory1,
+			])
+			->yaxis([
+				'title' => [
+					'text' => ''
+				],
+			])
+			->legend([
+		        'align' => 'center',
+		        'verticalAlign' => 'top'
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+						'enabled' => 'true',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Branches',
+						'color' => '#336699',
+						'data'  => $liabilityProfileData11,
+					],
+					[
+						'name'  => 'Employee Strength',
+						'color' => '#11a9dc',
+						'data'  => $liabilityProfileData12,
+					],
+				]
+			)
+			->display(0);
+
+			$profileCategory = $profileCategory1 = $liabilityProfileData11 = $liabilityProfileData12 = array();
+
+			$amount1 = $amount2 = $amount3 = 0;
+			
+			$assetConData1 = $liabilityProfile11Data = \DB::table('strong_liability_profile_driving')->where('strong_liability_driving_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$amount1+= $row->amount1;
+					$amount2+= $row->amount2;
+
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
+
+					$profileCategory[] = $profileCategory1[] = $row->financial_year;
+
+					$liabilityProfileData11[] = (float)$row->amount1;
+					$liabilityProfileData12[] = (float)$row->amount2;
+				}
+			}
+
+			$chart9 = \Chart::title([
+				'text' => 'Healthy CRAR',
+			])
+			->chart([
+				'type'     => 'column', // pie , columnt ect
+				'renderTo' => 'ninth_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+			])
+			->xaxis([
+				'categories' => $profileCategory1,
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+				'stackLabels' => [
+		            'enabled' => 'true',
+		            'style' => [
+		                'fontWeight' => 'bold',
+		            ]
+		        ]
+			])
+			->legend([
+				'align' => 'right',
+		        'x' => '-30',
+		        'verticalAlign' => 'top',
+		        'y' => '25',
+		        'floating' => 'true',
+		        'shadow' => 'false'
+			])
+			->plotOptions([
+				'column'        => ([
+					'stacking' => 'normal',
+					'dataLabels' => ([
+						'enabled' => 'true',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Tier1',
+						'color' => '#336699',
+						'data'  => $liabilityProfileData11,
+					],
+					[
+						'name'  => 'Tier2',
+						'color' => '#11a9dc',
+						'data'  => $liabilityProfileData12,
+					],
+				]
+			)
+			->display(1);
+
+			$profileCategory = $profileCategory1 = $liabilityProfileData11 = $liabilityProfileData12 = array();
+
+			$amount1 = $amount2 = $amount3 = 0;
+			
+			$assetConData1 = $liabilityProfile11Data = \DB::table('strong_liability_profile_overall')->where('strong_liability_overall_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$amount1+= $row->amount1;
+
+					$asseliquidityData2 = array('amount1' => $amount1);
+
+					$profileCategory[] = $profileCategory1[] = $row->financial_year;
+
+					$liabilityProfileData11[] = (float)$row->amount1;
+				}
+			}
+			
+
+			$chart10 = \Chart::title([
+				'text' => 'Driving down cost of borrowings',
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'tenth_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+			])
+			->xaxis([
+				'categories' => $profileCategory1,
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+				'stackLabels' => [
+		            'enabled' => 'true',
+		            'style' => [
+		                'fontWeight' => 'bold',
+		            ]
+		        ]
+			])
+			->legend([
+		        'align' => 'center',
+		        'verticalAlign' => 'top'
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+						'enabled' => 'true',
+						'format' => '{y}%',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Overall cost',
+						'color' => '#336699',
+						'data'  => $liabilityProfileData11,
+					]
+				]
+			)
+			->display(1);
+
+			$assetConData2 = $liabilityProfileTable11Data = \DB::table('strong_liability_profile_well_table')->where('strong_liability_well_status', 1)->get();
+		}
 		else if($request->category_id == 12)
 		{
 			$amount1 = $amount2 = $amount3 = 0;
@@ -3770,9 +4135,16 @@ class HomeController extends Controller
 			
 		}
 
+		//dd($liabilityProfileDataTotal);
+
 		
 		$current_year = date('Y');
-		return view('insight-listing-trustee', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
+		return view('insight-listing-trustee', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'chart7' => $chart7, 'chart8' => $chart8, 'chart9' => $chart9, 'chart10' => $chart10, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
+
+			'liabilityProfileData' => $liabilityProfileData,
+			'liabilityProfileTableData' => $liabilityProfileTableData,
+			'liabilityProfileTable11Data' => $liabilityProfileTable11Data,
+			'liabilityProfileDataTotal' => $liabilityProfileDataTotal,
 
 			'covidReliefData' => $covidReliefData, 'covidReliefDataTotal' => $covidReliefDataTotal, 'covidReliefDataTotal1' => $covidReliefDataTotal1,
 			'covidRelief1Data' => $covidRelief1Data, 'covidRelief1DataTotal' => $covidRelief1DataTotal, 'covidRelief1DataTotal1' => $covidRelief1DataTotal1]);
@@ -3810,6 +4182,7 @@ class HomeController extends Controller
 	{
 		$deal_filterby = $request->deal_filterby;
 		$deal_rating = $request->deal_rating;
+		$category_name = $request->category_name;
 
 		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
     	//dd($trusteeData);
@@ -3840,7 +4213,7 @@ class HomeController extends Controller
 			}
 		}
 		
-		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'trusteeData' => $trusteeData]);
+		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'category_name' => $category_name, 'trusteeData' => $trusteeData]);
 	}
 	
 
@@ -3848,6 +4221,11 @@ class HomeController extends Controller
 	public function dealSortTrustee(Request $request)
 	{
 		$sort_value = $request->sort_value;
+
+		$deal_filterby = $request->deal_filterby;
+		$deal_rating = $request->deal_rating;
+
+		$category_name = $request->category_name;
 
 		$sortData = explode("-", $sort_value);
 
@@ -3860,12 +4238,44 @@ class HomeController extends Controller
 		$dealCategoriesData = \DB::table('current_deal_categories')->leftJoin('current_deal_category_trustee', 'current_deal_category_trustee.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deal_category_trustee.trustee_id',$trustee_id)->where('status', '1')->get();
 
 		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name')->orderBy($sortData[0], $sortData[1])->get();
+
+		if($deal_filterby != "")
+		{
+			if($deal_rating != "")
+			{
+				$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where('current_deals.name', 'LIKE', '%'.$deal_filterby.'%')->where('current_deals.rating', $deal_rating)->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name')->orderBy($sortData[0], $sortData[1])->get();
+			}
+			else
+			{
+				$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where('current_deals.name', 'LIKE', '%'.$deal_filterby.'%')->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name')->orderBy($sortData[0], $sortData[1])->get();
+			}
+		}
+		else
+		{
+			if($deal_rating != "")
+			{
+				$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where('current_deals.rating', $deal_rating)->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name')->orderBy($sortData[0], $sortData[1])->get();
+			}
+		}
 		
-		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'trusteeData' => $trusteeData]);
+		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'category_name' => $category_name, 'trusteeData' => $trusteeData]);
 	}
 
-	public function dealGridTrustee()
+	public function dealGridTrustee(Request $request)
 	{
+		$sort_value = $request->sort_value;
+
+		$deal_filterby = $request->deal_filterby;
+		$deal_rating = $request->deal_rating;
+
+		$category_name = $request->category_name;
+
+		if($sort_value == "")
+		{
+			$sort_value = "current_deals.created_at-desc";
+		}
+		$sortData = explode("-", $sort_value);
+
 		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
     	//dd($trusteeData);
     	$trustee_id = $trusteeData->id;
@@ -3875,12 +4285,44 @@ class HomeController extends Controller
 		$dealCategoriesData = \DB::table('current_deal_categories')->leftJoin('current_deal_category_trustee', 'current_deal_category_trustee.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deal_category_trustee.trustee_id',$trustee_id)->where('status', '1')->get();
 
 		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name')->get();
+
+		if($deal_filterby != "")
+		{
+			if($deal_rating != "")
+			{
+				$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where('current_deals.name', 'LIKE', '%'.$deal_filterby.'%')->where('current_deals.rating', $deal_rating)->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name')->orderBy($sortData[0], $sortData[1])->get();
+			}
+			else
+			{
+				$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where('current_deals.name', 'LIKE', '%'.$deal_filterby.'%')->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name')->orderBy($sortData[0], $sortData[1])->get();
+			}
+		}
+		else
+		{
+			if($deal_rating != "")
+			{
+				$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where('current_deals.rating', $deal_rating)->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name')->orderBy($sortData[0], $sortData[1])->get();
+			}
+		}
 		
-		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'trusteeData' => $trusteeData]);
+		return view('ess-kay-deal-grid', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'category_name' => $category_name, 'trusteeData' => $trusteeData]);
 	}
 
-	public function dealListTrustee()
+	public function dealListTrustee(Request $request)
 	{
+		$sort_value = $request->sort_value;
+
+		$deal_filterby = $request->deal_filterby;
+		$deal_rating = $request->deal_rating;
+
+		$category_name = $request->category_name;
+
+		if($sort_value == "")
+		{
+			$sort_value = "current_deals.created_at-desc";
+		}
+		$sortData = explode("-", $sort_value);
+
 		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
     	//dd($trusteeData);
     	$trustee_id = $trusteeData->id;
@@ -3890,8 +4332,27 @@ class HomeController extends Controller
 		$dealCategoriesData = \DB::table('current_deal_categories')->leftJoin('current_deal_category_trustee', 'current_deal_category_trustee.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deal_category_trustee.trustee_id',$trustee_id)->where('status', '1')->get();
 
 		$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name')->get();
+
+		if($deal_filterby != "")
+		{
+			if($deal_rating != "")
+			{
+				$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where('current_deals.name', 'LIKE', '%'.$deal_filterby.'%')->where('current_deals.rating', $deal_rating)->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name')->orderBy($sortData[0], $sortData[1])->get();
+			}
+			else
+			{
+				$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where('current_deals.name', 'LIKE', '%'.$deal_filterby.'%')->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name')->orderBy($sortData[0], $sortData[1])->get();
+			}
+		}
+		else
+		{
+			if($deal_rating != "")
+			{
+				$dealsData = \DB::table('current_deals')->leftJoin('current_deal_categories', 'current_deals.current_deal_category_id', '=', 'current_deal_categories.id')->where('current_deals.status', '1')->where('current_deal_categories.status', '1')->where('current_deals.rating', $deal_rating)->selectRaw('current_deals.*, current_deal_categories.category_code, current_deal_categories.category_name')->orderBy($sortData[0], $sortData[1])->get();
+			}
+		}
 		
-		return view('ess-kay-deal-list', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'trusteeData' => $trusteeData]);
+		return view('ess-kay-deal-list', ['dealTotalData' => $dealTotalData, 'dealsData' => $dealsData, 'dealCategoriesData' => $dealCategoriesData, 'category_name' => $category_name, 'trusteeData' => $trusteeData]);
 	}
 
 	public function newsTrustee()

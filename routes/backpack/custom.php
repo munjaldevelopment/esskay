@@ -102,9 +102,44 @@ Route::group([
     Route::get('importNetWorth', 'ImportExportController@importNetWorth');
     Route::post('insertNetWorth', 'ImportExportController@insertNetWorth');
 
+    Route::get('exportNetWorthInfusion', 'ImportExportController@exportNetWorthInfusion');
+    Route::get('importNetWorthInfusion', 'ImportExportController@importNetWorthInfusion');
+    Route::post('insertNetWorthInfusion', 'ImportExportController@insertNetWorthInfusion');
+
     Route::get('exportLiquidity', 'ImportExportController@exportLiquidity');
     Route::get('importLiquidity', 'ImportExportController@importLiquidity');
     Route::post('insertLiquidity', 'ImportExportController@insertLiquidity');
+
+    // New
+    Route::get('exportStrongLiability', 'ImportExportController@exportStrongLiability');
+    Route::get('importStrongLiability', 'ImportExportController@importStrongLiability');
+    Route::post('insertStrongLiability', 'ImportExportController@insertStrongLiability');
+
+
+    Route::get('exportStrongLiabilityTable', 'ImportExportController@exportStrongLiabilityTable');
+    Route::get('importStrongLiabilityTable', 'ImportExportController@importStrongLiabilityTable');
+    Route::post('insertStrongLiabilityTable', 'ImportExportController@insertStrongLiabilityTable');
+
+    Route::get('exportStrongLiabilityRatio', 'ImportExportController@exportStrongLiabilityRatio');
+    Route::get('importStrongLiabilityRatio', 'ImportExportController@importStrongLiabilityRatio');
+    Route::post('insertStrongLiabilityRatio', 'ImportExportController@insertStrongLiabilityRatio');
+
+    Route::get('exportStrongLiabilityDriving', 'ImportExportController@exportStrongLiabilityDriving');
+    Route::get('importStrongLiabilityDriving', 'ImportExportController@importStrongLiabilityDriving');
+    Route::post('insertStrongLiabilityDriving', 'ImportExportController@insertStrongLiabilityDriving');
+
+    Route::get('exportStrongLiabilityWellTable', 'ImportExportController@exportStrongLiabilityWellTable');
+    Route::get('importStrongLiabilityWellTable', 'ImportExportController@importStrongLiabilityWellTable');
+    Route::post('insertStrongLiabilityWellTable', 'ImportExportController@insertStrongLiabilityWellTable');
+
+    Route::get('exportStrongLiabilityOverall', 'ImportExportController@exportStrongLiabilityOverall');
+    Route::get('importStrongLiabilityOverall', 'ImportExportController@importStrongLiabilityOverall');
+    Route::post('insertStrongLiabilityOverall', 'ImportExportController@insertStrongLiabilityOverall');
+
+    
+    
+
+    
 
     Route::get('exportCurrentDeal', 'ImportExportController@exportCurrentDeal');
     Route::get('importCurrentDeal', 'ImportExportController@importCurrentDeal');
@@ -144,4 +179,13 @@ Route::group([
     Route::crud('transaction_document_type', 'TransactionDocumentTypeCrudController');
 
     Route::get('getSanctionLetter/{count}', 'SanctionLetterCrudController@getSanctionLetter');
+    
+    Route::crud('strongliabilityprofile', 'StrongLiabilityProfileCrudController');
+    Route::crud('strongliabilityprofiletable', 'StrongLiabilityProfileTableCrudController');
+    Route::crud('strongliabilityprofileratio', 'StrongLiabilityProfileRatioCrudController');
+    Route::crud('strongliabilityprofiledriving', 'StrongLiabilityProfileDrivingCrudController');
+    Route::crud('strongliabilityprofilewelltable', 'StrongLiabilityProfileWellTableCrudController');
+    Route::crud('strongliabilityprofileoverall', 'StrongLiabilityProfileOverallCrudController');
+    Route::crud('liabilityprofilecategory', 'LiabilityProfileCategoryCrudController');
+    Route::crud('liabilityprofileslider', 'LiabilityProfileSliderCrudController');
 }); // this should be the absolute last line of this file

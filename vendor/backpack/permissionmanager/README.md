@@ -39,17 +39,23 @@ composer require backpack/permissionmanager
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"
 php artisan migrate
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="config"
-// then First, add the Spatie\Permission\Traits\HasRoles trait to your User model(s)
+// then, add the Spatie\Permission\Traits\HasRoles trait to your User model(s)
 ```
 
-3) Publish the config file & run the migrations
+3) Publish `backpack\permissionmanager` config file & the migrations:
 ```bash
-php artisan vendor:publish --provider="Backpack\PermissionManager\PermissionManagerServiceProvider"
+php artisan vendor:publish --provider="Backpack\PermissionManager\PermissionManagerServiceProvider" --tag="config" --tag="migrations"
+```
+> Note: _We recommend you to publish only the config file and migrations, but you may also publish lang and routes._
+
+4) Run the migrations:
+```bash
+php artisan migrate
 ```
 
-4) The package assumes it's ok to use ```App\Models\BackpackUser``` to administer Users. Use a different one if you'd like by changing the user model in the ```config/backpack/permissionmanager.php``` file. Any model you're using, make sure it's using the ```CrudTrait``` and ```HasRoles``` traits:
+5) The package assumes it's ok to use ```App\Models\BackpackUser``` to administer Users. Use a different one if you'd like by changing the user model in the ```config/backpack/permissionmanager.php``` file. Any model you're using, make sure it's using the ```CrudTrait``` and ```HasRoles``` traits:
 ```php
-<?php namespace App;
+<?php namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait; // <------------------------------- this one
 use Spatie\Permission\Traits\HasRoles;// <---------------------- and this one
@@ -65,23 +71,23 @@ class User extends Authenticatable
      */
 ```
 
-5) [Optional] Add a menu item for it in ```resources/views/vendor/backpack/base/inc/sidebar_content.blade.php``` or ```menu.blade.php```:
+6) [Optional] Add a menu item for it in ```resources/views/vendor/backpack/base/inc/sidebar_content.blade.php``` or ```menu.blade.php```:
 
 ```html
 <!-- Users, Roles, Permissions -->
 <li class="nav-item nav-dropdown">
-	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-users"></i> Authentication</a>
-	<ul class="nav-dropdown-items">
-	  <li class="nav-item"><a class="nav-link" href="{{ backpack_url('user') }}"><i class="nav-icon la la-user"></i> <span>Users</span></a></li>
-	  <li class="nav-item"><a class="nav-link" href="{{ backpack_url('role') }}"><i class="nav-icon la la-id-badge"></i> <span>Roles</span></a></li>
-	  <li class="nav-item"><a class="nav-link" href="{{ backpack_url('permission') }}"><i class="nav-icon la la-key"></i> <span>Permissions</span></a></li>
-	</ul>
+    <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-users"></i> Authentication</a>
+    <ul class="nav-dropdown-items">
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('user') }}"><i class="nav-icon la la-user"></i> <span>Users</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('role') }}"><i class="nav-icon la la-id-badge"></i> <span>Roles</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('permission') }}"><i class="nav-icon la la-key"></i> <span>Permissions</span></a></li>
+    </ul>
 </li>
 ```
 
-6) [Optional] If you want to use the ```@can``` handler inside Backpack routes, you can:
+7) [Optional] If you want to use the ```@can``` handler inside Backpack routes, you can:
 
-(6.A.) Change Backpack to use the default ```web``` guard instead of its own guard. Inside ```config/backpack/base.php``` change:
+(7.A.) Change Backpack to use the default ```web``` guard instead of its own guard. Inside ```config/backpack/base.php``` change:
 ```diff
     // The guard that protects the Backpack admin panel.
     // If null, the config.auth.defaults.guard value will be used.
@@ -93,7 +99,7 @@ Note:
 
 OR
 
-(6.B.) Add a middleware to all your Backpack routes by adding this to your ```config/backpack/base.php``` file:
+(7.B.) Add a middleware to all your Backpack routes by adding this to your ```config/backpack/base.php``` file:
 ```diff
     // The classes for the middleware to check if the visitor is an admin
     // Can be a single class or an array of clases
@@ -112,7 +118,7 @@ Please note:
 - when you add new roles and permissions, the guard that gets saved in the database will be "backpack";
 
 
-7) [Optional] Disallow create/update on your roles or permissions after you define them, using the config file in **config/backpack/permissionmanager.php**. Please note permissions and roles are referenced in code using their name. If you let your admins edit these strings and they do, your permission and role checks will stop working.
+8) [Optional] Disallow create/update on your roles or permissions after you define them, using the config file in **config/backpack/permissionmanager.php**. Please note permissions and roles are referenced in code using their name. If you let your admins edit these strings and they do, your permission and role checks will stop working.
 
 
 ## Customize UserCrudController
@@ -261,7 +267,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
-If you discover any security related issues, please email hello@tabacitu.ro instead of using the issue tracker.
+If you discover any security related issues, please email tabacitu@backpackforlaravel.com instead of using the issue tracker.
 
 Please **[subscribe to the Backpack Newsletter](http://backpackforlaravel.com/newsletter)** so you can find out about any security updates, breaking changes or major features. We send an email every 1-2 months.
 
@@ -283,7 +289,7 @@ If you are looking for a developer/team to help you build an admin panel on Lara
 
 
 [ico-version]: https://img.shields.io/packagist/v/backpack/permissionmanager.svg?style=flat-square
-[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-dual-blue?style=flat-square
 [ico-travis]: https://img.shields.io/travis/laravel-backpack/permissionmanager/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/laravel-backpack/permissionmanager.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/laravel-backpack/permissionmanager.svg?style=flat-square

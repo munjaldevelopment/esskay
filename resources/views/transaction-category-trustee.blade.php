@@ -20,7 +20,7 @@
 										<div class="panel-body">
 											<ul class="nav navbar-nav">
 												@foreach($transactionLiveData as $k => $row)
-												<li class="transaction-content-row{{ $row->id }} @if($k == 0) active @endif"><a class="transaction-content-container{{ $row->id }} transaction-row" data-transaction="{{ $row->id }}" href="javascript:;"><span><img src="{{ asset('public/assets/') }}/images/sub-dropdown-icon.svg" alt=""></span> {{ $row->name }}</a></li>
+												<li class="transaction-contentainer transaction-content-row{{ $row->id }} @if($k == 0) active @endif"><a class="transaction-content-container{{ $row->id }} transaction-row" data-transaction="{{ $row->id }}" href="javascript:;"><span><img src="{{ asset('public/assets/') }}/images/sub-dropdown-icon.svg" alt=""></span> {{ $row->name }}</a></li>
 												@endforeach
 											</ul>
 										</div>
@@ -147,6 +147,10 @@ $(document).ready(function() {
 
 	$('.transaction-row').bind('click', function() {
 		var transaction_id = $(this).attr('data-transaction');
+
+		$('.transaction-contentainer').removeClass('active');
+
+		$('.transaction-content-row'+transaction_id).addClass('active');
 		
 		$.ajax({
 			url: base_url+'showTrusteeTransactionInfo',
@@ -159,9 +163,7 @@ $(document).ready(function() {
 			success: function(output) {
 				$('.transaction-container').html(output);
 
-				$('.transaction-row').find('li').removeClass('active');
-
-				$('.transaction-content-row'+transaction_id).addClass('active');
+				
 			}
 		});
 	});

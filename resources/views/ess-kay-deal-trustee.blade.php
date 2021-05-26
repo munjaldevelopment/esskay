@@ -92,10 +92,12 @@
 									<ul>
 										<li class="deal-category-list deal-category-list-all active"><a onclick="clearAllDeal();" href="javascript:;">ALL</a></li>
 										@foreach($dealCategoriesData as $row)
-										<li class="deal-category-list deal-category-{{ strtolower($row->category_name) }}"><a href="javascript:;" onclick="showDealCategoryData('{{ strtolower($row->category_name) }}');">{{ $row->category_name }}</a></li>
+										<li class="deal-category-list deal-category-{{ strtolower($row->category_name) }}"><a href="javascript:;" onclick="showDealCategoryData('{{ strtolower($row->category_name) }}', '{{ $row->category_name }}');">{{ $row->category_name }}</a></li>
 										@endforeach
 									</ul>
 								</div>
+
+								<input type="hidden" name="category_name" class="category_name" value="">
 								<div class="btn-group">
 									<a href="javascript:;" id="deal-grid" class="btn btn-default btn-sm">
 										<img src="{{ asset('public/assets/') }}/images/grid-active-icon.svg" class="grid-icon deal-list-none" alt="">
@@ -155,17 +157,45 @@
 		$('.deal-category-list-all').addClass('active');
 
 		$('.blog-item').show();
+
+		$('.category_name').val('');
+
+		var base_url = $('base').attr('href');
+	
+		var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+		var sort_value = $('.deal_sort option:selected').val();
+
+		var deal_filterby = $('.deal_filterby').val();
+		var category_name = $('.category_name').val();
+		var deal_rating = $('.deal_rating option:selected').val();
+
+		$('.grid-icon').attr('src', '{{ asset('public/assets/') }}/images/grid-active-icon.svg');
+		$('.list-icon').attr('src', '{{ asset('public/assets/') }}/images/list-icon.svg');
+
+		$.ajax({
+			url: base_url+'dealGridTrustee',
+			type: 'post',
+			data: {_token: CSRF_TOKEN, sort_value: sort_value, deal_filterby: deal_filterby, deal_rating: deal_rating, category_name: category_name},
+			beforeSend: function() {
+				$('.preloader').show();
+			},
+			success: function(output) {
+				$('.preloader').hide();
+				$('.deal-products-area').html(output);
+			}
+		});
 	}
 	
-	function showDealCategoryData(cat_name)
+	function showDealCategoryData(cat_name, category_name)
 	{
 		$('.deal-category-list').removeClass('active');
 		$('.deal-category-'+cat_name).addClass('active');
 
 		$('.blog-item').hide();
 		
-		//alert(cat_name);
-		
+		$('.category_name').val(category_name);
+
 		if($('.blog-item').hasClass('post-row-'+cat_name))
 		{
 			$('.post-row-'+cat_name).show();
@@ -250,13 +280,14 @@ $(document).ready(function(){
 	
 			var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
+			var category_name = $('.category_name').val();
 			var deal_filterby = $('.deal_filterby').val();
 			var deal_rating = $('.deal_rating option:selected').val();
 
 			$.ajax({
 				url: base_url+'dealSearchTrustee',
 				type: 'post',
-				data: {_token: CSRF_TOKEN, deal_filterby: deal_filterby, deal_rating: deal_rating},
+				data: {_token: CSRF_TOKEN, deal_filterby: deal_filterby, deal_rating: deal_rating, category_name: category_name},
 				beforeSend: function() {
 					$('.preloader').show();
 				},
@@ -274,10 +305,14 @@ $(document).ready(function(){
 
 			var sort_value = $(this).val();
 
+			var category_name = $('.category_name').val();
+			var deal_filterby = $('.deal_filterby').val();
+			var deal_rating = $('.deal_rating option:selected').val();
+
 			$.ajax({
 				url: base_url+'dealSortTrustee',
 				type: 'post',
-				data: {_token: CSRF_TOKEN, sort_value: sort_value},
+				data: {_token: CSRF_TOKEN, sort_value: sort_value, deal_filterby: deal_filterby, deal_rating: deal_rating, deal_rating: deal_rating},
 				beforeSend: function() {
 					$('.preloader').show();
 				},
@@ -293,13 +328,19 @@ $(document).ready(function(){
 	
 			var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
+			var sort_value = $('.deal_sort option:selected').val();
+
+			var deal_filterby = $('.deal_filterby').val();
+			var category_name = $('.category_name').val();
+			var deal_rating = $('.deal_rating option:selected').val();
+
 			$('.grid-icon').attr('src', '{{ asset('public/assets/') }}/images/grid-active-icon.svg');
 			$('.list-icon').attr('src', '{{ asset('public/assets/') }}/images/list-icon.svg');
 
 			$.ajax({
 				url: base_url+'dealGridTrustee',
 				type: 'post',
-				data: {_token: CSRF_TOKEN},
+				data: {_token: CSRF_TOKEN, sort_value: sort_value, deal_filterby: deal_filterby, deal_rating: deal_rating, category_name: category_name},
 				beforeSend: function() {
 					$('.preloader').show();
 				},
@@ -315,13 +356,19 @@ $(document).ready(function(){
 	
 			var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
+			var sort_value = $('.deal_sort option:selected').val();
+
+			var deal_filterby = $('.deal_filterby').val();
+			var category_name = $('.category_name').val();
+			var deal_rating = $('.deal_rating option:selected').val();
+
 			$('.grid-icon').attr('src', '{{ asset('public/assets/') }}/images/grid-icon.svg');
 			$('.list-icon').attr('src', '{{ asset('public/assets/') }}/images/list-active-icon.svg');
 
 			$.ajax({
 				url: base_url+'dealListTrustee',
 				type: 'post',
-				data: {_token: CSRF_TOKEN},
+				data: {_token: CSRF_TOKEN, sort_value: sort_value, deal_filterby: deal_filterby, deal_rating: deal_rating, category_name: category_name},
 				beforeSend: function() {
 					$('.preloader').show();
 				},

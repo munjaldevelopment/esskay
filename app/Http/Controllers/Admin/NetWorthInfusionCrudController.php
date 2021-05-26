@@ -16,8 +16,13 @@ class NetWorthInfusionCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CloneOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\BulkCloneOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\BulkDeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
 
     use \Backpack\ReviseOperation\ReviseOperation;
 
@@ -86,8 +91,8 @@ class NetWorthInfusionCrudController extends CrudController
                     'name'      => 'net_worth_infusion_status',
                 ]);
             
-            //$this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportNetWorthButton', 'end');
-            //$this->crud->addButtonFromModelFunction('top', 'import_xls', 'importNetWorthButton', 'end');
+            $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportNetWorthInfusionButton', 'end');
+            $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importNetWorthInfusionButton', 'end');
 
             $this->crud->setCreateView('admin.create-lender-banking-form');
             $this->crud->setUpdateView('admin.edit-lender-banking-form');

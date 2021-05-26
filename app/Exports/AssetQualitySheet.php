@@ -13,7 +13,6 @@ class AssetQualitySheet implements FromArray, WithTitle, WithHeadings, ShouldAut
 	
     public function __construct()
     {
-		
     }
 	
 	public function headings(): array

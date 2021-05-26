@@ -61,6 +61,7 @@
 					</div>
 					@endforeach
 				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -77,7 +78,7 @@
 	
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">
-			<h3>Outstanding As on</h3>
+			<h3>Outstanding As on (In Cr.)</h3>
 			<div class="custom-table-area">
 				<div class="table-responsive">
 					<table class="table">
@@ -93,7 +94,7 @@
 								<th colspan="2" class="border-bottom">Sep-20</th>
 								<th colspan="2" class="border-bottom">Mar-21</th>
 								<th colspan="2" class="border-bottom">Mar-22</th>
-								<th colspan="2" class="border-bottom">Mar-23</th>
+								<!--<th colspan="2" class="border-bottom">Mar-23</th>-->
 							</tr>
 							<tr>
 								<th>Amount</th>
@@ -112,8 +113,8 @@
 								<th>%</th>
 								<th>Amount</th>
 								<th>%</th>
-								<th>Amount</th>
-								<th>%</th>
+								<!--<th>Amount</th>
+								<th>%</th>-->
 							</tr>
 						</thead>
 						<tbody>
@@ -137,8 +138,8 @@
 								<td>{{ number_format($row->amount_percentage7, 0) }}%</td>
 								<td>{{ number_format($row->amount8, 0) }}</td>
 								<td>{{ number_format($row->amount_percentage8, 0) }}%</td>
-								<td>{{ number_format($row->amount9, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage9, 0) }}%</td>
+								<!--<td>{{ number_format($row->amount9, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage9, 0) }}%</td>-->
 							</tr>
 							@endforeach
 						</tbody>
@@ -163,13 +164,19 @@
 								<td>100%</td>
 								<td>{{ $geographicalConTotalData['amount8'] }}</td>
 								<td>100%</td>
-								<td>{{ $geographicalConTotalData['amount9'] }}</td>
-								<td>100%</td>
+								<!--<td>{{ $geographicalConTotalData['amount9'] }}</td>
+								<td>100%</td>-->
 							</tr>
 						</tfoot>
 					</table>	
 				</div>	
 			</div>
+		</div>
+	</div>
+
+	<div class="white-box outstanding-box">
+		<div class="outstanding-table">
+			<div id="map"></div>
 		</div>
 	</div>
 @elseif($insightCatData->id == 4)
@@ -185,7 +192,7 @@
 	
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">
-			<h3>Outstanding As on</h3>
+			<h3>Outstanding As on (In Cr.)</h3>
 			<div class="custom-table-area">
 				<div class="table-responsive">
 					<table class="table">
@@ -200,7 +207,7 @@
 								<th colspan="2" class="border-bottom">Sep-20</th>
 								<th colspan="2" class="border-bottom">Mar-21</th>
 								<th colspan="2" class="border-bottom">Mar-22</th>
-								<th colspan="2" class="border-bottom">Mar-23</th>
+								<!--<th colspan="2" class="border-bottom">Mar-23</th>-->
 							</tr>
 							<tr>
 								<th>Amount</th>
@@ -219,8 +226,8 @@
 								<th>%</th>
 								<th>Amount</th>
 								<th>%</th>
-								<th>Amount</th>
-								<th>%</th>
+								<!--<th>Amount</th>
+								<th>%</th>-->
 							</tr>
 						</thead>
 						<tbody>
@@ -243,8 +250,8 @@
 								<td>{{ number_format($row->amount_percentage7, 0) }}%</td>
 								<td>{{ number_format($row->amount8, 0) }}</td>
 								<td>{{ number_format($row->amount_percentage8, 0) }}%</td>
-								<td>{{ number_format($row->amount9, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage9, 0) }}%</td>
+								<!--<td>{{ number_format($row->amount9, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage9, 0) }}%</td>-->
 							</tr>
 							@endforeach
 						</tbody>
@@ -268,8 +275,8 @@
 								<td>100%</td>
 								<td>{{ $productConTotalData['amount8'] }}</td>
 								<td>100%</td>
-								<td>{{ $productConTotalData['amount9'] }}</td>
-								<td>100%</td>
+								<!--<td>{{ $productConTotalData['amount9'] }}</td>
+								<td>100%</td>-->
 							</tr>
 						</tfoot>
 					</table>	
@@ -350,7 +357,7 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td>Capital Infusion</td>
+								<td>Capital Infusion (In Cr.)</td>
 								@foreach($netWorthData as $row)
 								<td>{{ $row->capital_infusion }}</td>
 								@endforeach
@@ -370,7 +377,7 @@
 
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">
-			<h3>Reconciliation of Net worth</h3>
+			<h3>Reconciliation of Net worth (In Cr.)</h3>
 			<div class="custom-table-area">
 				<div class="table-responsive">
 					<table class="table">
@@ -416,13 +423,13 @@
 
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">
-			<h3>Quarter on Quarter Liquidity Position</h3>
+			<h3>Quarter on Quarter Liquidity Position (In Cr.)</h3>
 			<div class="custom-table-area">
 				<div class="table-responsive">
 					<table class="table">
 						<thead>
 							<tr>
-								<th> Quarter on Quarter Liquidity (in crs.)</th>
+								<th> Quarter on Quarter Liquidity</th>
 								<th>Dec-18</th>
 								<th>Mar-19</th>
 								<th>Jun-19</th>
@@ -479,11 +486,173 @@
 			</div>
 		</div>
 	</div>
+@elseif($insightCatData->id == 10)
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			@if($chart7)
+				<div id="seventh_chart"></div>
+
+				{!! $chart7 !!}
+			@endif
+		</div>
+	</div>
+
+	<div class="white-box outstanding-box">
+		<div class="outstanding-table">
+			<div class="custom-table-area">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th rowspan="2">Lender</th>
+								<th colspan="2">Mar-16</th>
+								<th colspan="2">Mar-17</th>
+								<th colspan="2">Mar-18</th>
+								<th colspan="2">Mar-19</th>
+								<th colspan="2">Mar-20</th>
+								<th colspan="2">Sep-20</th>
+								<th colspan="2">Mar-21</th>
+							</tr>
+
+							<tr>
+								<th>Amount (In Cr.)</th>
+								<th>No. of <br />Lenders</th>
+								<th>Amount (In Cr.)</th>
+								<th>No. of <br />Lenders</th>
+								<th>Amount (In Cr.)</th>
+								<th>No. of <br />Lenders</th>
+								<th>Amount (In Cr.)</th>
+								<th>No. of <br />Lenders</th>
+								<th>Amount (In Cr.)</th>
+								<th>No. of <br />Lenders</th>
+								<th>Amount (In Cr.)</th>
+								<th>No. of <br />Lenders</th>
+								<th>Amount (In Cr.)</th>
+								<th>No. of <br />Lenders</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach($liabilityProfileTableData as $row)
+							<tr>
+								<td>{{ $row->lender}}</td>
+								<td>{{ $row->amount1}}</td>
+								<td>{{ $row->amount1_lender}}</td>
+								<td>{{ $row->amount2}}</td>
+								<td>{{ $row->amount2_lender}}</td>
+								<td>{{ $row->amount3}}</td>
+								<td>{{ $row->amount3_lender}}</td>
+								<td>{{ $row->amount4}}</td>
+								<td>{{ $row->amount4_lender}}</td>
+								<td>{{ $row->amount5}}</td>
+								<td>{{ $row->amount5_lender}}</td>
+								<td>{{ $row->amount6}}</td>
+								<td>{{ $row->amount6_lender}}</td>
+								<td>{{ $row->amount7}}</td>
+								<td>{{ $row->amount7_lender}}</td>
+							</tr>
+							@endforeach
+						</tbody>
+
+						<tfoot>
+							<tr>
+								<td>Total</td>
+								<td>{{ $liabilityProfileDataTotal[0] }}</td>
+								<td>{{ $liabilityProfileDataTotal[1] }}</td>
+								<td>{{ $liabilityProfileDataTotal[2] }}</td>
+								<td>{{ $liabilityProfileDataTotal[3] }}</td>
+								<td>{{ $liabilityProfileDataTotal[4] }}</td>
+								<td>{{ $liabilityProfileDataTotal[5] }}</td>
+								<td>{{ $liabilityProfileDataTotal[6] }}</td>
+								<td>{{ $liabilityProfileDataTotal[7] }}</td>
+								<td>{{ $liabilityProfileDataTotal[8] }}</td>
+								<td>{{ $liabilityProfileDataTotal[9] }}</td>
+								<td>{{ $liabilityProfileDataTotal[10] }}</td>
+								<td>{{ $liabilityProfileDataTotal[11] }}</td>
+								<td>{{ $liabilityProfileDataTotal[12] }}</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>	
+			</div>
+		</div>
+	</div>
+@elseif($insightCatData->id == 11)
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			@if($chart8)
+				<div id="eighth_chart"></div>
+
+				{!! $chart8 !!}
+			@endif
+		</div>
+	</div>
+
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			@if($chart9)
+				<div id="ninth_chart"></div>
+
+				{!! $chart9 !!}
+			@endif
+		</div>
+	</div>
+
+	<div class="white-box outstanding-box">
+		<div class="outstanding-table">
+			<div class="custom-table-area">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th rowspan="2">Particulars</th>
+								<th colspan="3">As per IGAAP</th>
+								<th colspan="4">As per IND AS</th>
+							</tr>
+
+							<tr>
+								<th>FY 16</th>
+								<th>FY 17</th>
+								<th>FY 18</th>
+								<th>FY 19</th>
+								<th>FY 20</th>
+								<th>H1FY 21</th>
+								<th>FY 21</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach($liabilityProfileTable11Data as $k => $row)
+							<tr>
+								<td>{{ $row->particulars}}</td>
+								<td>{{ $row->amount1}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount2}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount3}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount4}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount5}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount6}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount7}}@if($k != 1)% @endif</td>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			@if($chart10)
+				<div id="tenth_chart"></div>
+
+				{!! $chart10 !!}
+			@endif
+		</div>
+	</div>
 @elseif($insightCatData->id == 12) 
 
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">
-			<h3>Detail of COVID relief from lenders</h3>
+			<h3>Detail of COVID relief from lenders (In Nos)</h3>
 			<div class="custom-table-area">
 				<div class="table-responsive">
 					<table class="table">
@@ -581,6 +750,14 @@
 <script src="{{ asset('public/assets/') }}/js/exporting.js"></script>
 <script src="{{ asset('public/assets/') }}/js/export-data.js"></script>
 @endif
+
+<style type="text/css">
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+</style>
 
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
 <script src="{{ asset('public/assets/') }}/js/owl.carousel.js"></script>
