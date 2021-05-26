@@ -70,6 +70,10 @@ Route::group([
     Route::post('checkergeographicalConcentration/{document_id}', 'DocumentCrudController@checkergeographicalConcentration');
     Route::post('checkergeographicalConcentrationReject/{document_id}', 'DocumentCrudController@checkergeographicalConcentrationReject');
 
+    //Product Concentrations
+    Route::post('checkerproductConcentration/{document_id}', 'DocumentCrudController@checkerproductConcentration');
+    Route::post('checkerproductConcentrationReject/{document_id}', 'DocumentCrudController@checkerproductConcentrationReject');
+
     Route::get('getLastLenderBanking', 'LenderBankingDetailCrudController@getLastLenderBanking');
     Route::get('getLastLenderBankingDetail', 'LenderBankingDetailCrudController@getLastLenderBankingDetail');
     
