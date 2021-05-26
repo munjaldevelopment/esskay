@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Hash;
 
 Route::get('/', 'HomeController@index')->name('dashboard');
 Route::get('/login', 'HomeController@login');
-Route::post('saveLogin', 'HomeController@saveLogin');
+Route::any('saveLogin', 'HomeController@saveLogin');
 
 Route::get('/login-otp', 'HomeController@loginOtp');
 Route::post('saveLoginOtp', 'HomeController@saveLoginOtp');

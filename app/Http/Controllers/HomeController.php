@@ -1379,8 +1379,17 @@ class HomeController extends Controller
 		}
 	}
 	
+
 	public function saveLogin(Request $request)
     {
+    	$customer_name = session()->get('esskay_verify');
+		$trustee_name = session()->get('esskay_trustee_verify');
+		
+		if($customer_name || $trustee_name)
+		{
+			return redirect()->route('dashboard');
+		}
+
 		// TO DO
 		$messages = [
 			'agree_login.required' => 'You must agree to the Terms and Conditions',
