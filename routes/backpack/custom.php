@@ -78,6 +78,10 @@ Route::group([
     Route::post('checkerassetQuality/{document_id}', 'DocumentCrudController@checkerassetQuality');
     Route::post('checkerassetQualityReject/{document_id}', 'DocumentCrudController@checkerassetQualityReject');
 
+    //collection_efficiency
+    Route::post('checkercollectionEfficiency/{document_id}', 'DocumentCrudController@checkercollectionEfficiency');
+    Route::post('checkercollectionEfficiencyReject/{document_id}', 'DocumentCrudController@checkercollectionEfficiencyReject');
+
     Route::get('getLastLenderBanking', 'LenderBankingDetailCrudController@getLastLenderBanking');
     Route::get('getLastLenderBankingDetail', 'LenderBankingDetailCrudController@getLastLenderBankingDetail');
     

@@ -801,4 +801,17 @@ class DocumentCrudController extends CrudController
 		$updateData = array('asset_quality_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('asset_quality')->where(['id' => $document_id])->update($updateData);
 	}
+
+	// collection_efficiency
+	public function checkercollectionEfficiency($document_id)
+	{
+		$updateData = array('collection_efficiency_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('collection_efficiency')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkercollectionEfficiencyReject($document_id)
+	{
+		$updateData = array('collection_efficiency_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('collection_efficiency')->where(['id' => $document_id])->update($updateData);
+	}
 }
