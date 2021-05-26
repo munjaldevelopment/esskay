@@ -50,12 +50,15 @@
 			});
 			
 			google.maps.event.addListener(marker, 'click', (function(marker, i) {
-				alert(locations[i]);
-				map.setZoom(14);
-				//infowindow.setContent(marker.title);
-				//infowindow.open(map, marker);
-				map.setCenter(marker.getPosition());
-			}));
+				return function() {
+					//alert(locations[i][0]);
+					map.setZoom(14);
+					infowindow.setContent(locations[i][0]);
+					infowindow.open(map, marker);
+					
+					map.setCenter(marker.getPosition());
+			}
+			})(marker, i));
 			
 			/*google.maps.event.addListener(marker, 'click', (function(marker, i) {
 				return function() {
