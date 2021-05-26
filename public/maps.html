@@ -51,7 +51,7 @@
 			
 			marker.addListener("click", (function(marker, i) {
 				map.setZoom(12);
-				infowindow.setContent(marker.getTitle());
+				infowindow.setContent(marker.title);
 				infowindow.setCenter(marker.getPosition());
 				infowindow.open(map, marker);
 			}));
