@@ -79,7 +79,48 @@
 	<div class="white-box">
 		<div class="pool-dynamic-graph">
 			<h2>Map</h2>
-			<div id="map"></div>			
+			<div id="map"></div>
+
+			<script type="text/javascript">
+				var locations = [
+					['<p>Ess Kay Fincorp Limited, Dhuleshwar Garden, </p><p> Jaipur,  Rajasthan 302001</p>', 26.9142179,75.798021, 4],
+					['<p>Ess Kay IT Corporate office, Adarsh Plaza, Barodia Scheme, Gopalbari, </p><p> Jaipur, Rajasthan 302016</p>', 26.9177367,75.7928315, 5],
+					['<p>Ess Kay IT Corporate office, India Gate, </p><p> Delhi, Delhi 302001</p>', 28.6129, 77.2295, 3],
+					['<p>Ess Kay IT Corporate office, Gateway of India, </p><p>Mumbai Maharastra 302001</p>', 18.9220, 72.8347, 2],
+					['<p>Ess Kay IT Corporate office, Taj Mahal, </p><p> Uttar Pradesh 302001</p>', 27.1751, 78.0421, 1]
+				];
+
+				var map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 5,
+					center: new google.maps.LatLng(26.9177367, 75.7928315),
+					mapTypeId: 'satellite'
+					//mapTypeId: google.maps.MapTypeId.ROADMAP
+				});
+
+				var infowindow = new google.maps.InfoWindow();
+
+				var marker, i;
+
+				for (i = 0; i < locations.length; i++) {
+					marker = new google.maps.Marker({
+						position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+						map: map,
+						title: locations[i][0],
+					});
+
+
+					google.maps.event.addListener(marker, 'click', (function(marker, i) {
+						return function() {
+							map.setZoom(14);
+							infowindow.setContent(locations[i][0]);
+							infowindow.open(map, marker);
+
+							map.setCenter(marker.getPosition());//locations[i][1], locations[i][2]);
+						}
+					})(marker, i));
+				}
+			</script>
+
 		</div>
 	</div>
 
@@ -766,45 +807,6 @@
 		height: 100%;
 	}
 </style>
-<script type="text/javascript">
-	var locations = [
-		['<p>Ess Kay Fincorp Limited, Dhuleshwar Garden, </p><p> Jaipur,  Rajasthan 302001</p>', 26.9142179,75.798021, 4],
-		['<p>Ess Kay IT Corporate office, Adarsh Plaza, Barodia Scheme, Gopalbari, </p><p> Jaipur, Rajasthan 302016</p>', 26.9177367,75.7928315, 5],
-		['<p>Ess Kay IT Corporate office, India Gate, </p><p> Delhi, Delhi 302001</p>', 28.6129, 77.2295, 3],
-		['<p>Ess Kay IT Corporate office, Gateway of India, </p><p>Mumbai Maharastra 302001</p>', 18.9220, 72.8347, 2],
-		['<p>Ess Kay IT Corporate office, Taj Mahal, </p><p> Uttar Pradesh 302001</p>', 27.1751, 78.0421, 1]
-	];
-
-	var map = new google.maps.Map(document.getElementById('map'), {
-		zoom: 5,
-		center: new google.maps.LatLng(26.9177367, 75.7928315),
-		mapTypeId: 'satellite'
-		//mapTypeId: google.maps.MapTypeId.ROADMAP
-	});
-
-	var infowindow = new google.maps.InfoWindow();
-
-	var marker, i;
-
-	for (i = 0; i < locations.length; i++) {
-		marker = new google.maps.Marker({
-			position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-			map: map,
-			title: locations[i][0],
-		});
-
-
-		google.maps.event.addListener(marker, 'click', (function(marker, i) {
-			return function() {
-				map.setZoom(14);
-				infowindow.setContent(locations[i][0]);
-				infowindow.open(map, marker);
-
-				map.setCenter(marker.getPosition());//locations[i][1], locations[i][2]);
-			}
-		})(marker, i));
-	}
-</script>
 @endif
 
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
