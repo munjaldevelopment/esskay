@@ -300,13 +300,13 @@
 
 			if($list_approve_sanction_letter):
 		@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('approve_sanction_letter') }}'><i class='nav-icon la la-check'></i> Approve Sanction Letters</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('approve_sanction_letter') }}'><i class='nav-icon la la-check'></i> Accepted Sanction Letters</a></li>
 	@php
 			endif;
 
 			if($list_reject_sanction_letter):
 		@endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_sanction_letter') }}'><i class='nav-icon la la-times'></i> Reject Sanction Letters</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_sanction_letter') }}'><i class='nav-icon la la-times'></i> Rejected Sanction Letters</a></li>
 	@php
 			endif;
 	@endphp
@@ -378,13 +378,13 @@
 
 	if($list_accept_transaction):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('accept_transaction') }}'><i class='nav-icon la la-check'></i> Accept Transaction</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('accept_transaction') }}'><i class='nav-icon la la-check'></i> Accepted Transaction</a></li>
 @php
 	endif;
 
 	if($list_reject_transaction):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_transaction') }}'><i class='nav-icon la la-times'></i> Reject Transaction</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_transaction') }}'><i class='nav-icon la la-times'></i> Rejected Transaction</a></li>
 @php
 	endif;
 
@@ -396,13 +396,13 @@
 
 	if($list_accept_transaction_document):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('accept_transaction_document') }}'><i class='nav-icon la la-check'></i> Accept Transaction Document</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('accept_transaction_document') }}'><i class='nav-icon la la-check'></i> Accepted Transaction Document</a></li>
 @php
 	endif;
 
 	if($list_reject_transaction_document):
 @endphp
-		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_transaction_document') }}'><i class='nav-icon la la-times'></i> Reject Transaction Document</a></li>
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_transaction_document') }}'><i class='nav-icon la la-times'></i> Rejected Transaction Document</a></li>
 @php
 	endif;
 @endphp
