@@ -17,7 +17,13 @@ class InsightLocationCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitInsightLocationStore; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitInsightLocationUpdate; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CloneOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\BulkCloneOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\BulkDeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
 
     use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
 
