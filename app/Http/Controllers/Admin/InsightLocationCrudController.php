@@ -42,7 +42,7 @@ class InsightLocationCrudController extends CrudController
 
         $list_insight_location = backpack_user()->hasPermissionTo('list_insight_location');
 
-        if($list_current_deal_category)
+        if($list_insight_location)
         {
             $this->crud->allowAccess('show');
             $this->crud->allowAccess('reorder');
