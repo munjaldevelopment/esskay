@@ -96,7 +96,27 @@ Route::group([
 
     //strong_liability
     Route::post('checkerstrongLiabilityProfile/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfile');
-    Route::post('checkerstrongLiabilityProfileReject/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileReject');
+    Route::post('checkerstrongLiabilityProfileReject/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileReject');//strong_liability
+    
+    //strong_liability_tables
+    Route::post('checkerstrongLiabilityProfileTable/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileTable');
+    Route::post('checkerstrongLiabilityProfileTableReject/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileTableReject');
+
+    //strong_liability_profile_ration
+    Route::post('checkerstrongLiabilityProfileRatio/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileRatio');
+    Route::post('checkerstrongLiabilityProfileRatioReject/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileRatioReject');
+
+    //strong_liability_profile_driving
+    Route::post('checkerstrongLiabilityProfileDriving/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileDriving');
+    Route::post('checkerstrongLiabilityProfileDrivingReject/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileDrivingReject');
+
+    //strong_liability_profile_well_table
+    Route::post('checkerstrongLiabilityProfileWellTable/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileWellTable');
+    Route::post('checkerstrongLiabilityProfileWellTableReject/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileWellTableReject'); 
+
+    //strong_liability_profile_overall
+    Route::post('checkerstrongLiabilityProfileOverall/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileOverall');
+    Route::post('checkerstrongLiabilityProfileOverallReject/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileOverallReject');
 
 
     Route::get('getLastLenderBanking', 'LenderBankingDetailCrudController@getLastLenderBanking');

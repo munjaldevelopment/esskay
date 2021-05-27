@@ -52,6 +52,30 @@ class StrongLiabilityProfileRatioCrudController extends CrudController
             $this->crud->allowAccess('show');
             $this->crud->enableExportButtons();
 
+            $checker_strong_liability_profile_ratio = backpack_user()->hasPermissionTo('checker_strong_liability_profile_ratio');
+
+            if($checker_strong_liability_profile_ratio)
+            {
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    $this->crud->allowAccess(['checker_strong_liability_profile_ratio', 'revise', 'delete']);
+                }
+                else
+                {
+                    if($checker_strong_liability_profile_ratio)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_strong_liability_profile_ratio']);
+                    }
+                }
+            }
+            else
+            {
+                $this->crud->denyAccess(['checker_strong_liability_profile_ratio', 'revise', 'delete']);
+            }
+
             $this->crud->addColumn([
                     'label'     => 'Financial Year',
                     'type'      => 'text',
@@ -94,15 +118,19 @@ class StrongLiabilityProfileRatioCrudController extends CrudController
                     'name'      => 'amount2',
                     ]);                    
 
-            $this->crud->addField([
+            
+        $this->crud->addField([
                     'label'     => 'Status',
-                    'type'      => 'checkbox',
+                    'type'      => 'select2_from_array',
                     'name'      => 'strong_liability_ratio_status',
+                    'options'   => array('0' => 'Pending', '1' => 'Accept', '2' => 'Reject')
                 ]);
             
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportStrongLiabilityRatioButton', 'end');
             $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importStrongLiabilityRatioButton', 'end');
 
+             $this->crud->addButtonFromView('line', 'checker_strong_liability_profile_ratio', 'checker_strong_liability_profile_ratio', 'end');
+             
             $this->crud->setCreateView('admin.create-lender-banking-form');
             $this->crud->setUpdateView('admin.edit-lender-banking-form');
         }
