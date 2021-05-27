@@ -84,7 +84,7 @@
 			<script type="text/javascript">
 				var locations = [
 					@foreach($insightLocationData as $row)
-					['<p>Ess Kay Fincorp Limited, Dhuleshwar Garden, </p><p> Jaipur,  Rajasthan 302001</p>', 26.9142179,75.798021, 4],
+					['{!! $row->office_location !!}', {{ $row->office_lat }}, {{ $row->office_long }}, {{ $row->lft }}],
 					@endforeach
 				];
 
