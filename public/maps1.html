@@ -49,13 +49,6 @@
 				title: locations[i][0],
 			});
 
-			map.addListener("center_changed", () => {
-				// 3 seconds after the center of the map has changed, pan back to the
-				// marker.
-				window.setTimeout(() => {
-					//map.panTo(marker.getPosition());
-				}, 3000);
-			});
 
 			google.maps.event.addListener(marker, 'click', (function(marker, i) {
 				return function() {
