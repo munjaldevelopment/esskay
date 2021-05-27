@@ -56,7 +56,7 @@ class InsightLocationCrudController extends CrudController
             $this->crud->addColumn([
                                     'name' => 'office_location',
                                     'label' => 'Location',
-                                    'type' => 'text',
+                                    'type' => 'html',
                                 ]);
             $this->crud->addColumn([
                                     'name' => 'office_lat',
