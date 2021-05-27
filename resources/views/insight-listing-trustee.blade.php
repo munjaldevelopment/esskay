@@ -84,7 +84,7 @@
 			<script type="text/javascript">
 				var locations = [
 					@foreach($insightLocationData as $row)
-					['{!! $row->office_location !!}', {{ $row->office_lat }}, {{ $row->office_long }}, {{ $row->lft }}],
+					['{!! str_replace("\r\n", "", $row->office_location) !!}', {{ $row->office_lat }}, {{ $row->office_long }}, {{ $row->lft }}],
 					@endforeach
 				];
 
