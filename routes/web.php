@@ -329,7 +329,7 @@ Route::get('/enter_document_data', function () {
 Route::get('/test', function()
 {
 	$beautymail = app()->make(Snowfire\Beautymail\Beautymail::class, ['settings' => null]);
-	$beautymail->send('emails.welcome', [], function($message)
+	$beautymail->send('emails.esskay', [], function($message)
 	{
 		$message
 			->from('communication@skfin.in', 'ESSKAY FINCORP')
