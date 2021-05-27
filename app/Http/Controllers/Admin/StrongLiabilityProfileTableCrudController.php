@@ -47,6 +47,31 @@ class StrongLiabilityProfileTableCrudController extends CrudController
             $this->crud->allowAccess('show');
             $this->crud->enableExportButtons();
 
+
+            $checker_strong_liability_profile_table = backpack_user()->hasPermissionTo('checker_strong_liability_profile_table');
+
+            if($checker_strong_liability_profile_table)
+            {
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    $this->crud->allowAccess(['checker_strong_liability_profile_table', 'revise', 'delete']);
+                }
+                else
+                {
+                    if($checker_strong_liability_profile_table)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_strong_liability_profile_table']);
+                    }
+                }
+            }
+            else
+            {
+                $this->crud->denyAccess(['checker_strong_liability_profile_table', 'revise', 'delete']);
+            }
+
             //lender', 'amount1', 'amount1_lender', 'amount2', 'amount2_lender', 'amount3', 'amount3_lender', 'amount4', 'amount4_lender', 'amount5', 'amount5_lender', 'amount6', 'amount6_lender', 'amount7', 'amount7_lender', 'amount8', 'amount8_lender', 'strong_liability_table_status
             
             $this->crud->addColumn([
@@ -163,14 +188,18 @@ class StrongLiabilityProfileTableCrudController extends CrudController
                     'name'      => 'amount7_lender',
                     ]);
 
-            $this->crud->addField([
+            
+             $this->crud->addField([
                     'label'     => 'Status',
-                    'type'      => 'checkbox',
+                    'type'      => 'select2_from_array',
                     'name'      => 'strong_liability_table_status',
+                    'options'   => array('0' => 'Pending', '1' => 'Accept', '2' => 'Reject')
                 ]);
             
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportStrongLiabilityTableButton', 'end');
             $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importStrongLiabilityTableButton', 'end');
+
+            $this->crud->addButtonFromView('line', 'checker_strong_liability_profile_table', 'checker_strong_liability_profile_table', 'end');
 
             $this->crud->setCreateView('admin.create-lender-banking-form');
             $this->crud->setUpdateView('admin.edit-lender-banking-form');

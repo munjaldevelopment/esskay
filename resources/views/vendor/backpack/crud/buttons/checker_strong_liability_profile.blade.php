@@ -1,10 +1,10 @@
-@if ($crud->hasAccess('checker_operational_highlight'))
-	@if(($crud->hasAccess('checker_operational_highlight')) && ($entry->operational_highlight_status != 1))
-	<a href="javascript:void(0)" onclick="checkeroperationalHighlightEntry(this)" data-route="{{ backpack_url('checkerOperationalHighlight/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerOperationalHighlight"><i class="la la-check"></i> {{ trans('backpack::crud.approveTransaction') }}</a>
+@if ($crud->hasAccess('checker_strong_liability_profile'))
+	@if(($crud->hasAccess('checker_strong_liability_profile')) && ($entry->strong_liability_status != 1))
+	<a href="javascript:void(0)" onclick="checkerstrongLiabilityProfileEntry(this)" data-route="{{ backpack_url('checkerstrongLiabilityProfile/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerstrongLiabilityProfile"><i class="la la-check"></i> {{ trans('backpack::crud.approveTransaction') }}</a>
 	@endif
 
-	@if(($crud->hasAccess('checker_operational_highlight')) && ($entry->operational_highlight_status != 2))
-	<a href="javascript:void(0)" onclick="checkerOperationalHighlightRejectEntry(this)" data-route="{{ backpack_url('checkerOperationalHighlightReject/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerOperationalHighlight"><i class="la la-times"></i> {{ trans('backpack::crud.rejectTransaction') }}</a>
+	@if(($crud->hasAccess('checker_strong_liability_profile')) && ($entry->strong_liability_status != 2))
+	<a href="javascript:void(0)" onclick="checkerstrongLiabilityProfileRejectEntry(this)" data-route="{{ backpack_url('checkerstrongLiabilityProfileReject/'.$entry->getKey()) }}" class="btn btn-sm btn-link" data-button-type="checkerstrongLiabilityProfile"><i class="la la-times"></i> {{ trans('backpack::crud.rejectTransaction') }}</a>
 	@endif
 @endif
 
@@ -13,10 +13,10 @@
 {{-- - pushed to the end of the page, after jQuery is loaded, for non-AJAX operations (ex: Show) --}}
 @push('after_scripts') @if (request()->ajax()) @endpush @endif
 <script>
-  	if (typeof checkerOperationalHighlightRejectEntry != 'function') {
-		$("[data-button-type=checkerOperationalHighlight]").unbind('click');
+  	if (typeof checkerstrongLiabilityProfileRejectEntry != 'function') {
+		$("[data-button-type=checkerstrongLiabilityProfile]").unbind('click');
 
-	  	function checkerOperationalHighlightRejectEntry(button) {
+	  	function checkerstrongLiabilityProfileRejectEntry(button) {
 			// ask for confirmation before deleting an item
 			// e.preventDefault();
 			var button = $(button);
@@ -74,10 +74,10 @@
       }
 	}
 
-	if (typeof checkeroperationalHighlightEntry != 'function') {
-	  	$("[data-button-type=checkerOperationalHighlight]").unbind('click');
+	if (typeof checkerstrongLiabilityProfileEntry != 'function') {
+	  	$("[data-button-type=checkerstrongLiabilityProfile]").unbind('click');
 
-	  	function checkeroperationalHighlightEntry(button) {
+	  	function checkerstrongLiabilityProfileEntry(button) {
 	    	// ask for confirmation before deleting an item
 	      	// e.preventDefault();
 	      	var button = $(button);
@@ -136,6 +136,6 @@
 	}
 
 	// make it so that the function above is run after each DataTable draw event
-	// crud.addFunctionToDataTablesDrawEventQueue('checkeroperationalHighlightEntry');
+	// crud.addFunctionToDataTablesDrawEventQueue('checkerstrongLiabilityProfileEntry');
 </script>
 @if (!request()->ajax()) @endpush @endif

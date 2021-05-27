@@ -29,6 +29,32 @@ class LiabilityProfileSliderCrudController extends CrudController
         CRUD::setModel(\App\Models\LiabilityProfileSlider::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/liabilityprofileslider');
         CRUD::setEntityNameStrings('liability profile slider', 'liability profile sliders');
+
+        $checker_liability_profile_slider = backpack_user()->hasPermissionTo('checker_liability_profile_slider');
+
+            if($checker_liability_profile_slider)
+            {
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    $this->crud->allowAccess(['checker_liability_profile_slider', 'revise', 'delete']);
+                }
+                else
+                {
+                    if($checker_liability_profile_slider)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_liability_profile_slider']);
+                    }
+                }
+            }
+            else
+            {
+                $this->crud->denyAccess(['checker_liability_profile_slider', 'revise', 'delete']);
+            }
+
+            $this->crud->addButtonFromView('line', 'checker_liability_profile_slider', 'checker_liability_profile_slider', 'end');
     }
 
     /**
@@ -94,9 +120,11 @@ class LiabilityProfileSliderCrudController extends CrudController
             'entity' => 'profileCat',
             'attribute' => 'name',
         ]);
-        CRUD::addField([
-            'name' => 'status',
-            'label' => 'Status',
+        $this->crud->addField([
+            'label'     => 'Status',
+            'type'      => 'select2_from_array',
+            'name'      => 'status',
+            'options'   => array('0' => 'Pending', '1' => 'Accept', '2' => 'Reject')
         ]);
 
         /**

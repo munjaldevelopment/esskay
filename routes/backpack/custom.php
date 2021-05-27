@@ -94,6 +94,39 @@ Route::group([
     Route::post('checkerLiquidity/{document_id}', 'DocumentCrudController@checkerLiquidity');
     Route::post('checkerLiquidityReject/{document_id}', 'DocumentCrudController@checkerLiquidityReject');
 
+    //strong_liability
+    Route::post('checkerstrongLiabilityProfile/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfile');
+    Route::post('checkerstrongLiabilityProfileReject/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileReject');//strong_liability
+    
+    //strong_liability_tables
+    Route::post('checkerstrongLiabilityProfileTable/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileTable');
+    Route::post('checkerstrongLiabilityProfileTableReject/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileTableReject');
+
+    //strong_liability_profile_ration
+    Route::post('checkerstrongLiabilityProfileRatio/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileRatio');
+    Route::post('checkerstrongLiabilityProfileRatioReject/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileRatioReject');
+
+    //strong_liability_profile_driving
+    Route::post('checkerstrongLiabilityProfileDriving/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileDriving');
+    Route::post('checkerstrongLiabilityProfileDrivingReject/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileDrivingReject');
+
+    //strong_liability_profile_well_table
+    Route::post('checkerstrongLiabilityProfileWellTable/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileWellTable');
+    Route::post('checkerstrongLiabilityProfileWellTableReject/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileWellTableReject'); 
+
+    //strong_liability_profile_overall
+    Route::post('checkerstrongLiabilityProfileOverall/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileOverall');
+    Route::post('checkerstrongLiabilityProfileOverallReject/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileOverallReject');
+
+    //liability_profile_category
+    Route::post('checkerliabilityProfileCategory/{document_id}', 'DocumentCrudController@checkerliabilityProfileCategory');
+    Route::post('checkerliabilityProfileCategoryReject/{document_id}', 'DocumentCrudController@checkerliabilityProfileCategoryReject');
+
+    //liability_profile_slider
+    Route::post('checkerliabilityProfileSlider/{document_id}', 'DocumentCrudController@checkerliabilityProfileSlider');
+    Route::post('checkerliabilityProfileSliderReject/{document_id}', 'DocumentCrudController@checkerliabilityProfileSliderReject');
+
+
     Route::get('getLastLenderBanking', 'LenderBankingDetailCrudController@getLastLenderBanking');
     Route::get('getLastLenderBankingDetail', 'LenderBankingDetailCrudController@getLastLenderBankingDetail');
     
