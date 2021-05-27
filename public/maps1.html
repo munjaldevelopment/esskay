@@ -56,7 +56,7 @@
 					infowindow.setContent(locations[i][0]);
 					infowindow.open(map, marker);
 
-					map.setCenter(locations[i][1], locations[i][2]);
+					map.setCenter(marker.getPosition());//locations[i][1], locations[i][2]);
 				}
 			})(marker, i));
 		}
