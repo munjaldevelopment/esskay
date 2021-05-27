@@ -94,6 +94,11 @@ Route::group([
     Route::post('checkerLiquidity/{document_id}', 'DocumentCrudController@checkerLiquidity');
     Route::post('checkerLiquidityReject/{document_id}', 'DocumentCrudController@checkerLiquidityReject');
 
+    //strong_liability
+    Route::post('checkerstrongLiabilityProfile/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfile');
+    Route::post('checkerstrongLiabilityProfileReject/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileReject');
+
+
     Route::get('getLastLenderBanking', 'LenderBankingDetailCrudController@getLastLenderBanking');
     Route::get('getLastLenderBankingDetail', 'LenderBankingDetailCrudController@getLastLenderBankingDetail');
     

@@ -853,4 +853,17 @@ class DocumentCrudController extends CrudController
 		$updateData = array('liquidity_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('liquidity')->where(['id' => $document_id])->update($updateData);
 	}
+
+	// strong_liability
+	public function checkerstrongLiabilityProfile($document_id)
+	{
+		$updateData = array('strong_liability_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('strong_liability_profiles')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerstrongLiabilityProfileReject($document_id)
+	{
+		$updateData = array('strong_liability_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('strong_liability_profiles')->where(['id' => $document_id])->update($updateData);
+	}
 }
