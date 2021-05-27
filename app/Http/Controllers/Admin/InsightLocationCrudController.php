@@ -77,7 +77,7 @@ class InsightLocationCrudController extends CrudController
             $this->crud->addField([
                                     'name' => 'office_location',
                                     'label' => 'Location',
-                                    'type' => 'text',
+                                    'type' => 'ckeditor',
                                     'tab' => 'General'
                                 ]);
             $this->crud->addField([
