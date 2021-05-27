@@ -981,4 +981,30 @@ class DocumentCrudController extends CrudController
 		$updateData = array('covid_relief_borrower_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('covid_relief_borrowers')->where(['id' => $document_id])->update($updateData);
 	}
+
+	// current_deal_category
+	public function checkercurrentDealCategory($document_id)
+	{
+		$updateData = array('status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('current_deal_categories')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkercurrentDealCategoryReject($document_id)
+	{
+		$updateData = array('status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('current_deal_categories')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// current_deal
+	public function checkercurrentDeal($document_id)
+	{
+		$updateData = array('status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('current_deals')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkercurrentDealReject($document_id)
+	{
+		$updateData = array('status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('current_deals')->where(['id' => $document_id])->update($updateData);
+	}
 }

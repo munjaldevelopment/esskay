@@ -33,6 +33,11 @@ class CurrentDealCrudController extends CrudController
         CRUD::setEntityNameStrings('Current Deal', 'current deals');
 
         $list_current_deal = backpack_user()->hasPermissionTo('list_current_deal');
+
+        
+
+           
+
         if($list_current_deal)
         {
             $this->crud->allowAccess('show');
@@ -66,7 +71,7 @@ class CurrentDealCrudController extends CrudController
             {
                 $this->crud->addClause('where', 'status', '=', "0");
             }
-            
+             $this->crud->addButtonFromView('line', 'checker_current_deal', 'checker_current_deal', 'end');
             $this->crud->addColumn([
                     'label'     => 'Deal Category',
                     'type'      => 'select',
@@ -154,14 +159,16 @@ class CurrentDealCrudController extends CrudController
                                     'type' => 'text',
                                     'tab' => 'General'
                                 ]);
-                                
+
             $this->crud->addField([
                                     'name' => 'status',
                                     'label' => 'Status',
                                     'type' => 'select2_from_array',
-                                    'options' => ['0' => 'Inactive', '1' => 'Active'],
+                                    'options'   => array('0' => 'Pending', '1' => 'Accept', '2' => 'Reject'),
                                     'tab' => 'General'
-                                ]);
+
+                                 ]);
+            
 
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportCurrentDealButton', 'end');
             $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importCurrentDealButton', 'end');

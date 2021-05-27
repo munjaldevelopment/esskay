@@ -135,6 +135,15 @@ Route::group([
     Route::post('checkercovidReliefBorrowerReject/{document_id}', 'DocumentCrudController@checkercovidReliefBorrowerReject');
 
 
+    //current_deal
+    Route::post('checkercurrentDeal/{document_id}', 'DocumentCrudController@checkercurrentDeal');
+    Route::post('checkercurrentDealReject/{document_id}', 'DocumentCrudController@checkercurrentDealReject');
+
+    //current_deal_category
+    Route::post('checkercurrentDealCategory/{document_id}', 'DocumentCrudController@checkercurrentDealCategory');
+    Route::post('checkercurrentDealCategoryReject/{document_id}', 'DocumentCrudController@checkercurrentDealCategoryReject');
+
+
     Route::get('getLastLenderBanking', 'LenderBankingDetailCrudController@getLastLenderBanking');
     Route::get('getLastLenderBankingDetail', 'LenderBankingDetailCrudController@getLastLenderBankingDetail');
     
