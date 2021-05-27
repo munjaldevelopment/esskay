@@ -31,6 +31,9 @@
 	<script src="{{ asset('public/assets/') }}/js/custom-trustee.js"></script>
 	
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+	
 	
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 </head>

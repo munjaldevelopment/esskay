@@ -754,16 +754,13 @@
 @endif
 
 @if($insightCatData->id == 3)
-<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 <style type="text/css">
-		/* Always set the map height explicitly to define the size of the div
-   * element that contains the map. */
-  #map {
-    height: 100%;
-  }
-
+	/* Always set the map height explicitly to define the size of the div
+	* element that contains the map. */
+	#map {
+		height: 100%;
+	}
 </style>
-
 <script type="text/javascript">
 	var locations = [
 		['<p>Ess Kay Fincorp Limited, Dhuleshwar Garden, </p><p> Jaipur,  Rajasthan 302001</p>', 26.9142179,75.798021, 4],
