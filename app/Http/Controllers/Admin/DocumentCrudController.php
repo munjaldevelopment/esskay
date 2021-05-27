@@ -955,4 +955,30 @@ class DocumentCrudController extends CrudController
 		$updateData = array('status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('liability_profile_slider')->where(['id' => $document_id])->update($updateData);
 	}
+
+	// checker_covid_relief_lender
+	public function checkercovidReliefLender($document_id)
+	{
+		$updateData = array('covid_relief_lender_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('covid_relief_lenders')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkercovidReliefLenderReject($document_id)
+	{
+		$updateData = array('covid_relief_lender_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('covid_relief_lenders')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// checker_covid_relief_lender
+	public function checkercovidReliefBorrower($document_id)
+	{
+		$updateData = array('covid_relief_borrower_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('covid_relief_borrowers')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkercovidReliefBorrowerReject($document_id)
+	{
+		$updateData = array('covid_relief_borrower_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('covid_relief_borrowers')->where(['id' => $document_id])->update($updateData);
+	}
 }

@@ -126,6 +126,14 @@ Route::group([
     Route::post('checkerliabilityProfileSlider/{document_id}', 'DocumentCrudController@checkerliabilityProfileSlider');
     Route::post('checkerliabilityProfileSliderReject/{document_id}', 'DocumentCrudController@checkerliabilityProfileSliderReject');
 
+    //covid_relief_lender
+    Route::post('checkercovidReliefLender/{document_id}', 'DocumentCrudController@checkercovidReliefLender');
+    Route::post('checkercovidReliefLenderReject/{document_id}', 'DocumentCrudController@checkercovidReliefLenderReject');
+
+    //covid_relief_borrower
+    Route::post('checkercovidReliefBorrower/{document_id}', 'DocumentCrudController@checkercovidReliefBorrower');
+    Route::post('checkercovidReliefBorrowerReject/{document_id}', 'DocumentCrudController@checkercovidReliefBorrowerReject');
+
 
     Route::get('getLastLenderBanking', 'LenderBankingDetailCrudController@getLastLenderBanking');
     Route::get('getLastLenderBankingDetail', 'LenderBankingDetailCrudController@getLastLenderBankingDetail');

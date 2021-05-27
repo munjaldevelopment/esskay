@@ -67,6 +67,8 @@ class CovidReliefBorrowerCrudController extends CrudController
                 $this->crud->addClause('where', 'status', '=', "0");
             }
             
+            $this->crud->addButtonFromView('line', 'checker_covid_relief_borrower', 'checker_covid_relief_borrower', 'end');
+            
             $this->crud->addColumn([
                                     'name' => 'particulars',
                                     'label' => 'Particular',
@@ -134,7 +136,7 @@ class CovidReliefBorrowerCrudController extends CrudController
                                     'name' => 'covid_relief_borrower_status',
                                     'label' => 'Status',
                                     'type' => 'select2_from_array',
-                                    'options' => ['0' => 'Inactive', '1' => 'Active'],
+                                    'options'   => array('0' => 'Pending', '1' => 'Accept', '2' => 'Reject'),
                                     'tab' => 'Approve'
                                 ]);
         }
@@ -167,7 +169,7 @@ class CovidReliefBorrowerCrudController extends CrudController
     {
         CRUD::setValidation(CovidReliefBorrowerRequest::class);
 
-        CRUD::setFromDb(); // fields
+        //CRUD::setFromDb(); // fields
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
