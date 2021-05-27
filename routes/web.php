@@ -336,6 +336,7 @@ Route::get('/test', function()
 			->to('munjaldevelopment@gmail.com', 'Munjal Mayank')
 			->cc('abhishekdevelopment@gmail.com', 'Abhishek')
 			->cc('milankhadiya@yahoo.co.in', 'Milan Khadiya')
+			->cc('jitesh.gupta@skfin.in', 'Jitesh Gupta')
 			->subject('Welcome!');
 	});
 
