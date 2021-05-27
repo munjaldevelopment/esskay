@@ -21,6 +21,8 @@ class InsightLocationCrudController extends CrudController
 
     use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
 
+    use \Backpack\ReviseOperation\ReviseOperation;
+
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
