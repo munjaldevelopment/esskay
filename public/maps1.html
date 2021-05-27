@@ -59,8 +59,11 @@
 
 			google.maps.event.addListener(marker, 'click', (function(marker, i) {
 				return function() {
+					map.setZoom(14);
 					infowindow.setContent(locations[i][0]);
 					infowindow.open(map, marker);
+
+					map.setCenter(marker.getPosition());
 				}
 			})(marker, i));
 		}
