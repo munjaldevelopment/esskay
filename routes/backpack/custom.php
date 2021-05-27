@@ -270,4 +270,5 @@ Route::group([
     Route::crud('strongliabilityprofileoverall', 'StrongLiabilityProfileOverallCrudController');
     Route::crud('liabilityprofilecategory', 'LiabilityProfileCategoryCrudController');
     Route::crud('liabilityprofileslider', 'LiabilityProfileSliderCrudController');
+    Route::crud('insight_location', 'InsightLocationCrudController');
 }); // this should be the absolute last line of this file

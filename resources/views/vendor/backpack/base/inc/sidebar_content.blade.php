@@ -42,6 +42,7 @@
 	$list_covid_relief = backpack_user()->hasPermissionTo('list_covid_relief');
 	$list_covid_relief_borrower = backpack_user()->hasPermissionTo('list_covid_relief_borrower');
 
+	$list_insight_location = backpack_user()->hasPermissionTo('list_insight_location');
 
 	$list_email_sms = backpack_user()->hasPermissionTo('list_email_sms');
 	$list_lender = backpack_user()->hasPermissionTo('list_lender');
@@ -149,7 +150,7 @@
 @php
 	endif;
 
-	if($list_operational_highlight || $list_geographical_concentration || $list_product_concentration || $list_asset_quality || $list_collection_efficiency || $list_strong_liability_profile || $list_strong_liability_profile_table || $list_strong_liability_profile_ratio || $list_strong_liability_profile_driving || $list_strong_liability_profile_well_table || 	$list_strong_liability_profile_overall || $list_liability_profile_category || $list_liability_profile_slider || $list_covid_relief || $list_covid_relief_borrower):
+	if($list_operational_highlight || $list_geographical_concentration || $list_product_concentration || $list_asset_quality || $list_collection_efficiency || $list_strong_liability_profile || $list_strong_liability_profile_table || $list_strong_liability_profile_ratio || $list_strong_liability_profile_driving || $list_strong_liability_profile_well_table || 	$list_strong_liability_profile_overall || $list_liability_profile_category || $list_liability_profile_slider || $list_covid_relief || $list_covid_relief_borrower || $list_insight_location):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Insight</a>
@@ -248,14 +249,20 @@
 @endphp
 			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_lender') }}'><i class='nav-icon la la-list'></i> Covid Relief Lenders</a></li>
 @php
-	endif;
+			endif;
 
 	if($list_covid_relief_borrower):
 @endphp
 			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_borrower') }}'><i class='nav-icon la la-list'></i> Covid Relief
  Borrowers</a></li>
 @php
-	endif;
+			endif;
+
+			if($list_insight_location):
+@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('insight_location') }}'><i class='nav-icon la la-list'></i> Insight Location</a></li>
+@php
+			endif;
 		@endphp
 	</ul>
 </li>
