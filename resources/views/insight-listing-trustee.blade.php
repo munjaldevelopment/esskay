@@ -83,11 +83,9 @@
 
 			<script type="text/javascript">
 				var locations = [
+					@foreach($insightLocationData as $row)
 					['<p>Ess Kay Fincorp Limited, Dhuleshwar Garden, </p><p> Jaipur,  Rajasthan 302001</p>', 26.9142179,75.798021, 4],
-					['<p>Ess Kay IT Corporate office, Adarsh Plaza, Barodia Scheme, Gopalbari, </p><p> Jaipur, Rajasthan 302016</p>', 26.9177367,75.7928315, 5],
-					['<p>Ess Kay IT Corporate office, India Gate, </p><p> Delhi, Delhi 302001</p>', 28.6129, 77.2295, 3],
-					['<p>Ess Kay IT Corporate office, Gateway of India, </p><p>Mumbai Maharastra 302001</p>', 18.9220, 72.8347, 2],
-					['<p>Ess Kay IT Corporate office, Taj Mahal, </p><p> Uttar Pradesh 302001</p>', 27.1751, 78.0421, 1]
+					@endforeach
 				];
 
 				var map = new google.maps.Map(document.getElementById('map'), {
@@ -804,7 +802,7 @@
 	/* Always set the map height explicitly to define the size of the div
 	* element that contains the map. */
 	#map {
-		height: 400px;
+		height: 600px;
 	}
 </style>
 @endif

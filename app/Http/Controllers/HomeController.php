@@ -3195,10 +3195,14 @@ class HomeController extends Controller
 		$covidReliefData = $covidReliefDataTotal = $covidReliefDataTotal1 = array();
 		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = array();
 
+		$insightLocationData = array();
+
 		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = $chart7 = $chart8 = $chart9 = $chart10 = array();
 
 		if($request->category_id == 3)
 		{
+			$insightLocationData = \DB::table('insight_locations')->where('status', 1)->get();
+
 			$geographicalConData = \DB::table('geographical_concentrations')->where('geographical_concentration_status', 1)->get();
 
 			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
@@ -4141,6 +4145,7 @@ class HomeController extends Controller
 		$current_year = date('Y');
 		return view('insight-listing-trustee', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'chart7' => $chart7, 'chart8' => $chart8, 'chart9' => $chart9, 'chart10' => $chart10, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
 
+			'insightLocationData' => $insightLocationData,
 			'liabilityProfileData' => $liabilityProfileData,
 			'liabilityProfileTableData' => $liabilityProfileTableData,
 			'liabilityProfileTable11Data' => $liabilityProfileTable11Data,
