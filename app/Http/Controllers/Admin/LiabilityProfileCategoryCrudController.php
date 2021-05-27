@@ -31,6 +31,32 @@ class LiabilityProfileCategoryCrudController extends CrudController
         CRUD::setModel(\App\Models\LiabilityProfileCategory::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/liabilityprofilecategory');
         CRUD::setEntityNameStrings('liability profile category', 'liability profile categories');
+
+        $checker_liability_profile_category = backpack_user()->hasPermissionTo('checker_liability_profile_category');
+
+            if($checker_liability_profile_category)
+            {
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    $this->crud->allowAccess(['checker_liability_profile_category', 'revise', 'delete']);
+                }
+                else
+                {
+                    if($checker_liability_profile_category)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_liability_profile_category']);
+                    }
+                }
+            }
+            else
+            {
+                $this->crud->denyAccess(['checker_liability_profile_category', 'revise', 'delete']);
+            }
+
+            $this->crud->addButtonFromView('line', 'checker_liability_profile_category', 'checker_liability_profile_category', 'end');
     }
 
     /**
@@ -81,9 +107,12 @@ class LiabilityProfileCategoryCrudController extends CrudController
             'entity' => 'parent',
             'attribute' => 'name',
         ]);
-        CRUD::addField([
-            'name' => 'status',
-            'label' => 'Status',
+        
+        $this->crud->addField([
+            'label'     => 'Status',
+            'type'      => 'select2_from_array',
+            'name'      => 'status',
+            'options'   => array('0' => 'Pending', '1' => 'Accept', '2' => 'Reject')
         ]);
 
         /**

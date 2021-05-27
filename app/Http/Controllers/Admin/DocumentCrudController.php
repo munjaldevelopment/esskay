@@ -929,4 +929,30 @@ class DocumentCrudController extends CrudController
 		$updateData = array('strong_liability_overall_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('strong_liability_profile_overall')->where(['id' => $document_id])->update($updateData);
 	}
+
+	// liability_profile_category
+	public function checkerliabilityProfileCategory($document_id)
+	{
+		$updateData = array('status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('liability_profile_categories')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerliabilityProfileCategoryReject($document_id)
+	{
+		$updateData = array('status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('liability_profile_categories')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// liability_profile_slider
+	public function checkerliabilityProfileSlider($document_id)
+	{
+		$updateData = array('status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('liability_profile_slider')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerliabilityProfileSliderReject($document_id)
+	{
+		$updateData = array('status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('liability_profile_slider')->where(['id' => $document_id])->update($updateData);
+	}
 }

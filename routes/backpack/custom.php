@@ -118,6 +118,14 @@ Route::group([
     Route::post('checkerstrongLiabilityProfileOverall/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileOverall');
     Route::post('checkerstrongLiabilityProfileOverallReject/{document_id}', 'DocumentCrudController@checkerstrongLiabilityProfileOverallReject');
 
+    //liability_profile_category
+    Route::post('checkerliabilityProfileCategory/{document_id}', 'DocumentCrudController@checkerliabilityProfileCategory');
+    Route::post('checkerliabilityProfileCategoryReject/{document_id}', 'DocumentCrudController@checkerliabilityProfileCategoryReject');
+
+    //liability_profile_slider
+    Route::post('checkerliabilityProfileSlider/{document_id}', 'DocumentCrudController@checkerliabilityProfileSlider');
+    Route::post('checkerliabilityProfileSliderReject/{document_id}', 'DocumentCrudController@checkerliabilityProfileSliderReject');
+
 
     Route::get('getLastLenderBanking', 'LenderBankingDetailCrudController@getLastLenderBanking');
     Route::get('getLastLenderBankingDetail', 'LenderBankingDetailCrudController@getLastLenderBankingDetail');
