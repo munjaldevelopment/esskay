@@ -73,11 +73,16 @@
 
 				{!! $chart1 !!}
 			@endif
-
-			<br /><div id="map"></div>
 		</div>
 	</div>
-	
+
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			<h2>Map</h2>
+			<div id="map"></div>			
+		</div>
+	</div>
+
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">
 			<h3>Outstanding As on (In Cr.)</h3>
