@@ -90,8 +90,8 @@
 							@endforeach
 						];
 
-						const directionsService = new google.maps.DirectionsService();
-  						const directionsRenderer = new google.maps.DirectionsRenderer();
+						var directionsService = new google.maps.DirectionsService();
+  						var directionsRenderer = new google.maps.DirectionsRenderer();
 
 						var map = new google.maps.Map(document.getElementById('map'), {
 							zoom: 5,
