@@ -328,18 +328,26 @@ Route::get('/enter_document_data', function () {
 // Send mail
 Route::get('/send-mail', function()
 {
-	$beautymail = app()->make(Snowfire\Beautymail\Beautymail::class, ['settings' => null]);
-	$userData = \DB::table('id', '2')->first();
-
-	$beautymail->send('emails.esskay', [], function($message)
+	$sms_status = config('general.sms_status');
+			
+	if($sms_status)
 	{
-		$message
-			->from('communication@skfin.in', 'ESSKAY FINCORP')
-			->to('munjaldevelopment@gmail.com', 'Munjal Mayank')
-			->cc('abhishekdevelopment@gmail.com', 'Abhishek')
-			->cc('milankhadiya@yahoo.co.in', 'Milan Khadiya')
-			->cc('jitesh.gupta@skfin.in', 'Jitesh Gupta')
-			->subject('Welcome!');
-	});
+		$beautymail = app()->make(Snowfire\Beautymail\Beautymail::class, ['settings' => null]);
+		$userData = \DB::table('trustees')->where('id', '1')->first();
+		dd($userData);
 
+		$strmsg = "Dear ".$userData->name.", You have assigned a document category. ";
+		$emailData = array('first_name' => $userData->name, 'email' => $userData->email, 'telephone' => $userData->phone, 'user_message' => $strmsg);
+
+		$beautymail->send('emails.esskay', $emailData, function($message)
+		{
+			$message
+				->from('communication@skfin.in', 'ESSKAY FINCORP')
+				->to('munjaldevelopment@gmail.com', 'Munjal Mayank')
+				//->cc('abhishekdevelopment@gmail.com', 'Abhishek')
+				//->cc('milankhadiya@yahoo.co.in', 'Milan Khadiya')
+				//->cc('jitesh.gupta@skfin.in', 'Jitesh Gupta')
+				->subject($strmsg);
+		});
+	}
 });
