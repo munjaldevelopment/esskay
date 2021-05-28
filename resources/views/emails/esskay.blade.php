@@ -236,70 +236,20 @@
                                                         <li style="margin:0;padding:0;float:left;width:100%">
                                                             <p class="packageOrderTitle" style="margin:0;float:left;width:100%;font-family:'Lato',sans-serif;color:#282c3f;font-size:25px">
                                                                 
-                                                                Package Details
+                                                                {{ $doc_heading }}
                                                             </p>
                                                         </li>
-                                                        <ul style="margin-top:16px!important;padding:0;font-family:'Lato',sans-serif;float:left;width:100%;list-style:none;line-height:normal">
-                                                            <li class="packetOrderId" style="margin:0;padding:0;float:left;width:100%;font-size:13px;color:#94969f;letter-spacing:0.39px">Document :</li>
-                                                        <li class="packetOrderIdValue" style="padding:0;float:left;width:100%;font-size:18px;font-family:'Lato',sans-serif;color:#282c3f;margin-top:4px;margin-left:0" id="OrderId">{{ $doc_heading }}</li>
                                                     </ul>
-                                                </ul>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
 
-                                        <tr style="margin:0;padding:0">
-                                            <td class="productListContainerTD" style="margin:0;padding:20px 30px 24px 30px;background-color:white;border-radius:8px;font-size:17px;line-height:23px;color:#7e818c;border:solid 0.5px rgba(190,147,71,0.11);padding-top:24px;border-top-left-radius:0;border-top-right-radius:0;margin-top:0">
-                                                
-                                            </td>
-                                        </tr>
-
-                                        <tr style="margin:0;padding:0">
-                                            <td style="margin:0;padding:0">
-                                                <div>
-                                                    <div class="halfWidgetsCollectionTable" style="display:table;margin:20px 0;width:100%">
-                                                        <div class="halfWidgetsCollectionTableCell" id="AddressBlockId" style="vertical-align:top;display:table-cell;width:50%;background-repeat:no-repeat;background-size:32px;background-position:right 16px top 16px;background-image:url();border:solid 0.5px rgba(190,147,71,0.11);border-radius:4px;background-color:#ffffff">
-                                                            <div class="widgetContainerInfo" style="margin:0;font-size:17px;line-height:23px;padding:20px 20px 20px 20px;color:#282c3f">
-                                                                <p class="informationTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;color:#282c3f;font-size:25px;margin-bottom:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal">
-                                                                Shipped to</p>
-                                                                <div class="informationSubTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:16px;line-height:1.38;letter-spacing:0.29px;color:#7e818c;font-weight:normal;font-stretch:normal;font-style:normal">
-                                                                <span id="ReceiverName"><strong style="font-weight:bold;color:#3e4152">Munjal Mayank</strong>,</span>
-                                                                <span id="AddressId">T-3006,3007 Third floor, orbit mall</span>,
-                                                                <span id="LocalityId">Ajmer Road</span>,
-                                                                <span id="CityId">Jaipur</span>,
-                                                                <span id="StateId">Rajasthan</span>
-                                                                <span id="ZipcodeId">302006</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="halfWidgetsCollectionTableCell onlyDesktop" style="background-color:transparent;width:0;padding:0 10px;display:table-cell"></div>
-
-                                                        <div class="halfWidgetsCollectionTableCell" id="MyntraInsiderBlockId" style="display:table-cell;width:50%;background-repeat:no-repeat;background-size:32px;background-position:right 16px top 16px;background-image:url();border:solid 0.5px rgba(190,147,71,0.11);border-radius:4px;background-color:#fff5e1">
-                                                            <div class="widgetContainerInfo" style="margin:0;font-size:17px;line-height:23px;color:#7e818c;padding:20px 20px 20px 20px">
-                                                                <p class="informationTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:25px;margin-bottom:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;color:#be9347">
-                                                                Myntra Insider
-                                                                <span style="float:right">
-                                                                <img src="https://ci3.googleusercontent.com/proxy/KgkLRmbwvQBfQEFvk9jC-4mYhyISDR6LdzNXfYcB4TQhqkaoamLzD0qr2KBUkiwm-iB0pT3Rgk6F4KlxwQbTToUilQHaUBx7u2VpY8TFplGYZQzgQvzXiOOj91tXjhWMftrCFgQ-DuLksm7Je1fPaCQ_mdBa268TkDBoQ4j0PtSGJAKsCvSIJJ0MBywrHxNETz3LakHlvArPUG-qcg=s0-d-e1-ft#https://assets.myntassets.com/assets/images/retaillabs/2020/1/20/3eb3024f-db6d-45a4-ba8c-1dda2948789f1579503391943-ic_core_loyalty-3x.png" style="width:28px;object-fit:contain" class="CToWUd">
-                                                                </span>
-                                                                </p>
-                                                                <p class="earnedPoints" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:1.38;letter-spacing:normal;color:#535766">
-                                                                You have earned
-                                                                <strong style="margin:0;padding:0;font-family:'Lato',sans-serif;font-weight:bold;color:#3e4152" id="MyntraInsiderPointId">128*</strong> Insider
-                                                                points
-                                                                for this order. </p>
-                                                                <p class="myntraPoint" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:12px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:1.33;letter-spacing:normal;color:#7e818c;margin-top:16px">
-                                                                * These points will get added into your Insider account after the return / exchange period of the products.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="halfWidgetsCollectionTable" style="display:table;margin-top:20px;width:100%">
-                                                        <div class="halfWidgetsCollectionTableCell onlyDesktop" style="background-color:transparent;width:0;padding:0 10px;display:table-cell"></div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr></tbody></table>
+                                            <tr style="margin:0;padding:0">
+                                                <td class="productListContainerTD" style="margin:0;padding:20px 30px 24px 30px;background-color:white;border-radius:8px;font-size:17px;line-height:23px;color:#7e818c;border:solid 0.5px rgba(190,147,71,0.11);padding-top:24px;border-top-left-radius:0;border-top-right-radius:0;margin-top:0">
+                                                    
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                     </td>
                                 </tr>
                             </tbody></table>
