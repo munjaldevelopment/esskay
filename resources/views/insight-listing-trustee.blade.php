@@ -84,6 +84,25 @@
 					<div id="map"></div>
 
 					<script type="text/javascript">
+						function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+							directionsService.route({
+						      	origin: {
+						        	query: document.getElementById("start").value,
+						      	},
+						      	destination: {
+						        	query: document.getElementById("end").value,
+						      	},
+						      	travelMode: google.maps.TravelMode.DRIVING,
+						    },
+						    (response, status) => {
+						    	if (status === "OK") {
+						        	directionsRenderer.setDirections(response);
+						      	} else {
+						        	window.alert("Directions request failed due to " + status);
+						      	}
+						    });
+						}
+
 						var locations = [
 							@foreach($insightLocationData as $row)
 							['{!! str_replace("\r\n", "", $row->office_location) !!}', {{ $row->office_lat }}, {{ $row->office_long }}, {{ $row->lft }}],
