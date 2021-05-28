@@ -346,8 +346,8 @@ Route::get('/send-mail', function()
 				->from('communication@skfin.in', 'ESSKAY FINCORP')
 				->to('munjaldevelopment@gmail.com', 'Munjal Mayank')
 				//->cc('abhishekdevelopment@gmail.com', 'Abhishek')
-				//->cc('milankhadiya@yahoo.co.in', 'Milan Khadiya')
-				//->cc('jitesh.gupta@skfin.in', 'Jitesh Gupta')
+				->cc('milankhadiya@yahoo.co.in', 'Milan Khadiya')
+				->cc('jitesh.gupta@skfin.in', 'Jitesh Gupta')
 				->subject("Dear ".$emailData['first_name'].", You have assigned a document category. ");
 		});
 	}
