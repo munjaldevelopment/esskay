@@ -334,7 +334,7 @@ Route::get('/send-mail', function()
 	{
 		$beautymail = app()->make(Snowfire\Beautymail\Beautymail::class, ['settings' => null]);
 		$userData = \DB::table('trustees')->where('id', '1')->first();
-		dd($userData);
+		//dd($userData);
 
 		$strmsg = "Dear ".$userData->name.", You have assigned a document category. ";
 		$emailData = array('first_name' => $userData->name, 'email' => $userData->email, 'telephone' => $userData->phone, 'user_message' => $strmsg);
