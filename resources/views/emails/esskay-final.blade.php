@@ -126,7 +126,7 @@
                                                                         <tr style="margin:0;padding:0">
                                                                             <td style="padding:0% 3% 0% 0%" colspan="2">
                                                                                 <p class="subStatusText" style="line-height:1.38;padding:0;float:left;width:100%;font-size:16px;opacity:0.9;font-family:'Lato',sans-serif;margin-top:10px">
-                                                                                    Admin has uploaded new document named {{ $doc_heading }}
+                                                                                    We know you can't wait to get your hands on them. Our team is working hard while ensuring highest safety standards in these tough times. Deliveries may take longer than usual, You can track your order below.
 
                                                                                 </p>
                                                                             </td>
@@ -158,31 +158,59 @@
                                     </tr>
                                 </tbody></table>
                             </td>
-                        </tr> 
-                    </tbody></table>
-                </td>
-            </tr>
+                        </tr> </tbody></table>
+                    </td>
+                </tr>
+                <tr style="margin:0;padding:0">
+                    <td style="padding:0;float:none;margin:0 auto;width:100%" width="100%">
+                        <table class="mainInner" style="float:none;margin:0 auto;width:100%" width="100%">
+                            <tbody><tr style="margin:0;padding:0">
+                                <td class="roseContainer" style="margin:0;padding:30px 40px 20px 40px;background-color:#f5f5f6!important;width:calc(100% - (40px*2));border-radius:8px" width="calc(100% - (40*2))">
+                                    <table width="100%">
+                                        <tbody>
+                                            <tr style="margin:0;padding:0">
+                                                <td class="packetIdSection" style="border-bottom-left-radius:0px;border-bottom-right-radius:0px;border-top-left-radius:8px;border-top-right-radius:8px;padding:20px 30px 24px 30px;background-color:white;margin-top:20px;font-size:17px;line-height:23px;color:#7e818c;border:solid 0.5px rgba(190,147,71,0.11);margin:0;border-bottom:solid 0.5px #eaeaec">
+                                                    <ul style="margin:0;padding:0;float:left;width:100%;font-family:'Lato',sans-serif;list-style:none;line-height:normal">
+                                                        <li style="margin:0;padding:0;float:left;width:100%">
+                                                            <p class="packageOrderTitle" style="margin:0;float:left;width:100%;font-family:'Lato',sans-serif;color:#282c3f;font-size:25px">
+                                                                
+                                                                {{ $doc_heading }}
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
 
-            <tr style="margin:0;padding:0">
-                <td style="padding:0;float:none;margin:0 auto;width:100%" width="100%">
-                    <table class="mainInner" style="float:none;margin:0 auto;width:100%" width="100%">
-                        <tbody><tr style="margin:0;padding:0">
-                            <td class="footerContainer" width="calc(100% - (40*2))" style="margin:0;padding:40px;width:calc(100% - (40px*2))">
-                                <table width="100%">
-                                    <tbody>
+                    <tr style="margin:0;padding:0">
+                        <td style="padding:0;float:none;margin:0 auto;width:100%" width="100%">
+                            <table class="mainInner" style="float:none;margin:0 auto;width:100%" width="100%">
+                                <tbody><tr style="margin:0;padding:0">
+                                    <td class="footerContainer" width="calc(100% - (40*2))" style="margin:0;padding:40px;width:calc(100% - (40px*2))">
+                                        <table width="100%">
+                                            <tbody>
 
-                                    <tr style="margin:0;padding:0">
-                                        <td class="myntraLogoContainer" bgcolor="white" align="center" style="margin:0;padding:20px 30px 24px 30px;text-align:center">
-                                            <img class="myntraLogo CToWUd" id="MyntraLogo" src="https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" width="90" style="width:90px;float:none;object-fit:contain">
-                                        </td>
-                                    </tr>
-                                </tbody></table>
-                            </td>
-                        </tr>
-                    </tbody></table>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                                            <tr style="margin:0;padding:0">
+                                                <td class="myntraLogoContainer" bgcolor="white" align="center" style="margin:0;padding:20px 30px 24px 30px;text-align:center">
+                                                    <img class="myntraLogo CToWUd" id="MyntraLogo" src="https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" width="90" style="width:90px;float:none;object-fit:contain">
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+    </tbody>
+</table>
 </body>
 </html>
