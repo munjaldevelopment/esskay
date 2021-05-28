@@ -82,7 +82,7 @@
                                 <tbody><tr>
                                     <td class="headerBar">
                                         <a id="TemplateHeaderUrl">
-                                            <img id="TemplateHeaderImage" src="https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" style="width:100%;object-fit:contain" class="CToWUd a6T" tabindex="0">
+                                            <img id="TemplateHeaderImage" src="https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" style="width:90px;object-fit:contain" class="CToWUd a6T" tabindex="0">
                                         </a>
                                     </td>
                                 </tr>
@@ -163,55 +163,6 @@
                                                                 </td>
                                                             </tr>
                                                         </tbody></table>
-                                                    </td>
-                                                </tr>
-
-                                                <tr style="height:16px"></tr>
-
-                                                <tr>
-                                                    <td align="center" valign="top" style="font-size:0">
-                                                        <table style="background:#f5f5f6;border-radius:4px;width:100%" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
-                                                            <tbody><tr>
-                                                            <td valign="top" class="payment-table" style="width:46%;padding:2% 2% 2% 2%">
-                                                            <table style="width:100%">
-                                                            <tbody><tr>
-                                                                <ul style="padding:0;margin:0;list-style:none;font-size:16px">
-                                                                    <li class="label1" style="color:#94969f;font-size:13px;letter-spacing:0.39px;font-family:'Lato',sans-serif;padding-bottom:7px">Total paid</li>
-                                                                    <li class="label2" style="color:#3e4152;font-size:22px;letter-spacing:0px;font-family:'Lato',sans-serif;padding-bottom:7px">
-                                                                    <strong id="TotalAmountValueId">
-                                                                     ₹1273.00</strong></li>
-                                                                                        
-                                                                    <li class="label3" style="color:#535766;font-size:16px;letter-spacing:0px;font-family:'Lato',sans-serif;padding-bottom:7px">
-                                                                    <div style="float:left">You saved</div>
-
-                                                                    <span id="FinalDiscountValueId" style="margin-left:3px;color:#03a685;letter-spacing:0px;font-family:'Lato',sans-serif">
-                                                                            ₹1424.00
-                                                                        </span>
-                                                                    </li>
-                                                                </ul>
-                                                            </td></tr></tbody>
-                                                        </table>
-                                                    </td>
-
-                                                    <td valign="top" class="section-two" style="padding:2% 2% 2% 0%;line-height:24px">
-                                                        <table style="width:100%;padding:0;margin:0;list-style:none;font-size:16px">
-                                                            <tbody><tr>
-                                                                <td colspan="2" class="label1" style="color:#94969f;font-size:13px;letter-spacing:0.39px;font-family:'Lato',sans-serif">Payment mode</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td valign="top" class="label2 imgTD" style="width:17%">
-                                                                <span class="imgSpan" style="float:left;margin-right:9px;margin-top:1px">
-                                                                    <img id="PaymentModeImageIconId" class="paymentModeImageIcon CToWUd" width="50" src="https://ci6.googleusercontent.com/proxy/JPrBKS4o6ek4OIQQGcb2ciaE12NMmzidlpWMtN-2ZsfBk8ZFC0kpkaTKJcVTtl7V5Pkq29_Q39SgWl9Qv6XsUsCE0SuqipBk4wjvOlKhZpc7Jjiprw=s0-d-e1-ft#https://myntracrm.myntassets.com/crm-assets/email/icons/upi_3x.png">
-                                                                </span>
-                                                                </td>
-                                                                <td valign="top" class="label2" style="color:#3e4152;font-size:21px;font-weight:bold;letter-spacing:0px;font-family:'Lato',sans-serif">
-                                                                    <div style="width:100%">
-                                                                        
-                                                                        <span id="PaymentOptionNameId">UPI</span>
-                                                                    </div>
-                                                                </td>
-                                                            </tr></tbody>
-                                                        </table>
                                                     </td>
                                                 </tr>
                                             </tbody></table>
