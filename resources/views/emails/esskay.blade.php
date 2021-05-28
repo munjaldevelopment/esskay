@@ -153,25 +153,6 @@
                                                         </tbody></table>
                                                     </td>
                                                 </tr>
-                                                <tr style="margin:0;padding:0">
-                                                    <td style="margin:0;padding:0" width="calc(100% - 2px)">
-                                                        <table style="border-collapse:collapse;border:1px solid rgba(40,44,63,0.15);border-top:0" width="100%">
-                                                            <tbody><tr style="margin:0;padding:0">
-                                                                <td style="padding:0;margin-right:20px" width="30">
-                                                                    <img class="deliveryInfoDot CToWUd" src="https://ci4.googleusercontent.com/proxy/SVR6P59zHDfvO-Nhw6PAha43ELRvfYwXSYGvAwQndLUR3p7CHoS4owNfugrdddEjofwWV_sR92BHI6e2aMwonMBoCzdHbzjKTISeVw8hRwSnKGuymw=s0-d-e1-ft#https://myntracrm.myntassets.com/crm-assets/email/icons/dot_3x.png" style="width:12px;margin-left:39px;margin-top:4px;margin-right:29px;object-fit:contain">
-                                                                </td>
-                                                                <td style="margin:0;padding:0;width:92%" width="92%">
-                                                                    <p class="deliveryInfo" id="statusNextCustomerPromiseTime" style="padding:0;width:100%;font-size:22px">
-                                                                        <span style="font-family:'Lato',sans-serif;line-height:normal">
-                                                                          Delivery by<span id="CustomerPromiseTimeId" class="deliveryByClassName" style="font-family:'Lato',sans-serif;color:#03a685;font-size:22px;font-weight:bold">Tue, 13th Apr</span>
-                                                                        </span>
-                                                                    </p>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody></table>
-                                                    </td>
-                                                </tr>
-
                                             </tbody></table>
                                         </td>
                                     </tr>
