@@ -339,7 +339,7 @@ Route::get('/send-mail', function()
 		$strmsg = "Dear ".$userData->name.", You have assigned a document category. ";
 		$emailData = array('first_name' => $userData->name, 'email' => $userData->email, 'telephone' => $userData->phone, 'user_message' => $strmsg);
 
-		$beautymail->send('emails.esskay', $emailData, function($emailData, $message)
+		$beautymail->send('emails.esskay', $emailData, function($message)  use ($emailData)
 		{
 			$message
 				->from('communication@skfin.in', 'ESSKAY FINCORP')
