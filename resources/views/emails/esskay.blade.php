@@ -119,7 +119,7 @@
                                                                         <tr style="margin:0;padding:0">
                                                                             <td style="padding:0% 3% 0% 0%" colspan="2">
                                                                                 <p class="statusText" style="margin:0;font-family:'Lato',sans-serif;color:white;padding:0;float:left;width:100%;font-size:30px;line-height:normal">
-                                                                                    We have <strong style="font-family:'Lato',sans-serif!important;letter-spacing:0.5px;font-weight:bold">shipped</strong> your order<span id="PacketCreationTimeId" style="font-weight:bold;font-family:'Lato',sans-serif;padding-left:5px;opacity:0.6;font-size:12px"> on                                                 Sat, 10 Apr
+                                                                                    <strong style="font-family:'Lato',sans-serif!important;letter-spacing:0.5px;font-weight:bold">You have assigned a document category</strong> <span id="PacketCreationTimeId" style="font-weight:bold;font-family:'Lato',sans-serif;padding-left:5px;opacity:0.6;font-size:12px">
                                                                                     </span>
                                                                                 </p>
                                                                             </td>
@@ -139,15 +139,6 @@
                                                                                         TRACK MY ORDER
                                                                                     </p>
                                                                                 </a>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr style="margin:0;padding:0">
-                                                                            <td valign="top" style="padding:0% 3% 0% 0%;float:left">
-                                                                                <p style="font-family:'Lato',sans-serif;font-size:16px;font-weight:bold;line-height:1.06;opacity:0.9;float:right;margin-top:4px;margin-bottom:0px" class="commonForShippingLogistic">
-                                                                                    <span style="color:#282c3f">Logistic Partner :
-                                                                                      <span id="CourierDisplayNameId" style="color:#ffff">Myntra Logistics</span>
-                                                                                    </span>
-                                                                                </p>
                                                                             </td>
                                                                         </tr>
                                                                         </tbody>
@@ -382,13 +373,7 @@
                                 <tbody><tr style="margin:0;padding:0">
                                     <td class="footerContainer" width="calc(100% - (40*2))" style="margin:0;padding:40px;width:calc(100% - (40px*2))">
                                         <table width="100%">
-                                            <tbody><tr style="margin:0;padding:0">
-                                                <td style="margin:0;padding:0">
-                                                    <a id="TemplateFooterUrl" href="http://url41.myntra.com/ls/click?upn=2Jwz727skYnBvhpEJJSREXtBVOtQRrmqry8W1syt7Go-3DRqKD_BoAjV9KEzRY6JxyPxrsJ1bylvHY88PoOYz3CcTGOXfWwhSq0NX-2FqkYuxCfX0XMOlyJ9A3gPABA3LBEh3F7M9KDsq0cbOb943wnhstE7yeAYojsXhOBIkeC32Nlc0tPlW90PJhIcCkyZfukLwyvlTroSsX-2FMCCEKMD4iAimngsYXtFjkqczwzU2jMXVcCkwY8dXHP8AgHN8QeLepdAHeezwU-2FMJDiawDsx44yAJuo-2F61V6cJb3ygrZPV9OQmUhdpBP-2BVqktIPIrufWAcpTwxn7OcOcGbo93KN1pocLhU70yNumWVqjBeKsTZL8spu26rYovdeYm4FWP3QfVmUsox0I7ByvQjhTI2y-2B-2F0nGMmVd5X47yux-2FIpNfAE1EnebPhGLcukEMwQzm-2F0-2BQh1Sx25B5AtiF8LVGh7NfWF8JZyEK2D2P39rW2iER-2Fw1BKqjrJgo" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://url41.myntra.com/ls/click?upn%3D2Jwz727skYnBvhpEJJSREXtBVOtQRrmqry8W1syt7Go-3DRqKD_BoAjV9KEzRY6JxyPxrsJ1bylvHY88PoOYz3CcTGOXfWwhSq0NX-2FqkYuxCfX0XMOlyJ9A3gPABA3LBEh3F7M9KDsq0cbOb943wnhstE7yeAYojsXhOBIkeC32Nlc0tPlW90PJhIcCkyZfukLwyvlTroSsX-2FMCCEKMD4iAimngsYXtFjkqczwzU2jMXVcCkwY8dXHP8AgHN8QeLepdAHeezwU-2FMJDiawDsx44yAJuo-2F61V6cJb3ygrZPV9OQmUhdpBP-2BVqktIPIrufWAcpTwxn7OcOcGbo93KN1pocLhU70yNumWVqjBeKsTZL8spu26rYovdeYm4FWP3QfVmUsox0I7ByvQjhTI2y-2B-2F0nGMmVd5X47yux-2FIpNfAE1EnebPhGLcukEMwQzm-2F0-2BQh1Sx25B5AtiF8LVGh7NfWF8JZyEK2D2P39rW2iER-2Fw1BKqjrJgo&amp;source=gmail&amp;ust=1618121783379000&amp;usg=AFQjCNGfhFrtXzPcYiQlTpC6hgVSWZzM9w">
-                                                        <img id="TemplateFooterImage" class="footerImg CToWUd" src="https://ci5.googleusercontent.com/proxy/s848bkn8iaiRermTD5bDU0qxCaRyw7c9jwr2ov387ZTUe8msGMVmhLesTW2iYOFfrD9QABZ-64sIuwV8lRHdqmn3TlcN5B3SB6OjfiQwzD75vN9ELmcAeSjCkrh51FfBFB05JwCeJUkIxXImFngyQu7HGUE-THZhH9Pd7mGtpFNZF7g59V6h7ypmTjSb22XsoavoAG1UxrK8JvDe2MTRXKDTbG3Zfhq85Fc=s0-d-e1-ft#https://assets.myntassets.com/assets/images/retaillabs/2021/3/30/4ddf847c-3e89-4615-b89a-3e82b84621641617111996318-Myntra-Footer-Strip_640x148.7px.jpg" alt="myntra" style="float:left;border-radius:8px;width:100%">
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                            <tbody>
 
                                             <tr style="margin:0;padding:0">
                                                 <td class="myntraLogoContainer" bgcolor="white" align="center" style="margin:0;padding:20px 30px 24px 30px;text-align:center">
