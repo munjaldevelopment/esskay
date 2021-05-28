@@ -79,7 +79,7 @@
 	<div class="white-box">
 		<div class="pool-dynamic-graph">
 			<div class="row">
-				<div class="col-sm-9">
+				<div class="col-sm-8s">
 					<h2>Map</h2>
 					<div id="map"></div>
 
@@ -121,7 +121,7 @@
 						}
 					</script>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-sm-4">
 					<ul>
 						@foreach($insightLocationData as $row)
 						<li>{!! $row->office_location !!}</li>
