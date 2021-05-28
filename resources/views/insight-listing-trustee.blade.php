@@ -79,7 +79,7 @@
 	<div class="white-box">
 		<div class="pool-dynamic-graph">
 			<div class="row">
-				<div class="col-sm-8s">
+				<div class="col-sm-8">
 					<h2>Map</h2>
 					<div id="map"></div>
 
