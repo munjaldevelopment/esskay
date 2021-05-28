@@ -121,8 +121,9 @@
 
 						directionsRenderer.setMap(map);
 
-						@foreach($insightLocationData as $row)
-							calculateAndDisplayRoute(directionsService, directionsRenderer, '{{ strip_tags(str_replace("\r\n", "", $row->office_location)) }}', '{{ strip_tags(str_replace("\r\n", "", $row->office_location)) }}');
+						@foreach($insightLocationData as $k => $row)
+							@if($k < )
+							calculateAndDisplayRoute(directionsService, directionsRenderer, '{{ strip_tags(str_replace("\r\n", "", $insightLocationData[$k]->office_location)) }}', '{{ strip_tags(str_replace("\r\n", "", $insightLocationData[$k+1]->office_location)) }}');
 						@endforeach
 
 						var infowindow = new google.maps.InfoWindow();
