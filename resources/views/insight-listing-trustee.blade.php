@@ -84,13 +84,13 @@
 					<div id="map"></div>
 
 					<script type="text/javascript">
-						function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+						function calculateAndDisplayRoute(directionsService, directionsRenderer, from_address, to_address) {
 							directionsService.route({
 						      	origin: {
-						        	query: document.getElementById("start").value,
+						        	query: from_address,
 						      	},
 						      	destination: {
-						        	query: document.getElementById("end").value,
+						        	query: to_address,
 						      	},
 						      	travelMode: google.maps.TravelMode.DRIVING,
 						    },
@@ -104,7 +104,7 @@
 						}
 
 						@foreach($insightLocationData as $row)
-							calculateAndDisplayRoute('{!! str_replace("\r\n", "", $row->office_location) !!}', '{!! str_replace("\r\n", "", $row->office_location) !!}');
+							calculateAndDisplayRoute(directionsService, directionsRenderer, '{!! str_replace("\r\n", "", $row->office_location) !!}', '{!! str_replace("\r\n", "", $row->office_location) !!}');
 						@endforeach
 
 						var locations = [
