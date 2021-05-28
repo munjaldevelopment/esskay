@@ -122,8 +122,9 @@
 						directionsRenderer.setMap(map);
 
 						@foreach($insightLocationData as $k => $row)
-							@if($k < )
+							@if($k < $locationCount)
 							calculateAndDisplayRoute(directionsService, directionsRenderer, '{{ strip_tags(str_replace("\r\n", "", $insightLocationData[$k]->office_location)) }}', '{{ strip_tags(str_replace("\r\n", "", $insightLocationData[$k+1]->office_location)) }}');
+							@endif
 						@endforeach
 
 						var infowindow = new google.maps.InfoWindow();
