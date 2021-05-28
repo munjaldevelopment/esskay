@@ -82,8 +82,7 @@
                                 <tbody><tr>
                                     <td class="headerBar">
                                         <a id="TemplateHeaderUrl">
-                                            <img id="TemplateHeaderImage" src="https://ci4.googleusercontent.com/proxy/poDobUVqs-TpZlMwaWSZP3-3wuGNXlrf1TZPQ1_onbxspV7uL3MwZO3txT94h4c-1io2hEN11IEGmgJEYUVN-EaJsFuhlMXbntQNmWFL5i1Lr1JVXkWyjJUfdTZLEPU=s0-d-e1-ft#https://myntracrm.myntassets.com/crm-assets/email/icons/order-shipped_3x.png" style="width:100%;object-fit:contain" class="CToWUd a6T" tabindex="0">
-                                            <div class="a6S" dir="ltr" style="opacity: 0.01; left: 740px; top: 109px;"><div id=":4ib" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" role="button" tabindex="0" aria-label="Download attachment " data-tooltip-class="a1V" data-tooltip="Download"><div class="akn"><div class="aSK J-J5-Ji aYr"></div></div></div></div>
+                                            <img id="TemplateHeaderImage" src="https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" style="width:100%;object-fit:contain" class="CToWUd a6T" tabindex="0">
                                         </a>
                                     </td>
                                 </tr>
@@ -266,7 +265,7 @@
 
                                             <tr style="margin:0;padding:0">
                                                 <td class="myntraLogoContainer" bgcolor="white" align="center" style="margin:0;padding:20px 30px 24px 30px;text-align:center">
-                                                    <img class="myntraLogo CToWUd" id="MyntraLogo" src="https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" width="34" style="width:34px;float:none;object-fit:contain">
+                                                    <img class="myntraLogo CToWUd" id="MyntraLogo" src="https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" width="90" style="width:90px;float:none;object-fit:contain">
                                                 </td>
                                             </tr>
                                         </tbody></table>
