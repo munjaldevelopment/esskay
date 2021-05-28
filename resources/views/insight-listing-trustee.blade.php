@@ -78,47 +78,57 @@
 
 	<div class="white-box">
 		<div class="pool-dynamic-graph">
-			<h2>Map</h2>
-			<div id="map"></div>
+			<div class="row">
+				<div class="col-sm-9">
+					<h2>Map</h2>
+					<div id="map"></div>
 
-			<script type="text/javascript">
-				var locations = [
-					@foreach($insightLocationData as $row)
-					['{!! str_replace("\r\n", "", $row->office_location) !!}', {{ $row->office_lat }}, {{ $row->office_long }}, {{ $row->lft }}],
-					@endforeach
-				];
+					<script type="text/javascript">
+						var locations = [
+							@foreach($insightLocationData as $row)
+							['{!! str_replace("\r\n", "", $row->office_location) !!}', {{ $row->office_lat }}, {{ $row->office_long }}, {{ $row->lft }}],
+							@endforeach
+						];
 
-				var map = new google.maps.Map(document.getElementById('map'), {
-					zoom: 5,
-					center: new google.maps.LatLng(26.9177367, 75.7928315),
-					mapTypeId: 'satellite'
-					//mapTypeId: google.maps.MapTypeId.ROADMAP
-				});
+						var map = new google.maps.Map(document.getElementById('map'), {
+							zoom: 5,
+							center: new google.maps.LatLng(26.9177367, 75.7928315),
+							mapTypeId: 'satellite'
+							//mapTypeId: google.maps.MapTypeId.ROADMAP
+						});
 
-				var infowindow = new google.maps.InfoWindow();
+						var infowindow = new google.maps.InfoWindow();
 
-				var marker, i;
+						var marker, i;
 
-				for (i = 0; i < locations.length; i++) {
-					marker = new google.maps.Marker({
-						position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-						map: map,
-						title: locations[i][0],
-					});
+						for (i = 0; i < locations.length; i++) {
+							marker = new google.maps.Marker({
+								position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+								map: map,
+								title: locations[i][0],
+							});
 
 
-					google.maps.event.addListener(marker, 'click', (function(marker, i) {
-						return function() {
-							map.setZoom(14);
-							infowindow.setContent(locations[i][0]);
-							infowindow.open(map, marker);
+							google.maps.event.addListener(marker, 'click', (function(marker, i) {
+								return function() {
+									map.setZoom(14);
+									infowindow.setContent(locations[i][0]);
+									infowindow.open(map, marker);
 
-							map.setCenter(marker.getPosition());//locations[i][1], locations[i][2]);
+									map.setCenter(marker.getPosition());//locations[i][1], locations[i][2]);
+								}
+							})(marker, i));
 						}
-					})(marker, i));
-				}
-			</script>
-
+					</script>
+				</div>
+				<div class="col-sm-3">
+					<ul>
+						@foreach($insightLocationData as $row)
+						<li>{!! $row->office_location !!}</li>
+						@endforeach
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 
