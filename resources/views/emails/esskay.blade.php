@@ -238,251 +238,173 @@
                             <tbody><tr style="margin:0;padding:0">
                                 <td class="roseContainer" style="margin:0;padding:30px 40px 20px 40px;background-color:#f5f5f6!important;width:calc(100% - (40px*2));border-radius:8px" width="calc(100% - (40*2))">
                                     <table width="100%">
-    
-
-
-<tbody><tr style="margin:0;padding:0">
-    <td class="packetIdSection" style="border-bottom-left-radius:0px;border-bottom-right-radius:0px;border-top-left-radius:8px;border-top-right-radius:8px;padding:20px 30px 24px 30px;background-color:white;margin-top:20px;font-size:17px;line-height:23px;color:#7e818c;border:solid 0.5px rgba(190,147,71,0.11);margin:0;border-bottom:solid 0.5px #eaeaec">
-        <ul style="margin:0;padding:0;float:left;width:100%;font-family:'Lato',sans-serif;list-style:none;line-height:normal">
-            <li style="margin:0;padding:0;float:left;width:100%">
-                <p class="packageOrderTitle" style="margin:0;float:left;width:100%;font-family:'Lato',sans-serif;color:#282c3f;font-size:25px">
-                    
-                    Package Details
-                </p>
-            </li>
-            <ul style="margin-top:16px!important;padding:0;font-family:'Lato',sans-serif;float:left;width:100%;list-style:none;line-height:normal">
-                <li class="packetOrderId" style="margin:0;padding:0;float:left;width:100%;font-size:13px;color:#94969f;letter-spacing:0.39px">Your Tracking Id :
-    </li>
-                <li class="packetOrderIdValue" style="padding:0;float:left;width:100%;font-size:18px;font-family:'Lato',sans-serif;color:#282c3f;margin-top:4px;margin-left:0" id="OrderId">ML0530469041</li>
-            </ul>
-        </ul>
-    </td>
-</tr>
-
-<tr style="margin:0;padding:0">
-    <td class="productListContainerTD" style="margin:0;padding:20px 30px 24px 30px;background-color:white;border-radius:8px;font-size:17px;line-height:23px;color:#7e818c;border:solid 0.5px rgba(190,147,71,0.11);padding-top:24px;border-top-left-radius:0;border-top-right-radius:0;margin-top:0">
-        <ul style="margin:0;font-family:'Lato',sans-serif;padding:0;float:left;width:100%;list-style:none;line-height:normal">
-            
-                        
-                                            
-                                            
-                                            
-                        
-                                                
-                
-                
-                                
-                <li class="productListContainer" style="margin:0;padding:0;display:block;float:left;width:50%;padding-bottom:20px">
-                    <img class="productImage CToWUd" id="ItemImageUrl-8338878651" src="https://ci3.googleusercontent.com/proxy/-43VlmbScosBtB8HNdvYdic6PAsoSsIhdmhKD4mAqP9IoZv5oits2kwhtoQN9zStX4OcnHEpIcEzVI64ANiWYxs_U48AANJeRYRtDbMEfXGODxWoxQZss4v1tP03xHAr8Zv7U7uAQDR5ofAgJNFFRl8eLSlmT7tpd1uFS-ubBy36epeOGKFDKuFs8i6YFbWqH7jrO7S6VTdqCL6qULYzbVb92UBln8RU2r8vTeviwjGjynIMoCCCv1IFJ-WTKQp3opf-8crdejlPCRdE3KR1aNg=s0-d-e1-ft#https://assets.myntassets.com//h_480,q_95,w_360/v1/assets/images/6825458/2018/9/24/35fce325-de30-4c53-9f9e-226601f27ac01537788226072-HRX-by-Hrithik-Roshan-Men-Tshirts-2271537788225288-1.jpg" style="float:left;border-radius:4px;height:133px;width:100px" width="100" height="133">
-                    <ul class="productListUL" style="margin:0;font-family:'Lato',sans-serif;padding:0;float:left;list-style:none;width:59%;color:#535766;margin-left:5%">
-                        <li style="margin:0;padding:0;float:left;width:100%;font-size:16px">
-
-                                                                                                                
-                            <p id="ItemProductBrandName-8338878651" class="brandName" style="max-width:95%;display:inline-block;white-space:nowrap;overflow:hidden!important;text-overflow:ellipsis;width:200px;height:22px;font-stretch:normal;font-style:normal;line-height:normal;color:#282c3f;font-family:'Lato',sans-serif;font-weight:bold;letter-spacing:0.29px;font-size:16px;margin-top:3px;margin-bottom:2px">HRX by Hrithik Roshan</p>
-                            <span id="ItemProductName-8338878651" class="solidGrey" style="max-width:95%;display:inline-block;width:200px;height:17px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;color:#535766;font-size:14px;letter-spacing:0.25px;font-family:'Lato',sans-serif;letter-spacing:0.29px">  Men Teal Blue Printed Round Neck Athlei...</span>
-                        </li>
-                        <li class="sizeAndQuantity" style="float:left;width:100%;border:none;margin:0;padding:0;margin-top:12px;height:19px;font-size:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:0.29px;color:#282c3f">
-                                                        Size <span id="ItemSize-8338878651" style="font-family:'Lato',sans-serif;font-weight:bold">L</span> | Qty <span id="ItemQuantity-8338878651" style="font-family:'Lato',sans-serif;font-weight:bold">1</span>
-                        </li>
-                    </ul>
-                                            <div class="soldBy" id="ItemSellerName-8338878651" style="font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;margin-top:15px;float:left;font-size:14px;color:#7e818c;clear:both;float:left;font-family:'Lato',sans-serif">Sold by: Omnitech Retail</div>
-                    
-                                    </li>
-            
-                                                
-                
-                
-                                
-                <li class="productListContainer" style="margin:0;padding:0;display:block;float:left;width:50%;padding-bottom:20px">
-                    <img class="productImage CToWUd" id="ItemImageUrl-8338878650" src="https://ci3.googleusercontent.com/proxy/-43VlmbScosBtB8HNdvYdic6PAsoSsIhdmhKD4mAqP9IoZv5oits2kwhtoQN9zStX4OcnHEpIcEzVI64ANiWYxs_U48AANJeRYRtDbMEfXGODxWoxQZss4v1tP03xHAr8Zv7U7uAQDR5ofAgJNFFRl8eLSlmT7tpd1uFS-ubBy36epeOGKFDKuFs8i6YFbWqH7jrO7S6VTdqCL6qULYzbVb92UBln8RU2r8vTeviwjGjynIMoCCCv1IFJ-WTKQp3opf-8crdejlPCRdE3KR1aNg=s0-d-e1-ft#https://assets.myntassets.com//h_480,q_95,w_360/v1/assets/images/6825458/2018/9/24/35fce325-de30-4c53-9f9e-226601f27ac01537788226072-HRX-by-Hrithik-Roshan-Men-Tshirts-2271537788225288-1.jpg" style="float:left;border-radius:4px;height:133px;width:100px" width="100" height="133">
-                    <ul class="productListUL" style="margin:0;font-family:'Lato',sans-serif;padding:0;float:left;list-style:none;width:59%;color:#535766;margin-left:5%">
-                        <li style="margin:0;padding:0;float:left;width:100%;font-size:16px">
-
-                                                                                                                
-                            <p id="ItemProductBrandName-8338878650" class="brandName" style="max-width:95%;display:inline-block;white-space:nowrap;overflow:hidden!important;text-overflow:ellipsis;width:200px;height:22px;font-stretch:normal;font-style:normal;line-height:normal;color:#282c3f;font-family:'Lato',sans-serif;font-weight:bold;letter-spacing:0.29px;font-size:16px;margin-top:3px;margin-bottom:2px">HRX by Hrithik Roshan</p>
-                            <span id="ItemProductName-8338878650" class="solidGrey" style="max-width:95%;display:inline-block;width:200px;height:17px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;color:#535766;font-size:14px;letter-spacing:0.25px;font-family:'Lato',sans-serif;letter-spacing:0.29px">  Men Teal Blue Printed Round Neck Athlei...</span>
-                        </li>
-                        <li class="sizeAndQuantity" style="float:left;width:100%;border:none;margin:0;padding:0;margin-top:12px;height:19px;font-size:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:0.29px;color:#282c3f">
-                                                        Size <span id="ItemSize-8338878650" style="font-family:'Lato',sans-serif;font-weight:bold">M</span> | Qty <span id="ItemQuantity-8338878650" style="font-family:'Lato',sans-serif;font-weight:bold">1</span>
-                        </li>
-                    </ul>
-                                            <div class="soldBy" id="ItemSellerName-8338878650" style="font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;margin-top:15px;float:left;font-size:14px;color:#7e818c;clear:both;float:left;font-family:'Lato',sans-serif">Sold by: Omnitech Retail</div>
-                    
-                                    </li>
-            
+                                        <tbody>
+                                            <tr style="margin:0;padding:0">
+                                                <td class="packetIdSection" style="border-bottom-left-radius:0px;border-bottom-right-radius:0px;border-top-left-radius:8px;border-top-right-radius:8px;padding:20px 30px 24px 30px;background-color:white;margin-top:20px;font-size:17px;line-height:23px;color:#7e818c;border:solid 0.5px rgba(190,147,71,0.11);margin:0;border-bottom:solid 0.5px #eaeaec">
+                                                    <ul style="margin:0;padding:0;float:left;width:100%;font-family:'Lato',sans-serif;list-style:none;line-height:normal">
+                                                        <li style="margin:0;padding:0;float:left;width:100%">
+                                                            <p class="packageOrderTitle" style="margin:0;float:left;width:100%;font-family:'Lato',sans-serif;color:#282c3f;font-size:25px">
                                                                 
-                
-                
-                                                
-                <li class="productListContainerLastItem" style="margin:0;padding:0;display:block;float:left;width:50%;padding-bottom:20px">
-                    <img class="productImage CToWUd" id="ItemImageUrl-8338878652" src="https://ci4.googleusercontent.com/proxy/j4ezVB_ixC7zY5elroGvNI5xanZ8CggtjBUQ41rXCCpQfCml71_wc4idXbUiSweEvAtpgJ2PyPTgpdHB8leNk1jOp9_2Jr-MrzFH9g1oHhrF1cu31AzEfXQGYi-hzZnWnLVaDvlzPjtGdUmViI58vVwZuekWA7eoNYN614wjLSxxTxWgqT53MbQpz1hmf7JXNv5Tpw98tM5YI99P3or6IgvmeuBWhDFSHUtIt2Va80HgE3WO5W8hKI8iTYx45zLux5c-uYwjlLqSCphabu1cclJLueyNo0jPA6s=s0-d-e1-ft#https://assets.myntassets.com//h_480,q_95,w_360/v1/assets/images/8962375/2019/6/3/8ea15a44-1719-4dc3-bb5b-462f05f2ce701559566286583-Roadster-Men-Blue-Skinny-Fit-Mid-Rise-Clean-Look-Stretchable-1.jpg" style="float:left;border-radius:4px;height:133px;width:100px" width="100" height="133">
-                    <ul class="productListUL" style="margin:0;font-family:'Lato',sans-serif;padding:0;float:left;list-style:none;width:59%;color:#535766;margin-left:5%">
-                        <li style="margin:0;padding:0;float:left;width:100%;font-size:16px">
-
-                                                                                                                
-                            <p id="ItemProductBrandName-8338878652" class="brandName" style="max-width:95%;display:inline-block;white-space:nowrap;overflow:hidden!important;text-overflow:ellipsis;width:200px;height:22px;font-stretch:normal;font-style:normal;line-height:normal;color:#282c3f;font-family:'Lato',sans-serif;font-weight:bold;letter-spacing:0.29px;font-size:16px;margin-top:3px;margin-bottom:2px">Roadster</p>
-                            <span id="ItemProductName-8338878652" class="solidGrey" style="max-width:95%;display:inline-block;width:200px;height:17px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;color:#535766;font-size:14px;letter-spacing:0.25px;font-family:'Lato',sans-serif;letter-spacing:0.29px">  Men Blue Skinny Fit Mid-Rise Clean Look...</span>
-                        </li>
-                        <li class="sizeAndQuantity" style="float:left;width:100%;border:none;margin:0;padding:0;margin-top:12px;height:19px;font-size:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:0.29px;color:#282c3f">
-                                                        Size <span id="ItemSize-8338878652" style="font-family:'Lato',sans-serif;font-weight:bold">32</span> | Qty <span id="ItemQuantity-8338878652" style="font-family:'Lato',sans-serif;font-weight:bold">1</span>
-                        </li>
-                    </ul>
-                                            <div class="soldBy" id="ItemSellerName-8338878652" style="font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;margin-top:15px;float:left;font-size:14px;color:#7e818c;clear:both;float:left;font-family:'Lato',sans-serif">Sold by: Truenet Commerce</div>
-                    
-                                    </li>
-                    </ul>
-    </td>
-</tr> 
-
-
-
-
-    
-
-
-<tr style="margin:0;padding:0">
-    <td style="margin:0;padding:0">
-        <div>
-            <div class="halfWidgetsCollectionTable" style="display:table;margin:20px 0;width:100%">
-                                                                                            <div class="halfWidgetsCollectionTableCell" id="AddressBlockId" style="vertical-align:top;display:table-cell;width:50%;background-repeat:no-repeat;background-size:32px;background-position:right 16px top 16px;background-image:url();border:solid 0.5px rgba(190,147,71,0.11);border-radius:4px;background-color:#ffffff">
-                        <div class="widgetContainerInfo" style="margin:0;font-size:17px;line-height:23px;padding:20px 20px 20px 20px;color:#282c3f">
-                            <p class="informationTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;color:#282c3f;font-size:25px;margin-bottom:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal">
-                                Shipped to</p>
-                            <div class="informationSubTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:16px;line-height:1.38;letter-spacing:0.29px;color:#7e818c;font-weight:normal;font-stretch:normal;font-style:normal">
-                                                                    <span id="ReceiverName"><strong style="font-weight:bold;color:#3e4152">Munjal Mayank</strong>,</span>
-                                                                                                <span id="AddressId">T-3006,3007 Third floor, orbit mall</span>,
-                                                                    <span id="LocalityId">Ajmer Road</span>,
-                                                                <span id="CityId">Jaipur</span>,
-                                <span id="StateId">Rajasthan</span>
-                                <span id="ZipcodeId">302006</span>
-                                                            </div>
-                        </div>
-                    </div>
-                
-                
-                
-
-                                
-                                    <div class="halfWidgetsCollectionTableCell onlyDesktop" style="background-color:transparent;width:0;padding:0 10px;display:table-cell">
-                    </div>
-                    <div class="halfWidgetsCollectionTableCell" id="MyntraInsiderBlockId" style="display:table-cell;width:50%;background-repeat:no-repeat;background-size:32px;background-position:right 16px top 16px;background-image:url();border:solid 0.5px rgba(190,147,71,0.11);border-radius:4px;background-color:#fff5e1">
-                        <div class="widgetContainerInfo" style="margin:0;font-size:17px;line-height:23px;color:#7e818c;padding:20px 20px 20px 20px">
-                            <p class="informationTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:25px;margin-bottom:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;color:#be9347">
-                                Myntra Insider
-                                <span style="float:right">
-                                <img src="https://ci3.googleusercontent.com/proxy/KgkLRmbwvQBfQEFvk9jC-4mYhyISDR6LdzNXfYcB4TQhqkaoamLzD0qr2KBUkiwm-iB0pT3Rgk6F4KlxwQbTToUilQHaUBx7u2VpY8TFplGYZQzgQvzXiOOj91tXjhWMftrCFgQ-DuLksm7Je1fPaCQ_mdBa268TkDBoQ4j0PtSGJAKsCvSIJJ0MBywrHxNETz3LakHlvArPUG-qcg=s0-d-e1-ft#https://assets.myntassets.com/assets/images/retaillabs/2020/1/20/3eb3024f-db6d-45a4-ba8c-1dda2948789f1579503391943-ic_core_loyalty-3x.png" style="width:28px;object-fit:contain" class="CToWUd">
-                            </span>
-                            </p>
-                            <p class="earnedPoints" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:1.38;letter-spacing:normal;color:#535766">
-                                You have earned
-                                <strong style="margin:0;padding:0;font-family:'Lato',sans-serif;font-weight:bold;color:#3e4152" id="MyntraInsiderPointId">128*</strong> Insider
-                                points
-                                for this order. </p>
-                            <p class="myntraPoint" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:12px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:1.33;letter-spacing:normal;color:#7e818c;margin-top:16px">
-                                                                    * These points will get added into your Insider account after the return / exchange period of the products.
+                                                                Package Details
                                                             </p>
-                        </div>
-                    </div>
-                
-                
-                
+                                                        </li>
+                                                        <ul style="margin-top:16px!important;padding:0;font-family:'Lato',sans-serif;float:left;width:100%;list-style:none;line-height:normal">
+                                                            <li class="packetOrderId" style="margin:0;padding:0;float:left;width:100%;font-size:13px;color:#94969f;letter-spacing:0.39px">Your Tracking Id :</li>
+                                                        <li class="packetOrderIdValue" style="padding:0;float:left;width:100%;font-size:18px;font-family:'Lato',sans-serif;color:#282c3f;margin-top:4px;margin-left:0" id="OrderId">ML0530469041</li>
+                                                    </ul>
+                                                </ul>
+                                            </td>
+                                        </tr>
 
-                
+                                        <tr style="margin:0;padding:0">
+                                            <td class="productListContainerTD" style="margin:0;padding:20px 30px 24px 30px;background-color:white;border-radius:8px;font-size:17px;line-height:23px;color:#7e818c;border:solid 0.5px rgba(190,147,71,0.11);padding-top:24px;border-top-left-radius:0;border-top-right-radius:0;margin-top:0">
+                                                <ul style="margin:0;font-family:'Lato',sans-serif;padding:0;float:left;width:100%;list-style:none;line-height:normal">
+                                                    <li class="productListContainer" style="margin:0;padding:0;display:block;float:left;width:50%;padding-bottom:20px">
+                                                        <img class="productImage CToWUd" id="ItemImageUrl-8338878651" src="https://ci3.googleusercontent.com/proxy/-43VlmbScosBtB8HNdvYdic6PAsoSsIhdmhKD4mAqP9IoZv5oits2kwhtoQN9zStX4OcnHEpIcEzVI64ANiWYxs_U48AANJeRYRtDbMEfXGODxWoxQZss4v1tP03xHAr8Zv7U7uAQDR5ofAgJNFFRl8eLSlmT7tpd1uFS-ubBy36epeOGKFDKuFs8i6YFbWqH7jrO7S6VTdqCL6qULYzbVb92UBln8RU2r8vTeviwjGjynIMoCCCv1IFJ-WTKQp3opf-8crdejlPCRdE3KR1aNg=s0-d-e1-ft#https://assets.myntassets.com//h_480,q_95,w_360/v1/assets/images/6825458/2018/9/24/35fce325-de30-4c53-9f9e-226601f27ac01537788226072-HRX-by-Hrithik-Roshan-Men-Tshirts-2271537788225288-1.jpg" style="float:left;border-radius:4px;height:133px;width:100px" width="100" height="133">
+                                                        <ul class="productListUL" style="margin:0;font-family:'Lato',sans-serif;padding:0;float:left;list-style:none;width:59%;color:#535766;margin-left:5%">
+                                                            <li style="margin:0;padding:0;float:left;width:100%;font-size:16px">
 
-                
+                                                                                                                                                    
+                                                                <p id="ItemProductBrandName-8338878651" class="brandName" style="max-width:95%;display:inline-block;white-space:nowrap;overflow:hidden!important;text-overflow:ellipsis;width:200px;height:22px;font-stretch:normal;font-style:normal;line-height:normal;color:#282c3f;font-family:'Lato',sans-serif;font-weight:bold;letter-spacing:0.29px;font-size:16px;margin-top:3px;margin-bottom:2px">HRX by Hrithik Roshan</p>
+                                                                <span id="ItemProductName-8338878651" class="solidGrey" style="max-width:95%;display:inline-block;width:200px;height:17px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;color:#535766;font-size:14px;letter-spacing:0.25px;font-family:'Lato',sans-serif;letter-spacing:0.29px">  Men Teal Blue Printed Round Neck Athlei...</span>
+                                                            </li>
+                                                            <li class="sizeAndQuantity" style="float:left;width:100%;border:none;margin:0;padding:0;margin-top:12px;height:19px;font-size:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:0.29px;color:#282c3f">Size <span id="ItemSize-8338878651" style="font-family:'Lato',sans-serif;font-weight:bold">L</span> | Qty <span id="ItemQuantity-8338878651" style="font-family:'Lato',sans-serif;font-weight:bold">1</span>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="soldBy" id="ItemSellerName-8338878651" style="font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;margin-top:15px;float:left;font-size:14px;color:#7e818c;clear:both;float:left;font-family:'Lato',sans-serif">Sold by: Omnitech Retail</div>
+                                                    </li>
 
-            </div>
+                                                    <li class="productListContainer" style="margin:0; padding:0;display:block;float:left;width:50%;padding-bottom: 20px">
+                                                        <img class="productImage CToWUd" id="ItemImageUrl-8338878650" src="https://ci3.googleusercontent.com/proxy/-43VlmbScosBtB8HNdvYdic6PAsoSsIhdmhKD4mAqP9IoZv5oits2kwhtoQN9zStX4OcnHEpIcEzVI64ANiWYxs_U48AANJeRYRtDbMEfXGODxWoxQZss4v1tP03xHAr8Zv7U7uAQDR5ofAgJNFFRl8eLSlmT7tpd1uFS-ubBy36epeOGKFDKuFs8i6YFbWqH7jrO7S6VTdqCL6qULYzbVb92UBln8RU2r8vTeviwjGjynIMoCCCv1IFJ-WTKQp3opf-8crdejlPCRdE3KR1aNg=s0-d-e1-ft#https://assets.myntassets.com//h_480,q_95,w_360/v1/assets/images/6825458/2018/9/24/35fce325-de30-4c53-9f9e-226601f27ac01537788226072-HRX-by-Hrithik-Roshan-Men-Tshirts-2271537788225288-1.jpg" style="float:left;border-radius:4px;height:133px;width:100px" width="100" height="133">
+
+                                                        <ul class="productListUL" style="margin:0;font-family:'Lato',sans-serif;padding:0;float:left;list-style:none;width:59%;color:#535766;margin-left:5%">
+                                                            <li style="margin:0;padding:0;float:left;width:100%;font-size:16px">
+                                                                <p id="ItemProductBrandName-8338878650" class="brandName" style="max-width:95%;display:inline-block;white-space:nowrap;overflow:hidden!important;text-overflow:ellipsis;width:200px;height:22px;font-stretch:normal;font-style:normal;line-height:normal;color:#282c3f;font-family:'Lato',sans-serif;font-weight:bold;letter-spacing:0.29px;font-size:16px;margin-top:3px;margin-bottom:2px">HRX by Hrithik Roshan</p>
+                                                                <span id="ItemProductName-8338878650" class="solidGrey" style="max-width:95%;display:inline-block;width:200px;height:17px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;color:#535766;font-size:14px;letter-spacing:0.25px;font-family:'Lato',sans-serif;letter-spacing:0.29px">  Men Teal Blue Printed Round Neck Athlei...</span>
+                                                            </li>
+                                                            <li class="sizeAndQuantity" style="float:left;width:100%;border:none;margin:0;padding:0;margin-top:12px;height:19px;font-size:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:0.29px;color:#282c3f">
+                                                            Size <span id="ItemSize-8338878650" style="font-family:'Lato',sans-serif;font-weight:bold">M</span> | Qty <span id="ItemQuantity-8338878650" style="font-family:'Lato',sans-serif;font-weight:bold">1</span>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="soldBy" id="ItemSellerName-8338878650" style="font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;margin-top:15px;float:left;font-size:14px;color:#7e818c;clear:both;float:left;font-family:'Lato',sans-serif">Sold by: Omnitech Retail</div>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="margin:0;padding:0">
+                                            <td style="margin:0;padding:0">
+                                                <div>
+                                                    <div class="halfWidgetsCollectionTable" style="display:table;margin:20px 0;width:100%">
+                                                        <div class="halfWidgetsCollectionTableCell" id="AddressBlockId" style="vertical-align:top;display:table-cell;width:50%;background-repeat:no-repeat;background-size:32px;background-position:right 16px top 16px;background-image:url();border:solid 0.5px rgba(190,147,71,0.11);border-radius:4px;background-color:#ffffff">
+                                                            <div class="widgetContainerInfo" style="margin:0;font-size:17px;line-height:23px;padding:20px 20px 20px 20px;color:#282c3f">
+                                                                <p class="informationTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;color:#282c3f;font-size:25px;margin-bottom:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal">
+                                                                Shipped to</p>
+                                                                <div class="informationSubTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:16px;line-height:1.38;letter-spacing:0.29px;color:#7e818c;font-weight:normal;font-stretch:normal;font-style:normal">
+                                                                <span id="ReceiverName"><strong style="font-weight:bold;color:#3e4152">Munjal Mayank</strong>,</span>
+                                                                <span id="AddressId">T-3006,3007 Third floor, orbit mall</span>,
+                                                                <span id="LocalityId">Ajmer Road</span>,
+                                                                <span id="CityId">Jaipur</span>,
+                                                                <span id="StateId">Rajasthan</span>
+                                                                <span id="ZipcodeId">302006</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="halfWidgetsCollectionTableCell onlyDesktop" style="background-color:transparent;width:0;padding:0 10px;display:table-cell"></div>
+
+                                                        <div class="halfWidgetsCollectionTableCell" id="MyntraInsiderBlockId" style="display:table-cell;width:50%;background-repeat:no-repeat;background-size:32px;background-position:right 16px top 16px;background-image:url();border:solid 0.5px rgba(190,147,71,0.11);border-radius:4px;background-color:#fff5e1">
+                                                            <div class="widgetContainerInfo" style="margin:0;font-size:17px;line-height:23px;color:#7e818c;padding:20px 20px 20px 20px">
+                                                                <p class="informationTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:25px;margin-bottom:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;color:#be9347">
+                                                                Myntra Insider
+                                                                <span style="float:right">
+                                                                <img src="https://ci3.googleusercontent.com/proxy/KgkLRmbwvQBfQEFvk9jC-4mYhyISDR6LdzNXfYcB4TQhqkaoamLzD0qr2KBUkiwm-iB0pT3Rgk6F4KlxwQbTToUilQHaUBx7u2VpY8TFplGYZQzgQvzXiOOj91tXjhWMftrCFgQ-DuLksm7Je1fPaCQ_mdBa268TkDBoQ4j0PtSGJAKsCvSIJJ0MBywrHxNETz3LakHlvArPUG-qcg=s0-d-e1-ft#https://assets.myntassets.com/assets/images/retaillabs/2020/1/20/3eb3024f-db6d-45a4-ba8c-1dda2948789f1579503391943-ic_core_loyalty-3x.png" style="width:28px;object-fit:contain" class="CToWUd">
+                                                                </span>
+                                                                </p>
+                                                                <p class="earnedPoints" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:1.38;letter-spacing:normal;color:#535766">
+                                                                You have earned
+                                                                <strong style="margin:0;padding:0;font-family:'Lato',sans-serif;font-weight:bold;color:#3e4152" id="MyntraInsiderPointId">128*</strong> Insider
+                                                                points
+                                                                for this order. </p>
+                                                                <p class="myntraPoint" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:12px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:1.33;letter-spacing:normal;color:#7e818c;margin-top:16px">
+                                                                * These points will get added into your Insider account after the return / exchange period of the products.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="onlyDesktop" style="width:calc(100% - 4px);margin:0 2px;border-bottom:1px solid #ddd"></div>
 
             
-                            <div class="onlyDesktop" style="width:calc(100% - 4px);margin:0 2px;border-bottom:1px solid #ddd">
-                </div>
-            
+                                                    <div class="halfWidgetsCollectionTable" style="display:table;margin:20px 0;width:100%">
+                                                        <div class="halfWidgetsCollectionTableCell" id="WhatNextBlockId" style="display:table-cell;width:50%;background-repeat:no-repeat;background-size:32px;background-position:right 16px top 16px;background-image:url();border:solid 0.5px rgba(190,147,71,0.11);border-radius:4px;font-size:17px;line-height:23px;color:#7e818c;background-color:#ffffff">
+                                                            <div class="widgetContainerInfo" style="margin:0;padding:20px 20px 20px 20px">
+                                                            <p class="informationTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;color:#282c3f;font-size:25px;margin-bottom:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal">
+                                                            What's next?</p>
+                                                            <p class="informationSubTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:16px;line-height:1.38;letter-spacing:0.29px;font-weight:normal;font-stretch:normal;font-style:normal;color:#3e4152">
+                                                            We will send you a confirmation once your order is out for delivery.
+                                                            </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="halfWidgetsCollectionTableCell onlyDesktop" style="background-color:transparent;width:0;padding:0 10px;display:table-cell"></div>
 
-                                                    
-            
-
-
-
-
-
-
-            
-            <div class="halfWidgetsCollectionTable" style="display:table;margin:20px 0;width:100%">
-                                
-                                                    <div class="halfWidgetsCollectionTableCell" id="WhatNextBlockId" style="display:table-cell;width:50%;background-repeat:no-repeat;background-size:32px;background-position:right 16px top 16px;background-image:url();border:solid 0.5px rgba(190,147,71,0.11);border-radius:4px;font-size:17px;line-height:23px;color:#7e818c;background-color:#ffffff">
-                        <div class="widgetContainerInfo" style="margin:0;padding:20px 20px 20px 20px">
-                            <p class="informationTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;color:#282c3f;font-size:25px;margin-bottom:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal">
-                                What's next?</p>
-                            <p class="informationSubTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:16px;line-height:1.38;letter-spacing:0.29px;font-weight:normal;font-stretch:normal;font-style:normal;color:#3e4152">
-                                                                                                            We will send you a confirmation once your order is out for delivery.
-                                                                                                </p>
-                        </div>
-                    </div>
-                    <div class="halfWidgetsCollectionTableCell onlyDesktop" style="background-color:transparent;width:0;padding:0 10px;display:table-cell"></div>
-                
-                                
                                                         <div class="halfWidgetsCollectionTableCell" id="MyntraQueryBlockId" style="display:table-cell;width:50%;padding:0;background-repeat:no-repeat;background-size:32px;background-position:right 16px top 16px;background-image:url();border:solid 0.5px rgba(190,147,71,0.11);border-radius:4px;font-size:17px;line-height:23px;color:#7e818c;background-color:#ffffff">
-                        <div class="widgetContainerInfo" style="margin:0;padding:20px 20px 20px 20px">
-                            <p class="informationTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;color:#282c3f;font-size:25px;margin-bottom:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal">
-                                Need help?
-                                <span style="float:right">
-                                <img src="https://ci6.googleusercontent.com/proxy/M0HjCklaxi-MLCb_qrzXgrjZSuWkelhDXpq4snpJj52-fn7L4a2NGjLx1QgiLpruXbia7vQC1cykbloZPtxA-Fdrc20CZgjUCaSIOrDISVwfetWMv1i9a12sgNmzp8f_Busadp6j3jNygMQmA7FnFDS576lIQ_LtC1q8YmAnr6oZ43YvH0nU_yxOMyVjc9QJdGHwqSvLetHgi3_r-A1jSQ=s0-d-e1-ft#https://assets.myntassets.com/assets/images/retaillabs/2020/1/20/da74851c-d9e3-4757-bc7d-c2b23d45c3db1579503393833-ic_core_helpCenter-3x.png" style="width:28px;object-fit:contain" class="CToWUd">
-                            </span>
-                            </p>
-                            <p class="informationSubTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:16px;line-height:1.38;letter-spacing:0.29px;font-weight:normal;font-stretch:normal;font-style:normal;color:#3e4152">
-                                For queries, or any assistance
-                                <a id="ContactUsLinkId" href="http://url41.myntra.com/ls/click?upn=2Jwz727skYnBvhpEJJSREZTL6T9EteZhHMhIHXcPcRKgAARajXO2vrtv1HKgCEEkvbaj_BoAjV9KEzRY6JxyPxrsJ1bylvHY88PoOYz3CcTGOXfWwhSq0NX-2FqkYuxCfX0XMOlyJ9A3gPABA3LBEh3F7M9KDsq0cbOb943wnhstE7yeAYojsXhOBIkeC32Nlc0tPlW90PJhIcCkyZfukLwyvlTroSsX-2FMCCEKMD4iAimngsYXtFjkqczwzU2jMXVcCkwY8dXHP8AgHN8QeLepdAHeezwU-2FMJDiawDsx44yAJuo-2F61V6cJb3ygrZPV9OQmUhdpB3hs-2BU-2FtGCMgp-2F7r4JpFg5x1V3xYbdKah6qvSFWFUqkMd6jnvmrTMbizWJxiuLrq4CN9IRA-2FsA3naWUwLebr21zwcYPfW1qRFSeoHQluIKq6UTBsWSsxzTw0VMgwTufvKYHUUOZJsx4T1vV8czx-2F1zW9gndPYSPZgjQ2sEuPYV6QhIMyS2W05VOiMazJ9SAaW" style="color:#ff3f6c;text-decoration:none;background-color:transparent" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://url41.myntra.com/ls/click?upn%3D2Jwz727skYnBvhpEJJSREZTL6T9EteZhHMhIHXcPcRKgAARajXO2vrtv1HKgCEEkvbaj_BoAjV9KEzRY6JxyPxrsJ1bylvHY88PoOYz3CcTGOXfWwhSq0NX-2FqkYuxCfX0XMOlyJ9A3gPABA3LBEh3F7M9KDsq0cbOb943wnhstE7yeAYojsXhOBIkeC32Nlc0tPlW90PJhIcCkyZfukLwyvlTroSsX-2FMCCEKMD4iAimngsYXtFjkqczwzU2jMXVcCkwY8dXHP8AgHN8QeLepdAHeezwU-2FMJDiawDsx44yAJuo-2F61V6cJb3ygrZPV9OQmUhdpB3hs-2BU-2FtGCMgp-2F7r4JpFg5x1V3xYbdKah6qvSFWFUqkMd6jnvmrTMbizWJxiuLrq4CN9IRA-2FsA3naWUwLebr21zwcYPfW1qRFSeoHQluIKq6UTBsWSsxzTw0VMgwTufvKYHUUOZJsx4T1vV8czx-2F1zW9gndPYSPZgjQ2sEuPYV6QhIMyS2W05VOiMazJ9SAaW&amp;source=gmail&amp;ust=1618121783379000&amp;usg=AFQjCNH3HInWfHvpMEeDst6Qbu1n-BHIVQ">contact&nbsp;us</a>
-                            </p>
-                        </div>
-                    </div>
-                            </div>
+                                                            <div class="widgetContainerInfo" style="margin:0;padding:20px 20px 20px 20px">
+                                                            <p class="informationTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;color:#282c3f;font-size:25px;margin-bottom:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal">
+                                                            Need help?
+                                                            <span style="float:right">
+                                                            <img src="https://ci6.googleusercontent.com/proxy/M0HjCklaxi-MLCb_qrzXgrjZSuWkelhDXpq4snpJj52-fn7L4a2NGjLx1QgiLpruXbia7vQC1cykbloZPtxA-Fdrc20CZgjUCaSIOrDISVwfetWMv1i9a12sgNmzp8f_Busadp6j3jNygMQmA7FnFDS576lIQ_LtC1q8YmAnr6oZ43YvH0nU_yxOMyVjc9QJdGHwqSvLetHgi3_r-A1jSQ=s0-d-e1-ft#https://assets.myntassets.com/assets/images/retaillabs/2020/1/20/da74851c-d9e3-4757-bc7d-c2b23d45c3db1579503393833-ic_core_helpCenter-3x.png" style="width:28px;object-fit:contain" class="CToWUd">
+                                                            </span>
+                                                            </p>
+                                                            <p class="informationSubTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:16px;line-height:1.38;letter-spacing:0.29px;font-weight:normal;font-stretch:normal;font-style:normal;color:#3e4152">
+                                                            For queries, or any assistance
+                                                            <a id="ContactUsLinkId" href="http://url41.myntra.com/ls/click?upn=2Jwz727skYnBvhpEJJSREZTL6T9EteZhHMhIHXcPcRKgAARajXO2vrtv1HKgCEEkvbaj_BoAjV9KEzRY6JxyPxrsJ1bylvHY88PoOYz3CcTGOXfWwhSq0NX-2FqkYuxCfX0XMOlyJ9A3gPABA3LBEh3F7M9KDsq0cbOb943wnhstE7yeAYojsXhOBIkeC32Nlc0tPlW90PJhIcCkyZfukLwyvlTroSsX-2FMCCEKMD4iAimngsYXtFjkqczwzU2jMXVcCkwY8dXHP8AgHN8QeLepdAHeezwU-2FMJDiawDsx44yAJuo-2F61V6cJb3ygrZPV9OQmUhdpB3hs-2BU-2FtGCMgp-2F7r4JpFg5x1V3xYbdKah6qvSFWFUqkMd6jnvmrTMbizWJxiuLrq4CN9IRA-2FsA3naWUwLebr21zwcYPfW1qRFSeoHQluIKq6UTBsWSsxzTw0VMgwTufvKYHUUOZJsx4T1vV8czx-2F1zW9gndPYSPZgjQ2sEuPYV6QhIMyS2W05VOiMazJ9SAaW" style="color:#ff3f6c;text-decoration:none;background-color:transparent" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://url41.myntra.com/ls/click?upn%3D2Jwz727skYnBvhpEJJSREZTL6T9EteZhHMhIHXcPcRKgAARajXO2vrtv1HKgCEEkvbaj_BoAjV9KEzRY6JxyPxrsJ1bylvHY88PoOYz3CcTGOXfWwhSq0NX-2FqkYuxCfX0XMOlyJ9A3gPABA3LBEh3F7M9KDsq0cbOb943wnhstE7yeAYojsXhOBIkeC32Nlc0tPlW90PJhIcCkyZfukLwyvlTroSsX-2FMCCEKMD4iAimngsYXtFjkqczwzU2jMXVcCkwY8dXHP8AgHN8QeLepdAHeezwU-2FMJDiawDsx44yAJuo-2F61V6cJb3ygrZPV9OQmUhdpB3hs-2BU-2FtGCMgp-2F7r4JpFg5x1V3xYbdKah6qvSFWFUqkMd6jnvmrTMbizWJxiuLrq4CN9IRA-2FsA3naWUwLebr21zwcYPfW1qRFSeoHQluIKq6UTBsWSsxzTw0VMgwTufvKYHUUOZJsx4T1vV8czx-2F1zW9gndPYSPZgjQ2sEuPYV6QhIMyS2W05VOiMazJ9SAaW&amp;source=gmail&amp;ust=1618121783379000&amp;usg=AFQjCNH3HInWfHvpMEeDst6Qbu1n-BHIVQ">contact&nbsp;us</a>
+                                                            </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-                        <div class="halfWidgetsCollectionTable" style="display:table;margin-top:20px;width:100%">
-                                                <div class="halfWidgetsCollectionTableCell onlyDesktop" style="background-color:transparent;width:0;padding:0 10px;display:table-cell"></div>
-            </div>
-            
+                                                    <div class="halfWidgetsCollectionTable" style="display:table;margin-top:20px;width:100%">
+                                                        <div class="halfWidgetsCollectionTableCell onlyDesktop" style="background-color:transparent;width:0;padding:0 10px;display:table-cell"></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr></tbody></table>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
 
-        </div>
-    </td>
-</tr> </tbody></table>
-                                </td>
-                            </tr>
-                        </tbody></table>
-                    </td>
-                </tr>
-                 
-    
+                    <tr style="margin:0;padding:0">
+                        <td style="padding:0;float:none;margin:0 auto;width:100%" width="100%">
+                            <table class="mainInner" style="float:none;margin:0 auto;width:100%" width="100%">
+                                <tbody><tr style="margin:0;padding:0">
+                                    <td class="footerContainer" width="calc(100% - (40*2))" style="margin:0;padding:40px;width:calc(100% - (40px*2))">
+                                        <table width="100%">
+                                            <tbody><tr style="margin:0;padding:0">
+                                                <td style="margin:0;padding:0">
+                                                    <a id="TemplateFooterUrl" href="http://url41.myntra.com/ls/click?upn=2Jwz727skYnBvhpEJJSREXtBVOtQRrmqry8W1syt7Go-3DRqKD_BoAjV9KEzRY6JxyPxrsJ1bylvHY88PoOYz3CcTGOXfWwhSq0NX-2FqkYuxCfX0XMOlyJ9A3gPABA3LBEh3F7M9KDsq0cbOb943wnhstE7yeAYojsXhOBIkeC32Nlc0tPlW90PJhIcCkyZfukLwyvlTroSsX-2FMCCEKMD4iAimngsYXtFjkqczwzU2jMXVcCkwY8dXHP8AgHN8QeLepdAHeezwU-2FMJDiawDsx44yAJuo-2F61V6cJb3ygrZPV9OQmUhdpBP-2BVqktIPIrufWAcpTwxn7OcOcGbo93KN1pocLhU70yNumWVqjBeKsTZL8spu26rYovdeYm4FWP3QfVmUsox0I7ByvQjhTI2y-2B-2F0nGMmVd5X47yux-2FIpNfAE1EnebPhGLcukEMwQzm-2F0-2BQh1Sx25B5AtiF8LVGh7NfWF8JZyEK2D2P39rW2iER-2Fw1BKqjrJgo" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://url41.myntra.com/ls/click?upn%3D2Jwz727skYnBvhpEJJSREXtBVOtQRrmqry8W1syt7Go-3DRqKD_BoAjV9KEzRY6JxyPxrsJ1bylvHY88PoOYz3CcTGOXfWwhSq0NX-2FqkYuxCfX0XMOlyJ9A3gPABA3LBEh3F7M9KDsq0cbOb943wnhstE7yeAYojsXhOBIkeC32Nlc0tPlW90PJhIcCkyZfukLwyvlTroSsX-2FMCCEKMD4iAimngsYXtFjkqczwzU2jMXVcCkwY8dXHP8AgHN8QeLepdAHeezwU-2FMJDiawDsx44yAJuo-2F61V6cJb3ygrZPV9OQmUhdpBP-2BVqktIPIrufWAcpTwxn7OcOcGbo93KN1pocLhU70yNumWVqjBeKsTZL8spu26rYovdeYm4FWP3QfVmUsox0I7ByvQjhTI2y-2B-2F0nGMmVd5X47yux-2FIpNfAE1EnebPhGLcukEMwQzm-2F0-2BQh1Sx25B5AtiF8LVGh7NfWF8JZyEK2D2P39rW2iER-2Fw1BKqjrJgo&amp;source=gmail&amp;ust=1618121783379000&amp;usg=AFQjCNGfhFrtXzPcYiQlTpC6hgVSWZzM9w">
+                                                        <img id="TemplateFooterImage" class="footerImg CToWUd" src="https://ci5.googleusercontent.com/proxy/s848bkn8iaiRermTD5bDU0qxCaRyw7c9jwr2ov387ZTUe8msGMVmhLesTW2iYOFfrD9QABZ-64sIuwV8lRHdqmn3TlcN5B3SB6OjfiQwzD75vN9ELmcAeSjCkrh51FfBFB05JwCeJUkIxXImFngyQu7HGUE-THZhH9Pd7mGtpFNZF7g59V6h7ypmTjSb22XsoavoAG1UxrK8JvDe2MTRXKDTbG3Zfhq85Fc=s0-d-e1-ft#https://assets.myntassets.com/assets/images/retaillabs/2021/3/30/4ddf847c-3e89-4615-b89a-3e82b84621641617111996318-Myntra-Footer-Strip_640x148.7px.jpg" alt="myntra" style="float:left;border-radius:8px;width:100%">
+                                                    </a>
+                                                </td>
+                                            </tr>
 
-<tr style="margin:0;padding:0">
-    <td style="padding:0;float:none;margin:0 auto;width:100%" width="100%">
-        <table class="mainInner" style="float:none;margin:0 auto;width:100%" width="100%">
-            <tbody><tr style="margin:0;padding:0">
-                <td class="footerContainer" width="calc(100% - (40*2))" style="margin:0;padding:40px;width:calc(100% - (40px*2))">
-                    <table width="100%">
-                                                    <tbody><tr style="margin:0;padding:0">
-                                <td style="margin:0;padding:0">
-                                                                            <a id="TemplateFooterUrl" href="http://url41.myntra.com/ls/click?upn=2Jwz727skYnBvhpEJJSREXtBVOtQRrmqry8W1syt7Go-3DRqKD_BoAjV9KEzRY6JxyPxrsJ1bylvHY88PoOYz3CcTGOXfWwhSq0NX-2FqkYuxCfX0XMOlyJ9A3gPABA3LBEh3F7M9KDsq0cbOb943wnhstE7yeAYojsXhOBIkeC32Nlc0tPlW90PJhIcCkyZfukLwyvlTroSsX-2FMCCEKMD4iAimngsYXtFjkqczwzU2jMXVcCkwY8dXHP8AgHN8QeLepdAHeezwU-2FMJDiawDsx44yAJuo-2F61V6cJb3ygrZPV9OQmUhdpBP-2BVqktIPIrufWAcpTwxn7OcOcGbo93KN1pocLhU70yNumWVqjBeKsTZL8spu26rYovdeYm4FWP3QfVmUsox0I7ByvQjhTI2y-2B-2F0nGMmVd5X47yux-2FIpNfAE1EnebPhGLcukEMwQzm-2F0-2BQh1Sx25B5AtiF8LVGh7NfWF8JZyEK2D2P39rW2iER-2Fw1BKqjrJgo" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://url41.myntra.com/ls/click?upn%3D2Jwz727skYnBvhpEJJSREXtBVOtQRrmqry8W1syt7Go-3DRqKD_BoAjV9KEzRY6JxyPxrsJ1bylvHY88PoOYz3CcTGOXfWwhSq0NX-2FqkYuxCfX0XMOlyJ9A3gPABA3LBEh3F7M9KDsq0cbOb943wnhstE7yeAYojsXhOBIkeC32Nlc0tPlW90PJhIcCkyZfukLwyvlTroSsX-2FMCCEKMD4iAimngsYXtFjkqczwzU2jMXVcCkwY8dXHP8AgHN8QeLepdAHeezwU-2FMJDiawDsx44yAJuo-2F61V6cJb3ygrZPV9OQmUhdpBP-2BVqktIPIrufWAcpTwxn7OcOcGbo93KN1pocLhU70yNumWVqjBeKsTZL8spu26rYovdeYm4FWP3QfVmUsox0I7ByvQjhTI2y-2B-2F0nGMmVd5X47yux-2FIpNfAE1EnebPhGLcukEMwQzm-2F0-2BQh1Sx25B5AtiF8LVGh7NfWF8JZyEK2D2P39rW2iER-2Fw1BKqjrJgo&amp;source=gmail&amp;ust=1618121783379000&amp;usg=AFQjCNGfhFrtXzPcYiQlTpC6hgVSWZzM9w">
-                                            <img id="TemplateFooterImage" class="footerImg CToWUd" src="https://ci5.googleusercontent.com/proxy/s848bkn8iaiRermTD5bDU0qxCaRyw7c9jwr2ov387ZTUe8msGMVmhLesTW2iYOFfrD9QABZ-64sIuwV8lRHdqmn3TlcN5B3SB6OjfiQwzD75vN9ELmcAeSjCkrh51FfBFB05JwCeJUkIxXImFngyQu7HGUE-THZhH9Pd7mGtpFNZF7g59V6h7ypmTjSb22XsoavoAG1UxrK8JvDe2MTRXKDTbG3Zfhq85Fc=s0-d-e1-ft#https://assets.myntassets.com/assets/images/retaillabs/2021/3/30/4ddf847c-3e89-4615-b89a-3e82b84621641617111996318-Myntra-Footer-Strip_640x148.7px.jpg" alt="myntra" style="float:left;border-radius:8px;width:100%">
-                                        </a>
-                                                                    </td>
-                            </tr>
-                                                <tr style="margin:0;padding:0">
-                            <td class="myntraLogoContainer" bgcolor="white" align="center" style="margin:0;padding:20px 30px 24px 30px;text-align:center">
-                                <img class="myntraLogo CToWUd" id="MyntraLogo" src="https://ci3.googleusercontent.com/proxy/a8VJPb1DTxNUfOw8jRiQUz2onSDoQ0K5UJqBWIV5-b9NUb1VgGD5NeFr-JyADZrzTnBSKcjlVV7tGkos8vD_OB5NIi9KsE5Ik3LVYV4O5FEM0X7gsaGqyO220JFlGmEmhdgyEwx4p7V-GIPsSyKNhdU_3dQJ0_bJT469LAQWZzeBkYKZ8RI7_kP8YzwUXNNyeWjXPnGzbXNy=s0-d-e1-ft#https://assets.myntassets.com/assets/images/retaillabs/2021/1/29/055b4c40-78b7-4050-8fb1-6fd972d4b9991611911755667-myntra-logo_3x.png" width="34" style="width:34px;float:none;object-fit:contain">
-                            </td>
-                        </tr>
-                    </tbody></table>
-                </td>
-            </tr>
-        </tbody></table>
-    </td>
-</tr>
-             </tbody></table>
-        </td>
-    </tr>
+                                            <tr style="margin:0;padding:0">
+                                                <td class="myntraLogoContainer" bgcolor="white" align="center" style="margin:0;padding:20px 30px 24px 30px;text-align:center">
+                                                    <img class="myntraLogo CToWUd" id="MyntraLogo" src="https://ci3.googleusercontent.com/proxy/a8VJPb1DTxNUfOw8jRiQUz2onSDoQ0K5UJqBWIV5-b9NUb1VgGD5NeFr-JyADZrzTnBSKcjlVV7tGkos8vD_OB5NIi9KsE5Ik3LVYV4O5FEM0X7gsaGqyO220JFlGmEmhdgyEwx4p7V-GIPsSyKNhdU_3dQJ0_bJT469LAQWZzeBkYKZ8RI7_kP8YzwUXNNyeWjXPnGzbXNy=s0-d-e1-ft#https://assets.myntassets.com/assets/images/retaillabs/2021/1/29/055b4c40-78b7-4050-8fb1-6fd972d4b9991611911755667-myntra-logo_3x.png" width="34" style="width:34px;float:none;object-fit:contain">
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
     </tbody>
 </table>
-
-
 </body>
 </html>
