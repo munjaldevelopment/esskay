@@ -133,9 +133,15 @@
                                                                         </tr>
                                                                         <tr style="margin:0;padding:0">
                                                                             <td style="padding:0% 3% 0% 0%" colspan="2">
-                                                                                <a class="statusCTA" style="text-decoration:none;float:left;background:white;padding:10px 30px 12px 24px;margin-top:10px;margin-bottom:10px;border-radius:4px;text-transform:uppercase;font-family:'Lato',sans-serif;font-size:4px;line-height:4px" href="http://url41.myntra.com/ls/click?upn=2Jwz727skYnBvhpEJJSREZTL6T9EteZhHMhIHXcPcRI-2Fk0YmCrjvyJwHVOwWiTxBtvQUWNK9ptHdug2Mjjwm3JBx61h82vGAbPzSFedM5qjJgCSwKsPLx537lzLuENSFESN0GglhDN-2BuXCFS2n8d0g-3D-3Df_1A_BoAjV9KEzRY6JxyPxrsJ1bylvHY88PoOYz3CcTGOXfWwhSq0NX-2FqkYuxCfX0XMOlyJ9A3gPABA3LBEh3F7M9KDsq0cbOb943wnhstE7yeAYojsXhOBIkeC32Nlc0tPlW90PJhIcCkyZfukLwyvlTroSsX-2FMCCEKMD4iAimngsYXtFjkqczwzU2jMXVcCkwY8dXHP8AgHN8QeLepdAHeezwU-2FMJDiawDsx44yAJuo-2F61V6cJb3ygrZPV9OQmUhdpB-2BOJ-2FkRF63xU93Fd1VuIip8EiqCRF-2FtRr4Roku1m8wFdQDwQkiB7g3ANQTuRWDHk352NUW0qE5SU0K5RLt-2FEn4McCcPRHgzLyrwGB6aeSIzvVRgk9uXrbnokDluDzeJ1n3elp-2FvOjEab2IHxTbe4zer-2F54tkc9F5KbH3KMNVqF49H6JeTwJ375zMFSxMkAqYz" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://url41.myntra.com/ls/click?upn%3D2Jwz727skYnBvhpEJJSREZTL6T9EteZhHMhIHXcPcRI-2Fk0YmCrjvyJwHVOwWiTxBtvQUWNK9ptHdug2Mjjwm3JBx61h82vGAbPzSFedM5qjJgCSwKsPLx537lzLuENSFESN0GglhDN-2BuXCFS2n8d0g-3D-3Df_1A_BoAjV9KEzRY6JxyPxrsJ1bylvHY88PoOYz3CcTGOXfWwhSq0NX-2FqkYuxCfX0XMOlyJ9A3gPABA3LBEh3F7M9KDsq0cbOb943wnhstE7yeAYojsXhOBIkeC32Nlc0tPlW90PJhIcCkyZfukLwyvlTroSsX-2FMCCEKMD4iAimngsYXtFjkqczwzU2jMXVcCkwY8dXHP8AgHN8QeLepdAHeezwU-2FMJDiawDsx44yAJuo-2F61V6cJb3ygrZPV9OQmUhdpB-2BOJ-2FkRF63xU93Fd1VuIip8EiqCRF-2FtRr4Roku1m8wFdQDwQkiB7g3ANQTuRWDHk352NUW0qE5SU0K5RLt-2FEn4McCcPRHgzLyrwGB6aeSIzvVRgk9uXrbnokDluDzeJ1n3elp-2FvOjEab2IHxTbe4zer-2F54tkc9F5KbH3KMNVqF49H6JeTwJ375zMFSxMkAqYz&amp;source=gmail&amp;ust=1618121783378000&amp;usg=AFQjCNFqK9CAoehllauejmGLaNW37tWHqg">
+                                                                                <a class="statusCTA" style="text-decoration:none;float:left;background:white;padding:10px 30px 12px 24px;margin-top:10px;margin-bottom:10px;border-radius:4px;text-transform:uppercase;font-family:'Lato',sans-serif;font-size:4px;line-height:4px" href="#" target="_blank" data-saferedirecturl="#">
                                                                                     <p id="MyOrderLinkId" class="trackOrder" style="letter-spacing:0.44px;font-family:'Lato',sans-serif;font-weight:bold;font-size:16px;color:black">
-                                                                                        TRACK MY ORDER
+                                                                                        Approve Document
+                                                                                    </p>
+                                                                                </a>
+
+                                                                                <a class="statusCTA" style="text-decoration:none;float:left;background:white;padding:10px 30px 12px 24px;margin-top:10px;margin-bottom:10px;border-radius:4px;text-transform:uppercase;font-family:'Lato',sans-serif;font-size:4px;line-height:4px" href="#" target="_blank" data-saferedirecturl="#">
+                                                                                    <p id="MyOrderLinkId" class="trackOrder" style="letter-spacing:0.44px;font-family:'Lato',sans-serif;font-weight:bold;font-size:16px;color:black">
+                                                                                        Reject Document
                                                                                     </p>
                                                                                 </a>
                                                                             </td>
@@ -165,6 +171,7 @@
                                                         </tbody></table>
                                                     </td>
                                                 </tr>
+
                                             </tbody></table>
                                         </td>
                                     </tr>
@@ -190,12 +197,6 @@
                                                             </p>
                                                         </li>
                                                     </ul>
-                                                </td>
-                                            </tr>
-
-                                            <tr style="margin:0;padding:0">
-                                                <td class="productListContainerTD" style="margin:0;padding:20px 30px 24px 30px;background-color:white;border-radius:8px;font-size:17px;line-height:23px;color:#7e818c;border:solid 0.5px rgba(190,147,71,0.11);padding-top:24px;border-top-left-radius:0;border-top-right-radius:0;margin-top:0">
-                                                    
                                                 </td>
                                             </tr>
                                         </tbody>
