@@ -334,12 +334,13 @@ Route::get('/send-mail', function()
 	{
 		$beautymail = app()->make(Snowfire\Beautymail\Beautymail::class, ['settings' => null]);
 		$userData = \DB::table('trustees')->where('id', '1')->first();
+		$docData = \DB::table('documents')->where('id', '6')->first();
 		//dd($userData);
 
 		$strmsg = "Dear ".$userData->name.", You have assigned a document category. ";
-		$emailData = array('first_name' => $userData->name, 'email' => $userData->email, 'telephone' => $userData->phone, 'user_message' => $strmsg);
+		$emailData = array('first_name' => $userData->name, 'email' => $userData->email, 'telephone' => $userData->phone, 'user_message' => $strmsg, 'doc_heading' => $docData->document_heading);
 
-		$beautymail->send('emails.esskay', $emailData, function($message)  use ($emailData)
+		$beautymail->send('emails.esskay', $emailData, function($message)  use ($emailData, $docData)
 		{
 			$message
 				->from('communication@skfin.in', 'ESSKAY FINCORP')

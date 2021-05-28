@@ -240,8 +240,8 @@
                                                             </p>
                                                         </li>
                                                         <ul style="margin-top:16px!important;padding:0;font-family:'Lato',sans-serif;float:left;width:100%;list-style:none;line-height:normal">
-                                                            <li class="packetOrderId" style="margin:0;padding:0;float:left;width:100%;font-size:13px;color:#94969f;letter-spacing:0.39px">Your Tracking Id :</li>
-                                                        <li class="packetOrderIdValue" style="padding:0;float:left;width:100%;font-size:18px;font-family:'Lato',sans-serif;color:#282c3f;margin-top:4px;margin-left:0" id="OrderId">ML0530469041</li>
+                                                            <li class="packetOrderId" style="margin:0;padding:0;float:left;width:100%;font-size:13px;color:#94969f;letter-spacing:0.39px">Document :</li>
+                                                        <li class="packetOrderIdValue" style="padding:0;float:left;width:100%;font-size:18px;font-family:'Lato',sans-serif;color:#282c3f;margin-top:4px;margin-left:0" id="OrderId">{{ $doc_heading }}</li>
                                                     </ul>
                                                 </ul>
                                             </td>
@@ -294,37 +294,6 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="onlyDesktop" style="width:calc(100% - 4px);margin:0 2px;border-bottom:1px solid #ddd"></div>
-
-            
-                                                    <div class="halfWidgetsCollectionTable" style="display:table;margin:20px 0;width:100%">
-                                                        <div class="halfWidgetsCollectionTableCell" id="WhatNextBlockId" style="display:table-cell;width:50%;background-repeat:no-repeat;background-size:32px;background-position:right 16px top 16px;background-image:url();border:solid 0.5px rgba(190,147,71,0.11);border-radius:4px;font-size:17px;line-height:23px;color:#7e818c;background-color:#ffffff">
-                                                            <div class="widgetContainerInfo" style="margin:0;padding:20px 20px 20px 20px">
-                                                            <p class="informationTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;color:#282c3f;font-size:25px;margin-bottom:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal">
-                                                            What's next?</p>
-                                                            <p class="informationSubTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:16px;line-height:1.38;letter-spacing:0.29px;font-weight:normal;font-stretch:normal;font-style:normal;color:#3e4152">
-                                                            We will send you a confirmation once your order is out for delivery.
-                                                            </p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="halfWidgetsCollectionTableCell onlyDesktop" style="background-color:transparent;width:0;padding:0 10px;display:table-cell"></div>
-
-                                                        <div class="halfWidgetsCollectionTableCell" id="MyntraQueryBlockId" style="display:table-cell;width:50%;padding:0;background-repeat:no-repeat;background-size:32px;background-position:right 16px top 16px;background-image:url();border:solid 0.5px rgba(190,147,71,0.11);border-radius:4px;font-size:17px;line-height:23px;color:#7e818c;background-color:#ffffff">
-                                                            <div class="widgetContainerInfo" style="margin:0;padding:20px 20px 20px 20px">
-                                                            <p class="informationTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;color:#282c3f;font-size:25px;margin-bottom:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal">
-                                                            Need help?
-                                                            <span style="float:right">
-                                                            <img src="https://ci6.googleusercontent.com/proxy/M0HjCklaxi-MLCb_qrzXgrjZSuWkelhDXpq4snpJj52-fn7L4a2NGjLx1QgiLpruXbia7vQC1cykbloZPtxA-Fdrc20CZgjUCaSIOrDISVwfetWMv1i9a12sgNmzp8f_Busadp6j3jNygMQmA7FnFDS576lIQ_LtC1q8YmAnr6oZ43YvH0nU_yxOMyVjc9QJdGHwqSvLetHgi3_r-A1jSQ=s0-d-e1-ft#https://assets.myntassets.com/assets/images/retaillabs/2020/1/20/da74851c-d9e3-4757-bc7d-c2b23d45c3db1579503393833-ic_core_helpCenter-3x.png" style="width:28px;object-fit:contain" class="CToWUd">
-                                                            </span>
-                                                            </p>
-                                                            <p class="informationSubTitle" style="margin:0;padding:0;width:100%;font-family:'Lato',sans-serif;font-size:16px;line-height:1.38;letter-spacing:0.29px;font-weight:normal;font-stretch:normal;font-style:normal;color:#3e4152">
-                                                            For queries, or any assistance
-                                                            <a id="ContactUsLinkId" href="http://url41.myntra.com/ls/click?upn=2Jwz727skYnBvhpEJJSREZTL6T9EteZhHMhIHXcPcRKgAARajXO2vrtv1HKgCEEkvbaj_BoAjV9KEzRY6JxyPxrsJ1bylvHY88PoOYz3CcTGOXfWwhSq0NX-2FqkYuxCfX0XMOlyJ9A3gPABA3LBEh3F7M9KDsq0cbOb943wnhstE7yeAYojsXhOBIkeC32Nlc0tPlW90PJhIcCkyZfukLwyvlTroSsX-2FMCCEKMD4iAimngsYXtFjkqczwzU2jMXVcCkwY8dXHP8AgHN8QeLepdAHeezwU-2FMJDiawDsx44yAJuo-2F61V6cJb3ygrZPV9OQmUhdpB3hs-2BU-2FtGCMgp-2F7r4JpFg5x1V3xYbdKah6qvSFWFUqkMd6jnvmrTMbizWJxiuLrq4CN9IRA-2FsA3naWUwLebr21zwcYPfW1qRFSeoHQluIKq6UTBsWSsxzTw0VMgwTufvKYHUUOZJsx4T1vV8czx-2F1zW9gndPYSPZgjQ2sEuPYV6QhIMyS2W05VOiMazJ9SAaW" style="color:#ff3f6c;text-decoration:none;background-color:transparent" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://url41.myntra.com/ls/click?upn%3D2Jwz727skYnBvhpEJJSREZTL6T9EteZhHMhIHXcPcRKgAARajXO2vrtv1HKgCEEkvbaj_BoAjV9KEzRY6JxyPxrsJ1bylvHY88PoOYz3CcTGOXfWwhSq0NX-2FqkYuxCfX0XMOlyJ9A3gPABA3LBEh3F7M9KDsq0cbOb943wnhstE7yeAYojsXhOBIkeC32Nlc0tPlW90PJhIcCkyZfukLwyvlTroSsX-2FMCCEKMD4iAimngsYXtFjkqczwzU2jMXVcCkwY8dXHP8AgHN8QeLepdAHeezwU-2FMJDiawDsx44yAJuo-2F61V6cJb3ygrZPV9OQmUhdpB3hs-2BU-2FtGCMgp-2F7r4JpFg5x1V3xYbdKah6qvSFWFUqkMd6jnvmrTMbizWJxiuLrq4CN9IRA-2FsA3naWUwLebr21zwcYPfW1qRFSeoHQluIKq6UTBsWSsxzTw0VMgwTufvKYHUUOZJsx4T1vV8czx-2F1zW9gndPYSPZgjQ2sEuPYV6QhIMyS2W05VOiMazJ9SAaW&amp;source=gmail&amp;ust=1618121783379000&amp;usg=AFQjCNH3HInWfHvpMEeDst6Qbu1n-BHIVQ">contact&nbsp;us</a>
-                                                            </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
                                                     <div class="halfWidgetsCollectionTable" style="display:table;margin-top:20px;width:100%">
                                                         <div class="halfWidgetsCollectionTableCell onlyDesktop" style="background-color:transparent;width:0;padding:0 10px;display:table-cell"></div>
                                                     </div>
@@ -347,7 +316,7 @@
 
                                             <tr style="margin:0;padding:0">
                                                 <td class="myntraLogoContainer" bgcolor="white" align="center" style="margin:0;padding:20px 30px 24px 30px;text-align:center">
-                                                    <img class="myntraLogo CToWUd" id="MyntraLogo" src="https://ci3.googleusercontent.com/proxy/a8VJPb1DTxNUfOw8jRiQUz2onSDoQ0K5UJqBWIV5-b9NUb1VgGD5NeFr-JyADZrzTnBSKcjlVV7tGkos8vD_OB5NIi9KsE5Ik3LVYV4O5FEM0X7gsaGqyO220JFlGmEmhdgyEwx4p7V-GIPsSyKNhdU_3dQJ0_bJT469LAQWZzeBkYKZ8RI7_kP8YzwUXNNyeWjXPnGzbXNy=s0-d-e1-ft#https://assets.myntassets.com/assets/images/retaillabs/2021/1/29/055b4c40-78b7-4050-8fb1-6fd972d4b9991611911755667-myntra-logo_3x.png" width="34" style="width:34px;float:none;object-fit:contain">
+                                                    <img class="myntraLogo CToWUd" id="MyntraLogo" src="https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" width="34" style="width:34px;float:none;object-fit:contain">
                                                 </td>
                                             </tr>
                                         </tbody></table>
