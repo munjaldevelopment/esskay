@@ -249,37 +249,7 @@
 
                                         <tr style="margin:0;padding:0">
                                             <td class="productListContainerTD" style="margin:0;padding:20px 30px 24px 30px;background-color:white;border-radius:8px;font-size:17px;line-height:23px;color:#7e818c;border:solid 0.5px rgba(190,147,71,0.11);padding-top:24px;border-top-left-radius:0;border-top-right-radius:0;margin-top:0">
-                                                <ul style="margin:0;font-family:'Lato',sans-serif;padding:0;float:left;width:100%;list-style:none;line-height:normal">
-                                                    <li class="productListContainer" style="margin:0;padding:0;display:block;float:left;width:50%;padding-bottom:20px">
-                                                        <img class="productImage CToWUd" id="ItemImageUrl-8338878651" src="https://ci3.googleusercontent.com/proxy/-43VlmbScosBtB8HNdvYdic6PAsoSsIhdmhKD4mAqP9IoZv5oits2kwhtoQN9zStX4OcnHEpIcEzVI64ANiWYxs_U48AANJeRYRtDbMEfXGODxWoxQZss4v1tP03xHAr8Zv7U7uAQDR5ofAgJNFFRl8eLSlmT7tpd1uFS-ubBy36epeOGKFDKuFs8i6YFbWqH7jrO7S6VTdqCL6qULYzbVb92UBln8RU2r8vTeviwjGjynIMoCCCv1IFJ-WTKQp3opf-8crdejlPCRdE3KR1aNg=s0-d-e1-ft#https://assets.myntassets.com//h_480,q_95,w_360/v1/assets/images/6825458/2018/9/24/35fce325-de30-4c53-9f9e-226601f27ac01537788226072-HRX-by-Hrithik-Roshan-Men-Tshirts-2271537788225288-1.jpg" style="float:left;border-radius:4px;height:133px;width:100px" width="100" height="133">
-                                                        <ul class="productListUL" style="margin:0;font-family:'Lato',sans-serif;padding:0;float:left;list-style:none;width:59%;color:#535766;margin-left:5%">
-                                                            <li style="margin:0;padding:0;float:left;width:100%;font-size:16px">
-
-                                                                                                                                                    
-                                                                <p id="ItemProductBrandName-8338878651" class="brandName" style="max-width:95%;display:inline-block;white-space:nowrap;overflow:hidden!important;text-overflow:ellipsis;width:200px;height:22px;font-stretch:normal;font-style:normal;line-height:normal;color:#282c3f;font-family:'Lato',sans-serif;font-weight:bold;letter-spacing:0.29px;font-size:16px;margin-top:3px;margin-bottom:2px">HRX by Hrithik Roshan</p>
-                                                                <span id="ItemProductName-8338878651" class="solidGrey" style="max-width:95%;display:inline-block;width:200px;height:17px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;color:#535766;font-size:14px;letter-spacing:0.25px;font-family:'Lato',sans-serif;letter-spacing:0.29px">  Men Teal Blue Printed Round Neck Athlei...</span>
-                                                            </li>
-                                                            <li class="sizeAndQuantity" style="float:left;width:100%;border:none;margin:0;padding:0;margin-top:12px;height:19px;font-size:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:0.29px;color:#282c3f">Size <span id="ItemSize-8338878651" style="font-family:'Lato',sans-serif;font-weight:bold">L</span> | Qty <span id="ItemQuantity-8338878651" style="font-family:'Lato',sans-serif;font-weight:bold">1</span>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="soldBy" id="ItemSellerName-8338878651" style="font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;margin-top:15px;float:left;font-size:14px;color:#7e818c;clear:both;float:left;font-family:'Lato',sans-serif">Sold by: Omnitech Retail</div>
-                                                    </li>
-
-                                                    <li class="productListContainer" style="margin:0; padding:0;display:block;float:left;width:50%;padding-bottom: 20px">
-                                                        <img class="productImage CToWUd" id="ItemImageUrl-8338878650" src="https://ci3.googleusercontent.com/proxy/-43VlmbScosBtB8HNdvYdic6PAsoSsIhdmhKD4mAqP9IoZv5oits2kwhtoQN9zStX4OcnHEpIcEzVI64ANiWYxs_U48AANJeRYRtDbMEfXGODxWoxQZss4v1tP03xHAr8Zv7U7uAQDR5ofAgJNFFRl8eLSlmT7tpd1uFS-ubBy36epeOGKFDKuFs8i6YFbWqH7jrO7S6VTdqCL6qULYzbVb92UBln8RU2r8vTeviwjGjynIMoCCCv1IFJ-WTKQp3opf-8crdejlPCRdE3KR1aNg=s0-d-e1-ft#https://assets.myntassets.com//h_480,q_95,w_360/v1/assets/images/6825458/2018/9/24/35fce325-de30-4c53-9f9e-226601f27ac01537788226072-HRX-by-Hrithik-Roshan-Men-Tshirts-2271537788225288-1.jpg" style="float:left;border-radius:4px;height:133px;width:100px" width="100" height="133">
-
-                                                        <ul class="productListUL" style="margin:0;font-family:'Lato',sans-serif;padding:0;float:left;list-style:none;width:59%;color:#535766;margin-left:5%">
-                                                            <li style="margin:0;padding:0;float:left;width:100%;font-size:16px">
-                                                                <p id="ItemProductBrandName-8338878650" class="brandName" style="max-width:95%;display:inline-block;white-space:nowrap;overflow:hidden!important;text-overflow:ellipsis;width:200px;height:22px;font-stretch:normal;font-style:normal;line-height:normal;color:#282c3f;font-family:'Lato',sans-serif;font-weight:bold;letter-spacing:0.29px;font-size:16px;margin-top:3px;margin-bottom:2px">HRX by Hrithik Roshan</p>
-                                                                <span id="ItemProductName-8338878650" class="solidGrey" style="max-width:95%;display:inline-block;width:200px;height:17px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;color:#535766;font-size:14px;letter-spacing:0.25px;font-family:'Lato',sans-serif;letter-spacing:0.29px">  Men Teal Blue Printed Round Neck Athlei...</span>
-                                                            </li>
-                                                            <li class="sizeAndQuantity" style="float:left;width:100%;border:none;margin:0;padding:0;margin-top:12px;height:19px;font-size:16px;font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:0.29px;color:#282c3f">
-                                                            Size <span id="ItemSize-8338878650" style="font-family:'Lato',sans-serif;font-weight:bold">M</span> | Qty <span id="ItemQuantity-8338878650" style="font-family:'Lato',sans-serif;font-weight:bold">1</span>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="soldBy" id="ItemSellerName-8338878650" style="font-weight:normal;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal;margin-top:15px;float:left;font-size:14px;color:#7e818c;clear:both;float:left;font-family:'Lato',sans-serif">Sold by: Omnitech Retail</div>
-                                                    </li>
-                                                </ul>
+                                                
                                             </td>
                                         </tr>
 
