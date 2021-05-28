@@ -133,11 +133,11 @@
                                                                         </tr>
                                                                         <tr style="margin:0;padding:0">
                                                                             <td style="padding:0% 3% 0% 0%" colspan="2">
-                                                                                <a class="statusCTA" style="text-decoration:none;float:left;background:white;padding:10px 30px 12px 24px;margin-top:10px;margin-bottom:10px;border-radius:4px;text-transform:uppercase;font-family:'Lato',sans-serif;font-size:4px;line-height:4px" href="#" target="_blank" data-saferedirecturl="#">
+                                                                                <a class="statusCTA" style="text-decoration:none;float:left;background:white;padding:10px 30px 12px 24px;margin-top:10px;margin-right:10px;margin-bottom:10px;border-radius:4px;text-transform:uppercase;font-family:'Lato',sans-serif;font-size:4px;line-height:4px" href="#" target="_blank" data-saferedirecturl="#">
                                                                                     <p id="MyOrderLinkId" class="trackOrder" style="letter-spacing:0.44px;font-family:'Lato',sans-serif;font-weight:bold;font-size:16px;color:black">
                                                                                         Approve Document
                                                                                     </p>
-                                                                                </a>
+                                                                                </a> &nbsp;&nbsp;&nbsp;
 
                                                                                 <a class="statusCTA" style="text-decoration:none;float:left;background:white;padding:10px 30px 12px 24px;margin-top:10px;margin-bottom:10px;border-radius:4px;text-transform:uppercase;font-family:'Lato',sans-serif;font-size:4px;line-height:4px" href="#" target="_blank" data-saferedirecturl="#">
                                                                                     <p id="MyOrderLinkId" class="trackOrder" style="letter-spacing:0.44px;font-family:'Lato',sans-serif;font-weight:bold;font-size:16px;color:black">
