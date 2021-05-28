@@ -162,26 +162,6 @@
                     </tbody></table>
                 </td>
             </tr>
-
-            <tr style="margin:0;padding:0">
-                <td style="padding:0;float:none;margin:0 auto;width:100%" width="100%">
-                    <table class="mainInner" style="float:none;margin:0 auto;width:100%" width="100%">
-                        <tbody><tr style="margin:0;padding:0">
-                            <td class="footerContainer" width="calc(100% - (40*2))" style="margin:0;padding:40px;width:calc(100% - (40px*2))">
-                                <table width="100%">
-                                    <tbody>
-
-                                    <tr style="margin:0;padding:0">
-                                        <td class="myntraLogoContainer" bgcolor="white" align="center" style="margin:0;padding:20px 30px 24px 30px;text-align:center">
-                                            <img class="myntraLogo CToWUd" id="MyntraLogo" src="https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" width="90" style="width:90px;float:none;object-fit:contain">
-                                        </td>
-                                    </tr>
-                                </tbody></table>
-                            </td>
-                        </tr>
-                    </tbody></table>
-                </td>
-            </tr>
         </tbody>
     </table>
 </body>
