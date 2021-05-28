@@ -103,10 +103,6 @@
 						    });
 						}
 
-						@foreach($insightLocationData as $row)
-							calculateAndDisplayRoute(directionsService, directionsRenderer, '{!! str_replace("\r\n", "", $row->office_location) !!}', '{!! str_replace("\r\n", "", $row->office_location) !!}');
-						@endforeach
-
 						var locations = [
 							@foreach($insightLocationData as $row)
 							['{!! str_replace("\r\n", "", $row->office_location) !!}', {{ $row->office_lat }}, {{ $row->office_long }}, {{ $row->lft }}],
@@ -124,6 +120,10 @@
 						});
 
 						directionsRenderer.setMap(map);
+
+						@foreach($insightLocationData as $row)
+							calculateAndDisplayRoute(directionsService, directionsRenderer, '{!! str_replace("\r\n", "", $row->office_location) !!}', '{!! str_replace("\r\n", "", $row->office_location) !!}');
+						@endforeach
 
 						var infowindow = new google.maps.InfoWindow();
 
