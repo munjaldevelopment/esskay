@@ -70,38 +70,34 @@
     }
     </style>
 </head>
-<body style="margin: 0; padding: 0; color: #7e818c;background-color: #fff=
-f;">
-<table width="100%" style="width:100%">
-    <tbody>
-    <tr style="margin:0;padding:0">
-        <td style="padding:0;float:none;margin:0 auto;width:100%" width="100%">
-            <table class="mainInner cornerBorder" style="float:none;margin:0 auto;width:100%" width="100%">
-                  
-  
-
-
-<tbody><tr>
-  <td>
-    <table class="intoArea" style="text-align:center;width:100%">
-            <tbody><tr>
-        <td class="headerBar">
-          <a id="TemplateHeaderUrl">
-            <img id="TemplateHeaderImage" src="https://ci4.googleusercontent.com/proxy/poDobUVqs-TpZlMwaWSZP3-3wuGNXlrf1TZPQ1_onbxspV7uL3MwZO3txT94h4c-1io2hEN11IEGmgJEYUVN-EaJsFuhlMXbntQNmWFL5i1Lr1JVXkWyjJUfdTZLEPU=s0-d-e1-ft#https://myntracrm.myntassets.com/crm-assets/email/icons/order-shipped_3x.png" style="width:100%;object-fit:contain" class="CToWUd a6T" tabindex="0"><div class="a6S" dir="ltr" style="opacity: 0.01; left: 740px; top: 109px;"><div id=":4ib" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" role="button" tabindex="0" aria-label="Download attachment " data-tooltip-class="a1V" data-tooltip="Download"><div class="akn"><div class="aSK J-J5-Ji aYr"></div></div></div></div>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="helloUser" style="font-size:30px;font-family:'Lato',sans-serif;margin-top:20px;color:#282c3f;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal">
-            Hello
-                          <span id="ReceiverName" style="font-weight:bold">Munjal Mayank!</span>
-                      </div>
-        </td>
-      </tr>
-    </tbody></table>
-  </td>
-</tr>
+<body style="margin: 0; padding: 0; color: #7e818c;background-color: #fff;">
+    <table width="100%" style="width:100%">
+        <tbody>
+            <tr style="margin:0;padding:0">
+                <td style="padding:0;float:none;margin:0 auto;width:100%" width="100%">
+                    <table class="mainInner cornerBorder" style="float:none;margin:0 auto;width:100%" width="100%">
+                        <tbody><tr>
+                          <td>
+                            <table class="intoArea" style="text-align:center;width:100%">
+                                <tbody><tr>
+                                    <td class="headerBar">
+                                        <a id="TemplateHeaderUrl">
+                                            <img id="TemplateHeaderImage" src="https://ci4.googleusercontent.com/proxy/poDobUVqs-TpZlMwaWSZP3-3wuGNXlrf1TZPQ1_onbxspV7uL3MwZO3txT94h4c-1io2hEN11IEGmgJEYUVN-EaJsFuhlMXbntQNmWFL5i1Lr1JVXkWyjJUfdTZLEPU=s0-d-e1-ft#https://myntracrm.myntassets.com/crm-assets/email/icons/order-shipped_3x.png" style="width:100%;object-fit:contain" class="CToWUd a6T" tabindex="0">
+                                            <div class="a6S" dir="ltr" style="opacity: 0.01; left: 740px; top: 109px;"><div id=":4ib" class="T-I J-J5-Ji aQv T-I-ax7 L3 a5q" role="button" tabindex="0" aria-label="Download attachment " data-tooltip-class="a1V" data-tooltip="Download"><div class="akn"><div class="aSK J-J5-Ji aYr"></div></div></div></div>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="helloUser" style="font-size:30px;font-family:'Lato',sans-serif;margin-top:20px;color:#282c3f;font-stretch:normal;font-style:normal;line-height:normal;letter-spacing:normal">
+                                    Hello
+                                                  <span id="ReceiverName" style="font-weight:bold">Munjal Mayank!</span>
+                                              </div>
+                                </td>
+                              </tr>
+                            </tbody></table>
+                          </td>
+                        </tr>
                 <tr style="margin:0;padding:0">
                     <td class="statusContainer" style="margin:0;padding:0px 40px 20px 40px;width:calc(100% - (40px*2))" width="calc(100% - (40*2))">
                         <table style="border-collapse:collapse;border-spacing:0px;margin-top:20px;width:100%"> 

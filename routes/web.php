@@ -329,6 +329,8 @@ Route::get('/enter_document_data', function () {
 Route::get('/send-mail', function()
 {
 	$beautymail = app()->make(Snowfire\Beautymail\Beautymail::class, ['settings' => null]);
+	$userData = \DB::table('id', '2')->first();
+
 	$beautymail->send('emails.esskay', [], function($message)
 	{
 		$message
