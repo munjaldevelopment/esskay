@@ -78,4 +78,8 @@ return [
 
     'options' => [],
 
+    'root_options' => array(
+        'defaults'   => array('read' => true, 'write' => true, 'locked'=>true),
+    ),
+
 ];
