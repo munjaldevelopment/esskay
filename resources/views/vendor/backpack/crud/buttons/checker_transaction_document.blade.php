@@ -84,11 +84,11 @@
 	      	var route = button.attr('data-route');
 
 	      	swal({
-				title: "{!! trans('backpack::base.warning') !!}",
+				title: "{!! trans('backpack::base.success') !!}",
 				text: "{!! trans('backpack::crud.approve_confirm') !!}",
-				icon: "warning",
+				icon: "success",
 				buttons: {
-					cancel: {
+				  cancel: {
 				  text: "{!! trans('backpack::crud.cancel') !!}",
 				  value: null,
 				  visible: true,
@@ -99,7 +99,7 @@
 				  text: "{!! trans('backpack::crud.confirm') !!}",
 				  value: true,
 				  visible: true,
-				  className: "bg-danger",
+				  className: "bg-primary",
 				}
 			},
 	  		}).then((value) => {

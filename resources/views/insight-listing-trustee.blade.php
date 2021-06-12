@@ -76,7 +76,7 @@
 		</div>
 	</div>
 
-	<div class="white-box">
+	<div class="white-box d-none hide">
 		<div class="pool-dynamic-graph">
 			<div class="row">
 				<div class="col-sm-8">
@@ -259,12 +259,7 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="white-box outstanding-box">
-		<div class="outstanding-table">
-			<div id="map"></div>
-		</div>
-	</div>
+	
 @elseif($insightCatData->id == 4)
 	<div class="white-box">
 		<div class="pool-dynamic-graph">
@@ -583,6 +578,32 @@
 		</div>
 	</div>
 
+	<div class="white-box-slider page-inner-tab">
+		<div class="mtd-timeline">
+			<ul>
+				@foreach($liabilityCategories as $k => $row)
+				<li class="slider-tab slider-tab-content{{ $k}} @if($k == 0) active @endif"><a onclick="showCategorySlider({{ $k }});" href="javascript:;">{{ $row->name }}</a></li>
+				@endforeach
+			</ul>
+		</div>	
+	</div>
+
+	<div class="white-box-slider bank-slider-area">
+		@foreach($liabilityCategories as $k => $row)
+			<div class="owl-carousel slider_bank_conatiner @if($k > 0) d-none @endif slider_bank_scroll{{ $k }}">
+				@if(isset($liabilityCategoriesSlider[$row->id]))
+					@foreach($liabilityCategoriesSlider[$row->id] as $rowSlider)
+					<div class="item">
+					    <div class="bank-slide-img">
+							<img src="{{ asset('public/') }}/{{ $rowSlider->image }}" alt="">  
+						</div>
+					</div>
+					@endforeach
+				@endif
+			</div>
+		@endforeach
+	</div>
+
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">
 			<div class="custom-table-area">
@@ -851,10 +872,51 @@
 <script src="{{ asset('public/assets/') }}/js/owl.carousel.js"></script>
 
 <script>
+function showCategorySlider(key)
+{
+	$('.slider_bank_conatiner').addClass('d-none');
+	$('.slider_bank_scroll'+key).removeClass('d-none');
+
+	$('.slider-tab').removeClass('active');
+	$('.slider-tab-content'+key).addClass('active');
+}
+
 $(document).ready(function() {
 	
 	var base_url = $('base').attr('href');
 	
 	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+	@foreach($liabilityCategories as $k => $row)
+	$('.slider_bank_scroll{{ $k }}').owlCarousel({
+      loop: true,
+	  autoplay: true, 	
+      margin: 10,
+	  autoplayHoverPause: true,
+      autoplayTimeout: 2000,
+      autoplaySpeed: 1000,	
+	  nav: false,
+	  dots: true,	
+      responsiveClass: true,
+      responsive: {
+        0: {
+          items: 1,
+          nav: false,
+		  dots:true,	
+        },
+        600: {
+          items: 2,
+          nav: false,
+		  dots:true,	
+        },
+        1000: {
+          items: 4,
+          nav: false,
+		  dots:true,	
+          margin: 20
+        }
+      }
+    });
+    @endforeach
 });
 </script>

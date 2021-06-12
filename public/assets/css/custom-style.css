@@ -832,7 +832,13 @@
     box-shadow: -3px 0px 17px rgb(0 0 0 / 6%);
     padding: 17px;
     border-radius: 10px;
-    margin-bottom: 70px;
+    margin-bottom: 40px;
+}
+
+.white-box-slider {
+    padding: 17px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 .pool-dynamic-graph img {
@@ -2218,6 +2224,47 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
     border-radius: 10px;
 }
 
+.page-inner-tab {
+    text-align: center;
+}
+
+.bank-slide-img img {
+    height: 108px;
+    margin: 0 auto;
+    width: 246px !important;
+}
+
+.bank-slider-area {
+    /*margin-top: 50px;*/
+}
+
+.bank-slider-area .owl-dots .owl-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 100px;
+    background: #d6d2d2;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.bank-slider-area .owl-dots {
+    text-align: center;
+}
+
+.bank-slider-area .owl-dots .owl-dot:nth-last-child(1) {
+    margin-right: 0;
+}
+
+.bank-slider-area .owl-dots .owl-dot:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.bank-slider-area .owl-dots .owl-dot.active {
+    width: 30px;
+	background: #1976D2;
+}
 
 @media only screen and (max-width: 1366px) {
 .login-logo img {
@@ -2232,6 +2279,12 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
 .login-main-box.hover_scroll {
 	height: calc(100vh - 77px);
 }
+	
+.bank-slide-img img {
+    height: auto;
+    margin: 0 auto;
+    width: 85% !important;
+}	
 }
 
 @media only screen and (max-width: 1280px) {
@@ -2259,6 +2312,17 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
 }
 
 @media only screen and (max-width: 1024px) {
+a.fxt-btn-fill.float-right {
+    position: relative;
+    top: 0 !important;
+    right: 0 !important;
+    display: inline-block;
+    width: 100%;
+    margin-top: 17px;
+    text-align: right;
+    margin-bottom: 20px;
+}
+	
 .side-menu {
 	width: 295px;
 }
@@ -2279,6 +2343,15 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
 }
 
 @media only screen and (max-width: 991px) {
+.login_container .container-forms .container-info .info-item .switch-btn.btn {
+    padding: 16px 30px;
+}
+
+.login_container_table-cell {
+    padding: 0 15px;
+}
+	
+	
 .login-main-box {
     width: 100%;
 }	
@@ -2392,6 +2465,10 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
 }
 
 @media only screen and (max-width: 768px) {
+.bank-slide-img img {
+    width: 60% !important;
+}	
+	
 .side-menu {
 	width: 100%;
 	position: initial;
@@ -2700,6 +2777,21 @@ a.fxt-btn-fill.float-right {
 	
 .deal-wall-left li a {
     margin-bottom: 10px;
+}
+	
+.bank-slider-area .owl-dots .owl-dot {
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+}
+
+.bank-slider-area .owl-dots .owl-dot.active {
+    width: 18px;
+}	
+	
+.bank-slide-img img {
+    width: auto !important;
+    height: 75px;
 }	
 }
 
