@@ -2020,7 +2020,7 @@ class HomeController extends Controller
 				'series'        => ([
 					'dataLabels' => ([
 						'enabled' => 'true',
-						'format' => '{y}.0%',
+						'format' => '{y}%',
 					]),
 				]),
 			])
@@ -3288,7 +3288,7 @@ class HomeController extends Controller
 				'series'        => ([
 					'dataLabels' => ([
 						'enabled' => 'true',
-						'format' => '{y}.0%',
+						'format' => '{y}%',
 					]),
 				]),
 			])
@@ -3393,7 +3393,7 @@ class HomeController extends Controller
 				'series'        => ([
 					'dataLabels' => ([
 						'enabled' => 'true',
-						'format' => '{y}.0%',
+						'format' => '{y}%',
 					]),
 				]),
 			])
