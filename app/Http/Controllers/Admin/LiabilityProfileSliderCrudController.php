@@ -19,6 +19,12 @@ class LiabilityProfileSliderCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CloneOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\BulkCloneOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\BulkDeleteOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
+
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -143,5 +149,24 @@ class LiabilityProfileSliderCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    public function clone($id)
+    {
+        $this->crud->hasAccessOrFail('clone');
+        $this->crud->setOperation('clone');
+
+        $clonedEntry = $this->crud->model->findOrFail($id)->replicate();
+
+        $lastData = \DB::table('liability_profile_slider')->orderBy('id', 'DESC')->first();
+        $last_id = $lastData->id;
+        $last_id = $last_id+1;
+
+        $clonedEntry->slider_code = "SLIDER".$last_id;
+        
+        return (string) $clonedEntry->push();
+
+        // if you still want to call the old clone method
+        //$this->traitClone($id);
     }
 }

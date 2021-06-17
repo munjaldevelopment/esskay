@@ -82,9 +82,9 @@
 	      	var route = button.attr('data-route');
 
 	      	swal({
-				title: "{!! trans('backpack::base.success') !!}",
+				title: "{!! trans('backpack::base.info') !!}",
 				text: "{!! trans('backpack::crud.approve_confirm') !!}",
-				icon: "success",
+				icon: "info",
 				buttons: {
 					cancel: {
 				  text: "{!! trans('backpack::crud.cancel') !!}",

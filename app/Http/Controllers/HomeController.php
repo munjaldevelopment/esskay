@@ -3215,8 +3215,6 @@ class HomeController extends Controller
 		{
 			$locationCount = \DB::table('insight_locations')->where('status', 1)->count();
 
-			$insightLocationData = \DB::table('insight_locations')->where('status', 1)->get();
-
 			$geographicalConData = \DB::table('geographical_concentrations')->where('geographical_concentration_status', 1)->get();
 
 			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
@@ -4160,6 +4158,10 @@ class HomeController extends Controller
 				]
 			)
 			->display(1);
+		}
+		else if($request->category_id == 14)
+		{
+			$insightLocationData = \DB::table('insight_locations')->where('status', 1)->get();
 		}
 
 		//dd($liabilityProfileDataTotal);

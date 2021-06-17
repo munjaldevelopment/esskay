@@ -76,92 +76,6 @@
 		</div>
 	</div>
 
-	<div class="white-box d-none hide">
-		<div class="pool-dynamic-graph">
-			<div class="row">
-				<div class="col-sm-8">
-					<h2>Map</h2>
-					<div id="map"></div>
-
-					<script type="text/javascript">
-						function calculateAndDisplayRoute(directionsService, directionsRenderer, from_address, to_address) {
-							directionsService.route({
-						      	origin: {
-						        	query: from_address,
-						      	},
-						      	destination: {
-						        	query: to_address,
-						      	},
-						      	travelMode: google.maps.TravelMode.DRIVING,
-						    },
-						    (response, status) => {
-						    	if (status === "OK") {
-						        	directionsRenderer.setDirections(response);
-						      	} else {
-						        	//window.alert("Directions request failed due to " + status);
-						      	}
-						    });
-						}
-
-						var locations = [
-							@foreach($insightLocationData as $row)
-							['{!! str_replace("\r\n", "", $row->office_location) !!}', {{ $row->office_lat }}, {{ $row->office_long }}, {{ $row->lft }}],
-							@endforeach
-						];
-
-						var directionsService = new google.maps.DirectionsService();
-  						var directionsRenderer = new google.maps.DirectionsRenderer();
-
-						var map = new google.maps.Map(document.getElementById('map'), {
-							zoom: 5,
-							center: new google.maps.LatLng(26.9177367, 75.7928315),
-							mapTypeId: 'satellite'
-							//mapTypeId: google.maps.MapTypeId.ROADMAP
-						});
-
-						directionsRenderer.setMap(map);
-
-						@foreach($insightLocationData as $k => $row)
-							@if($k < $locationCount - 1)
-							calculateAndDisplayRoute(directionsService, directionsRenderer, '{{ strip_tags(str_replace("\r\n", "", $insightLocationData[$k]->office_location)) }}', '{{ strip_tags(str_replace("\r\n", "", $insightLocationData[$k+1]->office_location)) }}');
-							@endif
-						@endforeach
-
-						var infowindow = new google.maps.InfoWindow();
-
-						var marker, i;
-
-						for (i = 0; i < locations.length; i++) {
-							marker = new google.maps.Marker({
-								position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-								map: map,
-								title: locations[i][0],
-							});
-
-
-							google.maps.event.addListener(marker, 'click', (function(marker, i) {
-								return function() {
-									map.setZoom(14);
-									infowindow.setContent(locations[i][0]);
-									infowindow.open(map, marker);
-
-									map.setCenter(marker.getPosition());//locations[i][1], locations[i][2]);
-								}
-							})(marker, i));
-						}
-					</script>
-				</div>
-				<div class="col-sm-4">
-					<ul>
-						@foreach($insightLocationData as $row)
-						<li>{!! $row->office_location !!}</li>
-						@endforeach
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">
 			<h3>Outstanding As on (In Cr.)</h3>
@@ -745,8 +659,7 @@
 			@endif
 		</div>
 	</div>
-@elseif($insightCatData->id == 12) 
-
+@elseif($insightCatData->id == 12)
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">
 			<h3>Detail of COVID relief from lenders (In Nos)</h3>
@@ -849,10 +762,103 @@
 			@endif
 		</div>
 	</div>
+@elseif($insightCatData->id == 14)
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2>Map</h2>
+					<div id="map"></div>
+
+					<script type="text/javascript">
+						function calculateAndDisplayRoute(directionsService, directionsRenderer, from_address, to_address) {
+							directionsService.route({
+						      	origin: {
+						        	query: from_address,
+						      	},
+						      	destination: {
+						        	query: to_address,
+						      	},
+						      	travelMode: google.maps.TravelMode.DRIVING,
+						    },
+						    (response, status) => {
+						    	if (status === "OK") {
+						        	directionsRenderer.setDirections(response);
+						      	} else {
+						        	//window.alert("Directions request failed due to " + status);
+						      	}
+						    });
+						}
+
+						var locations = [
+							@foreach($insightLocationData as $row)
+							['{!! str_replace("\r\n", "", $row->office_location) !!}', {{ $row->office_lat }}, {{ $row->office_long }}, {{ $row->lft }}],
+							@endforeach
+						];
+
+						var directionsService = new google.maps.DirectionsService();
+  						var directionsRenderer = new google.maps.DirectionsRenderer();
+
+						var map = new google.maps.Map(document.getElementById('map'), {
+							zoom: 5,
+							center: new google.maps.LatLng(26.9177367, 75.7928315),
+							mapTypeId: 'satellite'
+							//mapTypeId: google.maps.MapTypeId.ROADMAP
+						});
+
+						directionsRenderer.setMap(map);
+
+						@foreach($insightLocationData as $k => $row)
+							@if($k < $locationCount - 1)
+							calculateAndDisplayRoute(directionsService, directionsRenderer, '{{ strip_tags(str_replace("\r\n", "", $insightLocationData[$k]->office_location)) }}', '{{ strip_tags(str_replace("\r\n", "", $insightLocationData[$k+1]->office_location)) }}');
+							@endif
+						@endforeach
+
+						var infowindow = new google.maps.InfoWindow();
+
+						var marker, i;
+
+						for (i = 0; i < locations.length; i++) {
+							marker = new google.maps.Marker({
+								position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+								map: map,
+								title: locations[i][0],
+							});
+
+
+							google.maps.event.addListener(marker, 'click', (function(marker, i) {
+								return function() {
+									map.setZoom(14);
+									infowindow.setContent(locations[i][0]);
+									infowindow.open(map, marker);
+
+									map.setCenter(marker.getPosition());//locations[i][1], locations[i][2]);
+								}
+							})(marker, i));
+						}
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			<div class="row">
+				<div class="col-sm-12">
+					<ul>
+						@foreach($insightLocationData as $row)
+						<li>{!! $row->office_location !!}</li>
+						@endforeach
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 @endif
 
 
-@if($insightCatData->id == 3)
+@if($insightCatData->id == 14)
 <style type="text/css">
 	/* Always set the map height explicitly to define the size of the div
 	* element that contains the map. */
