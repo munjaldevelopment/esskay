@@ -3,12 +3,11 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Venturecraft\Revisionable\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class InsightLocation extends Model
+class State extends Model
 {
-    use CrudTrait, RevisionableTrait;
+    use CrudTrait;
 
     /*
     |--------------------------------------------------------------------------
@@ -16,11 +15,12 @@ class InsightLocation extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'insight_locations';
+    protected $table = 'states';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['district_id', 'location_hub', 'branch_name', 'branch_type', 'branch_address', 'office_lat', 'office_long', 'status']; //'amount4', 
+
+    protected $fillable = ['state_code', 'name', 'status'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
@@ -30,10 +30,6 @@ class InsightLocation extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function districts()
-    {
-        return $this->belongsTo('App\Models\District', 'district_id');
-    }
 
     /*
     |--------------------------------------------------------------------------
