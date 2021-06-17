@@ -476,13 +476,13 @@
 						<tbody>
 							@foreach($netWorthData1 as $row)
 							<tr>
-								<td>{{ $row->particulars}}</td>
-								<td>{{ $row->amount1}}</td>
-								<td>{{ $row->amount2}}</td>
-								<td>{{ $row->amount3}}</td>
-								<td>{{ $row->amount4}}</td>
-								<td>{{ $row->amount5}}</td>
-								<td>{{ $row->amount6}}</td>
+								<td class="text-left">{{ $row->particulars}}</td>
+								<td>{{ round($row->amount1, 0) }}</td>
+								<td>{{ round($row->amount2, 0) }}</td>
+								<td>{{ round($row->amount3, 0) }}</td>
+								<td>{{ round($row->amount4, 0) }}</td>
+								<td>{{ round($row->amount5, 0) }}</td>
+								<td>{{ round($row->amount6, 0) }}</td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -729,7 +729,7 @@
 						<tbody>
 							@foreach($liabilityProfileTable11Data as $k => $row)
 							<tr>
-								<td>{{ $row->particulars}}</td>
+								<td class="text-left">{{ $row->particulars}}</td>
 								<td>{{ $row->amount1}}@if($k != 1)% @endif</td>
 								<td>{{ $row->amount2}}@if($k != 1)% @endif</td>
 								<td>{{ $row->amount3}}@if($k != 1)% @endif</td>
@@ -851,12 +851,6 @@
 	</div>
 @endif
 
-@if($insightCatData->id == 2)
-<script src="{{ asset('public/assets/') }}/js/highcharts.js"></script>
-<script src="{{ asset('public/assets/') }}/js/series-label.js"></script>
-<script src="{{ asset('public/assets/') }}/js/exporting.js"></script>
-<script src="{{ asset('public/assets/') }}/js/export-data.js"></script>
-@endif
 
 @if($insightCatData->id == 3)
 <style type="text/css">

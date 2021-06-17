@@ -33,6 +33,11 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script src="https://maps.google.com/maps/api/js?key=AIzaSyCOpOpa4sWnCIrBNY8SjiO0dgsS0nd3G8E&sensor=false" type="text/javascript"></script>
+
+	<script src="{{ asset('public/assets/') }}/js/highcharts.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/series-label.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/exporting.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/export-data.js"></script>
 	
 	
 	<meta name="csrf-token" content="{{ csrf_token() }}">

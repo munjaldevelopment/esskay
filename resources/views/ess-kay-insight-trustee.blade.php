@@ -103,7 +103,11 @@ $(document).ready(function() {
 		margin: 10,
 		loop: false,
 		nav:true,
-		navText: ["<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'>","<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'>"],  
+		navText: ["<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'><span class='pulse-ring'></span>","<img src='{{ asset('public/assets/') }}/images/scroll-arrow.svg'><span class='pulse-ring'></span>"],  
+		navClass: [
+			'owl-prev pulse pulse-success',
+			'owl-next pulse pulse-success'
+		],
 		autoWidth: true,
 		items: 4,
 		responsive:{

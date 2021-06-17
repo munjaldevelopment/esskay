@@ -1906,6 +1906,8 @@ class HomeController extends Controller
 					'text' => 'Percentage'
 				],
 			])
+			->exporting_js(true)
+			->export_data_js(true)
 			/*->legend([
 				'layout' => 'vertical',
 		        'align' => 'right',
@@ -2011,6 +2013,8 @@ class HomeController extends Controller
 					'text' => 'Percentage'
 				],
 			])
+			->exporting_js(true)
+			->export_data_js(true)
 			/*->legend([
 				'layout' => 'vertical',
 		        'align' => 'right',
@@ -2084,6 +2088,8 @@ class HomeController extends Controller
 					'text' => 'Percentage'
 				],
 			])
+			->exporting_js(true)
+			->export_data_js(true)
 			->legend([
 		        'align' => 'center',
 		        'verticalAlign' => 'top'
@@ -2155,6 +2161,8 @@ class HomeController extends Controller
 					'text' => 'Percentage'
 				],
 			])
+			->exporting_js(true)
+			->export_data_js(true)
 			->legend([
 		        'align' => 'center',
 		        'verticalAlign' => 'top'
@@ -5498,7 +5506,7 @@ class HomeController extends Controller
 					}
 				}
 
-				//dd($monthlyFebDocData);
+				//dd($monthlyDecDocData);
 
 				$heading_title = "";
 
