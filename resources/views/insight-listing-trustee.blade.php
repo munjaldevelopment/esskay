@@ -694,16 +694,6 @@
 		</div>
 	</div>
 
-	<div class="white-box">
-		<div class="pool-dynamic-graph">
-			@if($chart9)
-				<div id="ninth_chart"></div>
-
-				{!! $chart9 !!}
-			@endif
-		</div>
-	</div>
-
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">
 			<div class="custom-table-area">
@@ -847,6 +837,16 @@
 					</p>
 				</div>	
 			</div>
+		</div>
+	</div>
+@elseif($insightCatData->id == 13)
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			@if($chart9)
+				<div id="ninth_chart"></div>
+
+				{!! $chart9 !!}
+			@endif
 		</div>
 	</div>
 @endif

@@ -2432,6 +2432,9 @@ class HomeController extends Controller
 			$covidRelief1Data = \DB::table('covid_relief_borrowers')->where('covid_relief_borrower_status', 1)->get();
 			
 		}
+		else if($request->category_id == 13)
+		{
+		}
 
 		
 		$current_year = date('Y');
@@ -3982,88 +3985,6 @@ class HomeController extends Controller
 
 			$amount1 = $amount2 = $amount3 = 0;
 			
-			$assetConData1 = $liabilityProfile11Data = \DB::table('strong_liability_profile_driving')->where('strong_liability_driving_status', 1)->get();
-			if($assetConData1)
-			{
-				foreach($assetConData1 as $row)
-				{
-					$amount1+= $row->amount1;
-					$amount2+= $row->amount2;
-
-					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
-
-					$profileCategory[] = $profileCategory1[] = $row->financial_year;
-
-					$liabilityProfileData11[] = (float)$row->amount1;
-					$liabilityProfileData12[] = (float)$row->amount2;
-				}
-			}
-
-			$chart9 = \Chart::title([
-				'text' => 'Healthy CRAR',
-			])
-			->chart([
-				'type'     => 'column', // pie , columnt ect
-				'renderTo' => 'ninth_chart', // render the chart into your div with id
-			])
-			->subtitle([
-				'text' => '',
-			])
-			->colors([
-			])
-			->xaxis([
-				'categories' => $profileCategory1,
-			])
-			->yaxis([
-				'title' => [
-					'text' => 'Percentage'
-				],
-				'stackLabels' => [
-		            'enabled' => 'true',
-		            'style' => [
-		                'fontWeight' => 'bold',
-		            ]
-		        ]
-			])
-			->legend([
-				'align' => 'right',
-		        'x' => '-30',
-		        'verticalAlign' => 'top',
-		        'y' => '25',
-		        'floating' => 'true',
-		        'shadow' => 'false'
-			])
-			->plotOptions([
-				'column'        => ([
-					'stacking' => 'normal',
-					'dataLabels' => ([
-						'enabled' => 'true',
-					]),
-				]),
-			])
-			->credits([
-				'enabled' => 'false'
-			])
-			->series(
-				[
-					[
-						'name'  => 'Tier1',
-						'color' => '#336699',
-						'data'  => $liabilityProfileData11,
-					],
-					[
-						'name'  => 'Tier2',
-						'color' => '#11a9dc',
-						'data'  => $liabilityProfileData12,
-					],
-				]
-			)
-			->display(1);
-
-			$profileCategory = $profileCategory1 = $liabilityProfileData11 = $liabilityProfileData12 = array();
-
-			$amount1 = $amount2 = $amount3 = 0;
-			
 			$assetConData1 = $liabilityProfile11Data = \DB::table('strong_liability_profile_overall')->where('strong_liability_overall_status', 1)->get();
 			if($assetConData1)
 			{
@@ -4155,6 +4076,90 @@ class HomeController extends Controller
 			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = 0;
 			$covidRelief1Data = \DB::table('covid_relief_borrowers')->where('covid_relief_borrower_status', 1)->get();
 			
+		}
+		else if($request->category_id == 13)
+		{
+			$profileCategory = $profileCategory1 = $liabilityProfileData11 = $liabilityProfileData12 = array();
+
+			$amount1 = $amount2 = $amount3 = 0;
+			
+			$assetConData1 = $liabilityProfile11Data = \DB::table('strong_liability_profile_driving')->where('strong_liability_driving_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$amount1+= $row->amount1;
+					$amount2+= $row->amount2;
+
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
+
+					$profileCategory[] = $profileCategory1[] = $row->financial_year;
+
+					$liabilityProfileData11[] = (float)$row->amount1;
+					$liabilityProfileData12[] = (float)$row->amount2;
+				}
+			}
+
+			$chart9 = \Chart::title([
+				'text' => 'Healthy CRAR',
+			])
+			->chart([
+				'type'     => 'column', // pie , columnt ect
+				'renderTo' => 'ninth_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+			])
+			->xaxis([
+				'categories' => $profileCategory1,
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+				'stackLabels' => [
+		            'enabled' => 'true',
+		            'style' => [
+		                'fontWeight' => 'bold',
+		            ]
+		        ]
+			])
+			->legend([
+				'align' => 'right',
+		        'x' => '-30',
+		        'verticalAlign' => 'top',
+		        'y' => '25',
+		        'floating' => 'true',
+		        'shadow' => 'false'
+			])
+			->plotOptions([
+				'column'        => ([
+					'stacking' => 'normal',
+					'dataLabels' => ([
+						'enabled' => 'true',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Tier1',
+						'color' => '#336699',
+						'data'  => $liabilityProfileData11,
+					],
+					[
+						'name'  => 'Tier2',
+						'color' => '#11a9dc',
+						'data'  => $liabilityProfileData12,
+					],
+				]
+			)
+			->display(1);
 		}
 
 		//dd($liabilityProfileDataTotal);
