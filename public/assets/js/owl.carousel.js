@@ -2971,8 +2971,8 @@
 		navContainer: false,
 		navContainerClass: 'owl-nav',
 		navClass: [
-			'owl-prev',
-			'owl-next'
+			'owl-prev pulse pulse-primary',
+			'owl-next pulse pulse-primary'
 		],
 		slideBy: 1,
 		dotClass: 'owl-dot',

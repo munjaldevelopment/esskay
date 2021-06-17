@@ -49,6 +49,30 @@ class NetWorthCrudController extends CrudController
             
             $this->crud->allowAccess('show');
             $this->crud->enableExportButtons();
+
+            $checker_net_worth = backpack_user()->hasPermissionTo('checker_net_worth');
+
+            if($checker_net_worth)
+            {
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    $this->crud->allowAccess(['checker_net_worth', 'revise', 'delete']);
+                }
+                else
+                {
+                    if($checker_net_worth)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_net_worth']);
+                    }
+                }
+            }
+            else
+            {
+                $this->crud->denyAccess(['checker_net_worth', 'revise', 'delete']);
+            }
             
             $this->crud->addColumn([
                     'label'     => 'Particulars',
@@ -146,14 +170,18 @@ class NetWorthCrudController extends CrudController
                     'name'      => 'amount12',
                     ]);
 
+            
             $this->crud->addField([
                     'label'     => 'Status',
-                    'type'      => 'checkbox',
+                    'type'      => 'select2_from_array',
                     'name'      => 'net_worth_status',
+                    'options'   => array('0' => 'Pending', '1' => 'Accept', '2' => 'Reject')
                 ]);
             
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportNetWorthButton', 'end');
             $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importNetWorthButton', 'end');
+
+            $this->crud->addButtonFromView('line', 'checker_net_worth', 'checker_net_worth', 'end');
 
             $this->crud->setCreateView('admin.create-lender-banking-form');
             $this->crud->setUpdateView('admin.edit-lender-banking-form');

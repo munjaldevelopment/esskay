@@ -749,4 +749,262 @@ class DocumentCrudController extends CrudController
             }
         }
 	}
+
+	// Insight
+	public function checkerOperationalHighlight($document_id)
+	{
+		$updateData = array('operational_highlight_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('operational_highlights')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerOperationalHighlightReject($document_id)
+	{
+		$updateData = array('operational_highlight_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('operational_highlights')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// geographicalConcentration
+	public function checkergeographicalConcentration($document_id)
+	{
+		$updateData = array('geographical_concentration_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('geographical_concentrations')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkergeographicalConcentrationReject($document_id)
+	{
+		$updateData = array('geographical_concentration_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('geographical_concentrations')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// Product Concentrations
+	public function checkerproductConcentration($document_id)
+	{
+		$updateData = array('product_concentration_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('product_concentrations')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerproductConcentrationReject($document_id)
+	{
+		$updateData = array('product_concentration_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('product_concentrations')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// asset_quality
+	public function checkerassetQuality($document_id)
+	{
+		$updateData = array('asset_quality_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('asset_quality')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerassetQualityReject($document_id)
+	{
+		$updateData = array('asset_quality_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('asset_quality')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// collection_efficiency
+	public function checkercollectionEfficiency($document_id)
+	{
+		$updateData = array('collection_efficiency_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('collection_efficiency')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkercollectionEfficiencyReject($document_id)
+	{
+		$updateData = array('collection_efficiency_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('collection_efficiency')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// net_worth
+	public function checkernetWorth($document_id)
+	{
+		$updateData = array('net_worth_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('net_worth')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkernetWorthReject($document_id)
+	{
+		$updateData = array('net_worth_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('net_worth')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// net_worth_infusion
+	public function checkernetWorthInfusion($document_id)
+	{
+		$updateData = array('net_worth_infusion_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('net_worth_infusions')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkernetWorthInfusionReject($document_id)
+	{
+		$updateData = array('net_worth_infusion_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('net_worth_infusions')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// liquidity_status
+	public function checkerLiquidity($document_id)
+	{
+		$updateData = array('liquidity_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('liquidity')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerLiquidityReject($document_id)
+	{
+		$updateData = array('liquidity_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('liquidity')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// strong_liability
+	public function checkerstrongLiabilityProfile($document_id)
+	{
+		$updateData = array('strong_liability_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('strong_liability_profiles')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerstrongLiabilityProfileReject($document_id)
+	{
+		$updateData = array('strong_liability_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('strong_liability_profiles')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// strong_liability_table
+	public function checkerstrongLiabilityProfileTable($document_id)
+	{
+		$updateData = array('strong_liability_table_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('strong_liability_profile_tables')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerstrongLiabilityProfileTableReject($document_id)
+	{
+		$updateData = array('strong_liability_table_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('strong_liability_profile_tables')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// strong_liability_profile_ratio
+	public function checkerstrongLiabilityProfileRatio($document_id)
+	{
+		$updateData = array('strong_liability_ratio_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('strong_liability_profile_ratio')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerstrongLiabilityProfileRatioReject($document_id)
+	{
+		$updateData = array('strong_liability_ratio_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('strong_liability_profile_ratio')->where(['id' => $document_id])->update($updateData);
+	}
+	// strong_liability_profile_driving
+	public function checkerstrongLiabilityProfileDriving($document_id)
+	{
+		$updateData = array('strong_liability_driving_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('strong_liability_profile_driving')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerstrongLiabilityProfileDrivingReject($document_id)
+	{
+		$updateData = array('strong_liability_driving_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('strong_liability_profile_driving')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// strong_liability_profile_well_table
+	public function checkerstrongLiabilityProfileWellTable($document_id)
+	{
+		$updateData = array('strong_liability_well_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('strong_liability_profile_well_table')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerstrongLiabilityProfileWellTableReject($document_id)
+	{
+		$updateData = array('strong_liability_well_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('strong_liability_profile_well_table')->where(['id' => $document_id])->update($updateData);
+	}
+	// strong_liability_profile_overall
+	public function checkerstrongLiabilityProfileOverall($document_id)
+	{
+		$updateData = array('strong_liability_overall_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('strong_liability_profile_overall')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerstrongLiabilityProfileOverallReject($document_id)
+	{
+		$updateData = array('strong_liability_overall_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('strong_liability_profile_overall')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// liability_profile_category
+	public function checkerliabilityProfileCategory($document_id)
+	{
+		$updateData = array('status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('liability_profile_categories')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerliabilityProfileCategoryReject($document_id)
+	{
+		$updateData = array('status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('liability_profile_categories')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// liability_profile_slider
+	public function checkerliabilityProfileSlider($document_id)
+	{
+		$updateData = array('status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('liability_profile_slider')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkerliabilityProfileSliderReject($document_id)
+	{
+		$updateData = array('status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('liability_profile_slider')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// checker_covid_relief_lender
+	public function checkercovidReliefLender($document_id)
+	{
+		$updateData = array('covid_relief_lender_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('covid_relief_lenders')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkercovidReliefLenderReject($document_id)
+	{
+		$updateData = array('covid_relief_lender_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('covid_relief_lenders')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// checker_covid_relief_lender
+	public function checkercovidReliefBorrower($document_id)
+	{
+		$updateData = array('covid_relief_borrower_status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('covid_relief_borrowers')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkercovidReliefBorrowerReject($document_id)
+	{
+		$updateData = array('covid_relief_borrower_status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('covid_relief_borrowers')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// current_deal_category
+	public function checkercurrentDealCategory($document_id)
+	{
+		$updateData = array('status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('current_deal_categories')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkercurrentDealCategoryReject($document_id)
+	{
+		$updateData = array('status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('current_deal_categories')->where(['id' => $document_id])->update($updateData);
+	}
+
+	// current_deal
+	public function checkercurrentDeal($document_id)
+	{
+		$updateData = array('status' => '1', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('current_deals')->where(['id' => $document_id])->update($updateData);
+	}
+
+	public function checkercurrentDealReject($document_id)
+	{
+		$updateData = array('status' => '2', 'approve_user' => backpack_user()->id, 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('current_deals')->where(['id' => $document_id])->update($updateData);
+	}
 }

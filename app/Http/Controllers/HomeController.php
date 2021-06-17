@@ -1906,6 +1906,8 @@ class HomeController extends Controller
 					'text' => 'Percentage'
 				],
 			])
+			->exporting_js(true)
+			->export_data_js(true)
 			/*->legend([
 				'layout' => 'vertical',
 		        'align' => 'right',
@@ -1915,7 +1917,7 @@ class HomeController extends Controller
 				'series'        => ([
 					'dataLabels' => ([
 						'enabled' => 'true',
-						'format' => '{y}.0%',
+						'format' => '{y}%',
 					]),
 				]),
 			])
@@ -2011,6 +2013,8 @@ class HomeController extends Controller
 					'text' => 'Percentage'
 				],
 			])
+			->exporting_js(true)
+			->export_data_js(true)
 			/*->legend([
 				'layout' => 'vertical',
 		        'align' => 'right',
@@ -2020,7 +2024,7 @@ class HomeController extends Controller
 				'series'        => ([
 					'dataLabels' => ([
 						'enabled' => 'true',
-						'format' => '{y}.0%',
+						'format' => '{y}%',
 					]),
 				]),
 			])
@@ -2084,6 +2088,8 @@ class HomeController extends Controller
 					'text' => 'Percentage'
 				],
 			])
+			->exporting_js(true)
+			->export_data_js(true)
 			->legend([
 		        'align' => 'center',
 		        'verticalAlign' => 'top'
@@ -2155,6 +2161,8 @@ class HomeController extends Controller
 					'text' => 'Percentage'
 				],
 			])
+			->exporting_js(true)
+			->export_data_js(true)
 			->legend([
 		        'align' => 'center',
 		        'verticalAlign' => 'top'
@@ -2423,6 +2431,9 @@ class HomeController extends Controller
 			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = 0;
 			$covidRelief1Data = \DB::table('covid_relief_borrowers')->where('covid_relief_borrower_status', 1)->get();
 			
+		}
+		else if($request->category_id == 13)
+		{
 		}
 
 		
@@ -3193,12 +3204,17 @@ class HomeController extends Controller
 		$liabilityProfileDataTotal = $liquidityDataTotal = array();
 
 		$covidReliefData = $covidReliefDataTotal = $covidReliefDataTotal1 = array();
-		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = array();
+		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = $liabilityCategories = $liabilityCategoriesSlider = array();
+
+		$insightLocationData = array();
+		$locationCount = 0;
 
 		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = $chart7 = $chart8 = $chart9 = $chart10 = array();
 
 		if($request->category_id == 3)
 		{
+			$locationCount = \DB::table('insight_locations')->where('status', 1)->count();
+
 			$geographicalConData = \DB::table('geographical_concentrations')->where('geographical_concentration_status', 1)->get();
 
 			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
@@ -3281,7 +3297,7 @@ class HomeController extends Controller
 				'series'        => ([
 					'dataLabels' => ([
 						'enabled' => 'true',
-						'format' => '{y}.0%',
+						'format' => '{y}%',
 					]),
 				]),
 			])
@@ -3386,7 +3402,7 @@ class HomeController extends Controller
 				'series'        => ([
 					'dataLabels' => ([
 						'enabled' => 'true',
-						'format' => '{y}.0%',
+						'format' => '{y}%',
 					]),
 				]),
 			])
@@ -3880,6 +3896,13 @@ class HomeController extends Controller
 				]
 			)
 			->display(0);
+
+			$liabilityCategories = \DB::table('liability_profile_categories')->where('status', '1')->get();
+
+			foreach($liabilityCategories as $row)
+			{
+				$liabilityCategoriesSlider[$row->id] = \DB::table('liability_profile_slider')->where('liability_profile_category_id', $row->id)->where('status', '1')->get();
+			}
 		}
 		else if($request->category_id == 11)
 		{
@@ -3955,88 +3978,6 @@ class HomeController extends Controller
 				]
 			)
 			->display(0);
-
-			$profileCategory = $profileCategory1 = $liabilityProfileData11 = $liabilityProfileData12 = array();
-
-			$amount1 = $amount2 = $amount3 = 0;
-			
-			$assetConData1 = $liabilityProfile11Data = \DB::table('strong_liability_profile_driving')->where('strong_liability_driving_status', 1)->get();
-			if($assetConData1)
-			{
-				foreach($assetConData1 as $row)
-				{
-					$amount1+= $row->amount1;
-					$amount2+= $row->amount2;
-
-					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
-
-					$profileCategory[] = $profileCategory1[] = $row->financial_year;
-
-					$liabilityProfileData11[] = (float)$row->amount1;
-					$liabilityProfileData12[] = (float)$row->amount2;
-				}
-			}
-
-			$chart9 = \Chart::title([
-				'text' => 'Healthy CRAR',
-			])
-			->chart([
-				'type'     => 'column', // pie , columnt ect
-				'renderTo' => 'ninth_chart', // render the chart into your div with id
-			])
-			->subtitle([
-				'text' => '',
-			])
-			->colors([
-			])
-			->xaxis([
-				'categories' => $profileCategory1,
-			])
-			->yaxis([
-				'title' => [
-					'text' => 'Percentage'
-				],
-				'stackLabels' => [
-		            'enabled' => 'true',
-		            'style' => [
-		                'fontWeight' => 'bold',
-		            ]
-		        ]
-			])
-			->legend([
-				'align' => 'right',
-		        'x' => '-30',
-		        'verticalAlign' => 'top',
-		        'y' => '25',
-		        'floating' => 'true',
-		        'shadow' => 'false'
-			])
-			->plotOptions([
-				'column'        => ([
-					'stacking' => 'normal',
-					'dataLabels' => ([
-						'enabled' => 'true',
-					]),
-				]),
-			])
-			->credits([
-				'enabled' => 'false'
-			])
-			->series(
-				[
-					[
-						'name'  => 'Tier1',
-						'color' => '#336699',
-						'data'  => $liabilityProfileData11,
-					],
-					[
-						'name'  => 'Tier2',
-						'color' => '#11a9dc',
-						'data'  => $liabilityProfileData12,
-					],
-				]
-			)
-			->display(1);
 
 			$profileCategory = $profileCategory1 = $liabilityProfileData11 = $liabilityProfileData12 = array();
 
@@ -4134,6 +4075,94 @@ class HomeController extends Controller
 			$covidRelief1Data = \DB::table('covid_relief_borrowers')->where('covid_relief_borrower_status', 1)->get();
 			
 		}
+		else if($request->category_id == 13)
+		{
+			$profileCategory = $profileCategory1 = $liabilityProfileData11 = $liabilityProfileData12 = array();
+
+			$amount1 = $amount2 = $amount3 = 0;
+			
+			$assetConData1 = $liabilityProfile11Data = \DB::table('strong_liability_profile_driving')->where('strong_liability_driving_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$amount1+= $row->amount1;
+					$amount2+= $row->amount2;
+
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
+
+					$profileCategory[] = $profileCategory1[] = $row->financial_year;
+
+					$liabilityProfileData11[] = (float)$row->amount1;
+					$liabilityProfileData12[] = (float)$row->amount2;
+				}
+			}
+
+			$chart9 = \Chart::title([
+				'text' => 'Healthy CRAR',
+			])
+			->chart([
+				'type'     => 'column', // pie , columnt ect
+				'renderTo' => 'ninth_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+			])
+			->xaxis([
+				'categories' => $profileCategory1,
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+				'stackLabels' => [
+		            'enabled' => 'true',
+		            'style' => [
+		                'fontWeight' => 'bold',
+		            ]
+		        ]
+			])
+			->legend([
+				'align' => 'right',
+		        'x' => '-30',
+		        'verticalAlign' => 'top',
+		        'y' => '25',
+		        'floating' => 'true',
+		        'shadow' => 'false'
+			])
+			->plotOptions([
+				'column'        => ([
+					'stacking' => 'normal',
+					'dataLabels' => ([
+						'enabled' => 'true',
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'name'  => 'Tier1',
+						'color' => '#336699',
+						'data'  => $liabilityProfileData11,
+					],
+					[
+						'name'  => 'Tier2',
+						'color' => '#11a9dc',
+						'data'  => $liabilityProfileData12,
+					],
+				]
+			)
+			->display(1);
+		}
+		else if($request->category_id == 14)
+		{
+			$insightLocationData = \DB::table('insight_locations')->where('status', 1)->get();
+		}
 
 		//dd($liabilityProfileDataTotal);
 
@@ -4141,6 +4170,10 @@ class HomeController extends Controller
 		$current_year = date('Y');
 		return view('insight-listing-trustee', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'chart7' => $chart7, 'chart8' => $chart8, 'chart9' => $chart9, 'chart10' => $chart10, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
 
+			'insightLocationData' => $insightLocationData,
+			'liabilityCategories' => $liabilityCategories,
+			'liabilityCategoriesSlider' => $liabilityCategoriesSlider,
+			'locationCount' => $locationCount,
 			'liabilityProfileData' => $liabilityProfileData,
 			'liabilityProfileTableData' => $liabilityProfileTableData,
 			'liabilityProfileTable11Data' => $liabilityProfileTable11Data,
@@ -5099,7 +5132,7 @@ class HomeController extends Controller
 
 				if($report_type == 1)
 				{
-					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Executed Report')->selectRaw('transaction_documents.*,transactions.name')->where('transaction_document_type_id', '1')->where('transaction_id',$transaction_id)->get();
+					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Executed Report')->selectRaw('transaction_documents.*,transactions.name')->where('document_status', '1')->where('transaction_id',$transaction_id)->get(); //->where('transaction_document_type_id', '1')
 
 					if($termSheetDoc)
 					{
@@ -5480,7 +5513,7 @@ class HomeController extends Controller
 					}
 				}
 
-				//dd($monthlyFebDocData);
+				//dd($monthlyDecDocData);
 
 				$heading_title = "";
 

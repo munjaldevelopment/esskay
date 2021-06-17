@@ -49,6 +49,30 @@ class AssetQualityCrudController extends CrudController
             
             $this->crud->allowAccess('show');
             $this->crud->enableExportButtons();
+
+            $checker_asset_quality = backpack_user()->hasPermissionTo('checker_asset_quality');
+
+            if($checker_asset_quality)
+            {
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    $this->crud->allowAccess(['checker_asset_quality', 'revise', 'delete']);
+                }
+                else
+                {
+                    if($checker_asset_quality)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_asset_quality']);
+                    }
+                }
+            }
+            else
+            {
+                $this->crud->denyAccess(['checker_asset_quality', 'revise', 'delete']);
+            }
             
             $this->crud->addColumn([
                     'label'     => 'Geographical Diversification',
@@ -122,15 +146,19 @@ class AssetQualityCrudController extends CrudController
                     'name'      => 'amount_percentage8',
                     ]);
 
+            
             $this->crud->addField([
                     'label'     => 'Status',
-                    'type'      => 'checkbox',
+                    'type'      => 'select2_from_array',
                     'name'      => 'asset_quality_status',
+                    'options'   => array('0' => 'Pending', '1' => 'Accept', '2' => 'Reject')
                 ]);
             
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportAssetQualityButton', 'end');
             $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importAssetQualityButton', 'end');
 
+            $this->crud->addButtonFromView('line', 'checker_asset_quality', 'checker_asset_quality', 'end');
+            
             $this->crud->setCreateView('admin.create-lender-banking-form');
             $this->crud->setUpdateView('admin.edit-lender-banking-form');
         }

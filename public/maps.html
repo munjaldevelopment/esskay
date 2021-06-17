@@ -20,48 +20,62 @@
     </style>
     <script>
 	function initMap() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 14,
-          center: { lat: 26.9177367, lng: 75.7928315},
+		const map = new google.maps.Map(document.getElementById("map"), {
+			zoom: 12,
+			center: { lat: 26.9177367, lng: 75.7928315},
         });
 		
-			  
 		var locations = [
-			['Ess Kay Fincorp Limited, Dhuleshwar Garden, Jaipur,  Rajasthan 302001', 26.9142179,75.798021,19.75, 5],
-			['Ess Kay IT Corporate office, Adarsh Plaza, Barodia Scheme, Gopalbari, Jaipur, Rajasthan 302016', 26.9177367,75.7928315,16, 5],
+			['<p>Ess Kay Fincorp Limited, Dhuleshwar Garden, </p><p> Jaipur,  Rajasthan 302001</p>', 26.9142179,75.798021, 6],
+			['<p>Ess Kay IT Corporate office, Adarsh Plaza, Barodia Scheme, Gopalbari, </p><p> Jaipur, Rajasthan 302016</p>', 26.9177367,75.7928315, 5],
+			['<p>Ess Kay IT Corporate office, India Gate, </p><p> Delhi, Delhi 302001</p>', 28.6129, 77.2295, 4],
+			['<p>Ess Kay IT Corporate office, Gateway of India, </p><p>Mumbai Maharastra 302001</p>', 18.9220, 72.8347, 3],
+			['<p>Ess Kay IT Corporate office, Taj Mahal, </p><p> Uttar Pradesh 302001</p>', 27.1751, 78.0421, 2],
+			['<p>Ess Kay IT Corporate office, Mahakal Temple, </p><p> Ujjain Madhya Pradesh 302001</p>', 23.1827, 77.2295, 1],
 		];
-	
-	
-	var infowindow = new google.maps.InfoWindow();
-
-    var marker, i;
-
-    for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }
 		
-      }
+		var infowindow = new google.maps.InfoWindow();
+		var marker, i;
+		
+		for (i = 0; i < locations.length; i++) {
+			console.log(locations[i][0]);
 
-      // Attaches an info window to a marker with the provided message. When the
-      // marker is clicked, the info window will open with the secret message.
-      function attachSecretMessage(marker, secretMessage) {
-        const infowindow = new google.maps.InfoWindow({
-          content: secretMessage,
-        });
-        marker.addListener("click", () => {
-          infowindow.open(marker.get("map"), marker);
-        });
-      }
+			marker = new google.maps.Marker({
+				position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+				map: map,
+				title: locations[i][0],
+			});
+			
+			map.addListener("center_changed", () => {
+				// 3 seconds after the center of the map has changed, pan back to the
+				// marker.
+				window.setTimeout(() => {
+				  map.panTo(marker.getPosition());
+				}, 3000);
+			});
+			
+			google.maps.event.addListener(marker, 'click', (function(marker, i) {
+				return function() {
+					map.setZoom(14);
+					infowindow.setContent(locations[i][0]);
+					infowindow.open(map, marker);
+					
+					map.setCenter(marker.getPosition());
+			}
+			})(marker, i));
+		}
+	}
+
+	// Attaches an info window to a marker with the provided message. When the
+	// marker is clicked, the info window will open with the secret message.
+	function attachSecretMessage(marker, secretMessage) {
+		const infowindow = new google.maps.InfoWindow({
+			content: secretMessage,
+		});
+		marker.addListener("click", () => {
+			infowindow.open(marker.get("map"), marker);
+		});
+	}
     </script>
   </head>
   <body>

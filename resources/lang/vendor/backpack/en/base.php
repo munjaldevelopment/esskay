@@ -42,6 +42,7 @@ return [
     'error'                  => 'Error',
     'success'                => 'Success',
     'warning'                => 'Warning',
+    'info'                   => 'Info',
     'notice'                 => 'Notice',
     'old_password_incorrect' => 'Old password is incorrect.',
     'password_dont_match'    => 'Passwords do not match.',

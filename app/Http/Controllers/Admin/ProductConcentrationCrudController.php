@@ -50,6 +50,30 @@ class ProductConcentrationCrudController extends CrudController
             $this->crud->allowAccess('show');
             $this->crud->enableExportButtons();
             
+            $checker_product_concentration = backpack_user()->hasPermissionTo('checker_product_concentration');
+
+            if($checker_product_concentration)
+            {
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    $this->crud->allowAccess(['checker_product_concentration', 'revise', 'delete']);
+                }
+                else
+                {
+                    if($checker_product_concentration)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_product_concentration']);
+                    }
+                }
+            }
+            else
+            {
+                $this->crud->denyAccess(['checker_product_concentration', 'revise', 'delete']);
+            }
+
             $this->crud->addColumn([
                     'label'     => 'Product Diversification',
                     'type'      => 'text',
@@ -187,12 +211,16 @@ class ProductConcentrationCrudController extends CrudController
 
             $this->crud->addField([
                     'label'     => 'Status',
-                    'type'      => 'checkbox',
+                    'type'      => 'select2_from_array',
                     'name'      => 'product_concentration_status',
+                    'options'   => array('0' => 'Pending', '1' => 'Accept', '2' => 'Reject')
                 ]);
+            
             
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportProductConcentrationButton', 'end');
             $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importProductConcentrationButton', 'end');
+
+            $this->crud->addButtonFromView('line', 'checker_product_concentration', 'checker_product_concentration', 'end');
 
             $this->crud->setCreateView('admin.create-lender-banking-form');
             $this->crud->setUpdateView('admin.edit-lender-banking-form');

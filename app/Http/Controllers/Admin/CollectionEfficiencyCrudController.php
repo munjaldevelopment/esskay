@@ -49,6 +49,30 @@ class CollectionEfficiencyCrudController extends CrudController
             
             $this->crud->allowAccess('show');
             $this->crud->enableExportButtons();
+
+            $checker_collection_efficiency = backpack_user()->hasPermissionTo('checker_collection_efficiency');
+
+            if($checker_collection_efficiency)
+            {
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    $this->crud->allowAccess(['checker_collection_efficiency', 'revise', 'delete']);
+                }
+                else
+                {
+                    if($checker_collection_efficiency)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_collection_efficiency']);
+                    }
+                }
+            }
+            else
+            {
+                $this->crud->denyAccess(['checker_collection_efficiency', 'revise', 'delete']);
+            }
             
             $this->crud->addColumn([
                     'label'     => 'Heading Top',
@@ -98,14 +122,18 @@ class CollectionEfficiencyCrudController extends CrudController
                     'name'      => 'amount_graph2',
                     ]);
 
+            
             $this->crud->addField([
-                     'label'     => 'Status',
-                    'type'      => 'checkbox',
+                    'label'     => 'Status',
+                    'type'      => 'select2_from_array',
                     'name'      => 'collection_efficiency_status',
-                    ]);
+                    'options'   => array('0' => 'Pending', '1' => 'Accept', '2' => 'Reject')
+                ]);
             
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportCollectionEfficiencyButton', 'end');
             $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importCollectionEfficiencyButton', 'end');
+
+             $this->crud->addButtonFromView('line', 'checker_collection_efficiency', 'checker_collection_efficiency', 'end');
 
             $this->crud->setCreateView('admin.create-lender-banking-form');
             $this->crud->setUpdateView('admin.edit-lender-banking-form');

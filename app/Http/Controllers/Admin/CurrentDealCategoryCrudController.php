@@ -33,6 +33,32 @@ class CurrentDealCategoryCrudController extends CrudController
         CRUD::setEntityNameStrings('Current Deal Category', 'Current Deal Categories');
 
         $list_current_deal_category = backpack_user()->hasPermissionTo('list_current_deal_category');
+
+        $checker_current_deal_category = backpack_user()->hasPermissionTo('checker_current_deal_category');
+
+            if($checker_current_deal_category)
+            {
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    $this->crud->allowAccess(['checker_current_deal_category', 'revise', 'delete']);
+                }
+                else
+                {
+                    if($checker_current_deal_category)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_current_deal_category']);
+                    }
+                }
+            }
+            else
+            {
+                $this->crud->denyAccess(['checker_current_deal_category', 'revise', 'delete']);
+            }
+
+            $this->crud->addButtonFromView('line', 'checker_current_deal_category', 'checker_current_deal_category', 'end');
         
         if($list_current_deal_category)
         {
@@ -89,10 +115,12 @@ class CurrentDealCategoryCrudController extends CrudController
                                     'tab' => 'General'
                                 ]);
 
+            
             $this->crud->addField([
                                     'name' => 'status',
                                     'label' => 'Status',
-                                    'type' => 'checkbox',
+                                    'type' => 'select2_from_array',
+                                    'options'   => array('0' => 'Pending', '1' => 'Accept', '2' => 'Reject'),
                                     'tab' => 'General'
                                 ]);
 

@@ -47,6 +47,30 @@ class StrongLiabilityProfileCrudController extends CrudController
             $this->crud->allowAccess('show');
             $this->crud->enableExportButtons();
             
+            $checker_strong_liability_profile = backpack_user()->hasPermissionTo('checker_strong_liability_profile');
+
+            if($checker_strong_liability_profile)
+            {
+                $is_admin = backpack_user()->hasRole('Super Admin');
+                if($is_admin)
+                {
+                    $this->crud->allowAccess(['checker_strong_liability_profile', 'revise', 'delete']);
+                }
+                else
+                {
+                    if($checker_strong_liability_profile)
+                    {
+                        //$this->crud->addClause('where', 'status', '=', "0");
+                        $this->crud->denyAccess(['revise']);
+                        $this->crud->allowAccess(['checker_strong_liability_profile']);
+                    }
+                }
+            }
+            else
+            {
+                $this->crud->denyAccess(['checker_strong_liability_profile', 'revise', 'delete']);
+            }
+
             $this->crud->addColumn([
                     'label'     => 'Quarter',
                     'type'      => 'text',
@@ -101,14 +125,19 @@ class StrongLiabilityProfileCrudController extends CrudController
                     'name'      => 'amount4',
                     ]);*/
 
+            
+
             $this->crud->addField([
                     'label'     => 'Status',
-                    'type'      => 'checkbox',
+                    'type'      => 'select2_from_array',
                     'name'      => 'strong_liability_status',
+                    'options'   => array('0' => 'Pending', '1' => 'Accept', '2' => 'Reject')
                 ]);
             
             $this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportStrongLiabilityButton', 'end');
             $this->crud->addButtonFromModelFunction('top', 'import_xls', 'importStrongLiabilityButton', 'end');
+
+             $this->crud->addButtonFromView('line', 'checker_strong_liability_profile', 'checker_strong_liability_profile', 'end');
 
             $this->crud->setCreateView('admin.create-lender-banking-form');
             $this->crud->setUpdateView('admin.edit-lender-banking-form');

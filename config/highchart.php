@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'highchart_js'      => true,
-    'series_label_js'   => true,
-    'exporting_js'      => true,
-    'export_data_js'    => true,
+    'highchart_js'      => false,
+    'series_label_js'   => false,
+    'exporting_js'      => false,
+    'export_data_js'    => false,
 ];

@@ -51,6 +51,14 @@ return [
     'checkerDocument'           => 'Approve Document',
     'rejectTransaction'         => 'Reject',
 
+    'approveTransaction'         => 'Approve',
+
+    'successTransaction'         => 'Status updated successfully',
+
+    'failureTransaction'   => '<strong>Unable to update, Please try again.</strong>',
+
+    'checkerOperationalHighlight' => 'Approve Op. Highlight',
+
     'checkerSanctionLetter'     => 'Approve San. Letter',
     'checkerSanctionLetter2'    => 'Approve 2 San. Letter',
     'checkerSanctionLetter3'    => 'Approve 3 San. Letter',
