@@ -28,7 +28,13 @@
 							<div class="ohbhb-mid-cont">
 								<div class="ohbhb-mid-cont-text">
 									<div class="ohbh-mid-heading">{{ $insightRow->operation_row1_income }}</div>
-									<div class="ohbh-mid-result">{{ $insightRow->operation_row1_income_percentage }}%</div>
+									<div class="ohbh-mid-result">
+									@if($insightRow->operation_row1_value < $insightRow->operation_row2_value)
+										<i class="fa fa-arrow-up"></i> 
+									@elseif($insightRow->operation_row1_value > $insightRow->operation_row2_value)
+										<i class="fa fa-arrow-down"></i>
+									@endif
+									{{ $insightRow->operation_row1_income_percentage }}%</div>
 								</div>
 							</div>
 						</div>
@@ -53,7 +59,14 @@
 							<div class="ohbhb-mid-cont">
 								<div class="ohbhb-mid-cont-text">
 									<div class="ohbh-mid-heading">{{ $insightRow->operation_row2_income }}</div>
-									<div class="ohbh-mid-result">{{ $insightRow->operation_row2_income_percentage }}%</div>
+									<div class="ohbh-mid-result">
+									@if($insightRow->operation_row3_value > $insightRow->operation_row2_value)
+										<i class="fa fa-arrow-up"></i> 
+									@elseif($insightRow->operation_row3_value < $insightRow->operation_row2_value)
+										<i class="fa fa-arrow-down"></i>
+									@endif
+
+									{{ $insightRow->operation_row2_income_percentage }}%</div>
 								</div>
 							</div>
 						</div>
@@ -61,9 +74,12 @@
 					</div>
 					@endforeach
 				</div>
-				
 			</div>
+
+			<div class="pull-right" style="right: -80%; position: relative;">Amount (In Cr.)</div>
 		</div>
+
+
 	</div>
 @elseif($insightCatData->id == 3)
 	<div class="white-box">
@@ -290,7 +306,7 @@
 		</div>
 	</div>
 @elseif($insightCatData->id == 6)
-	<div class="white-box">
+	<div class="white-box d-none hide">
 		<div class="pool-dynamic-graph">
 			@if($chart41)
 				<div id="fourth1_chart"></div>
@@ -310,32 +326,6 @@
 		</div>
 	</div>
 @elseif($insightCatData->id == 8)
-	<div class="row">
-		<div class="col-sm-6">
-			<div class="white-box">
-				<div class="pool-dynamic-graph">
-					@if($chart51)
-						<div id="fifth1_chart"></div>
-
-						{!! $chart51 !!}
-					@endif
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-6">
-			<div class="white-box">
-				<div class="pool-dynamic-graph">
-					@if($chart52)
-						<div id="fifth2_chart"></div>
-
-						{!! $chart52 !!}
-					@endif
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">
 			<h3>Capital Infusion Detail</h3>
@@ -370,6 +360,32 @@
 		</div>
 	</div>
 
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="white-box">
+				<div class="pool-dynamic-graph">
+					@if($chart51)
+						<div id="fifth1_chart"></div>
+
+						{!! $chart51 !!}
+					@endif
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<div class="white-box">
+				<div class="pool-dynamic-graph">
+					@if($chart52)
+						<div id="fifth2_chart"></div>
+
+						{!! $chart52 !!}
+					@endif
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">
 			<h3>Reconciliation of Net worth (In Cr.)</h3>
@@ -390,7 +406,7 @@
 						<tbody>
 							@foreach($netWorthData1 as $row)
 							<tr>
-								<td class="text-left">{{ $row->particulars}}</td>
+								<td style="width:350px;" class="text-left">{{ $row->particulars}}</td>
 								<td>{{ round($row->amount1, 0) }}</td>
 								<td>{{ round($row->amount2, 0) }}</td>
 								<td>{{ round($row->amount3, 0) }}</td>
@@ -598,7 +614,7 @@
 		</div>
 	</div>
 @elseif($insightCatData->id == 11)
-	<div class="white-box">
+	<div class="white-box d-none hide">
 		<div class="pool-dynamic-graph">
 			@if($chart8)
 				<div id="eighth_chart"></div>
@@ -792,7 +808,7 @@
 
 						var locations = [
 							@foreach($insightLocationData as $row)
-							['{!! str_replace("\r\n", "", $row->office_location) !!}', {{ $row->office_lat }}, {{ $row->office_long }}, {{ $row->lft }}],
+							['{!{ addslashes($row->branch_address) }}', {{ $row->office_lat }}, {{ $row->office_long }}, {{ $row->lft }}],
 							@endforeach
 						];
 
@@ -810,7 +826,7 @@
 
 						@foreach($insightLocationData as $k => $row)
 							@if($k < $locationCount - 1)
-							calculateAndDisplayRoute(directionsService, directionsRenderer, '{{ strip_tags(str_replace("\r\n", "", $insightLocationData[$k]->office_location)) }}', '{{ strip_tags(str_replace("\r\n", "", $insightLocationData[$k+1]->office_location)) }}');
+							calculateAndDisplayRoute(directionsService, directionsRenderer, '{{ strip_tags(str_replace("\r\n", "", $insightLocationData[$k]->branch_address)) }}', '{{ strip_tags(str_replace("\r\n", "", $insightLocationData[$k+1]->branch_address)) }}');
 							@endif
 						@endforeach
 
@@ -846,11 +862,42 @@
 		<div class="pool-dynamic-graph">
 			<div class="row">
 				<div class="col-sm-12">
-					<ul>
-						@foreach($insightLocationData as $row)
-						<li>{!! $row->office_location !!}</li>
-						@endforeach
-					</ul>
+					<table id="trustee-table" class="table display" style="width:100%">
+						<thead>
+							<tr>
+								<th>State</th>
+								<th>District</th>
+								<th>Location Hub</th>
+								<th>Branch Name</th>
+								<th>Branch Type</th>
+								<th>Branch Address</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							@foreach($insightLocationData as $row)
+							<tr>
+								<td>{{ $row->state_name }}</td>
+								<td>{{ $row->district_name }}</td>
+								<td>{{ $row->location_hub }}</td>
+								<td>{{ $row->branch_name }}</td>
+								<td>{{ $row->branch_type }}</td>
+								<td>{{ $row->branch_address }}</td>
+							</tr>
+							@endforeach
+						</tbody>
+
+						<tfoot>
+							<tr>
+								<th>State</th>
+								<th>District</th>
+								<th>Location Hub</th>
+								<th>Branch Name</th>
+								<th>Branch Type</th>
+								<th>Branch Address</th>
+							</tr>
+						</tfoot>
+					</table>
 				</div>
 			</div>
 		</div>
@@ -860,12 +907,45 @@
 
 @if($insightCatData->id == 14)
 <style type="text/css">
-	/* Always set the map height explicitly to define the size of the div
-	* element that contains the map. */
 	#map {
 		height: 600px;
 	}
 </style>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		// Setup - add a text input to each footer cell
+	    $('#trustee-table tfoot th').each( function (key) {
+	        var title = $(this).text();
+	        if(key <= 4)
+	        {
+	        	$(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+	        }
+	        else
+	        {
+	        	$(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+	        }
+	    } );
+	 
+	    // DataTable
+	    var table = $('#trustee-table').DataTable({
+	        initComplete: function () {
+	            // Apply the search
+	            this.api().columns().every( function () {
+	                var that = this;
+	 
+	                $( 'input', this.footer() ).on( 'keyup change clear', function () {
+	                    if ( that.search() !== this.value ) {
+	                        that
+	                            .search( this.value )
+	                            .draw();
+	                    }
+	                } );
+	            } );
+	        }
+	    });
+	});
+</script>
 @endif
 
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	

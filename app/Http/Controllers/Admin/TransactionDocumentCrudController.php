@@ -216,7 +216,8 @@ class TransactionDocumentCrudController extends CrudController
                     'tab' => 'General'
                     ]);
 
-            $documentType = array('' => 'Select', 'Executed Report' => 'Executed Report', 'Monthly Payout Report' => 'Monthly Payout Report', 'Collection efficiency' => 'Collection efficiency', 'Pool Dynamics' => 'Pool Dynamics');
+            $documentType = array('' => 'Select', 'Executed Report' => 'Executed Report', 'Monthly Payout Report' => 'Monthly Payout Report', 'Collection efficiency' => 'Collection efficiency', 'Pool Dynamics' => 'Pool Dynamics', 'Charge Creation' =>  'Charge Creation / Modification CHG-9', 'Satisfaction of Charge' => 'Satisfaction of Charge CHG-4', 'Charge Creation1' => 'Charge Creation / Modification CHG-1');
+            
             $this->crud->addField([
                                     'name' => 'document_type',
                                     'label' => 'Document Type',
@@ -361,7 +362,7 @@ class TransactionDocumentCrudController extends CrudController
                     'tab' => 'General'
                     ]);
 
-            $documentType = array('' => 'Select', 'Executed Report' => 'Executed Report', 'Monthly Payout Report' => 'Monthly Payout Report', 'Collection efficiency' => 'Collection efficiency', 'Pool Dynamics' => 'Pool Dynamics');
+            $documentType = array('' => 'Select', 'Executed Report' => 'Executed Report', 'Monthly Payout Report' => 'Monthly Payout Report', 'Collection efficiency' => 'Collection efficiency', 'Pool Dynamics' => 'Pool Dynamics', 'Charge Creation' =>  'Charge Creation / Modification CHG-9', 'Satisfaction of Charge' => 'Satisfaction of Charge CHG-4', 'Charge Creation1' => 'Charge Creation / Modification CHG-1');
             $this->crud->addField([
                                     'name' => 'document_type',
                                     'label' => 'Document Type',

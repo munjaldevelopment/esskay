@@ -624,6 +624,7 @@ class HomeController extends Controller
 		->series(
 			[
 				[
+					'showInLegend' => 'false',
 					'name'  => 'Voting',
 					'data'  => [43934, 52503, 57177, 69658],
 					// 'color' => '#0c2959',
@@ -1809,6 +1810,7 @@ class HomeController extends Controller
 		return view('ess-kay-sanction-letter', ['sanctionData' => $sanctionData, 'lenderData' => $lenderData]);
 	}
 
+	// Lender
 	public function showInsight(Request $request)
     {
 		//dd($request->all());
@@ -1927,10 +1929,12 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Rajasthan',
 						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8], //, $raj_amount9
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Other States',
 						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8], // $other_amount9
 					],
@@ -2034,10 +2038,12 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Commercial Vehicle',
 						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Other Products',
 						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
 					],
@@ -2108,14 +2114,17 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Par 150',
 						'data'  => $assetData1,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Par 120',
 						'data'  => $assetData2,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Par 90',
 						'data'  => $assetData3,
 					],
@@ -2181,6 +2190,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Collection',
 						'data'  => $assetData1,
 					],
@@ -2227,6 +2237,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Collection',
 						'data'  => $assetData2,
 					],
@@ -2246,7 +2257,7 @@ class HomeController extends Controller
 			}
 
 			$chart51 = \Chart::title([
-				'text' => 'Net Worth',
+				'text' => '',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -2283,6 +2294,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Net worth (In Cr.)',
 						'data'  => $assetData1,
 					],
@@ -2291,7 +2303,7 @@ class HomeController extends Controller
 			->display(0);
 
 			$chart52 = \Chart::title([
-				'text' => 'Net Worth',
+				'text' => '',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -2328,6 +2340,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Debt / Net worth (In Times)',
 						'data'  => $assetData2,
 					],
@@ -2403,6 +2416,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Adequate Liquidity',
 						'data'  => $liquidityData1,
 					],
@@ -2598,14 +2612,17 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories0,
 						'data'  => $categories2,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories01,
 						'data'  => $categories4,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories02,
 						'data'  => $categories6,
 					],
@@ -2682,15 +2699,18 @@ class HomeController extends Controller
 			])
 			->series(
 				[
-				[
+					[
+						'showInLegend' => 'false',
 						'name'  => $categories0,
 						'data'  => $categories2,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories01,
 						'data'  => $categories4,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories02,
 						'data'  => $categories6,
 					],
@@ -2769,14 +2789,17 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories0,
 						'data'  => $categories2,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories01,
 						'data'  => $categories4,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories02,
 						'data'  => $categories6,
 					],
@@ -2855,6 +2878,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Text',
 						'colorByPoint' => 'true',
 						'data'  => $categories2,
@@ -2933,6 +2957,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Text',
 						'colorByPoint' => 'true',
 						'data'  => $categories2,
@@ -3185,6 +3210,7 @@ class HomeController extends Controller
 		return view('ess-kay-insight-trustee', ['parentCategoryData' => $parentCategoryData, 'lenderData' => $lenderData]);
 	}
 
+	// TRUSTEE
 	public function showInsightTrustee(Request $request)
     {
 		//dd($request->all());
@@ -3288,16 +3314,15 @@ class HomeController extends Controller
 					'text' => 'Percentage'
 				],
 			])
-			/*->legend([
-				'layout' => 'vertical',
-		        'align' => 'right',
-		        'verticalAlign' => 'middle'
-			])*/
+			->legend([
+				'layout' => 'horizontal',
+			])
 			->plotOptions([
 				'series'        => ([
-					'dataLabels' => ([
+					'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3307,10 +3332,12 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						
 						'name'  => 'Rajasthan',
 						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8], //, $raj_amount9
 					],
 					[
+						
 						'name'  => 'Other States',
 						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8], //, $other_amount9
 					],
@@ -3393,16 +3420,15 @@ class HomeController extends Controller
 					'text' => 'Percentage'
 				],
 			])
-			/*->legend([
-				'layout' => 'vertical',
-		        'align' => 'right',
-		        'verticalAlign' => 'middle'
-			])*/
+			->legend([
+				'layout' => 'horizontal',
+			])
 			->plotOptions([
 				'series'        => ([
-					'dataLabels' => ([
+					'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3412,10 +3438,12 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						
 						'name'  => 'Commercial Vehicle',
 						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8], //, $raj_amount9
 					],
 					[
+						
 						'name'  => 'Other Products',
 						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8], //, $other_amount9
 					],
@@ -3467,14 +3495,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal',
 			])
 			->plotOptions([
 				'series'        => ([
-					'dataLabels' => ([
+					'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3484,14 +3512,17 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Par 150',
+						
+						'name'  => 'Par 0',
 						'data'  => $assetData1,
 					],
 					[
-						'name'  => 'Par 120',
+						
+						'name'  => 'Par 30',
 						'data'  => $assetData2,
 					],
 					[
+						
 						'name'  => 'Par 90',
 						'data'  => $assetData3,
 					],
@@ -3538,14 +3569,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal',
 			])
 			->plotOptions([
 				'series'        => ([
-					'dataLabels' => ([
+					'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3555,6 +3586,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						
 						'name'  => 'Collection',
 						'data'  => $assetData1,
 					],
@@ -3601,6 +3633,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						
 						'name'  => 'Collection',
 						'data'  => $assetData2,
 					],
@@ -3620,7 +3653,7 @@ class HomeController extends Controller
 			}
 
 			$chart51 = \Chart::title([
-				'text' => 'Net Worth',
+				'text' => '',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3641,13 +3674,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal',
 			])
 			->plotOptions([
 				'series'        => ([
-					'dataLabels' => ([
+					'label' => ([
 						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3657,6 +3691,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						
 						'name'  => 'Net worth (In Cr.)',
 						'data'  => $assetData1,
 					],
@@ -3665,7 +3700,7 @@ class HomeController extends Controller
 			->display(0);
 
 			$chart52 = \Chart::title([
-				'text' => 'Net Worth',
+				'text' => '',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3686,13 +3721,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal',
 			])
 			->plotOptions([
 				'series'        => ([
-					'dataLabels' => ([
+					'label' => ([
 						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3702,7 +3738,8 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Debt / Net worth (In Times)',
+						
+						'name'  => 'Debt / Equity (In Times)',
 						'data'  => $assetData2,
 					],
 				]
@@ -3740,7 +3777,7 @@ class HomeController extends Controller
 			}
 
 			$chart6 = \Chart::title([
-				'text' => 'Adequate Liquidity (In Cr.)',
+				'text' => '',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3761,13 +3798,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal',
 			])
 			->plotOptions([
 				'series'        => ([
-					'dataLabels' => ([
+					'label' => ([
 						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3777,7 +3815,8 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Adequate Liquidity',
+						
+						'name'  => 'Adequate Liquidity (In Cr.)',
 						'data'  => $liquidityData1,
 					],
 				]
@@ -3863,13 +3902,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal',
 			])
 			->plotOptions([
 				'series'        => ([
-					'dataLabels' => ([
+					'label' => ([
 						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3879,16 +3919,19 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						
 						'name'  => 'Bank/FI',
 						'color' => '#11a9dc',
 						'data'  => $liabilityProfileData1,
 					],
 					[
+						
 						'name'  => 'CME With MF',
 						'color' => '#336699',
 						'data'  => $liabilityProfileData2,
 					],
 					[
+						
 						'name'  => 'Others',
 						'color' => '#25a7a4',
 						'data'  => $liabilityProfileData3,
@@ -3950,13 +3993,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal',
 			])
 			->plotOptions([
 				'series'        => ([
-					'dataLabels' => ([
+					'label' => ([
 						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3966,11 +4010,13 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						
 						'name'  => 'Branches',
 						'color' => '#336699',
 						'data'  => $liabilityProfileData11,
 					],
 					[
+						
 						'name'  => 'Employee Strength',
 						'color' => '#11a9dc',
 						'data'  => $liabilityProfileData12,
@@ -4026,14 +4072,14 @@ class HomeController extends Controller
 		        ]
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal',
 			])
 			->plotOptions([
 				'series'        => ([
-					'dataLabels' => ([
+					'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -4043,6 +4089,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						
 						'name'  => 'Overall cost',
 						'color' => '#336699',
 						'data'  => $liabilityProfileData11,
@@ -4133,10 +4180,11 @@ class HomeController extends Controller
 		        'shadow' => 'false'
 			])
 			->plotOptions([
-				'column'        => ([
-					'stacking' => 'normal',
-					'dataLabels' => ([
+				'series'        => ([
+					'label' => ([
 						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -4146,11 +4194,13 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						
 						'name'  => 'Tier1',
 						'color' => '#336699',
 						'data'  => $liabilityProfileData11,
 					],
 					[
+						
 						'name'  => 'Tier2',
 						'color' => '#11a9dc',
 						'data'  => $liabilityProfileData12,
@@ -4161,7 +4211,7 @@ class HomeController extends Controller
 		}
 		else if($request->category_id == 14)
 		{
-			$insightLocationData = \DB::table('insight_locations')->where('status', 1)->get();
+			$insightLocationData = \DB::table('insight_locations')->leftJoin('districts', 'insight_locations.district_id', '=', 'districts.id')->leftJoin('states', 'districts.state_id', '=', 'states.id')->where('insight_locations.status', 1)->selectRaw('location_hub, branch_name, branch_type, branch_address, office_lat, office_long, insight_locations.lft, states.name as state_name, districts.name as district_name')->get();
 		}
 
 		//dd($liabilityProfileDataTotal);

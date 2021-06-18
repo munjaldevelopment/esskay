@@ -151,7 +151,7 @@ ul.breadcrumb li {
     border:none;
 }
 .table thead th {
-    border: none !important;
+    /*border: none !important;*/
     font-weight: 400;
     font-size: 12px;
     font-style: normal;
@@ -159,7 +159,7 @@ ul.breadcrumb li {
     line-height: 0px;
 }
 .table td{
-  border:none !important;
+    /*border:none !important;*/
 }
 #panel {
     padding: 0px;

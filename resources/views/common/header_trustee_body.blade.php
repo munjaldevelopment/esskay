@@ -38,6 +38,10 @@
 	<script src="{{ asset('public/assets/') }}/js/series-label.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/exporting.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/export-data.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/datatables.min.css"/>
+ 
+	<script src="{{ asset('public/assets/') }}/js/datatables.min.js"></script>
 	
 	
 	<meta name="csrf-token" content="{{ csrf_token() }}">

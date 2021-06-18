@@ -18,10 +18,10 @@ class InsightLocationCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitInsightLocationUpdate; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
 
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CloneOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\BulkCloneOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\BulkDeleteOperation;
+    #use \Backpack\CRUD\app\Http\Controllers\Operations\CloneOperation;
+    #use \Backpack\CRUD\app\Http\Controllers\Operations\BulkCloneOperation;
+    #use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    #use \Backpack\CRUD\app\Http\Controllers\Operations\BulkDeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\FetchOperation;
 
@@ -49,7 +49,7 @@ class InsightLocationCrudController extends CrudController
             $this->crud->enableExportButtons();
             
             
-            $this->crud->set('reorder.label', 'branch_address');
+            $this->crud->set('reorder.label', 'branch_name');
             // define how deep the admin is allowed to nest the items
             // for infinite levels, set it to 0
             $this->crud->set('reorder.max_level', 3);
@@ -58,9 +58,20 @@ class InsightLocationCrudController extends CrudController
             //$this->crud->enableReorder('name', 2);
             
             //$this->crud->denyAccess(['delete']);
+
+            $this->crud->addColumn([
+                    'label'     => 'District',
+                    'type'      => 'select',
+                    'name'      => 'district_id',
+                    'entity'    => 'districts', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'model'     => "App\Models\District", //name of Models
+                    'tab' => 'General'
+
+                    ]);
             
             $this->crud->addColumn([
-                                    'name' => 'branch_address',
+                                    'name' => 'branch_name',
                                     'label' => 'Location',
                                     'type' => 'html',
                                 ]);

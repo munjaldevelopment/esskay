@@ -17,7 +17,8 @@
 
 	<div class="mtd-accordian">
 		 <div id="accordion">
-			<div class="card">
+		 	@if($termSheetDocData)
+			<div class="card">				
 				<div class="card-header">
 					<a class="card-link" data-toggle="collapse" href="#execuled_doc_1" aria-expanded="true">
 						Term Sheet
@@ -29,7 +30,6 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
-								@if($termSheetDocData)
 								@foreach($termSheetDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -60,15 +60,15 @@
 									</div>
 								</div>
 								@endforeach
-								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
-								@endif
+								
 							</div>
 						</div>
 				  	</div>
 				</div>
 			</div>
+			@endif
 
+			@if($serviceAgreementDocData)
 			<div class="card">
 				<div class="card-header">
 					<a class="card-link collapsed" data-toggle="collapse" href="#execuled_doc_2" aria-expanded="false">
@@ -81,7 +81,6 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
-								@if($serviceAgreementDocData)
 								@foreach($serviceAgreementDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -108,15 +107,14 @@
 									</div>
 								</div>
 								@endforeach
-								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
-								@endif
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>		
+			@endif
 
+			@if($accountAgreementDocData)
 			<div class="card">
 				<div class="card-header">
 					<a class="card-link collapsed" data-toggle="collapse"  href="#execuled_doc_3" aria-expanded="false">
@@ -129,7 +127,6 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
-								@if($accountAgreementDocData)
 								@foreach($accountAgreementDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -156,15 +153,15 @@
 									</div>
 								</div>
 								@endforeach
-								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
-								@endif
+								
 							</div>
 						</div>
 				  	</div>
 				</div>
 			</div>
+			@endif
 
+			@if($assignmentAgreementDocData)
 			<div class="card">
 				<div class="card-header">
 					<a class="card-link collapsed" data-toggle="collapse"  href="#execuled_doc_4" aria-expanded="false">
@@ -177,7 +174,6 @@
 				  <div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
-								@if($assignmentAgreementDocData)
 								@foreach($assignmentAgreementDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -204,15 +200,14 @@
 									</div>
 								</div>
 								@endforeach
-								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
-								@endif
 							</div>
 						</div>
 				  	</div>
 				</div>
 			</div>
+			@endif
 
+			@if($trustDeedDocData)
 			<div class="card">
 				<div class="card-header">
 					<a class="card-link collapsed" data-toggle="collapse"  href="#execuled_doc_5" aria-expanded="false">
@@ -225,7 +220,6 @@
 				  <div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
-								@if($trustDeedDocData)
 								@foreach($trustDeedDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -252,15 +246,14 @@
 									</div>
 								</div>
 								@endforeach
-								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
-								@endif
 							</div>
 						</div>
 				  	</div>
 				</div>
 			</div>
+			@endif
 
+			@if($imDocData)
 			<div class="card">
 				<div class="card-header">
 					<a class="card-link collapsed" data-toggle="collapse"  href="#execuled_doc_6" aria-expanded="false">
@@ -273,7 +266,7 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
-								@if($imDocData)
+								
 								@foreach($imDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -300,15 +293,14 @@
 									</div>
 								</div>
 								@endforeach
-								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
-								@endif
 							</div>
 						</div>
 				  	</div>
 				</div>
 			</div>
+			@endif
 
+			@if($anyotherDocData)
 			<div class="card">
 				<div class="card-header">
 					<a class="card-link collapsed" data-toggle="collapse"  href="#execuled_doc_7" aria-expanded="false">
@@ -321,7 +313,6 @@
 				  <div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
-								@if($anyotherDocData)
 								@foreach($anyotherDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -348,14 +339,12 @@
 									</div>
 								</div>
 								@endforeach
-								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
-								@endif
 							</div>
 						</div>
 				  	</div>
 				</div>
 			</div>
+			@endif
 		</div>
 	</div>
 </div>
