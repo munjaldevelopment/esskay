@@ -2928,6 +2928,16 @@ a.fxt-btn-fill.float-right {
   }
 }
 
+.mtd-inner .side-menu nav.navbar .side-menu-container .navbar-nav li .panel-collapse {
+    max-height: calc(100vh - 293px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+table.dataTable thead th, table.dataTable thead td {
+	line-height: 20px;
+}
+
 /*p.tab-spacing {
 	color: #767676;
     font-weight: 500;

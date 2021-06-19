@@ -9,7 +9,7 @@
 	</ul>
 </div>
 
-@if($report_type == 1)
+@if($report_type == 1 || $report_type == 5 || $report_type == 6 || $report_type == 7)
 <div class="mtd-timeline-content">
 	<div class="border-title">	
 		<span>{{ $heading_title }}</span>
@@ -21,7 +21,15 @@
 			<div class="card">				
 				<div class="card-header">
 					<a class="card-link" data-toggle="collapse" href="#execuled_doc_1" aria-expanded="true">
+						@if($report_type == 1)
 						Term Sheet
+						@elseif($report_type == 5)
+						CHG-9
+						@elseif($report_type == 6)
+						CHG-1
+						@elseif($report_type == 7)
+						CHG-4
+						@endif
 						<span class="collapsed accordian-dropi-icon"><p><img src="{{ asset('public/assets/') }}/images/accordian-arrow-icon.svg" alt=""></p></span>
 						<span class="expanded accordian-dropi-icon"><p><img src="{{ asset('public/assets/') }}/images/accordian-arrow-icon.svg" alt=""></p></span>
 					</a>

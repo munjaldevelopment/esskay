@@ -61,6 +61,8 @@
 	</div>
 </div>
 
+<input type="hidden" name="category_id" id="transaction_category_id" value="{{ $category_id }}">
+
 <div class="preloader_doc" style="display:none">
 	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;display:block;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
 		<g transform="rotate(0 50 50)">
@@ -147,6 +149,7 @@ $(document).ready(function() {
 
 	$('.transaction-row').bind('click', function() {
 		var transaction_id = $(this).attr('data-transaction');
+		var transaction_category_id = $('#transaction_category_id').val();
 
 		$('.transaction-contentainer').removeClass('active');
 
@@ -155,7 +158,7 @@ $(document).ready(function() {
 		$.ajax({
 			url: base_url+'showTrusteeTransactionInfo',
 			type: 'post',
-			data: {_token: CSRF_TOKEN, transaction_id: transaction_id},
+			data: {_token: CSRF_TOKEN, transaction_id: transaction_id, transaction_category_id: transaction_category_id},
 			beforeSend: function() {
 				var content = $('.preloader_doc').html();
 				$('.transaction-container').html(content);

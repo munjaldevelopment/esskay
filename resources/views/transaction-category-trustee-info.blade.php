@@ -8,7 +8,7 @@
 <div class="mtb-inner-category">
 	<div class="owl-carousel mtb_category_scroller">
 		<div class="item report-type-container report-type-container1 active">
-			<a class="btn-report-type" data-val="1" href="javascript:;">Executed Report</a>
+			<a class="btn-report-type" data-val="1" href="javascript:;">Executed Documents</a>
 		</div>
 		<div class="item report-type-container report-type-container2">
 			<a class="btn-report-type" data-val="2" href="javascript:;">Monthly Payout Report</a>
@@ -19,6 +19,22 @@
 		<div class="item report-type-container report-type-container4">
 			<a class="btn-report-type" data-val="4" href="javascript:;">Pool Dynamics</a>
 		</div>
+
+		@if($transaction_category_id == 3 || $transaction_category_id == 4 || $transaction_category_id == 5 || $transaction_category_id == 6)
+		<div class="item report-type-container report-type-container5">
+			<a class="btn-report-type" data-val="5" href="javascript:;">Charge Creation / Modification</a>
+		</div>
+		<div class="item report-type-container report-type-container6">
+			<a class="btn-report-type" data-val="6" href="javascript:;">Satisfaction of Charge</a>
+		</div>
+		@elseif($transaction_category_id == 7 || $transaction_category_id == 8 || $transaction_category_id == 9)
+		<div class="item report-type-container report-type-container7">
+			<a class="btn-report-type" data-val="7" href="javascript:;">Charge Creation / Modification</a>
+		</div>
+		<div class="item report-type-container report-type-container6">
+			<a class="btn-report-type" data-val="6" href="javascript:;">Satisfaction of Charge</a>
+		</div>
+		@endif
 	  </div>
 </div>
 

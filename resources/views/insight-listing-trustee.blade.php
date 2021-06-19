@@ -102,14 +102,14 @@
 							<tr>
 								<th style="min-width: 140px;" rowspan="2">Geographical <br /> Diversification</th>
 								<th style="min-width: 90px;" rowspan="2">DOCP</th>
-								<th colspan="2" class="border-bottom">Mar-16</th>
-								<th colspan="2" class="border-bottom">Mar-17</th>
-								<th colspan="2" class="border-bottom">Mar-18</th>
-								<th colspan="2" class="border-bottom">Mar-19</th>
-								<th colspan="2" class="border-bottom">Mar-20</th>
-								<th colspan="2" class="border-bottom">Sep-20</th>
-								<th colspan="2" class="border-bottom">Mar-21</th>
 								<th colspan="2" class="border-bottom">Mar-22</th>
+								<th colspan="2" class="border-bottom">Mar-21</th>
+								<th colspan="2" class="border-bottom">Sep-20</th>
+								<th colspan="2" class="border-bottom">Mar-20</th>
+								<th colspan="2" class="border-bottom">Mar-19</th>
+								<th colspan="2" class="border-bottom">Mar-18</th>
+								<th colspan="2" class="border-bottom">Mar-17</th>
+								<th colspan="2" class="border-bottom">Mar-16</th>
 								<!--<th colspan="2" class="border-bottom">Mar-23</th>-->
 							</tr>
 							<tr>
@@ -138,22 +138,22 @@
 							<tr>
 								<td>{{ $row->geographical_diversification }}</td>
 								<td>{{ $row->docp }}</td>
-								<td>{{ number_format($row->amount1, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage1, 0) }}%</td>
-								<td>{{ number_format($row->amount2, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage2, 0) }}%</td>
-								<td>{{ number_format($row->amount3, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage3, 0) }}%</td>
-								<td>{{ number_format($row->amount4, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage4, 0) }}%</td>
-								<td>{{ number_format($row->amount5, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage5, 0) }}%</td>
-								<td>{{ number_format($row->amount6, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage6, 0) }}%</td>
-								<td>{{ number_format($row->amount7, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage7, 0) }}%</td>
 								<td>{{ number_format($row->amount8, 0) }}</td>
 								<td>{{ number_format($row->amount_percentage8, 0) }}%</td>
+								<td>{{ number_format($row->amount7, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage7, 0) }}%</td>
+								<td>{{ number_format($row->amount6, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage6, 0) }}%</td>
+								<td>{{ number_format($row->amount5, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage5, 0) }}%</td>
+								<td>{{ number_format($row->amount4, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage4, 0) }}%</td>
+								<td>{{ number_format($row->amount3, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage3, 0) }}%</td>
+								<td>{{ number_format($row->amount2, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage2, 0) }}%</td>
+								<td>{{ number_format($row->amount1, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage1, 0) }}%</td>
 								<!--<td>{{ number_format($row->amount9, 0) }}</td>
 								<td>{{ number_format($row->amount_percentage9, 0) }}%</td>-->
 							</tr>
@@ -164,21 +164,21 @@
 							<tr>
 								<td>Total</td>
 								<td>&nbsp;</td>
-								<td>{{ $geographicalConTotalData['amount1'] }}</td>
-								<td>100%</td>
-								<td>{{ $geographicalConTotalData['amount2'] }}</td>
-								<td>100%</td>
-								<td>{{ $geographicalConTotalData['amount3'] }}</td>
-								<td>100%</td>
-								<td>{{ $geographicalConTotalData['amount4'] }}</td>
-								<td>100%</td>
-								<td>{{ $geographicalConTotalData['amount5'] }}</td>
-								<td>100%</td>
-								<td>{{ $geographicalConTotalData['amount6'] }}</td>
+								<td>{{ $geographicalConTotalData['amount8'] }}</td>
 								<td>100%</td>
 								<td>{{ $geographicalConTotalData['amount7'] }}</td>
 								<td>100%</td>
-								<td>{{ $geographicalConTotalData['amount8'] }}</td>
+								<td>{{ $geographicalConTotalData['amount6'] }}</td>
+								<td>100%</td>
+								<td>{{ $geographicalConTotalData['amount5'] }}</td>
+								<td>100%</td>
+								<td>{{ $geographicalConTotalData['amount4'] }}</td>
+								<td>100%</td>
+								<td>{{ $geographicalConTotalData['amount3'] }}</td>
+								<td>100%</td>
+								<td>{{ $geographicalConTotalData['amount2'] }}</td>
+								<td>100%</td>
+								<td>{{ $geographicalConTotalData['amount1'] }}</td>
 								<td>100%</td>
 								<!--<td>{{ $geographicalConTotalData['amount9'] }}</td>
 								<td>100%</td>-->
@@ -210,14 +210,14 @@
 						<thead>
 							<tr>
 								<th style="min-width: 170px;" rowspan="2">Product <br /> Diversification</th>
-								<th colspan="2" class="border-bottom">Mar-16</th>
-								<th colspan="2" class="border-bottom">Mar-17</th>
-								<th colspan="2" class="border-bottom">Mar-18</th>
-								<th colspan="2" class="border-bottom">Mar-19</th>
-								<th colspan="2" class="border-bottom">Mar-20</th>
-								<th colspan="2" class="border-bottom">Sep-20</th>
-								<th colspan="2" class="border-bottom">Mar-21</th>
 								<th colspan="2" class="border-bottom">Mar-22</th>
+								<th colspan="2" class="border-bottom">Mar-21</th>
+								<th colspan="2" class="border-bottom">Sep-20</th>
+								<th colspan="2" class="border-bottom">Mar-20</th>
+								<th colspan="2" class="border-bottom">Mar-19</th>
+								<th colspan="2" class="border-bottom">Mar-18</th>
+								<th colspan="2" class="border-bottom">Mar-17</th>
+								<th colspan="2" class="border-bottom">Mar-16</th>
 								<!--<th colspan="2" class="border-bottom">Mar-23</th>-->
 							</tr>
 							<tr>
@@ -245,22 +245,22 @@
 							@foreach($productConData as $row)
 							<tr>
 								<td>{{ $row->product_diversification }}</td>
-								<td>{{ number_format($row->amount1, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage1, 0) }}%</td>
-								<td>{{ number_format($row->amount2, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage2, 0) }}%</td>
-								<td>{{ number_format($row->amount3, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage3, 0) }}%</td>
-								<td>{{ number_format($row->amount4, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage4, 0) }}%</td>
-								<td>{{ number_format($row->amount5, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage5, 0) }}%</td>
-								<td>{{ number_format($row->amount6, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage6, 0) }}%</td>
-								<td>{{ number_format($row->amount7, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage7, 0) }}%</td>
 								<td>{{ number_format($row->amount8, 0) }}</td>
 								<td>{{ number_format($row->amount_percentage8, 0) }}%</td>
+								<td>{{ number_format($row->amount7, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage7, 0) }}%</td>
+								<td>{{ number_format($row->amount6, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage6, 0) }}%</td>
+								<td>{{ number_format($row->amount5, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage5, 0) }}%</td>
+								<td>{{ number_format($row->amount4, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage4, 0) }}%</td>
+								<td>{{ number_format($row->amount3, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage3, 0) }}%</td>
+								<td>{{ number_format($row->amount2, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage2, 0) }}%</td>
+								<td>{{ number_format($row->amount1, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage1, 0) }}%</td>
 								<!--<td>{{ number_format($row->amount9, 0) }}</td>
 								<td>{{ number_format($row->amount_percentage9, 0) }}%</td>-->
 							</tr>
@@ -270,21 +270,21 @@
 						<tfoot>
 							<tr>
 								<td>Total</td>
-								<td>{{ $productConTotalData['amount1'] }}</td>
-								<td>100%</td>
-								<td>{{ $productConTotalData['amount2'] }}</td>
-								<td>100%</td>
-								<td>{{ $productConTotalData['amount3'] }}</td>
-								<td>100%</td>
-								<td>{{ $productConTotalData['amount4'] }}</td>
-								<td>100%</td>
-								<td>{{ $productConTotalData['amount5'] }}</td>
-								<td>100%</td>
-								<td>{{ $productConTotalData['amount6'] }}</td>
+								<td>{{ $productConTotalData['amount8'] }}</td>
 								<td>100%</td>
 								<td>{{ $productConTotalData['amount7'] }}</td>
 								<td>100%</td>
-								<td>{{ $productConTotalData['amount8'] }}</td>
+								<td>{{ $productConTotalData['amount6'] }}</td>
+								<td>100%</td>
+								<td>{{ $productConTotalData['amount5'] }}</td>
+								<td>100%</td>
+								<td>{{ $productConTotalData['amount4'] }}</td>
+								<td>100%</td>
+								<td>{{ $productConTotalData['amount3'] }}</td>
+								<td>100%</td>
+								<td>{{ $productConTotalData['amount2'] }}</td>
+								<td>100%</td>
+								<td>{{ $productConTotalData['amount1'] }}</td>
 								<td>100%</td>
 								<!--<td>{{ $productConTotalData['amount9'] }}</td>
 								<td>100%</td>-->
@@ -395,24 +395,24 @@
 						<thead>
 							<tr>
 								<th>Particulars</th>
-								<th>FY-16</th>
-								<th>FY-17</th>
-								<th>FY-18</th>
-								<th>FY-19</th>
-								<th>FY-20</th>
 								<th>FY-21</th>
+								<th>FY-20</th>
+								<th>FY-19</th>
+								<th>FY-18</th>
+								<th>FY-17</th>
+								<th>FY-16</th>
 							</tr>
 						</thead>
 						<tbody>
 							@foreach($netWorthData1 as $row)
 							<tr>
 								<td style="width:350px;" class="text-left">{{ $row->particulars}}</td>
-								<td>{{ round($row->amount1, 0) }}</td>
-								<td>{{ round($row->amount2, 0) }}</td>
-								<td>{{ round($row->amount3, 0) }}</td>
-								<td>{{ round($row->amount4, 0) }}</td>
-								<td>{{ round($row->amount5, 0) }}</td>
 								<td>{{ round($row->amount6, 0) }}</td>
+								<td>{{ round($row->amount5, 0) }}</td>
+								<td>{{ round($row->amount4, 0) }}</td>
+								<td>{{ round($row->amount3, 0) }}</td>
+								<td>{{ round($row->amount2, 0) }}</td>
+								<td>{{ round($row->amount1, 0) }}</td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -441,32 +441,32 @@
 						<thead>
 							<tr>
 								<th> Quarter on Quarter Liquidity</th>
-								<th>Dec-18</th>
-								<th>Mar-19</th>
-								<th>Jun-19</th>
-								<th>Sep-19</th>
-								<th>Dec-19</th>
-								<th>Mar-20</th>
-								<th>Jun-20</th>
-								<th>Sep-20</th>
-								<th>Dec-20</th>
 								<th>Mar-21</th>
+								<th>Dec-20</th>
+								<th>Sep-20</th>
+								<th>Jun-20</th>
+								<th>Mar-20</th>
+								<th>Dec-19</th>
+								<th>Sep-19</th>
+								<th>Jun-19</th>
+								<th>Mar-19</th>
+								<th>Dec-18</th>
 							</tr>
 						</thead>
 						<tbody>
 							@foreach($liquidityData as $row)
 							<tr>
 								<td>{{ $row->quarter}}</td>
-								<td>{{ $row->amount1}}</td>
-								<td>{{ $row->amount2}}</td>
-								<td>{{ $row->amount3}}</td>
-								<td>{{ $row->amount4}}</td>
-								<td>{{ $row->amount5}}</td>
-								<td>{{ $row->amount6}}</td>
-								<td>{{ $row->amount7}}</td>
-								<td>{{ $row->amount8}}</td>
-								<td>{{ $row->amount9}}</td>
 								<td>{{ $row->amount10}}</td>
+								<td>{{ $row->amount9}}</td>
+								<td>{{ $row->amount8}}</td>
+								<td>{{ $row->amount7}}</td>
+								<td>{{ $row->amount6}}</td>
+								<td>{{ $row->amount5}}</td>
+								<td>{{ $row->amount4}}</td>
+								<td>{{ $row->amount3}}</td>
+								<td>{{ $row->amount2}}</td>
+								<td>{{ $row->amount1}}</td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -474,16 +474,16 @@
 						<tfoot>
 							<tr>
 								<td>Total</td>
-								<td>{{ $liquidityDataTotal[0] }}</td>
-								<td>{{ $liquidityDataTotal[1] }}</td>
-								<td>{{ $liquidityDataTotal[2] }}</td>
-								<td>{{ $liquidityDataTotal[3] }}</td>
-								<td>{{ $liquidityDataTotal[4] }}</td>
-								<td>{{ $liquidityDataTotal[5] }}</td>
-								<td>{{ $liquidityDataTotal[6] }}</td>
-								<td>{{ $liquidityDataTotal[7] }}</td>
-								<td>{{ $liquidityDataTotal[8] }}</td>
 								<td>{{ $liquidityDataTotal[9] }}</td>
+								<td>{{ $liquidityDataTotal[8] }}</td>
+								<td>{{ $liquidityDataTotal[7] }}</td>
+								<td>{{ $liquidityDataTotal[6] }}</td>
+								<td>{{ $liquidityDataTotal[5] }}</td>
+								<td>{{ $liquidityDataTotal[4] }}</td>
+								<td>{{ $liquidityDataTotal[3] }}</td>
+								<td>{{ $liquidityDataTotal[2] }}</td>
+								<td>{{ $liquidityDataTotal[1] }}</td>
+								<td>{{ $liquidityDataTotal[0] }}</td>
 							</tr>
 						</tfoot>
 					</table>	
@@ -542,13 +542,13 @@
 						<thead>
 							<tr>
 								<th rowspan="2">Lender</th>
-								<th colspan="2">Mar-16</th>
-								<th colspan="2">Mar-17</th>
-								<th colspan="2">Mar-18</th>
-								<th colspan="2">Mar-19</th>
-								<th colspan="2">Mar-20</th>
-								<th colspan="2">Sep-20</th>
 								<th colspan="2">Mar-21</th>
+								<th colspan="2">Sep-20</th>
+								<th colspan="2">Mar-20</th>
+								<th colspan="2">Mar-19</th>
+								<th colspan="2">Mar-18</th>
+								<th colspan="2">Mar-17</th>
+								<th colspan="2">Mar-16</th>
 							</tr>
 
 							<tr>
@@ -572,20 +572,20 @@
 							@foreach($liabilityProfileTableData as $row)
 							<tr>
 								<td>{{ $row->lender}}</td>
-								<td>{{ $row->amount1}}</td>
-								<td>{{ $row->amount1_lender}}</td>
-								<td>{{ $row->amount2}}</td>
-								<td>{{ $row->amount2_lender}}</td>
-								<td>{{ $row->amount3}}</td>
-								<td>{{ $row->amount3_lender}}</td>
-								<td>{{ $row->amount4}}</td>
-								<td>{{ $row->amount4_lender}}</td>
-								<td>{{ $row->amount5}}</td>
-								<td>{{ $row->amount5_lender}}</td>
-								<td>{{ $row->amount6}}</td>
-								<td>{{ $row->amount6_lender}}</td>
 								<td>{{ $row->amount7}}</td>
 								<td>{{ $row->amount7_lender}}</td>
+								<td>{{ $row->amount6}}</td>
+								<td>{{ $row->amount6_lender}}</td>
+								<td>{{ $row->amount5}}</td>
+								<td>{{ $row->amount5_lender}}</td>
+								<td>{{ $row->amount4}}</td>
+								<td>{{ $row->amount4_lender}}</td>
+								<td>{{ $row->amount3}}</td>
+								<td>{{ $row->amount3_lender}}</td>
+								<td>{{ $row->amount2}}</td>
+								<td>{{ $row->amount2_lender}}</td>
+								<td>{{ $row->amount1}}</td>
+								<td>{{ $row->amount1_lender}}</td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -593,19 +593,19 @@
 						<tfoot>
 							<tr>
 								<td>Total</td>
-								<td>{{ $liabilityProfileDataTotal[0] }}</td>
-								<td>{{ $liabilityProfileDataTotal[1] }}</td>
-								<td>{{ $liabilityProfileDataTotal[2] }}</td>
-								<td>{{ $liabilityProfileDataTotal[3] }}</td>
-								<td>{{ $liabilityProfileDataTotal[4] }}</td>
-								<td>{{ $liabilityProfileDataTotal[5] }}</td>
-								<td>{{ $liabilityProfileDataTotal[6] }}</td>
-								<td>{{ $liabilityProfileDataTotal[7] }}</td>
-								<td>{{ $liabilityProfileDataTotal[8] }}</td>
-								<td>{{ $liabilityProfileDataTotal[9] }}</td>
-								<td>{{ $liabilityProfileDataTotal[10] }}</td>
-								<td>{{ $liabilityProfileDataTotal[11] }}</td>
 								<td>{{ $liabilityProfileDataTotal[12] }}</td>
+								<td>{{ $liabilityProfileDataTotal[11] }}</td>
+								<td>{{ $liabilityProfileDataTotal[10] }}</td>
+								<td>{{ $liabilityProfileDataTotal[9] }}</td>
+								<td>{{ $liabilityProfileDataTotal[8] }}</td>
+								<td>{{ $liabilityProfileDataTotal[7] }}</td>
+								<td>{{ $liabilityProfileDataTotal[6] }}</td>
+								<td>{{ $liabilityProfileDataTotal[5] }}</td>
+								<td>{{ $liabilityProfileDataTotal[4] }}</td>
+								<td>{{ $liabilityProfileDataTotal[3] }}</td>
+								<td>{{ $liabilityProfileDataTotal[2] }}</td>
+								<td>{{ $liabilityProfileDataTotal[1] }}</td>
+								<td>{{ $liabilityProfileDataTotal[0] }}</td>
 							</tr>
 						</tfoot>
 					</table>
@@ -637,26 +637,26 @@
 							</tr>
 
 							<tr>
-								<th>FY 16</th>
-								<th>FY 17</th>
-								<th>FY 18</th>
-								<th>FY 19</th>
-								<th>FY 20</th>
-								<th>H1FY 21</th>
 								<th>FY 21</th>
+								<th>H1FY 21</th>
+								<th>FY 20</th>
+								<th>FY 19</th>
+								<th>FY 18</th>
+								<th>FY 17</th>
+								<th>FY 16</th>
 							</tr>
 						</thead>
 						<tbody>
 							@foreach($liabilityProfileTable11Data as $k => $row)
 							<tr>
 								<td class="text-left">{{ $row->particulars}}</td>
-								<td>{{ $row->amount1}}@if($k != 1)% @endif</td>
-								<td>{{ $row->amount2}}@if($k != 1)% @endif</td>
-								<td>{{ $row->amount3}}@if($k != 1)% @endif</td>
-								<td>{{ $row->amount4}}@if($k != 1)% @endif</td>
-								<td>{{ $row->amount5}}@if($k != 1)% @endif</td>
-								<td>{{ $row->amount6}}@if($k != 1)% @endif</td>
 								<td>{{ $row->amount7}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount6}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount5}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount4}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount3}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount2}}@if($k != 1)% @endif</td>
+								<td>{{ $row->amount1}}@if($k != 1)% @endif</td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -738,24 +738,24 @@
 						<thead>
 							<tr>
 								<th>Particulars</th>
-								<th>Apr-20</th>
-								<th>May-20</th>
-								<th>Jun-20</th>
-								<th>Jul-20</th>
-								<th>Aug-20</th>
 								<th>Sep-20</th>
+								<th>Aug-20</th>
+								<th>Jul-20</th>
+								<th>Jun-20</th>
+								<th>May-20</th>
+								<th>Apr-20</th>
 							</tr>
 						</thead>
 						<tbody>
 							@foreach($covidRelief1Data as $k => $row)
 							<tr>
 								<td>{{ $row->particulars }}</td>
-								<td>{{ $row->april_20 }}</td>
-								<td>{{ $row->may_20 }}</td>
-								<td>{{ $row->june_20 }}</td>
-								<td>{{ $row->july_20 }}</td>
-								<td>{{ $row->august_20 }}</td>
 								<td>{{ $row->sept_20 }}</td>
+								<td>{{ $row->august_20 }}</td>
+								<td>{{ $row->july_20 }}</td>
+								<td>{{ $row->june_20 }}</td>
+								<td>{{ $row->may_20 }}</td>
+								<td>{{ $row->april_20 }}</td>
 							</tr>
 							@endforeach
 						</tbody>

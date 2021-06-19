@@ -3616,14 +3616,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal',
 			])
 			->plotOptions([
 				'series'        => ([
-					'dataLabels' => ([
+					'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -5065,7 +5065,7 @@ class HomeController extends Controller
 
 	    		$transactionMaturedData = \DB::table('transactions')->leftJoin('transaction_trustee', 'transactions.id', '=', 'transaction_trustee.transaction_id')->where('transaction_trustee.trustee_id',$trustee_id)->where('transactions.transaction_category_id',$category_id)->where('transaction_type', 'Matured')->groupBy('transaction_trustee.transaction_id')->get();
 
-	    		return view('transaction-category-trustee', ['trustee_id' => $trustee_id, 'categoryData' => $categoryData, 'transactionLiveData' => $transactionLiveData, 'transactionMaturedData' => $transactionMaturedData]);
+	    		return view('transaction-category-trustee', ['trustee_id' => $trustee_id, 'category_id' => $category_id, 'categoryData' => $categoryData, 'transactionLiveData' => $transactionLiveData, 'transactionMaturedData' => $transactionMaturedData]);
 	    	}
 	    	else
 	    	{
@@ -5091,6 +5091,7 @@ class HomeController extends Controller
 	    	$trustee_id = $trusteeData->id;
 
 	    	$transaction_id = $request->transaction_id;
+	    	$transaction_category_id = $request->transaction_category_id;
 
 	    	$transactionData = \DB::table('transactions')->leftJoin('transaction_trustee', 'transactions.id', '=', 'transaction_trustee.transaction_id')->where('transaction_trustee.trustee_id',$trustee_id)->where('transactions.id',$transaction_id)->groupBy('transaction_trustee.transaction_id')->first();
 
@@ -5105,7 +5106,7 @@ class HomeController extends Controller
 				}
 				$docu_date = date('Y');
 
-	    		return view('transaction-category-trustee-info', ['trustee_id' => $trustee_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id]);
+	    		return view('transaction-category-trustee-info', ['trustee_id' => $trustee_id, 'transaction_category_id' => $transaction_category_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id]);
 	    	}
 	    }
     }
@@ -5562,6 +5563,102 @@ class HomeController extends Controller
 						}
 					}
 				}
+				else if($report_type == 5)
+				{
+					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Charge Creation')->selectRaw('transaction_documents.*,transactions.name')->where('document_status', '1')->where('transaction_id',$transaction_id)->get(); //->where('transaction_document_type_id', '1')
+
+					if($termSheetDoc)
+					{
+						foreach($termSheetDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$doc_download = \DB::table('user_transaction_document')->where('transaction_document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+							
+							if($row->transaction_document_type_id == 8)
+							{
+								$termSheetDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);	
+							}
+						}
+					}
+				}
+				else if($report_type == 6)
+				{
+					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Satisfaction of Charge')->selectRaw('transaction_documents.*,transactions.name')->where('document_status', '1')->where('transaction_id',$transaction_id)->get(); //->where('transaction_document_type_id', '1')
+
+					if($termSheetDoc)
+					{
+						foreach($termSheetDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$doc_download = \DB::table('user_transaction_document')->where('transaction_document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+							
+							if($row->transaction_document_type_id == 9)
+							{
+								$termSheetDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);	
+							}
+						}
+					}
+				}
+				else if($report_type == 7)
+				{
+					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Charge Creation1')->selectRaw('transaction_documents.*,transactions.name')->where('document_status', '1')->where('transaction_id',$transaction_id)->get(); //->where('transaction_document_type_id', '1')
+
+					if($termSheetDoc)
+					{
+						foreach($termSheetDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$doc_download = \DB::table('user_transaction_document')->where('transaction_document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+							
+							if($row->transaction_document_type_id == 10)
+							{
+								$termSheetDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);	
+							}
+						}
+					}
+				}
 
 				//dd($monthlyDecDocData);
 
@@ -5582,6 +5679,18 @@ class HomeController extends Controller
 				else if($report_type == 4)
 				{
 					$heading_title = "Pool Dynamics";
+				}
+				else if($report_type == 5)
+				{
+					$heading_title = "Charge Creation / Modification";
+				}
+				else if($report_type == 6)
+				{
+					$heading_title = "Satisfaction of Charge";
+				}
+				else if($report_type == 7)
+				{
+					$heading_title = "Charge Creation / Modification";
 				}
 
 

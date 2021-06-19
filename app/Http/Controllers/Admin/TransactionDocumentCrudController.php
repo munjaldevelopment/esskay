@@ -226,7 +226,7 @@ class TransactionDocumentCrudController extends CrudController
                                     'tab' => 'General',
                                     'attributes' => [
                                         'id' => 'document_type',
-                                        'onchange' => 'getTransDocType(this.value);'
+                                        //'onchange' => 'getTransDocType(this.value);'
                                     ]
                                 ]);
 
@@ -272,7 +272,9 @@ class TransactionDocumentCrudController extends CrudController
                                 ]);
                                 
             $document_date = array('' => 'Select');
-            for($count=date('Y');$count>=2015;$count--)
+            $year = date('Y') + 1;
+
+            for($count=$year;$count>=2015;$count--)
             {
                 $document_date[$count] = $count;
             }
@@ -371,7 +373,7 @@ class TransactionDocumentCrudController extends CrudController
                                     'tab' => 'General',
                                     'attributes' => [
                                         'id' => 'document_type',
-                                        'onchange' => 'getTransDocType(this.value);'
+                                        //'onchange' => 'getTransDocType(this.value);'
                                     ]
                                 ]);
 
@@ -415,7 +417,9 @@ class TransactionDocumentCrudController extends CrudController
                                 ]);
                                 
             $document_date = array('' => 'Select');
-            for($count=date('Y');$count>=2015;$count--)
+
+            $year = date('Y') + 1;
+            for($count=$year;$count>=2015;$count--)
             {
                 $document_date[$count] = $count;
             }

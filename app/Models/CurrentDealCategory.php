@@ -35,6 +35,11 @@ class CurrentDealCategory extends Model
         return $this->belongsToMany('App\Models\Lender', 'current_deal_category_lender');
     }
 
+    public function trustees()
+    {
+        return $this->belongsToMany('App\Models\Trustee', 'current_deal_category_trustee');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
