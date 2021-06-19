@@ -3315,10 +3315,13 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-				'layout' => 'horizontal',
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
 					'label' => ([
 						'enabled' => 'true',
 						'format' => '',
@@ -3421,11 +3424,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-				'layout' => 'horizontal',
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
-					'label' => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
 						'format' => '',
 						'connectorAllowed' => false
@@ -3495,11 +3501,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-				'layout' => 'horizontal',
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
-					'label' => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
 						'format' => '',
 						'connectorAllowed' => false
@@ -3569,11 +3578,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-				'layout' => 'horizontal',
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
-					'label' => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
 						'format' => '',
 						'connectorAllowed' => false
@@ -3616,11 +3628,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-				'layout' => 'horizontal',
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
-					'label' => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
 						'format' => '',
 						'connectorAllowed' => false
@@ -3674,11 +3689,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-				'layout' => 'horizontal',
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
-					'label' => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
 						'format' => '',
 						'connectorAllowed' => false
@@ -3721,11 +3739,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-				'layout' => 'horizontal',
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
-					'label' => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
 						'format' => '',
 						'connectorAllowed' => false
@@ -3798,11 +3819,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-				'layout' => 'horizontal',
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
-					'label' => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
 						'format' => '',
 						'connectorAllowed' => false
@@ -3902,11 +3926,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-				'layout' => 'horizontal',
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
-					'label' => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
 						'format' => '',
 						'connectorAllowed' => false
@@ -3993,11 +4020,14 @@ class HomeController extends Controller
 				],
 			])
 			->legend([
-				'layout' => 'horizontal',
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
-					'label' => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
 						'format' => '',
 						'connectorAllowed' => false
@@ -4072,11 +4102,14 @@ class HomeController extends Controller
 		        ]
 			])
 			->legend([
-				'layout' => 'horizontal',
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
-					'label' => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
 						'format' => '',
 						'connectorAllowed' => false
@@ -4181,7 +4214,10 @@ class HomeController extends Controller
 			])
 			->plotOptions([
 				'series'        => ([
-					'label' => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
 						'format' => '',
 						'connectorAllowed' => false
