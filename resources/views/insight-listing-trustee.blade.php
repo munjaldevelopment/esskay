@@ -102,7 +102,7 @@
 							<tr>
 								<th style="min-width: 140px;" rowspan="2">Geographical <br /> Diversification</th>
 								<th style="min-width: 90px;" rowspan="2">DOCP</th>
-								<th colspan="2" class="border-bottom">Mar-22</th>
+								<!--<th colspan="2" class="border-bottom">Mar-22</th>-->
 								<th colspan="2" class="border-bottom">Mar-21</th>
 								<th colspan="2" class="border-bottom">Sep-20</th>
 								<th colspan="2" class="border-bottom">Mar-20</th>
@@ -117,8 +117,8 @@
 								<th>%</th>
 								<th>Amount</th>
 								<th>%</th>
-								<th>Amount</th>
-								<th>%</th>
+								<!--<th>Amount</th>
+								<th>%</th>-->
 								<th>Amount</th>
 								<th>%</th>
 								<th>Amount</th>
@@ -138,8 +138,8 @@
 							<tr>
 								<td>{{ $row->geographical_diversification }}</td>
 								<td>{{ $row->docp }}</td>
-								<td>{{ number_format($row->amount8, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage8, 0) }}%</td>
+								<!--<td>{{ number_format($row->amount8, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage8, 0) }}%</td>-->
 								<td>{{ number_format($row->amount7, 0) }}</td>
 								<td>{{ number_format($row->amount_percentage7, 0) }}%</td>
 								<td>{{ number_format($row->amount6, 0) }}</td>
@@ -164,8 +164,8 @@
 							<tr>
 								<td>Total</td>
 								<td>&nbsp;</td>
-								<td>{{ $geographicalConTotalData['amount8'] }}</td>
-								<td>100%</td>
+								<!--<td>{{ $geographicalConTotalData['amount8'] }}</td>
+								<td>100%</td>-->
 								<td>{{ $geographicalConTotalData['amount7'] }}</td>
 								<td>100%</td>
 								<td>{{ $geographicalConTotalData['amount6'] }}</td>
@@ -210,7 +210,7 @@
 						<thead>
 							<tr>
 								<th style="min-width: 170px;" rowspan="2">Product <br /> Diversification</th>
-								<th colspan="2" class="border-bottom">Mar-22</th>
+								<!--<th colspan="2" class="border-bottom">Mar-22</th>-->
 								<th colspan="2" class="border-bottom">Mar-21</th>
 								<th colspan="2" class="border-bottom">Sep-20</th>
 								<th colspan="2" class="border-bottom">Mar-20</th>
@@ -223,8 +223,8 @@
 							<tr>
 								<th>Amount</th>
 								<th>%</th>
-								<th>Amount</th>
-								<th>%</th>
+								<!--<th>Amount</th>
+								<th>%</th>-->
 								<th>Amount</th>
 								<th>%</th>
 								<th>Amount</th>
@@ -245,8 +245,8 @@
 							@foreach($productConData as $row)
 							<tr>
 								<td>{{ $row->product_diversification }}</td>
-								<td>{{ number_format($row->amount8, 0) }}</td>
-								<td>{{ number_format($row->amount_percentage8, 0) }}%</td>
+								<!--<td>{{ number_format($row->amount8, 0) }}</td>
+								<td>{{ number_format($row->amount_percentage8, 0) }}%</td>-->
 								<td>{{ number_format($row->amount7, 0) }}</td>
 								<td>{{ number_format($row->amount_percentage7, 0) }}%</td>
 								<td>{{ number_format($row->amount6, 0) }}</td>
@@ -270,8 +270,8 @@
 						<tfoot>
 							<tr>
 								<td>Total</td>
-								<td>{{ $productConTotalData['amount8'] }}</td>
-								<td>100%</td>
+								<!--<td>{{ $productConTotalData['amount8'] }}</td>
+								<td>100%</td>-->
 								<td>{{ $productConTotalData['amount7'] }}</td>
 								<td>100%</td>
 								<td>{{ $productConTotalData['amount6'] }}</td>
@@ -456,7 +456,7 @@
 						<tbody>
 							@foreach($liquidityData as $row)
 							<tr>
-								<td>{{ $row->quarter}}</td>
+								<td class="text-left">{{ $row->quarter}}</td>
 								<td>{{ $row->amount10}}</td>
 								<td>{{ $row->amount9}}</td>
 								<td>{{ $row->amount8}}</td>
@@ -594,18 +594,19 @@
 							<tr>
 								<td>Total</td>
 								<td>{{ $liabilityProfileDataTotal[12] }}</td>
-								<td>{{ $liabilityProfileDataTotal[11] }}</td>
+								<td>{{ $liabilityProfileDataTotal[13] }}</td>
 								<td>{{ $liabilityProfileDataTotal[10] }}</td>
-								<td>{{ $liabilityProfileDataTotal[9] }}</td>
+								<td>{{ $liabilityProfileDataTotal[11] }}</td>
 								<td>{{ $liabilityProfileDataTotal[8] }}</td>
-								<td>{{ $liabilityProfileDataTotal[7] }}</td>
+								<td>{{ $liabilityProfileDataTotal[9] }}</td>
 								<td>{{ $liabilityProfileDataTotal[6] }}</td>
-								<td>{{ $liabilityProfileDataTotal[5] }}</td>
+								<td>{{ $liabilityProfileDataTotal[7] }}</td>
 								<td>{{ $liabilityProfileDataTotal[4] }}</td>
-								<td>{{ $liabilityProfileDataTotal[3] }}</td>
+								<td>{{ $liabilityProfileDataTotal[5] }}</td>
 								<td>{{ $liabilityProfileDataTotal[2] }}</td>
-								<td>{{ $liabilityProfileDataTotal[1] }}</td>
+								<td>{{ $liabilityProfileDataTotal[3] }}</td>
 								<td>{{ $liabilityProfileDataTotal[0] }}</td>
+								<td>{{ $liabilityProfileDataTotal[1] }}</td>
 							</tr>
 						</tfoot>
 					</table>
@@ -779,7 +780,7 @@
 		</div>
 	</div>
 @elseif($insightCatData->id == 14)
-	<div class="white-box">
+	<div class="white-box d-none">
 		<div class="pool-dynamic-graph">
 			<div class="row">
 				<div class="col-sm-12">
@@ -874,6 +875,17 @@
 							</tr>
 						</thead>
 
+						<tfoot>
+							<tr>
+								<th>State</th>
+								<th>District</th>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+						</tfoot>
+
 						<tbody>
 							@foreach($insightLocationData as $row)
 							<tr>
@@ -887,16 +899,7 @@
 							@endforeach
 						</tbody>
 
-						<tfoot>
-							<tr>
-								<th>State</th>
-								<th>District</th>
-								<th>Location Hub</th>
-								<th>Branch Name</th>
-								<th>Branch Type</th>
-								<th>Branch Address</th>
-							</tr>
-						</tfoot>
+						<!---->
 					</table>
 				</div>
 			</div>
@@ -915,33 +918,45 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		// Setup - add a text input to each footer cell
-	    $('#trustee-table tfoot th').each( function (key) {
+	    /*$('#trustee-table tfoot th').each( function (key) {
 	        var title = $(this).text();
-	        if(key <= 4)
+	        if(key <= 1)
 	        {
 	        	$(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
 	        }
 	        else
 	        {
-	        	$(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+	        	$(this).html('');
+	        	//$(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
 	        }
-	    } );
+	    } );*/
 	 
 	    // DataTable
 	    var table = $('#trustee-table').DataTable({
 	        initComplete: function () {
 	            // Apply the search
-	            this.api().columns().every( function () {
-	                var that = this;
-	 
-	                $( 'input', this.footer() ).on( 'keyup change clear', function () {
-	                    if ( that.search() !== this.value ) {
-	                        that
-	                            .search( this.value )
-	                            .draw();
-	                    }
-	                } );
-	            } );
+	            this.api().columns().every( function (key) {
+	            	var column = this;
+	                if(key <= 1)	                    
+					{
+						var select = $('<select class="form-control"><option value=""></option></select>')
+		                    .appendTo( $(column.footer()).empty() )
+		                    .on( 'change', function () {
+		                        var val = $.fn.dataTable.util.escapeRegex(
+		                            $(this).val()
+		                        );
+		 
+		                        column
+		                            .search( val ? '^'+val+'$' : '', true, false )
+		                            .draw();
+		                });
+
+					
+		                column.data().unique().sort().each( function ( d, j ) {
+		                    select.append( '<option value="'+d+'">'+d+'</option>' )
+		                } );
+		            }
+	            });
 	        }
 	    });
 	});
@@ -990,10 +1005,10 @@ $(document).ready(function() {
 		  dots:true,	
         },
         1000: {
-          items: 4,
+          items: 5,
           nav: false,
 		  dots:true,	
-          margin: 20
+          margin: 10
         }
       }
     });

@@ -1900,7 +1900,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22',//, 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21',//, 'FY22',//, 'FY23'
 				],
 			])
 			->yaxis([
@@ -1931,12 +1931,12 @@ class HomeController extends Controller
 					[
 						'showInLegend' => 'false',
 						'name'  => 'Rajasthan',
-						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8], //, $raj_amount9
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7], //, , $raj_amount8 $raj_amount9
 					],
 					[
 						'showInLegend' => 'false',
 						'name'  => 'Other States',
-						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8], // $other_amount9
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7], // , $other_amount8$other_amount9
 					],
 				]
 			)
@@ -2270,7 +2270,7 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
+				'categories' => ['FY17', 'FY18', 'FY19', 'FY20', 'FY21', 'H1FY21'],
 			])
 			->yaxis([
 				'title' => [
@@ -2316,7 +2316,7 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
+				'categories' => ['FY17', 'FY18', 'FY19', 'FY20', 'FY21', 'H1FY21'],
 			])
 			->yaxis([
 				'title' => [
@@ -2348,7 +2348,7 @@ class HomeController extends Controller
 			)
 			->display(0);
 
-			$netWorthData = \DB::table('net_worth_infusions')->where('net_worth_infusion_status', 1)->get();
+			$netWorthData = \DB::table('net_worth_infusions')->where('net_worth_infusion_status', 1)->orderBy('id', 'DESC')->get();
 			$netWorthData1 = \DB::table('net_worth')->where('net_worth_status', 1)->get();
 		}
 		else if($request->category_id == 9)
@@ -3306,7 +3306,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22',//, 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21',// 'FY22',//, 'FY23'
 				],
 			])
 			->yaxis([
@@ -3337,12 +3337,12 @@ class HomeController extends Controller
 					[
 						
 						'name'  => 'Rajasthan',
-						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8], //, $raj_amount9
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7], //, , $raj_amount8$raj_amount9
 					],
 					[
 						
 						'name'  => 'Other States',
-						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8], //, $other_amount9
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7], //, , $other_amount8 $other_amount9
 					],
 				]
 			)
@@ -3415,7 +3415,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22',//, 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21',//, 'FY22',//, 'FY23'
 				],
 			])
 			->yaxis([
@@ -3446,12 +3446,12 @@ class HomeController extends Controller
 					[
 						
 						'name'  => 'Commercial Vehicle',
-						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8], //, $raj_amount9
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7], //, , $raj_amount8 $raj_amount9
 					],
 					[
 						
 						'name'  => 'Other Products',
-						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8], //, $other_amount9
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7], //, , $other_amount8 $other_amount9
 					],
 				]
 			)
@@ -3681,7 +3681,7 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
+				'categories' => ['FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21'],
 			])
 			->yaxis([
 				'title' => [
@@ -3731,7 +3731,7 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
+				'categories' => ['FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21'],
 			])
 			->yaxis([
 				'title' => [
@@ -3767,7 +3767,7 @@ class HomeController extends Controller
 			)
 			->display(0);
 
-			$netWorthData = \DB::table('net_worth_infusions')->where('net_worth_infusion_status', 1)->get();
+			$netWorthData = \DB::table('net_worth_infusions')->where('net_worth_infusion_status', 1)->orderBy('id', 'DESC')->get();
 			$netWorthData1 = \DB::table('net_worth')->where('net_worth_status', 1)->get();
 		}
 		else if($request->category_id == 9)
@@ -3900,12 +3900,12 @@ class HomeController extends Controller
 
 					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
 
-					$liabilityProfileDataTotal = array((float)round($amount1, 2), (float)round($amount1_lender, 2), (float)round($amount2, 2), (float)round($amount2_lender, 2), (float)round($amount3, 2),  (float)round($amount3_lender, 2), (float)round($amount4, 2),  (float)round($amount4_lender, 2), (float)round($amount5, 2),  (float)round($amount5_lender, 2), (float)round($amount6, 2),  (float)round($amount6_lender, 2), (float)round($amount7_lender, 2));
+					$liabilityProfileDataTotal = array((float)round($amount1, 2), (float)round($amount1_lender, 2), (float)round($amount2, 2), (float)round($amount2_lender, 2), (float)round($amount3, 2),  (float)round($amount3_lender, 2), (float)round($amount4, 2),  (float)round($amount4_lender, 2), (float)round($amount5, 2),  (float)round($amount5_lender, 2), (float)round($amount6, 2),  (float)round($amount6_lender, 2), (float)round($amount7, 2), (float)round($amount7_lender, 2));
 				}
 			}
 
 			$chart7 = \Chart::title([
-				'text' => 'Diversified Lender Base And Access to different Pools of Capital (In Nos.)',
+				'text' => 'Diversified Lender Base And Access to different Pools of Capital',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3922,7 +3922,7 @@ class HomeController extends Controller
 			])
 			->yaxis([
 				'title' => [
-					'text' => ''
+					'text' => 'Percentage'
 				],
 			])
 			->legend([
@@ -4205,12 +4205,7 @@ class HomeController extends Controller
 		        ]
 			])
 			->legend([
-				'align' => 'right',
-		        'x' => '-30',
-		        'verticalAlign' => 'top',
-		        'y' => '25',
-		        'floating' => 'true',
-		        'shadow' => 'false'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
@@ -5656,7 +5651,7 @@ class HomeController extends Controller
 
 							$doc_download = \DB::table('user_transaction_document')->where('transaction_document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
 							
-							if($row->transaction_document_type_id == 9)
+							if($row->transaction_document_type_id == 10)
 							{
 								$termSheetDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);	
 							}
@@ -5688,7 +5683,7 @@ class HomeController extends Controller
 
 							$doc_download = \DB::table('user_transaction_document')->where('transaction_document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
 							
-							if($row->transaction_document_type_id == 10)
+							if($row->transaction_document_type_id == 9)
 							{
 								$termSheetDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);	
 							}

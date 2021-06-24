@@ -34,7 +34,10 @@
 						</div>
 						<div class="mtdd-doc-cont">
 							<h4> {{ $doc['document_heading'] }} </h4>	
-							<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>													
+							@if($doc['expiry_date'] != NULL)
+							<p>{!! date('F d, Y', strtotime($doc['expiry_date'])) !!}</p>
+							@endif
+
 						</div>
 						<div class="download-container{{ $doc['id'] }} mtdd-doc-check">
 							@if($doc['doc_download'] > 0)

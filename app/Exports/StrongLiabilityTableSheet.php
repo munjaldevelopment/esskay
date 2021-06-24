@@ -33,6 +33,8 @@ class StrongLiabilityTableSheet implements FromArray, WithTitle, WithHeadings, S
 			'Mar-20 Lenders',
 			'Nov-20 Amount',
 			'Nov-20 Lenders',
+			'Mar-21 Amount',
+			'Mar-21 Lenders',
             'Status',
         ];
     }
@@ -61,6 +63,8 @@ class StrongLiabilityTableSheet implements FromArray, WithTitle, WithHeadings, S
 					'Mar-20 Lenders' => $factory['amount5_lender'],
 					'Nov-20 Amount' => $factory['amount6'],
 					'Nov-20 Lenders' => $factory['amount6_lender'],
+					'Mar-21 Amount' => $factory['amount7'],
+					'Mar-21 Lenders' => $factory['amount7_lender'],
 		            'Status' => ($factory['strong_liability_table_status'] ? "Yes" : "No"));
 			}
 		}

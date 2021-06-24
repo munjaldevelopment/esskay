@@ -26,9 +26,9 @@
 						@elseif($report_type == 5)
 						CHG-9
 						@elseif($report_type == 6)
-						CHG-1
-						@elseif($report_type == 7)
 						CHG-4
+						@elseif($report_type == 7)
+						CHG-1
 						@endif
 						<span class="collapsed accordian-dropi-icon"><p><img src="{{ asset('public/assets/') }}/images/accordian-arrow-icon.svg" alt=""></p></span>
 						<span class="expanded accordian-dropi-icon"><p><img src="{{ asset('public/assets/') }}/images/accordian-arrow-icon.svg" alt=""></p></span>
