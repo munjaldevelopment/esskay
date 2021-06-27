@@ -403,6 +403,7 @@
 										</div>
 									</div>
 								</div>
+								@endforeach
 							</div>
 						</div>
 				  	</div>
@@ -423,7 +424,6 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
-								
 								@foreach($monthlyNovDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
