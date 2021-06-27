@@ -364,6 +364,8 @@
 
 	<div class="mtd-accordian">
 		 <div id="accordion">
+
+		 	@if($monthlyDecDocData)
 		 	<div class="card">
 				<div class="card-header">
 					<a class="card-link collapsed" data-toggle="collapse"  href="#execuled_doc_12" aria-expanded="false">
@@ -376,7 +378,6 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
-								@if($monthlyDecDocData)
 								@foreach($monthlyDecDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -402,16 +403,14 @@
 										</div>
 									</div>
 								</div>
-								@endforeach
-								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
-								@endif
 							</div>
 						</div>
 				  	</div>
 				</div>
 			</div>
+			@endif
 
+			@if($monthlyNovDocData)
 			<div class="card">
 				<div class="card-header">
 					<a class="card-link collapsed" data-toggle="collapse"  href="#execuled_doc_11" aria-expanded="false">
@@ -424,7 +423,7 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
-								@if($monthlyNovDocData)
+								
 								@foreach($monthlyNovDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -451,14 +450,12 @@
 									</div>
 								</div>
 								@endforeach
-								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
-								@endif
 							</div>
 						</div>
 				  	</div>
 				</div>
 			</div>
+			@endif
 
 			<div class="card">
 				<div class="card-header">
