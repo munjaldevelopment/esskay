@@ -364,6 +364,54 @@
 
 	<div class="mtd-accordian">
 		 <div id="accordion">
+		 	<div class="card">
+				<div class="card-header">
+					<a class="card-link collapsed" data-toggle="collapse"  href="#execuled_doc_12" aria-expanded="false">
+						Dec {{ $docu_date }}
+						<span class="collapsed accordian-dropi-icon"><p><img src="{{ asset('public/assets/') }}/images/accordian-arrow-icon.svg" alt=""></p></span>
+						<span class="expanded accordian-dropi-icon"><p><img src="{{ asset('public/assets/') }}/images/accordian-arrow-icon.svg" alt=""></p></span>
+					</a>
+				</div>
+				<div id="execuled_doc_12" class="panel-collapse collapse" data-parent="#accordion">
+				  	<div class="card-body">
+						<div class="mtd-timline-document">
+							<div class="row">
+								@if($monthlyDecDocData)
+								@foreach($monthlyDecDocData as $k => $row)
+								<div class="col-md-6 col-sm-12">
+									<div class="mtd-doc-box">											
+										<div class="mtdd-doc-img">
+											<i class="fa fa-file-{{ $row['ext'] }}-o" aria-hidden="true"></i>
+										</div>
+										<div class="mtdd-doc-cont">
+											<h4>{{ $row['document_name'] }} </h4>	
+											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
+										</div>
+										<div class="download-container{{ $row['id'] }} mtdd-doc-check">
+											@if($row['doc_download'] > 0)
+											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
+											@endif
+										</div>
+										<div class="mtd-doc-hover">
+											<ul>
+												<li>@if($row['ext'] == 'pdf')
+													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
+													@endif</li>
+												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								@endforeach
+								@else
+								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
+								@endif
+							</div>
+						</div>
+				  	</div>
+				</div>
+			</div>
+			
 			<div class="card">
 				<div class="card-header">
 					<a class="card-link" data-toggle="collapse" href="#execuled_doc_1" aria-expanded="true">
@@ -892,53 +940,7 @@
 				</div>
 			</div>
 
-			<div class="card">
-				<div class="card-header">
-					<a class="card-link collapsed" data-toggle="collapse"  href="#execuled_doc_12" aria-expanded="false">
-						Dec {{ $docu_date }}
-						<span class="collapsed accordian-dropi-icon"><p><img src="{{ asset('public/assets/') }}/images/accordian-arrow-icon.svg" alt=""></p></span>
-						<span class="expanded accordian-dropi-icon"><p><img src="{{ asset('public/assets/') }}/images/accordian-arrow-icon.svg" alt=""></p></span>
-					</a>
-				</div>
-				<div id="execuled_doc_12" class="panel-collapse collapse" data-parent="#accordion">
-				  	<div class="card-body">
-						<div class="mtd-timline-document">
-							<div class="row">
-								@if($monthlyDecDocData)
-								@foreach($monthlyDecDocData as $k => $row)
-								<div class="col-md-6 col-sm-12">
-									<div class="mtd-doc-box">											
-										<div class="mtdd-doc-img">
-											<i class="fa fa-file-{{ $row['ext'] }}-o" aria-hidden="true"></i>
-										</div>
-										<div class="mtdd-doc-cont">
-											<h4>{{ $row['document_name'] }} </h4>	
-											<p>{!! date('F d, Y', strtotime($row['expiry_date'])) !!}</p>
-										</div>
-										<div class="download-container{{ $row['id'] }} mtdd-doc-check">
-											@if($row['doc_download'] > 0)
-											<img src="{{ asset('public/assets/') }}/images/doc-check-icon.svg" alt="">
-											@endif
-										</div>
-										<div class="mtd-doc-hover">
-											<ul>
-												<li>@if($row['ext'] == 'pdf')
-													<a href="{{ asset('/') }}previewTransDocTrustee/{{ base64_encode($row['id']) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a>
-													@endif</li>
-												<li><a href="{{ asset('/') }}downloadTransDocTrustee/{{ base64_encode($row['id']) }}" onclick="showDownloadIcon('{{ $row['id'] }}');" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								@endforeach
-								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
-								@endif
-							</div>
-						</div>
-				  	</div>
-				</div>
-			</div>
+			
 
 		</div>
 	</div>
