@@ -900,7 +900,7 @@
 						<span class="expanded accordian-dropi-icon"><p><img src="{{ asset('public/assets/') }}/images/accordian-arrow-icon.svg" alt=""></p></span>
 					</a>
 				</div>
-				<div id="execuled_doc_1" class="collapse show" data-parent="#accordion" >
+				<div id="execuled_doc_1" class="collapse" data-parent="#accordion" >
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
@@ -939,7 +939,7 @@
 				  	</div>
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 </div>
