@@ -457,6 +457,7 @@
 			</div>
 			@endif
 
+			@if($monthlyOctDocData)
 			<div class="card">
 				<div class="card-header">
 					<a class="card-link collapsed" data-toggle="collapse"  href="#execuled_doc_10" aria-expanded="false">
@@ -469,7 +470,6 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
-								@if($monthlyOctDocData)
 								@foreach($monthlyOctDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -496,15 +496,14 @@
 									</div>
 								</div>
 								@endforeach
-								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
-								@endif
 							</div>
 						</div>
 				  	</div>
 				</div>
 			</div>
+			@endif
 
+			@if($monthlySepDocData)
 			<div class="card">
 				<div class="card-header">
 					<a class="card-link collapsed" data-toggle="collapse"  href="#execuled_doc_9" aria-expanded="false">
@@ -517,7 +516,6 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
-								@if($monthlySepDocData)
 								@foreach($monthlySepDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -544,15 +542,14 @@
 									</div>
 								</div>
 								@endforeach
-								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
-								@endif
 							</div>
 						</div>
 				  	</div>
 				</div>
 			</div>
+			@endif
 
+			@if($monthlyAugDocData)
 			<div class="card">
 				<div class="card-header">
 					<a class="card-link collapsed" data-toggle="collapse"  href="#execuled_doc_8" aria-expanded="false">
@@ -565,7 +562,6 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
-								@if($monthlyAugDocData)
 								@foreach($monthlyAugDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -592,15 +588,14 @@
 									</div>
 								</div>
 								@endforeach
-								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
-								@endif
 							</div>
 						</div>
 				  	</div>
 				</div>
 			</div>
+			@endif
 
+			@if($monthlyJulyDocData)
 			<div class="card">
 				<div class="card-header">
 					<a class="card-link collapsed" data-toggle="collapse"  href="#execuled_doc_7" aria-expanded="false">
@@ -613,7 +608,6 @@
 				  <div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
-								@if($monthlyJulyDocData)
 								@foreach($monthlyJulyDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -640,14 +634,12 @@
 									</div>
 								</div>
 								@endforeach
-								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
-								@endif
 							</div>
 						</div>
 				  	</div>
 				</div>
 			</div>
+			@endif
 
 			<div class="card">
 				<div class="card-header">
