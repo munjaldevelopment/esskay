@@ -894,7 +894,7 @@
 
 			<div class="card">
 				<div class="card-header">
-					<a class="card-link collapsed" data-toggle="collapse" href="#execuled_doc_1" aria-expanded="true">
+					<a class="card-link collapsed" data-toggle="collapse" href="#execuled_doc_1" aria-expanded="false">
 						Jan {{ $docu_date }}
 						<span class="collapsed accordian-dropi-icon"><p><img src="{{ asset('public/assets/') }}/images/accordian-arrow-icon.svg" alt=""></p></span>
 						<span class="expanded accordian-dropi-icon"><p><img src="{{ asset('public/assets/') }}/images/accordian-arrow-icon.svg" alt=""></p></span>
