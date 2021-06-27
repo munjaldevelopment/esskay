@@ -871,6 +871,7 @@
 			</div>
 			@endif
 
+			@if($monthlyJanDocData)
 			<div class="card">
 				<div class="card-header">
 					<a class="card-link collapsed" data-toggle="collapse" href="#execuled_doc_1" aria-expanded="false">
@@ -883,7 +884,6 @@
 				  	<div class="card-body">
 						<div class="mtd-timline-document">
 							<div class="row">
-								@if($monthlyJanDocData)
 								@foreach($monthlyJanDocData as $k => $row)
 								<div class="col-md-6 col-sm-12">
 									<div class="mtd-doc-box">											
@@ -910,15 +910,12 @@
 									</div>
 								</div>
 								@endforeach
-								@else
-								<div class="col-md-12 col-sm-12 alert alert-warning text-center">Sorry, no transaction in this category.</div>
-								@endif
 							</div>
 						</div>
 				  	</div>
 				</div>
 			</div>
-
+			@endif
 		</div>
 	</div>
 </div>
