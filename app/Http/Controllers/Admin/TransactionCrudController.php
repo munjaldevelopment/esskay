@@ -325,6 +325,17 @@ class TransactionCrudController extends CrudController
         }
 
         $this->crud->addField([
+                'label'     => 'Lender',
+                'type'      => 'relationship',
+                'name'      => 'lenders',
+                'entity'    => 'lenders', //function name
+                'attribute' => 'name', //name of fields in models table like districts
+                'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+                
+                'tab' => 'Lender'
+                ]);
+
+        $this->crud->addField([
                 'label'     => 'Trustee',
                 'type'      => 'relationship',
                 'name'      => 'trustees',
@@ -445,6 +456,17 @@ class TransactionCrudController extends CrudController
                                 'tab' => 'General'
                             ]);
         }
+
+        $this->crud->addField([
+                'label'     => 'Lender',
+                'type'      => 'relationship',
+                'name'      => 'lenders',
+                'entity'    => 'lenders', //function name
+                'attribute' => 'name', //name of fields in models table like districts
+                'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+                
+                'tab' => 'Lender'
+                ]);
 
         $this->crud->addField([
                 'label'     => 'Trustee',
