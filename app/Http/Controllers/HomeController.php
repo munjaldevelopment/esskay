@@ -788,7 +788,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -809,7 +809,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -835,7 +835,7 @@ class HomeController extends Controller
 					{
 						$ext = "picture";
 					}
-					else if($ext == "xls" || $ext == "xlsx")
+					else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 					{
 						$ext = "excel";
 					}
@@ -856,7 +856,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -964,7 +964,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -985,7 +985,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -1011,7 +1011,7 @@ class HomeController extends Controller
 					{
 						$ext = "picture";
 					}
-					else if($ext == "xls" || $ext == "xlsx")
+					else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 					{
 						$ext = "excel";
 					}
@@ -1032,7 +1032,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -4616,7 +4616,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -4637,7 +4637,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -4663,7 +4663,7 @@ class HomeController extends Controller
 					{
 						$ext = "picture";
 					}
-					else if($ext == "xls" || $ext == "xlsx")
+					else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 					{
 						$ext = "excel";
 					}
@@ -4684,7 +4684,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -4792,7 +4792,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -4813,7 +4813,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -4839,7 +4839,7 @@ class HomeController extends Controller
 					{
 						$ext = "picture";
 					}
-					else if($ext == "xls" || $ext == "xlsx")
+					else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 					{
 						$ext = "excel";
 					}
@@ -4860,7 +4860,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -5226,7 +5226,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5282,7 +5282,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5309,7 +5309,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5336,7 +5336,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5363,7 +5363,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5390,7 +5390,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5417,7 +5417,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5444,7 +5444,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5471,7 +5471,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5498,7 +5498,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5525,7 +5525,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5552,7 +5552,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5579,7 +5579,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5608,7 +5608,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5640,7 +5640,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5672,7 +5672,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
