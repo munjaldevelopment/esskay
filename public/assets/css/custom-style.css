@@ -1685,6 +1685,14 @@
     margin-top: 1px;
 }
 
+.ohbh-mid-result i.color-red {
+	color: #CC0000;
+}
+
+.ohbh-mid-result i.color-green {
+	color: #CC0000;
+}
+
 .operation-highlight-year {
     text-align: center;
     color: #1976D2;
