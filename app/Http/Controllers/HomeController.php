@@ -3227,7 +3227,7 @@ class HomeController extends Controller
 		$geographicalConData = $geographicalConTotalData = array();
 		$productConData = $productConTotalData = array();
 		$netWorthData = $netWorthData1 = $liquidityData = $liabilityProfileData = $liabilityProfile11Data = $liabilityProfileTableData = $liabilityProfileTable11Data = array();
-		$liabilityProfileDataTotal = $liquidityDataTotal = array();
+		$liabilityProfileDataTotal = $liquidityDataTotal = $topFiveLenders = array();
 
 		$covidReliefData = $covidReliefDataTotal = $covidReliefDataTotal1 = array();
 		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = $liabilityCategories = $liabilityCategoriesSlider = array();
@@ -3967,6 +3967,8 @@ class HomeController extends Controller
 			)
 			->display(0);
 
+			$topFiveLenders = \DB::table('lenders')->where('is_onboard', 'Onboarded')->skip(0)->take(5)->get();
+
 			$liabilityCategories = \DB::table('liability_profile_categories')->where('status', '1')->get();
 
 			foreach($liabilityCategories as $row)
@@ -4259,6 +4261,7 @@ class HomeController extends Controller
 			'liabilityProfileTableData' => $liabilityProfileTableData,
 			'liabilityProfileTable11Data' => $liabilityProfileTable11Data,
 			'liabilityProfileDataTotal' => $liabilityProfileDataTotal,
+			'topFiveLenders' => $topFiveLenders,
 
 			'covidReliefData' => $covidReliefData, 'covidReliefDataTotal' => $covidReliefDataTotal, 'covidReliefDataTotal1' => $covidReliefDataTotal1,
 			'covidRelief1Data' => $covidRelief1Data, 'covidRelief1DataTotal' => $covidRelief1DataTotal, 'covidRelief1DataTotal1' => $covidRelief1DataTotal1]);

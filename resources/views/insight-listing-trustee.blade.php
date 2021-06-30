@@ -508,6 +508,25 @@
 		</div>
 	</div>
 
+	<div class="white-box outstanding-box">
+		<div class="outstanding-table">
+			<h3>Top 5 Lenders</h3>
+			<div class="custom-table-area">
+				<div class="table-responsive">
+					<table class="table">
+						<tbody>
+							<tr>
+							@foreach($topFiveLenders as $k => $row)
+							<td class="">{{ $row->name }}</td>
+							@endforeach
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>	
+	</div>
+
 	<div class="white-box-slider page-inner-tab">
 		<div class="mtd-timeline">
 			<ul>

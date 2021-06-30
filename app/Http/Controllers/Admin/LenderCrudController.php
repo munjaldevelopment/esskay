@@ -23,6 +23,7 @@ class LenderCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitLenderUpdate; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation { destroy as traitDestroy; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
 	
 	use \Backpack\ReviseOperation\ReviseOperation;
 
@@ -579,6 +580,12 @@ class LenderCrudController extends CrudController
         $result = $this->traitLenderUpdate();
 		
 		return $result;
+    }
+
+    protected function setupReorderOperation()
+    {
+        CRUD::set('reorder.label', 'name');
+        CRUD::set('reorder.max_level', 2);
     }
 	
 	protected function handlePasswordInput($request)

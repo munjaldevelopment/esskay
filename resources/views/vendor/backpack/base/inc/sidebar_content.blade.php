@@ -254,33 +254,37 @@
 			endif;
 
 			if($list_strong_liability_profile_overall):
+				$categoryData = \DB::table('insight_categories')->find(10);
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileoverall') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile Overall</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileoverall') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Overall</a></li>
 	@php
 			endif;
 
 			if($list_liability_profile_category):
+				$categoryData = \DB::table('insight_categories')->find(10);
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liabilityprofilecategory') }}'><i class='nav-icon la la-list'></i> Liabity Profile Categories</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liabilityprofilecategory') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Categories</a></li>
 	@php
 			endif;
 
 			if($list_liability_profile_slider):
+				$categoryData = \DB::table('insight_categories')->find(10);
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liabilityprofileslider') }}'><i class='nav-icon la la-list'></i> Liabity Profile Sliders</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liabilityprofileslider') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Sliders</a></li>
 	@php
 			endif;
 
 			if($list_covid_relief):
+				$categoryData = \DB::table('insight_categories')->find(12);
 @endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_lender') }}'><i class='nav-icon la la-list'></i> Covid Relief Lenders</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_lender') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Lenders</a></li>
 @php
 			endif;
 
 	if($list_covid_relief_borrower):
+				$categoryData = \DB::table('insight_categories')->find(12);
 @endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_borrower') }}'><i class='nav-icon la la-list'></i> Covid Relief
- Borrowers</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_borrower') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Borrowers</a></li>
 @php
 			endif;
 
