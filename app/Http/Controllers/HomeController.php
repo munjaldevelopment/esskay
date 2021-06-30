@@ -1485,6 +1485,7 @@ class HomeController extends Controller
 										{
 											$is_model = 1;
 											session ( [
+												'login_phone_number' => $checkRecord->phone,
 												'esskay_name' => $checkRecord->email,
 												'esskay_user_id' => $user_id,
 												//'esskay_verify' => '1',
@@ -1495,6 +1496,7 @@ class HomeController extends Controller
 										{
 											$is_model = 1;
 											session ( [
+												'login_phone_number' => $checkRecord->phone,
 												'esskay_trustee_name' => $checkRecord->email,
 												'esskay_trustee_user_id' => $user_id,
 												//'esskay_trustee_verify' => '1',
