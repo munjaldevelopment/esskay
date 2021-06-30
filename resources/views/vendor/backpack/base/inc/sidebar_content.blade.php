@@ -170,73 +170,86 @@
 	<ul class="nav-dropdown-items">
 		@php
 		if($list_operational_highlight):
+			$categoryData = \DB::table('insight_categories')->find(2);
 		@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('operational_highlight') }}'><i class='nav-icon la la-list'></i> Operational Highlight</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('operational_highlight') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }}</a></li>
 		@php
 			endif;
 			if($list_geographical_concentration):
+				$categoryData = \DB::table('insight_categories')->find(3);
 		@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('geographical_concentration') }}'><i class='nav-icon la la-list'></i> Graphical Con.</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('geographical_concentration') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} </a></li>
 		@php
 			endif;
 			if($list_product_concentration):
+				$categoryData = \DB::table('insight_categories')->find(4);
 		@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('product_concentration') }}'><i class='nav-icon la la-list'></i> Product Con.</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('product_concentration') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }}</a></li>
 		@php
 			endif;
 			if($list_asset_quality):
+				$categoryData = \DB::table('insight_categories')->find(5);
 		@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('asset_quality') }}'><i class='nav-icon la la-list'></i> Asset Quality</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('asset_quality') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }}</a></li>
 		@php
 			endif;
 			if($list_collection_efficiency):
+				$categoryData = \DB::table('insight_categories')->find(6);
 		@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('collection_efficiency') }}'><i class='nav-icon la la-list'></i> Collection Efficiency</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('collection_efficiency') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }}</a></li>
 		@php
 			endif;
 			if($list_net_worth):
+				$categoryData = \DB::table('insight_categories')->find(8);
 		@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('net_worth') }}'><i class='nav-icon la la-list'></i> Net Worth</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('net_worth') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }}</a></li>
 		@php
 			endif;
 			if($list_net_worth_infusion):
+				$categoryData = \DB::table('insight_categories')->find(8);
 		@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('networth_infusion') }}'><i class='nav-icon la la-list'></i> Net Worth Infusions</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('networth_infusion') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Infusions</a></li>
 		@php
 			endif;
 			if($list_liquidity):
+				$categoryData = \DB::table('insight_categories')->find(9);
 	@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liquidity') }}'><i class='nav-icon la la-list'></i> Liquidity</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liquidity') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }}</a></li>
 	@php
 			endif;
 
 			if($list_strong_liability_profile):
+				$categoryData = \DB::table('insight_categories')->find(10);
 	@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofile') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofile') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }}</a></li>
 	@php
 			endif;
 
 	 		if($list_strong_liability_profile_table):
+	 			$categoryData = \DB::table('insight_categories')->find(10);
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofiletable') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile Table</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofiletable') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Table</a></li>
 	@php
 			endif;
 
 			if($list_strong_liability_profile_ratio):
+				$categoryData = \DB::table('insight_categories')->find(10);
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileratio') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile Ratios</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileratio') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Ratios</a></li>
 	@php
 			endif;
 
 			if($list_strong_liability_profile_driving):
+				$categoryData = \DB::table('insight_categories')->find(10);
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofiledriving') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile Driving</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofiledriving') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Driving</a></li>
 	@php
 			endif;
 
 			if($list_strong_liability_profile_well_table):
+				$categoryData = \DB::table('insight_categories')->find(11);
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofilewelltable') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile WellTables</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofilewelltable') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} WellTables</a></li>
 	@php
 			endif;
 
