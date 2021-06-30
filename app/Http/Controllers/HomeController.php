@@ -1423,13 +1423,15 @@ class HomeController extends Controller
         //dd($resultJson);
         $validator = Validator::make ( Input::all (), $rules, $messages );
 		if ($validator->fails ()) {
-			return Redirect::back ()->withErrors ( $validator, 'login' )->withInput ();
+			$json = array(['error' => $validator, 'success' => 0]);
+			return response()->json($json);
 		}
 		else
 		{
 			if ($resultJson->success != true) {
-				Session::flash ( 'message', "Please refresh the page and try login in again" );
-				return Redirect::back ();
+				$json = array(['error' => "Please refresh the page and try login in again", 'success' => 0]);
+
+				return response()->json($json);
 				
 			}
 			else
@@ -1508,18 +1510,22 @@ class HomeController extends Controller
 											
 											\DB::table('user_login')->insert(['user_id' => $user_id, 'user_ip' => $request->ip(), 'user_browser' => $browser." ".$version, 'device_type' => $device_type, 'login_type' => 'email', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 
-											return redirect()->route('dashboard');
+											$json = array(['message' => "Logged-in successfully", 'redirect' => route('dashboard'), 'success' => 1]);
+
+											return response()->json($json);
 										}
 										else
 										{
-											Session::flash ( 'message', "Something went wrong or you do not have permission to access this page." );
-											return Redirect::back ();
+											$json = array(['error' => "Something went wrong or you do not have permission to access this page.", 'success' => 0]);
+
+											return response()->json($json);
 										}
 									}
 									else
 									{
-										Session::flash ( 'message', "Something went wrong or you do not have permission to access this page." );
-										return Redirect::back ();
+										$json = array(['error' => "Something went wrong or you do not have permission to access this page.", 'success' => 0]);
+
+										return response()->json($json);
 									}
 								} else {
 
@@ -1534,35 +1540,40 @@ class HomeController extends Controller
 										$updateData = array('user_status' => $user_status, 'updated_at' => date('Y-m-d H:i:s'));
 										\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
 									}
-									
-									Session::flash ( 'message', "Invalid Credentials, Please try again." );
-									return Redirect::back ();
+
+									$json = array(['error' => "Invalid Credentials, Please try again.", 'success' => 0]);
+
+									return response()->json($json);
 								}
 							} else {
 									
-									$user_login_attempt = $checkRecord->login_attempt+1;
-									if($user_login_attempt < 4){
-										$email = $request->email;
+								$user_login_attempt = $checkRecord->login_attempt+1;
+								if($user_login_attempt < 4){
+									$email = $request->email;
 
-										\DB::table('user_login_attempt')->insert(['email' => $email, 'user_ip' => $request->ip(), 'user_browser' => $browser." ".$version, 'device_type' => $device_type, 'login_type' => 'email', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
-										$updateData = array('login_attempt' => $user_login_attempt, 'updated_at' => date('Y-m-d H:i:s'));
-										\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
-									}else{
-										$user_status = 0;
-										$updateData = array('user_status' => $user_status, 'updated_at' => date('Y-m-d H:i:s'));
-										\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
-									}
-								Session::flash ( 'message', "Invalid Credentials, Please try again." );
-								return Redirect::back ();
+									\DB::table('user_login_attempt')->insert(['email' => $email, 'user_ip' => $request->ip(), 'user_browser' => $browser." ".$version, 'device_type' => $device_type, 'login_type' => 'email', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+									$updateData = array('login_attempt' => $user_login_attempt, 'updated_at' => date('Y-m-d H:i:s'));
+									\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
+								}else{
+									$user_status = 0;
+									$updateData = array('user_status' => $user_status, 'updated_at' => date('Y-m-d H:i:s'));
+									\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
+								}
+
+								$json = array(['error' => "Invalid Credentials, Please try again.", 'success' => 0]);
+
+								return response()->json($json);
 							}
 						} else {
-							Session::flash ( 'message', "Email not exists or not activated yet. Please try again." );
-							return Redirect::back ();
+							$json = array(['error' => "Email not exists or not activated yet. Please try again.", 'success' => 0]);
+
+							return response()->json($json);
 						}
 					}
 				}else{
-					Session::flash ( 'message', "Please fill all information and try again" );
-					return Redirect::back ();
+					$json = array(['error' => "Please fill all information and try again", 'success' => 0]);
+
+					return response()->json($json);
 				}
 			}
 		}
