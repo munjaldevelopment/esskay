@@ -1487,7 +1487,7 @@ class HomeController extends Controller
 											session ( [
 												'esskay_name' => $checkRecord->email,
 												'esskay_user_id' => $user_id,
-												'esskay_verify' => '1',
+												//'esskay_verify' => '1',
 												'role_id' => $modelRole->role_id
 											] );
 										}
@@ -1497,7 +1497,7 @@ class HomeController extends Controller
 											session ( [
 												'esskay_trustee_name' => $checkRecord->email,
 												'esskay_trustee_user_id' => $user_id,
-												'esskay_trustee_verify' => '1',
+												//'esskay_trustee_verify' => '1',
 												'role_id' => $modelRole->role_id
 											] );
 										}
@@ -1510,7 +1510,7 @@ class HomeController extends Controller
 											
 											\DB::table('user_login')->insert(['user_id' => $user_id, 'user_ip' => $request->ip(), 'user_browser' => $browser." ".$version, 'device_type' => $device_type, 'login_type' => 'email', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 
-											$json = array(['message' => "Logged-in successfully", 'redirect' => route('dashboard'), 'success' => 1]);
+											$json = array(['message' => "Logged-in successfully", 'redirect' => url('user_otp'), 'success' => 1]);
 
 											return response()->json($json);
 										}
