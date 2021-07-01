@@ -774,7 +774,9 @@ $(document).ready(function() {
 				}
 				else
 				{
-					$('.login-error').html(output.message);
+					$('.login-error').html('<div class="alert alert-danger">'+output.message+'</div>');
+
+					$('.login-error').fadeOut(3000);
 
 					setTimeout(function() {
 						location.reload(true);
