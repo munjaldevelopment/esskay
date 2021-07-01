@@ -4118,7 +4118,7 @@ class HomeController extends Controller
 			
 
 			$chart10 = \Chart::title([
-				'text' => 'Driving down cost of borrowings',
+				'text' => DRIVINGDOWN_HEADING,//'Driving down cost of borrowings',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -4165,7 +4165,7 @@ class HomeController extends Controller
 				[
 					[
 						
-						'name'  => 'Overall cost',
+						'name'  => DRIVINGDOWN_LABEL1,//'Overall cost',
 						'color' => '#336699',
 						'data'  => $liabilityProfileData11,
 					]
