@@ -1423,13 +1423,13 @@ class HomeController extends Controller
         //dd($resultJson);
         $validator = Validator::make ( Input::all (), $rules, $messages );
 		if ($validator->fails ()) {
-			$json = array(['error' => $validator, 'success' => 0]);
+			$json = ['error' => $validator, 'success' => 0];
 			return response()->json($json);
 		}
 		else
 		{
 			if ($resultJson->success != true) {
-				$json = array(['error' => "Please refresh the page and try login in again", 'success' => 0]);
+				$json = ['error' => "Please refresh the page and try login in again", 'success' => 0];
 
 				return response()->json($json);
 				
@@ -1524,27 +1524,27 @@ class HomeController extends Controller
 													return Redirect::back ();
 												}
 											}
-											
+
 											$user_login_attempt = 0;
 											$updateData = array('login_attempt' => $user_login_attempt, 'updated_at' => date('Y-m-d H:i:s'));
 												\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
 											
 											\DB::table('user_login')->insert(['user_id' => $user_id, 'user_ip' => $request->ip(), 'user_browser' => $browser." ".$version, 'device_type' => $device_type, 'login_type' => 'email', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 
-											$json = array(['message' => "Logged-in successfully", 'redirect' => url('user_otp'), 'success' => 1]);
+											$json = ['message' => "Logged-in successfully", 'redirect' => url('user_otp'), 'success' => 1];
 
 											return response()->json($json);
 										}
 										else
 										{
-											$json = array(['error' => "Something went wrong or you do not have permission to access this page.", 'success' => 0]);
+											$json = ['error' => "Something went wrong or you do not have permission to access this page.", 'success' => 0];
 
 											return response()->json($json);
 										}
 									}
 									else
 									{
-										$json = array(['error' => "Something went wrong or you do not have permission to access this page.", 'success' => 0]);
+										$json = ['error' => "Something went wrong or you do not have permission to access this page.", 'success' => 0];
 
 										return response()->json($json);
 									}
@@ -1562,7 +1562,7 @@ class HomeController extends Controller
 										\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
 									}
 
-									$json = array(['error' => "Invalid Credentials, Please try again.", 'success' => 0]);
+									$json = ['error' => "Invalid Credentials, Please try again.", 'success' => 0];
 
 									return response()->json($json);
 								}
@@ -1581,18 +1581,18 @@ class HomeController extends Controller
 									\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
 								}
 
-								$json = array(['error' => "Invalid Credentials, Please try again.", 'success' => 0]);
+								$json = ['error' => "Invalid Credentials, Please try again.", 'success' => 0];
 
 								return response()->json($json);
 							}
 						} else {
-							$json = array(['error' => "Email not exists or not activated yet. Please try again.", 'success' => 0]);
+							$json = ['error' => "Email not exists or not activated yet. Please try again.", 'success' => 0];
 
 							return response()->json($json);
 						}
 					}
 				}else{
-					$json = array(['error' => "Please fill all information and try again", 'success' => 0]);
+					$json = ['error' => "Please fill all information and try again", 'success' => 0];
 
 					return response()->json($json);
 				}
