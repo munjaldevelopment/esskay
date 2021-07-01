@@ -10,6 +10,8 @@
 	<div class="alert alert-success text-center">Coming Soon</div>
 @elseif($insightCatData->id == 2)
 	<div class="white-box">
+		<div class="pull-right">Amount (In Cr.)</div>
+
 		<div class="operational-highlights-main">
 			<div class="operation-highlights-area">
 				<div class="operation-highlight-year">
@@ -33,8 +35,9 @@
 				</div>
 			</div>
 
-			<div class="operation-highlights-area">
+			<div class="operation-highlights-area operation-single-highlighs">
 				<div class="operation-highlight-year">
+					<div class="ohbh-box-insight-left">&nbsp;</div>
 					<div class="ohbh-box-insight-right">
 						{{ $insightFirst->operation_row2_year }}
 					</div>
@@ -93,8 +96,6 @@
 					@endforeach
 				</div>
 			</div>
-
-			<div class="pull-right" style="right: -80%; position: relative;">Amount (In Cr.)</div>
 		</div>
 
 
