@@ -10,10 +10,11 @@
 	<div class="alert alert-success text-center">Coming Soon</div>
 @elseif($insightCatData->id == 2)
 	<div class="white-box">
-		<div class="pull-right">
-			Amount (In Cr.) <br />
-			<a target="_blank" href="downloadOperationHighlight"><i class="fa fa-excel"></i></a>
-
+		<div class="pull-right text-right">
+			<span class="operational-amount">Amount (In Cr.) </span>
+			<div class="mtdd-operation-img">
+				<a target="_blank" href="downloadOperationHighlight"><i class="fa fa-2x fa-file-excel-o"></i></a>
+			</div>
 		</div>
 
 		<div class="operational-highlights-main">

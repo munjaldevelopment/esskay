@@ -439,6 +439,16 @@ ul.navbar-nav.ml-auto.nav-custome li a.nav-link.dropdown-toggle {
   color: green;
 }
 
+.mtdd-operation-img i.fa-file-excel-o {
+  color: green;
+}
+
+.operational-amount {
+    font-size: 12px;
+    margin-bottom: 10px;
+    float: right;
+}
+
 .notifiation-icon1 i {
     color: red;
     font-size: 27px;

@@ -387,9 +387,11 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
-
-
 }
+
+.mtdd-operation-img {
+}
+
 .mtdd-doc-cont p {
 	color: #515151;
 	font-size: 12px;

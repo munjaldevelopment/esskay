@@ -5118,7 +5118,7 @@ class HomeController extends Controller
 
 	public function downloadOperationHighlight()
     {
-    	Setting:assignSetting();
+    	Setting::assignSetting();
 
     	// Download file
     	$customer_name = session()->get('esskay_trustee_verify');
