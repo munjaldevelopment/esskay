@@ -1633,22 +1633,22 @@
 }
 
 .operation-highlights-area .operation-highlight-year {
-    width: 117%;
+    /*width: 117%;*/
 }
 
 .operation-highlights-area.operation-single-highlighs .operation-highlight-year {
-    width: 87%;
+    /*width: 87%;*/
 }
 
 .operation-highlights-area.operation-single-highlighs-middle .operation-highlight-year {
-    width: 117%;
+    /*width: 117%;*/
 }
 
 .ohbh-box-insight-right {
 	right: -5px;
 	top: 50%;
 	transform: translateY(-50%);
-	width: 78%;
+	width: 90%;
 	float: left;
 	color: #1976D2;
 	text-align: right;
