@@ -44,6 +44,12 @@
 
 	$list_insight_location = backpack_user()->hasPermissionTo('list_insight_location');
 
+	$list_asset_quality1 = backpack_user()->hasPermissionTo('list_asset_quality1');
+	$list_asset_quality2 = backpack_user()->hasPermissionTo('list_asset_quality2');
+	$list_asset_quality3 = backpack_user()->hasPermissionTo('list_asset_quality3');
+	$list_asset_quality4 = backpack_user()->hasPermissionTo('list_asset_quality4');
+
+
 	$list_email_sms = backpack_user()->hasPermissionTo('list_email_sms');
 	$list_lender = backpack_user()->hasPermissionTo('list_lender');
 	$maker_banking_arrangment = backpack_user()->hasPermissionTo('maker_banking_arrangment');
@@ -163,7 +169,7 @@
 @php
 	endif;
 
-	if($list_operational_highlight || $list_geographical_concentration || $list_product_concentration || $list_asset_quality || $list_collection_efficiency || $list_strong_liability_profile || $list_strong_liability_profile_table || $list_strong_liability_profile_ratio || $list_strong_liability_profile_driving || $list_strong_liability_profile_well_table || 	$list_strong_liability_profile_overall || $list_liability_profile_category || $list_liability_profile_slider || $list_covid_relief || $list_covid_relief_borrower || $list_insight_location):
+	if($list_operational_highlight || $list_geographical_concentration || $list_product_concentration || $list_asset_quality || $list_collection_efficiency || $list_strong_liability_profile || $list_strong_liability_profile_table || $list_strong_liability_profile_ratio || $list_strong_liability_profile_driving || $list_strong_liability_profile_well_table || 	$list_strong_liability_profile_overall || $list_liability_profile_category || $list_liability_profile_slider || $list_covid_relief || $list_covid_relief_borrower || $list_insight_location || $list_asset_quality1 || $list_asset_quality2 || $list_asset_quality3 || $list_asset_quality4):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Insight</a>
@@ -291,6 +297,30 @@
 			if($list_insight_location):
 @endphp
 			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('insight_location') }}'><i class='nav-icon la la-list'></i> Insight Location</a></li>
+@php
+			endif;
+
+			if($list_asset_quality1):
+@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('asset_quality1') }}'><i class='nav-icon la la-list'></i> Asset Quality1</a></li>
+@php
+			endif;
+
+			if($list_asset_quality2):
+@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('asset_quality2') }}'><i class='nav-icon la la-list'></i> Asset Quality2</a></li>
+@php
+			endif;
+
+			if($list_asset_quality3):
+@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('asset_quality3') }}'><i class='nav-icon la la-list'></i> Asset Quality3</a></li>
+@php
+			endif;
+
+			if($list_asset_quality4):
+@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('asset_quality4') }}'><i class='nav-icon la la-list'></i> Asset Quality4</a></li>
 @php
 			endif;
 		@endphp

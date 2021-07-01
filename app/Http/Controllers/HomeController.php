@@ -1523,6 +1523,18 @@ class HomeController extends Controller
 													Session::flash ( 'message', "Error in sending message. Please re-try" );
 													return Redirect::back ();
 												}
+
+												// Email
+												// Send Mail
+												$contactData = array('first_name' => $checkRecord->name, 'email' => $checkRecord->email, 'telephone' => $checkRecord->phone, 'user_otp' => $checkRecord->user_otp);
+												$tempUserData = array('email' => $checkRecord->email, 'name' => $checkRecord->name);
+												
+												Mail::send('emails.send_otp', $contactData, function ($message) use ($tempUserData) {
+													$message->to($tempUserData['email'], $tempUserData['name'])->subject("User OTP");
+													$message->cc('munjaldevelopment@gmail.com');
+													$message->cc('communication@skfin.in');
+													$message->from('communication@skfin.in', 'Ess Kay Fincorp');
+												});
 											}
 
 											$user_login_attempt = 0;
