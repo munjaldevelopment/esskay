@@ -1727,15 +1727,15 @@
 }
 
 .operation-highlights-area.operation-single-highlighs-middle .ohb-highlights-box {
-    width: 76px;
+    /*width: 76px;*/
 }
 
 .operation-highlights-area.operation-single-highlighs-middle .ohb-highlights-box .ohbh-box-mid {
-    left: -13px;
+    /*left: -13px;*/
 }
 
 .operation-highlights-area.operation-single-highlighs-middle .ohb-highlights-box .ohbh-box-right {
-    /*right: -118px;*/
+    
 }
 
 .operation-highlight-cont .ohb-highlights-box:nth-child(2n+0) .ohbh-box-left {
