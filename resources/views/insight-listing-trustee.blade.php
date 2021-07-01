@@ -16,9 +16,6 @@
 					<div class="ohbh-box-insight-left">
 						{{ $insightFirst->operation_row1_year }}
 					</div>
-					<div class="ohbh-box-insight-right">
-						{{ $insightFirst->operation_row2_year }}
-					</div>
 				</div>
 				<div class="operation-highlight-cont">
 					@foreach($insightData as $insightRow)
@@ -38,7 +35,6 @@
 								</div>
 							</div>
 						</div>
-						<div class="ohbh-box-right">{{ $insightRow->operation_row2_value }} </div>
 					</div>
 					@endforeach
 				</div>
