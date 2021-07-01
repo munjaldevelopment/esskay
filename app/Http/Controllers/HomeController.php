@@ -3245,6 +3245,8 @@ class HomeController extends Controller
 	// TRUSTEE
 	public function showInsightTrustee(Request $request)
     {
+    	Setting::assignSetting();
+    	
 		//dd($request->all());
 		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
     	//dd($trusteeData);
