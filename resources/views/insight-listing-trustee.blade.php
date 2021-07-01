@@ -43,6 +43,39 @@
 					@endforeach
 				</div>
 			</div>
+
+			<div class="operation-highlights-area">
+				<div class="operation-highlight-year">
+					<div class="ohbh-box-insight-left">
+						{{ $insightFirst->operation_row1_year }}
+					</div>
+					<div class="ohbh-box-insight-right">
+						{{ $insightFirst->operation_row2_year }}
+					</div>
+				</div>
+				<div class="operation-highlight-cont">
+					@foreach($insightData as $insightRow)
+					<div class="ohb-highlights-box">
+						<div class="ohbh-box-left">{{ $insightRow->operation_row1_value }}</div>
+						<div class="ohbh-box-mid">
+							<div class="ohbhb-mid-cont">
+								<div class="ohbhb-mid-cont-text">
+									<div class="ohbh-mid-heading">{{ $insightRow->operation_row1_income }}</div>
+									<div class="ohbh-mid-result">
+									@if($insightRow->operation_row1_value < $insightRow->operation_row2_value)
+										<i class="color-green fa fa-arrow-up"></i> 
+									@elseif($insightRow->operation_row1_value > $insightRow->operation_row2_value)
+										<i class="color-red fa fa-arrow-down"></i>
+									@endif
+									{{ $insightRow->operation_row1_income_percentage }}%</div>
+								</div>
+							</div>
+						</div>
+						<div class="ohbh-box-right">{{ $insightRow->operation_row2_value }} </div>
+					</div>
+					@endforeach
+				</div>
+			</div>
 			
 
 			<div class="operation-highlights-area operation-single-highlighs">
