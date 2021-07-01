@@ -49,12 +49,14 @@
 							<div class="ohbhb-mid-cont">
 								<div class="ohbhb-mid-cont-text">
 									<div class="ohbh-mid-result">
+									{{ $insightRow->operation_row1_income_percentage }}%
+
 									@if($insightRow->operation_row1_value < $insightRow->operation_row2_value)
 										<i class="color-green fa fa-arrow-up"></i> 
 									@elseif($insightRow->operation_row1_value > $insightRow->operation_row2_value)
 										<i class="color-red fa fa-arrow-down"></i>
 									@endif
-									{{ $insightRow->operation_row1_income_percentage }}%</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -79,13 +81,13 @@
 							<div class="ohbhb-mid-cont">
 								<div class="ohbhb-mid-cont-text">
 									<div class="ohbh-mid-result">
+									{{ $insightRow->operation_row2_income_percentage }}%
 									@if($insightRow->operation_row3_value > $insightRow->operation_row2_value)
 										<i class="color-green fa fa-arrow-up"></i> 
 									@elseif($insightRow->operation_row3_value < $insightRow->operation_row2_value)
 										<i class="color-red fa fa-arrow-down"></i>
 									@endif
-
-									{{ $insightRow->operation_row2_income_percentage }}%</div>
+									</div>
 								</div>
 							</div>
 						</div>
