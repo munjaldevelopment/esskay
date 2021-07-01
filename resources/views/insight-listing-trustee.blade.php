@@ -19,7 +19,7 @@
 						{{ $insightFirst->operation_row1_year }}
 					</div>
 				</div>
-				<div class="operation-highlight-cont">
+				<div class="operation-highlight-cont operation-highlight-cont-first">
 					@foreach($insightData as $insightRow)
 					<div class="ohb-highlights-box">
 						<div class="ohbh-box-right">{{ $insightRow->operation_row1_value }}</div>

@@ -1558,6 +1558,16 @@
     transform: translateX(-50%);
 }
 
+.operation-highlight-cont.operation-highlight-cont-first::before {
+    position: absolute;
+    background: none;
+    width: 186px;
+    height: 700px;
+    content: "";
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .ohb-highlights-box {
     position: relative;
     height: 168px;
