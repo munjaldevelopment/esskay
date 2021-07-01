@@ -3246,7 +3246,7 @@ class HomeController extends Controller
 	public function showInsightTrustee(Request $request)
     {
     	Setting::assignSetting();
-    	
+
 		//dd($request->all());
 		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
     	//dd($trusteeData);
@@ -3326,7 +3326,7 @@ class HomeController extends Controller
 			}
 
 			$chart1 = \Chart::title([
-				'text' => GEOGRAPHICAL_CONCENTRATION_HEADING,
+				'text' => GEOGRAPHICAL_CONCENTRATION_HEADING
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3370,12 +3370,12 @@ class HomeController extends Controller
 				[
 					[
 						
-						'name'  => 'Rajasthan',
+						'name'  => GEOGRAPHICAL_CONCENTRATION_LABEL1,
 						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7], //, , $raj_amount8$raj_amount9
 					],
 					[
 						
-						'name'  => 'Other States',
+						'name'  => GEOGRAPHICAL_CONCENTRATION_LABEL2,
 						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7], //, , $other_amount8 $other_amount9
 					],
 				]
@@ -3435,7 +3435,7 @@ class HomeController extends Controller
 			}
 
 			$chart2 = \Chart::title([
-				'text' => 'Product Concentration',
+				'text' => PRODUCT_CONCENTRATION_HEADING,
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3449,7 +3449,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21',//, 'FY22',//, 'FY23'
+					PRODUCT_CONCENTRATION_CATEGORY,//, 'FY22',//, 'FY23'
 				],
 			])
 			->yaxis([
