@@ -775,6 +775,10 @@ $(document).ready(function() {
 				else
 				{
 					$('.login-error').html(output.message);
+
+					setTimeout(function() {
+						location.reload(true);
+					}, 5000);
 				}
 				
 			}
