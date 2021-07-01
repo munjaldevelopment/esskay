@@ -1633,7 +1633,7 @@
 }
 
 .operation-highlights-area .operation-highlight-year {
-    width: 227%;
+    width: 100%;
 }
 
 .operation-highlights-area.operation-single-highlighs .operation-highlight-year {
@@ -1641,7 +1641,7 @@
 }
 
 .operation-highlights-area.operation-single-highlighs-middle .operation-highlight-year {
-    /*width: 117%;*/
+    width: 227%;
 }
 
 .ohbh-box-insight-right {
