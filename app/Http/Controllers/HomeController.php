@@ -3945,7 +3945,7 @@ class HomeController extends Controller
 			}
 
 			$chart7 = \Chart::title([
-				'text' => 'Diversified Lender Base And Access to different Pools of Capital',
+				'text' => DIVERSIFIED_HEADING//'Diversified Lender Base And Access to different Pools of Capital',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3987,19 +3987,19 @@ class HomeController extends Controller
 				[
 					[
 						
-						'name'  => 'Bank/FI',
+						'name'  => DIVERSIFIED_LABEL1,
 						'color' => '#11a9dc',
 						'data'  => $liabilityProfileData1,
 					],
 					[
 						
-						'name'  => 'CME With MF',
+						'name'  => DIVERSIFIED_LABEL2,
 						'color' => '#336699',
 						'data'  => $liabilityProfileData2,
 					],
 					[
 						
-						'name'  => 'Others',
+						'name'  => DIVERSIFIED_LABEL3,
 						'color' => '#25a7a4',
 						'data'  => $liabilityProfileData3,
 					],
