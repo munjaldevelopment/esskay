@@ -327,6 +327,24 @@
 			@endif
 		</div>
 	</div>
+
+	<div class="row">
+		<div class="col-sm-6">
+			@if($chart31)
+				<div id="third1_chart"></div>
+
+				{!! $chart31 !!}
+			@endif
+		</div>
+
+		<div class="col-sm-6">
+			@if($chart32)
+				<div id="third2_chart"></div>
+
+				{!! $chart32 !!}
+			@endif
+		</div>
+	</div>
 @elseif($insightCatData->id == 6)
 	<div class="white-box d-none hide">
 		<div class="pool-dynamic-graph">
@@ -666,7 +684,7 @@
 		</div>
 	</div>
 
-	<div class="white-box outstanding-box">
+	<div class="white-box outstanding-box d-none hide">
 		<div class="outstanding-table">
 			<div class="custom-table-area">
 				<div class="table-responsive">
@@ -704,6 +722,28 @@
 						</tbody>
 					</table>
 				</div>	
+			</div>
+		</div>
+	</div>
+
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			<div class="row">
+				<div class="col-sm-6">
+					@if($chart511)
+						<div id="fifth51_chart"></div>
+
+						{!! $chart511 !!}
+					@endif
+				</div>
+
+				<div class="col-sm-6">
+					@if($chart512)
+						<div id="fifth52_chart"></div>
+
+						{!! $chart512 !!}
+					@endif
+				</div>
 			</div>
 		</div>
 	</div>

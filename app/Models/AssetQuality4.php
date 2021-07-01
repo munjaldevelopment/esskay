@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Venturecraft\Revisionable\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class AssetQuality4 extends Model
 {
-    use CrudTrait;
+    use CrudTrait, RevisionableTrait;
 
     /*
     |--------------------------------------------------------------------------

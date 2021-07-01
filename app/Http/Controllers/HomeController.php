@@ -1875,7 +1875,7 @@ class HomeController extends Controller
 		$covidReliefData = $covidReliefDataTotal = $covidReliefDataTotal1 = array();
 		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = array();
 
-		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = $chart7 = array();
+		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart511 = $chart512 = $chart51 = $chart52 = $chart6 = $chart7 = array();
 
 		if($request->category_id == 3)
 		{
@@ -2496,8 +2496,7 @@ class HomeController extends Controller
 
 		
 		$current_year = date('Y');
-		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
-
+		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart511' => $chart511, 'chart512' => $chart512, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
 			'covidReliefData' => $covidReliefData, 'covidReliefDataTotal' => $covidReliefDataTotal, 'covidReliefDataTotal1' => $covidReliefDataTotal1,
 			'covidRelief1Data' => $covidRelief1Data, 'covidRelief1DataTotal' => $covidRelief1DataTotal, 'covidRelief1DataTotal1' => $covidRelief1DataTotal1]);
 	}
@@ -3281,7 +3280,7 @@ class HomeController extends Controller
 		$insightLocationData = array();
 		$locationCount = 0;
 
-		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = $chart7 = $chart8 = $chart9 = $chart10 = array();
+		$chart511 = $chart512 = $chart1 = $chart2 = $chart3 = $chart31 = $chart32 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = $chart7 = $chart8 = $chart9 = $chart10 = array();
 
 		if($request->category_id == 3)
 		{
@@ -3584,6 +3583,141 @@ class HomeController extends Controller
 				]
 			)
 			->display(0);
+
+			$capitalCategory = $capitalData1 = $capitalData2 = $capitalData3 = array();
+
+			$assetConData1 = \DB::table('capital_infusion1')->where('capital_infusion_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$capitalCategory[] = $row->heading_graph1;
+					$capitalData1[] = (float)$row->amount_graph1;
+					$capitalData2[] = (float)$row->amount_graph2;
+					$capitalData3[] = (float)$row->amount_graph3;
+				}
+			}
+
+			$chart31 = \Chart::title([
+				'text' => ''//ASSETQUALITY_CONCENTRATION_HEADING,
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'third1_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF', '#FF0000', '#493313'
+			])
+			->xaxis([
+				'categories' => $capitalCategory,
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						
+						'name'  => ASSETSQUALITY1_LABEL1,
+						'data'  => $capitalData1,
+					],
+					[
+						
+						'name'  => ASSETSQUALITY1_LABEL2,
+						'data'  => $capitalData2,
+					],
+					[
+						
+						'name'  => ASSETSQUALITY1_LABEL3,
+						'data'  => $capitalData3,
+					],
+				]
+			)
+			->display(1);
+
+			$capitalData1 = array();
+
+			$assetConData1 = \DB::table('capital_infusion2')->where('capital_infusion_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$capitalData1[] = (float)$row->amount_graph1;
+				}
+			}
+
+			$chart32 = \Chart::title([
+				'text' => ASSETSQUALITY2_HEADING
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'third2_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF', '#FF0000', '#493313'
+			])
+			->xaxis([
+				'categories' => $capitalCategory,
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						'showInLegend' => false,
+						'name'  => 'Series',
+						'data'  => $capitalData1,
+					],
+				]
+			)
+			->display(1);
 		}
 		else if($request->category_id == 6)
 		{
@@ -4185,6 +4319,173 @@ class HomeController extends Controller
 			)
 			->display(1);
 
+			$capitalCategory = $capitalData1 = $capitalData2 = $capitalData3 = array();
+
+			$assetConData1 = \DB::table('capital_infusion3')->where('capital_infusion_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$capitalCategory[] = $row->heading_graph1;
+					$capitalData1[] = (float)$row->amount_graph1;
+					$capitalData2[] = (float)$row->amount_graph2;
+					$capitalData3[] = (float)$row->amount_graph3;
+				}
+			}
+
+			$chart511 = \Chart::title([
+				'text' => ''//ASSETQUALITY_CONCENTRATION_HEADING,
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'fifth51_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF', '#FF0000', '#493313'
+			])
+			->xaxis([
+				'categories' => $capitalCategory,
+			])
+			->yaxis([
+				'title' => [
+					'text' => ''
+				],
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						
+						'name'  => INCREMENTAL_LABEL1,
+						'data'  => $capitalData1,
+					],
+					[
+						
+						'name'  => INCREMENTAL_LABEL2,
+						'data'  => $capitalData2,
+					],
+					[
+						
+						'name'  => INCREMENTAL_LABEL3,
+						'data'  => $capitalData3,
+					],
+				]
+			)
+			->display(1);
+
+			$capitalCategory = $capitalData1 = $capitalData2 = $capitalData3 = array();
+
+			$assetConData1 = \DB::table('capital_infusion4')->where('capital_infusion_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$capitalCategory[] = $row->heading_graph1;
+					$capitalData1[] = (float)$row->amount_graph1;
+					$capitalData2[] = (float)$row->amount_graph2;
+				}
+			}
+
+			$chart512 = \Chart::title([
+				'text' => ''//ASSETQUALITY_CONCENTRATION_HEADING,
+			])
+			->chart([
+				'type'     => 'column', // pie , columnt ect
+				'renderTo' => 'fifth52_chart', // render the chart into your div with id
+			])
+			->colors([
+				'#0c2959'
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->xaxis([
+				'categories' => $capitalCategory,
+				'type' => 'category',
+				'labels' => [
+            		'rotation' => '-45'
+            	]
+			])
+			->yaxis([
+				'title' => [
+					'text' => ''
+				],
+				'stackLabels' => [
+		            'enabled' => 'true',
+		            'style' => [
+		                'fontWeight' => 'bold',
+		            ]
+		        ]
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						
+						'name'  => ALMPROFILE_LABEL1,
+						'color' => '#336699',
+						'data'  => $capitalData1,
+						'dataLabels' => [
+				            'enabled' => true,
+				            'rotation' => 270,
+				            'align' => 'right',
+				            'y' => -20 // 10 pixels down from the top
+						]
+					],
+					[
+						
+						'name'  => ALMPROFILE_LABEL2,
+						'color' => '#11a9dc',
+						'data'  => $capitalData2,
+						'dataLabels' => [
+				            'enabled' => true,
+				            'rotation' => 270,
+				            'align' => 'right',
+				            'y' => -20 // 10 pixels down from the top
+						]
+					]
+				]
+			)
+			->display(1);
+
+			
 			$assetConData2 = $liabilityProfileTable11Data = \DB::table('strong_liability_profile_well_table')->where('strong_liability_well_status', 1)->get();
 		}
 		else if($request->category_id == 12)
@@ -4303,7 +4604,7 @@ class HomeController extends Controller
 
 		
 		$current_year = date('Y');
-		return view('insight-listing-trustee', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'chart7' => $chart7, 'chart8' => $chart8, 'chart9' => $chart9, 'chart10' => $chart10, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
+		return view('insight-listing-trustee', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart31' => $chart31, 'chart32' => $chart32, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart511' => $chart511, 'chart512' => $chart512, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'chart7' => $chart7, 'chart8' => $chart8, 'chart9' => $chart9, 'chart10' => $chart10, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
 
 			'insightLocationData' => $insightLocationData,
 			'liabilityCategories' => $liabilityCategories,
