@@ -3849,7 +3849,9 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['Dec-18', 'Mar-19', 'Jun-19', 'Sep-19', 'Dec-19', 'Mar-20', 'Jun-20', 'Sep-20', 'Dec-20', 'Mar-21'],
+				'categories' => [
+					ADEQUATE_CATEGORY
+				],
 			])
 			->yaxis([
 				'title' => [
@@ -3878,7 +3880,7 @@ class HomeController extends Controller
 				[
 					[
 						
-						'name'  => 'Adequate Liquidity (In Cr.)',
+						'name'  => ADEQUATE_LABEL1,
 						'data'  => $liquidityData1,
 					],
 				]
