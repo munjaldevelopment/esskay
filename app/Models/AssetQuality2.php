@@ -19,7 +19,7 @@ class AssetQuality2 extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['heading_graph1', 'amount_graph1', 'amount_graph2', 'capital_infusion_status']; //'amount4', 
+    protected $fillable = ['heading_graph1', 'amount_graph1', 'capital_infusion_status']; //'amount4',  'amount_graph2', 
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];

@@ -79,7 +79,7 @@ class AssetQuality4CrudController extends CrudController
             $this->crud->addColumn([
                     'label'     => 'Financial Year',
                     'type'      => 'text',
-                    'name'      => 'financial_year',
+                    'name'      => 'heading_graph1',
                     ]);
                     
             $this->crud->addColumn([
@@ -103,7 +103,7 @@ class AssetQuality4CrudController extends CrudController
             $this->crud->addField([
                     'label'     => 'Financial Year',
                     'type'      => 'text',
-                    'name'      => 'financial_year',
+                    'name'      => 'heading_graph1',
                     ]);
 
             $this->crud->addField([
