@@ -5116,6 +5116,33 @@ class HomeController extends Controller
 		}
 	}
 
+	public function downloadOperationHighlight()
+    {
+    	Setting:assignSetting();
+
+    	// Download file
+    	$customer_name = session()->get('esskay_trustee_verify');
+		
+		if(!$customer_name)
+		{
+			return redirect(url('/').'/login');
+		}
+		else
+		{
+			// Download file
+			$file= public_path(). "/".OPERATIONALHIGHLIGHT_EXCEL;
+			
+			/*$headers = array(
+					  'Content-Type: application/pdf',
+					);*/
+					
+			$document_filename = explode("/", OPERATIONALHIGHLIGHT_EXCEL);
+			$doc = array_pop($document_filename);
+			
+			return response()->download($file, $doc);
+		}
+	}
+
 	public function transactionCategory($category_id)
     {
     	// Download file

@@ -97,12 +97,15 @@ Route::post('/showTrusteeTransactionDocument', 'HomeController@showTrusteeTransa
 Route::post('/showDocTrustee', 'HomeController@showDocTrustee');
 Route::get('/previewDocTrustee/{id}', 'HomeController@previewDocTrustee');
 Route::get('/downloadDocTrustee/{id}', 'HomeController@downloadDocTrustee');
+
 Route::get('/downloadFileTrustee/{id}', 'HomeController@downloadFileTrustee');
 Route::post('/showChildDocTrustee', 'HomeController@showChildDocTrustee');
 
 Route::post('/saveContactTrustee', 'HomeController@saveContactTrustee');
 
 Route::any('/transactionCategory/{id}', 'HomeController@transactionCategory');
+
+Route::get('/downloadOperationHighlight', 'HomeController@downloadOperationHighlight');
 
 // Trans Doc
 Route::get('/previewTransDocTrustee/{id}', 'HomeController@previewTransDocTrustee');
