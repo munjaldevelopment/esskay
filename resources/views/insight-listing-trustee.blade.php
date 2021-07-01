@@ -13,14 +13,14 @@
 		<div class="operational-highlights-main">
 			<div class="operation-highlights-area">
 				<div class="operation-highlight-year">
-					<div class="ohbh-box-insight-right">
+					<div class="ohbh-box-insight-left">
 						{{ $insightFirst->operation_row1_year }}
 					</div>
 				</div>
 				<div class="operation-highlight-cont">
 					@foreach($insightData as $insightRow)
 					<div class="ohb-highlights-box">
-						<div class="ohbh-box-left">{{ $insightRow->operation_row1_value }}</div>
+						<div class="ohbh-box-right">{{ $insightRow->operation_row1_value }}</div>
 						<div class="ohbh-box-mid">
 							<div class="ohbhb-mid-cont">
 								<div class="ohbhb-mid-cont-text">
