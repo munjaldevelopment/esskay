@@ -13,7 +13,7 @@
 		<div class="operational-highlights-main">
 			<div class="operation-highlights-area">
 				<div class="operation-highlight-year">
-					<div class="ohbh-box-insight-left">
+					<div class="ohbh-box-insight-right">
 						{{ $insightFirst->operation_row1_year }}
 					</div>
 				</div>
