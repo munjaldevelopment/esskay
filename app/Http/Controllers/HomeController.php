@@ -3591,7 +3591,7 @@ class HomeController extends Controller
 			}
 
 			$chart41 = \Chart::title([
-				'text' => 'Collection Efficiency (Including Pre-payment)',
+				'text' => PORTFOLIOANALYSIS_HEADING
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3633,7 +3633,7 @@ class HomeController extends Controller
 				[
 					[
 						
-						'name'  => 'Collection',
+						'name'  => PORTFOLIOANALYSIS_LABEL1,
 						'data'  => $assetData1,
 					],
 				]
@@ -3641,7 +3641,7 @@ class HomeController extends Controller
 			->display(0);
 
 			$chart42 = \Chart::title([
-				'text' => 'Collection Efficiency (Excluding Pre-payment)',
+				'text' => PORTFOLIOANALYSIS1_HEADING
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3683,7 +3683,7 @@ class HomeController extends Controller
 				[
 					[
 						
-						'name'  => 'Collection',
+						'name'  => PORTFOLIOANALYSIS1_LABEL1,
 						'data'  => $assetData2,
 					],
 				]
