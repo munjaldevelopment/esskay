@@ -4221,7 +4221,7 @@ class HomeController extends Controller
 			}
 
 			$chart9 = \Chart::title([
-				'text' => 'Healthy CRAR',
+				'text' => ''//Healthy CRAR',
 			])
 			->chart([
 				'type'     => 'column', // pie , columnt ect
@@ -4268,13 +4268,13 @@ class HomeController extends Controller
 				[
 					[
 						
-						'name'  => 'Tier1',
+						'name'  => HEALTHYCRAR_LABEL1,//'Tier1',
 						'color' => '#336699',
 						'data'  => $liabilityProfileData11,
 					],
 					[
 						
-						'name'  => 'Tier2',
+						'name'  => HEALTHYCRAR_LABEL2,//'Tier2',
 						'color' => '#11a9dc',
 						'data'  => $liabilityProfileData12,
 					],
