@@ -3715,7 +3715,9 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21'],
+				'categories' => [
+					NETWORTH1_CATEGORY
+				],
 			])
 			->yaxis([
 				'title' => [
@@ -3744,7 +3746,7 @@ class HomeController extends Controller
 				[
 					[
 						
-						'name'  => 'Net worth (In Cr.)',
+						'name'  => NETWORTH1_LABEL1,
 						'data'  => $assetData1,
 					],
 				]
@@ -3765,7 +3767,9 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21'],
+				'categories' => [
+					NETWORTH2_CATEGORY
+				],
 			])
 			->yaxis([
 				'title' => [
@@ -3794,7 +3798,7 @@ class HomeController extends Controller
 				[
 					[
 						
-						'name'  => 'Debt / Equity (In Times)',
+						'name'  => NETWORTH2_LABEL1,
 						'data'  => $assetData2,
 					],
 				]
