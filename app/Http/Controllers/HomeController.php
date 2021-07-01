@@ -1506,6 +1506,25 @@ class HomeController extends Controller
 
 										if($is_model == 1)
 										{
+											$sms_status = config('general.sms_status');
+					
+											if($sms_status)
+											{
+												$message = str_replace(" ", "%20", "Dear ".$checkRecord->name.", please use this OTP ".$checkRecord->user_otp." to login");
+												
+												$request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$checkRecord->phone."&message=".$message."&sender=EssKay&route=4&country=0";
+												$result = $this->getContent($request_url);
+												
+												
+												if($result['errno'] == 0)
+												{
+													\DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $checkRecord->phone, 'send_subject' => 'User OTP', 'send_message' => $message, 'is_deliver' => '1']);
+												} else {
+													Session::flash ( 'message', "Error in sending message. Please re-try" );
+													return Redirect::back ();
+												}
+											}
+											
 											$user_login_attempt = 0;
 											$updateData = array('login_attempt' => $user_login_attempt, 'updated_at' => date('Y-m-d H:i:s'));
 												\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);

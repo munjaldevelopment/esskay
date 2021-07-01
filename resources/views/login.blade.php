@@ -54,6 +54,8 @@
 								<div class="alert alert-warning">{{ Session::get('message') }}</div>
 								@endif
 
+								<div class="login-error"></div>
+
 								<form class="log-in-form" action="" method="post" name="loginForm">
 									{{ csrf_field() }}
 
@@ -766,7 +768,14 @@ $(document).ready(function() {
 			beforeSend: function() {
 			},
 			success: function(output) {
-				console.log(output);
+				if(output.success == 1)
+				{
+					location = output.redirect;
+				}
+				else
+				{
+					$('.login-error').html(output.message);
+				}
 				
 			}
 		});
