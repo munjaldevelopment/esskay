@@ -738,11 +738,8 @@
 				</div>
 
 				<div class="col-sm-6">
-					@if($chart512)
-						<div id="fifth52_chart"></div>
-
-						{!! $chart512 !!}
-					@endif
+					<h2 style="color:#333333; font-size: 18px; font-family: 'Lucida Grande', 'Lucida Sans Unicode'; margin-top: 15px;" class="text-center text-bold">Resulting in Ratings Upgrade</h2>
+					<br /><img src="{{ asset('/').ALMPROFILE_IMAGE }}" />
 				</div>
 			</div>
 		</div>
@@ -757,6 +754,19 @@
 			@endif
 		</div>
 	</div>
+
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			@if($chart512)
+				<div id="fifth52_chart"></div>
+
+				{!! $chart512 !!}
+			@endif
+		</div>
+	</div>
+
+	
+
 @elseif($insightCatData->id == 12)
 	<div class="white-box outstanding-box">
 		<div class="outstanding-table">

@@ -4334,7 +4334,7 @@ class HomeController extends Controller
 			}
 
 			$chart511 = \Chart::title([
-				'text' => ''//ASSETQUALITY_CONCENTRATION_HEADING,
+				'text' => INCREMENTAL_HEADING
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -4407,7 +4407,7 @@ class HomeController extends Controller
 			}
 
 			$chart512 = \Chart::title([
-				'text' => ''//ASSETQUALITY_CONCENTRATION_HEADING,
+				'text' => ALMPROFILE_HEADING
 			])
 			->chart([
 				'type'     => 'column', // pie , columnt ect
@@ -4466,7 +4466,7 @@ class HomeController extends Controller
 				            'enabled' => true,
 				            'rotation' => 270,
 				            'align' => 'right',
-				            'y' => -20 // 10 pixels down from the top
+				            'y' => -35 // 10 pixels down from the top
 						]
 					],
 					[
@@ -4478,7 +4478,7 @@ class HomeController extends Controller
 				            'enabled' => true,
 				            'rotation' => 270,
 				            'align' => 'right',
-				            'y' => -20 // 10 pixels down from the top
+				            'y' => -35 // 10 pixels down from the top
 						]
 					]
 				]
