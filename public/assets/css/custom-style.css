@@ -1632,12 +1632,16 @@
     color: #1976D2;
 }
 
+.operation-highlights-area .operation-highlight-year {
+    width: 117%;
+}
+
 .operation-highlights-area.operation-single-highlighs .operation-highlight-year {
-    width: 227%;
+    width: 87%;
 }
 
 .operation-highlights-area.operation-single-highlighs-middle .operation-highlight-year {
-    width: 227%;
+    width: 117%;
 }
 
 .ohbh-box-insight-right {
