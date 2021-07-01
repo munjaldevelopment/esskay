@@ -1423,13 +1423,13 @@ class HomeController extends Controller
         //dd($resultJson);
         $validator = Validator::make ( Input::all (), $rules, $messages );
 		if ($validator->fails ()) {
-			$json = ['error' => $validator, 'success' => 0];
+			$json = ['message' => $validator, 'success' => 0];
 			return response()->json($json);
 		}
 		else
 		{
 			if ($resultJson->success != true) {
-				$json = ['error' => "Please refresh the page and try login in again", 'success' => 0];
+				$json = ['message' => "Please refresh the page and try login in again", 'success' => 0];
 
 				return response()->json($json);
 				
@@ -1537,14 +1537,14 @@ class HomeController extends Controller
 										}
 										else
 										{
-											$json = ['error' => "Something went wrong or you do not have permission to access this page.", 'success' => 0];
+											$json = ['message' => "Something went wrong or you do not have permission to access this page.", 'success' => 0];
 
 											return response()->json($json);
 										}
 									}
 									else
 									{
-										$json = ['error' => "Something went wrong or you do not have permission to access this page.", 'success' => 0];
+										$json = ['message' => "Something went wrong or you do not have permission to access this page.", 'success' => 0];
 
 										return response()->json($json);
 									}
@@ -1562,7 +1562,7 @@ class HomeController extends Controller
 										\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
 									}
 
-									$json = ['error' => "Invalid Credentials, Please try again.", 'success' => 0];
+									$json = ['message' => "Invalid Credentials, Please try again.", 'success' => 0];
 
 									return response()->json($json);
 								}
@@ -1581,18 +1581,18 @@ class HomeController extends Controller
 									\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
 								}
 
-								$json = ['error' => "Invalid Credentials, Please try again.", 'success' => 0];
+								$json = ['message' => "Invalid Credentials, Please try again.", 'success' => 0];
 
 								return response()->json($json);
 							}
 						} else {
-							$json = ['error' => "Email not exists or not activated yet. Please try again.", 'success' => 0];
+							$json = ['message' => "Email not exists or not activated yet. Please try again.", 'success' => 0];
 
 							return response()->json($json);
 						}
 					}
 				}else{
-					$json = ['error' => "Please fill all information and try again", 'success' => 0];
+					$json = ['message' => "Please fill all information and try again", 'success' => 0];
 
 					return response()->json($json);
 				}
