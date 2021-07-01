@@ -3326,7 +3326,7 @@ class HomeController extends Controller
 			}
 
 			$chart1 = \Chart::title([
-				'text' => GEOGRAPHICAL_CONCENTRATION_HEADING
+				'text' => ''//GEOGRAPHICAL_CONCENTRATION_HEADING
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3435,7 +3435,7 @@ class HomeController extends Controller
 			}
 
 			$chart2 = \Chart::title([
-				'text' => PRODUCT_CONCENTRATION_HEADING,
+				'text' => ''//PRODUCT_CONCENTRATION_HEADING,
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3512,7 +3512,7 @@ class HomeController extends Controller
 			}
 
 			$chart3 = \Chart::title([
-				'text' => ASSETQUALITY_CONCENTRATION_HEADING,
+				'text' => ''//ASSETQUALITY_CONCENTRATION_HEADING,
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3591,7 +3591,7 @@ class HomeController extends Controller
 			}
 
 			$chart41 = \Chart::title([
-				'text' => PORTFOLIOANALYSIS_HEADING
+				'text' => ''//PORTFOLIOANALYSIS_HEADING
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3641,7 +3641,7 @@ class HomeController extends Controller
 			->display(0);
 
 			$chart42 = \Chart::title([
-				'text' => PORTFOLIOANALYSIS1_HEADING
+				'text' => ''//PORTFOLIOANALYSIS1_HEADING
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
