@@ -48,7 +48,6 @@
 						<div class="ohbh-box-mid">
 							<div class="ohbhb-mid-cont">
 								<div class="ohbhb-mid-cont-text">
-									<div class="ohbh-mid-heading">{{ $insightRow->operation_row1_income }}</div>
 									<div class="ohbh-mid-result">
 									@if($insightRow->operation_row1_value < $insightRow->operation_row2_value)
 										<i class="color-green fa fa-arrow-up"></i> 
