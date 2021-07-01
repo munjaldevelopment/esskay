@@ -3324,7 +3324,7 @@ class HomeController extends Controller
 			}
 
 			$chart1 = \Chart::title([
-				'text' => 'Geographical Concentration',
+				'text' => GEOGRAPHICAL_CONCENTRATION_HEADING,
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3338,7 +3338,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21',// 'FY22',//, 'FY23'
+					GEOGRAPHICAL_CONCENTRATION_CATEGORY
 				],
 			])
 			->yaxis([
