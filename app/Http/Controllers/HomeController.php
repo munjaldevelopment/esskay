@@ -3479,12 +3479,12 @@ class HomeController extends Controller
 				[
 					[
 						
-						'name'  => 'Commercial Vehicle',
+						'name'  => PRODUCT_CONCENTRATION_LABEL1,
 						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7], //, , $raj_amount8 $raj_amount9
 					],
 					[
 						
-						'name'  => 'Other Products',
+						'name'  => PRODUCT_CONCENTRATION_LABEL2,
 						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7], //, , $other_amount8 $other_amount9
 					],
 				]
@@ -3512,7 +3512,7 @@ class HomeController extends Controller
 			}
 
 			$chart3 = \Chart::title([
-				'text' => 'Asset Quality',
+				'text' => ASSETQUALITY_CONCENTRATION_HEADING,
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3526,7 +3526,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY14', 'FY15', 'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'
+					ASSETQUALITY_CONCENTRATION_CATEGORY
 				],
 			])
 			->yaxis([
@@ -3556,17 +3556,17 @@ class HomeController extends Controller
 				[
 					[
 						
-						'name'  => 'Par 0',
+						'name'  => ASSETQUALITY_CONCENTRATION_LABEL1,
 						'data'  => $assetData1,
 					],
 					[
 						
-						'name'  => 'Par 30',
+						'name'  => ASSETQUALITY_CONCENTRATION_LABEL2,
 						'data'  => $assetData2,
 					],
 					[
 						
-						'name'  => 'Par 90',
+						'name'  => ASSETQUALITY_CONCENTRATION_LABEL3,
 						'data'  => $assetData3,
 					],
 				]
