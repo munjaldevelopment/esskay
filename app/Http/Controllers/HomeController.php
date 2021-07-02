@@ -4539,7 +4539,8 @@ class HomeController extends Controller
 					],
 					'title' => [
 						'text' => INCREMENTAL_LABEL1
-					]
+					],
+					'opposite' => true
 				],
 				[
 					'gridLineWidth' => '0',
@@ -4551,8 +4552,7 @@ class HomeController extends Controller
 						'style' => [
 	                    	'fontWeight' => 'bold',
 	                    ]
-					],
-					'opposite' => true
+					]
 				],
 				[
 					'gridLineWidth' => '0',
@@ -4591,12 +4591,6 @@ class HomeController extends Controller
 				[
 					[
 						
-						'name'  => INCREMENTAL_LABEL1,
-						'type' => 'spline',
-						'data'  => $capitalData1,
-					],
-					[
-						
 						'name'  => INCREMENTAL_LABEL2,
 						'type' => 'line',
 						//'yAxis' => '0',
@@ -4609,6 +4603,12 @@ class HomeController extends Controller
 						//'yAxis' => '1',
 						'data'  => $capitalData3,
 					],
+					[
+						
+						'name'  => INCREMENTAL_LABEL1,
+						'type' => 'spline',
+						'data'  => $capitalData1,
+					]
 				]
 			)
 			->display(1);
