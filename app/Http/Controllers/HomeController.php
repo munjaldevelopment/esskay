@@ -4237,8 +4237,7 @@ class HomeController extends Controller
 				'text' => DIVERSIFIED_HEADING//'Diversified Lender Base And Access to different Pools of Capital',
 			])
 			->chart([
-				'zoomType' => 'xy',
-				//'type'     => 'line', // pie , columnt ect
+				'type'     => 'line', // pie , columnt ect
 				'renderTo' => 'seventh_chart', // render the chart into your div with id
 			])
 			->subtitle([
@@ -4257,33 +4256,14 @@ class HomeController extends Controller
                 ]
 			])
 			->yaxis([
-				[
-					'labels' => [
-						'format' => '{value} cm'
-					],
-					'title' => [
-						'text' => 'Temperature'
-					],
-					'opposite' => true
+				'title' => [
+					'text' => 'Percentage'
 				],
-				[
-					'gridLineWidth' => '0',
-					'labels' => [
-						'format' => '{value} mm'
-					],
-					'title' => [
-						'text' => 'Rainfall'
-					]
-				],
-				[
-					'gridLineWidth' => '0',
-					'labels' => [
-						'format' => '{value} mb'
-					],
-					'title' => [
-						'text' => 'Sea-Level Pressure'
-					]
-				]
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
@@ -4308,21 +4288,18 @@ class HomeController extends Controller
 					[
 						
 						'name'  => DIVERSIFIED_LABEL1,
-						'type' => 'column',
 						'color' => '#11a9dc',
 						'data'  => $liabilityProfileData1,
 					],
 					[
 						
 						'name'  => DIVERSIFIED_LABEL2,
-						'type' => 'spline',
 						'color' => '#336699',
 						'data'  => $liabilityProfileData2,
 					],
 					[
 						
 						'name'  => DIVERSIFIED_LABEL3,
-						'type' => 'spline',
 						'color' => '#25a7a4',
 						'data'  => $liabilityProfileData3,
 					],
