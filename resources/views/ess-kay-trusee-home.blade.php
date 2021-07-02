@@ -56,14 +56,16 @@
 					<div class="dropdown dropdown-trustee">
 						<button type="button" class="nav-link btn btn-primary transaction-class dropdown-toggle" data-toggle="dropdown">Transaction</button>
 					  	<div class="dropdown-menu">
+					  		<ul>  
 					  		@foreach($docCategoryData as $row)
-							<a class="dropdown-item transaction-category-class" data-category="{{ $row->id }}" href="javascript:;">{{ $row->category_name }}</a>
+							<li class="dropdown-item"><a class="dropdown-item transaction-category-class" data-category="{{ $row->id }}" href="javascript:;">{{ $row->category_name }}</a></li>
 							@endforeach
+							</ul>
 					  	</div>
 					</div>
 				</li>
 				@endif
-				
+
 				@if($trusteeData->is_financial_summary == 1)
 				<!--<li class="nav-item">
 				<a class="nav-link graph-class @if($trusteeData->is_message_md == 0 && $trusteeData->is_document == 0) active @endif" href="javascript:;">Financial Summary</a>
