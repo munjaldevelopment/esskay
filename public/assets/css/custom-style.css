@@ -3010,9 +3010,15 @@ table.dataTable thead th, table.dataTable thead td {
 	padding-left: 15px;
 }
 
-table.dataTable th, table.dataTable td {
+table.dataTable th {
     color: #767676;
     font-size: 14px;
+}
+
+table.dataTable td {
+    color: #333333;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 /*p.tab-spacing {
