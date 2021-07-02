@@ -635,19 +635,19 @@
 							@foreach($liabilityProfileTableData as $row)
 							<tr>
 								<td class="text-justify">{{ $row->lender}}</td>
-								<td>{{ $row->amount7}}</td>
+								<td>{{ number_format($row->amount7, 0) }}</td>
 								<td>{{ $row->amount7_lender}}</td>
-								<td>{{ $row->amount6}}</td>
+								<td>{{ number_format($row->amount6, 0) }}</td>
 								<td>{{ $row->amount6_lender}}</td>
-								<td>{{ $row->amount5}}</td>
+								<td>{{ number_format($row->amount5, 0) }}</td>
 								<td>{{ $row->amount5_lender}}</td>
-								<td>{{ $row->amount4}}</td>
+								<td>{{ number_format($row->amount4, 0) }}</td>
 								<td>{{ $row->amount4_lender}}</td>
-								<td>{{ $row->amount3}}</td>
+								<td>{{ number_format($row->amount3, 0) }}</td>
 								<td>{{ $row->amount3_lender}}</td>
-								<td>{{ $row->amount2}}</td>
+								<td>{{ number_format($row->amount2, 0) }}</td>
 								<td>{{ $row->amount2_lender}}</td>
-								<td>{{ $row->amount1}}</td>
+								<td>{{ number_format($row->amount1, 0) }}</td>
 								<td>{{ $row->amount1_lender}}</td>
 							</tr>
 							@endforeach
