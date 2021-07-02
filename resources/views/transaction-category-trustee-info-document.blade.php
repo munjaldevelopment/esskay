@@ -11,7 +11,7 @@
 
 @if($report_type == 1 || $report_type == 5 || $report_type == 6 || $report_type == 7)
 <div class="mtd-timeline-content">
-	<div class="border-title">	
+	<div class="border-title d-none hide">	
 		<span>{{ $heading_title }}</span>
 	</div>
 
