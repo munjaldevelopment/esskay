@@ -1004,6 +1004,13 @@
 	#map {
 		height: 600px;
 	}
+
+	.truncate {
+	  max-width:50px;
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	}
 </style>
 
 <script type="text/javascript">
@@ -1024,6 +1031,11 @@
 	 
 	    // DataTable
 	    var table = $('#trustee-table').DataTable({
+	    	columnDefs:[{targets:5,className:"truncate"}],
+		    createdRow: function(row){
+		       var td = $(row).find(".truncate");
+		       td.attr("title", td.html());
+		  	},
 	        initComplete: function () {
 	            // Apply the search
 	            this.api().columns().every( function (key) {
