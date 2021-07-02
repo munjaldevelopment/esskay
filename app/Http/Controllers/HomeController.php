@@ -4599,14 +4599,14 @@ class HomeController extends Controller
 						
 						'name'  => INCREMENTAL_LABEL2,
 						'type' => 'line',
-						'yAxis' => '0',
+						//'yAxis' => '0',
 						'data'  => $capitalData2,
 					],
 					[
 						
 						'name'  => INCREMENTAL_LABEL3,
 						'type' => 'spline',
-						'yAxis' => '1',
+						//'yAxis' => '1',
 						'data'  => $capitalData3,
 					],
 				]
