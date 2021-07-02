@@ -944,7 +944,7 @@
 	}
 
 	.truncate {
-	  max-width:100px;
+	  max-width:50px;
 	  white-space: nowrap;
 	  overflow: hidden;
 	  text-overflow: ellipsis;
@@ -954,18 +954,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		// Setup - add a text input to each footer cell
-	    /*$('#trustee-table tfoot th').each( function (key) {
-	        var title = $(this).text();
-	        if(key <= 1)
-	        {
-	        	$(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
-	        }
-	        else
-	        {
-	        	$(this).html('');
-	        	//$(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
-	        }
-	    } );*/
+	    
 	 
 	    // DataTable
 	    var table = $('#trustee-table').DataTable({
