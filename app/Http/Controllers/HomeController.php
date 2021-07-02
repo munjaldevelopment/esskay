@@ -4592,7 +4592,7 @@ class HomeController extends Controller
 					[
 						
 						'name'  => INCREMENTAL_LABEL1,
-						'type' => 'line',
+						'type' => 'spline',
 						'data'  => $capitalData1,
 					],
 					[
@@ -4605,7 +4605,7 @@ class HomeController extends Controller
 					[
 						
 						'name'  => INCREMENTAL_LABEL3,
-						'type' => 'line',
+						'type' => 'spline',
 						'yAxis' => '2',
 						'data'  => $capitalData3,
 					],
