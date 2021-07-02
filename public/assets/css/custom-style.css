@@ -3019,6 +3019,7 @@ table.dataTable th {
 table.dataTable td {
     color: #767676;
     font-size: 14px;
+    font-weight: 700;
 }
 
 /*p.tab-spacing {
