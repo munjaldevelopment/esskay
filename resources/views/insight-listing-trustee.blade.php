@@ -501,16 +501,16 @@
 							@foreach($liquidityData as $row)
 							<tr>
 								<td class="text-justify">{{ $row->quarter}}</td>
-								<td>{{ $row->amount10}}</td>
-								<td>{{ $row->amount9}}</td>
-								<td>{{ $row->amount8}}</td>
-								<td>{{ $row->amount7}}</td>
-								<td>{{ $row->amount6}}</td>
-								<td>{{ $row->amount5}}</td>
-								<td>{{ $row->amount4}}</td>
-								<td>{{ $row->amount3}}</td>
-								<td>{{ $row->amount2}}</td>
-								<td>{{ $row->amount1}}</td>
+								<td>{{ number_format($row->amount10, 0) }}</td>
+								<td>{{ number_format($row->amount9, 0) }}</td>
+								<td>{{ number_format($row->amount8, 0) }}</td>
+								<td>{{ number_format($row->amount7, 0) }}</td>
+								<td>{{ number_format($row->amount6, 0) }}</td>
+								<td>{{ number_format($row->amount5, 0) }}</td>
+								<td>{{ number_format($row->amount4, 0) }}</td>
+								<td>{{ number_format($row->amount3, 0) }}</td>
+								<td>{{ number_format($row->amount2, 0) }}</td>
+								<td>{{ number_format($row->amount1, 0) }}</td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -518,16 +518,16 @@
 						<tfoot>
 							<tr>
 								<td class="text-justify">Total</td>
-								<td>{{ $liquidityDataTotal[9] }}</td>
-								<td>{{ $liquidityDataTotal[8] }}</td>
-								<td>{{ $liquidityDataTotal[7] }}</td>
-								<td>{{ $liquidityDataTotal[6] }}</td>
-								<td>{{ $liquidityDataTotal[5] }}</td>
-								<td>{{ $liquidityDataTotal[4] }}</td>
-								<td>{{ $liquidityDataTotal[3] }}</td>
-								<td>{{ $liquidityDataTotal[2] }}</td>
-								<td>{{ $liquidityDataTotal[1] }}</td>
-								<td>{{ $liquidityDataTotal[0] }}</td>
+								<td>{{ number_format($liquidityDataTotal[9], 0) }}</td>
+								<td>{{ number_format($liquidityDataTotal[8], 0) }}</td>
+								<td>{{ number_format($liquidityDataTotal[7], 0) }}</td>
+								<td>{{ number_format($liquidityDataTotal[6], 0) }}</td>
+								<td>{{ number_format($liquidityDataTotal[5], 0) }}</td>
+								<td>{{ number_format($liquidityDataTotal[4], 0) }}</td>
+								<td>{{ number_format($liquidityDataTotal[3], 0) }}</td>
+								<td>{{ number_format($liquidityDataTotal[2], 0) }}</td>
+								<td>{{ number_format($liquidityDataTotal[1], 0) }}</td>
+								<td>{{ number_format($liquidityDataTotal[0], 0) }}</td>
 							</tr>
 						</tfoot>
 					</table>	
