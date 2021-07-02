@@ -4571,6 +4571,18 @@ class HomeController extends Controller
 			->legend([
 				'layout' => 'vertical', 'verticalAlign' => 'left', 'x' => '80', 'verticalAlign' => 'top', 'y' => '55', 'floating' => 'true,'
 			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
 			->credits([
 				'enabled' => 'false'
 			])
