@@ -122,7 +122,7 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th style="min-width: 140px;" rowspan="2">Geographical <br /> Diversification</th>
+								<th class="text-justify" style="min-width: 140px;" rowspan="2">Geographical <br /> Diversification</th>
 								<th style="min-width: 90px;" rowspan="2">DOCP</th>
 								<!--<th colspan="2" class="border-bottom">Mar-22</th>-->
 								<th colspan="2" class="border-bottom">Mar-21</th>
@@ -158,7 +158,7 @@
 						<tbody>
 							@foreach($geographicalConData as $row)
 							<tr>
-								<td>{{ $row->geographical_diversification }}</td>
+								<td class="text-justify">{{ $row->geographical_diversification }}</td>
 								<td>{{ $row->docp }}</td>
 								<!--<td>{{ number_format($row->amount8, 0) }}</td>
 								<td>{{ number_format($row->amount_percentage8, 0) }}%</td>-->
@@ -184,7 +184,7 @@
 
 						<tfoot>
 							<tr>
-								<td>Total</td>
+								<td class="text-justify">Total</td>
 								<td>&nbsp;</td>
 								<!--<td>{{ $geographicalConTotalData['amount8'] }}</td>
 								<td>100%</td>-->
@@ -231,7 +231,7 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th style="min-width: 170px;" rowspan="2">Product <br /> Diversification</th>
+								<th class="text-justify" style="min-width: 170px;" rowspan="2">Product <br /> Diversification</th>
 								<!--<th colspan="2" class="border-bottom">Mar-22</th>-->
 								<th colspan="2" class="border-bottom">Mar-21</th>
 								<th colspan="2" class="border-bottom">Sep-20</th>
@@ -266,7 +266,7 @@
 						<tbody>
 							@foreach($productConData as $row)
 							<tr>
-								<td>{{ $row->product_diversification }}</td>
+								<td class="text-justify">{{ $row->product_diversification }}</td>
 								<!--<td>{{ number_format($row->amount8, 0) }}</td>
 								<td>{{ number_format($row->amount_percentage8, 0) }}%</td>-->
 								<td>{{ number_format($row->amount7, 0) }}</td>
@@ -291,7 +291,7 @@
 
 						<tfoot>
 							<tr>
-								<td>Total</td>
+								<td class="text-justify">Total</td>
 								<!--<td>{{ $productConTotalData['amount8'] }}</td>
 								<td>100%</td>-->
 								<td>{{ $productConTotalData['amount7'] }}</td>
