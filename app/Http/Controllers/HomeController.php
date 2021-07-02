@@ -4538,7 +4538,7 @@ class HomeController extends Controller
 	                    ]
 					],
 					'title' => [
-						'text' => 'Temperature'
+						'text' => INCREMENTAL_LABEL1
 					],
 					'opposite' => true
 				],
@@ -4551,7 +4551,7 @@ class HomeController extends Controller
 	                    ]
 					],
 					'title' => [
-						'text' => 'Rainfall'
+						'text' => INCREMENTAL_LABEL2
 					]
 				],
 				[
@@ -4563,7 +4563,7 @@ class HomeController extends Controller
 	                    ]
 					],
 					'title' => [
-						'text' => 'Sea-Level Pressure'
+						'text' => INCREMENTAL_LABEL3
 					]
 				]
 			])
