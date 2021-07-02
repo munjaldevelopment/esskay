@@ -1006,7 +1006,7 @@
 	}
 
 	.truncate {
-	  max-width:50px;
+	  max-width:100px;
 	  white-space: nowrap;
 	  overflow: hidden;
 	  text-overflow: ellipsis;
@@ -1031,7 +1031,7 @@
 	 
 	    // DataTable
 	    var table = $('#trustee-table').DataTable({
-	    	columnDefs:[{targets:5,className:"truncate"}],
+	    	columnDefs:[{targets:2,3,4,5,className:"truncate"}],
 		    createdRow: function(row){
 		       var td = $(row).find(".truncate");
 		       td.attr("title", td.html());
