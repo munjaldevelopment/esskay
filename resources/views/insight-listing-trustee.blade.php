@@ -895,10 +895,10 @@
 					<table id="trustee-table" class="display dt-responsive nowrap" style="width:100%">
 						<thead>
 							<tr>
+								<th>Branch Name</th>
 								<th>State</th>
 								<th>District</th>
 								<th>Location Hub</th>
-								<th>Branch Name</th>
 								<th>Branch Type</th>
 								<th>Branch Address</th>
 							</tr>
@@ -906,9 +906,9 @@
 
 						<tfoot>
 							<tr>
+								<th></th>
 								<th>State</th>
 								<th>District</th>
-								<th></th>
 								<th></th>
 								<th></th>
 								<th></th>
@@ -918,10 +918,10 @@
 						<tbody>
 							@foreach($insightLocationData as $row)
 							<tr>
+								<td>{{ $row->branch_name }}</td>
 								<td>{{ $row->state_name }}</td>
 								<td>{{ $row->district_name }}</td>
 								<td>{{ $row->location_hub }}</td>
-								<td>{{ $row->branch_name }}</td>
 								<td>{{ $row->branch_type }}</td>
 								<td>{{ $row->branch_address }}</td>
 							</tr>
