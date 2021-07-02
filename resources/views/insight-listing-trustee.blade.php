@@ -954,40 +954,12 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		// Setup - add a text input to each footer cell
-	    
-	 
 	    // DataTable
-	    var table = $('#trustee-table').removeAttr('width').DataTable({
-	    	columnDefs:[{width: 200, targets:'5'}], //,className:"truncate"
-		    createdRow: function(row){
-		       //var td = $(row).find(".truncate");
-		       //td.attr("title", td.html());
-		  	},
-	        initComplete: function () {
-	            // Apply the search
-	            this.api().columns().every( function (key) {
-	            	var column = this;
-	                if(key <= 1)	                    
-					{
-						var select = $('<select class="form-control"><option value=""></option></select>')
-		                    .appendTo( $(column.footer()).empty() )
-		                    .on( 'change', function () {
-		                        var val = $.fn.dataTable.util.escapeRegex(
-		                            $(this).val()
-		                        );
-		 
-		                        column
-		                            .search( val ? '^'+val+'$' : '', true, false )
-		                            .draw();
-		                });
-
-					
-		                column.data().unique().sort().each( function ( d, j ) {
-		                    select.append( '<option value="'+d+'">'+d+'</option>' )
-		                } );
-		            }
-	            });
-	        }
+	    var table = $('#trustee-table').DataTable({
+	    	scrollY:        "300px",
+        	scrollX:        true,
+        	scrollCollapse: true,
+        	fixedColumns: true
 	    });
 	});
 </script>
