@@ -954,7 +954,7 @@
 		<div class="pool-dynamic-graph">
 			<div class="row">
 				<div class="col-sm-12">
-					<table id="trustee-table" class="display responsive nowrap" style="width:100%">
+					<table id="trustee-table" class="display dt-responsive nowrap" style="width:100%">
 						<thead>
 							<tr>
 								<th>State</th>
