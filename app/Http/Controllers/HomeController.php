@@ -4593,7 +4593,7 @@ class HomeController extends Controller
 				}
 			}
 
-			$maxVal = $max + 500;
+			$maxVal = $max + 1000;
 
 
 
