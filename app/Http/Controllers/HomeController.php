@@ -4539,8 +4539,7 @@ class HomeController extends Controller
 					],
 					'title' => [
 						'text' => INCREMENTAL_LABEL1
-					],
-					'opposite' => true
+					]
 				],
 				[
 					'gridLineWidth' => '0',
@@ -4552,7 +4551,8 @@ class HomeController extends Controller
 						'style' => [
 	                    	'fontWeight' => 'bold',
 	                    ]
-					]
+					],
+					'opposite' => true
 				],
 				[
 					'gridLineWidth' => '0',
