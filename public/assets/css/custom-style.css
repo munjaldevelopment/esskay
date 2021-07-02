@@ -3116,7 +3116,9 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
 }
 
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu ul li a {
-    color: #007bff;
+    color: #767676;
+    font-weight: 500;
+    font-size: 13px;
 }
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu li {
     position: relative;
