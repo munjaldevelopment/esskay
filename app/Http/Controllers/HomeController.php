@@ -4248,7 +4248,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $profileCategory,
-				'crosshair' => true,
+				'crosshair' => 'true',
 				'labels' => [
                 	'style' => [
                     	'fontWeight' => 'bold',
