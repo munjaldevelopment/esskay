@@ -4237,6 +4237,7 @@ class HomeController extends Controller
 				'text' => DIVERSIFIED_HEADING//'Diversified Lender Base And Access to different Pools of Capital',
 			])
 			->chart([
+				'zoomType' => 'xy',
 				'type'     => 'line', // pie , columnt ect
 				'renderTo' => 'seventh_chart', // render the chart into your div with id
 			])
@@ -4260,10 +4261,35 @@ class HomeController extends Controller
 					'text' => 'Percentage'
 				],
 				'labels' => [
+					'format' => '{value}°C',
                 	'style' => [
                     	'fontWeight' => 'bold',
                     ]
-                ]
+                ],
+				'title' => [
+					'text' => 'Temperature',
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ],
+                'opposite' => true
+			], [
+				'title' => [
+					'text' => 'Percentage'
+				],
+				'labels' => [
+					'format' => '{value} mm',
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ],
+				'title' => [
+					'text' => 'Rainfall',
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ],
+                'opposite' => true
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
