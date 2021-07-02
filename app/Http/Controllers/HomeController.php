@@ -4512,7 +4512,7 @@ class HomeController extends Controller
 				'text' => INCREMENTAL_HEADING
 			])
 			->chart([
-				'type'     => 'line', // pie , columnt ect
+				'zoomType' => 'xy',
 				'renderTo' => 'fifth51_chart', // render the chart into your div with id
 			])
 			->subtitle([
@@ -4530,14 +4530,42 @@ class HomeController extends Controller
                 ]
 			])
 			->yaxis([
-				'title' => [
-					'text' => ''
+				[
+					'labels' => [
+						'format' => '{value} cm',
+						'style' => [
+	                    	'fontWeight' => 'bold',
+	                    ]
+					],
+					'title' => [
+						'text' => 'Temperature'
+					],
+					'opposite' => true
 				],
-				'labels' => [
-                	'style' => [
-                    	'fontWeight' => 'bold',
-                    ]
-                ]
+				[
+					'gridLineWidth' => '0',
+					'labels' => [
+						'format' => '{value} mm',
+						'style' => [
+	                    	'fontWeight' => 'bold',
+	                    ]
+					],
+					'title' => [
+						'text' => 'Rainfall'
+					]
+				],
+				[
+					'gridLineWidth' => '0',
+					'labels' => [
+						'format' => '{value} mb',
+						'style' => [
+	                    	'fontWeight' => 'bold',
+	                    ]
+					],
+					'title' => [
+						'text' => 'Sea-Level Pressure'
+					]
+				]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
@@ -4562,16 +4590,19 @@ class HomeController extends Controller
 					[
 						
 						'name'  => INCREMENTAL_LABEL1,
+						'type' => 'column',
 						'data'  => $capitalData1,
 					],
 					[
 						
 						'name'  => INCREMENTAL_LABEL2,
+						'type' => 'spline',
 						'data'  => $capitalData2,
 					],
 					[
 						
 						'name'  => INCREMENTAL_LABEL3,
+						'type' => 'spline',
 						'data'  => $capitalData3,
 					],
 				]
