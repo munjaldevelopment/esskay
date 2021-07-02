@@ -790,7 +790,7 @@
     font-weight: 500;
     font-size: 13px;
     color: #767676;
-    padding: 0;
+    padding: 9px 21px;
 }
 
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item:hover {
@@ -3080,7 +3080,7 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item a {
     display: inline-block;
     width: 100%;
-    padding: 9px 21px;
+    padding: 0;
 }
 
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item a:hover {
