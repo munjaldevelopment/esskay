@@ -4308,18 +4308,21 @@ class HomeController extends Controller
 					[
 						
 						'name'  => DIVERSIFIED_LABEL1,
+						'type' => 'column',
 						'color' => '#11a9dc',
 						'data'  => $liabilityProfileData1,
 					],
 					[
 						
 						'name'  => DIVERSIFIED_LABEL2,
+						'type' => 'spline',
 						'color' => '#336699',
 						'data'  => $liabilityProfileData2,
 					],
 					[
 						
 						'name'  => DIVERSIFIED_LABEL3,
+						'type' => 'spline',
 						'color' => '#25a7a4',
 						'data'  => $liabilityProfileData3,
 					],
