@@ -1024,6 +1024,7 @@
 	 
 	    // DataTable
 	    var table = $('#trustee-table').DataTable({
+	    	responsive: true,
 	        initComplete: function () {
 	            // Apply the search
 	            this.api().columns().every( function (key) {
