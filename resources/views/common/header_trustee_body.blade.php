@@ -39,7 +39,7 @@
 	<script src="{{ asset('public/assets/') }}/js/exporting.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/export-data.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/datatables.min.css"/>
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/jquery.dataTables.min.css"/>
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/responsive.dataTables.min.css"/>
  
 	<script src="{{ asset('public/assets/') }}/js/datatables.min.js"></script>
