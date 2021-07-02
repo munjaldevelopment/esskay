@@ -615,19 +615,19 @@
 							</tr>
 
 							<tr>
-								<th class="text-justify">Amount (In Cr.)</th>
+								<th class="text-justify">Amount <br />(In Cr.)</th>
 								<th>No. of <br />Lenders</th>
-								<th>Amount (In Cr.)</th>
+								<th>Amount <br />(In Cr.)</th>
 								<th>No. of <br />Lenders</th>
-								<th>Amount (In Cr.)</th>
+								<th>Amount <br />(In Cr.)</th>
 								<th>No. of <br />Lenders</th>
-								<th>Amount (In Cr.)</th>
+								<th>Amount <br />(In Cr.)</th>
 								<th>No. of <br />Lenders</th>
-								<th>Amount (In Cr.)</th>
+								<th>Amount <br />(In Cr.)</th>
 								<th>No. of <br />Lenders</th>
-								<th>Amount (In Cr.)</th>
+								<th>Amount <br />(In Cr.)</th>
 								<th>No. of <br />Lenders</th>
-								<th>Amount (In Cr.)</th>
+								<th>Amount <br />(In Cr.)</th>
 								<th>No. of <br />Lenders</th>
 							</tr>
 						</thead>
