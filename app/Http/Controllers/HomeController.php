@@ -205,7 +205,7 @@ class HomeController extends Controller
 				$trusteeCode = "";
 
 				// TO DO
-				$docCategoryRowData = \DB::table('transaction_categories')->leftJoin('transaction_category_trustee', 'transaction_categories.id', '=', 'transaction_category_trustee.transaction_category_id')->where('transaction_category_trustee.trustee_id',$trustee_id)->groupBy('transaction_category_trustee.transaction_category_id')->get();
+				$docCategoryRowData = \DB::table('transaction_categories')->leftJoin('transaction_category_trustee', 'transaction_categories.id', '=', 'transaction_category_trustee.transaction_category_id')->where('transaction_category_trustee.trustee_id',$trustee_id)->whereNull('parent_id')->groupBy('transaction_category_trustee.transaction_category_id')->get();
 
 				$docCategoryData = array();
 				if($docCategoryRowData)
