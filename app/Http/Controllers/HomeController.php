@@ -4238,7 +4238,7 @@ class HomeController extends Controller
 			])
 			->chart([
 				'zoomType' => 'xy',
-				'type'     => 'line', // pie , columnt ect
+				//'type'     => 'line', // pie , columnt ect
 				'renderTo' => 'seventh_chart', // render the chart into your div with id
 			])
 			->subtitle([
@@ -4257,39 +4257,24 @@ class HomeController extends Controller
                 ]
 			])
 			->yaxis([
-				'title' => [
-					'text' => 'Percentage'
+				[
+					'labels' => [
+						'format' => '{value}°C'
+					],
+					'title' => [
+						'text' => 'Temperature'
+					],
+					'opposite' => true
 				],
-				'labels' => [
-					'format' => '{value}°C',
-                	'style' => [
-                    	'fontWeight' => 'bold',
-                    ]
-                ],
-				'title' => [
-					'text' => 'Temperature',
-                	'style' => [
-                    	'fontWeight' => 'bold',
-                    ]
-                ],
-                'opposite' => true
-			], [
-				'title' => [
-					'text' => 'Percentage'
-				],
-				'labels' => [
-					'format' => '{value} mm',
-                	'style' => [
-                    	'fontWeight' => 'bold',
-                    ]
-                ],
-				'title' => [
-					'text' => 'Rainfall',
-                	'style' => [
-                    	'fontWeight' => 'bold',
-                    ]
-                ],
-                'opposite' => true
+				[
+					'gridLineWidth' => '0',
+					'labels' => [
+						'format' => '{value} mm'
+					],
+					'title' => [
+						'text' => 'Rainfall'
+					]
+				]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
