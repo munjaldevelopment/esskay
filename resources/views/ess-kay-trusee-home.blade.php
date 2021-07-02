@@ -63,7 +63,18 @@
 
 								@if($row['children'])
 								<ul>
-                            		<li><a href="">Column 1</a></li>
+									<li class="sub-menu-2">
+										<a href="">Column 2</a>
+										<ul>
+											<li><a href="">Column 1 inner</a></li>
+											<li><a href="">Column 2 inner</a></li>
+										</ul>
+									</li>
+									@foreach($row['children'] as $child)
+                            		<li>
+                            			<a class="dropdown-item transaction-category-class" data-category="{{ $child['category_id'] }}" href="javascript:;">{{ $child['category_name'] }}</a>
+                            		</li>
+                            		@endfoeach
                             	</ul>
 								@endif
 							</li>
