@@ -896,10 +896,10 @@
 						<thead>
 							<tr>
 								<th>Branch Name</th>
-								<th>State</th>
-								<th>District</th>
-								<th>Location Hub</th>
 								<th>Branch Type</th>
+								<th>Location Hub</th>
+								<th>District</th>
+								<th>State</th>
 								<th>Branch Address</th>
 							</tr>
 						</thead>
@@ -907,10 +907,10 @@
 						<tfoot>
 							<tr>
 								<th></th>
-								<th>State</th>
+								<th></th>
+								<th></th>
 								<th>District</th>
-								<th></th>
-								<th></th>
+								<th>State</th>
 								<th></th>
 							</tr>
 						</tfoot>
@@ -919,10 +919,10 @@
 							@foreach($insightLocationData as $row)
 							<tr>
 								<td>{{ $row->branch_name }}</td>
-								<td>{{ $row->state_name }}</td>
-								<td>{{ $row->district_name }}</td>
-								<td>{{ $row->location_hub }}</td>
 								<td>{{ $row->branch_type }}</td>
+								<td>{{ $row->location_hub }}</td>
+								<td>{{ $row->district_name }}</td>
+								<td>{{ $row->state_name }}</td>
 								<td>{{ $row->branch_address }}</td>
 							</tr>
 							@endforeach
@@ -964,7 +964,7 @@
 	            // Apply the search
 	            this.api().columns().every( function (key) {
 	            	var column = this;
-	                if(key > 0 && key <= 2)	                    
+	                if(key == 3 || key == 4)	                    
 					{
 						var select = $('<select class="form-control1"><option value=""></option></select>')
 		                    .appendTo( $(column.footer()).empty() )
