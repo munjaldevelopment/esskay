@@ -4580,6 +4580,7 @@ class HomeController extends Controller
 			$capitalCategory = $capitalData1 = $capitalData2 = $capitalData3 = array();
 
 			$assetConData1 = \DB::table('capital_infusion4')->where('capital_infusion_status', 1)->get();
+			$max = 0;
 			if($assetConData1)
 			{
 				foreach($assetConData1 as $row)
@@ -4587,8 +4588,14 @@ class HomeController extends Controller
 					$capitalCategory[] = $row->heading_graph1;
 					$capitalData1[] = (float)$row->amount_graph1;
 					$capitalData2[] = (float)$row->amount_graph2;
+
+					$max = max($row->amount_graph1, $row->amount_graph2);
 				}
 			}
+
+			echo $max;
+
+
 
 			$chart512 = \Chart::title([
 				'text' => ALMPROFILE_HEADING
