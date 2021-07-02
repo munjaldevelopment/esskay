@@ -4259,7 +4259,7 @@ class HomeController extends Controller
 			->yaxis([
 				[
 					'labels' => [
-						'format' => '{value}°C'
+						'format' => '{value} cm'
 					],
 					'title' => [
 						'text' => 'Temperature'
@@ -4273,6 +4273,15 @@ class HomeController extends Controller
 					],
 					'title' => [
 						'text' => 'Rainfall'
+					]
+				],
+				[
+					'gridLineWidth' => '0',
+					'labels' => [
+						'format' => '{value} mb'
+					],
+					'title' => [
+						'text' => 'Sea-Level Pressure'
 					]
 				]
 			])
