@@ -957,11 +957,11 @@
 	    
 	 
 	    // DataTable
-	    var table = $('#trustee-table').DataTable({
-	    	columnDefs:[{targets:'2,3,4,5',className:"truncate"}],
+	    var table = $('#trustee-table').removeAttr('width').DataTable({
+	    	columnDefs:[{width: 200, targets:'5'}], //,className:"truncate"
 		    createdRow: function(row){
-		       var td = $(row).find(".truncate");
-		       td.attr("title", td.html());
+		       //var td = $(row).find(".truncate");
+		       //td.attr("title", td.html());
 		  	},
 	        initComplete: function () {
 	            // Apply the search
