@@ -4605,7 +4605,7 @@ class HomeController extends Controller
 						
 						'name'  => INCREMENTAL_LABEL3,
 						'type' => 'line',
-						'yAxis' => '2',
+						//'yAxis' => '2',
 						'data'  => $capitalData3,
 					],
 				]
