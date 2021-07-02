@@ -634,7 +634,7 @@
 						<tbody>
 							@foreach($liabilityProfileTableData as $row)
 							<tr>
-								<td>{{ $row->lender}}</td>
+								<td class="text-justify">{{ $row->lender}}</td>
 								<td>{{ $row->amount7}}</td>
 								<td>{{ $row->amount7_lender}}</td>
 								<td>{{ $row->amount6}}</td>
