@@ -3011,14 +3011,14 @@ table.dataTable thead th, table.dataTable thead td {
 }
 
 table.dataTable th {
-    color: #767676;
-    font-size: 14px;
-}
-
-table.dataTable td {
     color: #333333;
     font-size: 14px;
     font-weight: 700;
+}
+
+table.dataTable td {
+    color: #767676;
+    font-size: 14px;
 }
 
 /*p.tab-spacing {
