@@ -655,7 +655,7 @@
 
 						<tfoot>
 							<tr>
-								<td>Total</td>
+								<td class="text-justify">Total</td>
 								<td>{{ $liabilityProfileDataTotal[12] }}</td>
 								<td>{{ $liabilityProfileDataTotal[13] }}</td>
 								<td>{{ $liabilityProfileDataTotal[10] }}</td>
