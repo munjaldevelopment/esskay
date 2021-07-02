@@ -509,11 +509,11 @@ $(document).ready(function() {
         }
 	});
 
-	$("#password").keyup(function() {
+	$("#login_password").keyup(function() {
 	    
         //Do stuff
         var login = $('#email').val();
-        var password = $('#password').val();
+        var password = $('#login_password').val();
         var agree_login = $('.agree_login:checked').val();
 
         if(login == "" || password == "" || typeof agree_login == "undefined")

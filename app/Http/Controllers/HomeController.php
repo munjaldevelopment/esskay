@@ -17,6 +17,7 @@ use App\Models\Setting;
 use App\Models\AnalyticsGraph;
 use App\Models\AnalyticsGraphDetail;
 use Jenssegers\Agent\Agent;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -1472,7 +1473,13 @@ class HomeController extends Controller
 								'password' => $request->password
 							) )) {
 								$user = User::findOrFail($user_id);
-								
+
+								$t1 = Carbon::now();
+				                $t2 = Carbon::parse($user->user_otp_date);
+				                $diff = $t1->diff($t2);
+
+				                $days = $diff->days;
+												
 								if($user) {
 									// Find User ID
 
@@ -1484,45 +1491,73 @@ class HomeController extends Controller
 										if($modelRole->role_id == '4')
 										{
 											$is_model = 1;
-											session ( [
-												'login_phone_number' => $checkRecord->phone,
-												'esskay_name' => $checkRecord->email,
-												'esskay_user_id' => $user_id,
-												//'esskay_verify' => '1',
-												'role_id' => $modelRole->role_id
-											] );
+
+											if($days >= 3)
+											{
+												session ( [
+													'login_phone_number' => $checkRecord->phone,
+													'esskay_name' => $checkRecord->email,
+													'esskay_user_id' => $user_id,
+													//'esskay_verify' => '1',
+													'role_id' => $modelRole->role_id
+												] );
+											}
+											else
+											{
+												session ( [
+													'login_phone_number' => $checkRecord->phone,
+													'esskay_name' => $checkRecord->email,
+													'esskay_user_id' => $user_id,
+													'esskay_verify' => '1',
+													'role_id' => $modelRole->role_id
+												] );
+											}
 										}
 										else if($modelRole->role_id == '11')
 										{
 											$is_model = 1;
-											session ( [
-												'login_phone_number' => $checkRecord->phone,
-												'esskay_trustee_name' => $checkRecord->email,
-												'esskay_trustee_user_id' => $user_id,
-												//'esskay_trustee_verify' => '1',
-												'role_id' => $modelRole->role_id
-											] );
+
+											if($days >= 3)
+											{
+												session ( [
+													'login_phone_number' => $checkRecord->phone,
+													'esskay_trustee_name' => $checkRecord->email,
+													'esskay_trustee_user_id' => $user_id,
+													//'esskay_trustee_verify' => '1',
+													'role_id' => $modelRole->role_id
+												] );
+											}
+											else
+											{
+												session ( [
+													'login_phone_number' => $checkRecord->phone,
+													'esskay_trustee_name' => $checkRecord->email,
+													'esskay_trustee_user_id' => $user_id,
+													'esskay_trustee_verify' => '1',
+													'role_id' => $modelRole->role_id
+												] );
+											}
 										}
 
 										if($is_model == 1)
 										{
 											$sms_status = config('general.sms_status');
 					
-											if($sms_status)
+											if($sms_status && $days >= 3)
 											{
 												$message = str_replace(" ", "%20", "Dear ".$checkRecord->name.", please use this OTP ".$checkRecord->user_otp." to login");
 												
 												$request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$checkRecord->phone."&message=".$message."&sender=EssKay&route=4&country=0";
-												$result = $this->getContent($request_url);
+												//$result = $this->getContent($request_url);
 												
 												
-												if($result['errno'] == 0)
+												/*if($result['errno'] == 0)
 												{
 													\DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $checkRecord->phone, 'send_subject' => 'User OTP', 'send_message' => $message, 'is_deliver' => '1']);
 												} else {
 													Session::flash ( 'message', "Error in sending message. Please re-try" );
 													return Redirect::back ();
-												}
+												}*/
 
 												// Email
 												// Send Mail
@@ -1530,8 +1565,9 @@ class HomeController extends Controller
 												$tempUserData = array('email' => $checkRecord->email, 'name' => $checkRecord->name);
 												
 												Mail::send('emails.send_otp', $contactData, function ($message) use ($tempUserData) {
-													$message->to($tempUserData['email'], $tempUserData['name'])->subject("User OTP");
+													$message->to($tempUserData['email'])->subject("User OTP");
 													$message->cc('munjaldevelopment@gmail.com');
+													$message->cc('milan.khadiya@skfin.in');
 													$message->cc('communication@skfin.in');
 													$message->from('communication@skfin.in', 'Ess Kay Fincorp');
 												});
@@ -1543,7 +1579,14 @@ class HomeController extends Controller
 											
 											\DB::table('user_login')->insert(['user_id' => $user_id, 'user_ip' => $request->ip(), 'user_browser' => $browser." ".$version, 'device_type' => $device_type, 'login_type' => 'email', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 
-											$json = ['message' => "Logged-in successfully", 'redirect' => url('user_otp'), 'success' => 1];
+											if($days >= 3)
+											{
+												$json = ['message' => "Logged-in successfully", 'redirect' => url('user_otp'), 'success' => 1];
+											}
+											else
+											{
+												$json = ['message' => "Logged-in successfully", 'redirect' => url('/'), 'success' => 1];	
+											}
 
 											return response()->json($json);
 										}
@@ -1631,7 +1674,7 @@ class HomeController extends Controller
 			if($checkRecord)
 			{
 				$user_otp = rand(111111, 999999);
-				$updateData = array('user_otp' => $user_otp, 'updated_at' => date('Y-m-d H:i:s'));
+				$updateData = array('user_otp' => $user_otp, 'user_otp_date' => date('Y-m-d'), 'updated_at' => date('Y-m-d H:i:s'));
 				\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
 
 				$modelRole = \DB::table('model_has_roles')->where('model_id', $checkRecord->id)->first();
