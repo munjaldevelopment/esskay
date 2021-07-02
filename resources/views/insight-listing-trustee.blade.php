@@ -438,7 +438,7 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th>Particulars</th>
+								<th class="text-justify">Particulars</th>
 								<th>FY-21</th>
 								<th>FY-20</th>
 								<th>FY-19</th>
@@ -450,7 +450,7 @@
 						<tbody>
 							@foreach($netWorthData1 as $row)
 							<tr>
-								<td style="width:350px;" class="text-left">{{ $row->particulars}}</td>
+								<td style="width:340px;" class="text-justify">{{ $row->particulars}}</td>
 								<td>{{ round($row->amount6, 0) }}</td>
 								<td>{{ round($row->amount5, 0) }}</td>
 								<td>{{ round($row->amount4, 0) }}</td>
