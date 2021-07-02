@@ -956,10 +956,10 @@
 		// Setup - add a text input to each footer cell
 	    // DataTable
 	    var table = $('#trustee-table').DataTable({
-	    	scrollY:        "300px",
-        	scrollX:        true,
-        	scrollCollapse: true,
-        	fixedColumns: true,
+	    	//scrollY:        "300px",
+        	//scrollX:        true,
+        	//scrollCollapse: true,
+        	//fixedColumns: true,
         	initComplete: function () {
 	            // Apply the search
 	            this.api().columns().every( function (key) {
