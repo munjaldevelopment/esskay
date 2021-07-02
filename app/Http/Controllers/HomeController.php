@@ -3296,7 +3296,7 @@ class HomeController extends Controller
 		return view('ess-kay-insight-trustee', ['parentCategoryData' => $parentCategoryData, 'lenderData' => $lenderData]);
 	}
 
-	// TRUSTEE
+	// TRUSTEE INSIGHT
 	public function showInsightTrustee(Request $request)
     {
     	Setting::assignSetting();
@@ -3396,11 +3396,21 @@ class HomeController extends Controller
 				'categories' => [
 					GEOGRAPHICAL_CONCENTRATION_CATEGORY
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
