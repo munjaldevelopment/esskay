@@ -390,7 +390,11 @@
 							<tr>
 								<td class="text-justify">Investors</td>
 								@foreach($netWorthData as $row)
-								<td class="text-justify">{!! $row->investors !!}</td>
+								<td>
+									<div class="pull-left text-justify">
+										{!! $row->investors !!}
+									</div>
+								</td>
 								@endforeach
 							</tr>
 						</tbody>
