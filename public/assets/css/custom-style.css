@@ -3121,7 +3121,7 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
     font-size: 13px;
 }
 
-.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu.active ul li a {
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu.active a:hover ul li a {
 	color: #FFFFFF;
 }
 
