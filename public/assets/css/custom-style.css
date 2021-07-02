@@ -3006,6 +3006,10 @@ table.dataTable thead th, table.dataTable thead td {
 	line-height: 20px;
 }
 
+.unlisted-bullet ul {
+	padding-left: 15px;
+}
+
 /*p.tab-spacing {
 	color: #767676;
     font-weight: 500;

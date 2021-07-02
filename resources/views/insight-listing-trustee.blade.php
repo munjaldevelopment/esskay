@@ -391,7 +391,7 @@
 								<td class="text-justify">Investors</td>
 								@foreach($netWorthData as $row)
 								<td>
-									<div class="pull-left text-justify">
+									<div class="pull-left text-justify unlisted-bullet">
 										{!! $row->investors !!}
 									</div>
 								</td>
