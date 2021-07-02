@@ -4544,27 +4544,28 @@ class HomeController extends Controller
 				],
 				[
 					'gridLineWidth' => '0',
+					'title' => [
+						'text' => INCREMENTAL_LABEL2
+					],
 					'labels' => [
 						'format' => '{value} mm',
 						'style' => [
 	                    	'fontWeight' => 'bold',
 	                    ]
-					],
-					'title' => [
-						'text' => INCREMENTAL_LABEL2
 					]
 				],
 				[
 					'gridLineWidth' => '0',
+					'title' => [
+						'text' => INCREMENTAL_LABEL3
+					],
 					'labels' => [
 						'format' => '{value} mb',
 						'style' => [
 	                    	'fontWeight' => 'bold',
 	                    ]
 					],
-					'title' => [
-						'text' => INCREMENTAL_LABEL3
-					],
+					
 					'opposite' => true
 				]
 			])
@@ -4605,7 +4606,7 @@ class HomeController extends Controller
 						
 						'name'  => INCREMENTAL_LABEL3,
 						'type' => 'line',
-						//'yAxis' => '2',
+						'yAxis' => '2',
 						'data'  => $capitalData3,
 					],
 				]
