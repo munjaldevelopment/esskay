@@ -966,7 +966,7 @@
 	            	var column = this;
 	                if(key == 3 || key == 4)	                    
 					{
-						var select = $('<select class="form-control1"><option value=""></option></select>')
+						var select = $('<select class="form-control"><option value=""></option></select>')
 		                    .appendTo( $(column.footer()).empty() )
 		                    .on( 'change', function () {
 		                        var val = $.fn.dataTable.util.escapeRegex(
