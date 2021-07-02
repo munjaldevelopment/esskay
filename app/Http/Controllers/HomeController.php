@@ -4593,7 +4593,7 @@ class HomeController extends Controller
 				}
 			}
 
-			echo $max;
+			$maxVal = $max + 1000;
 
 
 
@@ -4621,6 +4621,7 @@ class HomeController extends Controller
                 ]
 			])
 			->yaxis([
+				'max' => $maxVal,
 				'title' => [
 					'text' => ''
 				],
