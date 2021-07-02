@@ -484,7 +484,7 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th> Quarter on Quarter Liquidity</th>
+								<th class="text-justify"> Quarter on Quarter Liquidity</th>
 								<th>Mar-21</th>
 								<th>Dec-20</th>
 								<th>Sep-20</th>
@@ -500,7 +500,7 @@
 						<tbody>
 							@foreach($liquidityData as $row)
 							<tr>
-								<td class="text-left">{{ $row->quarter}}</td>
+								<td class="text-justify">{{ $row->quarter}}</td>
 								<td>{{ $row->amount10}}</td>
 								<td>{{ $row->amount9}}</td>
 								<td>{{ $row->amount8}}</td>
@@ -517,7 +517,7 @@
 
 						<tfoot>
 							<tr>
-								<td>Total</td>
+								<td class="text-justify">Total</td>
 								<td>{{ $liquidityDataTotal[9] }}</td>
 								<td>{{ $liquidityDataTotal[8] }}</td>
 								<td>{{ $liquidityDataTotal[7] }}</td>
