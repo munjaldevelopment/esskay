@@ -4591,19 +4591,19 @@ class HomeController extends Controller
 					[
 						
 						'name'  => INCREMENTAL_LABEL1,
-						'type' => 'column',
+						'type' => 'line',
 						'data'  => $capitalData1,
 					],
 					[
 						
 						'name'  => INCREMENTAL_LABEL2,
-						'type' => 'spline',
+						'type' => 'line',
 						'data'  => $capitalData2,
 					],
 					[
 						
 						'name'  => INCREMENTAL_LABEL3,
-						'type' => 'spline',
+						'type' => 'line',
 						'data'  => $capitalData3,
 					],
 				]
