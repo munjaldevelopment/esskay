@@ -4506,6 +4506,7 @@ class HomeController extends Controller
 				}
 			}
 
+			// Incremental
 			$chart511 = \Chart::title([
 				'text' => INCREMENTAL_HEADING
 			])
@@ -4657,7 +4658,7 @@ class HomeController extends Controller
 				            'enabled' => true,
 				            'rotation' => 270,
 				            'align' => 'right',
-				            'y' => -35 // 10 pixels down from the top
+				            'y' => -25 // 10 pixels down from the top
 						]
 					],
 					[
@@ -4669,7 +4670,7 @@ class HomeController extends Controller
 				            'enabled' => true,
 				            'rotation' => 270,
 				            'align' => 'right',
-				            'y' => -35 // 10 pixels down from the top
+				            'y' => -25 // 10 pixels down from the top
 						]
 					]
 				]
