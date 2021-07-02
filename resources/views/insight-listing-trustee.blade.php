@@ -384,13 +384,13 @@
 							<tr>
 								<td class="text-justify" style="min-width: 200px;">Capital Infusion (In Cr.)</td>
 								@foreach($netWorthData as $row)
-								<td class="text-justify">{{ $row->capital_infusion }}</td>
+								<td>{{ $row->capital_infusion }}</td>
 								@endforeach
 							</tr>
 							<tr>
-								<td>Investors</td>
+								<td class="text-justify">Investors</td>
 								@foreach($netWorthData as $row)
-								<td class="text-justify">{!! $row->investors !!}</td>
+								<td>{!! $row->investors !!}</td>
 								@endforeach
 							</tr>
 						</tbody>
