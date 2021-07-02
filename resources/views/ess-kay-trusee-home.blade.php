@@ -74,7 +74,7 @@
                             		<li>
                             			<a class="dropdown-item transaction-category-class" data-category="{{ $child['category_id'] }}" href="javascript:;">{{ $child['category_name'] }}</a>
                             		</li>
-                            		@endfoeach
+                            		@endforeach
                             	</ul>
 								@endif
 							</li>
