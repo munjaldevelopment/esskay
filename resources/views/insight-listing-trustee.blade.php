@@ -374,7 +374,7 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th style="min-width: 200px;">Month</th>
+								<th class="text-justify" style="min-width: 200px;">Month</th>
 								@foreach($netWorthData as $row)
 								<th>{{ $row->month }}</th>
 								@endforeach
@@ -382,15 +382,15 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td style="min-width: 200px;">Capital Infusion (In Cr.)</td>
+								<td class="text-justify" style="min-width: 200px;">Capital Infusion (In Cr.)</td>
 								@foreach($netWorthData as $row)
-								<td>{{ $row->capital_infusion }}</td>
+								<td class="text-justify">{{ $row->capital_infusion }}</td>
 								@endforeach
 							</tr>
 							<tr>
 								<td>Investors</td>
 								@foreach($netWorthData as $row)
-								<td>{!! $row->investors !!}</td>
+								<td class="text-justify">{!! $row->investors !!}</td>
 								@endforeach
 							</tr>
 						</tbody>
