@@ -3753,7 +3753,7 @@ class HomeController extends Controller
 			}
 
 			$chart32 = \Chart::title([
-				'text' => ASSETSQUALITY2_HEADING
+				'text' => ''
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3804,8 +3804,8 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'showInLegend' => false,
-						'name'  => 'Series',
+						//'showInLegend' => false,
+						'name'  => ASSETSQUALITY2_HEADING,
 						'data'  => $capitalData1,
 					],
 				]
