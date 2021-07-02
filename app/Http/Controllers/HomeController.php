@@ -4564,7 +4564,8 @@ class HomeController extends Controller
 					],
 					'title' => [
 						'text' => INCREMENTAL_LABEL3
-					]
+					],
+					'opposite' => true
 				]
 			])
 			->legend([
