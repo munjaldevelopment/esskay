@@ -964,7 +964,7 @@
 	            // Apply the search
 	            this.api().columns().every( function (key) {
 	            	var column = this;
-	                if(key <= 1)	                    
+	                if(key > 0 && key <= 2)	                    
 					{
 						var select = $('<select class="form-control1"><option value=""></option></select>')
 		                    .appendTo( $(column.footer()).empty() )
