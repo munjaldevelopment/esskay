@@ -604,7 +604,7 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th rowspan="2">Lender</th>
+								<th class="text-justify" rowspan="2">Lender</th>
 								<th colspan="2">Mar-21</th>
 								<th colspan="2">Sep-20</th>
 								<th colspan="2">Mar-20</th>
@@ -615,7 +615,7 @@
 							</tr>
 
 							<tr>
-								<th>Amount (In Cr.)</th>
+								<th class="text-justify">Amount (In Cr.)</th>
 								<th>No. of <br />Lenders</th>
 								<th>Amount (In Cr.)</th>
 								<th>No. of <br />Lenders</th>
