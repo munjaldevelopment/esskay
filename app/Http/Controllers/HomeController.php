@@ -4540,7 +4540,7 @@ class HomeController extends Controller
 					'title' => [
 						'text' => INCREMENTAL_LABEL1
 					],
-					opposite => true
+					'opposite' => true
 				],
 				[
 					'gridLineWidth' => '0',
@@ -4565,7 +4565,7 @@ class HomeController extends Controller
 					'title' => [
 						'text' => INCREMENTAL_LABEL3
 					],
-					opposite => true
+					'opposite' => true
 				]
 			])
 			->legend([
@@ -4592,20 +4592,20 @@ class HomeController extends Controller
 						
 						'name'  => INCREMENTAL_LABEL1,
 						'type' => 'line',
-						'yAxis' => '1',
 						'data'  => $capitalData1,
 					],
 					[
 						
 						'name'  => INCREMENTAL_LABEL2,
 						'type' => 'line',
-						'yAxis' => '2',
+						'yAxis' => '1',
 						'data'  => $capitalData2,
 					],
 					[
 						
 						'name'  => INCREMENTAL_LABEL3,
 						'type' => 'line',
+						'yAxis' => '2',
 						'data'  => $capitalData3,
 					],
 				]
