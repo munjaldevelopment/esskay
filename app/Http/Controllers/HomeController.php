@@ -4593,7 +4593,7 @@ class HomeController extends Controller
 				}
 			}
 
-			$maxVal = $max + 1000;
+			$maxVal = $max + 500;
 
 
 
@@ -4666,7 +4666,7 @@ class HomeController extends Controller
 				            'enabled' => true,
 				            'rotation' => 270,
 				            'align' => 'right',
-				            'y' => -25 // 10 pixels down from the top
+				            'y' => -35 // 10 pixels down from the top
 						]
 					],
 					[
@@ -4678,7 +4678,7 @@ class HomeController extends Controller
 				            'enabled' => true,
 				            'rotation' => 270,
 				            'align' => 'right',
-				            'y' => -25 // 10 pixels down from the top
+				            'y' => -35 // 10 pixels down from the top
 						]
 					]
 				]
