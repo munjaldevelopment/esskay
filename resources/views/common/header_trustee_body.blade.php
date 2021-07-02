@@ -41,10 +41,11 @@
 	<script src="{{ asset('public/assets/') }}/js/accessibility.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/jquery.dataTables.min.css"/>
-	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/responsive.dataTables.min.css"/>
+	<!--<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/responsive.dataTables.min.css"/>-->
  
 	<script src="{{ asset('public/assets/') }}/js/jquery.dataTables.min.js"></script>
-	<script src="{{ asset('public/assets/') }}/js/dataTables.responsive.min.js"></script>
+	<!--<script src="{{ asset('public/assets/') }}/js/dataTables.responsive.min.js"></script>-->
+	<script src="{{ asset('public/assets/') }}/js/dataTables.fixedColumns.min.js"></script>
 	
 	
 	<meta name="csrf-token" content="{{ csrf_token() }}">
