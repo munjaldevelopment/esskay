@@ -205,7 +205,29 @@ class HomeController extends Controller
 				$trusteeCode = "";
 
 				// TO DO
-				$docCategoryData = \DB::table('transaction_categories')->leftJoin('transaction_category_trustee', 'transaction_categories.id', '=', 'transaction_category_trustee.transaction_category_id')->where('transaction_category_trustee.trustee_id',$trustee_id)->groupBy('transaction_category_trustee.transaction_category_id')->get();
+				$docCategoryRowData = \DB::table('transaction_categories')->leftJoin('transaction_category_trustee', 'transaction_categories.id', '=', 'transaction_category_trustee.transaction_category_id')->where('transaction_category_trustee.trustee_id',$trustee_id)->groupBy('transaction_category_trustee.transaction_category_id')->get();
+
+				$docCategoryData = array();
+				if($docCategoryRowData)
+				{
+					foreach($docCategoryRowData as $roww)
+					{
+						// Check for child category
+						$children = array();
+
+						$docCategoryChildData = \DB::table('transaction_categories')->leftJoin('transaction_category_trustee', 'transaction_categories.id', '=', 'transaction_category_trustee.transaction_category_id')->where('parent_id', $roww->id)->where('transaction_category_trustee.trustee_id',$trustee_id)->groupBy('transaction_category_trustee.transaction_category_id')->get();
+
+						if($docCategoryChildData)
+						{
+							foreach($docCategoryChildData as $roww1)
+							{
+								$children[] = array('category_id' => $roww1->id, 'category_name' => $roww1->category_name);
+							}
+						}
+
+						$docCategoryData[] = array('category_id' => $roww->id, 'category_name' => $roww->category_name, 'children' => $children);
+					}
+				}
 
 				return view('ess-kay-trusee-home', ['customer_name' => $trustee_name, 'trusteeCode' => $trusteeCode, 'trusteeData' => $trusteeData, 'docCategoryData' => $docCategoryData, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
 			}

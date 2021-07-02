@@ -58,7 +58,15 @@
 					  	<div class="dropdown-menu">
 					  		<ul>  
 					  		@foreach($docCategoryData as $row)
-							<li class="dropdown-item"><a class="dropdown-item transaction-category-class" data-category="{{ $row->id }}" href="javascript:;">{{ $row->category_name }}</a></li>
+							<li class="dropdown-item @if($row['children'])  sub-menu active @endif">
+								<a class="dropdown-item transaction-category-class" data-category="{{ $row['category_id'] }}" href="javascript:;">{{ $row['category_name'] }}</a>
+
+								@if($row['children'])
+								<ul>
+                            		<li><a href="">Column 1</a></li>
+                            	</ul>
+								@endif
+							</li>
 							@endforeach
 							</ul>
 					  	</div>
