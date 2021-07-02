@@ -882,73 +882,7 @@
 					<h2>Map</h2>
 					<div id="map"></div>
 
-					<script type="text/javascript">
-						function calculateAndDisplayRoute(directionsService, directionsRenderer, from_address, to_address) {
-							directionsService.route({
-						      	origin: {
-						        	query: from_address,
-						      	},
-						      	destination: {
-						        	query: to_address,
-						      	},
-						      	travelMode: google.maps.TravelMode.DRIVING,
-						    },
-						    (response, status) => {
-						    	if (status === "OK") {
-						        	directionsRenderer.setDirections(response);
-						      	} else {
-						        	//window.alert("Directions request failed due to " + status);
-						      	}
-						    });
-						}
-
-						var locations = [
-							@foreach($insightLocationData as $row)
-							['{!{ addslashes($row->branch_address) }}', {{ $row->office_lat }}, {{ $row->office_long }}, {{ $row->lft }}],
-							@endforeach
-						];
-
-						var directionsService = new google.maps.DirectionsService();
-  						var directionsRenderer = new google.maps.DirectionsRenderer();
-
-						var map = new google.maps.Map(document.getElementById('map'), {
-							zoom: 5,
-							center: new google.maps.LatLng(26.9177367, 75.7928315),
-							mapTypeId: 'satellite'
-							//mapTypeId: google.maps.MapTypeId.ROADMAP
-						});
-
-						directionsRenderer.setMap(map);
-
-						@foreach($insightLocationData as $k => $row)
-							@if($k < $locationCount - 1)
-							calculateAndDisplayRoute(directionsService, directionsRenderer, '{{ strip_tags(str_replace("\r\n", "", $insightLocationData[$k]->branch_address)) }}', '{{ strip_tags(str_replace("\r\n", "", $insightLocationData[$k+1]->branch_address)) }}');
-							@endif
-						@endforeach
-
-						var infowindow = new google.maps.InfoWindow();
-
-						var marker, i;
-
-						for (i = 0; i < locations.length; i++) {
-							marker = new google.maps.Marker({
-								position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-								map: map,
-								title: locations[i][0],
-							});
-
-
-							google.maps.event.addListener(marker, 'click', (function(marker, i) {
-								return function() {
-									map.setZoom(14);
-									infowindow.setContent(locations[i][0]);
-									infowindow.open(map, marker);
-
-									map.setCenter(marker.getPosition());//locations[i][1], locations[i][2]);
-								}
-							})(marker, i));
-						}
-					</script>
+					
 				</div>
 			</div>
 		</div>

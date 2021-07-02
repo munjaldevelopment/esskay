@@ -5688,16 +5688,13 @@ class HomeController extends Controller
 		}
 		else
 		{
+
 			// Download file
 			$file= public_path(). "/".OPERATIONALHIGHLIGHT_EXCEL;
 			
-			/*$headers = array(
-					  'Content-Type: application/pdf',
-					);*/
-					
 			$document_filename = explode("/", OPERATIONALHIGHLIGHT_EXCEL);
 			$doc = array_pop($document_filename);
-			
+
 			return response()->download($file, $doc);
 		}
 	}
