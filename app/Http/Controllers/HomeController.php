@@ -3515,11 +3515,21 @@ class HomeController extends Controller
 				'categories' => [
 					PRODUCT_CONCENTRATION_CATEGORY,//, 'FY22',//, 'FY23'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
@@ -3592,11 +3602,21 @@ class HomeController extends Controller
 				'categories' => [
 					ASSETQUALITY_CONCENTRATION_CATEGORY
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
@@ -3666,11 +3686,21 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $capitalCategory,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
@@ -3737,11 +3767,21 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $capitalCategory,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
@@ -3804,11 +3844,21 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $assetData11,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
@@ -3854,11 +3904,21 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $assetData21,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
@@ -3917,11 +3977,21 @@ class HomeController extends Controller
 				'categories' => [
 					NETWORTH1_CATEGORY
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => ''
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
@@ -3969,11 +4039,21 @@ class HomeController extends Controller
 				'categories' => [
 					NETWORTH2_CATEGORY
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => ''
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
@@ -4051,11 +4131,21 @@ class HomeController extends Controller
 				'categories' => [
 					ADEQUATE_CATEGORY
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => ''
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
@@ -4158,11 +4248,21 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $profileCategory,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
@@ -4254,11 +4354,21 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $profileCategory1,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => ''
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
@@ -4330,11 +4440,21 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $profileCategory1,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ],
 				'stackLabels' => [
 		            'enabled' => 'true',
 		            'style' => [
@@ -4401,11 +4521,21 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $capitalCategory,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => ''
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
 				'layout' => 'horizontal', 'verticalAlign' => 'top',
@@ -4476,13 +4606,21 @@ class HomeController extends Controller
 				'categories' => $capitalCategory,
 				'type' => 'category',
 				'labels' => [
-            		'rotation' => '-45'
-            	]
+            		'rotation' => '-45',
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => ''
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ],
 				'stackLabels' => [
 		            'enabled' => 'true',
 		            'style' => [
@@ -4600,11 +4738,21 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $profileCategory1,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ],
 				'stackLabels' => [
 		            'enabled' => 'true',
 		            'style' => [
