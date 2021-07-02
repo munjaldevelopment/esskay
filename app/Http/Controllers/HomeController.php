@@ -221,7 +221,19 @@ class HomeController extends Controller
 						{
 							foreach($docCategoryChildData as $roww1)
 							{
-								$children[] = array('category_id' => $roww1->id, 'category_name' => $roww1->category_name);
+								$sub_children = array();
+
+								$docCategoryChildData1 = \DB::table('transaction_categories')->leftJoin('transaction_category_trustee', 'transaction_categories.id', '=', 'transaction_category_trustee.transaction_category_id')->where('parent_id', $roww1->id)->where('transaction_category_trustee.trustee_id',$trustee_id)->groupBy('transaction_category_trustee.transaction_category_id')->get();
+
+								if($docCategoryChildData1)
+								{
+									foreach($docCategoryChildData1 as $roww2)
+									{
+										$sub_children[] = array('category_id' => $roww2->id, 'category_name' => $roww2->category_name);
+									}
+								}
+
+								$children[] = array('category_id' => $roww1->id, 'category_name' => $roww1->category_name, 'children' => $sub_children);
 							}
 						}
 
