@@ -278,6 +278,8 @@ Route::group([
     Route::crud('asset_quality4', 'AssetQuality4CrudController');
 
     Route::crud('committee', 'CommitteeCrudController');
+    Route::crud('organisation_structure', 'OrganisationStructureCrudController');
+    Route::crud('hierarchy_structure', 'HierarchyStructureCrudController');
     //Route::crud('relevant_party', 'RelevantPartyCrudController');
     //Route::crud('pool_dynamic', 'PoolDynamicCrudController');
 

@@ -70,6 +70,9 @@
 	$list_district = backpack_user()->hasPermissionTo('list_district');
 	$list_committee = backpack_user()->hasPermissionTo('list_committee');
 
+	$list_organisation_structures = backpack_user()->hasPermissionTo('list_organisation_structures');
+	$list_hierarchy_structures = backpack_user()->hasPermissionTo('list_hierarchy_structures');
+
 	$list_transaction = backpack_user()->hasPermissionTo('list_transaction');
 	$list_accept_transaction = backpack_user()->hasPermissionTo('list_accept_transaction');
 	$list_reject_transaction = backpack_user()->hasPermissionTo('list_reject_transaction');
@@ -87,7 +90,7 @@
 @endphp
 {{-- <li class='nav-item'><a class='nav-link' href='{{ backpack_url('backup') }}'><i class='nav-icon la la-hdd-o'></i> Backups</a></li> --}}
 @php
-	if($list_lender_type || $list_trustee_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category || $list_transaction_document_type || $list_transaction_category || $list_state || $list_district || $list_committee):
+	if($list_lender_type || $list_trustee_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category || $list_transaction_document_type || $list_transaction_category || $list_state || $list_district || $list_committee || $list_organisation_structures || $list_hierarchy_structures):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Master</a>
@@ -160,6 +163,18 @@
 			if($list_committee):
 		@endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('committee') }}'><i class='nav-icon la la-user'></i> Committee</a></li>
+		@php
+			endif;
+
+			if($list_organisation_structures):
+		@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('organisation_structure') }}'><i class='nav-icon la la-user'></i> Organisation Structure</a></li>
+		@php
+			endif;
+
+			if($list_hierarchy_structures):
+		@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('hierarchy_structure') }}'><i class='nav-icon la la-user'></i> Hierarchy Structure</a></li>
 		@php
 			endif;
 		@endphp
