@@ -26,6 +26,11 @@ class InsightLocationRequest extends FormRequest
     public function rules()
     {
         return [
+            'district_id' => 'required',
+            'location_hub' => 'required',
+            'branch_name' => 'required',
+            'branch_type' => 'required',
+            'branch_address' => 'required'
             // 'name' => 'required|min:5|max:255'
         ];
     }

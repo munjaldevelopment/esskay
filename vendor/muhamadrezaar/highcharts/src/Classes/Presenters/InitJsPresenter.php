@@ -25,15 +25,15 @@ class InitJsPresenter
         }
 
         if ($this->seriesLabel == true) {
-            $this->seriesLabel = '<script src="public/assets/js/series-label.js"></script>';
+            $this->seriesLabel = '<script src="//code.highcharts.com/modules/series-label.js"></script>';
         }
 
         if ($this->exporting == true) {
-            $this->exporting = '<script src="public/assets/js/exporting.js"></script>';
+            $this->exporting = '<script src="https://code.highcharts.com/modules/exporting.js"></script>';
         }
 
         if ($this->exportData == true) {
-            $this->exportData = '<script src="public/assets/js/export-data.js"></script>';
+            $this->exportData = '<script src="https://code.highcharts.com/modules/export-data.js"></script>';
         }
 
         if ($this->init !== false) {

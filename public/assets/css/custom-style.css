@@ -250,7 +250,7 @@
 }
 .mtb-inner-category .item a {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 700;
     color: #767676;
     background: #fff;
     border-radius: 10px;
@@ -387,9 +387,11 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
-
-
 }
+
+.mtdd-operation-img {
+}
+
 .mtdd-doc-cont p {
 	color: #515151;
 	font-size: 12px;
@@ -671,17 +673,17 @@
 .custom-table-area .table-responsive table.table thead tr th, .custom-table-area .table-responsive table.table tbody tr td {
 	color: #767676;
 	font-size: 14px;
-	font-weight: 400;
+	font-weight: 700;
 	padding: 12px 10px;
 }
 
 .custom-table-area .table-responsive table.table tfoot tr th, .custom-table-area .table-responsive table.table tfoot tr td {
-	color: #767676;
+	color: #333333;
 	font-size: 14px;
-	font-weight: 400;
 	padding: 12px 10px;
 	font-weight: 700;
 }
+
 .custom-table-area tbody tr {
 	background: #fff;
 	box-shadow: 0px 0px 8px rgb(132 174 238 / 24%);
@@ -788,7 +790,7 @@
     font-weight: 500;
     font-size: 13px;
     color: #767676;
-    padding: 11px 21px;
+    padding: 9px 21px;
 }
 
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item:hover {
@@ -881,6 +883,7 @@
     vertical-align: middle;
     padding: 13px 15px;
     line-height: 30px;
+    font-weight: 700;
 }
 
 .white-box.outstanding-box .custom-table-area .table-responsive table.table thead tr th.border-bottom {
@@ -1558,6 +1561,16 @@
     transform: translateX(-50%);
 }
 
+.operation-highlight-cont.operation-highlight-cont-first::before {
+    position: absolute;
+    background: none;
+    width: 186px;
+    height: 700px;
+    content: "";
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .ohb-highlights-box {
     position: relative;
     height: 168px;
@@ -1632,15 +1645,23 @@
     color: #1976D2;
 }
 
+.operation-highlights-area .operation-highlight-year {
+    width: 100%;
+}
+
 .operation-highlights-area.operation-single-highlighs .operation-highlight-year {
     width: 227%;
+}
+
+.operation-highlights-area.operation-single-highlighs-middle .operation-highlight-year {
+    width: 100%;
 }
 
 .ohbh-box-insight-right {
 	right: -5px;
 	top: 50%;
 	transform: translateY(-50%);
-	width: 50%;
+	width: 90%;
 	float: left;
 	color: #1976D2;
 	text-align: right;
@@ -1673,16 +1694,24 @@
 }
 
 .ohbh-mid-heading {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 700;
     color: #1976D2;
 }
 
 .ohbh-mid-result {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 700;
     color: #1976D2;
     margin-top: 1px;
+}
+
+.ohbh-mid-result i.color-red {
+	color: #CC0000;
+}
+
+.ohbh-mid-result i.color-green {
+	color: #00CC00;
 }
 
 .operation-highlight-year {
@@ -1691,6 +1720,10 @@
     font-size: 16px;
     margin: 23px 0;
     font-weight: 700;
+}
+
+.operation-highlights-area.operation-single-highlighs-middle {
+    margin-left: -92px;
 }
 
 .operation-highlights-area {
@@ -1712,6 +1745,18 @@
 
 .operation-highlights-area.operation-single-highlighs .ohb-highlights-box .ohbh-box-right {
     right: -118px;
+}
+
+.operation-highlights-area.operation-single-highlighs-middle .ohb-highlights-box {
+    /*width: 76px;*/
+}
+
+.operation-highlights-area.operation-single-highlighs-middle .ohb-highlights-box .ohbh-box-mid {
+    /*left: -13px;*/
+}
+
+.operation-highlights-area.operation-single-highlighs-middle .ohb-highlights-box .ohbh-box-right {
+    
 }
 
 .operation-highlight-cont .ohb-highlights-box:nth-child(2n+0) .ohbh-box-left {
@@ -2525,6 +2570,10 @@ a.fxt-btn-fill.float-right {
 .operation-highlights-area.operation-single-highlighs .ohbh-box-insight-right {
     width: 46%;
 }	
+
+.operation-highlights-area.operation-single-highlighs-middle .ohbh-box-insight-right {
+    width: 46%;
+}
 	
 a.fxt-btn-fill.float-right {
     position: relative;
@@ -2554,6 +2603,14 @@ a.fxt-btn-fill.float-right {
 }	
 	
 .operation-highlights-area.operation-single-highlighs .operation-highlight-year {
+    width: 322px;
+}
+
+.operation-highlights-area.operation-single-highlighs-middle {
+    margin-left: 0;
+}	
+	
+.operation-highlights-area.operation-single-highlighs-middle .operation-highlight-year {
     width: 322px;
 }
 	
@@ -2594,7 +2651,12 @@ a.fxt-btn-fill.float-right {
 .operation-highlights-area.operation-single-highlighs .ohb-highlights-box {
     width: 124px;
     margin: 0 auto;
-}	
+}
+
+.operation-highlights-area.operation-single-highlighs-middle .ohb-highlights-box {
+    width: 124px;
+    margin: 0 auto;
+}
 	
 /*.operation-highlights-area.operation-single-highlighs .ohbh-box-insight-left {
     display: none;
@@ -2745,6 +2807,14 @@ a.fxt-btn-fill.float-right {
 	
 .operation-highlights-area.operation-single-highlighs .ohb-highlights-box .ohbh-box-right {
     right: -52px;
+}
+
+.operation-highlights-area.operation-single-highlighs-right .ohb-highlights-box .ohbh-box-mid {
+    left: 0;
+}
+	
+.operation-highlights-area.operation-single-highlighs-right .ohb-highlights-box .ohbh-box-right {
+    right: -52px;
 }	
 	
 .deal-list-area .well.well-sm .btn-group {
@@ -2815,24 +2885,22 @@ a.fxt-btn-fill.float-right {
 }
 
 @media only screen and (max-width: 400px) {
-.operation-highlight-year, .operation-highlights-area.operation-single-highlighs .operation-highlight-year {
-    width: 260px;
-}	
-	
-.ohbh-box-insight-left {
-    width: 33%;
-    padding-left: 0px;
-}	
-	
-.ohbh-box-insight-right {
-    width: 58%;
-}	
-	
-.operation-highlights-area.operation-single-highlighs .ohbh-box-insight-right {
-    width: 55%;
-}	
-	
-	
+	.operation-highlight-year, .operation-highlights-area.operation-single-highlighs-middle .operation-highlight-year, .operation-highlights-area.operation-single-highlighs .operation-highlight-year {
+	    width: 260px;
+	}	
+		
+	.ohbh-box-insight-left {
+	    width: 33%;
+	    padding-left: 0px;
+	}	
+		
+	.ohbh-box-insight-right {
+	    width: 58%;
+	}	
+		
+	.operation-highlights-area.operation-single-highlighs .ohbh-box-insight-right, .operation-highlights-area.operation-single-highlighs-middle .ohbh-box-insight-right {
+	    width: 55%;
+	}
 }
 
 @media only screen and (max-width: 320px) {
@@ -2928,6 +2996,32 @@ a.fxt-btn-fill.float-right {
   }
 }
 
+.mtd-inner .side-menu nav.navbar .side-menu-container .navbar-nav li .panel-collapse {
+    max-height: calc(100vh - 293px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+table.dataTable thead th, table.dataTable thead td {
+	line-height: 20px;
+}
+
+.unlisted-bullet ul {
+	padding-left: 15px;
+}
+
+table.dataTable th {
+    color: #333333;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+table.dataTable td {
+    color: #767676;
+    font-size: 14px;
+    font-weight: 700;
+}
+
 /*p.tab-spacing {
 	color: #767676;
     font-weight: 500;
@@ -2976,4 +3070,90 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
     color: #fff;
     border-radius: 10px;
 }*/
+
+.tab-top-area .nav li.nav-item ul {
+    margin: 0;
+    padding: 0;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.active a {
+    color: #fff;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item:hover a {
+    color: #fff;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item a {
+    display: inline-block;
+    width: 100%;
+    padding: 0;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item a:hover {
+    text-decoration: initial;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu {
+    position: relative;
+    cursor: pointer;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu ul {
+    position: absolute;
+    right: -144px;
+    margin: 0;
+    width: 144px;
+    padding: 0;
+    display: none;
+    top: 0;
+    list-style-type: none;
+    box-shadow: 0px 6px 8px rgb(0 0 0 / 10%);
+    background: #fff;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu ul li ul {
+	top: 0px;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu:hover ul {
+    display: block;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu span {
+    padding: 9px 21px;
+    display: inline-block;
+    width: 100%;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu ul li a {
+    color: #767676;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 9px 21px;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu ul li a:hover {
+	color: #FFFFFF;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu li {
+    position: relative;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu:hover ul .sub-menu-2 ul {
+    display: none;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu:hover ul .sub-menu-2:hover ul {
+    display: block;
+}
+
+
+
+
+
+
+
 

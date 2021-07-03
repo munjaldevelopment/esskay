@@ -35,6 +35,13 @@ class TransactionCategory extends Model
         return $this->belongsToMany('App\Models\Trustee', 'transaction_category_trustee');
     }
 
+    public function lenders()
+    {
+        return $this->belongsToMany('App\Models\Lender', 'transaction_category_lender');
+    }
+
+    
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

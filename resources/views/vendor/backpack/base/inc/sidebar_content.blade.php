@@ -44,6 +44,12 @@
 
 	$list_insight_location = backpack_user()->hasPermissionTo('list_insight_location');
 
+	$list_asset_quality1 = backpack_user()->hasPermissionTo('list_asset_quality1');
+	$list_asset_quality2 = backpack_user()->hasPermissionTo('list_asset_quality2');
+	$list_asset_quality3 = backpack_user()->hasPermissionTo('list_asset_quality3');
+	$list_asset_quality4 = backpack_user()->hasPermissionTo('list_asset_quality4');
+
+
 	$list_email_sms = backpack_user()->hasPermissionTo('list_email_sms');
 	$list_lender = backpack_user()->hasPermissionTo('list_lender');
 	$maker_banking_arrangment = backpack_user()->hasPermissionTo('maker_banking_arrangment');
@@ -60,12 +66,19 @@
 	
 	$list_trustee = backpack_user()->hasPermissionTo('list_trustee');
 	$list_transaction_category = backpack_user()->hasPermissionTo('list_transaction_category');
+	$list_state = backpack_user()->hasPermissionTo('list_state');
+	$list_district = backpack_user()->hasPermissionTo('list_district');
+	$list_committee = backpack_user()->hasPermissionTo('list_committee');
+
+	$list_organisation_structures = backpack_user()->hasPermissionTo('list_organisation_structures');
+	$list_hierarchy_structures = backpack_user()->hasPermissionTo('list_hierarchy_structures');
 
 	$list_transaction = backpack_user()->hasPermissionTo('list_transaction');
 	$list_accept_transaction = backpack_user()->hasPermissionTo('list_accept_transaction');
 	$list_reject_transaction = backpack_user()->hasPermissionTo('list_reject_transaction');
 
 	$list_transaction_document = backpack_user()->hasPermissionTo('list_transaction_document');
+	$list_relevant_parties = backpack_user()->hasPermissionTo('list_relevant_parties');
 	$list_accept_transaction_document = backpack_user()->hasPermissionTo('list_accept_transaction_document');
 	$list_reject_transaction_document = backpack_user()->hasPermissionTo('list_reject_transaction_document');
 
@@ -77,9 +90,8 @@
 	endif;
 @endphp
 {{-- <li class='nav-item'><a class='nav-link' href='{{ backpack_url('backup') }}'><i class='nav-icon la la-hdd-o'></i> Backups</a></li> --}}
-
 @php
-	if($list_lender_type || $list_trustee_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category || $list_transaction_document_type || $list_transaction_category):
+	if($list_lender_type || $list_trustee_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category || $list_transaction_document_type || $list_transaction_category || $list_state || $list_district || $list_committee || $list_organisation_structures || $list_hierarchy_structures):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Master</a>
@@ -136,6 +148,36 @@
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction_category') }}'><i class='nav-icon la la-user'></i> Trans. Category</a></li>
 		@php
 			endif;
+
+			if($list_state):
+		@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('state') }}'><i class='nav-icon la la-user'></i> State</a></li>
+		@php
+			endif;
+
+			if($list_district):
+		@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('district') }}'><i class='nav-icon la la-user'></i> District</a></li>
+		@php
+			endif;
+
+			if($list_committee):
+		@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('committee') }}'><i class='nav-icon la la-user'></i> Committee</a></li>
+		@php
+			endif;
+
+			if($list_organisation_structures):
+		@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('organisation_structure') }}'><i class='nav-icon la la-user'></i> Organisation Structure</a></li>
+		@php
+			endif;
+
+			if($list_hierarchy_structures):
+		@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('hierarchy_structure') }}'><i class='nav-icon la la-user'></i> Hierarchy Structure</a></li>
+		@php
+			endif;
 		@endphp
 	</ul>
 </li>
@@ -150,117 +192,158 @@
 @php
 	endif;
 
-	if($list_operational_highlight || $list_geographical_concentration || $list_product_concentration || $list_asset_quality || $list_collection_efficiency || $list_strong_liability_profile || $list_strong_liability_profile_table || $list_strong_liability_profile_ratio || $list_strong_liability_profile_driving || $list_strong_liability_profile_well_table || 	$list_strong_liability_profile_overall || $list_liability_profile_category || $list_liability_profile_slider || $list_covid_relief || $list_covid_relief_borrower || $list_insight_location):
+	if($list_operational_highlight || $list_geographical_concentration || $list_product_concentration || $list_asset_quality || $list_collection_efficiency || $list_strong_liability_profile || $list_strong_liability_profile_table || $list_strong_liability_profile_ratio || $list_strong_liability_profile_driving || $list_strong_liability_profile_well_table || 	$list_strong_liability_profile_overall || $list_liability_profile_category || $list_liability_profile_slider || $list_covid_relief || $list_covid_relief_borrower || $list_insight_location || $list_asset_quality1 || $list_asset_quality2 || $list_asset_quality3 || $list_asset_quality4):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Insight</a>
 	<ul class="nav-dropdown-items">
 		@php
 		if($list_operational_highlight):
+			$categoryData = \DB::table('insight_categories')->find(2);
 		@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('operational_highlight') }}'><i class='nav-icon la la-list'></i> Operational Highlight</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('operational_highlight') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }}</a></li>
 		@php
 			endif;
 			if($list_geographical_concentration):
+				$categoryData = \DB::table('insight_categories')->find(3);
 		@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('geographical_concentration') }}'><i class='nav-icon la la-list'></i> Graphical Con.</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('geographical_concentration') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} </a></li>
 		@php
 			endif;
 			if($list_product_concentration):
+				$categoryData = \DB::table('insight_categories')->find(4);
 		@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('product_concentration') }}'><i class='nav-icon la la-list'></i> Product Con.</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('product_concentration') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }}</a></li>
 		@php
 			endif;
 			if($list_asset_quality):
+				$categoryData = \DB::table('insight_categories')->find(5);
 		@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('asset_quality') }}'><i class='nav-icon la la-list'></i> Asset Quality</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('asset_quality') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }}</a></li>
 		@php
 			endif;
 			if($list_collection_efficiency):
+				$categoryData = \DB::table('insight_categories')->find(6);
 		@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('collection_efficiency') }}'><i class='nav-icon la la-list'></i> Collection Efficiency</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('collection_efficiency') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }}</a></li>
 		@php
 			endif;
 			if($list_net_worth):
+				$categoryData = \DB::table('insight_categories')->find(8);
 		@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('net_worth') }}'><i class='nav-icon la la-list'></i> Net Worth</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('net_worth') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }}</a></li>
 		@php
 			endif;
 			if($list_net_worth_infusion):
+				$categoryData = \DB::table('insight_categories')->find(8);
 		@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('networth_infusion') }}'><i class='nav-icon la la-list'></i> Net Worth Infusions</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('networth_infusion') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Infusions</a></li>
 		@php
 			endif;
 			if($list_liquidity):
+				$categoryData = \DB::table('insight_categories')->find(9);
 	@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liquidity') }}'><i class='nav-icon la la-list'></i> Liquidity</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liquidity') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }}</a></li>
 	@php
 			endif;
 
 			if($list_strong_liability_profile):
+				$categoryData = \DB::table('insight_categories')->find(10);
 	@endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofile') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofile') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }}</a></li>
 	@php
 			endif;
 
 	 		if($list_strong_liability_profile_table):
+	 			$categoryData = \DB::table('insight_categories')->find(10);
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofiletable') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile Table</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofiletable') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Table</a></li>
 	@php
 			endif;
 
 			if($list_strong_liability_profile_ratio):
+				$categoryData = \DB::table('insight_categories')->find(10);
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileratio') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile Ratios</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileratio') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Ratios</a></li>
 	@php
 			endif;
 
 			if($list_strong_liability_profile_driving):
+				$categoryData = \DB::table('insight_categories')->find(10);
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofiledriving') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile Driving</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofiledriving') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Driving</a></li>
 	@php
 			endif;
 
 			if($list_strong_liability_profile_well_table):
+				$categoryData = \DB::table('insight_categories')->find(11);
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofilewelltable') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile WellTables</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofilewelltable') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} WellTables</a></li>
 	@php
 			endif;
 
 			if($list_strong_liability_profile_overall):
+				$categoryData = \DB::table('insight_categories')->find(10);
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileoverall') }}'><i class='nav-icon la la-list'></i> Strong Liability Profile Overall</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('strongliabilityprofileoverall') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Overall</a></li>
 	@php
 			endif;
 
 			if($list_liability_profile_category):
+				$categoryData = \DB::table('insight_categories')->find(10);
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liabilityprofilecategory') }}'><i class='nav-icon la la-list'></i> Liabity Profile Categories</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liabilityprofilecategory') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Categories</a></li>
 	@php
 			endif;
 
 			if($list_liability_profile_slider):
+				$categoryData = \DB::table('insight_categories')->find(10);
 	@endphp
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liabilityprofileslider') }}'><i class='nav-icon la la-list'></i> Liabity Profile Sliders</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('liabilityprofileslider') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Sliders</a></li>
 	@php
 			endif;
 
 			if($list_covid_relief):
+				$categoryData = \DB::table('insight_categories')->find(12);
 @endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_lender') }}'><i class='nav-icon la la-list'></i> Covid Relief Lenders</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_lender') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Lenders</a></li>
 @php
 			endif;
 
 	if($list_covid_relief_borrower):
+				$categoryData = \DB::table('insight_categories')->find(12);
 @endphp
-			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_borrower') }}'><i class='nav-icon la la-list'></i> Covid Relief
- Borrowers</a></li>
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('covidrelief_borrower') }}'><i class='nav-icon la la-list'></i> {{ $categoryData->name }} Borrowers</a></li>
 @php
 			endif;
 
 			if($list_insight_location):
 @endphp
 			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('insight_location') }}'><i class='nav-icon la la-list'></i> Insight Location</a></li>
+@php
+			endif;
+
+			if($list_asset_quality1):
+@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('asset_quality1') }}'><i class='nav-icon la la-list'></i> Asset Quality1</a></li>
+@php
+			endif;
+
+			if($list_asset_quality2):
+@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('asset_quality2') }}'><i class='nav-icon la la-list'></i> Asset Quality2</a></li>
+@php
+			endif;
+
+			if($list_asset_quality3):
+@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('asset_quality3') }}'><i class='nav-icon la la-list'></i> Asset Quality3</a></li>
+@php
+			endif;
+
+			if($list_asset_quality4):
+@endphp
+			<li class='nav-item'><a class='nav-link' href='{{ backpack_url('asset_quality4') }}'><i class='nav-icon la la-list'></i> Asset Quality4</a></li>
 @php
 			endif;
 		@endphp
@@ -365,7 +448,7 @@
 @php
 	endif;
 
-	if($list_trustee || $list_transaction || $list_accept_transaction || $list_reject_transaction || $list_transaction_document || $list_accept_transaction_document || $list_reject_transaction_document):
+	if($list_trustee || $list_transaction || $list_accept_transaction || $list_reject_transaction || $list_transaction_document || $list_relevant_parties || $list_accept_transaction_document || $list_reject_transaction_document):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Trustee</a>
@@ -410,6 +493,12 @@
 	if($list_reject_transaction_document):
 @endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_transaction_document') }}'><i class='nav-icon la la-times'></i> Rejected Transaction Document</a></li>
+@php
+	endif;
+
+	if($list_relevant_parties):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction_relevant_party') }}'><i class='nav-icon la la-list'></i> Relevant Party</a></li>
 @php
 	endif;
 @endphp

@@ -146,20 +146,20 @@ ul.breadcrumb li {
     color: #7b7b7bd9;
 }
 .table td {
-    font-weight: 600;
+    /*font-weight: 600;*/
     font-size: 12px;
     border:none;
 }
 .table thead th {
-    border: none !important;
+    /*border: none !important;*/
     font-weight: 400;
     font-size: 12px;
     font-style: normal;
-    height: 10px;
-    line-height: 0px;
+    /*height: 10px;
+    line-height: 0px;*/
 }
 .table td{
-  border:none !important;
+    /*border:none !important;*/
 }
 #panel {
     padding: 0px;
@@ -437,6 +437,16 @@ ul.navbar-nav.ml-auto.nav-custome li a.nav-link.dropdown-toggle {
 
 .mtdd-doc-img i.fa-file-excel-o {
   color: green;
+}
+
+.mtdd-operation-img i.fa-file-excel-o {
+  color: green;
+}
+
+.operational-amount {
+    font-size: 12px;
+    margin-bottom: 10px;
+    float: right;
 }
 
 .notifiation-icon1 i {

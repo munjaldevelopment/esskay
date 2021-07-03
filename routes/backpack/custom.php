@@ -271,4 +271,18 @@ Route::group([
     Route::crud('liabilityprofilecategory', 'LiabilityProfileCategoryCrudController');
     Route::crud('liabilityprofileslider', 'LiabilityProfileSliderCrudController');
     Route::crud('insight_location', 'InsightLocationCrudController');
+
+    Route::crud('asset_quality1', 'AssetQuality1CrudController');
+    Route::crud('asset_quality2', 'AssetQuality2CrudController');
+    Route::crud('asset_quality3', 'AssetQuality3CrudController');
+    Route::crud('asset_quality4', 'AssetQuality4CrudController');
+
+    Route::crud('committee', 'CommitteeCrudController');
+    Route::crud('organisation_structure', 'OrganisationStructureCrudController');
+    Route::crud('hierarchy_structure', 'HierarchyStructureCrudController');
+    Route::crud('transaction_relevant_party', 'TransactionRelevantPartyCrudController');
+    //Route::crud('pool_dynamic', 'PoolDynamicCrudController');
+
+    Route::crud('state', 'StateCrudController');
+    Route::crud('district', 'DistrictCrudController');
 }); // this should be the absolute last line of this file

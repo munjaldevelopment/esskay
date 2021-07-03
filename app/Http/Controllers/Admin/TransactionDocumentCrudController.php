@@ -216,7 +216,8 @@ class TransactionDocumentCrudController extends CrudController
                     'tab' => 'General'
                     ]);
 
-            $documentType = array('' => 'Select', 'Executed Report' => 'Executed Report', 'Monthly Payout Report' => 'Monthly Payout Report', 'Collection efficiency' => 'Collection efficiency', 'Pool Dynamics' => 'Pool Dynamics');
+            $documentType = array('' => 'Select', 'Executed Report' => 'Executed Report', 'Monthly Payout Report' => 'Monthly Payout Report', 'Collection efficiency' => 'Collection efficiency', 'Pool Dynamics' => 'Pool Dynamics', 'Charge Creation' =>  'Charge Creation / Modification CHG-9', 'Satisfaction of Charge' => 'Satisfaction of Charge CHG-4', 'Charge Creation1' => 'Charge Creation / Modification CHG-1');
+            
             $this->crud->addField([
                                     'name' => 'document_type',
                                     'label' => 'Document Type',
@@ -225,7 +226,7 @@ class TransactionDocumentCrudController extends CrudController
                                     'tab' => 'General',
                                     'attributes' => [
                                         'id' => 'document_type',
-                                        'onchange' => 'getTransDocType(this.value);'
+                                        //'onchange' => 'getTransDocType(this.value);'
                                     ]
                                 ]);
 
@@ -271,7 +272,9 @@ class TransactionDocumentCrudController extends CrudController
                                 ]);
                                 
             $document_date = array('' => 'Select');
-            for($count=date('Y');$count>=2015;$count--)
+            $year = date('Y') + 1;
+
+            for($count=$year;$count>=2015;$count--)
             {
                 $document_date[$count] = $count;
             }
@@ -334,6 +337,17 @@ class TransactionDocumentCrudController extends CrudController
 
 
             $this->crud->addField([
+                    'label'     => 'Lender',
+                    'type'      => 'relationship',
+                    'name'      => 'lenders',
+                    'entity'    => 'lenders', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+                    
+                    'tab' => 'Lender'
+                    ]);
+
+            $this->crud->addField([
                     'label'     => 'Trustee',
                     'type'      => 'relationship',
                     'name'      => 'trustees',
@@ -361,7 +375,7 @@ class TransactionDocumentCrudController extends CrudController
                     'tab' => 'General'
                     ]);
 
-            $documentType = array('' => 'Select', 'Executed Report' => 'Executed Report', 'Monthly Payout Report' => 'Monthly Payout Report', 'Collection efficiency' => 'Collection efficiency', 'Pool Dynamics' => 'Pool Dynamics');
+            $documentType = array('' => 'Select', 'Executed Report' => 'Executed Report', 'Monthly Payout Report' => 'Monthly Payout Report', 'Collection efficiency' => 'Collection efficiency', 'Pool Dynamics' => 'Pool Dynamics', 'Charge Creation' =>  'Charge Creation / Modification CHG-9', 'Satisfaction of Charge' => 'Satisfaction of Charge CHG-4', 'Charge Creation1' => 'Charge Creation / Modification CHG-1');
             $this->crud->addField([
                                     'name' => 'document_type',
                                     'label' => 'Document Type',
@@ -370,7 +384,7 @@ class TransactionDocumentCrudController extends CrudController
                                     'tab' => 'General',
                                     'attributes' => [
                                         'id' => 'document_type',
-                                        'onchange' => 'getTransDocType(this.value);'
+                                        //'onchange' => 'getTransDocType(this.value);'
                                     ]
                                 ]);
 
@@ -414,7 +428,9 @@ class TransactionDocumentCrudController extends CrudController
                                 ]);
                                 
             $document_date = array('' => 'Select');
-            for($count=date('Y');$count>=2015;$count--)
+
+            $year = date('Y') + 1;
+            for($count=$year;$count>=2015;$count--)
             {
                 $document_date[$count] = $count;
             }
@@ -475,6 +491,17 @@ class TransactionDocumentCrudController extends CrudController
                                     'tab' => 'General'
                                 ]);
 
+
+            $this->crud->addField([
+                    'label'     => 'Lender',
+                    'type'      => 'relationship',
+                    'name'      => 'lenders',
+                    'entity'    => 'lenders', //function name
+                    'attribute' => 'name', //name of fields in models table like districts
+                    'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+                    
+                    'tab' => 'Lender'
+                    ]);
 
             $this->crud->addField([
                     'label'     => 'Trustee',

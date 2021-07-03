@@ -52,6 +52,8 @@ class StrongLiabilityTableImport implements ToCollection, WithValidation, WithHe
 			$mar_20_lenders = $row['mar_20_lenders'];
 			$nov_20_amount = $row['nov_20_amount'];
 			$nov_20_lenders = $row['nov_20_lenders'];
+			$mar_21_amount = $row['mar_21_amount'];
+			$mar_21_lenders = $row['mar_21_lenders'];
 
 
 			$lenderBanking = new StrongLiabilityProfileTable;
@@ -68,6 +70,8 @@ class StrongLiabilityTableImport implements ToCollection, WithValidation, WithHe
 			$lenderBanking->amount5_lender = $mar_20_lenders;
 			$lenderBanking->amount6 = $nov_20_amount;
 			$lenderBanking->amount6_lender = $nov_20_lenders;
+			$lenderBanking->amount7 = $mar_21_amount;
+			$lenderBanking->amount7_lender = $mar_21_lenders;
 
 			$lenderBanking->strong_liability_table_status = ($row['status'] == "Yes" ? "1" : "0");
 			$lenderBanking->save();

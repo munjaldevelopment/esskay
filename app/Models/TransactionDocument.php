@@ -55,6 +55,11 @@ class TransactionDocument extends Model
     }
     
 
+    public function lenders()
+    {
+        return $this->belongsToMany('App\Models\Lender', 'transaction_document_lender');
+    }
+
     public function trustees()
     {
         return $this->belongsToMany('App\Models\Trustee', 'transaction_document_trustee');

@@ -151,7 +151,7 @@ class JsTransformerPresenter
         $allString = substr($allString, 0, -1);
         $allString = $this->replacer($allString);
         $generate = '<script type="text/javascript">';
-		$generate .= "Highcharts.setOptions({ colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4'] });";
+		$generate .= "Highcharts.setOptions({ lang: { thousandsSep: ','},  colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4'] });";
         $generate .= 'Highcharts.chart({'.$allString.'});';
         $generate .= '</script>';
 

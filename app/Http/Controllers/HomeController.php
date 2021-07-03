@@ -17,6 +17,7 @@ use App\Models\Setting;
 use App\Models\AnalyticsGraph;
 use App\Models\AnalyticsGraphDetail;
 use Jenssegers\Agent\Agent;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -204,7 +205,43 @@ class HomeController extends Controller
 				$trusteeCode = "";
 
 				// TO DO
-				$docCategoryData = \DB::table('transaction_categories')->leftJoin('transaction_category_trustee', 'transaction_categories.id', '=', 'transaction_category_trustee.transaction_category_id')->where('transaction_category_trustee.trustee_id',$trustee_id)->groupBy('transaction_category_trustee.transaction_category_id')->get();
+				$docCategoryRowData = \DB::table('transaction_categories')->leftJoin('transaction_category_trustee', 'transaction_categories.id', '=', 'transaction_category_trustee.transaction_category_id')->where('transaction_category_trustee.trustee_id',$trustee_id)->whereNull('parent_id')->groupBy('transaction_category_trustee.transaction_category_id')->get();
+
+				$docCategoryData = array();
+				if($docCategoryRowData)
+				{
+					foreach($docCategoryRowData as $roww)
+					{
+						// Check for child category
+						$children = array();
+
+						$docCategoryChildData = \DB::table('transaction_categories')->leftJoin('transaction_category_trustee', 'transaction_categories.id', '=', 'transaction_category_trustee.transaction_category_id')->where('parent_id', $roww->id)->where('transaction_category_trustee.trustee_id',$trustee_id)->groupBy('transaction_category_trustee.transaction_category_id')->get();
+
+						if($docCategoryChildData)
+						{
+							foreach($docCategoryChildData as $roww1)
+							{
+								$sub_children = array();
+
+								$docCategoryChildData1 = \DB::table('transaction_categories')->leftJoin('transaction_category_trustee', 'transaction_categories.id', '=', 'transaction_category_trustee.transaction_category_id')->where('parent_id', $roww1->id)->where('transaction_category_trustee.trustee_id',$trustee_id)->groupBy('transaction_category_trustee.transaction_category_id')->get();
+
+								if($docCategoryChildData1)
+								{
+									foreach($docCategoryChildData1 as $roww2)
+									{
+										$sub_children[] = array('category_id' => $roww2->id, 'category_name' => $roww2->category_name);
+									}
+								}
+
+								$children[] = array('category_id' => $roww1->id, 'category_name' => $roww1->category_name, 'children' => $sub_children);
+							}
+						}
+
+						$docCategoryData[] = array('category_id' => $roww->id, 'category_name' => $roww->category_name, 'children' => $children);
+					}
+				}
+
+				//dd($docCategoryData);
 
 				return view('ess-kay-trusee-home', ['customer_name' => $trustee_name, 'trusteeCode' => $trusteeCode, 'trusteeData' => $trusteeData, 'docCategoryData' => $docCategoryData, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
 			}
@@ -624,6 +661,7 @@ class HomeController extends Controller
 		->series(
 			[
 				[
+					'showInLegend' => 'false',
 					'name'  => 'Voting',
 					'data'  => [43934, 52503, 57177, 69658],
 					// 'color' => '#0c2959',
@@ -787,7 +825,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -808,7 +846,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -834,7 +872,7 @@ class HomeController extends Controller
 					{
 						$ext = "picture";
 					}
-					else if($ext == "xls" || $ext == "xlsx")
+					else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 					{
 						$ext = "excel";
 					}
@@ -855,7 +893,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -963,7 +1001,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -984,7 +1022,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -1010,7 +1048,7 @@ class HomeController extends Controller
 					{
 						$ext = "picture";
 					}
-					else if($ext == "xls" || $ext == "xlsx")
+					else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 					{
 						$ext = "excel";
 					}
@@ -1031,7 +1069,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -1422,13 +1460,15 @@ class HomeController extends Controller
         //dd($resultJson);
         $validator = Validator::make ( Input::all (), $rules, $messages );
 		if ($validator->fails ()) {
-			return Redirect::back ()->withErrors ( $validator, 'login' )->withInput ();
+			$json = ['message' => $validator, 'success' => 0];
+			return response()->json($json);
 		}
 		else
 		{
 			if ($resultJson->success != true) {
-				Session::flash ( 'message', "Please refresh the page and try login in again" );
-				return Redirect::back ();
+				$json = ['message' => "Please refresh the page and try login in again", 'success' => 0];
+
+				return response()->json($json);
 				
 			}
 			else
@@ -1469,7 +1509,13 @@ class HomeController extends Controller
 								'password' => $request->password
 							) )) {
 								$user = User::findOrFail($user_id);
-								
+
+								$t1 = Carbon::now();
+				                $t2 = Carbon::parse($user->user_otp_date);
+				                $diff = $t1->diff($t2);
+
+				                $days = $diff->days;
+												
 								if($user) {
 									// Find User ID
 
@@ -1481,44 +1527,117 @@ class HomeController extends Controller
 										if($modelRole->role_id == '4')
 										{
 											$is_model = 1;
-											session ( [
-												'esskay_name' => $checkRecord->email,
-												'esskay_user_id' => $user_id,
-												'esskay_verify' => '1',
-												'role_id' => $modelRole->role_id
-											] );
+
+											if($days >= 3)
+											{
+												session ( [
+													'login_phone_number' => $checkRecord->phone,
+													'esskay_name' => $checkRecord->email,
+													'esskay_user_id' => $user_id,
+													//'esskay_verify' => '1',
+													'role_id' => $modelRole->role_id
+												] );
+											}
+											else
+											{
+												session ( [
+													'login_phone_number' => $checkRecord->phone,
+													'esskay_name' => $checkRecord->email,
+													'esskay_user_id' => $user_id,
+													'esskay_verify' => '1',
+													'role_id' => $modelRole->role_id
+												] );
+											}
 										}
 										else if($modelRole->role_id == '11')
 										{
 											$is_model = 1;
-											session ( [
-												'esskay_trustee_name' => $checkRecord->email,
-												'esskay_trustee_user_id' => $user_id,
-												'esskay_trustee_verify' => '1',
-												'role_id' => $modelRole->role_id
-											] );
+
+											if($days >= 3)
+											{
+												session ( [
+													'login_phone_number' => $checkRecord->phone,
+													'esskay_trustee_name' => $checkRecord->email,
+													'esskay_trustee_user_id' => $user_id,
+													//'esskay_trustee_verify' => '1',
+													'role_id' => $modelRole->role_id
+												] );
+											}
+											else
+											{
+												session ( [
+													'login_phone_number' => $checkRecord->phone,
+													'esskay_trustee_name' => $checkRecord->email,
+													'esskay_trustee_user_id' => $user_id,
+													'esskay_trustee_verify' => '1',
+													'role_id' => $modelRole->role_id
+												] );
+											}
 										}
 
 										if($is_model == 1)
 										{
+											$sms_status = config('general.sms_status');
+					
+											if($sms_status && $days >= 3)
+											{
+												$message = str_replace(" ", "%20", "Dear ".$checkRecord->name.", please use this OTP ".$checkRecord->user_otp." to login");
+												
+												$request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$checkRecord->phone."&message=".$message."&sender=EssKay&route=4&country=0";
+												//$result = $this->getContent($request_url);
+												
+												
+												/*if($result['errno'] == 0)
+												{
+													\DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $checkRecord->phone, 'send_subject' => 'User OTP', 'send_message' => $message, 'is_deliver' => '1']);
+												} else {
+													Session::flash ( 'message', "Error in sending message. Please re-try" );
+													return Redirect::back ();
+												}*/
+
+												// Email
+												// Send Mail
+												$contactData = array('first_name' => $checkRecord->name, 'email' => $checkRecord->email, 'telephone' => $checkRecord->phone, 'user_otp' => $checkRecord->user_otp);
+												$tempUserData = array('email' => $checkRecord->email, 'name' => $checkRecord->name);
+												
+												Mail::send('emails.send_otp', $contactData, function ($message) use ($tempUserData) {
+													$message->to($tempUserData['email'])->subject("User OTP");
+													$message->cc('munjaldevelopment@gmail.com');
+													$message->cc('milan.khadiya@skfin.in');
+													$message->cc('communication@skfin.in');
+													$message->from('communication@skfin.in', 'Ess Kay Fincorp');
+												});
+											}
+
 											$user_login_attempt = 0;
 											$updateData = array('login_attempt' => $user_login_attempt, 'updated_at' => date('Y-m-d H:i:s'));
 												\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
 											
 											\DB::table('user_login')->insert(['user_id' => $user_id, 'user_ip' => $request->ip(), 'user_browser' => $browser." ".$version, 'device_type' => $device_type, 'login_type' => 'email', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
 
-											return redirect()->route('dashboard');
+											if($days >= 3)
+											{
+												$json = ['message' => "Logged-in successfully", 'redirect' => url('user_otp'), 'success' => 1];
+											}
+											else
+											{
+												$json = ['message' => "Logged-in successfully", 'redirect' => url('/'), 'success' => 1];	
+											}
+
+											return response()->json($json);
 										}
 										else
 										{
-											Session::flash ( 'message', "Something went wrong or you do not have permission to access this page." );
-											return Redirect::back ();
+											$json = ['message' => "Something went wrong or you do not have permission to access this page.", 'success' => 0];
+
+											return response()->json($json);
 										}
 									}
 									else
 									{
-										Session::flash ( 'message', "Something went wrong or you do not have permission to access this page." );
-										return Redirect::back ();
+										$json = ['message' => "Something went wrong or you do not have permission to access this page.", 'success' => 0];
+
+										return response()->json($json);
 									}
 								} else {
 
@@ -1533,35 +1652,40 @@ class HomeController extends Controller
 										$updateData = array('user_status' => $user_status, 'updated_at' => date('Y-m-d H:i:s'));
 										\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
 									}
-									
-									Session::flash ( 'message', "Invalid Credentials, Please try again." );
-									return Redirect::back ();
+
+									$json = ['message' => "Invalid Credentials, Please try again.", 'success' => 0];
+
+									return response()->json($json);
 								}
 							} else {
 									
-									$user_login_attempt = $checkRecord->login_attempt+1;
-									if($user_login_attempt < 4){
-										$email = $request->email;
+								$user_login_attempt = $checkRecord->login_attempt+1;
+								if($user_login_attempt < 4){
+									$email = $request->email;
 
-										\DB::table('user_login_attempt')->insert(['email' => $email, 'user_ip' => $request->ip(), 'user_browser' => $browser." ".$version, 'device_type' => $device_type, 'login_type' => 'email', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
-										$updateData = array('login_attempt' => $user_login_attempt, 'updated_at' => date('Y-m-d H:i:s'));
-										\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
-									}else{
-										$user_status = 0;
-										$updateData = array('user_status' => $user_status, 'updated_at' => date('Y-m-d H:i:s'));
-										\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
-									}
-								Session::flash ( 'message', "Invalid Credentials, Please try again." );
-								return Redirect::back ();
+									\DB::table('user_login_attempt')->insert(['email' => $email, 'user_ip' => $request->ip(), 'user_browser' => $browser." ".$version, 'device_type' => $device_type, 'login_type' => 'email', 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+									$updateData = array('login_attempt' => $user_login_attempt, 'updated_at' => date('Y-m-d H:i:s'));
+									\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
+								}else{
+									$user_status = 0;
+									$updateData = array('user_status' => $user_status, 'updated_at' => date('Y-m-d H:i:s'));
+									\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
+								}
+
+								$json = ['message' => "Invalid Credentials, Please try again.", 'success' => 0];
+
+								return response()->json($json);
 							}
 						} else {
-							Session::flash ( 'message', "Email not exists or not activated yet. Please try again." );
-							return Redirect::back ();
+							$json = ['message' => "Email not exists or not activated yet. Please try again.", 'success' => 0];
+
+							return response()->json($json);
 						}
 					}
 				}else{
-					Session::flash ( 'message', "Please fill all information and try again" );
-					return Redirect::back ();
+					$json = ['message' => "Please fill all information and try again", 'success' => 0];
+
+					return response()->json($json);
 				}
 			}
 		}
@@ -1586,7 +1710,7 @@ class HomeController extends Controller
 			if($checkRecord)
 			{
 				$user_otp = rand(111111, 999999);
-				$updateData = array('user_otp' => $user_otp, 'updated_at' => date('Y-m-d H:i:s'));
+				$updateData = array('user_otp' => $user_otp, 'user_otp_date' => date('Y-m-d'), 'updated_at' => date('Y-m-d H:i:s'));
 				\DB::table('users')->where(['id' => $checkRecord->id])->update($updateData);
 
 				$modelRole = \DB::table('model_has_roles')->where('model_id', $checkRecord->id)->first();
@@ -1809,6 +1933,7 @@ class HomeController extends Controller
 		return view('ess-kay-sanction-letter', ['sanctionData' => $sanctionData, 'lenderData' => $lenderData]);
 	}
 
+	// Lender
 	public function showInsight(Request $request)
     {
 		//dd($request->all());
@@ -1829,7 +1954,7 @@ class HomeController extends Controller
 		$covidReliefData = $covidReliefDataTotal = $covidReliefDataTotal1 = array();
 		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = array();
 
-		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = $chart7 = array();
+		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart511 = $chart512 = $chart51 = $chart52 = $chart6 = $chart7 = array();
 
 		if($request->category_id == 3)
 		{
@@ -1898,7 +2023,7 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22',//, 'FY23'
+					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21',//, 'FY22',//, 'FY23'
 				],
 			])
 			->yaxis([
@@ -1927,12 +2052,14 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Rajasthan',
-						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8], //, $raj_amount9
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7], //, , $raj_amount8 $raj_amount9
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Other States',
-						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8], // $other_amount9
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7], // , $other_amount8$other_amount9
 					],
 				]
 			)
@@ -2034,10 +2161,12 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Commercial Vehicle',
 						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Other Products',
 						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
 					],
@@ -2108,14 +2237,17 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Par 150',
 						'data'  => $assetData1,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Par 120',
 						'data'  => $assetData2,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Par 90',
 						'data'  => $assetData3,
 					],
@@ -2181,6 +2313,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Collection',
 						'data'  => $assetData1,
 					],
@@ -2227,6 +2360,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Collection',
 						'data'  => $assetData2,
 					],
@@ -2246,7 +2380,7 @@ class HomeController extends Controller
 			}
 
 			$chart51 = \Chart::title([
-				'text' => 'Net Worth',
+				'text' => '',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -2259,7 +2393,7 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
+				'categories' => ['FY17', 'FY18', 'FY19', 'FY20', 'FY21', 'H1FY21'],
 			])
 			->yaxis([
 				'title' => [
@@ -2283,6 +2417,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Net worth (In Cr.)',
 						'data'  => $assetData1,
 					],
@@ -2291,7 +2426,7 @@ class HomeController extends Controller
 			->display(0);
 
 			$chart52 = \Chart::title([
-				'text' => 'Net Worth',
+				'text' => '',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -2304,7 +2439,7 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
+				'categories' => ['FY17', 'FY18', 'FY19', 'FY20', 'FY21', 'H1FY21'],
 			])
 			->yaxis([
 				'title' => [
@@ -2328,6 +2463,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Debt / Net worth (In Times)',
 						'data'  => $assetData2,
 					],
@@ -2335,7 +2471,7 @@ class HomeController extends Controller
 			)
 			->display(0);
 
-			$netWorthData = \DB::table('net_worth_infusions')->where('net_worth_infusion_status', 1)->get();
+			$netWorthData = \DB::table('net_worth_infusions')->where('net_worth_infusion_status', 1)->orderBy('id', 'DESC')->get();
 			$netWorthData1 = \DB::table('net_worth')->where('net_worth_status', 1)->get();
 		}
 		else if($request->category_id == 9)
@@ -2403,6 +2539,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Adequate Liquidity',
 						'data'  => $liquidityData1,
 					],
@@ -2438,8 +2575,7 @@ class HomeController extends Controller
 
 		
 		$current_year = date('Y');
-		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
-
+		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart511' => $chart511, 'chart512' => $chart512, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
 			'covidReliefData' => $covidReliefData, 'covidReliefDataTotal' => $covidReliefDataTotal, 'covidReliefDataTotal1' => $covidReliefDataTotal1,
 			'covidRelief1Data' => $covidRelief1Data, 'covidRelief1DataTotal' => $covidRelief1DataTotal, 'covidRelief1DataTotal1' => $covidRelief1DataTotal1]);
 	}
@@ -2598,14 +2734,17 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories0,
 						'data'  => $categories2,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories01,
 						'data'  => $categories4,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories02,
 						'data'  => $categories6,
 					],
@@ -2682,15 +2821,18 @@ class HomeController extends Controller
 			])
 			->series(
 				[
-				[
+					[
+						'showInLegend' => 'false',
 						'name'  => $categories0,
 						'data'  => $categories2,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories01,
 						'data'  => $categories4,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories02,
 						'data'  => $categories6,
 					],
@@ -2769,14 +2911,17 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories0,
 						'data'  => $categories2,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories01,
 						'data'  => $categories4,
 					],
 					[
+						'showInLegend' => 'false',
 						'name'  => $categories02,
 						'data'  => $categories6,
 					],
@@ -2855,6 +3000,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Text',
 						'colorByPoint' => 'true',
 						'data'  => $categories2,
@@ -2933,6 +3079,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						'showInLegend' => 'false',
 						'name'  => 'Text',
 						'colorByPoint' => 'true',
 						'data'  => $categories2,
@@ -3185,8 +3332,11 @@ class HomeController extends Controller
 		return view('ess-kay-insight-trustee', ['parentCategoryData' => $parentCategoryData, 'lenderData' => $lenderData]);
 	}
 
+	// TRUSTEE INSIGHT
 	public function showInsightTrustee(Request $request)
     {
+    	Setting::assignSetting();
+
 		//dd($request->all());
 		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
     	//dd($trusteeData);
@@ -3201,7 +3351,7 @@ class HomeController extends Controller
 		$geographicalConData = $geographicalConTotalData = array();
 		$productConData = $productConTotalData = array();
 		$netWorthData = $netWorthData1 = $liquidityData = $liabilityProfileData = $liabilityProfile11Data = $liabilityProfileTableData = $liabilityProfileTable11Data = array();
-		$liabilityProfileDataTotal = $liquidityDataTotal = array();
+		$liabilityProfileDataTotal = $liquidityDataTotal = $topFiveLenders = array();
 
 		$covidReliefData = $covidReliefDataTotal = $covidReliefDataTotal1 = array();
 		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = $liabilityCategories = $liabilityCategoriesSlider = array();
@@ -3209,7 +3359,7 @@ class HomeController extends Controller
 		$insightLocationData = array();
 		$locationCount = 0;
 
-		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = $chart7 = $chart8 = $chart9 = $chart10 = array();
+		$chart511 = $chart512 = $chart1 = $chart2 = $chart3 = $chart31 = $chart32 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = $chart7 = $chart8 = $chart9 = $chart10 = array();
 
 		if($request->category_id == 3)
 		{
@@ -3266,7 +3416,7 @@ class HomeController extends Controller
 			}
 
 			$chart1 = \Chart::title([
-				'text' => 'Geographical Concentration',
+				'text' => ''//GEOGRAPHICAL_CONCENTRATION_HEADING
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3280,24 +3430,36 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22',//, 'FY23'
+					GEOGRAPHICAL_CONCENTRATION_CATEGORY
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
-			/*->legend([
-				'layout' => 'vertical',
-		        'align' => 'right',
-		        'verticalAlign' => 'middle'
-			])*/
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+					'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3307,12 +3469,14 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Rajasthan',
-						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8], //, $raj_amount9
+						
+						'name'  => GEOGRAPHICAL_CONCENTRATION_LABEL1,
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7], //, , $raj_amount8$raj_amount9
 					],
 					[
-						'name'  => 'Other States',
-						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8], //, $other_amount9
+						
+						'name'  => GEOGRAPHICAL_CONCENTRATION_LABEL2,
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7], //, , $other_amount8 $other_amount9
 					],
 				]
 			)
@@ -3371,7 +3535,7 @@ class HomeController extends Controller
 			}
 
 			$chart2 = \Chart::title([
-				'text' => 'Product Concentration',
+				'text' => ''//PRODUCT_CONCENTRATION_HEADING,
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3385,24 +3549,36 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22',//, 'FY23'
+					PRODUCT_CONCENTRATION_CATEGORY,//, 'FY22',//, 'FY23'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
-			/*->legend([
-				'layout' => 'vertical',
-		        'align' => 'right',
-		        'verticalAlign' => 'middle'
-			])*/
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3412,12 +3588,14 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Commercial Vehicle',
-						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8], //, $raj_amount9
+						
+						'name'  => PRODUCT_CONCENTRATION_LABEL1,
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7], //, , $raj_amount8 $raj_amount9
 					],
 					[
-						'name'  => 'Other Products',
-						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8], //, $other_amount9
+						
+						'name'  => PRODUCT_CONCENTRATION_LABEL2,
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7], //, , $other_amount8 $other_amount9
 					],
 				]
 			)
@@ -3444,7 +3622,7 @@ class HomeController extends Controller
 			}
 
 			$chart3 = \Chart::title([
-				'text' => 'Asset Quality',
+				'text' => ''//ASSETQUALITY_CONCENTRATION_HEADING,
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3458,23 +3636,36 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY14', 'FY15', 'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'
+					ASSETQUALITY_CONCENTRATION_CATEGORY
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3484,20 +3675,178 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Par 150',
+						
+						'name'  => ASSETQUALITY_CONCENTRATION_LABEL1,
 						'data'  => $assetData1,
 					],
 					[
-						'name'  => 'Par 120',
+						
+						'name'  => ASSETQUALITY_CONCENTRATION_LABEL2,
 						'data'  => $assetData2,
 					],
 					[
-						'name'  => 'Par 90',
+						
+						'name'  => ASSETQUALITY_CONCENTRATION_LABEL3,
 						'data'  => $assetData3,
 					],
 				]
 			)
 			->display(0);
+
+			$capitalCategory = $capitalData1 = $capitalData2 = $capitalData3 = array();
+
+			$assetConData1 = \DB::table('capital_infusion1')->where('capital_infusion_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$capitalCategory[] = $row->heading_graph1;
+					$capitalData1[] = (float)$row->amount_graph1;
+					$capitalData2[] = (float)$row->amount_graph2;
+					$capitalData3[] = (float)$row->amount_graph3;
+				}
+			}
+
+			$chart31 = \Chart::title([
+				'text' => ''//ASSETQUALITY_CONCENTRATION_HEADING,
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'third1_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF', '#FF0000', '#493313'
+			])
+			->xaxis([
+				'categories' => $capitalCategory,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						
+						'name'  => ASSETSQUALITY1_LABEL1,
+						'data'  => $capitalData1,
+					],
+					[
+						
+						'name'  => ASSETSQUALITY1_LABEL2,
+						'data'  => $capitalData2,
+					],
+					[
+						
+						'name'  => ASSETSQUALITY1_LABEL3,
+						'data'  => $capitalData3,
+					],
+				]
+			)
+			->display(1);
+
+			$capitalData1 = array();
+
+			$assetConData1 = \DB::table('capital_infusion2')->where('capital_infusion_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$capitalData1[] = (float)$row->amount_graph1;
+				}
+			}
+
+			$chart32 = \Chart::title([
+				'text' => ''
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'third2_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF', '#FF0000', '#493313'
+			])
+			->xaxis([
+				'categories' => $capitalCategory,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						//'showInLegend' => false,
+						'name'  => ASSETSQUALITY2_HEADING,
+						'data'  => $capitalData1,
+					],
+				]
+			)
+			->display(1);
 		}
 		else if($request->category_id == 6)
 		{
@@ -3517,7 +3866,7 @@ class HomeController extends Controller
 			}
 
 			$chart41 = \Chart::title([
-				'text' => 'Collection Efficiency (Including Pre-payment)',
+				'text' => ''//PORTFOLIOANALYSIS_HEADING
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3531,21 +3880,34 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $assetData11,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3555,7 +3917,8 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Collection',
+						
+						'name'  => PORTFOLIOANALYSIS_LABEL1,
 						'data'  => $assetData1,
 					],
 				]
@@ -3563,7 +3926,7 @@ class HomeController extends Controller
 			->display(0);
 
 			$chart42 = \Chart::title([
-				'text' => 'Collection Efficiency (Excluding Pre-payment)',
+				'text' => ''//PORTFOLIOANALYSIS1_HEADING
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3577,21 +3940,34 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $assetData21,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3601,7 +3977,8 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Collection',
+						
+						'name'  => PORTFOLIOANALYSIS1_LABEL1,
 						'data'  => $assetData2,
 					],
 				]
@@ -3620,7 +3997,7 @@ class HomeController extends Controller
 			}
 
 			$chart51 = \Chart::title([
-				'text' => 'Net Worth',
+				'text' => '',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3633,21 +4010,37 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
+				'categories' => [
+					NETWORTH1_CATEGORY
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => ''
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3657,7 +4050,8 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Net worth (In Cr.)',
+						
+						'name'  => NETWORTH1_LABEL1,
 						'data'  => $assetData1,
 					],
 				]
@@ -3665,7 +4059,7 @@ class HomeController extends Controller
 			->display(0);
 
 			$chart52 = \Chart::title([
-				'text' => 'Net Worth',
+				'text' => '',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3678,21 +4072,37 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'],
+				'categories' => [
+					NETWORTH2_CATEGORY
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => ''
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3702,14 +4112,15 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Debt / Net worth (In Times)',
+						
+						'name'  => NETWORTH2_LABEL1,
 						'data'  => $assetData2,
 					],
 				]
 			)
 			->display(0);
 
-			$netWorthData = \DB::table('net_worth_infusions')->where('net_worth_infusion_status', 1)->get();
+			$netWorthData = \DB::table('net_worth_infusions')->where('net_worth_infusion_status', 1)->orderBy('id', 'DESC')->get();
 			$netWorthData1 = \DB::table('net_worth')->where('net_worth_status', 1)->get();
 		}
 		else if($request->category_id == 9)
@@ -3740,7 +4151,7 @@ class HomeController extends Controller
 			}
 
 			$chart6 = \Chart::title([
-				'text' => 'Adequate Liquidity (In Cr.)',
+				'text' => '',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3753,21 +4164,37 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['Dec-18', 'Mar-19', 'Jun-19', 'Sep-19', 'Dec-19', 'Mar-20', 'Jun-20', 'Sep-20', 'Dec-20', 'Mar-21'],
+				'categories' => [
+					ADEQUATE_CATEGORY
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => ''
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3777,7 +4204,8 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Adequate Liquidity',
+						
+						'name'  => ADEQUATE_LABEL1,
 						'data'  => $liquidityData1,
 					],
 				]
@@ -3837,12 +4265,12 @@ class HomeController extends Controller
 
 					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
 
-					$liabilityProfileDataTotal = array((float)round($amount1, 2), (float)round($amount1_lender, 2), (float)round($amount2, 2), (float)round($amount2_lender, 2), (float)round($amount3, 2),  (float)round($amount3_lender, 2), (float)round($amount4, 2),  (float)round($amount4_lender, 2), (float)round($amount5, 2),  (float)round($amount5_lender, 2), (float)round($amount6, 2),  (float)round($amount6_lender, 2), (float)round($amount7_lender, 2));
+					$liabilityProfileDataTotal = array((float)round($amount1, 2), (float)round($amount1_lender, 2), (float)round($amount2, 2), (float)round($amount2_lender, 2), (float)round($amount3, 2),  (float)round($amount3_lender, 2), (float)round($amount4, 2),  (float)round($amount4_lender, 2), (float)round($amount5, 2),  (float)round($amount5_lender, 2), (float)round($amount6, 2),  (float)round($amount6_lender, 2), (float)round($amount7, 2), (float)round($amount7_lender, 2));
 				}
 			}
 
 			$chart7 = \Chart::title([
-				'text' => 'Diversified Lender Base And Access to different Pools of Capital (In Nos.)',
+				'text' => DIVERSIFIED_HEADING//'Diversified Lender Base And Access to different Pools of Capital',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -3856,20 +4284,35 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $profileCategory,
+				'crosshair' => 'true',
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
-					'text' => ''
+					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3879,23 +4322,28 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Bank/FI',
+						
+						'name'  => DIVERSIFIED_LABEL1,
 						'color' => '#11a9dc',
 						'data'  => $liabilityProfileData1,
 					],
 					[
-						'name'  => 'CME With MF',
+						
+						'name'  => DIVERSIFIED_LABEL2,
 						'color' => '#336699',
 						'data'  => $liabilityProfileData2,
 					],
 					[
-						'name'  => 'Others',
+						
+						'name'  => DIVERSIFIED_LABEL3,
 						'color' => '#25a7a4',
 						'data'  => $liabilityProfileData3,
 					],
 				]
 			)
 			->display(0);
+
+			$topFiveLenders = \DB::table('lenders')->where('is_onboard', 'Onboarded')->skip(0)->take(5)->get();
 
 			$liabilityCategories = \DB::table('liability_profile_categories')->where('status', '1')->get();
 
@@ -3943,20 +4391,34 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $profileCategory1,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => ''
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -3966,11 +4428,13 @@ class HomeController extends Controller
 			->series(
 				[
 					[
+						
 						'name'  => 'Branches',
 						'color' => '#336699',
 						'data'  => $liabilityProfileData11,
 					],
 					[
+						
 						'name'  => 'Employee Strength',
 						'color' => '#11a9dc',
 						'data'  => $liabilityProfileData12,
@@ -4000,7 +4464,7 @@ class HomeController extends Controller
 			
 
 			$chart10 = \Chart::title([
-				'text' => 'Driving down cost of borrowings',
+				'text' => DRIVINGDOWN_HEADING,//'Driving down cost of borrowings',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -4013,11 +4477,21 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $profileCategory1,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ],
 				'stackLabels' => [
 		            'enabled' => 'true',
 		            'style' => [
@@ -4026,14 +4500,17 @@ class HomeController extends Controller
 		        ]
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -4043,7 +4520,8 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Overall cost',
+						
+						'name'  => DRIVINGDOWN_LABEL1,//'Overall cost',
 						'color' => '#336699',
 						'data'  => $liabilityProfileData11,
 					]
@@ -4051,6 +4529,235 @@ class HomeController extends Controller
 			)
 			->display(1);
 
+			$capitalCategory = $capitalData1 = $capitalData2 = $capitalData3 = array();
+
+			$assetConData1 = \DB::table('capital_infusion3')->where('capital_infusion_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$capitalCategory[] = $row->heading_graph1;
+					$capitalData1[] = (float)$row->amount_graph1;
+					$capitalData2[] = (float)$row->amount_graph2;
+					$capitalData3[] = (float)$row->amount_graph3;
+				}
+			}
+
+			// Incremental
+			$chart511 = \Chart::title([
+				'text' => INCREMENTAL_HEADING
+			])
+			->chart([
+				'zoomType' => 'xy',
+				'renderTo' => 'fifth51_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF', '#FF0000', '#493313'
+			])
+			->xaxis([
+				'categories' => $capitalCategory,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->yaxis([
+				[
+					'labels' => [
+						'format' => '{value} cm',
+						'style' => [
+	                    	'fontWeight' => 'bold',
+	                    ]
+					],
+					'title' => [
+						'text' => INCREMENTAL_LABEL1
+					],
+					'opposite' => true
+				],
+				[
+					'gridLineWidth' => '0',
+					'title' => [
+						'text' => INCREMENTAL_LABEL2
+					],
+					'labels' => [
+						'format' => '{value} mm',
+						'style' => [
+	                    	'fontWeight' => 'bold',
+	                    ]
+					]
+				],
+				[
+					'gridLineWidth' => '0',
+					'title' => [
+						'text' => INCREMENTAL_LABEL3
+					],
+					'labels' => [
+						'format' => '{value} mb',
+						'style' => [
+	                    	'fontWeight' => 'bold',
+	                    ]
+					],
+					
+					'opposite' => true
+				]
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						
+						'name'  => INCREMENTAL_LABEL2,
+						'type' => 'line',
+						//'yAxis' => '0',
+						'data'  => $capitalData2,
+					],
+					[
+						
+						'name'  => INCREMENTAL_LABEL3,
+						'type' => 'spline',
+						//'yAxis' => '1',
+						'data'  => $capitalData3,
+					],
+					[
+						
+						'name'  => INCREMENTAL_LABEL1,
+						'type' => 'spline',
+						'data'  => $capitalData1,
+					]
+				]
+			)
+			->display(1);
+
+			$capitalCategory = $capitalData1 = $capitalData2 = $capitalData3 = array();
+
+			$assetConData1 = \DB::table('capital_infusion4')->where('capital_infusion_status', 1)->get();
+			$max = 0;
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$capitalCategory[] = $row->heading_graph1;
+					$capitalData1[] = (float)$row->amount_graph1;
+					$capitalData2[] = (float)$row->amount_graph2;
+
+					$max = max($row->amount_graph1, $row->amount_graph2);
+				}
+			}
+
+			$maxVal = $max + 1000;
+
+
+
+			$chart512 = \Chart::title([
+				'text' => ALMPROFILE_HEADING
+			])
+			->chart([
+				'type'     => 'column', // pie , columnt ect
+				'renderTo' => 'fifth52_chart', // render the chart into your div with id
+			])
+			->colors([
+				'#0c2959'
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->xaxis([
+				'categories' => $capitalCategory,
+				'type' => 'category',
+				'labels' => [
+            		'rotation' => '-45',
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->yaxis([
+				'max' => $maxVal,
+				'title' => [
+					'text' => ''
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ],
+				'stackLabels' => [
+		            'enabled' => 'true',
+		            'style' => [
+		                'fontWeight' => 'bold',
+		            ]
+		        ]
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						
+						'name'  => ALMPROFILE_LABEL1,
+						'color' => '#336699',
+						'data'  => $capitalData1,
+						'dataLabels' => [
+				            'enabled' => true,
+				            'rotation' => 270,
+				            'align' => 'right',
+				            'y' => -35 // 10 pixels down from the top
+						]
+					],
+					[
+						
+						'name'  => ALMPROFILE_LABEL2,
+						'color' => '#11a9dc',
+						'data'  => $capitalData2,
+						'dataLabels' => [
+				            'enabled' => true,
+				            'rotation' => 270,
+				            'align' => 'right',
+				            'y' => -35 // 10 pixels down from the top
+						]
+					]
+				]
+			)
+			->display(1);
+
+			
 			$assetConData2 = $liabilityProfileTable11Data = \DB::table('strong_liability_profile_well_table')->where('strong_liability_well_status', 1)->get();
 		}
 		else if($request->category_id == 12)
@@ -4099,7 +4806,7 @@ class HomeController extends Controller
 			}
 
 			$chart9 = \Chart::title([
-				'text' => 'Healthy CRAR',
+				'text' => ''//Healthy CRAR',
 			])
 			->chart([
 				'type'     => 'column', // pie , columnt ect
@@ -4112,11 +4819,21 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $profileCategory1,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ],
 				'stackLabels' => [
 		            'enabled' => 'true',
 		            'style' => [
@@ -4125,18 +4842,17 @@ class HomeController extends Controller
 		        ]
 			])
 			->legend([
-				'align' => 'right',
-		        'x' => '-30',
-		        'verticalAlign' => 'top',
-		        'y' => '25',
-		        'floating' => 'true',
-		        'shadow' => 'false'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
-				'column'        => ([
-					'stacking' => 'normal',
+				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -4146,12 +4862,14 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => 'Tier1',
+						
+						'name'  => HEALTHYCRAR_LABEL1,//'Tier1',
 						'color' => '#336699',
 						'data'  => $liabilityProfileData11,
 					],
 					[
-						'name'  => 'Tier2',
+						
+						'name'  => HEALTHYCRAR_LABEL2,//'Tier2',
 						'color' => '#11a9dc',
 						'data'  => $liabilityProfileData12,
 					],
@@ -4161,14 +4879,14 @@ class HomeController extends Controller
 		}
 		else if($request->category_id == 14)
 		{
-			$insightLocationData = \DB::table('insight_locations')->where('status', 1)->get();
+			$insightLocationData = \DB::table('insight_locations')->leftJoin('districts', 'insight_locations.district_id', '=', 'districts.id')->leftJoin('states', 'districts.state_id', '=', 'states.id')->where('insight_locations.status', 1)->selectRaw('location_hub, branch_name, branch_type, branch_address, office_lat, office_long, insight_locations.lft, states.name as state_name, districts.name as district_name')->get();
 		}
 
 		//dd($liabilityProfileDataTotal);
 
 		
 		$current_year = date('Y');
-		return view('insight-listing-trustee', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'chart7' => $chart7, 'chart8' => $chart8, 'chart9' => $chart9, 'chart10' => $chart10, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
+		return view('insight-listing-trustee', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart31' => $chart31, 'chart32' => $chart32, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart511' => $chart511, 'chart512' => $chart512, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'chart7' => $chart7, 'chart8' => $chart8, 'chart9' => $chart9, 'chart10' => $chart10, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
 
 			'insightLocationData' => $insightLocationData,
 			'liabilityCategories' => $liabilityCategories,
@@ -4178,6 +4896,7 @@ class HomeController extends Controller
 			'liabilityProfileTableData' => $liabilityProfileTableData,
 			'liabilityProfileTable11Data' => $liabilityProfileTable11Data,
 			'liabilityProfileDataTotal' => $liabilityProfileDataTotal,
+			'topFiveLenders' => $topFiveLenders,
 
 			'covidReliefData' => $covidReliefData, 'covidReliefDataTotal' => $covidReliefDataTotal, 'covidReliefDataTotal1' => $covidReliefDataTotal1,
 			'covidRelief1Data' => $covidRelief1Data, 'covidRelief1DataTotal' => $covidRelief1DataTotal, 'covidRelief1DataTotal1' => $covidRelief1DataTotal1]);
@@ -4535,7 +5254,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -4556,7 +5275,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -4582,7 +5301,7 @@ class HomeController extends Controller
 					{
 						$ext = "picture";
 					}
-					else if($ext == "xls" || $ext == "xlsx")
+					else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 					{
 						$ext = "excel";
 					}
@@ -4603,7 +5322,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -4711,7 +5430,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -4732,7 +5451,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -4758,7 +5477,7 @@ class HomeController extends Controller
 					{
 						$ext = "picture";
 					}
-					else if($ext == "xls" || $ext == "xlsx")
+					else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 					{
 						$ext = "excel";
 					}
@@ -4779,7 +5498,7 @@ class HomeController extends Controller
 						{
 							$ext = "picture";
 						}
-						else if($ext == "xls" || $ext == "xlsx")
+						else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 						{
 							$ext = "excel";
 						}
@@ -4992,6 +5711,30 @@ class HomeController extends Controller
 		}
 	}
 
+	public function downloadOperationHighlight()
+    {
+    	Setting::assignSetting();
+
+    	// Download file
+    	$customer_name = session()->get('esskay_trustee_verify');
+		
+		if(!$customer_name)
+		{
+			return redirect(url('/').'/login');
+		}
+		else
+		{
+
+			// Download file
+			$file= public_path(). "/".OPERATIONALHIGHLIGHT_EXCEL;
+			
+			$document_filename = explode("/", OPERATIONALHIGHLIGHT_EXCEL);
+			$doc = array_pop($document_filename);
+
+			return response()->download($file, $doc);
+		}
+	}
+
 	public function transactionCategory($category_id)
     {
     	// Download file
@@ -5015,7 +5758,7 @@ class HomeController extends Controller
 
 	    		$transactionMaturedData = \DB::table('transactions')->leftJoin('transaction_trustee', 'transactions.id', '=', 'transaction_trustee.transaction_id')->where('transaction_trustee.trustee_id',$trustee_id)->where('transactions.transaction_category_id',$category_id)->where('transaction_type', 'Matured')->groupBy('transaction_trustee.transaction_id')->get();
 
-	    		return view('transaction-category-trustee', ['trustee_id' => $trustee_id, 'categoryData' => $categoryData, 'transactionLiveData' => $transactionLiveData, 'transactionMaturedData' => $transactionMaturedData]);
+	    		return view('transaction-category-trustee', ['trustee_id' => $trustee_id, 'category_id' => $category_id, 'categoryData' => $categoryData, 'transactionLiveData' => $transactionLiveData, 'transactionMaturedData' => $transactionMaturedData]);
 	    	}
 	    	else
 	    	{
@@ -5041,6 +5784,7 @@ class HomeController extends Controller
 	    	$trustee_id = $trusteeData->id;
 
 	    	$transaction_id = $request->transaction_id;
+	    	$transaction_category_id = $request->transaction_category_id;
 
 	    	$transactionData = \DB::table('transactions')->leftJoin('transaction_trustee', 'transactions.id', '=', 'transaction_trustee.transaction_id')->where('transaction_trustee.trustee_id',$trustee_id)->where('transactions.id',$transaction_id)->groupBy('transaction_trustee.transaction_id')->first();
 
@@ -5055,7 +5799,7 @@ class HomeController extends Controller
 				}
 				$docu_date = date('Y');
 
-	    		return view('transaction-category-trustee-info', ['trustee_id' => $trustee_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id]);
+	    		return view('transaction-category-trustee-info', ['trustee_id' => $trustee_id, 'transaction_category_id' => $transaction_category_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id]);
 	    	}
 	    }
     }
@@ -5144,7 +5888,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5200,7 +5944,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5227,7 +5971,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5254,7 +5998,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5281,7 +6025,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5308,7 +6052,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5335,7 +6079,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5362,7 +6106,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5389,7 +6133,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5416,7 +6160,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5443,7 +6187,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5470,7 +6214,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5497,7 +6241,7 @@ class HomeController extends Controller
 							{
 								$ext = "picture";
 							}
-							else if($ext == "xls" || $ext == "xlsx")
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
 							{
 								$ext = "excel";
 							}
@@ -5509,6 +6253,102 @@ class HomeController extends Controller
 							$doc_download = \DB::table('user_transaction_document')->where('transaction_document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
 
 							$monthlyDecDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);
+						}
+					}
+				}
+				else if($report_type == 5)
+				{
+					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Charge Creation')->selectRaw('transaction_documents.*,transactions.name')->where('document_status', '1')->where('transaction_id',$transaction_id)->get(); //->where('transaction_document_type_id', '1')
+
+					if($termSheetDoc)
+					{
+						foreach($termSheetDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$doc_download = \DB::table('user_transaction_document')->where('transaction_document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+							
+							if($row->transaction_document_type_id == 8)
+							{
+								$termSheetDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);	
+							}
+						}
+					}
+				}
+				else if($report_type == 6)
+				{
+					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Satisfaction of Charge')->selectRaw('transaction_documents.*,transactions.name')->where('document_status', '1')->where('transaction_id',$transaction_id)->get(); //->where('transaction_document_type_id', '1')
+
+					if($termSheetDoc)
+					{
+						foreach($termSheetDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$doc_download = \DB::table('user_transaction_document')->where('transaction_document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+							
+							if($row->transaction_document_type_id == 10)
+							{
+								$termSheetDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);	
+							}
+						}
+					}
+				}
+				else if($report_type == 7)
+				{
+					$termSheetDoc = \DB::table('transaction_documents')->leftJoin('transactions', 'transaction_documents.transaction_id', '=', 'transactions.id')->where('document_type', 'Charge Creation1')->selectRaw('transaction_documents.*,transactions.name')->where('document_status', '1')->where('transaction_id',$transaction_id)->get(); //->where('transaction_document_type_id', '1')
+
+					if($termSheetDoc)
+					{
+						foreach($termSheetDoc as $row)
+						{
+							$ext = pathinfo($row->document_filename, PATHINFO_EXTENSION);
+							$ext = strtolower($ext);
+							if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+							{
+								$ext = "picture";
+							}
+							else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
+							{
+								$ext = "excel";
+							}
+							else if($ext == "doc" || $ext == "docx")
+							{
+								$ext = "word";
+							}
+
+							$doc_download = \DB::table('user_transaction_document')->where('transaction_document_id', '=', $row->id)->where('user_id', '=', session()->get('esskay_trustee_user_id'))->count();
+							
+							if($row->transaction_document_type_id == 9)
+							{
+								$termSheetDocData[] = array('id' => $row->id, 'document_name' => $row->document_name, 'expiry_date' => $row->expiry_date, 'ext' => $ext, 'doc_download' => $doc_download);	
+							}
 						}
 					}
 				}
@@ -5532,6 +6372,18 @@ class HomeController extends Controller
 				else if($report_type == 4)
 				{
 					$heading_title = "Pool Dynamics";
+				}
+				else if($report_type == 5)
+				{
+					$heading_title = "Charge Creation / Modification";
+				}
+				else if($report_type == 6)
+				{
+					$heading_title = "Satisfaction of Charge";
+				}
+				else if($report_type == 7)
+				{
+					$heading_title = "Charge Creation / Modification";
 				}
 
 

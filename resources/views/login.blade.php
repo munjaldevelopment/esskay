@@ -54,7 +54,9 @@
 								<div class="alert alert-warning">{{ Session::get('message') }}</div>
 								@endif
 
-								<form class="log-in-form" action="{{ asset('/')}}saveLogin" method="post" name="loginForm">
+								<div class="login-error"></div>
+
+								<form class="log-in-form" action="" method="post" name="loginForm">
 									{{ csrf_field() }}
 
 									<h1 class="login__content-title">Login to Your Account</h1>
@@ -64,7 +66,7 @@
 												<!--<div class="user-login-icon">   
 												<i class="fa fa-envelope"></i>
 												</div>-->
-												<input type="email" id="email" class="form-control" name="email" placeholder="Your Email Address">
+												<input type="email" id="login_email" class="form-control" name="email" placeholder="Your Email Address">
 											</div>  
 										</div>  
 									</div>
@@ -75,7 +77,7 @@
 												<!--<div class="user-login-icon">   
 												<i class="fa fa-key"></i>
 												</div>-->
-												<input id="password" type="password" class="form-control" name="password" placeholder="Your Password">
+												<input id="login_password" type="password" class="form-control" name="password" placeholder="Your Password">
 												<div class="user-password-icon">   
 												<i toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></i>
 												</div>
@@ -86,14 +88,14 @@
 									<input type="hidden" name="recaptcha" id="recaptcha">
 									<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.sitekey') }}"></script>
 									<script>
-									grecaptcha.ready(function() {
-									grecaptcha.execute('{{ config('services.recaptcha.sitekey') }}', {action: "login"}).then(function(token) {
+										grecaptcha.ready(function() {
+											grecaptcha.execute('{{ config('services.recaptcha.sitekey') }}', {action: "login"}).then(function(token) {
 
-									if (token) {
-									document.getElementById('recaptcha').value = token;
-									}
-									});
-									});
+											if (token) {
+											document.getElementById('recaptcha').value = token;
+											}
+											});
+										});
 									</script>
 
 									<div class="row login-phone-row">  
@@ -124,7 +126,7 @@
 									<div class="row">  
 										<div class="col-md-12">
 											<div class="user-login-btn">
-											<button type="submit" disabled="" class="login-btn custom-btn btn"><i class="fa fa-sign-in d-none hide" aria-hidden="true"></i> Sign in</button>
+											<button type="button" disabled="" class="login-btn custom-btn btn" id="login_section"><i class="fa fa-sign-in d-none hide" aria-hidden="true"></i> Sign in</button>
 											</div>
 
 											<p class="text-center">This site is protected by reCAPTCHA</p>
@@ -507,11 +509,11 @@ $(document).ready(function() {
         }
 	});
 
-	$("#password").keyup(function() {
+	$("#login_password").keyup(function() {
 	    
         //Do stuff
         var login = $('#email').val();
-        var password = $('#password').val();
+        var password = $('#login_password').val();
         var agree_login = $('.agree_login:checked').val();
 
         if(login == "" || password == "" || typeof agree_login == "undefined")
@@ -751,6 +753,39 @@ $(document).ready(function() {
     {
     	$('.login-btn').removeAttr('disabled');
     }
+
+    $('#login_section').bind('click', function() {
+    	var email = $('#login_email').val();
+    	var password = $('#login_password').val();
+    	var recaptcha = $('#recaptcha').val();
+    	var agree_login = $('#agree_login:checked').val();
+
+	    $.ajax({
+			url: base_url+'saveLogin',
+			type: 'post',
+			dataType: "json",
+			data: {email: email, password: password, agree_login: agree_login, recaptcha: recaptcha, "_token": "{{ csrf_token() }}"},
+			beforeSend: function() {
+			},
+			success: function(output) {
+				if(output.success == 1)
+				{
+					location = output.redirect;
+				}
+				else
+				{
+					$('.login-error').html('<div class="alert alert-danger">'+output.message+'</div>');
+
+					$('.login-error').fadeOut(3000);
+
+					setTimeout(function() {
+						location.reload(true);
+					}, 5000);
+				}
+				
+			}
+		});
+	});
 });
 
     

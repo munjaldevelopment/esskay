@@ -38,6 +38,15 @@
 	<script src="{{ asset('public/assets/') }}/js/series-label.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/exporting.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/export-data.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/accessibility.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/jquery.dataTables.min.css"/>
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/fixedColumns.dataTables.min.css"/>
+	<!--<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/responsive.dataTables.min.css"/>-->
+ 
+	<script src="{{ asset('public/assets/') }}/js/jquery.dataTables.min.js"></script>
+	<!--<script src="{{ asset('public/assets/') }}/js/dataTables.responsive.min.js"></script>-->
+	<script src="{{ asset('public/assets/') }}/js/dataTables.fixedColumns.min.js"></script>
 	
 	
 	<meta name="csrf-token" content="{{ csrf_token() }}">
@@ -94,7 +103,7 @@
 							<button type="button" class="nav-link btn-menu btn btn-primary transaction-class dropdown-toggle" data-toggle="dropdown">Transaction</button>
 						  	<div class="dropdown-menu transaction-category-container">
 						  		@foreach($docCategoryData as $row)
-								<a class="dropdown-item transaction-category-class" data-category="{{ $row->id }}" href="javascript:;">{{ $row->category_name }}</a>
+								<a class="dropdown-item transaction-category-class" data-category="{{ $row['category_id'] }}" href="javascript:;">{{ $row['category_name'] }}</a>
 								@endforeach
 						  	</div>
 						</div>

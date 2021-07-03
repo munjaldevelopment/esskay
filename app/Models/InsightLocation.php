@@ -20,7 +20,7 @@ class InsightLocation extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['office_location', 'office_lat', 'office_long', 'status']; //'amount4', 
+    protected $fillable = ['district_id', 'location_hub', 'branch_name', 'branch_type', 'branch_address', 'office_lat', 'office_long', 'status']; //'amount4', 
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
@@ -30,6 +30,10 @@ class InsightLocation extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function districts()
+    {
+        return $this->belongsTo('App\Models\District', 'district_id');
+    }
 
     /*
     |--------------------------------------------------------------------------
