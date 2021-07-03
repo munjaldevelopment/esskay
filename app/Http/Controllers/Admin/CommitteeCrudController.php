@@ -100,10 +100,13 @@ class CommitteeCrudController extends CrudController
                     'name'      => 'committee_status',
                 ]);
                     
+            $composition_heading = array('Asset Liability' => 'Asset Liability', 'Audit Committee' => 'Audit Committee', 'Board of Directors' => 'Board of Directors', 'Corporate Social Responsibility Committee' => 'Corporate Social Responsibility Committee', 'Executive Committee' => 'Executive Committee', 'IT Strategy Committee' => 'IT Strategy Committee', 'Nomination & Remuneration Committee' => 'Nomination & Remuneration Committee', 'Risk Management Committee' => 'Risk Management Committee');
+
             $this->crud->addField([
                     'label'     => 'Composition Heading',
-                    'type'      => 'text',
+                    'type'      => 'select2_from_array',
                     'name'      => 'composition_heading',
+                    'options'   => $composition_heading
                     ]);
 
             $this->crud->addField([
