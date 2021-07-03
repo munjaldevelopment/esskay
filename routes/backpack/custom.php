@@ -277,6 +277,10 @@ Route::group([
     Route::crud('asset_quality3', 'AssetQuality3CrudController');
     Route::crud('asset_quality4', 'AssetQuality4CrudController');
 
+    Route::crud('committee', 'CommitteeCrudController');
+    Route::crud('relevant_party', 'RelevantPartyCrudController');
+    Route::crud('pool_dynamic', 'PoolDynamicCrudController');
+
     Route::crud('state', 'StateCrudController');
     Route::crud('district', 'DistrictCrudController');
 }); // this should be the absolute last line of this file

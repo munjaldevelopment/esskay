@@ -68,6 +68,7 @@
 	$list_transaction_category = backpack_user()->hasPermissionTo('list_transaction_category');
 	$list_state = backpack_user()->hasPermissionTo('list_state');
 	$list_district = backpack_user()->hasPermissionTo('list_district');
+	$list_committee = backpack_user()->hasPermissionTo('list_committee');
 
 	$list_transaction = backpack_user()->hasPermissionTo('list_transaction');
 	$list_accept_transaction = backpack_user()->hasPermissionTo('list_accept_transaction');
@@ -86,7 +87,7 @@
 @endphp
 {{-- <li class='nav-item'><a class='nav-link' href='{{ backpack_url('backup') }}'><i class='nav-icon la la-hdd-o'></i> Backups</a></li> --}}
 @php
-	if($list_lender_type || $list_trustee_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category || $list_transaction_document_type || $list_transaction_category || $list_state || $list_district):
+	if($list_lender_type || $list_trustee_type || $list_instrument_type || $list_facility_type || $list_asset_class || $list_document_category || $list_banking_arrangment || $list_insight_category || $list_transaction_document_type || $list_transaction_category || $list_state || $list_district || $list_committee):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Master</a>
@@ -153,6 +154,12 @@
 			if($list_district):
 		@endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('district') }}'><i class='nav-icon la la-user'></i> District</a></li>
+		@php
+			endif;
+
+			if($list_committee):
+		@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('committee') }}'><i class='nav-icon la la-user'></i> Committee</a></li>
 		@php
 			endif;
 		@endphp
