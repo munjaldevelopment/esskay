@@ -130,7 +130,7 @@ class TransactionRelevantPartyCrudController extends CrudController
                     $this->crud->addClause('where', 'document_name', 'LIKE', "%$value%");
             });
             
-            $this->crud->addButtonFromView('line', 'checker_relevant_parties', 'checker_relevant_parties', 'end');
+            //$this->crud->addButtonFromView('line', 'checker_relevant_parties', 'checker_relevant_parties', 'end');
             
             $this->crud->setCreateView('admin.create-document-form');
             $this->crud->setUpdateView('admin.edit-document-form');
