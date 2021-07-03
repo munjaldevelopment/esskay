@@ -130,8 +130,6 @@ class TransactionRelevantPartyCrudController extends CrudController
                     $this->crud->addClause('where', 'document_name', 'LIKE', "%$value%");
             });
             
-            //$this->crud->addButtonFromView('line', 'checker_relevant_parties', 'checker_relevant_parties', 'end');
-            
             $this->crud->setCreateView('admin.create-document-form');
             $this->crud->setUpdateView('admin.edit-document-form');
         }
@@ -183,37 +181,22 @@ class TransactionRelevantPartyCrudController extends CrudController
             $documentType = array('' => 'Select', 'Executed Report' => 'Executed Report', 'Monthly Payout Report' => 'Monthly Payout Report', 'Collection efficiency' => 'Collection efficiency', 'Pool Dynamics' => 'Pool Dynamics', 'Charge Creation' =>  'Charge Creation / Modification CHG-9', 'Satisfaction of Charge' => 'Satisfaction of Charge CHG-4', 'Charge Creation1' => 'Charge Creation / Modification CHG-1');
             
             $this->crud->addField([
-                                    'name' => 'document_type',
-                                    'label' => 'Document Type',
+                                    'name' => 'party_type',
+                                    'label' => 'Party Type',
                                     'type' => 'select2_from_array',
                                     'options' => $documentType,
                                     'tab' => 'General',
                                     'attributes' => [
-                                        'id' => 'document_type',
+                                        'id' => 'party_type',
                                         //'onchange' => 'getTransDocType(this.value);'
                                     ]
                                 ]);
 
-            $this->crud->addField([
-                                    'name' => 'document_heading',
-                                    'label' => 'Document Heading',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
                     
             $this->crud->addField([
-                                    'name' => 'document_name',
+                                    'name' => 'party_name',
                                     'label' => 'Name',
                                     'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-            
-
-            $this->crud->addField([
-                                    'name' => 'document_filename',
-                                    'label' => 'File Name',
-                                    'type' => 'browse',
                                     'tab' => 'General'
                                 ]);
                                 
@@ -258,22 +241,6 @@ class TransactionRelevantPartyCrudController extends CrudController
                 ]);
             }
             
-                                
-            $this->crud->addField([
-                                    'name' => 'document_date',
-                                    'label' => 'Year',
-                                    'type' => 'select2_from_array',
-                                    'options' => $document_date,
-                                    'tab' => 'General'
-                                ]);
-                                
-            $this->crud->addField([
-                                    'name' => 'expiry_date',
-                                    'label' => 'Publish Date',
-                                    'type' => 'date',
-                                    'tab' => 'General'
-                                ]);
-
             $this->crud->addField([
                                     'name' => 'party_status',
                                     'label' => 'Status',
@@ -323,53 +290,22 @@ class TransactionRelevantPartyCrudController extends CrudController
 
             $documentType = array('' => 'Select', 'Executed Report' => 'Executed Report', 'Monthly Payout Report' => 'Monthly Payout Report', 'Collection efficiency' => 'Collection efficiency', 'Pool Dynamics' => 'Pool Dynamics', 'Charge Creation' =>  'Charge Creation / Modification CHG-9', 'Satisfaction of Charge' => 'Satisfaction of Charge CHG-4', 'Charge Creation1' => 'Charge Creation / Modification CHG-1');
             $this->crud->addField([
-                                    'name' => 'document_type',
-                                    'label' => 'Document Type',
+                                    'name' => 'party_type',
+                                    'label' => 'Party Type',
                                     'type' => 'select2_from_array',
                                     'options' => $documentType,
                                     'tab' => 'General',
                                     'attributes' => [
-                                        'id' => 'document_type',
+                                        'id' => 'party_type',
                                         //'onchange' => 'getTransDocType(this.value);'
                                     ]
                                 ]);
 
-            $this->crud->addField([
-                    'label'     => 'Transaction Doc Type',
-                    'type'      => 'select2',
-                    'name'      => 'relevant_parties_type_id',
-                    'entity'    => 'transactionDocumentType', //function name
-                    'attribute' => 'name', //name of fields in models table like districts
-                    'model'     => "App\Models\TransactionRelevantPartyType", //name of Models
-                    'tab' => 'General',
-                    'wrapper'   => [ 
-                        'class'      => 'trans_doc_type_container form-group col-md-12'
-                     ],
-
-                    ]);
-            
-            $this->crud->addField([
-                                    'name' => 'document_heading',
-                                    'label' => 'Document Heading',
-                                    'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-
-            
-
                     
             $this->crud->addField([
-                                    'name' => 'document_name',
+                                    'name' => 'party_name',
                                     'label' => 'Name',
                                     'type' => 'text',
-                                    'tab' => 'General'
-                                ]);
-            
-
-            $this->crud->addField([
-                                    'name' => 'document_filename',
-                                    'label' => 'File Name',
-                                    'type' => 'browse',
                                     'tab' => 'General'
                                 ]);
                                 
@@ -414,22 +350,6 @@ class TransactionRelevantPartyCrudController extends CrudController
                 ]);
             }
             
-                                
-            $this->crud->addField([
-                                    'name' => 'document_date',
-                                    'label' => 'Year',
-                                    'type' => 'select2_from_array',
-                                    'options' => $document_date,
-                                    'tab' => 'General'
-                                ]);
-                                
-            $this->crud->addField([
-                                    'name' => 'expiry_date',
-                                    'label' => 'Publish Date',
-                                    'type' => 'date',
-                                    'tab' => 'General'
-                                ]);
-
             $this->crud->addField([
                                     'name' => 'party_status',
                                     'label' => 'Status',
