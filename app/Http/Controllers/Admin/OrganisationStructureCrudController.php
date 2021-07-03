@@ -207,6 +207,6 @@ class OrganisationStructureCrudController extends CrudController
     protected function setupReorderOperation()
     {
         CRUD::set('reorder.label', 'structure_name');
-        CRUD::set('reorder.max_level', 4);
+        CRUD::set('reorder.max_level', 6);
     }
 }
