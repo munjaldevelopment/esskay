@@ -37,9 +37,9 @@ class HierarchyStructureCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/hierarchy_structure');
         CRUD::setEntityNameStrings('Hierarchy Structure', 'Hierarchy Structure');
 
-        $list_hierarchy_structure = backpack_user()->hasPermissionTo('list_hierarchy_structure');
+        $list_hierarchy_structures = backpack_user()->hasPermissionTo('list_hierarchy_structures');
         
-        if($list_hierarchy_structure)
+        if($list_hierarchy_structures)
         {
             $adminRolesRow  = \DB::table('model_has_roles')->where('role_id', '=', '1')->get();
             
@@ -60,28 +60,28 @@ class HierarchyStructureCrudController extends CrudController
             $this->crud->set('reorder.max_level', 4);
             $this->crud->orderBy('lft', 'ASC');
 
-            $checker_hierarchy_structure = backpack_user()->hasPermissionTo('checker_hierarchy_structure');
+            $checker_hierarchy_structures = backpack_user()->hasPermissionTo('checker_hierarchy_structures');
 
-            if($checker_hierarchy_structure)
+            if($checker_hierarchy_structures)
             {
                 $is_admin = backpack_user()->hasRole('Super Admin');
                 if($is_admin)
                 {
-                    $this->crud->allowAccess(['checker_hierarchy_structure', 'revise', 'delete']);
+                    $this->crud->allowAccess(['checker_hierarchy_structures', 'revise', 'delete']);
                 }
                 else
                 {
-                    if($checker_hierarchy_structure)
+                    if($checker_hierarchy_structures)
                     {
                         //$this->crud->addClause('where', 'status', '=', "0");
                         $this->crud->denyAccess(['revise']);
-                        $this->crud->allowAccess(['checker_hierarchy_structure']);
+                        $this->crud->allowAccess(['checker_hierarchy_structures']);
                     }
                 }
             }
             else
             {
-                $this->crud->denyAccess(['checker_hierarchy_structure', 'revise', 'delete']);
+                $this->crud->denyAccess(['checker_hierarchy_structures', 'revise', 'delete']);
             }
                     
             $this->crud->addColumn([
@@ -124,7 +124,7 @@ class HierarchyStructureCrudController extends CrudController
             //$this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportStrongLiabilityDrivingButton', 'end');
             //$this->crud->addButtonFromModelFunction('top', 'import_xls', 'importStrongLiabilityDrivingButton', 'end');
 
-            //$this->crud->addButtonFromView('line', 'checker_hierarchy_structure', 'checker_hierarchy_structure', 'end');
+            //$this->crud->addButtonFromView('line', 'checker_hierarchy_structures', 'checker_hierarchy_structures', 'end');
 
             $this->crud->setCreateView('admin.create-lender-banking-form');
             $this->crud->setUpdateView('admin.edit-lender-banking-form');

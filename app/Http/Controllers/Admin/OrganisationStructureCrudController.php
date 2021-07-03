@@ -37,9 +37,9 @@ class OrganisationStructureCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/organisation_structure');
         CRUD::setEntityNameStrings('Organisation Structure', 'Organisation Structure');
 
-        $list_organisation_structure = backpack_user()->hasPermissionTo('list_organisation_structure');
+        $list_organisation_structures = backpack_user()->hasPermissionTo('list_organisation_structures');
         
-        if($list_organisation_structure)
+        if($list_organisation_structures)
         {
             $adminRolesRow  = \DB::table('model_has_roles')->where('role_id', '=', '1')->get();
             
@@ -60,28 +60,28 @@ class OrganisationStructureCrudController extends CrudController
             $this->crud->set('reorder.max_level', 4);
             $this->crud->orderBy('lft', 'ASC');
 
-            $checker_organisation_structure = backpack_user()->hasPermissionTo('checker_organisation_structure');
+            $checker_organisation_structures = backpack_user()->hasPermissionTo('checker_organisation_structures');
 
-            if($checker_organisation_structure)
+            if($checker_organisation_structures)
             {
                 $is_admin = backpack_user()->hasRole('Super Admin');
                 if($is_admin)
                 {
-                    $this->crud->allowAccess(['checker_organisation_structure', 'revise', 'delete']);
+                    $this->crud->allowAccess(['checker_organisation_structures', 'revise', 'delete']);
                 }
                 else
                 {
-                    if($checker_organisation_structure)
+                    if($checker_organisation_structures)
                     {
                         //$this->crud->addClause('where', 'status', '=', "0");
                         $this->crud->denyAccess(['revise']);
-                        $this->crud->allowAccess(['checker_organisation_structure']);
+                        $this->crud->allowAccess(['checker_organisation_structures']);
                     }
                 }
             }
             else
             {
-                $this->crud->denyAccess(['checker_organisation_structure', 'revise', 'delete']);
+                $this->crud->denyAccess(['checker_organisation_structures', 'revise', 'delete']);
             }
                     
             $this->crud->addColumn([
@@ -124,7 +124,7 @@ class OrganisationStructureCrudController extends CrudController
             //$this->crud->addButtonFromModelFunction('top', 'export_xls', 'exportStrongLiabilityDrivingButton', 'end');
             //$this->crud->addButtonFromModelFunction('top', 'import_xls', 'importStrongLiabilityDrivingButton', 'end');
 
-            //$this->crud->addButtonFromView('line', 'checker_organisation_structure', 'checker_organisation_structure', 'end');
+            //$this->crud->addButtonFromView('line', 'checker_organisation_structures', 'checker_organisation_structures', 'end');
 
             $this->crud->setCreateView('admin.create-lender-banking-form');
             $this->crud->setUpdateView('admin.edit-lender-banking-form');
