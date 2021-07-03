@@ -95,16 +95,6 @@ class TransactionRelevantPartyCrudController extends CrudController
                                 ]);
 
             $this->crud->addColumn([
-                    'label'     => 'Transaction Doc Type',
-                    'type'      => 'select',
-                    'name'      => 'relevant_parties_type_id',
-                    'entity'    => 'transactionDocumentType', //function name
-                    'attribute' => 'name', //name of fields in models table like districts
-                    'model'     => "App\Models\TransactionRelevantPartyType", //name of Models
-
-                    ]);
-
-            $this->crud->addColumn([
                     'label'     => 'Document Type',
                     'type'      => 'text',
                     'name'      => 'document_type',
@@ -228,24 +218,6 @@ class TransactionRelevantPartyCrudController extends CrudController
                                         //'onchange' => 'getTransDocType(this.value);'
                                     ]
                                 ]);
-
-            $this->crud->addField([
-                    'label'     => 'Transaction Doc Type',
-                    'type'      => 'select2',
-                    'name'      => 'relevant_parties_type_id',
-                    'entity'    => 'transactionDocumentType', //function name
-                    'attribute' => 'name', //name of fields in models table like districts
-                    'model'     => "App\Models\TransactionRelevantPartyType", //name of Models
-                    'tab' => 'General',
-                    'attributes' => [
-                        'id' => 'relevant_parties_type_id',
-                    ],
-                    'wrapper'   => [ 
-                        'class'      => 'trans_doc_type_container form-group col-md-12'
-                     ],
-
-
-                    ]);
 
             $this->crud->addField([
                                     'name' => 'document_heading',
