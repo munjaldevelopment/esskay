@@ -78,6 +78,7 @@
 	$list_reject_transaction = backpack_user()->hasPermissionTo('list_reject_transaction');
 
 	$list_transaction_document = backpack_user()->hasPermissionTo('list_transaction_document');
+	$list_relevant_parties = backpack_user()->hasPermissionTo('list_relevant_parties');
 	$list_accept_transaction_document = backpack_user()->hasPermissionTo('list_accept_transaction_document');
 	$list_reject_transaction_document = backpack_user()->hasPermissionTo('list_reject_transaction_document');
 
@@ -447,7 +448,7 @@
 @php
 	endif;
 
-	if($list_trustee || $list_transaction || $list_accept_transaction || $list_reject_transaction || $list_transaction_document || $list_accept_transaction_document || $list_reject_transaction_document):
+	if($list_trustee || $list_transaction || $list_accept_transaction || $list_reject_transaction || $list_transaction_document || $list_relevant_parties || $list_accept_transaction_document || $list_reject_transaction_document):
 @endphp
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Trustee</a>
@@ -492,6 +493,12 @@
 	if($list_reject_transaction_document):
 @endphp
 		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_transaction_document') }}'><i class='nav-icon la la-times'></i> Rejected Transaction Document</a></li>
+@php
+	endif;
+
+	if($list_relevant_parties):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('transaction_relevant_party') }}'><i class='nav-icon la la-list'></i> Relevant Party</a></li>
 @php
 	endif;
 @endphp
