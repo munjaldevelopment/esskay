@@ -45,7 +45,7 @@ class TransactionRelevantPartyCrudController extends CrudController
             $maker_relevant_parties = backpack_user()->hasPermissionTo('maker_relevant_parties');
             if($maker_relevant_parties)
             {
-                //$this->crud->addClause('whereIn', 'document_status', [0,1]);
+                //$this->crud->addClause('whereIn', 'party_status', [0,1]);
                 $this->crud->allowAccess(['create', 'update']);
             }
             else
@@ -59,7 +59,7 @@ class TransactionRelevantPartyCrudController extends CrudController
                 $is_admin = backpack_user()->hasRole('Super Admin');
                 if($is_admin)
                 {
-                    //$this->crud->addClause('where', 'document_status', '=', "0");
+                    //$this->crud->addClause('where', 'party_status', '=', "0");
                     $this->crud->allowAccess(['checker_relevant_parties', 'revise', 'delete']);
                 }
                 else
@@ -75,7 +75,7 @@ class TransactionRelevantPartyCrudController extends CrudController
             
             if($checker_relevant_parties && !$maker_relevant_parties)
             {
-                //$this->crud->addClause('where', 'document_status', '=', "0");
+                //$this->crud->addClause('where', 'party_status', '=', "0");
             }
             
             $this->crud->addColumn([
@@ -89,15 +89,15 @@ class TransactionRelevantPartyCrudController extends CrudController
                     ]);
 
             $this->crud->addColumn([
-                                    'name' => 'document_name',
-                                    'label' => 'Doc Name',
+                                    'name' => 'party_type',
+                                    'label' => 'Party Type',
                                     'type' => 'text',
                                 ]);
 
             $this->crud->addColumn([
-                    'label'     => 'Document Type',
+                    'label'     => 'Party Name',
                     'type'      => 'text',
-                    'name'      => 'document_type',
+                    'name'      => 'party_name',
 
                     ]);
 
@@ -111,33 +111,8 @@ class TransactionRelevantPartyCrudController extends CrudController
 
                     ]);
 
-            
-                                
             $this->crud->addColumn([
-                                    'name' => 'document_date',
-                                    'label' => 'Year',
-                                    'type' => 'text',
-                                ]);
-
-            $this->crud->addColumn([
-                                    'name' => 'document_filename',
-                                    'label' => 'New Document',
-                                    'type' => 'browse',
-                                    'limit' => '200'
-                                ]);
-
-            $this->crud->addColumn([
-                                    'name' => 'document_previous',
-                                    'label' => 'Old Document',
-                                    'type' => 'browse_previous',
-                                    'table' => 'relevant_parties_revisions',
-                                    'table_field' => 'document_id',
-                                    'field_show' => 'document_filename',
-                                    'limit' => '200'
-                                ]);
-
-            $this->crud->addColumn([
-                                    'name' => 'document_status',
+                                    'name' => 'party_status',
                                     'label' => 'Status',
                                     'type' => 'check',
                                 ]);
@@ -300,7 +275,7 @@ class TransactionRelevantPartyCrudController extends CrudController
                                 ]);
 
             $this->crud->addField([
-                                    'name' => 'document_status',
+                                    'name' => 'party_status',
                                     'label' => 'Status',
                                     'type' => 'checkbox',
                                     'tab' => 'General'
@@ -456,7 +431,7 @@ class TransactionRelevantPartyCrudController extends CrudController
                                 ]);
 
             $this->crud->addField([
-                                    'name' => 'document_status',
+                                    'name' => 'party_status',
                                     'label' => 'Status',
                                     'type' => 'checkbox',
                                     'tab' => 'General'
@@ -528,10 +503,10 @@ class TransactionRelevantPartyCrudController extends CrudController
         $document_filename = $this->crud->getRequest()->document_filename;
         $document_date = $this->crud->getRequest()->document_date;
         $expiry_date = $this->crud->getRequest()->expiry_date;
-        $document_status = $this->crud->getRequest()->document_status;
+        $party_status = $this->crud->getRequest()->party_status;
 
 
-        \DB::table('relevant_parties_revisions')->insert(['document_id' => $document_id, 'document_heading' => $document_heading, 'document_name' => $document_name, 'document_filename' => $document_filename, 'document_date' => $document_date, 'expiry_date' => $expiry_date, 'document_status' => $document_status]);
+        \DB::table('relevant_parties_revisions')->insert(['document_id' => $document_id, 'document_heading' => $document_heading, 'document_name' => $document_name, 'document_filename' => $document_filename, 'document_date' => $document_date, 'expiry_date' => $expiry_date, 'party_status' => $party_status]);
         
         //$lender_id = end($lenders);
         $sms_status = config('general.sms_status');
@@ -595,11 +570,11 @@ class TransactionRelevantPartyCrudController extends CrudController
         $document_filename = $this->crud->getRequest()->document_filename;
         $document_date = $this->crud->getRequest()->document_date;
         $expiry_date = $this->crud->getRequest()->expiry_date;
-        $document_status = $this->crud->getRequest()->document_status;
+        $party_status = $this->crud->getRequest()->party_status;
         
 
 
-        \DB::table('relevant_parties_revisions')->insert(['document_id' => $document_id, 'document_heading' => $document_heading, 'document_name' => $document_name, 'document_filename' => $document_filename, 'document_date' => $document_date, 'expiry_date' => $expiry_date, 'document_status' => $document_status]);
+        \DB::table('relevant_parties_revisions')->insert(['document_id' => $document_id, 'document_heading' => $document_heading, 'document_name' => $document_name, 'document_filename' => $document_filename, 'document_date' => $document_date, 'expiry_date' => $expiry_date, 'party_status' => $party_status]);
 
         $sms_status = config('general.sms_status');
                 
@@ -679,7 +654,7 @@ class TransactionRelevantPartyCrudController extends CrudController
     
     public function checkerDocument($document_id)
     {
-        $updateData = array('document_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
+        $updateData = array('party_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
         \DB::table('documents')->where(['id' => $document_id])->update($updateData);
         
         \DB::table('relevant_parties_revisions')->where(['document_id' => $document_id])->update($updateData);
@@ -692,7 +667,7 @@ class TransactionRelevantPartyCrudController extends CrudController
 
         $clonedEntry = $this->crud->model->findOrFail($id)->replicate();
 
-        $clonedEntry->document_status = "0";
+        $clonedEntry->party_status = "0";
 
 
         return (string) $clonedEntry->push();
