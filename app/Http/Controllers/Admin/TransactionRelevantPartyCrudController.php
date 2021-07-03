@@ -289,7 +289,7 @@ class TransactionRelevantPartyCrudController extends CrudController
                     ]);
 
             $documentType = array('' => 'Select', 'Investor' => 'Investor', 'Trustee' => 'Trustee', 'Legal' => 'Legal', 'Arranger' => 'Arranger', 'Rating' =>  'Rating');
-            
+
             $this->crud->addField([
                                     'name' => 'party_type',
                                     'label' => 'Party Type',
@@ -427,8 +427,6 @@ class TransactionRelevantPartyCrudController extends CrudController
         $party_status = $this->crud->getRequest()->party_status;
 
 
-        \DB::table('relevant_parties_revisions')->insert(['document_id' => $document_id, 'document_heading' => $document_heading, 'document_name' => $document_name, 'document_filename' => $document_filename, 'document_date' => $document_date, 'expiry_date' => $expiry_date, 'party_status' => $party_status]);
-        
         //$lender_id = end($lenders);
         $sms_status = config('general.sms_status');
                 
@@ -494,8 +492,6 @@ class TransactionRelevantPartyCrudController extends CrudController
         $party_status = $this->crud->getRequest()->party_status;
         
 
-
-        \DB::table('relevant_parties_revisions')->insert(['document_id' => $document_id, 'document_heading' => $document_heading, 'document_name' => $document_name, 'document_filename' => $document_filename, 'document_date' => $document_date, 'expiry_date' => $expiry_date, 'party_status' => $party_status]);
 
         $sms_status = config('general.sms_status');
                 
@@ -576,9 +572,7 @@ class TransactionRelevantPartyCrudController extends CrudController
     public function checkerDocument($document_id)
     {
         $updateData = array('party_status' => '1', 'updated_at' => date('Y-m-d H:i:s'));
-        \DB::table('documents')->where(['id' => $document_id])->update($updateData);
-        
-        \DB::table('relevant_parties_revisions')->where(['document_id' => $document_id])->update($updateData);
+        \DB::table('transaction_relevant_parties')->where(['id' => $document_id])->update($updateData);
     }
 
     public function clone($id)
