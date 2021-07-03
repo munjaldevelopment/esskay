@@ -178,7 +178,7 @@ class TransactionRelevantPartyCrudController extends CrudController
                     'tab' => 'General'
                     ]);
 
-            $documentType = array('' => 'Select', 'Executed Report' => 'Executed Report', 'Monthly Payout Report' => 'Monthly Payout Report', 'Collection efficiency' => 'Collection efficiency', 'Pool Dynamics' => 'Pool Dynamics', 'Charge Creation' =>  'Charge Creation / Modification CHG-9', 'Satisfaction of Charge' => 'Satisfaction of Charge CHG-4', 'Charge Creation1' => 'Charge Creation / Modification CHG-1');
+            $documentType = array('' => 'Select', 'Investor' => 'Investor', 'Trustee' => 'Trustee', 'Legal' => 'Legal', 'Arranger' => 'Arranger', 'Rating' =>  'Rating');
             
             $this->crud->addField([
                                     'name' => 'party_type',
@@ -288,7 +288,8 @@ class TransactionRelevantPartyCrudController extends CrudController
                     'tab' => 'General'
                     ]);
 
-            $documentType = array('' => 'Select', 'Executed Report' => 'Executed Report', 'Monthly Payout Report' => 'Monthly Payout Report', 'Collection efficiency' => 'Collection efficiency', 'Pool Dynamics' => 'Pool Dynamics', 'Charge Creation' =>  'Charge Creation / Modification CHG-9', 'Satisfaction of Charge' => 'Satisfaction of Charge CHG-4', 'Charge Creation1' => 'Charge Creation / Modification CHG-1');
+            $documentType = array('' => 'Select', 'Investor' => 'Investor', 'Trustee' => 'Trustee', 'Legal' => 'Legal', 'Arranger' => 'Arranger', 'Rating' =>  'Rating');
+            
             $this->crud->addField([
                                     'name' => 'party_type',
                                     'label' => 'Party Type',
