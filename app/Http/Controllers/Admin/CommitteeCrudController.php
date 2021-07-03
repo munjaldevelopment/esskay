@@ -115,16 +115,20 @@ class CommitteeCrudController extends CrudController
                     'name'      => 'director_name',
                     ]);
 
+            $status = array('Chairman' => 'Chairman', 'CIO' => 'CIO', 'CTO' => 'CTO', 'Member' => 'Member');
             $this->crud->addField([
                     'label'     => 'Stataus',
-                    'type'      => 'text',
+                    'type'      => 'select2_from_array',
                     'name'      => 'status',
+                    'options'   => $status
                     ]); 
 
+            $nature_directorship = array('CFO' => 'CFO', 'Executive Director' => 'Executive Director', 'Head Treasury' => 'Head Treasury', 'NA' => 'NA', 'Nominee Director' => 'Nominee Director', 'Non Executive Independent Director' => 'Non Executive Independent Director');
             $this->crud->addField([
                     'label'     => 'Nature Directorship',
-                    'type'      => 'text',
+                    'type'      => 'select2_from_array',
                     'name'      => 'nature_directorship',
+                    'options'   => $nature_directorship
                     ]);
 
            
