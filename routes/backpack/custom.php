@@ -227,6 +227,8 @@ Route::group([
     Route::get('importCurrentDeal', 'ImportExportController@importCurrentDeal');
     Route::post('insertCurrentDeal', 'ImportExportController@insertCurrentDeal');
 
+    Route::crud('sanction_user', 'SanctionUserCrudController');
+
     Route::crud('insight_category', 'InsightCategoryCrudController');
     Route::crud('trustee', 'TrusteeCrudController');
     Route::crud('trustee_type', 'TrusteeTypeCrudController');

@@ -64,6 +64,8 @@
 	$list_log = backpack_user()->hasPermissionTo('list_log');
 	$list_user_log = backpack_user()->hasPermissionTo('list_user_log');
 	
+	$list_sanction_users = backpack_user()->hasPermissionTo('list_sanction_users');
+	
 	$list_trustee = backpack_user()->hasPermissionTo('list_trustee');
 	$list_transaction_category = backpack_user()->hasPermissionTo('list_transaction_category');
 	$list_state = backpack_user()->hasPermissionTo('list_state');
@@ -440,6 +442,23 @@
 	if($list_reject_document):
 @endphp
 	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('reject_document') }}'><i class='nav-icon la la-times'></i> Rejected Lender Documents</a></li>
+@php
+	endif;
+@endphp
+	</ul>
+</li>
+@php
+	endif;
+
+	if($list_sanction_users):
+@endphp
+<li class="nav-item nav-dropdown">
+	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-list"></i> Sanction Users</a>
+	<ul class="nav-dropdown-items">
+@php
+	if($list_sanction_users):
+@endphp
+		<li class='nav-item'><a class='nav-link' href='{{ backpack_url('sanction_user') }}'><i class='nav-icon la la-user'></i> Sanction User</a></li>
 @php
 	endif;
 @endphp

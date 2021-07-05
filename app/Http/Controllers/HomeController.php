@@ -118,12 +118,13 @@ class HomeController extends Controller
 		
 		$customer_name = session()->get('esskay_verify');
 		$trustee_name = session()->get('esskay_trustee_verify');
+		$sanction_letter_name = session()->get('esskay_sanction_letter_verify');
 		
 		$pageInfo = Page::getPageInfo(1);
 		$pageData = json_decode($pageInfo['extras']);
 		
 		
-		if($customer_name || $trustee_name)
+		if($customer_name || $trustee_name || $sanction_letter_name)
 		{
 			if($customer_name)
 			{
@@ -244,6 +245,14 @@ class HomeController extends Controller
 				//dd($docCategoryData);
 
 				return view('ess-kay-trusee-home', ['customer_name' => $trustee_name, 'trusteeCode' => $trusteeCode, 'trusteeData' => $trusteeData, 'docCategoryData' => $docCategoryData, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
+			}
+			else if($sanction_letter_name)
+			{
+				$trusteeData = \DB::table('sanction_users')->where('user_id', session()->get('esskay_sanction_letter_user_id'))->first();
+				$trustee_id = $trusteeData->id;
+				$trusteeCode = "";
+
+				return view('ess-kay-sanction-letter-home', ['customer_name' => $trustee_name, 'trusteeCode' => $trusteeCode, 'trusteeData' => $trusteeData, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
 			}
 		}
 		else
@@ -1477,6 +1486,7 @@ class HomeController extends Controller
 					if($request->email != "")
 					{
 						$checkRecord = \DB::table('users')->where(['email' => $request->email, 'user_status' => '1'])->first();
+
 							
 						if($checkRecord)
 						{
@@ -1572,6 +1582,36 @@ class HomeController extends Controller
 													'esskay_trustee_verify' => '1',
 													'role_id' => $modelRole->role_id
 												] );
+											}
+										}
+										else
+										{
+											$modelRole = \DB::table('model_has_roles')->where('model_id', $user_id)->where('role_id', '22')->count();
+
+											if($modelRole > 0)
+											{
+												$is_model = 1;
+
+												if($days >= 3)
+												{
+													session ( [
+														'login_phone_number' => $checkRecord->phone,
+														'esskay_sanction_letter_name' => $checkRecord->email,
+														'esskay_sanction_letter_user_id' => $user_id,
+														//'esskay_trustee_verify' => '1',
+														'role_id' => '22'
+													] );
+												}
+												else
+												{
+													session ( [
+														'login_phone_number' => $checkRecord->phone,
+														'esskay_sanction_letter_name' => $checkRecord->email,
+														'esskay_sanction_letter_user_id' => $user_id,
+														'esskay_sanction_letter_verify' => '1',
+														'role_id' => '22'
+													] );
+												}
 											}
 										}
 
