@@ -1723,7 +1723,7 @@ class HomeController extends Controller
 						}
 					}
 				}else{
-					$json = ['message' => "Please fill all information and try again", 'success' => 0];
+					$json = ['message' => "Your Captcha is incorrect. Please contact your administrator and try again", 'success' => 0];
 
 					return response()->json($json);
 				}
