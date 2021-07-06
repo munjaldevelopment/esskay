@@ -64,7 +64,7 @@
 	$list_log = backpack_user()->hasPermissionTo('list_log');
 	$list_user_log = backpack_user()->hasPermissionTo('list_user_log');
 	
-	$list_sanction_users = 1;//backpack_user()->hasPermissionTo('list_sanction_users');
+	$list_sanction_users = backpack_user()->hasPermissionTo('list_sanction_users');
 	
 	$list_trustee = backpack_user()->hasPermissionTo('list_trustee');
 	$list_transaction_category = backpack_user()->hasPermissionTo('list_transaction_category');
