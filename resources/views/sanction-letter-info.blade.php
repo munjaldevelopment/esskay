@@ -37,6 +37,7 @@
 							<td>{{ $row->type_facility }}</td>
 							<td>{{ $row->facility_amount }}</td>
 							<td>{{ $row->roi }}</td>
+							<td>{{ $row->all_incluside_roi }}</td>
 							<td>{{ $row->processing_fees }}</td>
 							<td>{{ $row->processing_fees_amount }}</td>
 							<td>{{ $row->arranger_fees }}</td>
