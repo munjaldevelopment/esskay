@@ -7,17 +7,17 @@
 				<div class="side-menu-container">
 					<ul class="nav navbar-nav category-listing" id="menu-accordian">
 						<li>
-							<a class="dropdown-box sanction-letter-category-list" data-category="all" href="javascript:;" @endif data-category="all">
+							<a class="dropdown-box sanction-letter-category-list" data-category="all" href="javascript:;" data-category="all">
 								<span>All</span>
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-box sanction-letter-category-list" data-category="accepted" href="javascript:;" @endif data-category="accepted">
+							<a class="dropdown-box sanction-letter-category-list" data-category="accepted" href="javascript:;" data-category="accepted">
 								<span>Accepted</span>
 							</a>
 						</li>
 						<li>
-							<a class="dropdown-box sanction-letter-category-list" data-category="rejected" href="javascript:;" @endif data-category="rejected">
+							<a class="dropdown-box sanction-letter-category-list" data-category="rejected" href="javascript:;" data-category="rejected">
 								<span>Rejected</span>
 							</a>
 						</li>
