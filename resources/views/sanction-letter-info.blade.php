@@ -28,6 +28,7 @@
 							<th class="border-bottom">Personal Guarantee</th>
 							<th class="border-bottom">Intermediary</th>
 							<th class="border-bottom">Sanction Letter</th>
+							<th class="border-bottom">Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -55,6 +56,15 @@
 							<td>{{ $row->personal_guarantee }}</td>
 							<td>{{ $row->intermediary }}</td>
 							<td>{{ $row->sanction_letter }}</td>
+							<td>
+								@if($trustee_id == 1)
+								<a class="btn btn-info accept-sanction1" href="javascript:;"><i class="fa fa-check"></i></a> &nbsp;&nbsp; <a class="btn btn-danger reject-sanction1" href="javascript:;"><i class="fa fa-times"></i></a>
+								@else if($trustee_id == 2)
+								<a class="btn btn-info accept-sanction2" href="javascript:;"><i class="fa fa-check"></i></a> &nbsp;&nbsp; <a class="btn btn-danger reject-sanction2" href="javascript:;"><i class="fa fa-times"></i></a>
+								@else if($trustee_id == 3)
+								<a class="btn btn-info accept-sanction3" href="javascript:;"><i class="fa fa-check"></i></a> &nbsp;&nbsp; <a class="btn btn-danger reject-sanction3" href="javascript:;"><i class="fa fa-times"></i></a>
+								@endif
+							</td>
 						</tr>
 						@endforeach
 					</tbody>

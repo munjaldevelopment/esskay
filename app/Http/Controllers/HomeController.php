@@ -7408,7 +7408,7 @@ class HomeController extends Controller
 		$sanctionLetterData = \DB::table('sanction_letters')->get();
 
     	$current_year = date('Y');
-		return view('sanction-letter-info', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'sanctionLetterData' => $sanctionLetterData]);
+		return view('sanction-letter-info', ['insightCatData' => $insightCatData, 'trustee_id' => $trustee_id, 'insightData' => $insightData, 'sanctionLetterData' => $sanctionLetterData]);
 	}
 
 }
