@@ -2132,7 +2132,7 @@ class HomeController extends Controller
 		{
 			$productConData = \DB::table('product_concentrations')->where('product_concentration_status', 1)->get();
 
-			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = $amount10 = 0;
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
 
 			$raj_amount1 = $raj_amount2 = $raj_amount3 = $raj_amount4 = $raj_amount5 = $raj_amount6 = $raj_amount7 = $raj_amount8 = $raj_amount9 = 0;
 			$other_amount1 = $other_amount2 = $other_amount3 = $other_amount4 = $other_amount5 = $other_amount6 = $other_amount7 = $other_amount8 = $other_amount9 = 0;
@@ -2181,7 +2181,7 @@ class HomeController extends Controller
 			}
 
 			$chart2 = \Chart::title([
-				'text' => 'Product Concentration',
+				'text' => ''//PRODUCT_CONCENTRATION_HEADING,
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -2195,26 +2195,36 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21', 'FY22', 'FY23'
+					PRODUCT_CONCENTRATION_CATEGORY,//, 'FY22',//, 'FY23'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
-			->exporting_js(true)
-			->export_data_js(true)
-			/*->legend([
-				'layout' => 'vertical',
-		        'align' => 'right',
-		        'verticalAlign' => 'middle'
-			])*/
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -2224,14 +2234,14 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'showInLegend' => 'false',
-						'name'  => 'Commercial Vehicle',
-						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7, $raj_amount8, $raj_amount9],
+						
+						'name'  => PRODUCT_CONCENTRATION_LABEL1,
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7], //, , $raj_amount8 $raj_amount9
 					],
 					[
-						'showInLegend' => 'false',
-						'name'  => 'Other Products',
-						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7, $other_amount8, $other_amount9],
+						
+						'name'  => PRODUCT_CONCENTRATION_LABEL2,
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7], //, , $other_amount8 $other_amount9
 					],
 				]
 			)
@@ -2258,7 +2268,7 @@ class HomeController extends Controller
 			}
 
 			$chart3 = \Chart::title([
-				'text' => 'Asset Quality',
+				'text' => ''//ASSETQUALITY_CONCENTRATION_HEADING,
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -2272,25 +2282,36 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY14', 'FY15', 'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'FY21'
+					ASSETQUALITY_CONCENTRATION_CATEGORY
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
-			->exporting_js(true)
-			->export_data_js(true)
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -2300,23 +2321,178 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'showInLegend' => 'false',
-						'name'  => 'Par 150',
+						
+						'name'  => ASSETQUALITY_CONCENTRATION_LABEL1,
 						'data'  => $assetData1,
 					],
 					[
-						'showInLegend' => 'false',
-						'name'  => 'Par 120',
+						
+						'name'  => ASSETQUALITY_CONCENTRATION_LABEL2,
 						'data'  => $assetData2,
 					],
 					[
-						'showInLegend' => 'false',
-						'name'  => 'Par 90',
+						
+						'name'  => ASSETQUALITY_CONCENTRATION_LABEL3,
 						'data'  => $assetData3,
 					],
 				]
 			)
 			->display(0);
+
+			$capitalCategory = $capitalData1 = $capitalData2 = $capitalData3 = array();
+
+			$assetConData1 = \DB::table('capital_infusion1')->where('capital_infusion_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$capitalCategory[] = $row->heading_graph1;
+					$capitalData1[] = (float)$row->amount_graph1;
+					$capitalData2[] = (float)$row->amount_graph2;
+					$capitalData3[] = (float)$row->amount_graph3;
+				}
+			}
+
+			$chart31 = \Chart::title([
+				'text' => ''//ASSETQUALITY_CONCENTRATION_HEADING,
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'third1_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF', '#FF0000', '#493313'
+			])
+			->xaxis([
+				'categories' => $capitalCategory,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						
+						'name'  => ASSETSQUALITY1_LABEL1,
+						'data'  => $capitalData1,
+					],
+					[
+						
+						'name'  => ASSETSQUALITY1_LABEL2,
+						'data'  => $capitalData2,
+					],
+					[
+						
+						'name'  => ASSETSQUALITY1_LABEL3,
+						'data'  => $capitalData3,
+					],
+				]
+			)
+			->display(1);
+
+			$capitalData1 = array();
+
+			$assetConData1 = \DB::table('capital_infusion2')->where('capital_infusion_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$capitalData1[] = (float)$row->amount_graph1;
+				}
+			}
+
+			$chart32 = \Chart::title([
+				'text' => ''
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'third2_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF', '#FF0000', '#493313'
+			])
+			->xaxis([
+				'categories' => $capitalCategory,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						//'showInLegend' => false,
+						'name'  => ASSETSQUALITY2_HEADING,
+						'data'  => $capitalData1,
+					],
+				]
+			)
+			->display(1);
 		}
 		else if($request->category_id == 6)
 		{
@@ -2336,7 +2512,7 @@ class HomeController extends Controller
 			}
 
 			$chart41 = \Chart::title([
-				'text' => 'Collection Efficiency (Including Pre-payment)',
+				'text' => ''//PORTFOLIOANALYSIS_HEADING
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -2350,23 +2526,34 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $assetData11,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
-			->exporting_js(true)
-			->export_data_js(true)
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -2376,8 +2563,8 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'showInLegend' => 'false',
-						'name'  => 'Collection',
+						
+						'name'  => PORTFOLIOANALYSIS_LABEL1,
 						'data'  => $assetData1,
 					],
 				]
@@ -2385,7 +2572,7 @@ class HomeController extends Controller
 			->display(0);
 
 			$chart42 = \Chart::title([
-				'text' => 'Collection Efficiency (Excluding Pre-payment)',
+				'text' => ''//PORTFOLIOANALYSIS1_HEADING
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -2399,21 +2586,34 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => $assetData21,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -2423,8 +2623,8 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'showInLegend' => 'false',
-						'name'  => 'Collection',
+						
+						'name'  => PORTFOLIOANALYSIS1_LABEL1,
 						'data'  => $assetData2,
 					],
 				]
@@ -2456,21 +2656,37 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY17', 'FY18', 'FY19', 'FY20', 'FY21', 'H1FY21'],
+				'categories' => [
+					NETWORTH1_CATEGORY
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => ''
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -2480,8 +2696,8 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'showInLegend' => 'false',
-						'name'  => 'Net worth (In Cr.)',
+						
+						'name'  => NETWORTH1_LABEL1,
 						'data'  => $assetData1,
 					],
 				]
@@ -2502,21 +2718,37 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['FY17', 'FY18', 'FY19', 'FY20', 'FY21', 'H1FY21'],
+				'categories' => [
+					NETWORTH2_CATEGORY
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => ''
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -2526,8 +2758,8 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'showInLegend' => 'false',
-						'name'  => 'Debt / Net worth (In Times)',
+						
+						'name'  => NETWORTH2_LABEL1,
 						'data'  => $assetData2,
 					],
 				]
@@ -2565,7 +2797,7 @@ class HomeController extends Controller
 			}
 
 			$chart6 = \Chart::title([
-				'text' => 'Adequate Liquidity',
+				'text' => '',
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -2578,21 +2810,37 @@ class HomeController extends Controller
 				'#0000FF',
 			])
 			->xaxis([
-				'categories' => ['Dec-18', 'Mar-19', 'Jun-19', 'Sep-19', 'Dec-19', 'Mar-20', 'Jun-20', 'Sep-20', 'Dec-20', 'Mar-21'],
+				'categories' => [
+					ADEQUATE_CATEGORY
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
-					'text' => 'Percentage'
+					'text' => ''
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->legend([
-		        'align' => 'center',
-		        'verticalAlign' => 'top'
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
 			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
 						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -2602,13 +2850,561 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'showInLegend' => 'false',
-						'name'  => 'Adequate Liquidity',
+						
+						'name'  => ADEQUATE_LABEL1,
 						'data'  => $liquidityData1,
 					],
 				]
 			)
 			->display(0);
+		}
+		else if($request->category_id == 10)
+		{
+			$strongLiabilityProfileData1 = $asseliquidityData2 = $profileCategory = $profileCategory1 = array();
+			$liabilityProfileData1 = $liabilityProfileData2 = $liabilityProfileData3 = array();
+
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = 0;
+			$amount1_lender = $amount2_lender = $amount3_lender = $amount4_lender = $amount5_lender = $amount6_lender = 0;
+
+			$assetConData1 = $liabilityProfileData = \DB::table('strong_liability_profiles')->where('strong_liability_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$amount1+= $row->amount1;
+					$amount2+= $row->amount2;
+					$amount3+= $row->amount3;
+
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
+
+					$profileCategory[] = $profileCategory1[] = $row->quarter;
+
+					$liabilityProfileData1[] = (int)$row->amount1;
+					$liabilityProfileData2[] = (int)$row->amount2;
+					$liabilityProfileData3[] = (int)$row->amount3;
+				}
+			}
+
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = 0;
+			$amount1_lender = $amount2_lender = $amount3_lender = $amount4_lender = $amount5_lender = $amount6_lender = $amount7_lender = 0;
+
+			$assetConData2 = $liabilityProfileTableData = \DB::table('strong_liability_profile_tables')->where('strong_liability_table_status', 1)->get();
+			if($assetConData2)
+			{
+				foreach($assetConData2 as $row)
+				{
+					$amount1+= $row->amount1;
+					$amount1_lender+= $row->amount1_lender;
+					$amount2+= $row->amount2;
+					$amount2_lender+= $row->amount2_lender;
+					$amount3+= $row->amount3;
+					$amount3_lender+= $row->amount3_lender;
+
+					$amount4+= $row->amount4;
+					$amount4_lender+= $row->amount4_lender;
+					$amount5+= $row->amount5;
+					$amount5_lender+= $row->amount5_lender;
+					$amount6+= $row->amount6;
+					$amount6_lender+= $row->amount6_lender;
+					$amount7+= $row->amount7;
+					$amount7_lender+= $row->amount7_lender;
+
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
+
+					$liabilityProfileDataTotal = array((float)round($amount1, 2), (float)round($amount1_lender, 2), (float)round($amount2, 2), (float)round($amount2_lender, 2), (float)round($amount3, 2),  (float)round($amount3_lender, 2), (float)round($amount4, 2),  (float)round($amount4_lender, 2), (float)round($amount5, 2),  (float)round($amount5_lender, 2), (float)round($amount6, 2),  (float)round($amount6_lender, 2), (float)round($amount7, 2), (float)round($amount7_lender, 2));
+				}
+			}
+
+			$chart7 = \Chart::title([
+				'text' => DIVERSIFIED_HEADING//'Diversified Lender Base And Access to different Pools of Capital',
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'seventh_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF',
+			])
+			->xaxis([
+				'categories' => $profileCategory,
+				'crosshair' => 'true',
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						
+						'name'  => DIVERSIFIED_LABEL1,
+						'color' => '#11a9dc',
+						'data'  => $liabilityProfileData1,
+					],
+					[
+						
+						'name'  => DIVERSIFIED_LABEL2,
+						'color' => '#336699',
+						'data'  => $liabilityProfileData2,
+					],
+					[
+						
+						'name'  => DIVERSIFIED_LABEL3,
+						'color' => '#25a7a4',
+						'data'  => $liabilityProfileData3,
+					],
+				]
+			)
+			->display(0);
+
+			$topFiveLenders = \DB::table('lenders')->where('is_onboard', 'Onboarded')->skip(0)->take(5)->get();
+
+			$liabilityCategories = \DB::table('liability_profile_categories')->where('status', '1')->get();
+
+			foreach($liabilityCategories as $row)
+			{
+				$liabilityCategoriesSlider[$row->id] = \DB::table('liability_profile_slider')->where('liability_profile_category_id', $row->id)->where('status', '1')->get();
+			}
+		}
+		else if($request->category_id == 11)
+		{
+
+			$profileCategory = $profileCategory1 = $liabilityProfileData11 = $liabilityProfileData12 = array();
+
+			$amount1 = $amount2 = $amount3 = 0;
+			
+			$assetConData1 = $liabilityProfile11Data = \DB::table('strong_liability_profile_ratio')->where('strong_liability_ratio_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$amount1+= $row->amount1;
+					$amount2+= $row->amount2;
+
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
+
+					$profileCategory[] = $profileCategory1[] = $row->financial_year;
+
+					$liabilityProfileData11[] = (int)$row->amount1;
+					$liabilityProfileData12[] = (int)$row->amount2;
+				}
+			}
+
+			$chart8 = \Chart::title([
+				'text' => 'Network & Employees (In Nos.)',
+			])
+			->chart([
+				'type'     => 'column', // pie , columnt ect
+				'renderTo' => 'eighth_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF',
+			])
+			->xaxis([
+				'categories' => $profileCategory1,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->yaxis([
+				'title' => [
+					'text' => ''
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						
+						'name'  => 'Branches',
+						'color' => '#336699',
+						'data'  => $liabilityProfileData11,
+					],
+					[
+						
+						'name'  => 'Employee Strength',
+						'color' => '#11a9dc',
+						'data'  => $liabilityProfileData12,
+					],
+				]
+			)
+			->display(0);
+
+			$profileCategory = $profileCategory1 = $liabilityProfileData11 = $liabilityProfileData12 = array();
+
+			$amount1 = $amount2 = $amount3 = 0;
+			
+			$assetConData1 = $liabilityProfile11Data = \DB::table('strong_liability_profile_overall')->where('strong_liability_overall_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$amount1+= $row->amount1;
+
+					$asseliquidityData2 = array('amount1' => $amount1);
+
+					$profileCategory[] = $profileCategory1[] = $row->financial_year;
+
+					$liabilityProfileData11[] = (float)$row->amount1;
+				}
+			}
+			
+
+			$chart10 = \Chart::title([
+				'text' => DRIVINGDOWN_HEADING,//'Driving down cost of borrowings',
+			])
+			->chart([
+				'type'     => 'line', // pie , columnt ect
+				'renderTo' => 'tenth_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+			])
+			->xaxis([
+				'categories' => $profileCategory1,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ],
+				'stackLabels' => [
+		            'enabled' => 'true',
+		            'style' => [
+		                'fontWeight' => 'bold',
+		            ]
+		        ]
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						
+						'name'  => DRIVINGDOWN_LABEL1,//'Overall cost',
+						'color' => '#336699',
+						'data'  => $liabilityProfileData11,
+					]
+				]
+			)
+			->display(1);
+
+			$capitalCategory = $capitalData1 = $capitalData2 = $capitalData3 = array();
+
+			$assetConData1 = \DB::table('capital_infusion3')->where('capital_infusion_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$capitalCategory[] = $row->heading_graph1;
+					$capitalData1[] = (float)$row->amount_graph1;
+					$capitalData2[] = (float)$row->amount_graph2;
+					$capitalData3[] = (float)$row->amount_graph3;
+				}
+			}
+
+			// Incremental
+			$chart511 = \Chart::title([
+				'text' => INCREMENTAL_HEADING
+			])
+			->chart([
+				'zoomType' => 'xy',
+				'renderTo' => 'fifth51_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+				'#0000FF', '#FF0000', '#493313'
+			])
+			->xaxis([
+				'categories' => $capitalCategory,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->yaxis([
+				[
+					'labels' => [
+						'format' => '{value} cm',
+						'style' => [
+	                    	'fontWeight' => 'bold',
+	                    ]
+					],
+					'title' => [
+						'text' => INCREMENTAL_LABEL1
+					],
+					'opposite' => true
+				],
+				[
+					'gridLineWidth' => '0',
+					'title' => [
+						'text' => INCREMENTAL_LABEL2
+					],
+					'labels' => [
+						'format' => '{value} mm',
+						'style' => [
+	                    	'fontWeight' => 'bold',
+	                    ]
+					]
+				],
+				[
+					'gridLineWidth' => '0',
+					'title' => [
+						'text' => INCREMENTAL_LABEL3
+					],
+					'labels' => [
+						'format' => '{value} mb',
+						'style' => [
+	                    	'fontWeight' => 'bold',
+	                    ]
+					],
+					
+					'opposite' => true
+				]
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						
+						'name'  => INCREMENTAL_LABEL2,
+						'type' => 'line',
+						//'yAxis' => '0',
+						'data'  => $capitalData2,
+					],
+					[
+						
+						'name'  => INCREMENTAL_LABEL3,
+						'type' => 'spline',
+						//'yAxis' => '1',
+						'data'  => $capitalData3,
+					],
+					[
+						
+						'name'  => INCREMENTAL_LABEL1,
+						'type' => 'spline',
+						'data'  => $capitalData1,
+					]
+				]
+			)
+			->display(1);
+
+			$capitalCategory = $capitalData1 = $capitalData2 = $capitalData3 = array();
+
+			$assetConData1 = \DB::table('capital_infusion4')->where('capital_infusion_status', 1)->get();
+			$max = 0;
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$capitalCategory[] = $row->heading_graph1;
+					$capitalData1[] = (float)$row->amount_graph1;
+					$capitalData2[] = (float)$row->amount_graph2;
+
+					$max = max($row->amount_graph1, $row->amount_graph2);
+				}
+			}
+
+			$maxVal = $max + 1000;
+
+
+
+			$chart512 = \Chart::title([
+				'text' => ALMPROFILE_HEADING
+			])
+			->chart([
+				'type'     => 'column', // pie , columnt ect
+				'renderTo' => 'fifth52_chart', // render the chart into your div with id
+			])
+			->colors([
+				'#0c2959'
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->xaxis([
+				'categories' => $capitalCategory,
+				'type' => 'category',
+				'labels' => [
+            		'rotation' => '-45',
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->yaxis([
+				'max' => $maxVal,
+				'title' => [
+					'text' => ''
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ],
+				'stackLabels' => [
+		            'enabled' => 'true',
+		            'style' => [
+		                'fontWeight' => 'bold',
+		            ]
+		        ]
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						
+						'name'  => ALMPROFILE_LABEL1,
+						'color' => '#336699',
+						'data'  => $capitalData1,
+						'dataLabels' => [
+				            'enabled' => true,
+				            'rotation' => 270,
+				            'align' => 'right',
+				            'y' => -35 // 10 pixels down from the top
+						]
+					],
+					[
+						
+						'name'  => ALMPROFILE_LABEL2,
+						'color' => '#11a9dc',
+						'data'  => $capitalData2,
+						'dataLabels' => [
+				            'enabled' => true,
+				            'rotation' => 270,
+				            'align' => 'right',
+				            'y' => -35 // 10 pixels down from the top
+						]
+					]
+				]
+			)
+			->display(1);
+
+			
+			$assetConData2 = $liabilityProfileTable11Data = \DB::table('strong_liability_profile_well_table')->where('strong_liability_well_status', 1)->get();
 		}
 		else if($request->category_id == 12)
 		{
@@ -2634,6 +3430,102 @@ class HomeController extends Controller
 		}
 		else if($request->category_id == 13)
 		{
+			$profileCategory = $profileCategory1 = $liabilityProfileData11 = $liabilityProfileData12 = array();
+
+			$amount1 = $amount2 = $amount3 = 0;
+			
+			$assetConData1 = $liabilityProfile11Data = \DB::table('strong_liability_profile_driving')->where('strong_liability_driving_status', 1)->get();
+			if($assetConData1)
+			{
+				foreach($assetConData1 as $row)
+				{
+					$amount1+= $row->amount1;
+					$amount2+= $row->amount2;
+
+					$asseliquidityData2 = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3);
+
+					$profileCategory[] = $profileCategory1[] = $row->financial_year;
+
+					$liabilityProfileData11[] = (float)$row->amount1;
+					$liabilityProfileData12[] = (float)$row->amount2;
+				}
+			}
+
+			$chart9 = \Chart::title([
+				'text' => ''//Healthy CRAR',
+			])
+			->chart([
+				'type'     => 'column', // pie , columnt ect
+				'renderTo' => 'ninth_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+			])
+			->xaxis([
+				'categories' => $profileCategory1,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ],
+				'stackLabels' => [
+		            'enabled' => 'true',
+		            'style' => [
+		                'fontWeight' => 'bold',
+		            ]
+		        ]
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						
+						'name'  => HEALTHYCRAR_LABEL1,//'Tier1',
+						'color' => '#336699',
+						'data'  => $liabilityProfileData11,
+					],
+					[
+						
+						'name'  => HEALTHYCRAR_LABEL2,//'Tier2',
+						'color' => '#11a9dc',
+						'data'  => $liabilityProfileData12,
+					],
+				]
+			)
+			->display(1);
+		}
+		else if($request->category_id == 14)
+		{
+			$insightLocationData = \DB::table('insight_locations')->leftJoin('districts', 'insight_locations.district_id', '=', 'districts.id')->leftJoin('states', 'districts.state_id', '=', 'states.id')->where('insight_locations.status', 1)->selectRaw('location_hub, branch_name, branch_type, branch_address, office_lat, office_long, insight_locations.lft, states.name as state_name, districts.name as district_name')->get();
 		}
 
 		
