@@ -2510,9 +2510,13 @@ a.fxt-btn-fill.float-right {
 	}
 
 	.ohbh-box-right {
-		right: 5px;
+		right: 20px;
 		width: 80px;
 	}	
+
+	.operation-highlights-area.operation-single-highlighs .ohb-highlights-box .ohbh-box-right {
+    	right: -95px;
+	}
 	
 }
 
