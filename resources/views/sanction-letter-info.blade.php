@@ -32,49 +32,51 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($sanctionLetterData as $row)
-						<tr>
-							<td class="text-justify">{{ $row->bank_name }}</td>
-							<td>{{ $row->type_facility }}</td>
-							<td>{{ $row->facility_amount }}</td>
-							<td>{{ $row->roi }}</td>
-							<td>{{ $row->all_incluside_roi }}</td>
-							<td>{{ $row->processing_fees }}</td>
-							<td>{{ $row->processing_fees_amount }}</td>
-							<td>{{ $row->arranger_fees }}</td>
-							<td>{{ $row->arranger_fees_amount }}</td>
-							<td>{{ $row->other_charges_doc }}</td>
-							<td>{{ $row->total_associated_cost }}</td>
-							<td>{{ $row->all_inclusive_cost }}</td>
-							<td>{!! $row->financial_covenant !!}</td>
-							<td>{!! $row->rationale_availing !!}</td>
-							<td>{{ $row->blended_cost }}</td>
-							<td>{{ $row->stamp_duty_fees }}</td>
-							<td>{{ $row->tenor }}</td>
-							<td>{{ $row->security_cover }}</td>
-							<td>{{ $row->cash_collateral }}</td>
-							<td>{{ $row->personal_guarantee }}</td>
-							<td>{{ $row->intermediary }}</td>
-							<td>{{ $row->sanction_letter }}</td>
-							<td>
-								@if($trustee_id == 1)
-									@if($row->is_approve1 == 0)<a class="btn btn-info accept-sanction1" href="javascript:;"><i class="fa fa-check"></i></a> 
-									&nbsp;&nbsp; 
-									<a class="btn btn-danger reject-sanction1" href="javascript:;"><i class="fa fa-times"></i></a>@endif
-								@elseif($trustee_id == 2)
-									@if($row->is_approve2 == 0)<a class="btn btn-info accept-sanction2" href="javascript:;"><i class="fa fa-check"></i></a>
-									&nbsp;&nbsp;
-									<a class="btn btn-danger reject-sanction2" href="javascript:;"><i class="fa fa-times"></i></a>
+						@if($sanctionLetterData)
+							@foreach($sanctionLetterData as $row)
+							<tr>
+								<td class="text-justify">{{ $row->bank_name }}</td>
+								<td>{{ $row->type_facility }}</td>
+								<td>{{ $row->facility_amount }}</td>
+								<td>{{ $row->roi }}</td>
+								<td>{{ $row->all_incluside_roi }}</td>
+								<td>{{ $row->processing_fees }}</td>
+								<td>{{ $row->processing_fees_amount }}</td>
+								<td>{{ $row->arranger_fees }}</td>
+								<td>{{ $row->arranger_fees_amount }}</td>
+								<td>{{ $row->other_charges_doc }}</td>
+								<td>{{ $row->total_associated_cost }}</td>
+								<td>{{ $row->all_inclusive_cost }}</td>
+								<td>{!! $row->financial_covenant !!}</td>
+								<td>{!! $row->rationale_availing !!}</td>
+								<td>{{ $row->blended_cost }}</td>
+								<td>{{ $row->stamp_duty_fees }}</td>
+								<td>{{ $row->tenor }}</td>
+								<td>{{ $row->security_cover }}</td>
+								<td>{{ $row->cash_collateral }}</td>
+								<td>{{ $row->personal_guarantee }}</td>
+								<td>{{ $row->intermediary }}</td>
+								<td>{{ $row->sanction_letter }}</td>
+								<td>
+									@if($trustee_id == 1)
+										@if($row->is_approve1 == 0)<a class="btn btn-info accept-sanction1" href="javascript:;"><i class="fa fa-check"></i></a> 
+										&nbsp;&nbsp; 
+										<a class="btn btn-danger reject-sanction1" href="javascript:;"><i class="fa fa-times"></i></a>@endif
+									@elseif($trustee_id == 2)
+										@if($row->is_approve2 == 0)<a class="btn btn-info accept-sanction2" href="javascript:;"><i class="fa fa-check"></i></a>
+										&nbsp;&nbsp;
+										<a class="btn btn-danger reject-sanction2" href="javascript:;"><i class="fa fa-times"></i></a>
+										@endif
+									@elseif($trustee_id == 3)
+										@if($row->is_approve3 == 0)<a class="btn btn-info accept-sanction3" href="javascript:;"><i class="fa fa-check"></i></a>
+										&nbsp;&nbsp;
+										<a class="btn btn-danger reject-sanction3" href="javascript:;"><i class="fa fa-times"></i></a>
+										@endif
 									@endif
-								@elseif($trustee_id == 3)
-									@if($row->is_approve3 == 0)<a class="btn btn-info accept-sanction3" href="javascript:;"><i class="fa fa-check"></i></a>
-									&nbsp;&nbsp;
-									<a class="btn btn-danger reject-sanction3" href="javascript:;"><i class="fa fa-times"></i></a>
-									@endif
-								@endif
-							</td>
-						</tr>
-						@endforeach
+								</td>
+							</tr>
+							@endforeach
+						@endif
 					</tbody>
 				</table>	
 			</div>	
