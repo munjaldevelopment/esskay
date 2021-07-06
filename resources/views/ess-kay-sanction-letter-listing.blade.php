@@ -1,82 +1,35 @@
-<div class="main-tab-details">
-	<div class="white-box outstanding-box">
-		<div class="outstanding-table">
-			<h3>Particulars</h3>
+<div class="mtd-inner-box mtd-doc-main">
+	<div class="mtd-inner">
+		 <!-- Menu -->
+		<div class="side-menu"  id="content-1">
+			<nav class="navbar" role="navigation">
+				<!-- Main Menu -->
+				<div class="side-menu-container">
+					<ul class="nav navbar-nav category-listing" id="menu-accordian">
+						<li>
+							<a class="dropdown-box sanction-letter-category-list" data-category="all" href="javascript:;" @endif data-category="all">
+								<span>All</span>
+							</a>
+						</li>
+						<li>
+							<a class="dropdown-box sanction-letter-category-list" data-category="accepted" href="javascript:;" @endif data-category="accepted">
+								<span>Accepted</span>
+							</a>
+						</li>
+						<li>
+							<a class="dropdown-box sanction-letter-category-list" data-category="rejected" href="javascript:;" @endif data-category="rejected">
+								<span>Rejected</span>
+							</a>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</nav>
+		</div>
 
-			<div class="custom-table-area">
-				<div class="row-fluid">
-					<div class="col-sm-6 offset-3">
-						@foreach($sanctionData as $sanctionRow)
-						<div class="table-responsive">
-							<table class="table">
-								<thead>
-									<tr>
-										<th colspan="2">Particulars</th>
-									</tr>
-								</thead>
-
-								<tbody>
-									<tr>
-										<td>Bank</td>
-										<td>{{ $sanctionRow->bank_name }}</td>
-									</tr>
-									<tr>
-										<td>Type of Facility</td>
-										<td>{{ $sanctionRow->type_facility }}</td>
-									</tr>
-									<tr>
-										<td>Facility Amount</td>
-										<td>{{ $sanctionRow->facility_amount }}</td>
-									</tr>
-									<tr>
-										<td>ROI</td>
-										<td>{{ $sanctionRow->roi }}</td>
-									</tr>
-									<tr>
-										<td>All-inclusive ROI</td>
-										<td>{{ $sanctionRow->all_incluside_roi }}</td>
-									</tr>
-									<tr>
-										<td>Processing Fees</td>
-										<td>{{ $sanctionRow->processing_fees }}</td>
-									</tr>
-									<tr>
-										<td>Arranger Fees</td>
-										<td>{{ $sanctionRow->arranger_fees }}</td>
-									</tr>
-									<tr>
-										<td>Stamp Duty Fees</td>
-										<td>{{ $sanctionRow->stamp_duty_fees }}</td>
-									</tr>
-									<tr>
-										<td>Tenor</td>
-										<td>{{ $sanctionRow->tenor }}</td>
-									</tr>
-									<tr>
-										<td>Security Cover</td>
-										<td>{{ $sanctionRow->security_cover }}</td>
-									</tr>
-									<tr>
-										<td>Cash Collateral</td>
-										<td>{{ $sanctionRow->cash_collateral }}</td>
-									</tr>
-									<tr>
-										<td>Personal Guarantee</td>
-										<td>{{ $sanctionRow->personal_guarantee }}</td>
-									</tr>
-									<tr>
-										<td>Intermediary</td>
-										<td>{{ $sanctionRow->intermediary }}</td>
-									</tr>
-									<tr>
-										<td>Sanction letter</td>
-										<td>{{ $sanctionRow->sanction_letter }}</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						@endforeach
-					</div>
+		<div class="side-body">
+			<div class="sanctionletter-container">
+				<div class="alert alert-warning">
+					Please click on left section to get products
 				</div>
 			</div>
 		</div>
@@ -137,15 +90,49 @@
 		</svg>
 </div>
 
-<script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
-<script src="{{ asset('public/assets/') }}/js/owl.carousel.js"></script>	
-
 <script>
+
 $(document).ready(function() {
 	
 	var base_url = $('base').attr('href');
 	
 	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 	
+	$('.sanction-letter-category-list').bind('click', function(e) {
+		//e.preventDefault();
+		
+		var expanded = $(this).attr('aria-expanded');
+		var level = $(this).attr('data-level');
+		var category_id = $(this).attr('data-category_id');
+		
+		//$('.category-data').removeClass('show');
+		//$('.category-list-data a').attr('aria-expanded', 'false');
+		
+	});
+	
+	$('.dropdown-box').bind('click', function() {
+		var category = $(this).attr('data-category');
+		
+		
+		$.ajax({
+			url: base_url+'showSanctionLetterInfo',
+			type: 'post',
+			data: {_token: CSRF_TOKEN, category_id: category},
+			beforeSend: function() {
+				var content = $('.preloader_doc').html();
+				$('.sanctionletter-container').html(content);
+			},
+			success: function(output) {
+				$('.sanctionletter-container').html(output);
+			}
+		});
+		
+		$('ul.category-listing li').removeClass('active');
+				
+		$('ul.category-listing li a[data-category="'+category+'"]').parent('li').addClass("active");
+	});
+	
+	
+	$('ul.category-listing > li:first-child a.first-child').trigger('click');
 });
 </script>
