@@ -539,6 +539,12 @@ class HomeController extends Controller
 		session()->forget('esskay_trustee_user_id');
 		session()->forget('esskay_trustee_verify');
 		session()->forget('role_id');
+
+		session()->forget('esskay_sanction_letter_name');
+		session()->forget('esskay_sanction_letter_user_id');
+		session()->forget('esskay_sanction_letter_verify');
+
+		
 		
 		return redirect(url('/').'/');
 	}
