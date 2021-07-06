@@ -7394,6 +7394,10 @@ class HomeController extends Controller
     {
     	Setting::assignSetting();
 
+    	$category_id = $request->rejected;
+
+    	//rejected
+
     	//dd($request->all());
 		$trusteeData = \DB::table('sanction_users')->where('user_id', session()->get('esskay_sanction_letter_user_id'))->first();
     	//dd($trusteeData);
@@ -7405,7 +7409,43 @@ class HomeController extends Controller
 
 		$locationCount = \DB::table('insight_locations')->where('status', 1)->count();
 
-		$sanctionLetterData = \DB::table('sanction_letters')->get();
+		$where = array();
+
+		if($trustee_id == 1)
+		{
+			if($category_id == "accepted")
+			{
+				$where = array('is_approve1', '1');
+			}
+			else if($category_id == "rejected")
+			{
+				$where = array('is_approve1', '2');
+			}
+		}
+		else if($trustee_id == 2)
+		{
+			if($category_id == "accepted")
+			{
+				$where = array('is_approve2', '1');
+			}
+			else if($category_id == "rejected")
+			{
+				$where = array('is_approve2', '2');
+			}
+		}
+		else if($trustee_id == 3)
+		{
+			if($category_id == "accepted")
+			{
+				$where = array('is_approve3', '1');
+			}
+			else if($category_id == "rejected")
+			{
+				$where = array('is_approve3', '2');
+			}
+		}
+
+		$sanctionLetterData = \DB::table('sanction_letters')->where($where)->get();
 
     	$current_year = date('Y');
 		return view('sanction-letter-info', ['insightCatData' => $insightCatData, 'trustee_id' => $trustee_id, 'insightData' => $insightData, 'sanctionLetterData' => $sanctionLetterData]);
