@@ -28,7 +28,7 @@
 	<script src="{{ asset('public/assets/') }}/js/jquery.min.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/bootstrap.min.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/swiper.jquery.js"></script>
-	<script src="{{ asset('public/assets/') }}/js/custom-trustee.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/custom-sanction-letter.js"></script>
 	
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

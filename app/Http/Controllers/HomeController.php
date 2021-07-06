@@ -6437,4 +6437,16 @@ class HomeController extends Controller
 	    	}
 	    }
     }
+
+    // Sanction Letter
+    public function contactUsSanctionLetter()
+    {	
+		$pageInfo = Page::getPageInfo(2);
+		
+		$customer_name = session()->get('esskay_trustee_verify');
+		
+		Setting::assignSetting();
+		
+		return view('ess-kay-contact-sanction-letter', ['customer_name' => $customer_name, 'page_title' => $pageInfo->title, 'page_content' => $pageInfo->content]);
+	}
 }

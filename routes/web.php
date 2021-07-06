@@ -86,6 +86,8 @@ Route::post('/dealListTrustee', 'HomeController@dealListTrustee');
 Route::post('/newsTrustee', 'HomeController@newsTrustee');
 Route::post('/contact_us_trustee', 'HomeController@contactUsTrustee');
 
+Route::post('/contact_us_sanctionletter', 'HomeController@contactUsSanctionLetter');
+
 Route::post('/documentTrustee', 'HomeController@documentTrustee');
 
 Route::post('/showTrusteeTransactionInfo', 'HomeController@showTrusteeTransactionInfo');
