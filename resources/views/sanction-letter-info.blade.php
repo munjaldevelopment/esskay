@@ -46,7 +46,7 @@
 							<td>{{ $row->total_associated_cost }}</td>
 							<td>{{ $row->all_inclusive_cost }}</td>
 							<td>{!! $row->financial_covenant !!}</td>
-							<td>{{ $row->rationale_availing }}</td>
+							<td>{!! $row->rationale_availing !!}</td>
 							<td>{{ $row->blended_cost }}</td>
 							<td>{{ $row->stamp_duty_fees }}</td>
 							<td>{{ $row->tenor }}</td>
