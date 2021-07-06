@@ -30,7 +30,23 @@
 	<script src="{{ asset('public/assets/') }}/js/swiper.jquery.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/custom.js"></script>
 	
-	<script src="{{ asset('public/assets/') }}/js/sweetalert.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<script src="https://maps.google.com/maps/api/js?key=AIzaSyCOpOpa4sWnCIrBNY8SjiO0dgsS0nd3G8E&sensor=false" type="text/javascript"></script>
+
+	<script src="{{ asset('public/assets/') }}/js/highcharts.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/series-label.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/exporting.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/export-data.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/accessibility.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/jquery.dataTables.min.css"/>
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/fixedColumns.dataTables.min.css"/>
+	<!--<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/responsive.dataTables.min.css"/>-->
+ 
+	<script src="{{ asset('public/assets/') }}/js/jquery.dataTables.min.js"></script>
+	<!--<script src="{{ asset('public/assets/') }}/js/dataTables.responsive.min.js"></script>-->
+	<script src="{{ asset('public/assets/') }}/js/dataTables.fixedColumns.min.js"></script>
 	
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
