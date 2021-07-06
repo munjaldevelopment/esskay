@@ -568,14 +568,14 @@ class HomeController extends Controller
 			return view('user_otp', ['customer_name' => $customer_name, 'user_otp' => $user_otp, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
 			
 		}
-		else if($customer_name1)
+		/*else if($customer_name1)
 		{
-			$checkRecord = \DB::table('users')->where(['phone' => $customer_name])->first();
+			$checkRecord = \DB::table('users')->where(['phone' => $customer_name1])->first();
 			
 			$user_otp = $checkRecord->user_otp;
 			return view('user_otp', ['customer_name' => $customer_name1, 'user_otp' => $user_otp, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
 			
-		}
+		}*/
 		else
 		{
 			return redirect(url('/login'));
