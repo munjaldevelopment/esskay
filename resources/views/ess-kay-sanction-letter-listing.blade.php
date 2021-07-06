@@ -1,7 +1,7 @@
 <div class="mtd-inner-box mtd-doc-main">
 	<div class="mtd-inner">
 		 <!-- Menu -->
-		<div class="side-menu"  id="content-1">
+		<div class="side-menu side-menu-sanction"  id="content-1">
 			<nav class="navbar" role="navigation">
 				<!-- Main Menu -->
 				<div class="side-menu-container">
@@ -26,7 +26,7 @@
 			</nav>
 		</div>
 
-		<div class="side-body">
+		<div class="side-body side-body-sanction">
 			<div class="sanctionletter-container">
 				<div class="alert alert-warning">
 					Please click on left section to get products

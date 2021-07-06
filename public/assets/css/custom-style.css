@@ -66,6 +66,7 @@
 	min-height: 130vh;
 }
 /*slide menu css*/
+
 .side-menu {
     position: absolute;
     width: 365px;
@@ -75,6 +76,12 @@
     top: -7px;
     border-radius: 45px 0px 0px 45px;
 }
+
+.side-menu.side-menu-sanction {
+    position: absolute;
+    width: 265px;
+}
+
 .side-menu .navbar {
 	border: none;
 }
@@ -190,6 +197,11 @@
 /* Main body section */
 .side-body {
 	margin-left: 365px;
+	padding: 25px 41px;
+}
+
+.side-body.side-body-sanction {
+	margin-left: 265px;
 	padding: 25px 41px;
 }
 
