@@ -1982,12 +1982,13 @@ class HomeController extends Controller
 	// Lender
 	public function showInsight(Request $request)
     {
+
 		//dd($request->all());
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
     	//dd($lenderData);
     	$lender_id = $lenderData->id;
-		
-		$insightCatData = \DB::table('insight_categories')->where('id', '=', $request->category_id)->first();
+
+    	$insightCatData = \DB::table('insight_categories')->where('id', '=', $request->category_id)->first();
 
 		$insightData = \DB::table('operational_highlights')->where('operational_highlight_status', 1)->get();
 
@@ -1995,18 +1996,24 @@ class HomeController extends Controller
 
 		$geographicalConData = $geographicalConTotalData = array();
 		$productConData = $productConTotalData = array();
-		$netWorthData = $netWorthData1 = $liquidityData = $liabilityProfileData = $liabilityProfile11Data = $liquidityDataTotal = array();
+		$netWorthData = $netWorthData1 = $liquidityData = $liabilityProfileData = $liabilityProfile11Data = $liabilityProfileTableData = $liabilityProfileTable11Data = array();
+		$liabilityProfileDataTotal = $liquidityDataTotal = $topFiveLenders = array();
 
 		$covidReliefData = $covidReliefDataTotal = $covidReliefDataTotal1 = array();
-		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = array();
+		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = $liabilityCategories = $liabilityCategoriesSlider = array();
 
-		$chart1 = $chart2 = $chart3 = $chart41 = $chart42 = $chart511 = $chart512 = $chart51 = $chart52 = $chart6 = $chart7 = array();
+		$insightLocationData = array();
+		$locationCount = 0;
+
+		$chart511 = $chart512 = $chart1 = $chart2 = $chart3 = $chart31 = $chart32 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = $chart7 = $chart8 = $chart9 = $chart10 = array();
 
 		if($request->category_id == 3)
 		{
+			$locationCount = \DB::table('insight_locations')->where('status', 1)->count();
+
 			$geographicalConData = \DB::table('geographical_concentrations')->where('geographical_concentration_status', 1)->get();
 
-			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = $amount10 = 0;
+			$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
 
 			$raj_amount1 = $raj_amount2 = $raj_amount3 = $raj_amount4 = $raj_amount5 = $raj_amount6 = $raj_amount7 = $raj_amount8 = $raj_amount9 = 0;
 			$other_amount1 = $other_amount2 = $other_amount3 = $other_amount4 = $other_amount5 = $other_amount6 = $other_amount7 = $other_amount8 = $other_amount9 = 0;
@@ -2055,7 +2062,7 @@ class HomeController extends Controller
 			}
 
 			$chart1 = \Chart::title([
-				'text' => 'Geographical Concentration',
+				'text' => ''//GEOGRAPHICAL_CONCENTRATION_HEADING
 			])
 			->chart([
 				'type'     => 'line', // pie , columnt ect
@@ -2069,26 +2076,36 @@ class HomeController extends Controller
 			])
 			->xaxis([
 				'categories' => [
-					'FY16', 'FY17', 'FY18', 'FY19', 'FY20', 'H1FY21', 'FY21',//, 'FY22',//, 'FY23'
+					GEOGRAPHICAL_CONCENTRATION_CATEGORY
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
 			->yaxis([
 				'title' => [
 					'text' => 'Percentage'
 				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
 			])
-			->exporting_js(true)
-			->export_data_js(true)
-			/*->legend([
-				'layout' => 'vertical',
-		        'align' => 'right',
-		        'verticalAlign' => 'middle'
-			])*/
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
 			->plotOptions([
 				'series'        => ([
 					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+					'label' => ([
 						'enabled' => 'true',
-						'format' => '{y}%',
+						'format' => '',
+						'connectorAllowed' => false
 					]),
 				]),
 			])
@@ -2098,14 +2115,14 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'showInLegend' => 'false',
-						'name'  => 'Rajasthan',
-						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7], //, , $raj_amount8 $raj_amount9
+						
+						'name'  => GEOGRAPHICAL_CONCENTRATION_LABEL1,
+						'data'  => [$raj_amount1, $raj_amount2, $raj_amount3, $raj_amount4, $raj_amount5, $raj_amount6, $raj_amount7], //, , $raj_amount8$raj_amount9
 					],
 					[
-						'showInLegend' => 'false',
-						'name'  => 'Other States',
-						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7], // , $other_amount8$other_amount9
+						
+						'name'  => GEOGRAPHICAL_CONCENTRATION_LABEL2,
+						'data'  => [$other_amount1, $other_amount2, $other_amount3, $other_amount4, $other_amount5, $other_amount6, $other_amount7], //, , $other_amount8 $other_amount9
 					],
 				]
 			)
@@ -2621,7 +2638,18 @@ class HomeController extends Controller
 
 		
 		$current_year = date('Y');
-		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart511' => $chart511, 'chart512' => $chart512, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
+		return view('insight-listing', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart31' => $chart31, 'chart32' => $chart32, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart511' => $chart511, 'chart512' => $chart512, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'chart7' => $chart7, 'chart8' => $chart8, 'chart9' => $chart9, 'chart10' => $chart10, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
+
+			'insightLocationData' => $insightLocationData,
+			'liabilityCategories' => $liabilityCategories,
+			'liabilityCategoriesSlider' => $liabilityCategoriesSlider,
+			'locationCount' => $locationCount,
+			'liabilityProfileData' => $liabilityProfileData,
+			'liabilityProfileTableData' => $liabilityProfileTableData,
+			'liabilityProfileTable11Data' => $liabilityProfileTable11Data,
+			'liabilityProfileDataTotal' => $liabilityProfileDataTotal,
+			'topFiveLenders' => $topFiveLenders,
+
 			'covidReliefData' => $covidReliefData, 'covidReliefDataTotal' => $covidReliefDataTotal, 'covidReliefDataTotal1' => $covidReliefDataTotal1,
 			'covidRelief1Data' => $covidRelief1Data, 'covidRelief1DataTotal' => $covidRelief1DataTotal, 'covidRelief1DataTotal1' => $covidRelief1DataTotal1]);
 	}
