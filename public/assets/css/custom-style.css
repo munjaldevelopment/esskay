@@ -2524,6 +2524,11 @@ a.fxt-btn-fill.float-right {
 .side-body {
 	margin-left: 0;
 }
+
+.side-body.side-body-content {
+    padding: 5px 11px;
+}
+
 .side-menu .navbar-nav li a {
 	margin-left: 0;
 	width: 100%;
