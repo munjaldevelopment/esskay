@@ -76,6 +76,11 @@ Route::post('/saveContact', 'HomeController@saveContact');
 // Trustee Part
 Route::post('/insightTrustee', 'HomeController@insightTrustee');
 Route::post('/showInsightTrustee', 'HomeController@showInsightTrustee');
+
+
+Route::post('/showSanctionLetterInfo', 'HomeController@showSanctionLetterInfo');
+
+
 Route::post('/sanction-letter-trustee', 'HomeController@sanctionLetterTrustee');
 
 Route::post('/dealTrustee', 'HomeController@dealTrustee');

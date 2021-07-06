@@ -1983,7 +1983,7 @@ class HomeController extends Controller
 	public function showInsight(Request $request)
     {
     	Setting::assignSetting();
-    	
+
 		//dd($request->all());
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
     	//dd($lenderData);
@@ -7387,4 +7387,24 @@ class HomeController extends Controller
 		
 		return view('ess-kay-contact-sanction-letter', ['customer_name' => $customer_name, 'page_title' => $pageInfo->title, 'page_content' => $pageInfo->content]);
 	}
+
+	// Sanction Letter Info
+
+	public function showSanctionLetterInfo(Request $request)
+    {
+    	Setting::assignSetting();
+
+    	//dd($request->all());
+		$trusteeData = \DB::table('sanction_users')->where('user_id', session()->get('esskay_sanction_letter_user_id'))->first();
+    	//dd($trusteeData);
+    	$trustee_id = $trusteeData->id;
+		
+		$insightCatData = \DB::table('insight_categories')->where('id', '=', $request->category_id)->first();
+
+		$insightData = \DB::table('operational_highlights')->where('operational_highlight_status', 1)->get();
+
+    	$current_year = date('Y');
+		return view('sanction-letter-info', ['insightCatData' => $insightCatData, 'insightData' => $insightData]);
+	}
+
 }
