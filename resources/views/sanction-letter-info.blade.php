@@ -28,7 +28,7 @@
 							<th class="border-bottom">Personal Guarantee</th>
 							<th class="border-bottom">Intermediary</th>
 							<th class="border-bottom">Sanction Letter</th>
-							<th class="border-bottom">Action</th>
+							<th style="min-width:100px;" class="border-bottom">Action</th>
 						</tr>
 					</thead>
 					<tbody>
