@@ -17,6 +17,8 @@
 			</div>
 		</div>
 
+		<div class="clearfix"></div>
+		
 		<div class="operational-highlights-main">
 			<div class="operation-highlights-area">
 				<div class="operation-highlight-year">
