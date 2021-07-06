@@ -7394,7 +7394,7 @@ class HomeController extends Controller
     {
     	Setting::assignSetting();
 
-    	$category_id = $request->rejected;
+    	$category_id = $request->category_id;
 
     	//rejected
 
