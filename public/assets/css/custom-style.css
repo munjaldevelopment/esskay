@@ -2474,38 +2474,45 @@ a.fxt-btn-fill.float-right {
 	
 }
 
+/* Mobile view */
+
 @media only screen and (max-width: 767px) {
-.login-main-area {
-    padding: 0 0 20px 0;
-}
-.about-testimonial-area, .about-video-area {
-    padding: 0 15px;
-}	
-	
-.about-content.h-100.justify-content-center.d-flex {
-    text-align: center;
-    font-size: 25px;
-    margin-bottom: 53px;
-}	
-	
-.deal-summary-inner {
-    margin-bottom: 30px;
-}
-	
-.deal-summary-box .row .col-md-6.col-sm-12:nth-last-child(1) .deal-summary-inner {
-    margin-bottom: 0;
-}
-	
-.content-area-custom .msg-img {
-    right: 50% !important;
-    width: 80px !important;
-    transform: translateX(50%) !important;
-    bottom: 0px !important;
-}
-	
-.content-area-custom .card-body {
-    padding-bottom: 60px !important;
-}	
+	.login-main-area {
+	    padding: 0 0 20px 0;
+	}
+	.about-testimonial-area, .about-video-area {
+	    padding: 0 15px;
+	}	
+		
+	.about-content.h-100.justify-content-center.d-flex {
+	    text-align: center;
+	    font-size: 25px;
+	    margin-bottom: 53px;
+	}	
+		
+	.deal-summary-inner {
+	    margin-bottom: 30px;
+	}
+		
+	.deal-summary-box .row .col-md-6.col-sm-12:nth-last-child(1) .deal-summary-inner {
+	    margin-bottom: 0;
+	}
+		
+	.content-area-custom .msg-img {
+	    right: 50% !important;
+	    width: 80px !important;
+	    transform: translateX(50%) !important;
+	    bottom: 0px !important;
+	}
+		
+	.content-area-custom .card-body {
+	    padding-bottom: 60px !important;
+	}
+
+	.ohbh-box-right {
+		right: 5px;
+		width: 80px;
+	}	
 	
 }
 
