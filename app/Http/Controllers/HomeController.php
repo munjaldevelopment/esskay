@@ -1982,7 +1982,8 @@ class HomeController extends Controller
 	// Lender
 	public function showInsight(Request $request)
     {
-
+    	Setting::assignSetting();
+    	
 		//dd($request->all());
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
     	//dd($lenderData);
