@@ -7445,7 +7445,7 @@ class HomeController extends Controller
 			}
 		}
 
-		echo '<pre>'; print_r($where); exit;
+		echo '<pre>'.$trustee_id.",".$category_id; print_r($where); exit;
 
 		$sanctionLetterData = \DB::table('sanction_letters')->where($where)->get();
 
