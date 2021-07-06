@@ -7445,6 +7445,8 @@ class HomeController extends Controller
 			}
 		}
 
+		echo '<pre>'; print_r($where); exit;
+
 		$sanctionLetterData = \DB::table('sanction_letters')->where($where)->get();
 
     	$current_year = date('Y');
