@@ -86,7 +86,6 @@ Route::post('/dealListTrustee', 'HomeController@dealListTrustee');
 Route::post('/newsTrustee', 'HomeController@newsTrustee');
 Route::post('/contact_us_trustee', 'HomeController@contactUsTrustee');
 
-Route::post('/contact_us_sanctionletter', 'HomeController@contactUsSanctionLetter');
 
 Route::post('/documentTrustee', 'HomeController@documentTrustee');
 
@@ -142,6 +141,10 @@ Route::get('/disclaimer', 'HomeController@disclaimer');
 Route::get('/browser_info', 'BrowserDetectController@index');
 
 Route::get('/showStatus', 'HomeController@showStatus');
+
+// Sanction Letter
+Route::post('/contact_us_sanctionletter', 'HomeController@contactUsSanctionLetter');
+Route::post('/sanction-letter', 'HomeController@sanctionLetter');
 
 Route::get('/user_password', function () {
 	//$updateData = array('password' => Hash::make("12345678"), 'updated_at' => date('Y-m-d H:i:s'));

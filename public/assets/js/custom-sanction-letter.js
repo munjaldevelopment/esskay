@@ -13,7 +13,7 @@ $(document).ready(function() {
 		$('#collapsibleNavbar').removeClass('show');
 		
 		$.ajax({
-			url: base_url+'sanctionletter',
+			url: base_url+'sanction-letter',
 			type: 'post',
 			data: {_token: CSRF_TOKEN},
 			beforeSend: function() {
