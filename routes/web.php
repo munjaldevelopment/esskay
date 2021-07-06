@@ -144,7 +144,7 @@ Route::get('/showStatus', 'HomeController@showStatus');
 
 // Sanction Letter
 Route::post('/contact_us_sanctionletter', 'HomeController@contactUsSanctionLetter');
-Route::post('/sanction-letter', 'HomeController@sanctionLetter');
+Route::post('/sanction-letter', 'HomeController@sanctionLetterListing');
 
 Route::get('/user_password', function () {
 	//$updateData = array('password' => Hash::make("12345678"), 'updated_at' => date('Y-m-d H:i:s'));

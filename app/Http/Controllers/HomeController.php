@@ -4954,7 +4954,7 @@ class HomeController extends Controller
 	}
 
 
-	public function sanctionLetter()
+	public function sanctionLetterListing()
     {
     	$trusteeData = \DB::table('sanction_users')->where('user_id', session()->get('esskay_sanction_letter_user_id'))->first();
     	//dd($trusteeData);
