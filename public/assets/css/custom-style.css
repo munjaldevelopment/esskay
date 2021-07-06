@@ -673,7 +673,7 @@
 .custom-table-area .table-responsive table.table thead tr th, .custom-table-area .table-responsive table.table tbody tr td {
 	color: #767676;
 	font-size: 14px;
-	font-weight: 700;
+	font-weight: 400;/*700;*/
 	padding: 12px 10px;
 }
 
@@ -681,7 +681,7 @@
 	color: #333333;
 	font-size: 14px;
 	padding: 12px 10px;
-	font-weight: 700;
+	font-weight: 400;/*700;*/
 }
 
 .custom-table-area tbody tr {
@@ -3142,7 +3142,7 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
     list-style-type: none;
     box-shadow: 0px 6px 8px rgb(0 0 0 / 10%);
     background: #fff;
-	border-radius: 10px 10px 10px 10px;
+	border-radius: 0px;/*10px 10px 10px 10px;*/
 }
 
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu ul li ul {
