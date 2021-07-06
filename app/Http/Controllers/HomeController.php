@@ -7415,33 +7415,33 @@ class HomeController extends Controller
 		{
 			if($category_id == "accepted")
 			{
-				$where = array(['is_approve1' => '1']);
+				$where = ['is_approve1' => '1'];
 			}
 			else if($category_id == "rejected")
 			{
-				$where = array(['is_approve1' => '2']);
+				$where = ['is_approve1' => '2'];
 			}
 		}
 		else if($trustee_id == 2)
 		{
 			if($category_id == "accepted")
 			{
-				$where = array(['is_approve2' => '1']);
+				$where = ['is_approve2' => '1'];
 			}
 			else if($category_id == "rejected")
 			{
-				$where = array(['is_approve2' => '2']);
+				$where = ['is_approve2' => '2'];
 			}
 		}
 		else if($trustee_id == 3)
 		{
 			if($category_id == "accepted")
 			{
-				$where = array(['is_approve3' => '1']);
+				$where = ['is_approve3' => '1'];
 			}
 			else if($category_id == "rejected")
 			{
-				$where = array(['is_approve3' => '2']);
+				$where = ['is_approve3' => '2'];
 			}
 		}
 
