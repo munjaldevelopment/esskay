@@ -103,7 +103,15 @@
 							<button type="button" class="nav-link btn-menu btn btn-primary transaction-class dropdown-toggle" data-toggle="dropdown">Transaction</button>
 						  	<div class="dropdown-menu transaction-category-container">
 						  		@foreach($docCategoryData as $row)
-								<a class="dropdown-item transaction-category-class" data-category="{{ $row['category_id'] }}" href="javascript:;">{{ $row['category_name'] }}</a>
+								<a class="dropdown-item transaction-category-class @if($row['children']) dropdown-toggle @endif" data-category="{{ $row['category_id'] }}" href="javascript:;" @if($row['children'])  data-toggle="dropdown" @endif>{{ $row['category_name'] }}</a>
+
+									@if($row['children'])
+									<div class="dropdown-menu transaction-category-container">
+										@foreach($row['children'] as $child)
+										<a class="dropdown-item transaction-category-class" data-category="{{ $child['category_id'] }}" href="javascript:;">{{ $child['category_name'] }}</a>
+										@endforeach
+									</div>
+									@endif
 								@endforeach
 						  	</div>
 						</div>
