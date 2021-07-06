@@ -7405,58 +7405,10 @@ class HomeController extends Controller
 
 		$locationCount = \DB::table('insight_locations')->where('status', 1)->count();
 
-		$geographicalConData = \DB::table('geographical_concentrations')->where('geographical_concentration_status', 1)->get();
-
-		$amount1 = $amount2 = $amount3 = $amount4 = $amount5 = $amount6 = $amount7 = $amount8 = $amount9 = 0;
-
-		$raj_amount1 = $raj_amount2 = $raj_amount3 = $raj_amount4 = $raj_amount5 = $raj_amount6 = $raj_amount7 = $raj_amount8 = $raj_amount9 = 0;
-		$other_amount1 = $other_amount2 = $other_amount3 = $other_amount4 = $other_amount5 = $other_amount6 = $other_amount7 = $other_amount8 = $other_amount9 = 0;
-
-		$geographicalConRajData = \DB::table('geographical_concentrations')->where('geographical_diversification', "Rajasthan")->where('geographical_concentration_status', 1)->first();
-
-		if($geographicalConRajData)
-		{
-			$raj_amount1 = (int)$geographicalConRajData->amount_percentage1;
-			$raj_amount2 = (int)$geographicalConRajData->amount_percentage2;
-			$raj_amount3 = (int)$geographicalConRajData->amount_percentage3;
-			$raj_amount4 = (int)$geographicalConRajData->amount_percentage4;
-			$raj_amount5 = (int)$geographicalConRajData->amount_percentage5;
-			$raj_amount6 = (int)$geographicalConRajData->amount_percentage6;
-			$raj_amount7 = (int)$geographicalConRajData->amount_percentage7;
-			$raj_amount8 = (int)$geographicalConRajData->amount_percentage8;
-			$raj_amount9 = (int)$geographicalConRajData->amount_percentage9;
-		}
-
-		foreach($geographicalConData as $geographicalConRow)
-		{
-			$amount1+=$geographicalConRow->amount1;
-			$amount2+=$geographicalConRow->amount2;
-			$amount3+=$geographicalConRow->amount3;
-			$amount4+=$geographicalConRow->amount4;
-			$amount5+=$geographicalConRow->amount5;
-			$amount6+=$geographicalConRow->amount6;
-			$amount7+=$geographicalConRow->amount7;
-			$amount8+=$geographicalConRow->amount8;
-			$amount9+=$geographicalConRow->amount9;
-
-			if($geographicalConRow->geographical_diversification != "Rajasthan")
-			{
-				$other_amount1+= $geographicalConRow->amount_percentage1;
-				$other_amount2+= $geographicalConRow->amount_percentage2;
-				$other_amount3+= $geographicalConRow->amount_percentage3;
-				$other_amount4+= $geographicalConRow->amount_percentage4;
-				$other_amount5+= $geographicalConRow->amount_percentage5;
-				$other_amount6+= $geographicalConRow->amount_percentage6;
-				$other_amount7+= $geographicalConRow->amount_percentage7;
-				$other_amount8+= $geographicalConRow->amount_percentage8;
-				$other_amount9+= $geographicalConRow->amount_percentage9;
-			}
-
-			$geographicalConTotalData = array('amount1' => $amount1, 'amount2' => $amount2, 'amount3' => $amount3, 'amount4' => $amount4, 'amount5' => $amount5, 'amount6' => $amount6, 'amount7' => $amount7, 'amount8' => $amount8, 'amount9' => $amount9);
-		}
+		$sanctionLetterData = \DB::table('sanction_letters')->get();
 
     	$current_year = date('Y');
-		return view('sanction-letter-info', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData]);
+		return view('sanction-letter-info', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'sanctionLetterData' => $sanctionLetterData]);
 	}
 
 }

@@ -1,95 +1,62 @@
 <div class="white-box outstanding-box">
 	<div class="outstanding-table">
-		<h3>Outstanding As on (In Cr.)</h3>
+		<h3>Sanction Letters</h3>
 		<div class="custom-table-area">
 			<div class="table-responsive">
 				<table class="table">
 					<thead>
 						<tr>
-							<th class="text-justify" style="min-width: 140px;" rowspan="2">Geographical <br /> Diversification</th>
-							<th style="min-width: 90px;" rowspan="2">DOCP</th>
-							<!--<th colspan="2" class="border-bottom">Mar-22</th>-->
-							<th colspan="2" class="border-bottom">Mar-21</th>
-							<th colspan="2" class="border-bottom">Sep-20</th>
-							<th colspan="2" class="border-bottom">Mar-20</th>
-							<th colspan="2" class="border-bottom">Mar-19</th>
-							<th colspan="2" class="border-bottom">Mar-18</th>
-							<th colspan="2" class="border-bottom">Mar-17</th>
-							<th colspan="2" class="border-bottom">Mar-16</th>
-							<!--<th colspan="2" class="border-bottom">Mar-23</th>-->
-						</tr>
-						<tr>
-							<th>Amount</th>
-							<th>%</th>
-							<th>Amount</th>
-							<th>%</th>
-							<!--<th>Amount</th>
-							<th>%</th>-->
-							<th>Amount</th>
-							<th>%</th>
-							<th>Amount</th>
-							<th>%</th>
-							<th>Amount</th>
-							<th>%</th>
-							<th>Amount</th>
-							<th>%</th>
-							<th>Amount</th>
-							<th>%</th>
-							<!--<th>Amount</th>
-							<th>%</th>-->
+							<th class="text-justify" style="min-width: 140px;">Bank Name</th>
+							<th class="border-bottom">Type of Facility</th>
+							<th class="border-bottom">Facility Amount</th>
+							<th class="border-bottom">ROI</th>
+							<th class="border-bottom">All-inclusive ROI</th>
+							<th class="border-bottom">Processing Fees %</th>
+							<th class="border-bottom">Processing Fees Amount</th>
+							<th class="border-bottom">Arranger Fees %</th>
+							<th class="border-bottom">Arranger Fees Amount</th>
+							<th class="border-bottom">Other Charges Doc</th>
+							<th class="border-bottom">Total Associated Cost</th>
+							<th class="border-bottom">All Inclusive Cost</th>
+							<th class="border-bottom">Financial Covenant</th>
+							<th class="border-bottom">Rationale for Availing facility</th>
+							<th class="border-bottom">Blended Cost</th>
+							<th class="border-bottom">Stamp Duty Fees</th>
+							<th class="border-bottom">Tenor</th>
+							<th class="border-bottom">Security Cover</th>
+							<th class="border-bottom">Cash Collateral</th>
+							<th class="border-bottom">Personal Guarantee</th>
+							<th class="border-bottom">Intermediary</th>
+							<th class="border-bottom">Sanction Letter</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($geographicalConData as $row)
+						@foreach($sanctionLetterData as $row)
 						<tr>
-							<td class="text-justify">{{ $row->geographical_diversification }}</td>
-							<td>{{ $row->docp }}</td>
-							<!--<td>{{ number_format($row->amount8, 0) }}</td>
-							<td>{{ number_format($row->amount_percentage8, 0) }}%</td>-->
-							<td>{{ number_format($row->amount7, 0) }}</td>
-							<td>{{ number_format($row->amount_percentage7, 0) }}%</td>
-							<td>{{ number_format($row->amount6, 0) }}</td>
-							<td>{{ number_format($row->amount_percentage6, 0) }}%</td>
-							<td>{{ number_format($row->amount5, 0) }}</td>
-							<td>{{ number_format($row->amount_percentage5, 0) }}%</td>
-							<td>{{ number_format($row->amount4, 0) }}</td>
-							<td>{{ number_format($row->amount_percentage4, 0) }}%</td>
-							<td>{{ number_format($row->amount3, 0) }}</td>
-							<td>{{ number_format($row->amount_percentage3, 0) }}%</td>
-							<td>{{ number_format($row->amount2, 0) }}</td>
-							<td>{{ number_format($row->amount_percentage2, 0) }}%</td>
-							<td>{{ number_format($row->amount1, 0) }}</td>
-							<td>{{ number_format($row->amount_percentage1, 0) }}%</td>
-							<!--<td>{{ number_format($row->amount9, 0) }}</td>
-							<td>{{ number_format($row->amount_percentage9, 0) }}%</td>-->
+							<td class="text-justify">{{ $row->bank_name }}</td>
+							<td>{{ $row->type_facility }}</td>
+							<td>{{ $row->facility_amount }}</td>
+							<td>{{ $row->roi }}</td>
+							<td>{{ $row->processing_fees }}</td>
+							<td>{{ $row->processing_fees_amount }}</td>
+							<td>{{ $row->arranger_fees }}</td>
+							<td>{{ $row->arranger_fees_amount }}</td>
+							<td>{{ $row->other_charges_doc }}</td>
+							<td>{{ $row->total_associated_cost }}</td>
+							<td>{{ $row->all_inclusive_cost }}</td>
+							<td>{{ $row->financial_covenant }}</td>
+							<td>{{ $row->rationale_availing }}</td>
+							<td>{{ $row->blended_cost }}</td>
+							<td>{{ $row->stamp_duty_fees }}</td>
+							<td>{{ $row->tenor }}</td>
+							<td>{{ $row->security_cover }}</td>
+							<td>{{ $row->cash_collateral }}</td>
+							<td>{{ $row->personal_guarantee }}</td>
+							<td>{{ $row->intermediary }}</td>
+							<td>{{ $row->sanction_letter }}</td>
 						</tr>
 						@endforeach
 					</tbody>
-
-					<tfoot>
-						<tr>
-							<td class="text-justify">Total</td>
-							<td>&nbsp;</td>
-							<!--<td>{{ $geographicalConTotalData['amount8'] }}</td>
-							<td>100%</td>-->
-							<td>{{ $geographicalConTotalData['amount7'] }}</td>
-							<td>100%</td>
-							<td>{{ $geographicalConTotalData['amount6'] }}</td>
-							<td>100%</td>
-							<td>{{ $geographicalConTotalData['amount5'] }}</td>
-							<td>100%</td>
-							<td>{{ $geographicalConTotalData['amount4'] }}</td>
-							<td>100%</td>
-							<td>{{ $geographicalConTotalData['amount3'] }}</td>
-							<td>100%</td>
-							<td>{{ $geographicalConTotalData['amount2'] }}</td>
-							<td>100%</td>
-							<td>{{ $geographicalConTotalData['amount1'] }}</td>
-							<td>100%</td>
-							<!--<td>{{ $geographicalConTotalData['amount9'] }}</td>
-							<td>100%</td>-->
-						</tr>
-					</tfoot>
 				</table>	
 			</div>	
 		</div>
