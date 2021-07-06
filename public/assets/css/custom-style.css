@@ -799,7 +799,7 @@
 }
 
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item:nth-last-child(1):hover {
-    border-radius: 0 0 10px 10px;
+    border-radius: 0px;/* 0 10px 10px;*/
 }
 
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.active {

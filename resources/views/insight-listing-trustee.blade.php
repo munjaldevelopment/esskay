@@ -213,7 +213,6 @@
 			</div>
 		</div>
 	</div>
-	
 @elseif($insightCatData->id == 4)
 	<div class="white-box">
 		<div class="pool-dynamic-graph">
