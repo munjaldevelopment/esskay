@@ -4966,7 +4966,7 @@ class HomeController extends Controller
     	//dd($trusteeData);
     	$trustee_id = $trusteeData->id;
 
-		$sanctionData = \DB::table('sanction_letters')->where('status', '1')->get();
+		$sanctionData = \DB::table('sanction_letters')->get();
 		
 		return view('ess-kay-sanction-letter-listing', ['sanctionData' => $sanctionData, 'lenderData' => $trusteeData]);
 	}

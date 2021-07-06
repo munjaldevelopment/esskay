@@ -2787,6 +2787,10 @@ a.fxt-btn-fill.float-right {
 .ohbh-box-mid {
     left: 63px;
 }
+
+.operation-highlights-area.operation-single-highlighs-middle .ohb-highlights-box .ohbh-box-mid {
+    left: 0px;
+}
 	
 .operation-highlight-cont::before {
     left: 47%;
