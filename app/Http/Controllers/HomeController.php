@@ -252,7 +252,7 @@ class HomeController extends Controller
 				$trustee_id = $trusteeData->id;
 				$trusteeCode = "";
 
-				return view('ess-kay-sanction-letter-home', ['customer_name' => $trustee_name, 'trusteeCode' => $trusteeCode, 'trusteeData' => $trusteeData, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
+				return view('ess-kay-sanction-letter-home', ['customer_name' => $sanction_letter_name, 'trusteeCode' => $trusteeCode, 'trusteeData' => $trusteeData, 'title' => $pageData->meta_title, 'meta_description' => $pageData->meta_description, 'meta_keywords' => $pageData->meta_keywords]);
 			}
 		}
 		else
