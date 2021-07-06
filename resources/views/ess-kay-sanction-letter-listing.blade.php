@@ -133,6 +133,6 @@ $(document).ready(function() {
 	});
 	
 	
-	$('ul.category-listing > li:first-child a.first-child').trigger('click');
+	$('ul.category-listing > li:first-child a').trigger('click');
 });
 </script>
