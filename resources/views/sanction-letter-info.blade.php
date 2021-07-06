@@ -58,15 +58,18 @@
 							<td>{{ $row->sanction_letter }}</td>
 							<td>
 								@if($trustee_id == 1)
-									@if($row->is_approve1 == 0)<a class="btn btn-info accept-sanction1" href="javascript:;"><i class="fa fa-check"></i></a>@endif &nbsp;&nbsp; 
-									@if($row->is_approve1 == 1)<a class="btn btn-danger reject-sanction1" href="javascript:;"><i class="fa fa-times"></i></a>@endif
+									@if($row->is_approve1 == 0)<a class="btn btn-info accept-sanction1" href="javascript:;"><i class="fa fa-check"></i></a> 
+									&nbsp;&nbsp; 
+									<a class="btn btn-danger reject-sanction1" href="javascript:;"><i class="fa fa-times"></i></a>@endif
 								@elseif($trustee_id == 2)
-									@if($row->is_approve2 == 0)<a class="btn btn-info accept-sanction2" href="javascript:;"><i class="fa fa-check"></i></a>@endif &nbsp;&nbsp; 
-									@if($row->is_approve2 == 1)<a class="btn btn-danger reject-sanction2" href="javascript:;"><i class="fa fa-times"></i></a>
+									@if($row->is_approve2 == 0)<a class="btn btn-info accept-sanction2" href="javascript:;"><i class="fa fa-check"></i></a>
+									&nbsp;&nbsp;
+									<a class="btn btn-danger reject-sanction2" href="javascript:;"><i class="fa fa-times"></i></a>
 									@endif
 								@elseif($trustee_id == 3)
-									@if($row->is_approve3 == 0)<a class="btn btn-info accept-sanction3" href="javascript:;"><i class="fa fa-check"></i></a>@endif &nbsp;&nbsp; 
-									@if($row->is_approve3 == 1)<a class="btn btn-danger reject-sanction3" href="javascript:;"><i class="fa fa-times"></i></a>
+									@if($row->is_approve3 == 0)<a class="btn btn-info accept-sanction3" href="javascript:;"><i class="fa fa-check"></i></a>
+									&nbsp;&nbsp;
+									<a class="btn btn-danger reject-sanction3" href="javascript:;"><i class="fa fa-times"></i></a>
 									@endif
 								@endif
 							</td>
