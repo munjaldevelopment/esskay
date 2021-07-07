@@ -108,7 +108,7 @@
 									@if($row['children'])
 									<div class="dropdown-menu transaction-category-container">
 										@foreach($row['children'] as $child)
-										<a class="nav-link btn-menu btn btn-primary transaction-class dropdown-item transaction-category-class" data-category="{{ $child['category_id'] }}" href="javascript:;">{{ $child['category_name'] }}</a>
+										<a class="nav-link btn-menu btn btn-primary transaction-class dropdown-item @if($child['children']) dropdown-toggle @else transaction-category-class @endif" data-category="{{ $child['category_id'] }}" href="javascript:;">{{ $child['category_name'] }}</a>
 
 											@if($child['children'])
 											<div class="dropdown-menu transaction-category-container">
