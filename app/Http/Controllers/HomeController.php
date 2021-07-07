@@ -7447,7 +7447,14 @@ class HomeController extends Controller
 
 		//echo '<pre>'.$trustee_id.",".$category_id; print_r($where); exit;
 
-		$sanctionLetterData = \DB::table('sanction_letters')->where($where)->get();
+		if($category_id == "new")
+		{
+			$sanctionLetterData = \DB::table('sanction_letters')->where($where)->skip(0)->take(1)->orderBy('id', 'DESC')->get();
+		}
+		else
+		{
+			$sanctionLetterData = \DB::table('sanction_letters')->where($where)->get();	
+		}
 
     	$current_year = date('Y');
 		return view('sanction-letter-info', ['insightCatData' => $insightCatData, 'trustee_id' => $trustee_id, 'insightData' => $insightData, 'sanctionLetterData' => $sanctionLetterData]);
