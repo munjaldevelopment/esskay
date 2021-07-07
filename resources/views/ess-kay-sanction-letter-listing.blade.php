@@ -7,6 +7,11 @@
 				<div class="side-menu-container">
 					<ul class="nav navbar-nav category-listing" id="menu-accordian">
 						<li>
+							<a class="dropdown-box sanction-letter-category-list" data-category="new" href="javascript:;" data-category="new">
+								<span>New</span>
+							</a>
+						</li>
+						<li>
 							<a class="dropdown-box sanction-letter-category-list" data-category="all" href="javascript:;" data-category="all">
 								<span>All</span>
 							</a>
