@@ -51,6 +51,8 @@
 	
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
+
 	<script type="text/javascript">
 		document.addEventListener("DOMContentLoaded", function(){
 	    	/////// Prevent closing from click inside dropdown
