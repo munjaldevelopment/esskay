@@ -705,7 +705,7 @@ class SanctionLetterCrudController extends CrudController
             {
                 $message = "Dear Sir, <br /> Saction Letter of ".$facility_amount." from ".$bank_name." is initialized.  <br /> Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." <br /> ESS KAY FINCORP LIMITED.";
 
-                $contactData = array('message' => $message, 'first_name' => $row->name, 'email' => $row->email, 'telephone' => $row->phone);
+                $contactData = array('mail_message' => $message, 'first_name' => $row->name, 'email' => $row->email, 'telephone' => $row->phone);
                 $tempUserData = array('email' => $row->email, 'name' => $row->name);
                 
                 Mail::send('emails.send_sanction_letter', $contactData, function ($message) use ($tempUserData) {
@@ -782,7 +782,7 @@ class SanctionLetterCrudController extends CrudController
             {
                 $message = "Dear Sir, <br /> Saction Letter of ".$facility_amount." from ".$bank_name." is updated.  <br /> Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." <br /> ESS KAY FINCORP LIMITED.";
 
-                $contactData = array('message' => $message, 'first_name' => $row->name, 'email' => $row->email, 'telephone' => $row->phone);
+                $contactData = array('mail_message' => $message, 'first_name' => $row->name, 'email' => $row->email, 'telephone' => $row->phone);
                 $tempUserData = array('email' => $row->email, 'name' => $row->name);
                 
                 Mail::send('emails.send_sanction_letter', $contactData, function ($message) use ($tempUserData) {

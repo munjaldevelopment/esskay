@@ -2,6 +2,6 @@
 	<div style="text-align:left; margin:0 20px;">
 		<p>Hi <strong>{{ $first_name }} </strong>,</p>
 
-		{!! $message !!}
+		{!! $mail_message !!}
 	</div>
 </div>
