@@ -114,7 +114,9 @@
 								@endif
 							</td>
 						</tr>
-					</table>	
+					</table>
+
+					<hr /><hr />	
 				@endforeach
 				@endif
 				
