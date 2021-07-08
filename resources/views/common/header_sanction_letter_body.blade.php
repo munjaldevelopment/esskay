@@ -30,7 +30,7 @@
 	<script src="{{ asset('public/assets/') }}/js/swiper.jquery.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/custom-sanction-letter.js"></script>
 	
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	<script src="https://maps.google.com/maps/api/js?key=AIzaSyCOpOpa4sWnCIrBNY8SjiO0dgsS0nd3G8E&sensor=false" type="text/javascript"></script>
 
