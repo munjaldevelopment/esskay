@@ -138,7 +138,7 @@ $(document).ready(function() {
 	$('.accept-sanction3').bind('click', function() {
 		var sanction_id = $(this).attr('data-id');
 
-		Swal.fire({
+		swal({
 	        title: 'Do you want to continue?',
 	        type: 'warning',
 	        showCancelButton: true,
