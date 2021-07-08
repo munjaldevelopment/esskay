@@ -426,8 +426,8 @@
 	text-overflow: ellipsis;
 	overflow: hidden;
 	border-left: 6px solid #2196F1;
-	background-color: #ddffff!important;
-	padding: 5px;
+	/*background-color: #ddffff!important;
+	padding: 5px;*/
 }
 
 .mtdd-operation-img {
