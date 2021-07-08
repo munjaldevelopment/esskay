@@ -197,7 +197,7 @@ $(document).ready(function() {
 						Swal.fire({
 							title: 'Approved',
 							title: 'Your file has been approved.',
-							title: 'success'
+							type: 'success'
 					    });
 					}
 				});
@@ -205,7 +205,7 @@ $(document).ready(function() {
 	        	Swal.fire({
 					title: 'Cancelled',
 					title: 'Your file has been cancelled.',
-					title: 'warning'
+					type: 'warning'
 			    });
 			}
 		});
