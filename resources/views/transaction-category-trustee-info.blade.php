@@ -40,7 +40,7 @@
 
 <input type="hidden" id="transaction_id" name="transaction_id" value="{{ $transaction_id }}" />
 
-<div class="mtd-timline-document">
+<div class="mtd-timline-document mtd-investor-trustee">
 	<div class="row">
 		@if($relevantPartyInvestorData)
 		<div class="col-md-6 col-sm-12">
