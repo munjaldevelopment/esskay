@@ -50,6 +50,15 @@
 	
 	
 	<meta name="csrf-token" content="{{ csrf_token() }}">
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.transaction-child-child-class').bind('click', function(e) {
+				e.preventDefault();
+				alert("Aa");
+			});
+		});
+	</script>
 </head>
 <body>
 	<!-- header start here -->
@@ -114,7 +123,7 @@
 									<div class="dropdown dropdown-menu transaction-category-container">
 										@foreach($row['children'] as $child)
 											@if($child['children'])
-								  			<button type="button" class="nav-link btn-menu btn btn-primary transaction-child-child-class dropdown-toggle" data-toggle="dropdown">{{ $child['category_name'] }}</button>
+								  			<button type="button" class="nav-link btn-menu btn btn-primary transaction-child-child-class">{{ $child['category_name'] }}</button>
 								  			@else
 											<a class="dropdown-item transaction-category-class" data-category="{{ $child['category_id'] }}" href="javascript:;">{{ $child['category_name'] }}</a>
 											@endif
