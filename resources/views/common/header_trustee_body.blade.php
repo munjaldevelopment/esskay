@@ -182,7 +182,7 @@
 										<li><a class="dropdown-item" href="#">Submenu item 3</a></li>
 									</ul>
 								</li>
-						  	@endforeachs
+						  	@endforeach
 					    </ul>
 					</li>
 					@endif
