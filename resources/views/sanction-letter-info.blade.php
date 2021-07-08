@@ -7,8 +7,8 @@
 				<div class="table-responsive">
 					<table class="table">
 						<tr>
-							<th class="border-bottom">Bank Name</th>
-							<td>{{ $row->bank_name }}</td>
+							<th style="width:50%;" class="border-bottom">Bank Name</th>
+							<td style="width:50%;">{{ $row->bank_name }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Type of Facility</th>
