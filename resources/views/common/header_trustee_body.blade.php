@@ -166,7 +166,7 @@
 
 					@if($trusteeData->is_transaction == 1)
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Transaction </a>
+						<a class="nav-link dropdown-toggle" href="javascript:;" data-bs-toggle="dropdown"> Transaction </a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="#"> Dropdown item 1 </a></li>
 							<li><a class="dropdown-item" href="#"> Dropdown item 2 &raquo; </a>
