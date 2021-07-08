@@ -2557,8 +2557,12 @@ a.fxt-btn-fill.float-right {
 }
 
 
-.side-body.side-body-content, .side-body, .side-body.side-body-sanction {
+.side-body.side-body-content {
     padding: 5px 11px;
+}
+
+.side-body, .side-body.side-body-sanction {
+    padding: 20px 11px;
 }
 
 .side-menu .navbar-nav li a {
