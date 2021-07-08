@@ -170,7 +170,8 @@
 						<ul class="dropdown-menu">
 							@foreach($docCategoryData as $row)
 							<li>
-								<a class="dropdown-item" href="javascript:;"> {{ $row['category_name'] }} &raquo; </a>
+								<a class="dropdown-item @if($row['children']) @else transaction-category-class @endif" href="javascript:;"> {{ $row['category_name'] }} @if($row['children']) &raquo; @endif</a>
+								@if($row['children'])
 						  		<ul class="submenu dropdown-menu">
 							    	<li>
 							    		<a class="dropdown-item" href="javascript:;">Submenu item 1  &raquo;</a>
@@ -180,9 +181,8 @@
 								    		<li><a class="dropdown-item" href="javascript:;">Submenu item 113</a></li>
 							    		</ul>
 							    	</li>
-									<li><a class="dropdown-item" href="javascript:;">Submenu item 2</a></li>
-									<li><a class="dropdown-item" href="javascript:;">Submenu item 3</a></li>
 								</ul>
+								@endif
 							</li>
 							@endforeach
 					    </ul>
