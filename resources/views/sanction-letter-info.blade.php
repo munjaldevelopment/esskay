@@ -8,33 +8,79 @@
 						@foreach($sanctionLetterData as $row)
 						<tr>
 							<th class="text-justify" style="min-width: 140px;">Bank Name</th>
+							<td class="text-justify">{{ $row->bank_name }}</td>
+						</tr>
+						<tr>
 							<th class="border-bottom">Type of Facility</th>
+							<td>{{ $row->type_facility }}</td>
+						</tr>
+						<tr>
 							<th class="border-bottom">Facility Amount</th>
+							<td>{{ $row->facility_amount }}</td>
+						</tr>
+						<tr>
 							<th class="border-bottom">ROI</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">All-inclusive ROI</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Processing Fees %</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Processing Fees Amount</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Arranger Fees %</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Arranger Fees Amount</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Other Charges Doc</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Total Associated Cost</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">All Inclusive Cost</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Financial Covenant</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Rationale for Availing facility</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Blended Cost</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Stamp Duty Fees</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Tenor</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Security Cover</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Cash Collateral</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Personal Guarantee</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Intermediary</th>
+						</tr>
+						<tr>
 							<th class="border-bottom">Sanction Letter</th>
+						</tr>
+						<tr>
 							<th style="min-width:120px;" class="border-bottom">Action</th>
 						</tr>
 						<tr>
-							<td class="text-justify">{{ $row->bank_name }}</td>
-							<td>{{ $row->type_facility }}</td>
-							<td>{{ $row->facility_amount }}</td>
+							
+							
 							<td>{{ $row->roi }}</td>
 							<td>{{ $row->all_incluside_roi }}</td>
 							<td>{{ $row->processing_fees }}</td>
