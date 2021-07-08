@@ -148,11 +148,11 @@
 					       aria-haspopup="true" aria-expanded="false">
 					        Dropdown
 					    </a>
-					    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-					    	<li class="dropdown-submenu dropleft">
-				                <a class="dropdown-item dropdown-toggle " href="#">aa</a>
-				                <ul class="dropdown-menu ">
-				                	<li><a class="dropdown-item" href="">bb</a></li>
+					    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					    	<li class="dropdown-submenu">
+				                <a class="dropdown-item dropdown-toggle" href="javascript:;">aa</a>
+				                <ul class="dropdown-menu">
+				                	<li><a class="dropdown-item" href="javascript:;">bb</a></li>
 				                </ul>
 							</li>
 						</ul>
