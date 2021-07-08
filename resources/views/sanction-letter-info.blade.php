@@ -92,7 +92,7 @@
 						</tr>
 						<tr>
 							<th class="border-bottom">Sanction Letter</th>
-							<td>{{ $row->sanction_letter }}</td>
+							<td><img src="{{ url('/').$row->sanction_letter }}" class="img-fluid" /></td>
 						</tr>
 						<tr>
 							<th style="min-width:120px;" class="border-bottom">Action</th>
