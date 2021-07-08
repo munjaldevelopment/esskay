@@ -58,7 +58,42 @@
 				$(".transaction-category-container").addClass('show');
 			});
 		});
+
+		$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+		  if (!$(this).next().hasClass('show')) {
+		    $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+		  }
+		  var $subMenu = $(this).next(".dropdown-menu");
+		  $subMenu.toggleClass('show');
+
+
+		  $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+		    $('.dropdown-submenu .show').removeClass("show");
+		  });
+
+
+		  return false;
+		});
 	</script>
+	<style type="text/css">
+		.dropdown-submenu {
+		  position: relative;
+		}
+
+		.dropdown-submenu a::after {
+		  transform: rotate(-90deg);
+		  position: absolute;
+		  right: 6px;
+		  top: .8em;
+		}
+
+		.dropdown-submenu .dropdown-menu {
+		  top: 0;
+		  left: 100%;
+		  margin-left: .1rem;
+		  margin-right: .1rem;
+		}
+	</style>
 </head>
 <body>
 	<!-- header start here -->
@@ -109,7 +144,21 @@
 
 					@if($trusteeData->is_transaction == 1)
 					<li class="nav-item">
-						
+						<div class="dropdown dropdown-trustee">
+							<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Streams</a>
+							
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+								<li><a class="dropdown-item" href="#">Science</a></li>
+								<li><a class="dropdown-item" href="#">Commerce</a></li>
+								<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Arts</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">History</a></li>
+										<li><a class="dropdown-item" href="#">Geography</a></li>
+										<li><a class="dropdown-item" href="#">Sociology</a></li>
+									</ul>
+								</li>
+						    </ul>
+						</div>
 					</li>
 					@endif
 					
