@@ -1,138 +1,117 @@
-<div class="white-box outstanding-box">
-	<div class="outstanding-table">
-		<h3>Sanction Letters</h3>
-		@if($sanctionLetterData)
-			<div class="custom-table-area">
-				<div class="table-responsive">
-					<table class="table">
-						<tr>
-							<th style="width:50%;" class="border-bottom">Bank Name</th>
-							<td style="width:50%;">{{ $sanctionLetterData->bank_name }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Type of Facility</th>
-							<td>{{ $sanctionLetterData->type_facility }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Facility Amount</th>
-							<td>{{ $sanctionLetterData->facility_amount }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">ROI</th>
-							<td>{{ $sanctionLetterData->roi }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">All-inclusive ROI</th>
-							<td>{{ $sanctionLetterData->all_incluside_roi }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Processing Fees %</th>
-							<td>{{ $sanctionLetterData->processing_fees }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Processing Fees Amount</th>
-							<td>{{ $sanctionLetterData->processing_fees_amount }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Arranger Fees %</th>
-							<td>{{ $sanctionLetterData->arranger_fees }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Arranger Fees Amount</th>
-							<td>{{ $sanctionLetterData->arranger_fees_amount }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Other Charges Doc</th>
-							<td>{{ $sanctionLetterData->other_charges_doc }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Total Associated Cost</th>
-							<td>{{ $sanctionLetterData->total_associated_cost }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">All Inclusive Cost</th>
-							<td>{{ $sanctionLetterData->all_inclusive_cost }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Financial Covenant</th>
-							<td>{!! $sanctionLetterData->financial_covenant !!}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Rationale for Availing facility</th>
-							<td>{!! $sanctionLetterData->rationale_availing !!}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Blended Cost</th>
-							<td>{{ $sanctionLetterData->blended_cost }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Stamp Duty Fees</th>
-							<td>{{ $sanctionLetterData->stamp_duty_fees }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Tenor</th>
-							<td>{{ $sanctionLetterData->tenor }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Security Cover</th>
-							<td>{{ $sanctionLetterData->security_cover }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Cash Collateral</th>
-							<td>{{ $sanctionLetterData->cash_collateral }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Personal Guarantee</th>
-							<td>{{ $sanctionLetterData->personal_guarantee }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Intermediary</th>
-							<td>{{ $sanctionLetterData->intermediary }}</td>
-						</tr>
-						<tr>
-							<th class="border-bottom">Sanction Letter</th>
-							<td><img src="{{ $sanctionLetterData->sanction_letter }}" class="img-fluid" /></td>
-						</tr>
-						<tr>
-							<th style="min-width:120px;" class="border-bottom">Action</th>
-							<td class="accept-sanction-container{{ $sanctionLetterData->id }}">
-								@if($trustee_id == 1)
-									@if($sanctionLetterData->is_approve1 == 0)<a class="btn btn-info accept-sanction1" data-id="{{ $sanctionLetterData->id }}" href="javascript:;"><i class="fa fa-check"></i></a> 
-									&nbsp;&nbsp; 
-									<a class="btn btn-danger reject-sanction1" data-id="{{ $sanctionLetterData->id }}" href="javascript:;"><i class="fa fa-times"></i></a>@endif
-								@elseif($trustee_id == 2)
-									@if($sanctionLetterData->is_approve2 == 0)<a class="btn btn-info accept-sanction2" data-id="{{ $sanctionLetterData->id }}" href="javascript:;"><i class="fa fa-check"></i></a>
-									&nbsp;&nbsp;
-									<a class="btn btn-danger reject-sanction2" data-id="{{ $sanctionLetterData->id }}" href="javascript:;"><i class="fa fa-times"></i></a>
-									@endif
-								@elseif($trustee_id == 3)
-									@if($sanctionLetterData->is_approve3 == 0)<a class="btn btn-info accept-sanction3" data-id="{{ $sanctionLetterData->id }}" href="javascript:;"><i class="fa fa-check"></i></a>
-									&nbsp;&nbsp;
-									<a class="btn btn-danger reject-sanction3" data-id="{{ $sanctionLetterData->id }}" href="javascript:;"><i class="fa fa-times"></i></a>
-									@endif
-								@endif
-							</td>
-						</tr>
-					</table>
-				</div>	
-			</div>
-		@endif
-	</div>
-</div>
-
-<script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
-<script src="{{ asset('public/assets/') }}/js/owl.carousel.js"></script>
+@if($sanctionLetterData)
+	<table class="table">
+		<tr>
+			<th style="width:50%;" class="border-bottom">Bank Name</th>
+			<td style="width:50%;">{{ $sanctionLetterData->bank_name }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Type of Facility</th>
+			<td>{{ $sanctionLetterData->type_facility }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Facility Amount</th>
+			<td>{{ $sanctionLetterData->facility_amount }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">ROI</th>
+			<td>{{ $sanctionLetterData->roi }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">All-inclusive ROI</th>
+			<td>{{ $sanctionLetterData->all_incluside_roi }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Processing Fees %</th>
+			<td>{{ $sanctionLetterData->processing_fees }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Processing Fees Amount</th>
+			<td>{{ $sanctionLetterData->processing_fees_amount }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Arranger Fees %</th>
+			<td>{{ $sanctionLetterData->arranger_fees }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Arranger Fees Amount</th>
+			<td>{{ $sanctionLetterData->arranger_fees_amount }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Other Charges Doc</th>
+			<td>{{ $sanctionLetterData->other_charges_doc }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Total Associated Cost</th>
+			<td>{{ $sanctionLetterData->total_associated_cost }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">All Inclusive Cost</th>
+			<td>{{ $sanctionLetterData->all_inclusive_cost }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Financial Covenant</th>
+			<td>{!! $sanctionLetterData->financial_covenant !!}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Rationale for Availing facility</th>
+			<td>{!! $sanctionLetterData->rationale_availing !!}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Blended Cost</th>
+			<td>{{ $sanctionLetterData->blended_cost }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Stamp Duty Fees</th>
+			<td>{{ $sanctionLetterData->stamp_duty_fees }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Tenor</th>
+			<td>{{ $sanctionLetterData->tenor }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Security Cover</th>
+			<td>{{ $sanctionLetterData->security_cover }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Cash Collateral</th>
+			<td>{{ $sanctionLetterData->cash_collateral }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Personal Guarantee</th>
+			<td>{{ $sanctionLetterData->personal_guarantee }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Intermediary</th>
+			<td>{{ $sanctionLetterData->intermediary }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Sanction Letter</th>
+			<td><img src="{{ $sanctionLetterData->sanction_letter }}" class="img-fluid" /></td>
+		</tr>
+		<tr>
+			<th style="min-width:120px;" class="border-bottom">Action</th>
+			<td class="accept-sanction-container{{ $sanctionLetterData->id }}">
+				@if($trustee_id == 1)
+					@if($sanctionLetterData->is_approve1 == 0)<a class="btn btn-info accept-sanction1" data-id="{{ $sanctionLetterData->id }}" href="javascript:;"><i class="fa fa-check"></i></a> 
+					&nbsp;&nbsp; 
+					<a class="btn btn-danger reject-sanction1" data-id="{{ $sanctionLetterData->id }}" href="javascript:;"><i class="fa fa-times"></i></a>@endif
+				@elseif($trustee_id == 2)
+					@if($sanctionLetterData->is_approve2 == 0)<a class="btn btn-info accept-sanction2" data-id="{{ $sanctionLetterData->id }}" href="javascript:;"><i class="fa fa-check"></i></a>
+					&nbsp;&nbsp;
+					<a class="btn btn-danger reject-sanction2" data-id="{{ $sanctionLetterData->id }}" href="javascript:;"><i class="fa fa-times"></i></a>
+					@endif
+				@elseif($trustee_id == 3)
+					@if($sanctionLetterData->is_approve3 == 0)<a class="btn btn-info accept-sanction3" data-id="{{ $sanctionLetterData->id }}" href="javascript:;"><i class="fa fa-check"></i></a>
+					&nbsp;&nbsp;
+					<a class="btn btn-danger reject-sanction3" data-id="{{ $sanctionLetterData->id }}" href="javascript:;"><i class="fa fa-times"></i></a>
+					@endif
+				@endif
+			</td>
+		</tr>
+	</table>
+@endif
 
 <script>
-function showCategorySlider(key)
-{
-	$('.slider_bank_conatiner').addClass('d-none');
-	$('.slider_bank_scroll'+key).removeClass('d-none');
-
-	$('.slider-tab').removeClass('active');
-	$('.slider-tab-content'+key).addClass('active');
-}
-
 $(document).ready(function() {
 	
 	var base_url = $('base').attr('href');
