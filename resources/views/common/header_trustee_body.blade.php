@@ -168,7 +168,7 @@
 						<ul class="dropdown-menu">
 							@foreach($docCategoryData as $row)
 						  		<li>
-						  			<a class="dropdown-item" href="#"> Dropdown item 1 &raquo; </a>
+						  			<a class="dropdown-item" href="#"> {{ $row['category_name'] }} &raquo; </a>
 									
 									<ul class="submenu dropdown-menu">
 										<li><a class="dropdown-item" href="#">Submenu item 1  &raquo;</a>
