@@ -51,24 +51,17 @@
 	
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
-
 	<script type="text/javascript">
 		document.addEventListener("DOMContentLoaded", function(){
-	        
-
 	    	/////// Prevent closing from click inside dropdown
 			document.querySelectorAll('.dropdown-menu').forEach(function(element){
 				element.addEventListener('click', function (e) {
-				  e.stopPropagation();
+					e.stopPropagation();
 				});
 			})
 
-
-
 			// make it as accordion for smaller screens
 			if (window.innerWidth < 992) {
-
 				// close all inner dropdowns when parent is closed
 				document.querySelectorAll('.navbar .dropdown').forEach(function(everydropdown){
 					everydropdown.addEventListener('hidden.bs.dropdown', function () {
@@ -99,7 +92,6 @@
 				})
 			}
 			// end if innerWidth
-
 		}); 
 		// DOMContentLoaded  end
 	</script>
