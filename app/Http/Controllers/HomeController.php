@@ -6827,7 +6827,9 @@ class HomeController extends Controller
 					$relevantPartyArrangerData = \DB::table('transaction_relevant_parties')->leftJoin('transaction_relevant_party_trustee', 'transaction_relevant_parties.id', '=', 'transaction_relevant_party_trustee.transaction_relevant_party_id')->where('transaction_relevant_party_trustee.trustee_id',$trustee_id)->where('party_type', 'Arranger')->where('transaction_relevant_parties.transaction_id',$transaction_id)->get();
 				}
 
-				if($relevantPartyInvestorDataExists > 0)
+				$relevantPartyRatingDataExists = \DB::table('transaction_relevant_parties')->leftJoin('transaction_relevant_party_trustee', 'transaction_relevant_parties.id', '=', 'transaction_relevant_party_trustee.transaction_relevant_party_id')->where('transaction_relevant_party_trustee.trustee_id',$trustee_id)->where('party_type', 'Rating')->where('transaction_relevant_parties.transaction_id',$transaction_id)->count();
+
+				if($relevantPartyRatingDataExists > 0)
 				{
 					$relevantPartyRatingData = \DB::table('transaction_relevant_parties')->leftJoin('transaction_relevant_party_trustee', 'transaction_relevant_parties.id', '=', 'transaction_relevant_party_trustee.transaction_relevant_party_id')->where('transaction_relevant_party_trustee.trustee_id',$trustee_id)->where('party_type', 'Rating')->where('transaction_relevant_parties.transaction_id',$transaction_id)->get();
 				}
