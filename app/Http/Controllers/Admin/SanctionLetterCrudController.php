@@ -690,13 +690,30 @@ class SanctionLetterCrudController extends CrudController
                 
         if($sms_status)
         {
-            $message = str_replace(" ", "%20", "Dear Sir, Saction Letter of ".$facility_amount." from ".$bank_name." is initialized. Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
-            $lender_phone = "9462045321";
+            
+            /*$lender_phone = "9462045321";
 
             $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
             $smsresult = $this->getContent($request_url);
             if($smsresult['errno'] == 0){
                 \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }*/
+
+            $sanctionUsers = \DB::table('sanction_users')->get();
+            foreach($sanctionUsers as $row)
+            {
+                $message = "Dear Sir, <br /> Saction Letter of ".$facility_amount." from ".$bank_name." is initialized.  <br /> Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." <br /> ESS KAY FINCORP LIMITED.";
+
+                $contactData = array('message' => $message, 'first_name' => $row->name, 'email' => $row->email, 'telephone' => $row->phone);
+                $tempUserData = array('email' => $row->email, 'name' => $row->name);
+                
+                Mail::send('emails.send_sanction_letter', $contactData, function ($message) use ($tempUserData) {
+                    $message->to($tempUserData['email'])->subject("Sanction Letter created");
+                    $message->cc('munjaldevelopment@gmail.com');
+                    $message->cc('milan.khadiya@skfin.in');
+                    $message->cc('communication@skfin.in');
+                    $message->from('communication@skfin.in', 'Ess Kay Fincorp');
+                });
             }
         }
 
@@ -750,13 +767,30 @@ class SanctionLetterCrudController extends CrudController
                 
         if($sms_status)
         {
-            $message = str_replace(" ", "%20", "Dear Sir, Saction Letter of ".$facility_amount." from ".$bank_name." is updated. Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            /*$message = str_replace(" ", "%20", "Dear Sir, Saction Letter of ".$facility_amount." from ".$bank_name." is updated. Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
             $lender_phone = "9462045321";
 
             $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
             $smsresult = $this->getContent($request_url);
             if($smsresult['errno'] == 0){
                 \DB::table('email_sms')->insert(['send_type' => 'sms', 'send_to' => $lender_phone, 'send_subject' => 'Document Category Added', 'send_message' => $message, 'is_deliver' => '1']);
+            }*/
+
+            $sanctionUsers = \DB::table('sanction_users')->get();
+            foreach($sanctionUsers as $row)
+            {
+                $message = "Dear Sir, <br /> Saction Letter of ".$facility_amount." from ".$bank_name." is updated.  <br /> Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." <br /> ESS KAY FINCORP LIMITED.";
+
+                $contactData = array('message' => $message, 'first_name' => $row->name, 'email' => $row->email, 'telephone' => $row->phone);
+                $tempUserData = array('email' => $row->email, 'name' => $row->name);
+                
+                Mail::send('emails.send_sanction_letter', $contactData, function ($message) use ($tempUserData) {
+                    $message->to($tempUserData['email'])->subject("Sanction Letter created");
+                    $message->cc('munjaldevelopment@gmail.com');
+                    $message->cc('milan.khadiya@skfin.in');
+                    $message->cc('communication@skfin.in');
+                    $message->from('communication@skfin.in', 'Ess Kay Fincorp');
+                });
             }
         }
         
