@@ -7456,7 +7456,7 @@ class HomeController extends Controller
 		}
 
     	$current_year = date('Y');
-		return view('sanction-letter-info', ['insightCatData' => $insightCatData, 'trustee_id' => $trustee_id, 'insightData' => $insightData, 'sanctionLetterData' => $sanctionLetterData]);
+		return view('sanction-letter-info', ['insightCatData' => $insightCatData, 'trustee_id' => $trustee_id, 'insightData' => $insightData, 'sanctionLetterData' => $sanctionLetterData, 'category_id' => $category_id]);
 	}
 
 	public function displaySanctionLetter(Request $request)
@@ -7464,6 +7464,7 @@ class HomeController extends Controller
     	Setting::assignSetting();
 
     	$sanction_id = $request->sanction_id;
+    	$category_id = $request->category_id;
 
     	$trusteeData = \DB::table('sanction_users')->where('user_id', session()->get('esskay_sanction_letter_user_id'))->first();
     	//dd($trusteeData);
@@ -7472,7 +7473,7 @@ class HomeController extends Controller
     	$sanctionLetterData = \DB::table('sanction_letters')->find($sanction_id);
 
     	$current_year = date('Y');
-		return view('sanction-letter-display', ['trustee_id' => $trustee_id, 'sanctionLetterData' => $sanctionLetterData]);	
+		return view('sanction-letter-display', ['trustee_id' => $trustee_id, 'category_id' => $category_id, 'sanctionLetterData' => $sanctionLetterData]);	
     }
 
 	public function approveSanctionLetter1(Request $request)

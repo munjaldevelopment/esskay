@@ -40,6 +40,8 @@
 	</div>
 </div>
 
+<input type="hidden" name="category_id" id="category_id" value="{{ $category_id }}">
+
 <div class="preloader_doc" style="display:none">
 	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;display:block;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
 		<g transform="rotate(0 50 50)">
@@ -120,7 +122,7 @@ $(document).ready(function() {
 		$.ajax({
 			url: base_url+'displaySanctionLetter',
 			type: 'post',
-			data: {_token: CSRF_TOKEN, sanction_id: sanction_id},
+			data: {_token: CSRF_TOKEN, sanction_id: sanction_id, category_id: category_id},
 			beforeSend: function() {
 				var content = $('.preloader_doc').html();
 				$('.sanction-letter-content').html(content);
