@@ -183,7 +183,31 @@ $(document).ready(function() {
 	        confirmButtonText: 'OK',
 	        cancelButtonText: 'Cancel'
 	    }).then((res) => {
-	    	console.log(res);
+	    	if(res.isConfirmed){
+				$.ajax({
+					url: base_url+'approveSanctionLetter3',
+					type: 'post',
+					data: {_token: CSRF_TOKEN, sanction_id: sanction_id},
+					beforeSend: function() {
+						var content = $('.preloader_doc').html();
+					},
+					success: function(output) {
+						$('.accept-sanction-container'+sanction_id).addClass('d-none');
+
+						Swal.fire({
+							title: 'Approved',
+							title: 'Your file has been approved.',
+							title: 'success'
+					    });
+					}
+				});
+			} else {
+	        	Swal.fire({
+					title: 'Cancelled',
+					title: 'Your file has been cancelled.',
+					title: 'warning'
+			    });
+			}
 		});
 	});
 });
