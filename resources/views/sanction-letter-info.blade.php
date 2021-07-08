@@ -174,35 +174,40 @@ $(document).ready(function() {
 	$('.accept-sanction3').bind('click', function() {
 		var sanction_id = $(this).attr('data-id');
 
-		swal({
+		swal.fire({
 			title: 'Are you sure?',
-			type: 'warning',
-		   showCancelButton: true,
-		   cancelButtonText: 'cancel'
-	    }).then(function(){
-			$.ajax({
-				url: base_url+'approveSanctionLetter3',
-				type: 'post',
-				data: {_token: CSRF_TOKEN, sanction_id: sanction_id},
-				beforeSend: function() {
-					var content = $('.preloader_doc').html();
-				},
-				success: function(output) {
-					$('.accept-sanction-container'+sanction_id).addClass('d-none');
+			type: 'error',
+	        showCancelButton: true,
+	        confirmButtonColor: '#36c6d3',
+	        cancelButtonColor: '#d33',
+	        confirmButtonText: '$confrimBtn',
+	        cancelButtonText: '$cancelBtn'
+	    }).then((res) => {
+	    	if(res.value){
+				$.ajax({
+					url: base_url+'approveSanctionLetter3',
+					type: 'post',
+					data: {_token: CSRF_TOKEN, sanction_id: sanction_id},
+					beforeSend: function() {
+						var content = $('.preloader_doc').html();
+					},
+					success: function(output) {
+						$('.accept-sanction-container'+sanction_id).addClass('d-none');
 
-					swal({
-						title: 'Approved',
-						title: 'Your file has been approved.',
-						title: 'success'
-				    });
-				}
-			});
-		}, function(dismiss) {
-        	swal({
-				title: 'Cancelled',
-				title: 'Your file has been cancelled.',
-				title: 'warning'
-		    });
+						swal({
+							title: 'Approved',
+							title: 'Your file has been approved.',
+							title: 'success'
+					    });
+					}
+				});
+			} else {
+	        	swal({
+					title: 'Cancelled',
+					title: 'Your file has been cancelled.',
+					title: 'warning'
+			    });
+			}
 		});
 	});
 });
