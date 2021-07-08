@@ -50,48 +50,6 @@
 	
 	
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-
-	<script type="text/javascript">
-		document.addEventListener("DOMContentLoaded", function() {
-			/////// Prevent closing from click inside dropdown
-			document.querySelectorAll('.dropdown-menu').forEach(function(element){
-				element.addEventListener('click', function (e) {
-					e.stopPropagation();
-				});
-			})
-
-			// make it as accordion for smaller screens
-			if (window.innerWidth < 992) {
-				// close all inner dropdowns when parent is closed
-				document.querySelectorAll('.navbar .dropdown').forEach(function(everydropdown){
-					everydropdown.addEventListener('hidden.bs.dropdown', function () {
-						// after dropdown is hidden, then find all submenus
-						this.querySelectorAll('.submenu').forEach(function(everysubmenu){
-							// hide every submenu as well
-							everysubmenu.style.display = 'none';
-						});
-					})
-				});
-
-				document.querySelectorAll('.dropdown-menu a').forEach(function(element){
-					element.addEventListener('click', function (e) {
-						let nextEl = this.nextElementSibling;
-					  	if(nextEl && nextEl.classList.contains('submenu')) {
-					  		// prevent opening link if link needs to open dropdown
-					  		e.preventDefault();
-					  		console.log(nextEl);
-					  		if(nextEl.style.display == 'block'){
-					  			nextEl.style.display = 'none';
-					  		} else {
-					  			nextEl.style.display = 'block';
-					  		}
-					  	}
-					});
-				})
-			}
-			// end if innerWidth
-		});
-	</script>
 </head>
 <body>
 	<!-- header start here -->
@@ -147,7 +105,7 @@
 						  	<div class="dropdown dropdown-menu transaction-category-container">
 						  		@foreach($docCategoryData as $row)
 						  			@if($row['children'])
-						  			<button type="button" class="nav-link btn-menu btn btn-primary transaction-class dropdown-toggle" data-toggle="dropdown">{{ $row['category_name'] }}</button>
+						  			<button type="button" class="nav-link btn-menu btn btn-primary transaction-child-class dropdown-toggle">{{ $row['category_name'] }}</button>
 						  			@else
 									<a class="dropdown-item transaction-category-class" data-category="{{ $row['category_id'] }}" href="javascript:;">{{ $row['category_name'] }}</a>
 									@endif
