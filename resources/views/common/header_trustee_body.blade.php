@@ -144,18 +144,38 @@
 
 					@if($trusteeData->is_transaction == 1)
 					<li class="nav-item">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-					       aria-haspopup="true" aria-expanded="false">
-					        Dropdown
-					    </a>
-					    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-					    	<li class="dropdown-submenu">
-				                <a class="dropdown-item dropdown-toggle" href="javascript:;">aa</a>
-				                <ul class="dropdown-menu">
-				                	<li><a class="dropdown-item" href="javascript:;">bb</a></li>
-				                </ul>
-							</li>
-						</ul>
+						<div class="dropdown dropdown-trustee">
+							<button type="button" class="nav-link btn-menu btn btn-primary transaction-class dropdown-toggle" data-toggle="dropdown">Transaction</button>
+						  	<div class="dropdown dropdown-menu transaction-category-container">
+						  		@foreach($docCategoryData as $row)
+						  			@if($row['children'])
+						  			<button type="button" class="nav-link btn-menu btn btn-primary transaction-child-class dropdown-toggle" data-toggle="dropdown">{{ $row['category_name'] }}</button>
+						  			@else
+									<a class="dropdown-item transaction-category-class" data-category="{{ $row['category_id'] }}" href="javascript:;">{{ $row['category_name'] }}</a>
+									@endif
+
+									@if($row['children'])
+									<div class="dropdown dropdown-menu transaction-sub-category-container">
+										@foreach($row['children'] as $child)
+											@if($child['children'])
+								  			<button type="button" class="nav-link btn-menu btn btn-primary transaction-child-child-class">{{ $child['category_name'] }}</button>
+								  			@else
+											<a class="dropdown-item transaction-category-class" data-category="{{ $child['category_id'] }}" href="javascript:;">{{ $child['category_name'] }}</a>
+											@endif
+
+											@if($child['children'])
+											<div class="dropdown dropdown-menu transaction-sub-sub-category-container">
+												@foreach($child['children'] as $sub_child)
+												<a class="transaction-category-class" data-category="{{ $sub_child['category_id'] }}" href="javascript:;">{{ $sub_child['category_name'] }}</a>
+												@endforeach
+											</div>
+											@endif
+										@endforeach
+									</div>
+									@endif
+								@endforeach
+						  	</div>
+						</div>
 					</li>
 					@endif
 					
