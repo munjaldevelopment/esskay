@@ -40,6 +40,24 @@
 
 <input type="hidden" id="transaction_id" name="transaction_id" value="{{ $transaction_id }}" />
 
+<div class="card-body">
+	<div class="mtd-timline-document">
+		<div class="row">
+			<div class="col-md-3 col-sm-12">
+				<div class="mtd-doc-box">
+					<div class="mtdd-doc-cont">
+						<h4>Trustee </h4>
+						<div>
+							<p>EssKay1</p>
+							<p>EssKay2</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class="mtd-timeline-content trustee-transaction-document-container">
 	
 </div>

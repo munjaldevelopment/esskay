@@ -6797,7 +6797,7 @@ class HomeController extends Controller
 				}
 				$docu_date = date('Y');
 
-	    		return view('transaction-category-trustee-info', ['trustee_id' => $trustee_id, 'transaction_category_id' => $transaction_category_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id]);
+				return view('transaction-category-trustee-info', ['trustee_id' => $trustee_id, 'transaction_category_id' => $transaction_category_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id]);
 	    	}
 	    }
     }
