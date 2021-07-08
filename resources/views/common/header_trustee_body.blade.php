@@ -177,9 +177,9 @@
 							    	<li>
 							    		<a class="dropdown-item @if($child['children']) @else transaction-category-class @endif" href="javascript:;">{{ $child['category_name'] }} @if($child['children']) &raquo; @endif</a>
 							    		<ul class="submenu dropdown-menu">
-								    		<li><a class="dropdown-item" href="javascript:;">Submenu item 111</a></li>
-								    		<li><a class="dropdown-item" href="javascript:;">Submenu item 112</a></li>
-								    		<li><a class="dropdown-item" href="javascript:;">Submenu item 113</a></li>
+							    			@foreach($child['children'] as $sub_child)
+								    		<li><a class="dropdown-item transaction-category-class" href="javascript:;">{{ $sub_child['category_name'] }}</a></li>
+								    		@endforeach
 							    		</ul>
 							    	</li>
 							    	@endforeach
