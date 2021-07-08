@@ -95,7 +95,7 @@
 		<tr>
 			<th style="min-width:120px;" class="border-bottom">Action</th>
 			<td class="accept-sanction-container{{ $sanctionLetterData->id }}">
-				@if($category_id = "new")
+				@if($category_id == "new")
 					@if($trustee_id == 1)
 						@if($sanctionLetterData->is_approve1 == 0)<a class="btn btn-info accept-sanction1" data-id="{{ $sanctionLetterData->id }}" href="javascript:;"><i class="fa fa-check"></i></a> 
 						&nbsp;&nbsp; 
