@@ -131,7 +131,7 @@
 											@if($child['children'])
 											<div class="dropdown dropdown-menu transaction-sub-sub-category-container">
 												@foreach($child['children'] as $sub_child)
-												<a class="dropdown-item transaction-category-class" data-category="{{ $sub_child['category_id'] }}" href="javascript:;">{{ $sub_child['category_name'] }}</a>
+												<a class="transaction-category-class" data-category="{{ $sub_child['category_id'] }}" href="javascript:;">{{ $sub_child['category_name'] }}</a>
 												@endforeach
 											</div>
 											@endif
