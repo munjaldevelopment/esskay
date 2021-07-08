@@ -152,7 +152,7 @@ class HomeController extends Controller
 				
 				$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
 				
-				//dd($lenderData);
+				
 
 				// Lender Banking Assessment
 				$bankingData = \DB::table('lender_banking')->leftJoin('banking_arrangment', 'lender_banking.banking_arrangment_id', '=', 'banking_arrangment.id')->where('lender_id', $lenderData->id)->selectRaw('lender_banking.*,banking_arrangment.name')->get();
@@ -801,9 +801,9 @@ class HomeController extends Controller
 	
 	public function showChildDoc(Request $request)
     {
-		//dd($request->all());
+		
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
-    	//dd($lenderData);
+    	
     	$lender_id = $lenderData->id;
 		
 		$parentData = \DB::table('document_category')->where('id', '=', $request->category_id)->first();
@@ -977,9 +977,9 @@ class HomeController extends Controller
 
 	public function showDoc(Request $request)
     {
-		//dd($request->all());
+		
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
-    	//dd($lenderData);
+    	
     	$lender_id = $lenderData->id;
 		
 		$parentData = \DB::table('document_category')->where('id', '=', $request->category_id)->first();
@@ -1863,7 +1863,7 @@ class HomeController extends Controller
 	public function insight()
     {	
     	$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
-    	//dd($lenderData);
+    	
     	$lender_id = $lenderData->id;
 
 		$parentData = \DB::table('insight_categories')->leftJoin('insight_category_lender', 'insight_categories.id', '=', 'insight_category_lender.insight_category_id')->where('insight_category_lender.lender_id',$lender_id)->whereNull('insight_categories.parent_id')->where('status', '1')->orderBy('insight_categories.lft', 'ASC')->get();
@@ -1884,7 +1884,7 @@ class HomeController extends Controller
 	public function deal()
 	{
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
-    	//dd($lenderData);
+    	
     	$lender_id = $lenderData->id;
 
 		$dealTotalData = \DB::table('current_deals')->selectRaw('count(id) as total, SUM(amount) as total_amount')->where('status', '1')->first();
@@ -1906,7 +1906,7 @@ class HomeController extends Controller
 		$category_name = "";
 
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
-    	//dd($lenderData);
+    	
     	$lender_id = $lenderData->id;
 
 		$dealTotalData = \DB::table('current_deals')->selectRaw('count(id) as total, SUM(amount) as total_amount')->where('status', '1')->first();
@@ -1944,7 +1944,7 @@ class HomeController extends Controller
 		$sortData = explode("-", $sort_value);
 
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
-    	//dd($lenderData);
+    	
     	$lender_id = $lenderData->id;
 
 		$dealTotalData = \DB::table('current_deals')->selectRaw('count(id) as total, SUM(amount) as total_amount')->where('status', '1')->first();
@@ -1960,7 +1960,7 @@ class HomeController extends Controller
 	{
 		$category_name = "";
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
-    	//dd($lenderData);
+    	
     	$lender_id = $lenderData->id;
 
 		$dealTotalData = \DB::table('current_deals')->selectRaw('count(id) as total, SUM(amount) as total_amount')->where('status', '1')->first();
@@ -1975,7 +1975,7 @@ class HomeController extends Controller
 	public function dealList()
 	{
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
-    	//dd($lenderData);
+    	
     	$lender_id = $lenderData->id;
     	$category_name = "";
 
@@ -1991,7 +1991,7 @@ class HomeController extends Controller
 	public function sanctionLetter()
     {	
     	$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
-    	//dd($lenderData);
+    	
     	$lender_id = $lenderData->id;
 
 		$sanctionData = \DB::table('sanction_letters')->where('status', '1')->get();
@@ -2004,9 +2004,9 @@ class HomeController extends Controller
     {
     	Setting::assignSetting();
 
-		//dd($request->all());
+		
 		$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
-    	//dd($lenderData);
+    	
     	$lender_id = $lenderData->id;
 
     	$insightCatData = \DB::table('insight_categories')->where('id', '=', $request->category_id)->first();
@@ -4094,7 +4094,7 @@ class HomeController extends Controller
 	public function document()
     {	
     	$lenderData = \DB::table('lenders')->where('user_id', session()->get('esskay_user_id'))->first();
-    	//dd($lenderData);
+    	
     	$lender_id = $lenderData->id;
 
 		$parentData = \DB::table('document_category')->leftJoin('document_category_lender', 'document_category.id', '=', 'document_category_lender.document_category_id')->where('document_category_lender.lender_id',$lender_id)->whereNull('document_category.parent_id')->orderBy('document_category.lft', 'ASC')->get();
@@ -4301,7 +4301,7 @@ class HomeController extends Controller
 	public function insightTrustee()
     {	
     	$lenderData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
-    	//dd($lenderData);
+    	
     	$lender_id = $lenderData->id;
 
 		$parentData = \DB::table('insight_categories')->leftJoin('insight_category_trustee', 'insight_categories.id', '=', 'insight_category_trustee.insight_category_id')->where('insight_category_trustee.trustee_id',$lender_id)->whereNull('insight_categories.parent_id')->where('status', '1')->orderBy('insight_categories.lft', 'ASC')->get();
@@ -4324,7 +4324,7 @@ class HomeController extends Controller
     {
     	Setting::assignSetting();
 
-		//dd($request->all());
+		
 		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
     	//dd($trusteeData);
     	$trustee_id = $trusteeData->id;
@@ -6213,7 +6213,7 @@ class HomeController extends Controller
 
 	public function showDocTrustee(Request $request)
     {
-		//dd($request->all());
+		
 		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
     	//dd($trusteeData);
     	$trustee_id = $trusteeData->id;
@@ -6389,7 +6389,7 @@ class HomeController extends Controller
 
 	public function showChildDocTrustee(Request $request)
     {
-		//dd($request->all());
+		
 		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
     	//dd($trusteeData);
     	$trustee_id = $trusteeData->id;
@@ -6776,9 +6776,8 @@ class HomeController extends Controller
 		}
 		else
 		{
-			//dd($request->all());
+			
 			$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
-	    	//dd($trusteeData);
 	    	$trustee_id = $trusteeData->id;
 
 	    	$transaction_id = $request->transaction_id;
@@ -6833,7 +6832,7 @@ class HomeController extends Controller
 		}
 		else
 		{
-			//dd($request->all());
+			
 			$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
 	    	//dd($trusteeData);
 	    	$trustee_id = $trusteeData->id;
