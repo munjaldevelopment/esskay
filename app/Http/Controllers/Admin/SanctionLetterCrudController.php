@@ -256,8 +256,6 @@ class SanctionLetterCrudController extends CrudController
                                 'tab' => 'General'
                             ]);
 
-        
-
         $this->crud->addField([
                                 'name' => 'roi',
                                 'label' => 'ROI',
@@ -461,6 +459,13 @@ class SanctionLetterCrudController extends CrudController
         $this->crud->addField([
                                 'name' => 'facility_amount',
                                 'label' => 'Facility Amount',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addField([
+                                'name' => 'email_address',
+                                'label' => 'Email Address',
                                 'type' => 'text',
                                 'tab' => 'General'
                             ]);
