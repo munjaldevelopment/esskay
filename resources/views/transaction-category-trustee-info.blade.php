@@ -42,41 +42,80 @@
 
 <div class="mtd-timline-document">
 	<div class="row">
+		@if($relevantPartyInvestorData)
 		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-doc-cont">
 					<h4>Trustee </h4>
 					<div>
+						@foreach($relevantPartyInvestorData as $row)
 						<p>EssKay1</p>
-						<p>EssKay2</p>
+						@endforeach
 					</div>
 				</div>
 			</div>
 		</div>
+		@endif
 
+		@if($relevantPartyTrusteeData)
 		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-doc-cont">
 					<h4>Trustee </h4>
 					<div>
+						@foreach($relevantPartyTrusteeData as $row)
 						<p>EssKay1</p>
-						<p>EssKay2</p>
+						@endforeach
 					</div>
 				</div>
 			</div>
 		</div>
+		@endif
 
+		@if($relevantPartyLegalData)
 		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-doc-cont">
 					<h4>Trustee </h4>
 					<div>
+						@foreach($relevantPartyLegalData as $row)
 						<p>EssKay1</p>
-						<p>EssKay2</p>
+						@endforeach
 					</div>
 				</div>
 			</div>
 		</div>
+		@endif
+
+		@if($relevantPartyArrangerData)
+		<div class="col-md-3 col-sm-12">
+			<div class="mtd-container-box">
+				<div class="mtdd-doc-cont">
+					<h4>Trustee </h4>
+					<div>
+						@foreach($relevantPartyArrangerData as $row)
+						<p>EssKay1</p>
+						@endforeach
+					</div>
+				</div>
+			</div>
+		</div>
+		@endif
+
+		@if($relevantPartyRatingData)
+		<div class="col-md-3 col-sm-12">
+			<div class="mtd-container-box">
+				<div class="mtdd-doc-cont">
+					<h4>Trustee </h4>
+					<div>
+						@foreach($relevantPartyRatingData as $row)
+						<p>EssKay1</p>
+						@endforeach
+					</div>
+				</div>
+			</div>
+		</div>
+		@endif
 	</div>
 </div>
 

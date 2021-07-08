@@ -6796,7 +6796,17 @@ class HomeController extends Controller
 				}
 				$docu_date = date('Y');
 
-				return view('transaction-category-trustee-info', ['trustee_id' => $trustee_id, 'transaction_category_id' => $transaction_category_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id]);
+				$relevantPartyInvestorData = \DB::table('transaction_relevant_parties')->leftJoin('transaction_relevant_party_trustee', 'transaction_relevant_parties.id', '=', 'transaction_relevant_party_trustee.transaction_category_id')->where('transaction_relevant_party_trustee.trustee_id',$trustee_id)->where('party_type', 'Investor')->where('transaction_relevant_parties.transaction_id',$transaction_id)->get();
+
+				$relevantPartyTrusteeData = \DB::table('transaction_relevant_parties')->leftJoin('transaction_relevant_party_trustee', 'transaction_relevant_parties.id', '=', 'transaction_relevant_party_trustee.transaction_category_id')->where('transaction_relevant_party_trustee.trustee_id',$trustee_id)->where('party_type', 'Trustee')->where('transaction_relevant_parties.transaction_id',$transaction_id)->get();
+
+				$relevantPartyLegalData = \DB::table('transaction_relevant_parties')->leftJoin('transaction_relevant_party_trustee', 'transaction_relevant_parties.id', '=', 'transaction_relevant_party_trustee.transaction_category_id')->where('transaction_relevant_party_trustee.trustee_id',$trustee_id)->where('party_type', 'Legal')->where('transaction_relevant_parties.transaction_id',$transaction_id)->get();
+
+				$relevantPartyArrangerData = \DB::table('transaction_relevant_parties')->leftJoin('transaction_relevant_party_trustee', 'transaction_relevant_parties.id', '=', 'transaction_relevant_party_trustee.transaction_category_id')->where('transaction_relevant_party_trustee.trustee_id',$trustee_id)->where('party_type', 'Arranger')->where('transaction_relevant_parties.transaction_id',$transaction_id)->get();
+
+				$relevantPartyRatingData = \DB::table('transaction_relevant_parties')->leftJoin('transaction_relevant_party_trustee', 'transaction_relevant_parties.id', '=', 'transaction_relevant_party_trustee.transaction_category_id')->where('transaction_relevant_party_trustee.trustee_id',$trustee_id)->where('party_type', 'Rating')->where('transaction_relevant_parties.transaction_id',$transaction_id)->get();
+
+				return view('transaction-category-trustee-info', ['trustee_id' => $trustee_id, 'transaction_category_id' => $transaction_category_id, 'categoryData' => $categoryData, 'transactionData' => $transactionData, 'document_date' => $document_date, 'docu_date' => $docu_date, 'transaction_id' => $transaction_id, 'relevantPartyInvestorData' => $relevantPartyInvestorData, 'relevantPartyTrusteeData' => $relevantPartyTrusteeData, 'relevantPartyLegalData' => $relevantPartyLegalData, 'relevantPartyArrangerData' => $relevantPartyArrangerData, 'relevantPartyRatingData' => $relevantPartyRatingData]);
 	    	}
 	    }
     }
