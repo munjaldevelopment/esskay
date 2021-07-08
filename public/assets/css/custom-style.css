@@ -2556,7 +2556,8 @@ a.fxt-btn-fill.float-right {
 	margin-left: 0;
 }
 
-.side-body.side-body-content {
+
+.side-body.side-body-content, .side-body, .side-body.side-body-sanction {
     padding: 5px 11px;
 }
 
