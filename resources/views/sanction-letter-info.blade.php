@@ -176,12 +176,10 @@ $(document).ready(function() {
 
 		swal({
 			title: 'Are you sure?',
-			type: "error",
-            confirmButtonClass: "btn-danger",
-            confirmButtonText: "Yes!",
-            showCancelButton: true,
-	    },
-        function() {
+			type: 'warning',
+		   showCancelButton: true,
+		   cancelButtonText: 'cancel'
+	    }).then(function(){
 			$.ajax({
 				url: base_url+'approveSanctionLetter3',
 				type: 'post',
@@ -199,8 +197,7 @@ $(document).ready(function() {
 				    });
 				}
 			});
-		},
-        function() {
+		}, function(dismiss) {
         	swal({
 				title: 'Cancelled',
 				title: 'Your file has been cancelled.',
