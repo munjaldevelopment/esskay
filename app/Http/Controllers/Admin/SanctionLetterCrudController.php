@@ -124,7 +124,7 @@ class SanctionLetterCrudController extends CrudController
                                     'type' => 'text',
                                 ]);
 
-            $this->crud->addColumn([
+            /*$this->crud->addColumn([
                                     'name' => 'roi',
                                     'label' => 'ROI',
                                     'type' => 'text',
@@ -134,7 +134,7 @@ class SanctionLetterCrudController extends CrudController
                                     'name' => 'all_incluside_roi',
                                     'label' => 'All Inside ROI',
                                     'type' => 'text',
-                                ]);
+                                ]);*/
 
             $this->crud->addColumn([
                                     'name' => 'processing_fees',

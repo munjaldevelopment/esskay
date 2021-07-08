@@ -21,7 +21,7 @@ class SanctionLetter extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
     
-    protected $fillable = ['user_id', 'bank_name', 'type_facility', 'facility_amount', 'roi', 'all_incluside_roi', 'processing_fees', 'processing_fees_amount', 'arranger_fees', 'arranger_fees_amount', 'total_associated_cost', 'all_inclusive_cost', 'all_inclusive_cost', 'rationale_availing', 'rationale_availing', 'stamp_duty_fees', 'tenor', 'security_cover', 'cash_collateral', 'personal_guarantee', 'intermediary', 'sanction_letter', 'is_approve1', 'approve1_user', 'is_approve2', 'approve2_user', 'is_approve3', 'approve3_user', 'status'];
+    protected $fillable = ['user_id', 'bank_name', 'type_facility', 'facility_amount', 'email_address', 'roi', 'all_incluside_roi', 'processing_fees', 'processing_fees_amount', 'arranger_fees', 'arranger_fees_amount', 'total_associated_cost', 'all_inclusive_cost', 'all_inclusive_cost', 'rationale_availing', 'rationale_availing', 'stamp_duty_fees', 'tenor', 'security_cover', 'cash_collateral', 'personal_guarantee', 'intermediary', 'sanction_letter', 'is_approve1', 'approve1_user', 'is_approve2', 'approve2_user', 'is_approve3', 'approve3_user', 'status'];
     // protected $hidden = [];
     // protected $dates = [];
 

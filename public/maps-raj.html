@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accessing Arguments in UI Events</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+       function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 4,
+          center: { lat: 26.894330661290653, lng: 75.75532482747644 },
+        });
+ 
+     
+ 
+var locations = [
+      ['Ess Kay Fincorp Limited, G-1 & G-2 , Adarsh Plaza Khasa Khoti Circle, Station Rd, Gopalbari, Jaipur', 26.894330661290653, 75.75532482747644, 4],
+      ['Ess Kay Fincorp Limited, G-1 & G-2 , Adarsh Plaza Khasa Khoti Circle, Station Rd, Gopalbari, Jaipur', 26, 76, 5],
+      ['Ess Kay Fincorp Limited, G-1 & G-2 , Adarsh Plaza Khasa Khoti Circle, Station Rd, Gopalbari, Jaipur', 28, 77, 3],
+      ['Ess Kay Fincorp Limited, G-1 & G-2 , Adarsh Plaza Khasa Khoti Circle, Station Rd, Gopalbari, Jaipur', 29.89433066129065371, 78.755324827476447, 2],
+      ['Ess Kay Fincorp Limited, G-1 & G-2 , Adarsh Plaza Khasa Khoti Circle, Station Rd, Gopalbari, Jaipur', 30.8943306612906538, 79.755324827476442, 1]
+    ];
+
+
+var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+
+// Construct the polygon.
+var BucaramangaPolygon = new google.maps.Polygon({
+    paths: BucaramangaDelimiters,
+    strokeColor: '#0037FF',
+    strokeOpacity: 0.8,
+    strokeWeight: 3,
+    fillColor: '#0037FF',
+    fillOpacity: 0.35
+});
+
+
+// Draw the polygon on the desired map instance
+BucaramangaPolygon.setMap(map);
+
+      }
+
+      // Attaches an info window to a marker with the provided message. When the
+      // marker is clicked, the info window will open with the secret message.
+      function attachSecretMessage(marker, secretMessage) {
+        const infowindow = new google.maps.InfoWindow({
+          content: secretMessage,
+        });
+        marker.addListener("click", () => {
+          infowindow.open(marker.get("map"), marker);
+        });
+      }
+
+
+// An array with the coordinates of the boundaries of Bucaramanga, extracted manually from the GADM database
+var BucaramangaDelimiters = [
+    { lng: 75.077796936035,  lat: 26.18019914627087 },
+    { lng: 75.0765991210938, lat: 26.17500114440924 },
+    { lng: 75.0805969238281, lat: 26.16109991073608 },
+    { lng: 75.081199645996,  lat: 26.14789915084839 },
+    { lng: 75.0748977661132, lat: 26.13860082626343 },
+    { lng: 75.0655975341797, lat: 26.13280010223394 },
+    { lng: 75.0626983642578, lat: 26.12929916381836 },
+    { lng: 75.0673980712889, lat: 26.1263999938966  },
+    { lng: 75.0759963989258, lat: 26.10970115661621 },
+    { lng: 75.084098815918,  lat: 26.10449981689459 },
+    { lng: 75.0943984985352, lat: 26.09769916534424 },
+    { lng: 75.1088027954102, lat: 26.08269977569586 },
+    { lng: 75.1156997680664, lat: 26.07289981842052 },
+    { lng: 75.1231994628906, lat: 26.07060003280645 },
+    { lng: 75.1300964355469, lat: 26.05680179595953 },
+    { lng: 75.1393966674804, lat: 26.05340003967291 },
+    { lng: 75.1473999023437, lat: 26.05050086975098 },
+    { lng: 75.152099609375,  lat: 26.05919981002808 },
+    { lng: 75.1601028442383, lat: 26.06330013275158 },
+    { lng: 75.1688003540039, lat: 26.06389999389648 },
+    { lng: 75.1802978515624, lat: 26.06629991531383 },
+    { lng: 73.1843032836913, lat: 25.07320117950451 },
+    { lng: 73.1860961914062, lat: 25.08760023117071 },
+    { lng: 73.1884002685546, lat: 25.1096010208131  },
+    { lng: 73.1815032958984, lat: 25.12750101089489 },
+    { lng: 73.1780014038085, lat: 25.15230083465588 },
+    { lng: 73.1781005859374, lat: 25.17660093307501 },
+    { lng: 73.1763000488281, lat: 25.18930006027233 },
+    { lng: 73.1770782470703, lat: 25.19456291198725 },
+    { lng: 73.1682968139647, lat: 25.19389915466314 },
+    { lng: 73.1636962890624, lat: 25.1995987892152  },
+    { lng: 73.1591033935547, lat: 25.20250082016003 },
+    { lng: 73.1452026367187, lat: 25.211100101471   },
+    { lng: 73.1360015869141, lat: 25.21739912033081 },
+    { lng: 73.1261978149414, lat: 25.22079992294312 },
+    { lng: 77.1199035644531, lat: 25.22370100021362 },
+    { lng: 77.1118011474609, lat: 25.2241997718811  },
+    { lng: 77.1078033447265, lat: 27.22540187835699 },
+    { lng: 77.1054992675781, lat: 27.22540187835699 },
+    { lng: 77.1054992675781, lat: 27.22129917144787 },
+    { lng: 77.1048965454102, lat: 27.21269989013683 },
+    { lng: 77.1048965454102, lat: 27.20340108871466 },
+    { lng: 77.1031036376953, lat: 27.19760084152222 },
+    { lng: 77.0973968505859, lat: 27.1911988258363  },
+    { lng: 77.0915985107421, lat: 27.18540000915522 },
+    { lng: 77.0864028930664, lat: 27.18370008468634 },
+    { lng: 77.077796936035,  lat: 27.18019914627087 }
+];
+
+
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
+</html>
