@@ -20,6 +20,7 @@
 						@if($sanctionLetterData)
 							@foreach($sanctionLetterData as $row)
 							<tr>
+								<td>{{ $row->created_name }}</td>
 								<td class="text-justify">{{ $row->bank_name }}</td>
 								<td>{{ $row->type_facility }}</td>
 								<td>{{ $row->facility_amount }}</td>
