@@ -703,7 +703,7 @@ class SanctionLetterCrudController extends CrudController
             $sanctionUsers = \DB::table('sanction_users')->get();
             foreach($sanctionUsers as $row)
             {
-                $message = "Dear Sir, <br /> Saction Letter of ".$facility_amount." from ".$bank_name." is initialized.  <br /> Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." <br /> ESS KAY FINCORP LIMITED.";
+                $message = "Dear Sir, <br /> Sanction Letter of ".$facility_amount." from ".$bank_name." is initialized.  <br /> Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." <br /> ESS KAY FINCORP LIMITED.";
 
                 $contactData = array('mail_message' => $message, 'first_name' => $row->name, 'email' => $row->email, 'telephone' => $row->phone);
                 $tempUserData = array('email' => $row->email, 'name' => $row->name);
@@ -768,7 +768,7 @@ class SanctionLetterCrudController extends CrudController
                 
         if($sms_status)
         {
-            /*$message = str_replace(" ", "%20", "Dear Sir, Saction Letter of ".$facility_amount." from ".$bank_name." is updated. Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
+            /*$message = str_replace(" ", "%20", "Dear Sir, Sanction Letter of ".$facility_amount." from ".$bank_name." is updated. Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." %0a ESS KAY FINCORP LIMITED.");
             $lender_phone = "9462045321";
 
             $request_url = "https://www.bulksmslive.info/api/sendhttp.php?authkey=6112AIUJ9ujV9spM5cbf0026&mobiles=91".$lender_phone."&message=".$message."&sender=EssKay&route=4&country=0";
@@ -780,7 +780,7 @@ class SanctionLetterCrudController extends CrudController
             $sanctionUsers = \DB::table('sanction_users')->get();
             foreach($sanctionUsers as $row)
             {
-                $message = "Dear Sir, <br /> Saction Letter of ".$facility_amount." from ".$bank_name." is updated.  <br /> Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." <br /> ESS KAY FINCORP LIMITED.";
+                $message = "Dear Sir, <br /> Sanction Letter of ".$facility_amount." from ".$bank_name." is updated.  <br /> Kindly click on below link for the details ".backpack_url('sanction_letter/'.$sanction_letter_id."/show")." <br /> ESS KAY FINCORP LIMITED.";
 
                 $contactData = array('mail_message' => $message, 'first_name' => $row->name, 'email' => $row->email, 'telephone' => $row->phone);
                 $tempUserData = array('email' => $row->email, 'name' => $row->name);
