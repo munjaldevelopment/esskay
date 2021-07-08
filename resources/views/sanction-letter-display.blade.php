@@ -86,7 +86,7 @@
 		</tr>
 		<tr>
 			<th class="border-bottom">Sanction Letter</th>
-			<td>{{ $sanctionLetterData->sanction_letter }}</td>
+			<td><a class="btn btn-info"><i class="fa fa-eye"></i></a></td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Status</th>
