@@ -168,41 +168,23 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="javascript:;" data-bs-toggle="dropdown"> Transaction </a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#"> Dropdown item 1 </a></li>
-							<li><a class="dropdown-item" href="#"> Dropdown item 2 &raquo; </a>
+							@foreach($docCategoryData as $row)
+							<li>
+								<a class="dropdown-item" href="javascript:;"> {{ $row['category_name'] }} &raquo; </a>
 						  		<ul class="submenu dropdown-menu">
 							    	<li>
-							    		<a class="dropdown-item" href="#">Submenu item 1  &raquo;</a>
+							    		<a class="dropdown-item" href="javascript:;">Submenu item 1  &raquo;</a>
 							    		<ul class="submenu dropdown-menu">
-								    		<li><a class="dropdown-item" href="#">Submenu item 111</a></li>
-								    		<li><a class="dropdown-item" href="#">Submenu item 112</a></li>
-								    		<li><a class="dropdown-item" href="#">Submenu item 113</a></li>
+								    		<li><a class="dropdown-item" href="javascript:;">Submenu item 111</a></li>
+								    		<li><a class="dropdown-item" href="javascript:;">Submenu item 112</a></li>
+								    		<li><a class="dropdown-item" href="javascript:;">Submenu item 113</a></li>
 							    		</ul>
 							    	</li>
-									<li><a class="dropdown-item" href="#">Submenu item 2</a></li>
-									<li><a class="dropdown-item" href="#">Submenu item 3</a></li>
+									<li><a class="dropdown-item" href="javascript:;">Submenu item 2</a></li>
+									<li><a class="dropdown-item" href="javascript:;">Submenu item 3</a></li>
 								</ul>
 							</li>
-						  	<li>
-						  		<a class="dropdown-item" href="#"> Dropdown item 3 &raquo; </a>
-						  		<ul class="submenu dropdown-menu">
-									<li><a class="dropdown-item" href="#">Another submenu 1</a></li>
-									<li><a class="dropdown-item" href="#">Another submenu 2</a></li>
-									<li><a class="dropdown-item" href="#">Another submenu 3</a></li>
-									<li><a class="dropdown-item" href="#">Another submenu 4</a></li>
-							 	</ul>
-							 </li>
-						  	<li>
-						  		<a class="dropdown-item" href="#"> Dropdown item 4 &raquo;</a>
-								<ul class="submenu dropdown-menu">
-									<li><a class="dropdown-item" href="#">Another submenu 1</a></li>
-									<li><a class="dropdown-item" href="#">Another submenu 2</a></li>
-									<li><a class="dropdown-item" href="#">Another submenu 3</a></li>
-									<li><a class="dropdown-item" href="#">Another submenu 4</a></li>
-								</ul>
-							</li>
-							<li><a class="dropdown-item" href="#"> Dropdown item 5 </a></li>
-							<li><a class="dropdown-item" href="#"> Dropdown item 6 </a></li>
+							@endforeach
 					    </ul>
 					</li>
 					@endif
