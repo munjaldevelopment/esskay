@@ -115,7 +115,7 @@ $(document).ready(function() {
 			cancelButtonColor: '#d33',
 			confirmButtonText: 'Yes, delete it!'
 	    }).then((data) => {
-	    	if (data.isConfirmed) {
+	    	if (data.value) {
 				$.ajax({
 					url: base_url+'approveSanctionLetter1',
 					type: 'post',
@@ -149,7 +149,7 @@ $(document).ready(function() {
 			cancelButtonColor: '#d33',
 			confirmButtonText: 'Yes, delete it!'
 	    }).then((data) => {
-	    	if (data.isConfirmed) {
+	    	if (data.value) {
 	    		$.ajax({
 					url: base_url+'approveSanctionLetter2',
 					type: 'post',
@@ -183,7 +183,7 @@ $(document).ready(function() {
 			cancelButtonColor: '#d33',
 			confirmButtonText: 'Yes, delete it!'
 	    }).then((data) => {
-	    	if (data.isConfirmed) {
+	    	if (data.value) {
 				$.ajax({
 					url: base_url+'approveSanctionLetter3',
 					type: 'post',
