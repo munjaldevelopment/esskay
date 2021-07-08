@@ -79,6 +79,7 @@ Route::post('/showInsightTrustee', 'HomeController@showInsightTrustee');
 
 
 Route::post('/showSanctionLetterInfo', 'HomeController@showSanctionLetterInfo');
+Route::post('/displaySanctionLetter', 'HomeController@displaySanctionLetter');
 
 
 Route::post('/approveSanctionLetter1', 'HomeController@approveSanctionLetter1');
