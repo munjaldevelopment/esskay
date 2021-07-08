@@ -46,7 +46,7 @@
 		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-doc-cont">
-					<h4>Trustee </h4>
+					<h4>Investor </h4>
 					<div>
 						@foreach($relevantPartyInvestorData as $row)
 						<p>EssKay1</p>
@@ -76,7 +76,7 @@
 		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-doc-cont">
-					<h4>Trustee </h4>
+					<h4>Legal </h4>
 					<div>
 						@foreach($relevantPartyLegalData as $row)
 						<p>EssKay1</p>
@@ -91,7 +91,7 @@
 		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-doc-cont">
-					<h4>Trustee </h4>
+					<h4>Arranger </h4>
 					<div>
 						@foreach($relevantPartyArrangerData as $row)
 						<p>EssKay1</p>
@@ -106,7 +106,7 @@
 		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-doc-cont">
-					<h4>Trustee </h4>
+					<h4>Rating </h4>
 					<div>
 						@foreach($relevantPartyRatingData as $row)
 						<p>EssKay1</p>
