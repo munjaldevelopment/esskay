@@ -1,7 +1,7 @@
 <div class="mtd-inner-box">
-	<div class="mtd-inner about-mai-box">
-		<div class="about-testimonial-area">
-			<div class="content-area-custom">
+	<div class="mtd-inner">
+		<div class="side-body side-body-content side-body-full">
+			<div class="insight-container">
 				<div class="white-box outstanding-box">
 					<div class="outstanding-table">
 						<h3>Composition of Board of Directors:</h3>
