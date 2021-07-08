@@ -143,39 +143,42 @@
 					@endif
 
 					@if($trusteeData->is_transaction == 1)
-					<li class="nav-item">
-						<div class="dropdown dropdown-trustee">
-							<button type="button" class="nav-link btn-menu btn btn-primary transaction-class dropdown-toggle" data-toggle="dropdown">Transaction</button>
-						  	<div class="dropdown dropdown-menu transaction-category-container">
-						  		@foreach($docCategoryData as $row)
-						  			@if($row['children'])
-						  			<button type="button" class="nav-link btn-menu btn btn-primary transaction-child-class dropdown-toggle" data-toggle="dropdown">{{ $row['category_name'] }}</button>
-						  			@else
-									<a class="dropdown-item transaction-category-class" data-category="{{ $row['category_id'] }}" href="javascript:;">{{ $row['category_name'] }}</a>
-									@endif
-
-									@if($row['children'])
-									<div class="dropdown dropdown-menu transaction-sub-category-container">
-										@foreach($row['children'] as $child)
-											@if($child['children'])
-								  			<button type="button" class="nav-link btn-menu btn btn-primary transaction-child-child-class">{{ $child['category_name'] }}</button>
-								  			@else
-											<a class="dropdown-item transaction-category-class" data-category="{{ $child['category_id'] }}" href="javascript:;">{{ $child['category_name'] }}</a>
-											@endif
-
-											@if($child['children'])
-											<div class="dropdown dropdown-menu transaction-sub-sub-category-container">
-												@foreach($child['children'] as $sub_child)
-												<a class="transaction-category-class" data-category="{{ $sub_child['category_id'] }}" href="javascript:;">{{ $sub_child['category_name'] }}</a>
-												@endforeach
-											</div>
-											@endif
-										@endforeach
-									</div>
-									@endif
-								@endforeach
-						  	</div>
-						</div>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  More items  </a>
+					    <ul class="dropdown-menu">
+						  <li><a class="dropdown-item" href="#"> Dropdown item 1 </a></li>
+						  <li><a class="dropdown-item" href="#"> Dropdown item 2 &raquo; </a>
+						  	 <ul class="submenu dropdown-menu">
+							    <li><a class="dropdown-item" href="#">Submenu item 1  &raquo;</a>
+							    	<ul class="submenu dropdown-menu">
+							    		<li><a class="dropdown-item" href="#">Submenu item 111</a></li>
+							    		<li><a class="dropdown-item" href="#">Submenu item 112</a></li>
+							    		<li><a class="dropdown-item" href="#">Submenu item 113</a></li>
+							    	</ul>
+							    </li>
+							    <li><a class="dropdown-item" href="#">Submenu item 2</a></li>
+							    <li><a class="dropdown-item" href="#">Submenu item 3</a></li>
+							 </ul>
+						  </li>
+						  <li><a class="dropdown-item" href="#"> Dropdown item 3 &raquo; </a>
+						  	 <ul class="submenu dropdown-menu">
+							    <li><a class="dropdown-item" href="#">Another submenu 1</a></li>
+							    <li><a class="dropdown-item" href="#">Another submenu 2</a></li>
+							    <li><a class="dropdown-item" href="#">Another submenu 3</a></li>
+							    <li><a class="dropdown-item" href="#">Another submenu 4</a></li>
+							 </ul>
+						  </li>
+						  <li><a class="dropdown-item" href="#"> Dropdown item 4 &raquo;</a>
+						  	 <ul class="submenu dropdown-menu">
+							    <li><a class="dropdown-item" href="#">Another submenu 1</a></li>
+							    <li><a class="dropdown-item" href="#">Another submenu 2</a></li>
+							    <li><a class="dropdown-item" href="#">Another submenu 3</a></li>
+							    <li><a class="dropdown-item" href="#">Another submenu 4</a></li>
+							 </ul>
+						  </li>
+						  <li><a class="dropdown-item" href="#"> Dropdown item 5 </a></li>
+						  <li><a class="dropdown-item" href="#"> Dropdown item 6 </a></li>
+					    </ul>
 					</li>
 					@endif
 					
