@@ -106,16 +106,16 @@ $(document).ready(function() {
 	$('.accept-sanction1').bind('click', function() {
 		var sanction_id = $(this).attr('data-id');
 
-		swal({
+		Swal.fire({
 			title: 'Are you sure?',
-			text: "You won't be able to revert this!",
-			icon: 'warning',
-			showCancelButton: true,
-			confirmButtonColor: '#3085d6',
-			cancelButtonColor: '#d33',
-			confirmButtonText: 'Yes, delete it!'
-	    }).then((data) => {
-	    	if (data.value) {
+			type: 'error',
+	        showCancelButton: true,
+	        confirmButtonColor: '#36c6d3',
+	        cancelButtonColor: '#d33',
+	        confirmButtonText: 'OK',
+	        cancelButtonText: 'Cancel'
+	    }).then((res) => {
+	    	if(res.isConfirmed){
 				$.ajax({
 					url: base_url+'approveSanctionLetter1',
 					type: 'post',
@@ -126,13 +126,19 @@ $(document).ready(function() {
 					success: function(output) {
 						$('.accept-sanction-container'+sanction_id).addClass('d-none');
 
-						swal({
+						Swal.fire({
 							title: 'Approved',
 							title: 'Your file has been approved.',
-							title: 'success'
+							type: 'success'
 					    });
 					}
 				});
+			} else {
+	        	Swal.fire({
+					title: 'Cancelled',
+					title: 'Your file has been cancelled.',
+					type: 'warning'
+			    });
 			}
 		});
 	});
@@ -140,16 +146,16 @@ $(document).ready(function() {
 	$('.accept-sanction2').bind('click', function() {
 		var sanction_id = $(this).attr('data-id');
 
-		swal({
+		Swal.fire({
 			title: 'Are you sure?',
-			text: "You won't be able to revert this!",
-			icon: 'warning',
-			showCancelButton: true,
-			confirmButtonColor: '#3085d6',
-			cancelButtonColor: '#d33',
-			confirmButtonText: 'Yes, delete it!'
-	    }).then((data) => {
-	    	if (data.value) {
+			type: 'error',
+	        showCancelButton: true,
+	        confirmButtonColor: '#36c6d3',
+	        cancelButtonColor: '#d33',
+	        confirmButtonText: 'OK',
+	        cancelButtonText: 'Cancel'
+	    }).then((res) => {
+	    	if(res.isConfirmed){
 	    		$.ajax({
 					url: base_url+'approveSanctionLetter2',
 					type: 'post',
@@ -160,13 +166,19 @@ $(document).ready(function() {
 					success: function(output) {
 						$('.accept-sanction-container'+sanction_id).addClass('d-none');
 
-						swal({
+						Swal.fire({
 							title: 'Approved',
 							title: 'Your file has been approved.',
-							title: 'success'
+							type: 'success'
 					    });
 					}
 				});
+			} else {
+	        	Swal.fire({
+					title: 'Cancelled',
+					title: 'Your file has been cancelled.',
+					type: 'warning'
+			    });
 			}
 		});
 	});
