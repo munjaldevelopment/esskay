@@ -1,10 +1,10 @@
 <div class="white-box outstanding-box">
 	<div class="outstanding-table">
 		<h3>Sanction Letters</h3>
-		<div class="custom-table-area">
-			<div class="table-responsive">
-				@if($sanctionLetterData)
-					@foreach($sanctionLetterData as $row)
+		@if($sanctionLetterData)
+			@foreach($sanctionLetterData as $row)
+			<div class="custom-table-area">
+				<div class="table-responsive">
 					<table class="table">
 						<tr>
 							<th class="border-bottom">Bank Name</th>
@@ -115,13 +115,10 @@
 							</td>
 						</tr>
 					</table>
-
-					<hr /><hr />	
-				@endforeach
-				@endif
-				
-			</div>	
-		</div>
+				</div>	
+			</div>
+			@endforeach
+		@endif
 	</div>
 </div>
 
