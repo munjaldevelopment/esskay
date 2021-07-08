@@ -81,6 +81,11 @@ Route::post('/showInsightTrustee', 'HomeController@showInsightTrustee');
 Route::post('/showSanctionLetterInfo', 'HomeController@showSanctionLetterInfo');
 
 
+Route::post('/approveSanctionLetter1', 'HomeController@approveSanctionLetter1');
+Route::post('/approveSanctionLetter2', 'HomeController@approveSanctionLetter2');
+Route::post('/approveSanctionLetter3', 'HomeController@approveSanctionLetter3');
+
+
 Route::post('/sanction-letter-trustee', 'HomeController@sanctionLetterTrustee');
 
 Route::post('/dealTrustee', 'HomeController@dealTrustee');

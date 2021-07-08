@@ -7460,4 +7460,34 @@ class HomeController extends Controller
 		return view('sanction-letter-info', ['insightCatData' => $insightCatData, 'trustee_id' => $trustee_id, 'insightData' => $insightData, 'sanctionLetterData' => $sanctionLetterData]);
 	}
 
+	public function approveSanctionLetter1(Request $request)
+    {
+    	Setting::assignSetting();
+
+    	$sanction_id = $request->sanction_id;
+
+    	$updateData = array('is_approve1' => '1', 'approve1_user' => session()->get('esskay_sanction_letter_user_id'), 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_id])->update($updateData);
+    }
+
+    public function approveSanctionLetter2(Request $request)
+    {
+    	Setting::assignSetting();
+
+    	$sanction_id = $request->sanction_id;
+
+    	$updateData = array('is_approve1' => '2', 'approve1_user' => session()->get('esskay_sanction_letter_user_id'), 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_id])->update($updateData);
+    }
+
+    public function approveSanctionLetter3(Request $request)
+    {
+    	Setting::assignSetting();
+
+    	$sanction_id = $request->sanction_id;
+
+    	$updateData = array('is_approve1' => '3', 'sanction_letter_status' => '1', 'approve1_user' => session()->get('esskay_sanction_letter_user_id'), 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_id])->update($updateData);
+    }
+
 }

@@ -59,16 +59,16 @@
 								<td>{{ $row->sanction_letter }}</td>
 								<td>
 									@if($trustee_id == 1)
-										@if($row->is_approve1 == 0)<a class="btn btn-info accept-sanction1" data-id="{{ $row->id }}" href="javascript:;"><i class="fa fa-check"></i></a> 
+										@if($row->is_approve1 == 0)<a class="btn btn-info accept-sanction-container{{ $row->id }} accept-sanction1" data-id="{{ $row->id }}" href="javascript:;"><i class="fa fa-check"></i></a> 
 										&nbsp;&nbsp; 
 										<a class="btn btn-danger reject-sanction1" href="javascript:;"><i class="fa fa-times"></i></a>@endif
 									@elseif($trustee_id == 2)
-										@if($row->is_approve2 == 0)<a class="btn btn-info accept-sanction2" data-id="{{ $row->id }}" href="javascript:;"><i class="fa fa-check"></i></a>
+										@if($row->is_approve2 == 0)<a class="btn btn-info accept-sanction-container{{ $row->id }} accept-sanction2" data-id="{{ $row->id }}" href="javascript:;"><i class="fa fa-check"></i></a>
 										&nbsp;&nbsp;
 										<a class="btn btn-danger reject-sanction2" href="javascript:;"><i class="fa fa-times"></i></a>
 										@endif
 									@elseif($trustee_id == 3)
-										@if($row->is_approve3 == 0)<a class="btn btn-info accept-sanction3" data-id="{{ $row->id }}" href="javascript:;"><i class="fa fa-check"></i></a>
+										@if($row->is_approve3 == 0)<a class="btn btn-info accept-sanction-container{{ $row->id }} accept-sanction3" data-id="{{ $row->id }}" href="javascript:;"><i class="fa fa-check"></i></a>
 										&nbsp;&nbsp;
 										<a class="btn btn-danger reject-sanction3" href="javascript:;"><i class="fa fa-times"></i></a>
 										@endif
@@ -102,5 +102,53 @@ $(document).ready(function() {
 	var base_url = $('base').attr('href');
 	
 	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+	$('.accept-sanction1').bind('click', function() {
+		var sanction_id = $(this).attr('data-id');
+
+		$.ajax({
+			url: base_url+'approveSanctionLetter1',
+			type: 'post',
+			data: {_token: CSRF_TOKEN, sanction_id: sanction_id},
+			beforeSend: function() {
+				var content = $('.preloader_doc').html();
+			},
+			success: function(output) {
+				$('.accept-sanction-container'+sanction_id).addClass('hide');
+			}
+		});
+	});
+
+	$('.accept-sanction2').bind('click', function() {
+		var sanction_id = $(this).attr('data-id');
+
+		$.ajax({
+			url: base_url+'approveSanctionLetter2',
+			type: 'post',
+			data: {_token: CSRF_TOKEN, sanction_id: sanction_id},
+			beforeSend: function() {
+				var content = $('.preloader_doc').html();
+			},
+			success: function(output) {
+				$('.accept-sanction-container'+sanction_id).addClass('hide');
+			}
+		});
+	});
+
+	$('.accept-sanction3').bind('click', function() {
+		var sanction_id = $(this).attr('data-id');
+
+		$.ajax({
+			url: base_url+'approveSanctionLetter3',
+			type: 'post',
+			data: {_token: CSRF_TOKEN, sanction_id: sanction_id},
+			beforeSend: function() {
+				var content = $('.preloader_doc').html();
+			},
+			success: function(output) {
+				$('.accept-sanction-container'+sanction_id).addClass('hide');
+			}
+		});
+	});
 });
 </script>
