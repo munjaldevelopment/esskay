@@ -6802,6 +6802,8 @@ class HomeController extends Controller
 
 				$relevantPartyLegalData = \DB::table('transaction_relevant_parties')->leftJoin('transaction_relevant_party_trustee', 'transaction_relevant_parties.id', '=', 'transaction_relevant_party_trustee.transaction_relevant_party_id')->where('transaction_relevant_party_trustee.trustee_id',$trustee_id)->where('party_type', 'Legal')->where('transaction_relevant_parties.transaction_id',$transaction_id)->get();
 
+				dd($relevantPartyLegalData);
+
 				$relevantPartyArrangerData = \DB::table('transaction_relevant_parties')->leftJoin('transaction_relevant_party_trustee', 'transaction_relevant_parties.id', '=', 'transaction_relevant_party_trustee.transaction_relevant_party_id')->where('transaction_relevant_party_trustee.trustee_id',$trustee_id)->where('party_type', 'Arranger')->where('transaction_relevant_parties.transaction_id',$transaction_id)->get();
 
 				$relevantPartyRatingData = \DB::table('transaction_relevant_parties')->leftJoin('transaction_relevant_party_trustee', 'transaction_relevant_parties.id', '=', 'transaction_relevant_party_trustee.transaction_relevant_party_id')->where('transaction_relevant_party_trustee.trustee_id',$trustee_id)->where('party_type', 'Rating')->where('transaction_relevant_parties.transaction_id',$transaction_id)->get();
