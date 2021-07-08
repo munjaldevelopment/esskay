@@ -7490,4 +7490,34 @@ class HomeController extends Controller
 		\DB::table('sanction_letters')->where(['id' => $sanction_id])->update($updateData);
     }
 
+    public function rejectSanctionLetter1(Request $request)
+    {
+    	Setting::assignSetting();
+
+    	$sanction_id = $request->sanction_id;
+
+    	$updateData = array('is_approve1' => '2', 'approve1_user' => session()->get('esskay_sanction_letter_user_id'), 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_id])->update($updateData);
+    }
+
+    public function rejectSanctionLetter2(Request $request)
+    {
+    	Setting::assignSetting();
+
+    	$sanction_id = $request->sanction_id;
+
+    	$updateData = array('is_approve2' => '2', 'approve2_user' => session()->get('esskay_sanction_letter_user_id'), 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_id])->update($updateData);
+    }
+
+    public function rejectSanctionLetter3(Request $request)
+    {
+    	Setting::assignSetting();
+
+    	$sanction_id = $request->sanction_id;
+
+    	$updateData = array('is_approve3' => '2', 'approve3_user' => session()->get('esskay_sanction_letter_user_id'), 'updated_at' => date('Y-m-d H:i:s'));
+		\DB::table('sanction_letters')->where(['id' => $sanction_id])->update($updateData);
+    }
+
 }

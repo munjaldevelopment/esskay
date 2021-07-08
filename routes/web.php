@@ -85,6 +85,10 @@ Route::post('/approveSanctionLetter1', 'HomeController@approveSanctionLetter1');
 Route::post('/approveSanctionLetter2', 'HomeController@approveSanctionLetter2');
 Route::post('/approveSanctionLetter3', 'HomeController@approveSanctionLetter3');
 
+Route::post('/rejectSanctionLetter1', 'HomeController@rejectSanctionLetter1');
+Route::post('/rejectSanctionLetter2', 'HomeController@rejectSanctionLetter2');
+Route::post('/rejectSanctionLetter3', 'HomeController@rejectSanctionLetter3');
+
 
 Route::post('/sanction-letter-trustee', 'HomeController@sanctionLetterTrustee');
 
