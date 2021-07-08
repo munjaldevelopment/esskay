@@ -199,7 +199,7 @@ $(document).ready(function() {
 							title: 'Your file has been approved.',
 							title: 'success'
 					    });
-					});
+					}
 				});
 			}
 		});
