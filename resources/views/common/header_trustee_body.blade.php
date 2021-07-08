@@ -155,17 +155,7 @@
 									@if($row['children'])
 									<div class="dropdown-menu transaction-category-container">
 										@foreach($row['children'] as $child)
-										<a class="nav-link btn-menu btn btn-primary dropdown-item @if($child['children']) dropdown-toggle @else transaction-category-class transaction-class @endif" data-category="{{ $child['category_id'] }}" href="javascript:;"
-										 @if($child['children'])  data-toggle="dropdown" @endif>{{ $child['category_name'] }}</a>
-
-											@if($child['children'])
-											<div class="dropdown-menu transaction-category-container">
-												@foreach($child['children'] as $child1)
-												<a class="nav-link btn-menu btn btn-primary transaction-class dropdown-item transaction-category-class" data-category="{{ $child1['category_id'] }}" href="javascript:;">{{ $child1['category_name'] }}</a>
-												@endforeach
-											</div>
-											@endif
-										@endforeach
+										<a class="dropdown-item transaction-category-class" data-category="{{ $child['category_id'] }}" href="javascript:;">{{ $child['category_name'] }}</a>
 									</div>
 									@endif
 								@endforeach
