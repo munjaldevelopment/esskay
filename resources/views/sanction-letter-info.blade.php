@@ -57,18 +57,18 @@
 								<td>{{ $row->personal_guarantee }}</td>
 								<td>{{ $row->intermediary }}</td>
 								<td>{{ $row->sanction_letter }}</td>
-								<td>
+								<td class="accept-sanction-container{{ $row->id }}">
 									@if($trustee_id == 1)
-										@if($row->is_approve1 == 0)<a class="btn btn-info accept-sanction-container{{ $row->id }} accept-sanction1" data-id="{{ $row->id }}" href="javascript:;"><i class="fa fa-check"></i></a> 
+										@if($row->is_approve1 == 0)<a class="btn btn-info accept-sanction1" data-id="{{ $row->id }}" href="javascript:;"><i class="fa fa-check"></i></a> 
 										&nbsp;&nbsp; 
 										<a class="btn btn-danger reject-sanction1" href="javascript:;"><i class="fa fa-times"></i></a>@endif
 									@elseif($trustee_id == 2)
-										@if($row->is_approve2 == 0)<a class="btn btn-info accept-sanction-container{{ $row->id }} accept-sanction2" data-id="{{ $row->id }}" href="javascript:;"><i class="fa fa-check"></i></a>
+										@if($row->is_approve2 == 0)<a class="btn btn-info accept-sanction2" data-id="{{ $row->id }}" href="javascript:;"><i class="fa fa-check"></i></a>
 										&nbsp;&nbsp;
 										<a class="btn btn-danger reject-sanction2" href="javascript:;"><i class="fa fa-times"></i></a>
 										@endif
 									@elseif($trustee_id == 3)
-										@if($row->is_approve3 == 0)<a class="btn btn-info accept-sanction-container{{ $row->id }} accept-sanction3" data-id="{{ $row->id }}" href="javascript:;"><i class="fa fa-check"></i></a>
+										@if($row->is_approve3 == 0)<a class="btn btn-info accept-sanction3" data-id="{{ $row->id }}" href="javascript:;"><i class="fa fa-check"></i></a>
 										&nbsp;&nbsp;
 										<a class="btn btn-danger reject-sanction3" href="javascript:;"><i class="fa fa-times"></i></a>
 										@endif
@@ -114,7 +114,7 @@ $(document).ready(function() {
 				var content = $('.preloader_doc').html();
 			},
 			success: function(output) {
-				$('.accept-sanction-container'+sanction_id).addClass('hide');
+				$('.accept-sanction-container'+sanction_id).addClass('d-none');
 			}
 		});
 	});
@@ -130,7 +130,7 @@ $(document).ready(function() {
 				var content = $('.preloader_doc').html();
 			},
 			success: function(output) {
-				$('.accept-sanction-container'+sanction_id).addClass('hide');
+				$('.accept-sanction-container'+sanction_id).addClass('d-none');
 			}
 		});
 	});
@@ -146,7 +146,7 @@ $(document).ready(function() {
 				var content = $('.preloader_doc').html();
 			},
 			success: function(output) {
-				$('.accept-sanction-container'+sanction_id).addClass('hide');
+				$('.accept-sanction-container'+sanction_id).addClass('d-none');
 			}
 		});
 	});
