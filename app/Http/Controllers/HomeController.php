@@ -7476,6 +7476,37 @@ class HomeController extends Controller
 		return view('sanction-letter-display', ['trustee_id' => $trustee_id, 'category_id' => $category_id, 'sanctionLetterData' => $sanctionLetterData]);	
     }
 
+    public function downloadsanctionLetter($doc_id)
+    {
+    	// Download file
+    	$customer_name = session()->get('esskay_sanction_letter_verify');
+		
+		if(!$customer_name)
+		{
+			return redirect(url('/').'/login');
+		}
+		else
+		{
+			// Download file
+			$doc_id = base64_decode($doc_id);
+			$docData  = \DB::table('sanction_letters')->where('id', '=', $doc_id)->first();
+			
+			if($docData)
+			{
+				$file= public_path(). "/".$docData->sanction_letter;
+				
+				/*$headers = array(
+						  'Content-Type: application/pdf',
+						);*/
+						
+				$sanction_letter = explode("/", $docData->sanction_letter);
+				$doc = array_pop($sanction_letter);
+
+				return response()->download($file, $doc);
+			}
+		}
+	}
+
 	public function approveSanctionLetter1(Request $request)
     {
     	Setting::assignSetting();

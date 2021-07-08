@@ -82,6 +82,9 @@ Route::post('/showSanctionLetterInfo', 'HomeController@showSanctionLetterInfo');
 Route::post('/displaySanctionLetter', 'HomeController@displaySanctionLetter');
 
 
+Route::post('/downloadsanctionLetter', 'HomeController@downloadsanctionLetter');
+
+
 Route::post('/approveSanctionLetter1', 'HomeController@approveSanctionLetter1');
 Route::post('/approveSanctionLetter2', 'HomeController@approveSanctionLetter2');
 Route::post('/approveSanctionLetter3', 'HomeController@approveSanctionLetter3');
