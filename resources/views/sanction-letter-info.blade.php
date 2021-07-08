@@ -180,34 +180,10 @@ $(document).ready(function() {
 	        showCancelButton: true,
 	        confirmButtonColor: '#36c6d3',
 	        cancelButtonColor: '#d33',
-	        confirmButtonText: '$confrimBtn',
-	        cancelButtonText: '$cancelBtn'
+	        confirmButtonText: 'OK',
+	        cancelButtonText: 'Cancel'
 	    }).then((res) => {
-	    	if(res.value){
-				$.ajax({
-					url: base_url+'approveSanctionLetter3',
-					type: 'post',
-					data: {_token: CSRF_TOKEN, sanction_id: sanction_id},
-					beforeSend: function() {
-						var content = $('.preloader_doc').html();
-					},
-					success: function(output) {
-						$('.accept-sanction-container'+sanction_id).addClass('d-none');
-
-						swal({
-							title: 'Approved',
-							title: 'Your file has been approved.',
-							title: 'success'
-					    });
-					}
-				});
-			} else {
-	        	swal({
-					title: 'Cancelled',
-					title: 'Your file has been cancelled.',
-					title: 'warning'
-			    });
-			}
+	    	console.log(res);
 		});
 	});
 });
