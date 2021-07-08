@@ -117,6 +117,8 @@
 					</table>
 				</div>	
 			</div>
+
+			<br /><br />
 			@endforeach
 		@endif
 	</div>
