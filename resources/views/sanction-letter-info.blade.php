@@ -183,6 +183,9 @@ $(document).ready(function() {
 			cancelButtonColor: '#d33',
 			confirmButtonText: 'Yes, delete it!'
 	    }).then((data) => {
+	    	console.log(data);
+	    	return false;
+	    	
 	    	if (data.value) {
 				$.ajax({
 					url: base_url+'approveSanctionLetter3',
