@@ -7,8 +7,8 @@
 					@foreach($sanctionLetterData as $row)
 					<table class="table">
 						<tr>
-							<th class="text-justify" style="min-width: 140px;">Bank Name</th>
-							<td class="text-justify">{{ $row->bank_name }}</td>
+							<th class="border-bottom">Bank Name</th>
+							<td>{{ $row->bank_name }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Type of Facility</th>
