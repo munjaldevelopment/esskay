@@ -32,7 +32,7 @@
 
 				<div class="white-box outstanding-box">
 					<div class="outstanding-table">
-						<h3>Composition of Board of Directors:</h3>
+						<h3>Composition of Audit Committee</h3>
 						<div class="custom-table-area">
 							<div class="table-responsive">
 								<table class="table">
@@ -44,7 +44,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										@foreach($boardData as $row)
+										@foreach($auditData as $row)
 										<tr>
 											<td class="text-justify">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
