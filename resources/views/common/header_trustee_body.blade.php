@@ -51,28 +51,14 @@
 	
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.transaction-child-child-class').bind('click', function(e) {
 				e.preventDefault();
 				$(".transaction-category-container").addClass('show');
 			});
-		});
-
-		$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
-		  if (!$(this).next().hasClass('show')) {
-		    $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
-		  }
-		  var $subMenu = $(this).next(".dropdown-menu");
-		  $subMenu.toggleClass('show');
-
-
-		  $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
-		    $('.dropdown-submenu .show').removeClass("show");
-		  });
-
-
-		  return false;
 		});
 	</script>
 	<style type="text/css">
