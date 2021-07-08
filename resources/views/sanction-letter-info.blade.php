@@ -138,15 +138,29 @@ $(document).ready(function() {
 	$('.accept-sanction3').bind('click', function() {
 		var sanction_id = $(this).attr('data-id');
 
-		$.ajax({
-			url: base_url+'approveSanctionLetter3',
-			type: 'post',
-			data: {_token: CSRF_TOKEN, sanction_id: sanction_id},
-			beforeSend: function() {
-				var content = $('.preloader_doc').html();
-			},
-			success: function(output) {
-				$('.accept-sanction-container'+sanction_id).addClass('d-none');
+		Swal.fire({
+	        title: 'Do you want to continue?',
+	        type: 'warning',
+	        showCancelButton: true,
+	        confirmButtonColor: '#3085d6',
+	        cancelButtonColor: '#d33',
+	        confirmButtonText: 'Yes, Continue',
+	        confirmButtonClass: 'btn btn-primary',
+	        cancelButtonClass: 'btn btn-danger ml-1',
+	        buttonsStyling: false,
+	    }).then((data) => {
+	    	if (data.value) {
+				$.ajax({
+					url: base_url+'approveSanctionLetter3',
+					type: 'post',
+					data: {_token: CSRF_TOKEN, sanction_id: sanction_id},
+					beforeSend: function() {
+						var content = $('.preloader_doc').html();
+					},
+					success: function(output) {
+						$('.accept-sanction-container'+sanction_id).addClass('d-none');
+					}
+				});
 			}
 		});
 	});
