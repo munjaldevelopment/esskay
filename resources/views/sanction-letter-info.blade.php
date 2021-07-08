@@ -177,14 +177,17 @@ $(document).ready(function() {
 		swal({
 			title: 'Are you sure?',
 			text: "You won't be able to revert this!",
-			icon: 'error',
-			confirmButtonClass: "btn-danger",
-            confirmButtonText: "Yes!",
-            showCancelButton: true,
+			type: "warning",
+		    showCancelButton: true,
+		    confirmButtonColor: "#DD6B55",
+		    confirmButtonText: "Yes, delete it!",
+		    cancelButtonText: "No, cancel plx!",
+		    closeOnConfirm: false,
+		    closeOnCancel: false
 	    }).then((data) => {
 	    	console.log(data);
 	    	return false;
-	    	
+
 	    	if (data.value) {
 				$.ajax({
 					url: base_url+'approveSanctionLetter3',
