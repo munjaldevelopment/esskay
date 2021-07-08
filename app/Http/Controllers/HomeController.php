@@ -7484,6 +7484,12 @@ class HomeController extends Controller
 
     	$updateData = array('is_approve1' => '1', 'approve1_user' => session()->get('esskay_sanction_letter_user_id'), 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('sanction_letters')->where(['id' => $sanction_id])->update($updateData);
+
+		$isExists = \DB::table('sanction_letters')->where(['is_approve1' => '1', 'is_approve2' => '1', 'is_approve3' => '1'])->count();
+		if($isExists > 0)
+		{
+			\DB::table('sanction_letters')->where(['id' => $sanction_id])->update(['status' => '1']);
+		}
     }
 
     public function approveSanctionLetter2(Request $request)
@@ -7494,6 +7500,12 @@ class HomeController extends Controller
 
     	$updateData = array('is_approve2' => '1', 'approve2_user' => session()->get('esskay_sanction_letter_user_id'), 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('sanction_letters')->where(['id' => $sanction_id])->update($updateData);
+
+		$isExists = \DB::table('sanction_letters')->where(['is_approve1' => '1', 'is_approve2' => '1', 'is_approve3' => '1'])->count();
+		if($isExists > 0)
+		{
+			\DB::table('sanction_letters')->where(['id' => $sanction_id])->update(['status' => '1']);
+		}
     }
 
     public function approveSanctionLetter3(Request $request)
@@ -7504,6 +7516,12 @@ class HomeController extends Controller
 
     	$updateData = array('is_approve3' => '1', 'approve3_user' => session()->get('esskay_sanction_letter_user_id'), 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('sanction_letters')->where(['id' => $sanction_id])->update($updateData);
+
+		$isExists = \DB::table('sanction_letters')->where(['is_approve1' => '1', 'is_approve2' => '1', 'is_approve3' => '1'])->count();
+		if($isExists > 0)
+		{
+			\DB::table('sanction_letters')->where(['id' => $sanction_id])->update(['status' => '1']);
+		}
     }
 
     public function rejectSanctionLetter1(Request $request)
