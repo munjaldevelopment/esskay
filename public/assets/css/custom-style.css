@@ -2545,14 +2545,14 @@ a.fxt-btn-fill.float-right {
     width: 60% !important;
 }	
 	
-.side-menu {
+.side-menu, .side-menu.side-menu-sanction {
 	width: 100%;
 	position: initial;
 	border-radius: 45px 45px 0 0;
 	height: auto;
 	border-right: none;
 }
-.side-body {
+.side-body, .side-body.side-body-sanction {
 	margin-left: 0;
 }
 
