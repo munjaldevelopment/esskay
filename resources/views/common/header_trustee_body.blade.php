@@ -144,7 +144,7 @@
 					<li class="nav-item">
 						<div class="dropdown dropdown-trustee">
 							<button type="button" class="nav-link btn-menu btn btn-primary transaction-class dropdown-toggle" data-toggle="dropdown">Transaction</button>
-						  	<div class="dropdown-menu transaction-category-container">
+						  	<div class="dropdown dropdown-menu transaction-category-container">
 						  		@foreach($docCategoryData as $row)
 						  			@if($row['children'])
 						  			<button type="button" class="nav-link btn-menu btn btn-primary transaction-class dropdown-toggle" data-toggle="dropdown">{{ $row['category_name'] }}</button>
@@ -153,7 +153,7 @@
 									@endif
 
 									@if($row['children'])
-									<div class="dropdown-menu transaction-category-container">
+									<div class="dropdown dropdown-menu transaction-category-container">
 										@foreach($row['children'] as $child)
 										<a class="dropdown-item transaction-category-class" data-category="{{ $child['category_id'] }}" href="javascript:;">{{ $child['category_name'] }}</a>
 										@endforeach
