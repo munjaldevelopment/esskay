@@ -90,7 +90,7 @@
 		</tr>
 		<tr>
 			<th class="border-bottom">Status</th>
-			<td>@if($sanctionLetterData->status == 1) Accept <i class="fa fa-check"></i> @elseif($sanctionLetterData->status == 2) Reject  <i class="fa fa-times"></i> @else Pending @endif</td>
+			<td>@if($sanctionLetterData->status == 1) Accepted @elseif($sanctionLetterData->status == 2) Rejected @else Pending @endif</td>
 		</tr>
 		<tr>
 			<th style="min-width:120px;" class="border-bottom">Action</th>

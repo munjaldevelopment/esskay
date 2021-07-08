@@ -25,7 +25,7 @@
 								<td>{{ $row->facility_amount }}</td>
 								<td>{{ $row->roi }}</td>
 								<td>{{ $row->processing_fees }}</td>
-								<td>@if($row->status == 1) Accept @elseif($row->status == 2) Reject @else Pending @endif</td>
+								<td>@if($row->status == 1) Accepted @elseif($row->status == 2) Rejected @else Pending @endif</td>
 								<td class="">
 									<a class="btn btn-info display-sanction" href="javascript:;" data-id="{{ $row->id }}"><i class="fa fa-eye"></i></a>
 								</td>
