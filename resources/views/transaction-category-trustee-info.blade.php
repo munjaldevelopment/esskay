@@ -45,7 +45,7 @@
 		@if($relevantPartyInvestorData)
 		<div class="col-md-4 col-sm-12">
 			<div class="mtd-container-box">
-				<div class="mtdd-doc-cont">
+				<div class="mtdd-relevant-doc-cont">
 					<h4>Investor </h4>
 					<div>
 						@foreach($relevantPartyInvestorData as $row)
@@ -60,7 +60,7 @@
 		@if($relevantPartyTrusteeData)
 		<div class="col-md-4 col-sm-12">
 			<div class="mtd-container-box">
-				<div class="mtdd-doc-cont">
+				<div class="mtdd-relevant-doc-cont">
 					<h4>Trustee </h4>
 					<div>
 						@foreach($relevantPartyTrusteeData as $row)
@@ -75,7 +75,7 @@
 		@if($relevantPartyLegalData)
 		<div class="col-md-4 col-sm-12">
 			<div class="mtd-container-box">
-				<div class="mtdd-doc-cont">
+				<div class="mtdd-relevant-doc-cont">
 					<h4>Legal </h4>
 					<div>
 						@foreach($relevantPartyLegalData as $row)
@@ -90,7 +90,7 @@
 		@if($relevantPartyArrangerData)
 		<div class="col-md-4 col-sm-12">
 			<div class="mtd-container-box">
-				<div class="mtdd-doc-cont">
+				<div class="mtdd-relevant-doc-cont">
 					<h4>Arranger </h4>
 					<div>
 						@foreach($relevantPartyArrangerData as $row)
@@ -105,7 +105,7 @@
 		@if($relevantPartyRatingData)
 		<div class="col-md-4 col-sm-12">
 			<div class="mtd-container-box">
-				<div class="mtdd-doc-cont">
+				<div class="mtdd-relevant-doc-cont">
 					<h4>Rating </h4>
 					<div>
 						@foreach($relevantPartyRatingData as $row)
