@@ -164,21 +164,27 @@
 
 					@if($trusteeData->is_transaction == 1)
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">  More items  </a>
-					    <ul class="dropdown-menu">
-						  <li><a class="dropdown-item" href="#"> Dropdown item 1 </a></li>
-						  <li><a class="dropdown-item" href="#"> Dropdown item 2 &raquo; </a>
-						  	 <ul class="submenu dropdown-menu">
-							    <li><a class="dropdown-item" href="#">Submenu item 1  &raquo;</a>
-							    	<ul class="submenu dropdown-menu">
-							    		<li><a class="dropdown-item" href="#">Submenu item 111</a></li>
-							    		<li><a class="dropdown-item" href="#">Submenu item 112</a></li>
-							    		<li><a class="dropdown-item" href="#">Submenu item 113</a></li>
-							    	</ul>
-							    </li>
-							    <li><a class="dropdown-item" href="#">Submenu item 2</a></li>
-							    <li><a class="dropdown-item" href="#">Submenu item 3</a></li>
-							 </ul>
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Transaction </a>
+						<ul class="dropdown-menu">
+							@foreach($docCategoryData as $row)
+						  		<li>
+						  			<a class="dropdown-item" href="#"> Dropdown item 1 &raquo; </a></li>
+									
+									<ul class="submenu dropdown-menu">
+										<li><a class="dropdown-item" href="#">Submenu item 1  &raquo;</a>
+										<ul class="submenu dropdown-menu">
+										<li><a class="dropdown-item" href="#">Submenu item 111</a></li>
+										<li><a class="dropdown-item" href="#">Submenu item 112</a></li>
+										<li><a class="dropdown-item" href="#">Submenu item 113</a></li>
+										</ul>
+										</li>
+										<li><a class="dropdown-item" href="#">Submenu item 2</a></li>
+										<li><a class="dropdown-item" href="#">Submenu item 3</a></li>
+									</ul>
+								</ul>
+						  	@endforeach
+						  <li><a class="dropdown-item" href="#"> Dropdown item 2 </a>
+						  	 
 						  </li>
 						  <li><a class="dropdown-item" href="#"> Dropdown item 3 &raquo; </a>
 						  	 <ul class="submenu dropdown-menu">
