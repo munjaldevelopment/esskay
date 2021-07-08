@@ -86,7 +86,11 @@
 		</tr>
 		<tr>
 			<th class="border-bottom">Sanction Letter</th>
-			<td><img src="{{ $sanctionLetterData->sanction_letter }}" class="img-fluid" /></td>
+			<td>{{ $sanctionLetterData->sanction_letter }}</td>
+		</tr>
+		<tr>
+			<th class="border-bottom">Status</th>
+			<td>@if($sanctionLetterData->status == 1) Accept @elseif($sanctionLetterData->status == 2) reject @else Pending @endif</td>
 		</tr>
 		<tr>
 			<th style="min-width:120px;" class="border-bottom">Action</th>
