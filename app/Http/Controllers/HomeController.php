@@ -7476,7 +7476,7 @@ class HomeController extends Controller
 
     	$sanction_id = $request->sanction_id;
 
-    	$updateData = array('is_approve1' => '2', 'approve1_user' => session()->get('esskay_sanction_letter_user_id'), 'updated_at' => date('Y-m-d H:i:s'));
+    	$updateData = array('is_approve2' => '1', 'approve2_user' => session()->get('esskay_sanction_letter_user_id'), 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('sanction_letters')->where(['id' => $sanction_id])->update($updateData);
     }
 
@@ -7486,7 +7486,7 @@ class HomeController extends Controller
 
     	$sanction_id = $request->sanction_id;
 
-    	$updateData = array('is_approve1' => '3', 'approve1_user' => session()->get('esskay_sanction_letter_user_id'), 'updated_at' => date('Y-m-d H:i:s'));
+    	$updateData = array('is_approve3' => '1', 'approve3_user' => session()->get('esskay_sanction_letter_user_id'), 'updated_at' => date('Y-m-d H:i:s'));
 		\DB::table('sanction_letters')->where(['id' => $sanction_id])->update($updateData);
     }
 
