@@ -176,37 +176,31 @@ $(document).ready(function() {
 
 		swal({
 			title: 'Are you sure?',
-			text: "You won't be able to revert this!",
-			type: "warning",
-		    showCancelButton: true,
-		    confirmButtonColor: "#DD6B55",
-		    confirmButtonText: "Yes, delete it!",
-		    cancelButtonText: "No, cancel plx!",
-		    closeOnConfirm: false,
-		    closeOnCancel: false
-	    }).then((data) => {
-	    	console.log(data);
-	    	return false;
+			type: "error",
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Yes!",
+            showCancelButton: true,
+	    },
+        function() {
+			$.ajax({
+				url: base_url+'approveSanctionLetter3',
+				type: 'post',
+				data: {_token: CSRF_TOKEN, sanction_id: sanction_id},
+				beforeSend: function() {
+					var content = $('.preloader_doc').html();
+				},
+				success: function(output) {
+					$('.accept-sanction-container'+sanction_id).addClass('d-none');
 
-	    	if (data.value) {
-				$.ajax({
-					url: base_url+'approveSanctionLetter3',
-					type: 'post',
-					data: {_token: CSRF_TOKEN, sanction_id: sanction_id},
-					beforeSend: function() {
-						var content = $('.preloader_doc').html();
-					},
-					success: function(output) {
-						$('.accept-sanction-container'+sanction_id).addClass('d-none');
-
-						swal({
-							title: 'Approved',
-							title: 'Your file has been approved.',
-							title: 'success'
-					    });
-					}
-				});
-			}
+					swal({
+						title: 'Approved',
+						title: 'Your file has been approved.',
+						title: 'success'
+				    });
+				}
+			});
+		},
+        function() {
 		});
 	});
 });
