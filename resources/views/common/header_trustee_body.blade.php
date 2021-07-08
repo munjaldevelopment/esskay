@@ -143,22 +143,19 @@
 					@endif
 
 					@if($trusteeData->is_transaction == 1)
-					<li class="nav-item">
-						<div class="dropdown dropdown-trustee">
-							<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Streams</a>
-							
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-								<li><a class="dropdown-item" href="#">Science</a></li>
-								<li><a class="dropdown-item" href="#">Commerce</a></li>
-								<li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Arts</a>
-									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">History</a></li>
-										<li><a class="dropdown-item" href="#">Geography</a></li>
-										<li><a class="dropdown-item" href="#">Sociology</a></li>
-									</ul>
-								</li>
-						    </ul>
-						</div>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+					       aria-haspopup="true" aria-expanded="false">
+					        Dropdown
+					    </a>
+					    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+					    	<li class="dropdown-submenu dropleft">
+				                <a class="dropdown-item dropdown-toggle " href="#">aa</a>
+				                <ul class="dropdown-menu ">
+				                	<li><a class="dropdown-item" href="">bb</a></li>
+				                </ul>
+							</li>
+						</ul>
 					</li>
 					@endif
 					
