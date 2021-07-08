@@ -40,7 +40,7 @@
 	</div>
 </div>
 
-<input type="hidden" name="category_id" id="category_id" value="{{ $category_id }}">
+<input type="hidden" id="category_id" value="{{ $category_id }}">
 
 <div class="preloader_doc" style="display:none">
 	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;display:block;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
@@ -117,6 +117,7 @@ $(document).ready(function() {
 
 	$('.display-sanction').bind('click', function() {
 		var sanction_id = $(this).attr('data-id');
+		var category_id = $('#category_id').val();
 
 		
 		$.ajax({
