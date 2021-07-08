@@ -111,8 +111,9 @@
 							<button type="button" class="active btn-menu nav-link btn btn-primary about-class dropdown-toggle" data-toggle="dropdown">About Us</button>
 						  	<div class="dropdown-menu about-container">
 								<a class="dropdown-item home-class" href="javascript:;">Message from MD</a>
-								<a class="dropdown-item board-class" href="javascript:;">Board of  Directors</a>
+								<a class="dropdown-item board-class" href="javascript:;">Board of Directors</a>
 								<a class="dropdown-item key-manager-class" href="javascript:;">Key Managerial Person</a>
+								<a class="dropdown-item committee-class" href="javascript:;">Committee</a>
 						  	</div>
 						</div>
 					</li>

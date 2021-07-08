@@ -1839,6 +1839,26 @@ class HomeController extends Controller
 		
 	}
 
+	public function commiteePage()
+    {	
+		$customer_name = session()->get('esskay_verify');
+		
+		$pageInfo = Page::getPageInfo(11);
+		//dd($pageInfo);
+
+		$boardData = \DB::table('committees')->where('composition_heading', 'Board of Directors')->where('committee_status', '1')->get();
+		$auditData = \DB::table('committees')->where('composition_heading', 'Audit Committee')->where('committee_status', '1')->get();
+		$assetData = \DB::table('committees')->where('composition_heading', 'Asset Liability')->where('committee_status', '1')->get();
+		$riskData = \DB::table('committees')->where('composition_heading', 'Risk Management Committee')->where('committee_status', '1')->get();
+		$corpData = \DB::table('committees')->where('composition_heading', 'Corporate Social Responsibility Committee')->where('committee_status', '1')->get();
+		$nominationData = \DB::table('committees')->where('composition_heading', 'Nomination & Remuneration Committee')->where('committee_status', '1')->get();
+		$itstrategyData = \DB::table('committees')->where('composition_heading', 'IT Strategy Committee')->where('committee_status', '1')->get();
+		$executiveData = \DB::table('committees')->where('composition_heading', 'Executive Committee')->where('committee_status', '1')->get();
+		
+		return view('ess-kay-commitee', ['customer_name' => $customer_name, 'page_title' => $pageInfo->title, 'boardData' => $boardData, 'auditData' => $auditData, 'assetData' => $assetData, 'riskData' => $riskData, 'corpData' => $corpData, 'nominationData' => $nominationData, 'itstrategyData' => $itstrategyData, 'executiveData' => $executiveData]);
+		
+	}
+
 	// Insight
 	public function insight()
     {	

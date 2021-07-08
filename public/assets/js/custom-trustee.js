@@ -11,6 +11,7 @@ $(document).ready(function() {
 
 		$('.board-class').removeClass('active');
 		$('.key-manager-class').removeClass('active');
+		$('.committee-class').removeClass('active');
 
 		$('.about-container').removeClass('show');
 
@@ -39,6 +40,7 @@ $(document).ready(function() {
 		$('.home-class').removeClass('active');
 		$('.about-class').removeClass('active');
 		$('.key-manager-class').removeClass('active');
+		$('.committee-class').removeClass('active');
 
 		$('.about-container').removeClass('show');
 
@@ -67,6 +69,7 @@ $(document).ready(function() {
 		$('.home-class').removeClass('active');
 		$('.about-class').removeClass('active');
 		$('.board-class').removeClass('active');
+		$('.committee-class').removeClass('active');
 
 		$('.about-container').removeClass('show');
 
@@ -74,6 +77,35 @@ $(document).ready(function() {
 		
 		$.ajax({
 			url: base_url+'keymanager',
+			type: 'post',
+			data: {_token: CSRF_TOKEN},
+			beforeSend: function() {
+				$('.preloader').show();
+			},
+			success: function(output) {
+				$('.preloader').hide();
+				$('.about-container').removeClass('show');
+				$('.home-content').html(output);
+			}
+		});
+	});
+
+	$('.committee-class').bind('click', function() {
+		$('.esskay-home li a').removeClass('active');
+		$('.esskay-home li button').removeClass('active');
+		$('.committee-class').addClass('active');
+
+		$('.home-class').removeClass('active');
+		$('.about-class').removeClass('active');
+		$('.board-class').removeClass('active');
+		$('.key-manager-class').removeClass('active');
+
+		$('.about-container').removeClass('show');
+
+		$('#collapsibleNavbar').removeClass('show');
+		
+		$.ajax({
+			url: base_url+'commitee',
 			type: 'post',
 			data: {_token: CSRF_TOKEN},
 			beforeSend: function() {

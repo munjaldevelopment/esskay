@@ -45,6 +45,7 @@ Route::get('/logout', 'HomeController@logout');
 Route::post('/homepage', 'HomeController@homepage');
 Route::post('/board', 'HomeController@boardPage');
 Route::post('/keymanager', 'HomeController@keymanagerPage');
+Route::post('/commitee', 'HomeController@commiteePage');
 
 
 Route::post('/insight', 'HomeController@insight');
