@@ -3,9 +3,9 @@
 		<h3>Sanction Letters</h3>
 		<div class="custom-table-area">
 			<div class="table-responsive">
-				<table class="table">
-					@if($sanctionLetterData)
-						@foreach($sanctionLetterData as $row)
+				@if($sanctionLetterData)
+					@foreach($sanctionLetterData as $row)
+					<table class="table">
 						<tr>
 							<th class="text-justify" style="min-width: 140px;">Bank Name</th>
 							<td class="text-justify">{{ $row->bank_name }}</td>
@@ -118,9 +118,10 @@
 								@endif
 							</td>
 						</tr>
-					@endforeach
-					@endif
-				</table>	
+					</table>	
+				@endforeach
+				@endif
+				
 			</div>	
 		</div>
 	</div>
