@@ -170,12 +170,12 @@
 						<ul class="dropdown-menu">
 							@foreach($docCategoryData as $row)
 							<li>
-								<a class="dropdown-item @if($row['children']) @else transaction-category-class @endif" href="javascript:;"> {{ $row['category_name'] }} @if($row['children']) &raquo; @endif</a>
+								<a class="dropdown-item @if($row['children']) dropdown-toggle @else transaction-category-class @endif" href="javascript:;"> {{ $row['category_name'] }} </a>
 								@if($row['children'])
 						  		<ul class="submenu dropdown-menu">
 						  			@foreach($row['children'] as $child)
 							    	<li>
-							    		<a class="dropdown-item @if($child['children']) @else transaction-category-class @endif" href="javascript:;">{{ $child['category_name'] }} @if($child['children']) &raquo; @endif</a>
+							    		<a class="dropdown-item @if($child['children']) dropdown-toggle @else transaction-category-class @endif" href="javascript:;">{{ $child['category_name'] }} </a>
 							    		<ul class="submenu dropdown-menu">
 							    			@foreach($child['children'] as $sub_child)
 								    		<li><a class="dropdown-item transaction-category-class" href="javascript:;">{{ $sub_child['category_name'] }}</a></li>
