@@ -59,9 +59,9 @@ return [
 
     'checkerOperationalHighlight' => 'Approve Op. Highlight',
 
-    'checkerSanctionLetter'     => 'Approve San. Letter',
-    'checkerSanctionLetter2'    => 'Approve 2 San. Letter',
-    'checkerSanctionLetter3'    => 'Approve 3 San. Letter',
+    'checkerSanctionLetter'     => 'App. San. Letter',
+    'checkerSanctionLetter2'    => 'App. 2 San. Letter',
+    'checkerSanctionLetter3'    => 'App. 3 San. Letter',
 
     'checkerTransaction'        => 'Approve',
     'checkerBankingArrangment'  => 'Approve',
