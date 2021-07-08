@@ -20,86 +20,82 @@
 						</tr>
 						<tr>
 							<th class="border-bottom">ROI</th>
+							<td>{{ $row->roi }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">All-inclusive ROI</th>
+							<td>{{ $row->all_incluside_roi }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Processing Fees %</th>
+							<td>{{ $row->processing_fees }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Processing Fees Amount</th>
+							<td>{{ $row->processing_fees_amount }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Arranger Fees %</th>
+							<td>{{ $row->arranger_fees }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Arranger Fees Amount</th>
+							<td>{{ $row->arranger_fees_amount }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Other Charges Doc</th>
+							<td>{{ $row->other_charges_doc }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Total Associated Cost</th>
+							<td>{{ $row->total_associated_cost }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">All Inclusive Cost</th>
+							<td>{{ $row->all_inclusive_cost }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Financial Covenant</th>
+							<td>{!! $row->financial_covenant !!}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Rationale for Availing facility</th>
+							<td>{!! $row->rationale_availing !!}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Blended Cost</th>
+							<td>{{ $row->blended_cost }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Stamp Duty Fees</th>
+							<td>{{ $row->stamp_duty_fees }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Tenor</th>
+							<td>{{ $row->tenor }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Security Cover</th>
+							<td>{{ $row->security_cover }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Cash Collateral</th>
+							<td>{{ $row->cash_collateral }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Personal Guarantee</th>
+							<td>{{ $row->personal_guarantee }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Intermediary</th>
+							<td>{{ $row->intermediary }}</td>
 						</tr>
 						<tr>
 							<th class="border-bottom">Sanction Letter</th>
+							<td>{{ $row->sanction_letter }}</td>
 						</tr>
 						<tr>
 							<th style="min-width:120px;" class="border-bottom">Action</th>
-						</tr>
-						<tr>
-							
-							
-							<td>{{ $row->roi }}</td>
-							<td>{{ $row->all_incluside_roi }}</td>
-							<td>{{ $row->processing_fees }}</td>
-							<td>{{ $row->processing_fees_amount }}</td>
-							<td>{{ $row->arranger_fees }}</td>
-							<td>{{ $row->arranger_fees_amount }}</td>
-							<td>{{ $row->other_charges_doc }}</td>
-							<td>{{ $row->total_associated_cost }}</td>
-							<td>{{ $row->all_inclusive_cost }}</td>
-							<td>{!! $row->financial_covenant !!}</td>
-							<td>{!! $row->rationale_availing !!}</td>
-							<td>{{ $row->blended_cost }}</td>
-							<td>{{ $row->stamp_duty_fees }}</td>
-							<td>{{ $row->tenor }}</td>
-							<td>{{ $row->security_cover }}</td>
-							<td>{{ $row->cash_collateral }}</td>
-							<td>{{ $row->personal_guarantee }}</td>
-							<td>{{ $row->intermediary }}</td>
-							<td>{{ $row->sanction_letter }}</td>
 							<td class="accept-sanction-container{{ $row->id }}">
 								@if($trustee_id == 1)
 									@if($row->is_approve1 == 0)<a class="btn btn-info accept-sanction1" data-id="{{ $row->id }}" href="javascript:;"><i class="fa fa-check"></i></a> 
