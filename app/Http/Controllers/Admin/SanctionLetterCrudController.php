@@ -134,7 +134,7 @@ class SanctionLetterCrudController extends CrudController
                                     'name' => 'all_incluside_roi',
                                     'label' => 'All Inside ROI',
                                     'type' => 'text',
-                                ]);*/
+                                ]);
 
             $this->crud->addColumn([
                                     'name' => 'processing_fees',
@@ -158,7 +158,7 @@ class SanctionLetterCrudController extends CrudController
                                     'name' => 'is_approve3',
                                     'label' => 'Approve #3',
                                     'type' => 'check',
-                                ]);
+                                ]);*/
 
             
 
@@ -248,6 +248,15 @@ class SanctionLetterCrudController extends CrudController
                                 'type' => 'text',
                                 'tab' => 'General'
                             ]);
+
+        $this->crud->addField([
+                                'name' => 'email_address',
+                                'label' => 'Email Address',
+                                'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        
 
         $this->crud->addField([
                                 'name' => 'roi',
