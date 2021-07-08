@@ -111,7 +111,7 @@
 									@endif
 
 									@if($row['children'])
-									<div class="dropdown dropdown-menu transaction-category-container">
+									<div class="dropdown dropdown-sub-menu transaction-category-container">
 										@foreach($row['children'] as $child)
 											@if($child['children'])
 								  			<button type="button" class="nav-link btn-menu btn btn-primary transaction-child-child-class dropdown-toggle" data-toggle="dropdown">{{ $child['category_name'] }}</button>
@@ -120,7 +120,7 @@
 											@endif
 
 											@if($child['children'])
-											<div class="dropdown dropdown-menu transaction-sub-category-container">
+											<div class="dropdown dropdown-sub-sub-menu transaction-sub-category-container">
 												@foreach($child['children'] as $sub_child)
 												<a class="dropdown-item transaction-category-class" data-category="{{ $sub_child['category_id'] }}" href="javascript:;">{{ $sub_child['category_name'] }}</a>
 												@endforeach
