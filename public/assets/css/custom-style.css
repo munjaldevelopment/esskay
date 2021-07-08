@@ -372,6 +372,20 @@
 	transition: all 0.3s;
 	align-items: center;
 }
+
+.mtd-container-box {
+	background: #fff;
+	box-shadow: 0px 4px 15px rgb(87 174 255 / 22%);
+	border-radius: 10px;
+	border: 1px solid #E4E7FD;
+	padding: 25px 25px 25px 25px;
+	position: relative;
+	display: flex;
+	margin-top: 30px;
+	transition: all 0.3s;
+	align-items: center;
+}
+
 .mtdd-doc-img {
 	margin-right: 15px;
 	position: absolute;
