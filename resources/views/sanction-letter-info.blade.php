@@ -201,6 +201,11 @@ $(document).ready(function() {
 			});
 		},
         function() {
+        	swal({
+				title: 'Cancelled',
+				title: 'Your file has been cancelled.',
+				title: 'warning'
+		    });
 		});
 	});
 });
