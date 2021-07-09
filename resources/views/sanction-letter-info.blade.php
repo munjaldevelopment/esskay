@@ -6,21 +6,22 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th class="text-justify" style="min-width: 140px;">Created By</th>
-							<th>Bank Name</th>
+							
+							<th style="min-width: 140px;">Bank Name</th>
 							<th class="border-bottom">Type of Facility</th>
 							<th class="border-bottom">Facility Amount</th>
 							<th class="border-bottom">ROI</th>
 							<th class="border-bottom">Processing Fees</th>
 							<th class="border-bottom">Status</th>
-							<th style="min-width:120px;" class="border-bottom">Action</th>
+							<th style="min-width:120px;" class="border-bottom">Preview</th>
+							<th>Created By</th>
+							
 						</tr>
 					</thead>
 					<tbody>
 						@if($sanctionLetterData)
 							@foreach($sanctionLetterData as $row)
 							<tr>
-								<td>{{ $row->created_name }}</td>
 								<td class="text-justify">{{ $row->bank_name }}</td>
 								<td>{{ $row->type_facility }}</td>
 								<td>{{ $row->facility_amount }}</td>
@@ -30,6 +31,7 @@
 								<td class="">
 									<a class="btn btn-info display-sanction" href="javascript:;" data-id="{{ $row->id }}"><i class="fa fa-eye"></i></a>
 								</td>
+								<td>{{ $row->created_name }}</td>
 							</tr>
 							@endforeach
 						@endif
