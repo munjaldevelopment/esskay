@@ -5536,6 +5536,7 @@ class HomeController extends Controller
 			])
 			->chart([
 				'zoomType' => 'xy',
+				'type' => 'column',
 				'renderTo' => 'fifth51_chart', // render the chart into your div with id
 			])
 			->subtitle([
@@ -5562,11 +5563,10 @@ class HomeController extends Controller
 					],
 					'title' => [
 						'text' => INCREMENTAL_LABEL1
-					],
-					'opposite' => true
+					]
 				],
 				[
-					'gridLineWidth' => '0',
+					//'gridLineWidth' => '0',
 					'title' => [
 						'text' => INCREMENTAL_LABEL2
 					],
@@ -5575,10 +5575,11 @@ class HomeController extends Controller
 						'style' => [
 	                    	'fontWeight' => 'bold',
 	                    ]
-					]
+					],
+					'opposite' => true
 				],
 				[
-					'gridLineWidth' => '0',
+					//'gridLineWidth' => '0',
 					'title' => [
 						'text' => INCREMENTAL_LABEL3
 					],
@@ -5587,9 +5588,7 @@ class HomeController extends Controller
 						'style' => [
 	                    	'fontWeight' => 'bold',
 	                    ]
-					],
-					
-					'opposite' => true
+					]
 				]
 			])
 			->legend([
@@ -5612,25 +5611,13 @@ class HomeController extends Controller
 			])
 			->series(
 				[
+					[	
+					],
 					[
-						
-						'name'  => INCREMENTAL_LABEL2,
+					],
+					[	
 						'type' => 'line',
-						'yAxis' => '0',
-						'data'  => $capitalData2,
-					],
-					[
-						
-						'name'  => INCREMENTAL_LABEL3,
-						'type' => 'spline',
-						//'yAxis' => '1',
-						'data'  => $capitalData3,
-					],
-					[
-						
-						'name'  => INCREMENTAL_LABEL1,
-						'type' => 'spline',
-						'data'  => $capitalData1,
+						'yAxis' => 1
 					]
 				]
 			)
