@@ -935,6 +935,26 @@
 			</div>
 		</div>
 	</div>
+@elseif($insightCatData->id == 15)
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			@if($chart4001)
+				<div id="operational_chart"></div>
+
+				{!! $chart4001 !!}
+			@endif
+		</div>
+	</div>
+@elseif($insightCatData->id == 16)
+	<div class="white-box">
+		<div class="pool-dynamic-graph">
+			@if($chart4002)
+				<div id="hierarchy_chart"></div>
+
+				{!! $chart4002 !!}
+			@endif
+		</div>
+	</div>
 @endif
 
 

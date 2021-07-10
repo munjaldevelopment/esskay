@@ -4348,6 +4348,8 @@ class HomeController extends Controller
 
 		$chart511 = $chart512 = $chart1 = $chart2 = $chart3 = $chart31 = $chart32 = $chart41 = $chart42 = $chart51 = $chart52 = $chart6 = $chart7 = $chart8 = $chart9 = $chart10 = array();
 
+		$chart4001 = $chart4002 = array();
+
 		if($request->category_id == 3)
 		{
 			$locationCount = \DB::table('insight_locations')->where('status', 1)->count();
@@ -5870,7 +5872,7 @@ class HomeController extends Controller
 
 		
 		$current_year = date('Y');
-		return view('insight-listing-trustee', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart31' => $chart31, 'chart32' => $chart32, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart511' => $chart511, 'chart512' => $chart512, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'chart7' => $chart7, 'chart8' => $chart8, 'chart9' => $chart9, 'chart10' => $chart10, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
+		return view('insight-listing-trustee', ['insightCatData' => $insightCatData, 'insightData' => $insightData, 'insightFirst' => $insightFirst, 'geographicalConData' => $geographicalConData, 'geographicalConTotalData' => $geographicalConTotalData, 'productConData' => $productConData, 'productConTotalData' => $productConTotalData, 'chart1' => $chart1, 'chart2' => $chart2, 'chart3' => $chart3, 'chart31' => $chart31, 'chart32' => $chart32, 'chart41' => $chart41, 'chart42' =>  $chart42, 'chart511' => $chart511, 'chart512' => $chart512, 'chart51' => $chart51, 'chart52' => $chart52, 'chart6' => $chart6, 'chart7' => $chart7, 'chart8' => $chart8, 'chart9' => $chart9, 'chart10' => $chart10, 'chart4001' => $chart4001, 'chart4002' => $chart4002, 'netWorthData' => $netWorthData, 'netWorthData1' => $netWorthData1, 'liquidityData' => $liquidityData, 'liquidityDataTotal' => $liquidityDataTotal,
 
 			'insightLocationData' => $insightLocationData,
 			'liabilityCategories' => $liabilityCategories,
