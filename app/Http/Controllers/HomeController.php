@@ -5556,7 +5556,7 @@ class HomeController extends Controller
 			->yaxis([
 				[
 					'labels' => [
-						'format' => '{value} cm',
+						'format' => '{value}',
 						'style' => [
 	                    	'fontWeight' => 'bold',
 	                    ]
@@ -5619,12 +5619,12 @@ class HomeController extends Controller
 					[
 						'name'  => INCREMENTAL_LABEL2,
 						'data'  => $capitalData2,	
-						//'type' => 'spline',
+						'type' => 'line',
 					],
 					[
 						'name'  => INCREMENTAL_LABEL3,
 						'data'  => $capitalData3,
-						//'type' => 'line',
+						'type' => 'line',
 						'yAxis' => 0
 					]
 				]
