@@ -5576,6 +5576,7 @@ class HomeController extends Controller
 	                    	'fontWeight' => 'bold',
 	                    ]
 					],
+					'opposite' => true
 				],
 				[
 					//'gridLineWidth' => '0',
