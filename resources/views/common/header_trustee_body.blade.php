@@ -37,6 +37,7 @@
 	<script src="{{ asset('public/assets/') }}/js/highcharts.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/sankey.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/organization.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/series-label.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/exporting.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/export-data.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/accessibility.js"></script>
