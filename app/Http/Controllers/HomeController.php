@@ -5887,7 +5887,43 @@ class HomeController extends Controller
 				[
 					'type'  => 'organization',
 					'name'  => ORGANIZATION_LABEL1,
-					'keys' => ['from', 'to'],
+					'keys'  => ['from', 'to'],
+					'data'  => [
+			            ['Shareholders', 'Board'],
+			            ['Board', 'CEO'],
+			            ['CEO', 'CTO'],
+			            ['CEO', 'CPO'],
+			            ['CEO', 'CSO'],
+			            ['CEO', 'HR'],
+			            ['CTO', 'Product'],
+			            ['CTO', 'Web'],
+			            ['CSO', 'Sales'],
+			            ['HR', 'Market'],
+			            ['CSO', 'Market'],
+			            ['HR', 'Market'],
+			            ['CTO', 'Market']
+			        ],
+			        'levels' => [[
+			            'level' => '0',
+			            'color' => 'silver',
+			            'dataLabels' => [
+			                'color' => 'black'
+			            ,
+			            'height' => '25'
+			        ], [
+			            'level' => '1',
+			            'color' => 'silver',
+			            'dataLabels' => [
+			                'color' => 'black'
+			            ,
+			            'height' => '25'
+			        ], [
+			            'level' => '2',
+			            'color' => '#980104',
+			        ], [
+			            'level' => '4',
+			            'color' => '#359154',
+			        ]],
 				]
 			)
 			->display(0);
