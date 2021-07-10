@@ -5886,6 +5886,17 @@ class HomeController extends Controller
 			->credits([
 				'enabled' => 'false'
 			])
+			->accessibility([
+				'point' => [
+					'descriptionFormatter' => ["function (point) {
+		                var nodeName = point.toNode.name,
+		                    nodeId = point.toNode.id,
+		                    nodeDesc = nodeName === nodeId ? nodeName : nodeName + ', ' + nodeId,
+		                    parentDesc = point.fromNode.id;
+		                return point.index + '. ' + nodeDesc + ', reports to ' + parentDesc + '.';
+		            "]
+				]
+			])
 			->series(
 				[
 					'type'  => 'organization',
