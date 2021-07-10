@@ -5908,14 +5908,14 @@ class HomeController extends Controller
 			            'color' => 'silver',
 			            'dataLabels' => [
 			                'color' => 'black'
-			            ,
+			            ],
 			            'height' => '25'
 			        ], [
 			            'level' => '1',
 			            'color' => 'silver',
 			            'dataLabels' => [
 			                'color' => 'black'
-			            ,
+			            ],
 			            'height' => '25'
 			        ], [
 			            'level' => '2',
