@@ -5620,7 +5620,7 @@ class HomeController extends Controller
 					[
 						'name'  => INCREMENTAL_LABEL2,
 						'data'  => $capitalData2,	
-						'type' => 'line',
+						'type' => 'bar',
 						'yAxis' => 0
 					],
 					[
