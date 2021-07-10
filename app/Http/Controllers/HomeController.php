@@ -5892,6 +5892,32 @@ class HomeController extends Controller
 			)
 			->display(0);
 		}
+		else if($request->category_id == 16)
+		{
+			$chart4002 = \Chart::title([
+				'text' => ''
+			])
+			->chart([
+				'inverted'     => 'true', // pie , columnt ect
+				'renderTo' => 'hierarchy_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					'type'  => 'organization',
+					'name'  => ORGANIZATION_LABEL1,
+					'keys' => ['from', 'to'],
+				]
+			)
+			->display(0);
+		}
 
 		//dd($liabilityProfileDataTotal);
 
