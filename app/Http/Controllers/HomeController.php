@@ -5909,19 +5909,19 @@ class HomeController extends Controller
 			            'dataLabels' => [
 			                'color' => 'black'
 			            ],
-			            'height' => '25'
+			            'height' => 25
 			        ], [
 			            'level' => 1,
 			            'color' => 'silver',
 			            'dataLabels' => [
 			                'color' => 'black'
 			            ],
-			            'height' => '25'
+			            'height' => 25
 			        ], [
-			            'level' => '2',
+			            'level' => 2,
 			            'color' => '#980104',
 			        ], [
-			            'level' => '4',
+			            'level' => 4,
 			            'color' => '#359154',
 			        ]],
 			        'nodes' => [[
@@ -5931,29 +5931,24 @@ class HomeController extends Controller
 			        ], [
 			            'id' => 'CEO',
 			            'title'  => 'CEO',
-			            'name' => 'Grethe Hjetland',
-			            'image' => 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131126/Highsoft_03862_.jpg'
+			            'name' => 'Grethe Hjetland'
 			        ], [
 			            'id' => 'HR',
 			            'title'  => 'HR/CFO',
 			            'name' => 'Anne Jorunn Fjærestad',
 			            'color' => '#007ad0',
-			            'image' => 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131210/Highsoft_04045_.jpg'
 			        ], [
 			            'id' => 'CTO',
 			            'title'  => 'CTO',
 			            'name' => 'Christer Vasseng',
-			            'image' => 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
 			        ], [
 			            'id' => 'CPO',
 			            'title'  => 'CPO',
-			            'name' => 'Torstein Hønsi',
-			            'image' => 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131213/Highsoft_03998_.jpg'
+			            'name' => 'Torstein Honsi',
 			        ], [
 			            'id' => 'CSO',
 			            'title' => 'CSO',
 			            'name' => 'Anita Nesse',
-			            'image' => 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131156/Highsoft_03834_.jpg'
 			        ], [
 			            'id' => 'Product',
 			            'name' => 'Product developers'
