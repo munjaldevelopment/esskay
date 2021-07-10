@@ -5616,18 +5616,18 @@ class HomeController extends Controller
 						'name'  => INCREMENTAL_LABEL1,
 						'data'  => $capitalData1,	
 						'type' => 'line',
-						'yAxis' => 0
 					],
 					[
 						'name'  => INCREMENTAL_LABEL2,
 						'data'  => $capitalData2,	
 						'type' => 'line',
-						'yAxis' => 1
+						'yAxis' => 0
 					],
 					[
 						'name'  => INCREMENTAL_LABEL3,
 						'data'  => $capitalData3,
 						'type' => 'spline',
+						'yAxis' => 1
 					]
 				]
 			)
