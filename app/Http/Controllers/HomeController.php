@@ -5556,7 +5556,7 @@ class HomeController extends Controller
 			->yaxis([
 				[
 					'labels' => [
-						'format' => '{value}',
+						'format' => '{value} cm',
 						'style' => [
 	                    	'fontWeight' => 'bold',
 	                    ]
