@@ -5616,12 +5616,12 @@ class HomeController extends Controller
 						'name'  => INCREMENTAL_LABEL1, // ROI
 						'data'  => $capitalData1,	
 						'type' => 'line',
+						'yAxis' => 0
 					],
 					[
 						'name'  => INCREMENTAL_LABEL2,
 						'data'  => $capitalData2,	
 						'type' => 'spline',
-						'yAxis' => 0
 					],
 					[
 						'name'  => INCREMENTAL_LABEL3, // Avg Ticket
