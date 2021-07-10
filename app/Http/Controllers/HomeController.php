@@ -5904,14 +5904,14 @@ class HomeController extends Controller
 			            ['CTO', 'Market']
 			        ],
 			        'levels' => [[
-			            'level' => '0',
+			            'level' => 0,
 			            'color' => 'silver',
 			            'dataLabels' => [
 			                'color' => 'black'
 			            ],
 			            'height' => '25'
 			        ], [
-			            'level' => '1',
+			            'level' => 1,
 			            'color' => 'silver',
 			            'dataLabels' => [
 			                'color' => 'black'
