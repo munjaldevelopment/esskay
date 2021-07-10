@@ -5556,14 +5556,15 @@ class HomeController extends Controller
 			->yaxis([
 				[
 					'labels' => [
-						'format' => '{value}',
+						'format' => '{value} cm',
 						'style' => [
 	                    	'fontWeight' => 'bold',
 	                    ]
 					],
 					'title' => [
 						'text' => INCREMENTAL_LABEL1
-					]
+					],
+					'opposite' => true
 				],
 				[
 					//'gridLineWidth' => '0',
@@ -5587,8 +5588,7 @@ class HomeController extends Controller
 						'style' => [
 	                    	'fontWeight' => 'bold',
 	                    ]
-					],
-					'opposite' => true
+					]
 				]
 			])
 			->legend([
@@ -5624,7 +5624,7 @@ class HomeController extends Controller
 					[
 						'name'  => INCREMENTAL_LABEL3,
 						'data'  => $capitalData3,
-						'type' => 'spline',
+						'type' => 'line',
 						'yAxis' => 0
 					]
 				]
