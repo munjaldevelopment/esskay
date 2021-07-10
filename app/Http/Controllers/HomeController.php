@@ -5524,9 +5524,9 @@ class HomeController extends Controller
 				foreach($assetConData1 as $row)
 				{
 					$capitalCategory[] = $row->heading_graph1;
-					$capitalData1[] = (float)$row->amount_graph1;
-					$capitalData2[] = (float)$row->amount_graph2;
-					$capitalData3[] = (float)$row->amount_graph3;
+					$capitalData1[] = (float) number_format($row->amount_graph1, 2);
+					$capitalData2[] = (float) number_format($row->amount_graph2, 2);
+					$capitalData3[] = (float) number_format($row->amount_graph3, 2);
 				}
 			}
 
