@@ -5571,7 +5571,7 @@ class HomeController extends Controller
 						'text' => INCREMENTAL_LABEL2
 					],
 					'labels' => [
-						'format' => '{value}',
+						'format' => '{value} mm',
 						'style' => [
 	                    	'fontWeight' => 'bold',
 	                    ]
