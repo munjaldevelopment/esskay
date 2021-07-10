@@ -5613,7 +5613,7 @@ class HomeController extends Controller
 			->series(
 				[
 					[
-						'name'  => INCREMENTAL_LABEL1,
+						'name'  => INCREMENTAL_LABEL1, // ROI
 						'data'  => $capitalData1,	
 						'type' => 'line',
 					],
@@ -5624,7 +5624,7 @@ class HomeController extends Controller
 						'yAxis' => 0
 					],
 					[
-						'name'  => INCREMENTAL_LABEL3,
+						'name'  => INCREMENTAL_LABEL3, // Avg Ticket
 						'data'  => $capitalData3,
 						'type' => 'spline',
 						'yAxis' => 1
