@@ -5556,7 +5556,7 @@ class HomeController extends Controller
 			->yaxis([
 				[
 					'labels' => [
-						'format' => '{value} cm',
+						'format' => '',
 						'style' => [
 	                    	'fontWeight' => 'bold',
 	                    ]
@@ -5572,7 +5572,7 @@ class HomeController extends Controller
 						'text' => INCREMENTAL_LABEL2
 					],
 					'labels' => [
-						'format' => '{value} mm',
+						'format' => '',
 						'style' => [
 	                    	'fontWeight' => 'bold',
 	                    ]
@@ -5584,7 +5584,7 @@ class HomeController extends Controller
 						'text' => INCREMENTAL_LABEL3
 					],
 					'labels' => [
-						'format' => '{value} mb',
+						'format' => '',
 						'style' => [
 	                    	'fontWeight' => 'bold',
 	                    ]
