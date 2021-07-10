@@ -5872,7 +5872,7 @@ class HomeController extends Controller
 				'text' => ''
 			])
 			->chart([
-				'type'     => 'column', // pie , columnt ect
+				'inverted'     => 'true', // pie , columnt ect
 				'renderTo' => 'operational_chart', // render the chart into your div with id
 			])
 			->subtitle([
@@ -5880,62 +5880,13 @@ class HomeController extends Controller
 			])
 			->colors([
 			])
-			->xaxis([
-				'categories' => $profileCategory1,
-				'labels' => [
-                	'style' => [
-                    	'fontWeight' => 'bold',
-                    ]
-                ]
-			])
-			->yaxis([
-				'title' => [
-					'text' => 'Percentage'
-				],
-				'labels' => [
-                	'style' => [
-                    	'fontWeight' => 'bold',
-                    ]
-                ],
-				'stackLabels' => [
-		            'enabled' => 'true',
-		            'style' => [
-		                'fontWeight' => 'bold',
-		            ]
-		        ]
-			])
-			->legend([
-				'layout' => 'horizontal', 'verticalAlign' => 'top',
-			])
-			->plotOptions([
-				'series'        => ([
-					'dataLabels' => ([
-                		'enabled' => true
-                	]),
-                	'label' => ([
-						'enabled' => 'true',
-						'format' => '',
-						'connectorAllowed' => false
-					]),
-				]),
-			])
 			->credits([
 				'enabled' => 'false'
 			])
 			->series(
 				[
-					[
-						
-						'name'  => HEALTHYCRAR_LABEL1,//'Tier1',
-						'color' => '#336699',
-						'data'  => $liabilityProfileData11,
-					],
-					[
-						
-						'name'  => HEALTHYCRAR_LABEL2,//'Tier2',
-						'color' => '#11a9dc',
-						'data'  => $liabilityProfileData12,
-					],
+					'type'  => 'organization',
+					'name'  => ORGANIZATION_LABEL1,//'Tier1',
 				]
 			)
 			->display(0);
