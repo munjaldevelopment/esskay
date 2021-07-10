@@ -5566,7 +5566,7 @@ class HomeController extends Controller
 					]
 				],
 				[
-					'gridLineWidth' => '0',
+					//'gridLineWidth' => '0',
 					'title' => [
 						'text' => INCREMENTAL_LABEL2
 					],
@@ -5614,7 +5614,7 @@ class HomeController extends Controller
 					[
 						'name'  => INCREMENTAL_LABEL2,
 						'data'  => $capitalData2,	
-						'type' => 'line',
+						'type' => 'spline',
 					],
 					[
 						'name'  => INCREMENTAL_LABEL3,
