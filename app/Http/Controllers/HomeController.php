@@ -5875,6 +5875,9 @@ class HomeController extends Controller
 				'inverted'     => 'true', // pie , columnt ect
 				'renderTo' => 'operational_chart', // render the chart into your div with id
 			])
+			->title([
+				'text' => '',
+			]
 			->subtitle([
 				'text' => '',
 			])
