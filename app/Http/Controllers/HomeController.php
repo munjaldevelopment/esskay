@@ -4324,7 +4324,6 @@ class HomeController extends Controller
     {
     	Setting::assignSetting();
 
-		
 		$trusteeData = \DB::table('trustees')->where('user_id', session()->get('esskay_trustee_user_id'))->first();
     	//dd($trusteeData);
     	$trustee_id = $trusteeData->id;
@@ -5866,6 +5865,80 @@ class HomeController extends Controller
 		else if($request->category_id == 14)
 		{
 			$insightLocationData = \DB::table('insight_locations')->leftJoin('districts', 'insight_locations.district_id', '=', 'districts.id')->leftJoin('states', 'districts.state_id', '=', 'states.id')->where('insight_locations.status', 1)->selectRaw('location_hub, branch_name, branch_type, branch_address, office_lat, office_long, insight_locations.lft, states.name as state_name, districts.name as district_name')->get();
+		}
+		else if($request->category_id == 15)
+		{
+			$chart4001 = \Chart::title([
+				'text' => ''
+			])
+			->chart([
+				'type'     => 'column', // pie , columnt ect
+				'renderTo' => 'operational_chart', // render the chart into your div with id
+			])
+			->subtitle([
+				'text' => '',
+			])
+			->colors([
+			])
+			->xaxis([
+				'categories' => $profileCategory1,
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ]
+			])
+			->yaxis([
+				'title' => [
+					'text' => 'Percentage'
+				],
+				'labels' => [
+                	'style' => [
+                    	'fontWeight' => 'bold',
+                    ]
+                ],
+				'stackLabels' => [
+		            'enabled' => 'true',
+		            'style' => [
+		                'fontWeight' => 'bold',
+		            ]
+		        ]
+			])
+			->legend([
+				'layout' => 'horizontal', 'verticalAlign' => 'top',
+			])
+			->plotOptions([
+				'series'        => ([
+					'dataLabels' => ([
+                		'enabled' => true
+                	]),
+                	'label' => ([
+						'enabled' => 'true',
+						'format' => '',
+						'connectorAllowed' => false
+					]),
+				]),
+			])
+			->credits([
+				'enabled' => 'false'
+			])
+			->series(
+				[
+					[
+						
+						'name'  => HEALTHYCRAR_LABEL1,//'Tier1',
+						'color' => '#336699',
+						'data'  => $liabilityProfileData11,
+					],
+					[
+						
+						'name'  => HEALTHYCRAR_LABEL2,//'Tier2',
+						'color' => '#11a9dc',
+						'data'  => $liabilityProfileData12,
+					],
+				]
+			)
+			->display(0);
 		}
 
 		//dd($liabilityProfileDataTotal);
