@@ -5536,7 +5536,7 @@ class HomeController extends Controller
 			])
 			->chart([
 				'zoomType' => 'xy',
-				'type' => 'column',
+				//'type' => 'column',
 				'renderTo' => 'fifth51_chart', // render the chart into your div with id
 			])
 			->subtitle([
