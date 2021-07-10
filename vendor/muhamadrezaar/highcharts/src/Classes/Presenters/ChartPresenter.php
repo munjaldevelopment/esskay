@@ -148,6 +148,16 @@ class ChartPresenter
         return $this;
     }
 
+    
+    public function displayOrganization()
+    {
+        $this->getTransform();
+        $display = $this->display;
+        $this->display = null;
+
+        return $display;
+    }
+
     public function display($is_init = 0)
     {	
 		if($is_init == 1)
