@@ -5872,6 +5872,7 @@ class HomeController extends Controller
 				'text' => ''
 			])
 			->chart([
+				'height' => '600',
 				'inverted'     => 'true', // pie , columnt ect
 				'renderTo' => 'operational_chart', // render the chart into your div with id
 			])
