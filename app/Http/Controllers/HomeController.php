@@ -5625,7 +5625,7 @@ class HomeController extends Controller
 					[
 						'name'  => INCREMENTAL_LABEL3,
 						'data'  => $capitalData3,
-						'type' => 'line',
+						'type' => 'spline',
 					]
 				]
 			)
