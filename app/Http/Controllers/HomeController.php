@@ -5611,11 +5611,20 @@ class HomeController extends Controller
 			])
 			->series(
 				[
-					[	
+					[
+						'name'  => INCREMENTAL_LABEL2,
+						'type' => 'line',
+						'data'  => $capitalData2,	
 					],
 					[
+						'name'  => INCREMENTAL_LABEL3,
+						'type' => 'spline',
+						'data'  => $capitalData3,
 					],
-					[	
+					[
+						'name'  => INCREMENTAL_LABEL1,
+						'type' => 'spline',
+						'data'  => $capitalData1,	
 						'type' => 'line',
 						'yAxis' => 1
 					]
