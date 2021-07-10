@@ -5886,7 +5886,8 @@ class HomeController extends Controller
 			->series(
 				[
 					'type'  => 'organization',
-					'name'  => ORGANIZATION_LABEL1,//'Tier1',
+					'name'  => ORGANIZATION_LABEL1,
+					'keys' => ['from', 'to'],
 				]
 			)
 			->display(0);
