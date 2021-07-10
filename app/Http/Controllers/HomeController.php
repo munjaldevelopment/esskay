@@ -5877,7 +5877,7 @@ class HomeController extends Controller
 			])
 			->title([
 				'text' => '',
-			]
+			])
 			->subtitle([
 				'text' => '',
 			])
