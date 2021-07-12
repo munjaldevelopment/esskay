@@ -1078,7 +1078,7 @@
             color: '#933835'
         }, {
             id: 'CTO',
-            name: 'Rajasthan - Jaipur',
+            name: 'Rajasthan - <br /> Jaipur',
             color: '#933835'
         }, {
             id: 'CPO',
