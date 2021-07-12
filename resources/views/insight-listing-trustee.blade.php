@@ -1127,9 +1127,15 @@
             id: 'Sales211',
             name: 'Hub1211',
             color: '#f3dbdb'
-        }
-
-        ],
+        }, {
+            id: 'Web212',
+            name: 'Hub1212',
+            color: '#f3dbdb'
+        }, {
+            id: 'Sales212',
+            name: 'Hub1212',
+            color: '#f3dbdb'
+       	}],
         colorByPoint: false,
         color: '#007ad0',
         dataLabels: {
