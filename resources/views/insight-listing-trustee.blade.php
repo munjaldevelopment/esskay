@@ -1059,10 +1059,12 @@
             id: 'Head Office'
         }, {
             id: 'Board1',
-            name: 'North Zone'
+            name: 'North Zone',
+            color: '#403152'
         }, {
             id: 'Board2',
-            name: 'West Zone'
+            name: 'West Zone',
+            color: '#403152'
         }, {
             id: 'HR',
             title: 'HR/CFO',
