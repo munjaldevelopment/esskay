@@ -1027,11 +1027,10 @@
 
     series: [{
         type: 'organization',
-        name: 'Highsoft',
+        name: 'EssKay',
         keys: ['from', 'to'],
         data: [
-            ['Shareholders', 'Board'],
-            ['Board', 'CEO'],
+            ['Head Office', 'CEO'],
             ['CEO', 'CTO'],
             ['CEO', 'CPO'],
             ['CEO', 'CSO'],
@@ -1066,9 +1065,7 @@
             color: '#359154'
         }],
         nodes: [{
-            id: 'Shareholders'
-        }, {
-            id: 'Board'
+            id: 'Head Office'
         }, {
             id: 'CEO',
             title: 'CEO',
