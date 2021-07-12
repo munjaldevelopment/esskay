@@ -2441,8 +2441,25 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
 }
 
 .mtd-timline-document.mtd-investor-trustee .mtd-container-box .mtdd-relevant-doc-cont p {
-    padding: 0 18px;
+    padding: 0 18px 0 62px;
     position: relative;
+    margin-bottom: 26px;
+}
+
+.mtdd-relevant-name-first {
+    background: #56A0E9;
+    color: #fff;
+    font-style: initial;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    border-radius: 100px;
+    line-height: 30px;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /*.mtd-timline-document.mtd-investor-trustee .mtd-container-box .mtdd-relevant-doc-cont p::before {
@@ -2492,6 +2509,10 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
 
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu.about-container .dropdown-item {
     padding: 9px 21px;
+}
+
+.mtd-inner.committee-main-area {
+    padding-top: 35px;
 }
 
 @media only screen and (max-width: 1366px) {
