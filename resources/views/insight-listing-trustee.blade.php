@@ -1039,7 +1039,8 @@
             ['Board2', 'CSO1'],
             ['Board2', 'HR1'],
             ['CTO', 'Product'],
-            ['CTO', 'Web'],
+            ['CPO', 'Web'],
+            ['HR', 'Web1'],
             ['CSO', 'Sales']
         ],
         levels: [{
@@ -1097,6 +1098,9 @@
         }, {
             id: 'Web',
             name: 'Web devs, sys admin'
+        }, {
+            id: 'Web1',
+            name: 'Web1'
         }, {
             id: 'Sales',
             name: 'Sales team'
