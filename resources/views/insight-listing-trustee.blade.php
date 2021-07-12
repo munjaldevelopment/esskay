@@ -1032,7 +1032,7 @@
         data: [
             ['Head Office', 'Board'],
             ['Board', 'Board1'],
-            ['Board1', 'Board2'],
+            ['Head Office', 'Board2'],
             ['Board1', 'CTO'],
             ['Board1', 'CPO'],
             ['Board1', 'CSO'],
