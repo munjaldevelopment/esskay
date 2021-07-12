@@ -1056,7 +1056,9 @@
         ],
         levels: [{
             level: 0,
-            color: 'silver',
+            color: 'silver',,
+            width: 150,
+            height: 25
         }, {
             level: 1,
             color: 'silver',
