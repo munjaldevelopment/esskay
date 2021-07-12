@@ -1030,7 +1030,8 @@
         name: 'EssKay',
         keys: ['from', 'to'],
         data: [
-            ['Head Office', 'CEO'],
+            ['Head Office', 'Board'],
+            ['Board', 'CEO'],
             ['CEO', 'CTO'],
             ['CEO', 'CPO'],
             ['CEO', 'CSO'],
@@ -1066,6 +1067,8 @@
         }],
         nodes: [{
             id: 'Head Office'
+        }, {
+            id: 'Board'
         }, {
             id: 'CEO',
             title: 'CEO',
