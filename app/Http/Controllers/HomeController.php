@@ -5869,11 +5869,9 @@ class HomeController extends Controller
 		}
 		else if($request->category_id == 15)
 		{
-			$chart4001 = "";
 		}
 		else if($request->category_id == 16)
 		{
-			$chart4002 = "";
 		}
 		
 		$current_year = date('Y');

@@ -1071,6 +1071,7 @@
         }],
         nodes: [{
 	            id: 'Head Office',
+	            title: 'CEO',
 	            name: 'Head Office',
 	            color: '#01a3ae',
 	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
