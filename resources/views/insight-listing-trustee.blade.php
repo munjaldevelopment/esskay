@@ -1044,7 +1044,9 @@
             ['Product', 'Web211'],
             ['Web', 'Sales211'],
             ['Web1', 'Web212'],
-            ['Sales1', 'Sales212']
+            ['Sales1', 'Sales212'],
+            ['Web2', 'Web213'],
+            ['Sales2', 'Sales213']
         ],
         levels: [{
             level: 0,
@@ -1135,6 +1137,14 @@
             id: 'Sales212',
             name: 'Hub1212',
             color: '#f3dbdb'
+       	}, {
+            id: 'Web213',
+            name: 'Hub1213',
+            color: '#cbc2d7'
+        }, {
+            id: 'Sales213',
+            name: 'Hub1213',
+            color: '#cbc2d7'
        	}],
         colorByPoint: false,
         color: '#007ad0',
