@@ -1031,11 +1031,12 @@
         keys: ['from', 'to'],
         data: [
             ['Head Office', 'Board'],
-            ['Board', 'CEO'],
-            ['CEO', 'CTO'],
-            ['CEO', 'CPO'],
-            ['CEO', 'CSO'],
-            ['CEO', 'HR'],
+            ['Board', 'Board1'],
+            ['Board', 'Board2'],
+            ['Board1', 'CTO'],
+            ['Board1', 'CPO'],
+            ['Board1', 'CSO'],
+            ['Board1', 'HR'],
             ['CTO', 'Product'],
             ['CTO', 'Web'],
             ['CSO', 'Sales'],
@@ -1070,9 +1071,14 @@
         }, {
             id: 'Board'
         }, {
-            id: 'CEO',
+            id: 'Board1',
             title: 'CEO',
             name: 'Grethe Hjetland',
+            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131126/Highsoft_03862_.jpg'
+        }, {
+            id: 'Board2',
+            title: 'CEO1',
+            name: 'Grethe Hjetland1',
             image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131126/Highsoft_03862_.jpg'
         }, {
             id: 'HR',
