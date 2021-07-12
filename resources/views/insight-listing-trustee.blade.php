@@ -1034,14 +1034,14 @@
             ['Head Office', 'Board2'],
             ['Board1', 'CTO'],
             ['Board1', 'CPO'],
-            ['Board1', 'CSO'],
+            ['Board1', 'PUNJAB'],
             ['Board1', 'HR'],
             ['Board2', 'CSO1'],
             ['Board2', 'HR1'],
             ['CTO', 'Product'],
             ['CPO', 'Web'],
             ['HR', 'Web1'],
-            ['CSO', 'Sales1'],
+            ['PUNJAB', 'Sales1'],
             ['HR1', 'Web2'],
             ['CSO1', 'Sales2']
         ],
@@ -1082,7 +1082,7 @@
             name: 'MP - Indore',
             color: '#933835'
         }, {
-            id: 'CSO',
+            id: 'PUNJAB',
             name: 'Punjab - Bhatinda',
             color: '#933835'
         }, {
