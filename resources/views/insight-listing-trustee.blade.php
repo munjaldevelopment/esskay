@@ -1028,13 +1028,13 @@
         keys: ['from', 'to'],
         data: [
             ['Head Office', 'North Zone'],
-            ['Head Office', 'WZone'],
+            ['Head Office', 'West Zone'],
             ['North Zone', 'State11'],
             ['North Zone', 'State12'],
             ['North Zone', 'State13'],
             ['North Zone', 'State14'],
-            ['WZone', 'State21'],
-            ['WZone', 'State22'],
+            ['West Zone', 'State21'],
+            ['West Zone', 'State22'],
             ['State11', 'Hub11'],
             ['State12', 'Hub12'],
             ['State13', 'Hub13'],
@@ -1074,12 +1074,12 @@
 	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
 	        }, {
 	            id: 'North Zone',
-	            title: 'North Zone',
+	            name: 'North Zone',
 	            color: '#612622',
 	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
 	        }, {
-	            id: 'WZone',
-	            title: 'West Zone',
+	            id: 'West Zone',
+	            name: 'West Zone',
 	            color: '#403152',
 	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
 	        }, {
