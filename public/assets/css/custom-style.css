@@ -2457,6 +2457,25 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
     transform: translateY(-50%);
 }
 
+.navbar-expand-md .navbar-collapse .navbar-nav.ml-auto.nav-custome.d-sm-none .dropdown-menu li ul.submenu {
+    border: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0px;
+}
+
+.navbar-expand-md .navbar-collapse .navbar-nav.ml-auto.nav-custome.d-sm-none .dropdown-menu li ul.submenu li {
+    padding-left: 0;
+}
+
+.navbar-expand-md .navbar-collapse .navbar-nav.ml-auto.nav-custome.d-sm-none .dropdown-menu li ul.submenu a:focus {
+    background: transparent;
+}
+
+.navbar-expand-md .navbar-collapse .navbar-nav.ml-auto.nav-custome.d-sm-none .dropdown-menu li a:focus {
+    background: transparent;
+}
+
 @media only screen and (max-width: 1366px) {
 .login-logo img {
 	height: 65px;
