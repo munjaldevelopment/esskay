@@ -1078,42 +1078,31 @@
         nodes: [{
 	            id: 'HeadOffice',
 	            name: 'Head Office',
+	            color: '#01a3ae'
 	        }, {
 	            id: 'Zone1',
 	            title: 'North Zone',
+	            color: '#612622'
 	        }, {
 	            id: 'Zone2',
 	            title: 'West Zone',
+	            color: '#403152'
 	        }, {
-	            id: 'HR',
-	            title: 'HR/CFO',
-	            name: 'Anne Jorunn Fjærestad',
-	            color: '#007ad0',
+	            id: 'State11',
+	            title: 'Rajasthan - Jaipur',
+	            color: '#933835'
 	        }, {
-	            id: 'CTO',
-	            title: 'CTO',
-	            name: 'Christer Vasseng',
+	            id: 'State12',
+	            title: 'MP - Indore',
+	            color: '#933835'
 	        }, {
-	            id: 'CPO',
-	            title: 'CPO',
-	            name: 'Torstein Hønsi',
+	            id: 'State13',
+	            title: 'Punjab - Bhatinda',
+	            color: '#933835'
 	        }, {
-	            id: 'CSO',
-	            title: 'CSO',
-	            name: 'Anita Nesse',
-	        }, {
-	            id: 'Product',
-	            name: 'Product developers'
-	        }, {
-	            id: 'Web',
-	            name: 'Web devs, sys admin'
-	        }, {
-	            id: 'Sales',
-	            name: 'Sales team'
-	        }, {
-	            id: 'Market',
-	            name: 'Marketing team',
-	            column: 5
+	            id: 'State14',
+	            title: 'Haryana - Bhatinda',
+	            color: '#933835'
 	        }
 	    ],
         colorByPoint: false,
