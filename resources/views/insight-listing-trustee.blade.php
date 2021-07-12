@@ -938,7 +938,7 @@
 @elseif($insightCatData->id == 15)
 	<div class="white-box">
 		<div class="pool-dynamic-graph">
-			<div id="operational_chart"></div>
+			<div id="container"></div>
 		</div>
 	</div>
 @elseif($insightCatData->id == 16)
@@ -1003,14 +1003,16 @@
 </script>
 @elseif($insightCatData->id == 15)
 <script type="text/javascript">
-	Highcharts.chart('operational_chart', {
+	Highcharts.chart('container', {
     chart: {
         height: 600,
         inverted: true
     },
+
     title: {
-        text: 'Operational Structure'
+        text: 'Highcharts Org Chart'
     },
+
     accessibility: {
         point: {
             descriptionFormatter: function (point) {
@@ -1022,46 +1024,40 @@
             }
         }
     },
+
     series: [{
         type: 'organization',
-        name: 'EssKay Fincorp Private Limited',
+        name: 'Highsoft',
         keys: ['from', 'to'],
         data: [
-            ['Head Office', 'North Zone'],
-            ['Head Office', 'West Zone'],
-            ['North Zone', 'State11'],
-            ['North Zone', 'State12'],
-            ['North Zone', 'State13'],
-            ['North Zone', 'State14'],
-            ['West Zone', 'State21'],
-            ['West Zone', 'State22'],
-            ['State11', 'Hub11'],
-            ['State12', 'Hub12'],
-            ['State13', 'Hub13'],
-            ['State14', 'Hub14'],
-            ['State21', 'Hub21'],
-            ['State22', 'Hub22'],
-            ['Hub11', 'Branch111'],
-            ['Hub11', 'Branch112'],
-            ['Hub12', 'Branch121'],
-            ['Hub12', 'Branch122'],
-            ['Hub13', 'Branch131'],
-            ['Hub13', 'Branch132'],
-            ['Hub14', 'Branch141'],
-            ['Hub14', 'Branch142'],
-            ['Hub21', 'Branch211'],
-            ['Hub21', 'Branch212'],
-            ['Hub22', 'Branch221'],
-            ['Hub22', 'Branch222'],
+            ['Shareholders', 'Board'],
+            ['Board', 'CEO'],
+            ['CEO', 'CTO'],
+            ['CEO', 'CPO'],
+            ['CEO', 'CSO'],
+            ['CEO', 'HR'],
+            ['CTO', 'Product'],
+            ['CTO', 'Web'],
+            ['CSO', 'Sales'],
+            ['HR', 'Market'],
+            ['CSO', 'Market'],
+            ['HR', 'Market'],
+            ['CTO', 'Market']
         ],
         levels: [{
             level: 0,
             color: 'silver',
-            width: 150,
+            dataLabels: {
+                color: 'black'
+            },
             height: 25
         }, {
             level: 1,
             color: 'silver',
+            dataLabels: {
+                color: 'black'
+            },
+            height: 25
         }, {
             level: 2,
             color: '#980104'
@@ -1070,43 +1066,49 @@
             color: '#359154'
         }],
         nodes: [{
-	            id: 'Head Office',
-	            title: 'CEO',
-	            name: 'Head Office',
-	            color: '#01a3ae',
-	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
-	        }, {
-	            id: 'North Zone',
-	            name: 'North Zone',
-	            color: '#612622',
-	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
-	        }, {
-	            id: 'West Zone',
-	            name: 'West Zone',
-	            color: '#403152',
-	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
-	        }, {
-	            id: 'State11',
-	            title: 'Rajasthan - Jaipur',
-	            color: '#933835',
-	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
-	        }, {
-	            id: 'State12',
-	            title: 'MP - Indore',
-	            color: '#933835',
-	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
-	        }, {
-	            id: 'State13',
-	            title: 'Punjab - Bhatinda',
-	            color: '#933835',
-	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
-	        }, {
-	            id: 'State14',
-	            title: 'Haryana - Bhatinda',
-	            color: '#933835',
-	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
-	        }
-	    ],
+            id: 'Shareholders'
+        }, {
+            id: 'Board'
+        }, {
+            id: 'CEO',
+            title: 'CEO',
+            name: 'Grethe Hjetland',
+            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131126/Highsoft_03862_.jpg'
+        }, {
+            id: 'HR',
+            title: 'HR/CFO',
+            name: 'Anne Jorunn Fjærestad',
+            color: '#007ad0',
+            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131210/Highsoft_04045_.jpg'
+        }, {
+            id: 'CTO',
+            title: 'CTO',
+            name: 'Christer Vasseng',
+            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
+        }, {
+            id: 'CPO',
+            title: 'CPO',
+            name: 'Torstein Hønsi',
+            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131213/Highsoft_03998_.jpg'
+        }, {
+            id: 'CSO',
+            title: 'CSO',
+            name: 'Anita Nesse',
+            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131156/Highsoft_03834_.jpg'
+        }, {
+            id: 'Product',
+            name: 'Product developers'
+        }, {
+            id: 'Web',
+            name: 'Web devs, sys admin'
+        }, {
+            id: 'Sales',
+            name: 'Sales team'
+        }, {
+            id: 'Market',
+            name: 'Marketing team',
+            column: 5
+        }],
         colorByPoint: false,
         color: '#007ad0',
         dataLabels: {
@@ -1125,7 +1127,6 @@
     }
 });
 </script>
-
 <style type="text/css">
 	.highcharts-figure, .highcharts-data-table table {
 	    min-width: 360px; 
@@ -1161,22 +1162,22 @@
 	    background: #f1f7ff;
 	}
 
-	#operational_chart h4 {
+	#container h4 {
 	    text-transform: none;
 	    font-size: 14px;
 	    font-weight: normal;
 	}
-	#operational_chart p {
+	#container p {
 	    font-size: 13px;
 	    line-height: 16px;
 	}
 
 	@media screen and (max-width: 600px) {
-	    #operational_chart h4 {
+	    #container h4 {
 	        font-size: 2.3vw;
 	        line-height: 3vw;
 	    }
-	    #operational_chart p {
+	    #container p {
 	        font-size: 2.3vw;
 	        line-height: 3vw;
 	    }
