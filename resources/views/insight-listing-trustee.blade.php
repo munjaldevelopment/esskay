@@ -1096,27 +1096,27 @@
         },
         {
             id: 'Product',
-            name: 'Hub',
+            name: 'Hub1',
             color: '#da9695'
         }, {
             id: 'Web',
-            name: 'Hub',
+            name: 'Hub2',
             color: '#da9695'
         }, {
             id: 'Web1',
-            name: 'Hub',
+            name: 'Hub3',
             color: '#da9695'
         }, {
             id: 'Sales1',
-            name: 'Hub',
+            name: 'Hub4',
             color: '#da9695'
         }, {
             id: 'Web2',
-            name: 'Hub',
+            name: 'Hub11',
             color: '#b2a2c7'
         }, {
             id: 'Sales2',
-            name: 'Hub',
+            name: 'Hub12',
             color: '#b2a2c7'
         }],
         colorByPoint: false,
