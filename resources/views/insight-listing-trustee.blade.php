@@ -1094,16 +1094,20 @@
         },
         {
             id: 'Product',
-            name: 'Product developers'
+            name: 'Product developers',
+            color: '#da9695'
         }, {
             id: 'Web',
-            name: 'Web devs, sys admin'
+            name: 'Web devs, sys admin',
+            color: '#da9695'
         }, {
             id: 'Web1',
-            name: 'Web1'
+            name: 'Web1',
+            color: '#da9695'
         }, {
             id: 'Sales',
-            name: 'Sales team'
+            name: 'Sales team',
+            color: '#da9695'
         }],
         colorByPoint: false,
         color: '#007ad0',
