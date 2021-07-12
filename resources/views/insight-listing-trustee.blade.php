@@ -1059,33 +1059,27 @@
             id: 'Head Office'
         }, {
             id: 'Board1',
-            name: 'North Zone',
-            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
+            name: 'North Zone'
         }, {
             id: 'Board2',
-            name: 'West Zone',
-            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
+            name: 'West Zone'
         }, {
             id: 'HR',
             title: 'HR/CFO',
             name: 'Anne Jorunn Fjærestad',
-            color: '#007ad0',
-            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
+            color: '#007ad0'
         }, {
             id: 'CTO',
             title: 'CTO',
-            name: 'Christer Vasseng',
-            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
+            name: 'Christer Vasseng'
         }, {
             id: 'CPO',
             title: 'CPO',
-            name: 'Torstein Hønsi',
-            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
+            name: 'Torstein Hønsi'
         }, {
             id: 'CSO',
             title: 'CSO',
-            name: 'Anita Nesse',
-            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
+            name: 'Anita Nesse'
         }, {
             id: 'Product',
             name: 'Product developers'
