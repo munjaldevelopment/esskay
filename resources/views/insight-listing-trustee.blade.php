@@ -1083,6 +1083,15 @@
             name: 'Punjab - Bhatinda',
             color: '#933835'
         }, {
+            id: 'CSO1',
+            name: 'Gujarat - Ahmedabad',
+            color: '#604a7b'
+        }, {
+            id: 'HR1',
+            name: 'Maharashtra - Pune',
+            color: '#604a7b'
+        },
+        {
             id: 'Product',
             name: 'Product developers'
         }, {
