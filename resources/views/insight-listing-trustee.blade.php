@@ -1030,8 +1030,8 @@
         name: 'EssKay',
         keys: ['from', 'to'],
         data: [
-            ['Head Office', 'Board'],
-            ['Board', 'Board1'],
+            ['Head Office', 'Board1'],
+            ['Board1', 'Board11'],
             ['Head Office', 'Board2'],
             ['Board1', 'CTO'],
             ['Board1', 'CPO'],
@@ -1039,11 +1039,7 @@
             ['Board1', 'HR'],
             ['CTO', 'Product'],
             ['CTO', 'Web'],
-            ['CSO', 'Sales'],
-            ['HR', 'Market'],
-            ['CSO', 'Market'],
-            ['HR', 'Market'],
-            ['CTO', 'Market']
+            ['CSO', 'Sales']
         ],
         levels: [{
             level: 0,
@@ -1057,7 +1053,7 @@
             level: 2,
             color: '#980104'
         }, {
-            level: 4,
+            level: 3,
             color: '#359154'
         }],
         nodes: [{
