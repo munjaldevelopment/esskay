@@ -944,11 +944,7 @@
 @elseif($insightCatData->id == 16)
 	<div class="white-box">
 		<div class="pool-dynamic-graph">
-			@if($chart4002)
-				<div id="hierarchy_chart"></div>
-
-				{!! $chart4002 !!}
-			@endif
+			<div id="hierarchy_chart"></div>
 		</div>
 	</div>
 @endif
@@ -1012,11 +1008,9 @@
         height: 600,
         inverted: true
     },
-
     title: {
-        text: 'Highcharts Org Chart'
+        text: 'Operational Structure'
     },
-
     accessibility: {
         point: {
             descriptionFormatter: function (point) {
@@ -1028,25 +1022,13 @@
             }
         }
     },
-
     series: [{
         type: 'organization',
-        name: 'Highsoft',
+        name: 'EssKay Fincorp Private Limited',
         keys: ['from', 'to'],
         data: [
-            ['Shareholders', 'Board'],
-            ['Board', 'CEO'],
-            ['CEO', 'CTO'],
-            ['CEO', 'CPO'],
-            ['CEO', 'CSO'],
-            ['CEO', 'HR'],
-            ['CTO', 'Product'],
-            ['CTO', 'Web'],
-            ['CSO', 'Sales'],
-            ['HR', 'Market'],
-            ['CSO', 'Market'],
-            ['HR', 'Market'],
-            ['CTO', 'Market']
+            ['HeadOffice', 'Zone1'],
+            ['HeadOffice', 'Zone2'],
         ],
         levels: [{
             level: 0,
@@ -1070,44 +1052,46 @@
             color: '#359154'
         }],
         nodes: [{
-            id: 'Shareholders'
-        }, {
-            id: 'Board'
-        }, {
-            id: 'CEO',
-            title: 'CEO',
-            name: 'Grethe Hjetland',
-        }, {
-            id: 'HR',
-            title: 'HR/CFO',
-            name: 'Anne Jorunn Fjærestad',
-            color: '#007ad0',
-        }, {
-            id: 'CTO',
-            title: 'CTO',
-            name: 'Christer Vasseng',
-        }, {
-            id: 'CPO',
-            title: 'CPO',
-            name: 'Torstein Hønsi',
-        }, {
-            id: 'CSO',
-            title: 'CSO',
-            name: 'Anita Nesse',
-        }, {
-            id: 'Product',
-            name: 'Product developers'
-        }, {
-            id: 'Web',
-            name: 'Web devs, sys admin'
-        }, {
-            id: 'Sales',
-            name: 'Sales team'
-        }, {
-            id: 'Market',
-            name: 'Marketing team',
-            column: 5
-        }],
+	            id: 'HeadOffice',
+	            color: '#007ad0',
+	        }, {
+	            id: 'Zone'
+	        }, {
+	            id: 'CEO',
+	            title: 'CEO',
+	            name: 'Grethe Hjetland',
+	        }, {
+	            id: 'HR',
+	            title: 'HR/CFO',
+	            name: 'Anne Jorunn Fjærestad',
+	            color: '#007ad0',
+	        }, {
+	            id: 'CTO',
+	            title: 'CTO',
+	            name: 'Christer Vasseng',
+	        }, {
+	            id: 'CPO',
+	            title: 'CPO',
+	            name: 'Torstein Hønsi',
+	        }, {
+	            id: 'CSO',
+	            title: 'CSO',
+	            name: 'Anita Nesse',
+	        }, {
+	            id: 'Product',
+	            name: 'Product developers'
+	        }, {
+	            id: 'Web',
+	            name: 'Web devs, sys admin'
+	        }, {
+	            id: 'Sales',
+	            name: 'Sales team'
+	        }, {
+	            id: 'Market',
+	            name: 'Marketing team',
+	            column: 5
+	        }
+	    ],
         colorByPoint: false,
         color: '#007ad0',
         dataLabels: {
