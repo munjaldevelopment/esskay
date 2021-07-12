@@ -1074,7 +1074,7 @@
             color: '#403152'
         }, {
             id: 'HR',
-            name: 'Haryana - Bhatinda',
+            name: 'Haryana - <br /> Bhatinda',
             color: '#933835'
         }, {
             id: 'CTO',
