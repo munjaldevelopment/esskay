@@ -1,5 +1,5 @@
 <div class="mtd-inner-box">
-	<div class="mtd-inner">
+	<div class="mtd-inner committee-main-area">
 		<div class="side-body side-body-content side-body-full">
 			<div class="insight-container">
 				<div class="white-box outstanding-box">
