@@ -1030,8 +1030,7 @@
         name: 'EssKay',
         keys: ['from', 'to'],
         data: [
-            ['Head Office', 'Board'],
-            ['Board', 'Board1'],
+            ['Head Office', 'Board1'],
             ['Head Office', 'Board2'],
             ['Board1', 'CTO'],
             ['Board1', 'CPO'],
