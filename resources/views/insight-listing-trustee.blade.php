@@ -1029,6 +1029,12 @@
         data: [
             ['HeadOffice', 'Zone1'],
             ['HeadOffice', 'Zone2'],
+            ['Zone1', 'State11'],
+            ['Zone1', 'State12'],
+            ['Zone1', 'State13'],
+            ['Zone1', 'State14'],
+            ['Zone2', 'State21'],
+            ['Zone2', 'State22'],
         ],
         levels: [{
             level: 0,
@@ -1054,14 +1060,11 @@
         nodes: [{
 	            id: 'HeadOffice',
 	            name: 'Head Office',
-	            title: 'West Zone',
 	        }, {
 	            id: 'Zone1',
-	            name: 'Head Office',
-	            title: 'West Zone',
+	            title: 'North Zone',
 	        }, {
 	            id: 'Zone2',
-	            name: 'Head Office',
 	            title: 'West Zone',
 	        }, {
 	            id: 'HR',
