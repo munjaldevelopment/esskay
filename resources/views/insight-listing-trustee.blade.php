@@ -1030,12 +1030,12 @@
         name: 'EssKay',
         keys: ['from', 'to'],
         data: [
-            ['Head Office', 'Board1'],
+            ['Head Office', 'NORTH'],
             ['Head Office', 'Board2'],
-            ['Board1', 'CTO'],
-            ['Board1', 'CPO'],
-            ['Board1', 'PUNJAB'],
-            ['Board1', 'HR'],
+            ['NORTH', 'CTO'],
+            ['NORTH', 'CPO'],
+            ['NORTH', 'PUNJAB'],
+            ['NORTH', 'HR'],
             ['Board2', 'CSO1'],
             ['Board2', 'HR1'],
             ['CTO', 'Product'],
@@ -1062,7 +1062,7 @@
         nodes: [{
             id: 'Head Office'
         }, {
-            id: 'Board1',
+            id: 'NORTH',
             name: 'North Zone',
             color: '#612622'
         }, {
