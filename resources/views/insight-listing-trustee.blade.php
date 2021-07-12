@@ -1034,14 +1034,14 @@
             level: 0,
             color: 'silver',
             dataLabels: {
-                color: 'black'
+                color: 'white'
             },
             height: 25
         }, {
             level: 1,
             color: 'silver',
             dataLabels: {
-                color: 'black'
+                color: 'white'
             },
             height: 25
         }, {
@@ -1055,7 +1055,7 @@
 	            id: 'HeadOffice',
 	            color: '#007ad0',
 	        }, {
-	            id: 'Zone'
+	            id: 'Zone1'
 	        }, {
 	            id: 'CEO',
 	            title: 'CEO',
