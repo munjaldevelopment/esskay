@@ -1005,7 +1005,7 @@
 <script type="text/javascript">
 	Highcharts.chart('operational_chart', {
     chart: {
-        height: 600,
+        height: 800,
         inverted: true
     },
     title: {
@@ -1149,10 +1149,11 @@
         colorByPoint: false,
         color: '#007ad0',
         dataLabels: {
-            color: 'white'
+            color: 'blue'
         },
-        borderColor: 'white',
-        nodeWidth: 65
+        borderColor: 'red',
+        nodeWidth: 65,
+        nodePadding: 80
     }],
     tooltip: {
         outside: true
