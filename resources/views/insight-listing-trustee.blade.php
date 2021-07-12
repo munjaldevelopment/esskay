@@ -1066,21 +1066,20 @@
             color: '#403152'
         }, {
             id: 'HR',
-            title: 'HR/CFO',
-            name: 'Anne Jorunn Fjærestad',
-            color: '#007ad0'
+            name: 'Haryana - Bhatinda',
+            color: '#933835'
         }, {
             id: 'CTO',
-            title: 'CTO',
-            name: 'Christer Vasseng'
+            name: 'Rajasthan - Jaipur',
+            color: '#933835'
         }, {
             id: 'CPO',
-            title: 'CPO',
-            name: 'Torstein Hønsi'
+            name: 'MP - Indore',
+            color: '#933835'
         }, {
             id: 'CSO',
-            title: 'CSO',
-            name: 'Anita Nesse'
+            name: 'Punjab - Bhatinda',
+            color: '#933835'
         }, {
             id: 'Product',
             name: 'Product developers'
