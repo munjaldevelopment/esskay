@@ -1047,17 +1047,11 @@
         ],
         levels: [{
             level: 0,
-            color: 'silver',
-            dataLabels: {
-                color: 'black'
-            },
+            color: '#01a3ae',
             height: 25
         }, {
             level: 1,
-            color: 'silver',
-            dataLabels: {
-                color: 'black'
-            },
+            color: '#612622',
             height: 25
         }, {
             level: 2,
