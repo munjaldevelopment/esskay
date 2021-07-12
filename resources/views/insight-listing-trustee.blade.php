@@ -1031,7 +1031,7 @@
         keys: ['from', 'to'],
         data: [
             ['Head Office', 'Board1'],
-            ['Board', 'Board2'],
+            ['Head Office', 'Board2'],
             ['Board1', 'CTO'],
             ['Board1', 'CPO'],
             ['Board1', 'CSO'],
@@ -1062,11 +1062,13 @@
             level: 2,
             color: '#980104'
         }, {
-            level: 3,
+            level: 4,
             color: '#359154'
         }],
         nodes: [{
             id: 'Head Office'
+        }, {
+            id: 'Board'
         }, {
             id: 'Board1',
             title: 'CEO',
