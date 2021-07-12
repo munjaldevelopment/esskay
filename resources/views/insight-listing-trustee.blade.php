@@ -1068,8 +1068,6 @@
         nodes: [{
             id: 'Head Office'
         }, {
-            id: 'Board'
-        }, {
             id: 'Board1',
             title: 'CEO',
             name: 'Grethe Hjetland',
