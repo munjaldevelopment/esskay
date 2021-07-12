@@ -1008,11 +1008,9 @@
         height: 600,
         inverted: true
     },
-
     title: {
         text: 'Operational Structure'
     },
-
     accessibility: {
         point: {
             descriptionFormatter: function (point) {
@@ -1024,7 +1022,6 @@
             }
         }
     },
-
     series: [{
         type: 'organization',
         name: 'EssKay',
@@ -1043,7 +1040,9 @@
             ['HR', 'Web1'],
             ['PUNJAB', 'Sales1'],
             ['HR1', 'Web2'],
-            ['CSO1', 'Sales2']
+            ['CSO1', 'Sales2'],
+            ['Product', 'Web211'],
+            ['Web', 'Sales211']
         ],
         levels: [{
             level: 0,
