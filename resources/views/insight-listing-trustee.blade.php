@@ -1042,7 +1042,9 @@
             ['HR1', 'Web2'],
             ['CSO1', 'Sales2'],
             ['Product', 'Web211'],
-            ['Web', 'Sales211']
+            ['Web', 'Sales211'],
+            ['Web1', 'Web212'],
+            ['Sales1', 'Sales212']
         ],
         levels: [{
             level: 0,
@@ -1117,7 +1119,17 @@
             id: 'Sales2',
             name: 'Hub12',
             color: '#b2a2c7'
-        }],
+        }, {
+            id: 'Web211',
+            name: 'Hub1211',
+            color: '#f3dbdb'
+        }, {
+            id: 'Sales211',
+            name: 'Hub1211',
+            color: '#f3dbdb'
+        }
+
+        ],
         colorByPoint: false,
         color: '#007ad0',
         dataLabels: {
