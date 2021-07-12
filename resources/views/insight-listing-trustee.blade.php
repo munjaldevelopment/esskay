@@ -1027,12 +1027,12 @@
         name: 'EssKay Fincorp Private Limited',
         keys: ['from', 'to'],
         data: [
-            ['Head', 'NZone'],
-            ['Head', 'WZone'],
-            ['NZone', 'State11'],
-            ['NZone', 'State12'],
-            ['NZone', 'State13'],
-            ['NZone', 'State14'],
+            ['Head Office', 'North Zone'],
+            ['Head Office', 'WZone'],
+            ['North Zone', 'State11'],
+            ['North Zone', 'State12'],
+            ['North Zone', 'State13'],
+            ['North Zone', 'State14'],
             ['WZone', 'State21'],
             ['WZone', 'State22'],
             ['State11', 'Hub11'],
@@ -1068,13 +1068,12 @@
             color: '#359154'
         }],
         nodes: [{
-	            id: 'Head',
-	            title: 'Head',
+	            id: 'Head Office',
 	            name: 'Head Office',
 	            color: '#01a3ae',
 	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
 	        }, {
-	            id: 'NZone',
+	            id: 'North Zone',
 	            title: 'North Zone',
 	            color: '#612622',
 	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
