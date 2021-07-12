@@ -831,7 +831,7 @@
     font-weight: 500;
     font-size: 13px;
     color: #767676;
-    padding: 9px 21px;
+    padding: 0;
 }
 
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item:hover {
@@ -2461,7 +2461,7 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
     border: none;
     margin-top: 0;
     margin-bottom: 0;
-    padding: 0px;
+    padding: 0 0 0 11px;
 }
 
 .navbar-expand-md .navbar-collapse .navbar-nav.ml-auto.nav-custome.d-sm-none .dropdown-menu li ul.submenu li {
@@ -2474,6 +2474,24 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
 
 .navbar-expand-md .navbar-collapse .navbar-nav.ml-auto.nav-custome.d-sm-none .dropdown-menu li a:focus {
     background: transparent;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu.active {
+    background: transparent;
+    color: #767676;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu.active a.dropdown-item {
+    padding: 9px 21px;
+    background: #1976D2;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu ul li a {
+    color: #fff;
+}
+
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu.about-container .dropdown-item {
+    padding: 9px 21px;
 }
 
 @media only screen and (max-width: 1366px) {
@@ -3289,7 +3307,7 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item a {
     display: inline-block;
     width: 100%;
-    padding: 0;
+    padding: 9px 21px;
 }
 
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item a:hover {
