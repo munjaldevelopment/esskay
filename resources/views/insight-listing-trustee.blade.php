@@ -1073,10 +1073,6 @@
             name: 'West Zone',
             color: '#403152'
         }, {
-            id: 'HR',
-            name: 'Haryana - <br /> Bhatinda',
-            color: '#933835'
-        }, {
             id: 'RJ',
             name: 'Rajasthan - <br /> Jaipur',
             color: '#933835'
@@ -1087,6 +1083,10 @@
         }, {
             id: 'PUNJAB',
             name: 'Punjab - <br /> Bhatinda',
+            color: '#933835'
+        }, {
+            id: 'HR',
+            name: 'Haryana - <br /> Bhatinda',
             color: '#933835'
         }, {
             id: 'CSO1',
