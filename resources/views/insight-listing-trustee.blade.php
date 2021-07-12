@@ -1078,31 +1078,38 @@
         nodes: [{
 	            id: 'HeadOffice',
 	            name: 'Head Office',
-	            color: '#01a3ae'
+	            color: '#01a3ae',
+	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
 	        }, {
 	            id: 'Zone1',
 	            title: 'North Zone',
-	            color: '#612622'
+	            color: '#612622',
+	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
 	        }, {
 	            id: 'Zone2',
 	            title: 'West Zone',
-	            color: '#403152'
+	            color: '#403152',
+	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
 	        }, {
 	            id: 'State11',
 	            title: 'Rajasthan - Jaipur',
-	            color: '#933835'
+	            color: '#933835',
+	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
 	        }, {
 	            id: 'State12',
 	            title: 'MP - Indore',
-	            color: '#933835'
+	            color: '#933835',
+	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
 	        }, {
 	            id: 'State13',
 	            title: 'Punjab - Bhatinda',
-	            color: '#933835'
+	            color: '#933835',
+	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
 	        }, {
 	            id: 'State14',
 	            title: 'Haryana - Bhatinda',
-	            color: '#933835'
+	            color: '#933835',
+	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
 	        }
 	    ],
         colorByPoint: false,
