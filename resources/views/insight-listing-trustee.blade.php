@@ -1010,7 +1010,7 @@
     },
 
     title: {
-        text: 'Highcharts Org Chart'
+        text: 'Operational Structure'
     },
 
     accessibility: {
