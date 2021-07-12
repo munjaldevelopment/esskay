@@ -1029,13 +1029,13 @@
         data: [
             ['Head Office', 'NORTH'],
             ['Head Office', 'WEST'],
-            ['NORTH', 'CTO'],
+            ['NORTH', 'RJ'],
             ['NORTH', 'CPO'],
             ['NORTH', 'PUNJAB'],
             ['NORTH', 'HR'],
             ['WEST', 'CSO1'],
             ['WEST', 'HR1'],
-            ['CTO', 'Product'],
+            ['RJ', 'Product'],
             ['CPO', 'Web'],
             ['HR', 'Web1'],
             ['PUNJAB', 'Sales1'],
@@ -1077,7 +1077,7 @@
             name: 'Haryana - <br /> Bhatinda',
             color: '#933835'
         }, {
-            id: 'CTO',
+            id: 'RJ',
             name: 'Rajasthan - <br /> Jaipur',
             color: '#933835'
         }, {
