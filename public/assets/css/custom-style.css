@@ -2445,7 +2445,7 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
     position: relative;
 }
 
-.mtd-timline-document.mtd-investor-trustee .mtd-container-box .mtdd-relevant-doc-cont p::before {
+/*.mtd-timline-document.mtd-investor-trustee .mtd-container-box .mtdd-relevant-doc-cont p::before {
     position: absolute;
     content: "";
     background: #56A0E9;
@@ -2455,7 +2455,7 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
     left: 17px;
     top: 50%;
     transform: translateY(-50%);
-}
+}*/
 
 .navbar-expand-md .navbar-collapse .navbar-nav.ml-auto.nav-custome.d-sm-none .dropdown-menu li ul.submenu {
     border: none;
