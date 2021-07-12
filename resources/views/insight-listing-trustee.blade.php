@@ -1041,7 +1041,9 @@
             ['CTO', 'Product'],
             ['CPO', 'Web'],
             ['HR', 'Web1'],
-            ['CSO', 'Sales']
+            ['CSO', 'Sales1'],
+            ['HR1', 'Web2'],
+            ['CSO1', 'Sales2']
         ],
         levels: [{
             level: 0,
@@ -1094,20 +1096,28 @@
         },
         {
             id: 'Product',
-            name: 'Product developers',
+            name: 'Hub',
             color: '#da9695'
         }, {
             id: 'Web',
-            name: 'Web devs, sys admin',
+            name: 'Hub',
             color: '#da9695'
         }, {
             id: 'Web1',
-            name: 'Web1',
+            name: 'Hub',
             color: '#da9695'
         }, {
-            id: 'Sales',
-            name: 'Sales team',
+            id: 'Sales1',
+            name: 'Hub',
             color: '#da9695'
+        }, {
+            id: 'Web2',
+            name: 'Hub',
+            color: '#b2a2c7'
+        }, {
+            id: 'Sales2',
+            name: 'Hub',
+            color: '#b2a2c7'
         }],
         colorByPoint: false,
         color: '#007ad0',
