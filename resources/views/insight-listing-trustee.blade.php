@@ -938,7 +938,7 @@
 @elseif($insightCatData->id == 15)
 	<div class="white-box">
 		<div class="pool-dynamic-graph">
-			<div id="container"></div>
+			<div id="operational_chart"></div>
 		</div>
 	</div>
 @elseif($insightCatData->id == 16)
@@ -1003,7 +1003,7 @@
 </script>
 @elseif($insightCatData->id == 15)
 <script type="text/javascript">
-	Highcharts.chart('container', {
+	Highcharts.chart('operational_chart', {
     chart: {
         height: 600,
         inverted: true
@@ -1162,22 +1162,22 @@
 	    background: #f1f7ff;
 	}
 
-	#container h4 {
+	#operational_chart h4 {
 	    text-transform: none;
 	    font-size: 14px;
 	    font-weight: normal;
 	}
-	#container p {
+	#operational_chart p {
 	    font-size: 13px;
 	    line-height: 16px;
 	}
 
 	@media screen and (max-width: 600px) {
-	    #container h4 {
+	    #operational_chart h4 {
 	        font-size: 2.3vw;
 	        line-height: 3vw;
 	    }
-	    #container p {
+	    #operational_chart p {
 	        font-size: 2.3vw;
 	        line-height: 3vw;
 	    }
