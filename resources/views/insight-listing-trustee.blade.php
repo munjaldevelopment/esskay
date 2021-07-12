@@ -1036,6 +1036,8 @@
             ['Board1', 'CPO'],
             ['Board1', 'CSO'],
             ['Board1', 'HR'],
+            ['Board2', 'CSO1'],
+            ['Board2', 'HR1'],
             ['CTO', 'Product'],
             ['CTO', 'Web'],
             ['CSO', 'Sales']
