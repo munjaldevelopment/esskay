@@ -1058,38 +1058,34 @@
         nodes: [{
             id: 'Head Office'
         }, {
-            id: 'Board'
-        }, {
             id: 'Board1',
-            title: 'CEO',
-            name: 'Grethe Hjetland',
-            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131126/Highsoft_03862_.jpg'
+            name: 'North Zone',
+            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
         }, {
             id: 'Board2',
-            title: 'CEO1',
-            name: 'Grethe Hjetland1',
-            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131126/Highsoft_03862_.jpg'
+            name: 'West Zone',
+            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
         }, {
             id: 'HR',
             title: 'HR/CFO',
             name: 'Anne Jorunn Fjærestad',
             color: '#007ad0',
-            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131210/Highsoft_04045_.jpg'
+            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
         }, {
             id: 'CTO',
             title: 'CTO',
             name: 'Christer Vasseng',
-            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131120/Highsoft_04074_.jpg'
+            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
         }, {
             id: 'CPO',
             title: 'CPO',
             name: 'Torstein Hønsi',
-            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131213/Highsoft_03998_.jpg'
+            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
         }, {
             id: 'CSO',
             title: 'CSO',
             name: 'Anita Nesse',
-            image: 'https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2020/03/17131156/Highsoft_03834_.jpg'
+            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
         }, {
             id: 'Product',
             name: 'Product developers'
