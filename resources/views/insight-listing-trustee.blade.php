@@ -938,11 +938,7 @@
 @elseif($insightCatData->id == 15)
 	<div class="white-box">
 		<div class="pool-dynamic-graph">
-			@if($chart4001)
-				<div id="operational_chart"></div>
-
-				{!! $chart4001 !!}
-			@endif
+			<div id="operational_chart"></div>
 		</div>
 	</div>
 @elseif($insightCatData->id == 16)
@@ -1010,6 +1006,127 @@
 	});
 </script>
 @elseif($insightCatData->id == 15)
+<script type="text/javascript">
+	Highcharts.chart('operational_chart', {
+    chart: {
+        height: 600,
+        inverted: true
+    },
+
+    title: {
+        text: 'Highcharts Org Chart'
+    },
+
+    accessibility: {
+        point: {
+            descriptionFormatter: function (point) {
+                var nodeName = point.toNode.name,
+                    nodeId = point.toNode.id,
+                    nodeDesc = nodeName === nodeId ? nodeName : nodeName + ', ' + nodeId,
+                    parentDesc = point.fromNode.id;
+                return point.index + '. ' + nodeDesc + ', reports to ' + parentDesc + '.';
+            }
+        }
+    },
+
+    series: [{
+        type: 'organization',
+        name: 'Highsoft',
+        keys: ['from', 'to'],
+        data: [
+            ['Shareholders', 'Board'],
+            ['Board', 'CEO'],
+            ['CEO', 'CTO'],
+            ['CEO', 'CPO'],
+            ['CEO', 'CSO'],
+            ['CEO', 'HR'],
+            ['CTO', 'Product'],
+            ['CTO', 'Web'],
+            ['CSO', 'Sales'],
+            ['HR', 'Market'],
+            ['CSO', 'Market'],
+            ['HR', 'Market'],
+            ['CTO', 'Market']
+        ],
+        levels: [{
+            level: 0,
+            color: 'silver',
+            dataLabels: {
+                color: 'black'
+            },
+            height: 25
+        }, {
+            level: 1,
+            color: 'silver',
+            dataLabels: {
+                color: 'black'
+            },
+            height: 25
+        }, {
+            level: 2,
+            color: '#980104'
+        }, {
+            level: 4,
+            color: '#359154'
+        }],
+        nodes: [{
+            id: 'Shareholders'
+        }, {
+            id: 'Board'
+        }, {
+            id: 'CEO',
+            title: 'CEO',
+            name: 'Grethe Hjetland',
+        }, {
+            id: 'HR',
+            title: 'HR/CFO',
+            name: 'Anne Jorunn Fjærestad',
+            color: '#007ad0',
+        }, {
+            id: 'CTO',
+            title: 'CTO',
+            name: 'Christer Vasseng',
+        }, {
+            id: 'CPO',
+            title: 'CPO',
+            name: 'Torstein Hønsi',
+        }, {
+            id: 'CSO',
+            title: 'CSO',
+            name: 'Anita Nesse',
+        }, {
+            id: 'Product',
+            name: 'Product developers'
+        }, {
+            id: 'Web',
+            name: 'Web devs, sys admin'
+        }, {
+            id: 'Sales',
+            name: 'Sales team'
+        }, {
+            id: 'Market',
+            name: 'Marketing team',
+            column: 5
+        }],
+        colorByPoint: false,
+        color: '#007ad0',
+        dataLabels: {
+            color: 'white'
+        },
+        borderColor: 'white',
+        nodeWidth: 65
+    }],
+    tooltip: {
+        outside: true
+    },
+    exporting: {
+        allowHTML: true,
+        sourceWidth: 800,
+        sourceHeight: 600
+    }
+});
+</script>
+
 <style type="text/css">
 	.highcharts-figure, .highcharts-data-table table {
 	    min-width: 360px; 

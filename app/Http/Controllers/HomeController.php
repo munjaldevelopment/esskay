@@ -5868,7 +5868,7 @@ class HomeController extends Controller
 		}
 		else if($request->category_id == 15)
 		{
-			$chart4001 = \Chart::title([
+			/*$chart4001 = \Chart::title([
 				'text' => ''
 			])
 			->chart([
@@ -5976,7 +5976,7 @@ class HomeController extends Controller
 			        'nodeWidth' => '65'
 				]
 			)
-			->displayOrganization();
+			->displayOrganization();*/
 		}
 		else if($request->category_id == 16)
 		{
