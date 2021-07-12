@@ -1046,7 +1046,6 @@
             height: 25
         }, {
             level: 1,
-            color: '#612622',
             height: 25
         }, {
             level: 2,
@@ -1060,7 +1059,7 @@
         }, {
             id: 'Board1',
             name: 'North Zone',
-            color: '#403152'
+            color: '#612622'
         }, {
             id: 'Board2',
             name: 'West Zone',
