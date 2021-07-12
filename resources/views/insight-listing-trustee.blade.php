@@ -1031,7 +1031,6 @@
         keys: ['from', 'to'],
         data: [
             ['Head Office', 'Board1'],
-            ['Board1', 'Board11'],
             ['Head Office', 'Board2'],
             ['Board1', 'CTO'],
             ['Board1', 'CPO'],
