@@ -1100,10 +1100,6 @@
         }, {
             id: 'Sales',
             name: 'Sales team'
-        }, {
-            id: 'Market',
-            name: 'Marketing team',
-            column: 5
         }],
         colorByPoint: false,
         color: '#007ad0',
