@@ -1027,14 +1027,14 @@
         name: 'EssKay Fincorp Private Limited',
         keys: ['from', 'to'],
         data: [
-            ['HeadOffice', 'Zone1'],
-            ['HeadOffice', 'Zone2'],
-            ['Zone1', 'State11'],
-            ['Zone1', 'State12'],
-            ['Zone1', 'State13'],
-            ['Zone1', 'State14'],
-            ['Zone2', 'State21'],
-            ['Zone2', 'State22'],
+            ['Head', 'NZone'],
+            ['Head', 'WZone'],
+            ['NZone', 'State11'],
+            ['NZone', 'State12'],
+            ['NZone', 'State13'],
+            ['NZone', 'State14'],
+            ['WZone', 'State21'],
+            ['WZone', 'State22'],
             ['State11', 'Hub11'],
             ['State12', 'Hub12'],
             ['State13', 'Hub13'],
@@ -1068,18 +1068,18 @@
             color: '#359154'
         }],
         nodes: [{
-	            id: 'HeadOffice',
+	            id: 'Head',
 	            title: 'HeadOffice',
 	            name: 'Head Office',
 	            color: '#01a3ae',
 	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
 	        }, {
-	            id: 'Zone1',
+	            id: 'NZone',
 	            title: 'North Zone',
 	            color: '#612622',
 	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
 	        }, {
-	            id: 'Zone2',
+	            id: 'WZone',
 	            title: 'West Zone',
 	            color: '#403152',
 	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
