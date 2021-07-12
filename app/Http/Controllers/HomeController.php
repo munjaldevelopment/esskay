@@ -5629,7 +5629,6 @@ class HomeController extends Controller
 						'name'  => INCREMENTAL_LABEL3, // Avg Ticket
 						'data'  => $capitalData3,
 						'type' => 'spline',
-						'yAxis' => 2
 					]
 				]
 			)
