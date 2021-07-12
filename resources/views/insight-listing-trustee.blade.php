@@ -1030,13 +1030,13 @@
             ['Head Office', 'NORTH'],
             ['Head Office', 'WEST'],
             ['NORTH', 'RJ'],
-            ['NORTH', 'CPO'],
+            ['NORTH', 'MP'],
             ['NORTH', 'PUNJAB'],
             ['NORTH', 'HR'],
             ['WEST', 'CSO1'],
             ['WEST', 'HR1'],
             ['RJ', 'Product'],
-            ['CPO', 'Web'],
+            ['MP', 'Web'],
             ['HR', 'Web1'],
             ['PUNJAB', 'Sales1'],
             ['HR1', 'Web2'],
@@ -1081,7 +1081,7 @@
             name: 'Rajasthan - <br /> Jaipur',
             color: '#933835'
         }, {
-            id: 'CPO',
+            id: 'MP',
             name: 'MP - <br /> Indore',
             color: '#933835'
         }, {
