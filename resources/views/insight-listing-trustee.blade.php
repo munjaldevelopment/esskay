@@ -1057,17 +1057,9 @@
         levels: [{
             level: 0,
             color: 'silver',
-            dataLabels: {
-                color: 'white'
-            },
-            height: 25
         }, {
             level: 1,
             color: 'silver',
-            dataLabels: {
-                color: 'white'
-            },
-            height: 25
         }, {
             level: 2,
             color: '#980104'
@@ -1077,6 +1069,7 @@
         }],
         nodes: [{
 	            id: 'HeadOffice',
+	            title: 'HeadOffice',
 	            name: 'Head Office',
 	            color: '#01a3ae',
 	            image: 'https://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png'
