@@ -1094,7 +1094,7 @@
             color: '#604a7b'
         }, {
             id: 'HR1',
-            name: 'Maharashtra - Pune',
+            name: 'Maharashtra - <br /> Pune',
             color: '#604a7b'
         },
         {
