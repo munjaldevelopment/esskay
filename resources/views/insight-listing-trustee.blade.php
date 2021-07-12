@@ -1171,10 +1171,6 @@
 	    line-height: 16px;
 	}
 
-	.highcharts-label {
-	    width: 176px !important;
-	}
-
 	@media screen and (max-width: 600px) {
 	    #operational_chart h4 {
 	        font-size: 2.3vw;
