@@ -1028,13 +1028,13 @@
         keys: ['from', 'to'],
         data: [
             ['Head Office', 'NORTH'],
-            ['Head Office', 'Board2'],
+            ['Head Office', 'WEST'],
             ['NORTH', 'CTO'],
             ['NORTH', 'CPO'],
             ['NORTH', 'PUNJAB'],
             ['NORTH', 'HR'],
-            ['Board2', 'CSO1'],
-            ['Board2', 'HR1'],
+            ['WEST', 'CSO1'],
+            ['WEST', 'HR1'],
             ['CTO', 'Product'],
             ['CPO', 'Web'],
             ['HR', 'Web1'],
@@ -1069,7 +1069,7 @@
             name: 'North Zone',
             color: '#612622'
         }, {
-            id: 'Board2',
+            id: 'WEST',
             name: 'West Zone',
             color: '#403152'
         }, {
