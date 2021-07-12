@@ -1082,15 +1082,15 @@
             color: '#933835'
         }, {
             id: 'CPO',
-            name: 'MP - Indore',
+            name: 'MP - <br /> Indore',
             color: '#933835'
         }, {
             id: 'PUNJAB',
-            name: 'Punjab - Bhatinda',
+            name: 'Punjab - <br /> Bhatinda',
             color: '#933835'
         }, {
             id: 'CSO1',
-            name: 'Gujarat - Ahmedabad',
+            name: 'Gujarat - <br /> Ahmedabad',
             color: '#604a7b'
         }, {
             id: 'HR1',
