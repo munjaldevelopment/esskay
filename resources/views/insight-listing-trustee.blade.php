@@ -1160,22 +1160,22 @@
 	    background: #f1f7ff;
 	}
 
-	#container h4 {
+	#operational_chart h4 {
 	    text-transform: none;
 	    font-size: 14px;
 	    font-weight: normal;
 	}
-	#container p {
+	#operational_chart p {
 	    font-size: 13px;
 	    line-height: 16px;
 	}
 
 	@media screen and (max-width: 600px) {
-	    #container h4 {
+	    #operational_chart h4 {
 	        font-size: 2.3vw;
 	        line-height: 3vw;
 	    }
-	    #container p {
+	    #operational_chart p {
 	        font-size: 2.3vw;
 	        line-height: 3vw;
 	    }
