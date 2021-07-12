@@ -1152,7 +1152,7 @@
             color: 'white'
         },
         borderColor: 'white',
-        nodeWidth: 65
+        nodeWidth: 45
     }],
     tooltip: {
         outside: true
