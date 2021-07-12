@@ -1053,13 +1053,16 @@
         }],
         nodes: [{
 	            id: 'HeadOffice',
-	            color: '#007ad0',
+	            name: 'Head Office',
+	            title: 'West Zone',
 	        }, {
-	            id: 'Zone1'
+	            id: 'Zone1',
+	            name: 'Head Office',
+	            title: 'West Zone',
 	        }, {
-	            id: 'CEO',
-	            title: 'CEO',
-	            name: 'Grethe Hjetland',
+	            id: 'Zone2',
+	            name: 'Head Office',
+	            title: 'West Zone',
 	        }, {
 	            id: 'HR',
 	            title: 'HR/CFO',
