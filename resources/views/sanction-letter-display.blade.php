@@ -97,16 +97,16 @@
 			<td class="accept-sanction-container{{ $sanctionLetterData['id'] }}">
 				@if($category_id == "new")
 					@if($trustee_id == 1)
-						@if($sanctionLetterData['is_approve1'] == 0)<a class="btn btn-info accept-sanction1" data-id="{{ $sanctionLetterData['id }}" href="javascript:;">Accept <i class="fa fa-check"></i></a> 
+						@if($sanctionLetterData['is_approve1'] == 0)<a class="btn btn-info accept-sanction1" data-id="{{ $sanctionLetterData['id'] }}" href="javascript:;">Accept <i class="fa fa-check"></i></a> 
 						&nbsp;&nbsp; 
 						<a class="btn btn-danger reject-sanction1" data-id="{{ $sanctionLetterData['id'] }}" href="javascript:;">Reject <i class="fa fa-times"></i></a>@endif
 					@elseif($trustee_id == 2)
-						@if($sanctionLetterData['is_approve2'] == 0)<a class="btn btn-info accept-sanction2" data-id="{{ $sanctionLetterData['id }}" href="javascript:;">Accept <i class="fa fa-check"></i></a>
+						@if($sanctionLetterData['is_approve2'] == 0)<a class="btn btn-info accept-sanction2" data-id="{{ $sanctionLetterData['id'] }}" href="javascript:;">Accept <i class="fa fa-check"></i></a>
 						&nbsp;&nbsp;
 						<a class="btn btn-danger reject-sanction2" data-id="{{ $sanctionLetterData['id'] }}" href="javascript:;">Reject <i class="fa fa-times"></i></a>
 						@endif
 					@elseif($trustee_id == 3)
-						@if($sanctionLetterData['is_approve3'] == 0)<a class="btn btn-info accept-sanction3" data-id="{{ $sanctionLetterData['id }}" href="javascript:;">Accept <i class="fa fa-check"></i></a>
+						@if($sanctionLetterData['is_approve3'] == 0)<a class="btn btn-info accept-sanction3" data-id="{{ $sanctionLetterData['id'] }}" href="javascript:;">Accept <i class="fa fa-check"></i></a>
 						&nbsp;&nbsp;
 						<a class="btn btn-danger reject-sanction3" data-id="{{ $sanctionLetterData['id'] }}" href="javascript:;">Reject <i class="fa fa-times"></i></a>
 						@endif
