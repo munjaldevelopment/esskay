@@ -1059,7 +1059,7 @@
 
 	    var datascource = {
 	      'name': 'Lao Lao',
-	      'title': 'general manager',
+	      'title': '',
 	      'children': [
 	        { 'name': 'Bo Miao', 'title': 'department manager', 'className': 'middle-level',
 	          'children': [
