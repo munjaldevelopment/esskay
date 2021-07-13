@@ -86,7 +86,7 @@
 		</tr>
 		<tr>
 			<th class="border-bottom">Sanction Letter</th>
-			<td><a href="{{ asset('/') }}downloadsanctionLetter/{{ base64_encode($sanctionLetterData->id) }}" target="_blank"><i class="fa fa-download" aria-hidden="true"></i></a></td>
+			<td><a href="{{ asset('/') }}downloadsanctionLetter/{{ base64_encode($sanctionLetterData->id) }}" target="_blank"><i class="fa fa-file-{{ $sanctionLetterData->ext }}-o" aria-hidden="true"></i></a></td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Status</th>
