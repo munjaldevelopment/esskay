@@ -48,8 +48,10 @@
 				<div class="mtdd-relevant-doc-cont">
 					<h4>Investor </h4>
 					<div>
+						<i class="mtdd-relevant-name-first">I</i> 
+
 						@foreach($relevantPartyInvestorData as $row)
-						<p><i class="mtdd-relevant-name-first">{{ substr($row->party_name, 0, 1) }}</i> {{ $row->party_name }}</p>
+						<p>{{ $row->party_name }}</p>
 						@endforeach
 					</div>
 				</div>
@@ -63,8 +65,9 @@
 				<div class="mtdd-relevant-doc-cont">
 					<h4>Trustee </h4>
 					<div>
+						<i class="mtdd-relevant-name-first">T</i> 
 						@foreach($relevantPartyTrusteeData as $row)
-						<p><i class="mtdd-relevant-name-first">{{ substr($row->party_name, 0, 1) }}</i> {{ $row->party_name }}</p>
+						<p>{{ $row->party_name }}</p>
 						@endforeach
 					</div>
 				</div>
@@ -78,8 +81,9 @@
 				<div class="mtdd-relevant-doc-cont">
 					<h4>Legal </h4>
 					<div>
+						<i class="mtdd-relevant-name-first">L</i> 
 						@foreach($relevantPartyLegalData as $row)
-						<p><i class="mtdd-relevant-name-first">{{ substr($row->party_name, 0, 1) }}</i> {{ $row->party_name }}</p>
+						<p>{{ $row->party_name }}</p>
 						@endforeach
 					</div>
 				</div>
@@ -93,8 +97,9 @@
 				<div class="mtdd-relevant-doc-cont">
 					<h4>Arranger </h4>
 					<div>
+						<i class="mtdd-relevant-name-first">A</i> 
 						@foreach($relevantPartyArrangerData as $row)
-						<p><i class="mtdd-relevant-name-first">{{ substr($row->party_name, 0, 1) }}</i> {{ $row->party_name }}</p>
+						<p>{{ $row->party_name }}</p>
 						@endforeach
 					</div>
 				</div>
@@ -108,8 +113,9 @@
 				<div class="mtdd-relevant-doc-cont">
 					<h4>Rating </h4>
 					<div>
+						<i class="mtdd-relevant-name-first">R</i> 
 						@foreach($relevantPartyRatingData as $row)
-						<p>EssKay1</p>
+						<p>{{ $row->party_name }}</p>
 						@endforeach
 					</div>
 				</div>
