@@ -50,7 +50,7 @@
 					<i class="mtdd-relevant-name-first">I</i> 
 					<div>
 						@foreach($relevantPartyInvestorData as $row)
-						<p>{{ $row->party_name }}</p>
+						<p>&bull; {{ $row->party_name }}</p>
 						@endforeach
 					</div>
 				</div>
@@ -66,7 +66,7 @@
 					<i class="mtdd-relevant-name-first">T</i> 
 					<div>
 						@foreach($relevantPartyTrusteeData as $row)
-						<p>{{ $row->party_name }}</p>
+						<p>&bull; {{ $row->party_name }}</p>
 						@endforeach
 					</div>
 				</div>
@@ -82,7 +82,7 @@
 					<i class="mtdd-relevant-name-first">L</i> 
 					<div>
 						@foreach($relevantPartyLegalData as $row)
-						<p>{{ $row->party_name }}</p>
+						<p>&bull; {{ $row->party_name }}</p>
 						@endforeach
 					</div>
 				</div>
@@ -98,7 +98,7 @@
 					<i class="mtdd-relevant-name-first">A</i> 
 					<div>
 						@foreach($relevantPartyArrangerData as $row)
-						<p>{{ $row->party_name }}</p>
+						<p>&bull; {{ $row->party_name }}</p>
 						@endforeach
 					</div>
 				</div>

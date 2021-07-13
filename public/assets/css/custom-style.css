@@ -2482,10 +2482,10 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
 }
 
 .mtd-timline-document.mtd-investor-trustee .mtd-container-box .mtdd-relevant-doc-cont p {
-    padding: 0 18px;
+	padding: 0 6px;
     position: relative;
-    margin-bottom: 26px;
-    font-size: 14px;
+    margin-bottom: 6px;
+    font-size: 12px;
 }
 
 .mtdd-relevant-name-first {
