@@ -1005,7 +1005,7 @@
 <script type="text/javascript">
 	Highcharts.chart('operational_chart', {
     chart: {
-        height: 800,
+        height: 500,
         inverted: true
     },
     title: {
