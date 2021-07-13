@@ -7532,7 +7532,9 @@ class HomeController extends Controller
     	//dd($trusteeData);
     	$trustee_id = $trusteeData->id;
 
-    	$sanctionLetterData = \DB::table('sanction_letters')->find($sanction_id)->toArray();
+    	$sanctionLetterData = \DB::table('sanction_letters')->find($sanction_id);
+    	$sanctionLetterData = (array) $sanctionLetterData;
+
     	dd($sanctionLetterData);
 
     	$current_year = date('Y');
