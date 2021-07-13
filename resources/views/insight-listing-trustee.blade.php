@@ -1033,6 +1033,7 @@
             ['NORTH', 'MP'],
             ['NORTH', 'PUNJAB'],
             ['NORTH', 'HR'],
+            ['NORTH', 'CHHA'],
             ['WEST', 'CSO1'],
             ['WEST', 'HR1'],
             ['RJ', 'Product'],
@@ -1089,6 +1090,11 @@
             name: 'Haryana - <br /> Bhatinda',
             color: '#933835'
         }, {
+            id: 'CHHA',
+            name: 'Chattisgarh',
+            color: '#933835'
+        },
+        {
             id: 'CSO1',
             name: 'Gujarat - <br /> Ahmedabad',
             color: '#604a7b'
