@@ -10,7 +10,7 @@
 								<table class="table">
 									<thead>
 										<tr>
-											<th class="text-justify" style="min-width: 140px;">Name of the Director</th>
+											<th class="text-justify" style="width: 220px;">Name of the Director</th>
 											<th class="border-bottom">Status</th>
 											<th class="border-bottom">Nature of Directorship</th>
 										</tr>
@@ -18,7 +18,7 @@
 									<tbody>
 										@foreach($boardData as $row)
 										<tr>
-											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
+											<td class="text-justify" style="width: 220px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
@@ -38,7 +38,7 @@
 								<table class="table">
 									<thead>
 										<tr>
-											<th class="text-justify" style="min-width: 140px;">Name of the Director</th>
+											<th class="text-justify" style="width: 220px;">Name of the Director</th>
 											<th class="border-bottom">Status</th>
 											<th class="border-bottom">Nature of Directorship</th>
 										</tr>
@@ -46,7 +46,7 @@
 									<tbody>
 										@foreach($auditData as $row)
 										<tr>
-											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
+											<td class="text-justify" style="width: 220px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
@@ -66,7 +66,7 @@
 								<table class="table">
 									<thead>
 										<tr>
-											<th class="text-justify" style="min-width: 140px;">Name of the Director</th>
+											<th class="text-justify" style="width: 220px;">Name of the Director</th>
 											<th class="border-bottom">Status</th>
 											<th class="border-bottom">Nature of Directorship</th>
 										</tr>
@@ -74,7 +74,7 @@
 									<tbody>
 										@foreach($assetData as $row)
 										<tr>
-											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
+											<td class="text-justify" style="width: 220px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
@@ -94,7 +94,7 @@
 								<table class="table">
 									<thead>
 										<tr>
-											<th class="text-justify" style="min-width: 140px;">Name of the Director</th>
+											<th class="text-justify" style="width: 220px;">Name of the Director</th>
 											<th class="border-bottom">Status</th>
 											<th class="border-bottom">Nature of Directorship</th>
 										</tr>
@@ -102,7 +102,7 @@
 									<tbody>
 										@foreach($riskData as $row)
 										<tr>
-											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
+											<td class="text-justify" style="width: 220px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
@@ -122,7 +122,7 @@
 								<table class="table">
 									<thead>
 										<tr>
-											<th class="text-justify" style="min-width: 140px;">Name of the Director</th>
+											<th class="text-justify" style="width: 220px;">Name of the Director</th>
 											<th class="border-bottom">Status</th>
 											<th class="border-bottom">Nature of Directorship</th>
 										</tr>
@@ -130,7 +130,7 @@
 									<tbody>
 										@foreach($corpData as $row)
 										<tr>
-											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
+											<td class="text-justify" style="width: 220px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
@@ -150,7 +150,7 @@
 								<table class="table">
 									<thead>
 										<tr>
-											<th class="text-justify" style="min-width: 140px;">Name of the Director</th>
+											<th class="text-justify" style="width: 220px;">Name of the Director</th>
 											<th class="border-bottom">Status</th>
 											<th class="border-bottom">Nature of Directorship</th>
 										</tr>
@@ -158,7 +158,7 @@
 									<tbody>
 										@foreach($nominationData as $row)
 										<tr>
-											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
+											<td class="text-justify" style="width: 220px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
@@ -178,7 +178,7 @@
 								<table class="table">
 									<thead>
 										<tr>
-											<th class="text-justify" style="min-width: 140px;">Name of the Director</th>
+											<th class="text-justify" style="width: 220px;">Name of the Director</th>
 											<th class="border-bottom">Status</th>
 											<th class="border-bottom">Nature of Directorship</th>
 										</tr>
@@ -186,7 +186,7 @@
 									<tbody>
 										@foreach($itstrategyData as $row)
 										<tr>
-											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
+											<td class="text-justify" style="width: 220px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
@@ -206,7 +206,7 @@
 								<table class="table">
 									<thead>
 										<tr>
-											<th class="text-justify" style="min-width: 140px;">Name of the Director</th>
+											<th class="text-justify" style="width: 220px;">Name of the Director</th>
 											<th class="border-bottom">Status</th>
 											<th class="border-bottom">Nature of Directorship</th>
 										</tr>
@@ -214,7 +214,7 @@
 									<tbody>
 										@foreach($executiveData as $row)
 										<tr>
-											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
+											<td class="text-justify" style="width: 220px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
