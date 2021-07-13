@@ -1061,26 +1061,26 @@
 	      'name': 'Lao Lao',
 	      'title': '',
 	      'children': [
-	        { 'name': 'Bo Miao', 'title': 'department manager', 'className': 'middle-level',
+	        { 'name': 'Bo Miao', 'title': '', 'className': 'middle-level',
 	          'children': [
-	            { 'name': 'Li Jing', 'title': 'senior engineer', 'className': 'product-dept' },
-	            { 'name': 'Li Xin', 'title': 'senior engineer', 'className': 'product-dept',
+	            { 'name': 'Li Jing', 'title': '', 'className': 'product-dept' },
+	            { 'name': 'Li Xin', 'title': '', 'className': 'product-dept',
 	              'children': [
-	                { 'name': 'To To', 'title': 'engineer', 'className': 'pipeline1' },
-	                { 'name': 'Fei Fei', 'title': 'engineer', 'className': 'pipeline1' },
-	                { 'name': 'Xuan Xuan', 'title': 'engineer', 'className': 'pipeline1' }
+	                { 'name': 'To To', 'title': '', 'className': 'pipeline1' },
+	                { 'name': 'Fei Fei', 'title': '', 'className': 'pipeline1' },
+	                { 'name': 'Xuan Xuan', 'title': '', 'className': 'pipeline1' }
 	              ]
 	            }
 	          ]
 	        },
-	        { 'name': 'Su Miao', 'title': 'department manager', 'className': 'middle-level',
+	        { 'name': 'Su Miao', 'title': '', 'className': 'middle-level',
 	          'children': [
-	            { 'name': 'Pang Pang', 'title': 'senior engineer', 'className': 'rd-dept' },
-	            { 'name': 'Hei Hei', 'title': 'senior engineer', 'className': 'rd-dept',
+	            { 'name': 'Pang Pang', 'title': '', 'className': 'rd-dept' },
+	            { 'name': 'Hei Hei', 'title': '', 'className': 'rd-dept',
 	              'children': [
-	                { 'name': 'Xiang Xiang', 'title': 'UE engineer', 'className': 'frontend1' },
-	                { 'name': 'Dan Dan', 'title': 'engineer', 'className': 'frontend1' },
-	                { 'name': 'Zai Zai', 'title': 'engineer', 'className': 'frontend1' }
+	                { 'name': 'Xiang Xiang', 'title': 'UE ', 'className': 'frontend1' },
+	                { 'name': 'Dan Dan', 'title': '', 'className': 'frontend1' },
+	                { 'name': 'Zai Zai', 'title': '', 'className': 'frontend1' }
 	              ]
 	            }
 	          ]
