@@ -8,7 +8,7 @@
 					<ul class="nav navbar-nav category-listing" id="menu-accordian">
 						<li>
 							<a class="dropdown-box sanction-letter-category-list" data-category="new" href="javascript:;" data-category="new">
-								<span>New</span>
+								<span>New (6)</span>
 							</a>
 						</li>
 						<li>

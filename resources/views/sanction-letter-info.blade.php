@@ -6,7 +6,7 @@
 				<table class="table">
 					<thead>
 						<tr>
-							
+							<th class="border-bottom">Sr. No.</th>
 							<th style="min-width: 140px;">Bank Name</th>
 							<th class="border-bottom">Type of Facility</th>
 							<th class="border-bottom">Facility Amount</th>
@@ -20,8 +20,9 @@
 					</thead>
 					<tbody>
 						@if($sanctionLetterData)
-							@foreach($sanctionLetterData as $row)
+							@foreach($sanctionLetterData as $k => $row)
 							<tr>
+								<td>{{ $k + 1 }}</td>
 								<td class="text-justify">{{ $row->bank_name }}</td>
 								<td>{{ $row->type_facility }}</td>
 								<td>{{ $row->facility_amount }}</td>

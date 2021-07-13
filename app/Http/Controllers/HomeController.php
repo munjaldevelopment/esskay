@@ -7507,7 +7507,7 @@ class HomeController extends Controller
 
 		if($category_id == "new")
 		{
-			$sanctionLetterData = \DB::table('sanction_letters')->leftJoin('users', 'sanction_letters.user_id', '=', 'users.id')->selectRaw('sanction_letters.*, users.name as created_name')->where($where)->skip(0)->take(1)->orderBy('id', 'DESC')->get();
+			$sanctionLetterData = \DB::table('sanction_letters')->leftJoin('users', 'sanction_letters.user_id', '=', 'users.id')->selectRaw('sanction_letters.*, users.name as created_name')->where($where)->orderBy('id', 'DESC')->get();
 		}
 		else
 		{
