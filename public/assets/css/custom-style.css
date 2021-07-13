@@ -2478,7 +2478,8 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
     margin-bottom: 20px;
     color: #fff;
     font-size: 16px;
-    border-left: 6px solid #0060ab;
+    /*border-left: 6px solid #0060ab;*/
+    text-align: center;
 }
 
 .mtd-timline-document.mtd-investor-trustee .mtd-container-box .mtdd-relevant-doc-cont p {
