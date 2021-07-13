@@ -1002,232 +1002,101 @@
 	});
 </script>
 @elseif($insightCatData->id == 15)
-<script type="text/javascript">
-	Highcharts.chart('operational_chart', {
-    chart: {
-        height: 500,
-        inverted: true
-    },
-    title: {
-        text: 'Operational Structure'
-    },
-    accessibility: {
-        point: {
-            descriptionFormatter: function (point) {
-                var nodeName = point.toNode.name,
-                    nodeId = point.toNode.id,
-                    nodeDesc = nodeName === nodeId ? nodeName : nodeName + ', ' + nodeId,
-                    parentDesc = point.fromNode.id;
-                return point.index + '. ' + nodeDesc + ', reports to ' + parentDesc + '.';
-            }
-        }
-    },
-    series: [{
-        type: 'organization',
-        name: 'EssKay',
-        keys: ['from', 'to'],
-        data: [
-            ['Head Office', 'NORTH'],
-            ['Head Office', 'WEST'],
-            ['NORTH', 'RJ'],
-            ['NORTH', 'MP'],
-            ['NORTH', 'PUNJAB'],
-            ['NORTH', 'HR'],
-            ['NORTH', 'CHHA'],
-            ['WEST', 'CSO1'],
-            ['WEST', 'HR1'],
-            ['RJ', 'Product'],
-            ['MP', 'Web'],
-            ['HR', 'Web1'],
-            ['PUNJAB', 'Sales1'],
-            ['HR1', 'Web2'],
-            ['CSO1', 'Sales2'],
-            ['Product', 'Web211'],
-            ['Web', 'Sales211'],
-            ['Web1', 'Web212'],
-            ['Sales1', 'Sales212'],
-            ['Web2', 'Web213'],
-            ['Sales2', 'Sales213']
-        ],
-        levels: [{
-            level: 0,
-            color: '#01a3ae',
-            height: 25
-        }, {
-            level: 1,
-            height: 25
-        }, {
-            level: 2,
-            color: '#980104'
-        }, {
-            level: 3,
-            color: '#359154'
-        }],
-        nodes: [{
-            id: 'Head Office'
-        }, {
-            id: 'NORTH',
-            name: 'North Zone',
-            color: '#612622'
-        }, {
-            id: 'WEST',
-            name: 'West Zone',
-            color: '#403152'
-        }, {
-            id: 'RJ',
-            name: 'Rajasthan - <br /> Jaipur',
-            color: '#933835'
-        }, {
-            id: 'MP',
-            name: 'MP - <br /> Indore',
-            color: '#933835'
-        }, {
-            id: 'PUNJAB',
-            name: 'Punjab - <br /> Bhatinda',
-            color: '#933835'
-        }, {
-            id: 'HR',
-            name: 'Haryana - <br /> Bhatinda',
-            color: '#933835'
-        }, {
-            id: 'CHHA',
-            name: 'Chattisgarh',
-            color: '#933835'
-        },
-        {
-            id: 'CSO1',
-            name: 'Gujarat - <br /> Ahmedabad',
-            color: '#604a7b'
-        }, {
-            id: 'HR1',
-            name: 'Maharashtra - <br /> Pune',
-            color: '#604a7b'
-        },
-        {
-            id: 'Product',
-            name: 'Hub1',
-            color: '#da9695'
-        }, {
-            id: 'Web',
-            name: 'Hub2',
-            color: '#da9695'
-        }, {
-            id: 'Web1',
-            name: 'Hub3',
-            color: '#da9695'
-        }, {
-            id: 'Sales1',
-            name: 'Hub4',
-            color: '#da9695'
-        }, {
-            id: 'Web2',
-            name: 'Hub11',
-            color: '#b2a2c7'
-        }, {
-            id: 'Sales2',
-            name: 'Hub12',
-            color: '#b2a2c7'
-        }, {
-            id: 'Web211',
-            name: 'Hub1211',
-            color: '#f3dbdb'
-        }, {
-            id: 'Sales211',
-            name: 'Hub1211',
-            color: '#f3dbdb'
-        }, {
-            id: 'Web212',
-            name: 'Hub1212',
-            color: '#f3dbdb'
-        }, {
-            id: 'Sales212',
-            name: 'Hub1212',
-            color: '#f3dbdb'
-       	}, {
-            id: 'Web213',
-            name: 'Hub1213',
-            color: '#cbc2d7'
-        }, {
-            id: 'Sales213',
-            name: 'Hub1213',
-            color: '#cbc2d7'
-       	}],
-        colorByPoint: false,
-        color: '#007ad0',
-        dataLabels: {
-            color: 'white'
-        },
-        borderColor: 'white',
-        nodeWidth: 45,
-        nodeHeight: 25,
-    }],
-    tooltip: {
-        outside: true
-    },
-    exporting: {
-        allowHTML: true,
-        sourceWidth: 800,
-        sourceHeight: 600
-    }
-});
-</script>
 <style type="text/css">
-	.highcharts-figure, .highcharts-data-table table {
-	    min-width: 360px; 
-	    max-width: 800px;
-	    margin: 1em auto;
+	#operational_chart {
+	  height: 420px;
+	  border: 2px dashed #aaa;
+	  border-radius: 5px;
+	  overflow: auto;
+	  text-align: center;
 	}
 
-	.highcharts-data-table table {
-		font-family: Verdana, sans-serif;
-		border-collapse: collapse;
-		border: 1px solid #EBEBEB;
-		margin: 10px auto;
-		text-align: center;
-		width: 100%;
-		max-width: 500px;
+	.orgchart {
+	  background: #fff; 
 	}
-	.highcharts-data-table caption {
-	    padding: 1em 0;
-	    font-size: 1.2em;
-	    color: #555;
+	.orgchart td.left, .orgchart td.right, .orgchart td.top {
+	  border-color: #aaa;
 	}
-	.highcharts-data-table th {
-		font-weight: 600;
-	    padding: 0.5em;
+	.orgchart td>.down {
+	  background-color: #aaa;
 	}
-	.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-	    padding: 0.5em;
+	.orgchart .middle-level .title {
+	  background-color: #006699;
 	}
-	.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-	    background: #f8f8f8;
+	.orgchart .middle-level .content {
+	  border-color: #006699;
 	}
-	.highcharts-data-table tr:hover {
-	    background: #f1f7ff;
+	.orgchart .product-dept .title {
+	  background-color: #009933;
 	}
-
-	#operational_chart h4 {
-	    text-transform: none;
-	    font-size: 14px;
-	    font-weight: normal;
+	.orgchart .product-dept .content {
+	  border-color: #009933;
 	}
-	#operational_chart p {
-	    font-size: 13px;
-	    line-height: 16px;
+	.orgchart .rd-dept .title {
+	  background-color: #993366;
 	}
-
-	@media screen and (max-width: 600px) {
-	    #operational_chart h4 {
-	        font-size: 2.3vw;
-	        line-height: 3vw;
-	    }
-	    #operational_chart p {
-	        font-size: 2.3vw;
-	        line-height: 3vw;
-	    }
+	.orgchart .rd-dept .content {
+	  border-color: #993366;
 	}
-
+	.orgchart .pipeline1 .title {
+	  background-color: #996633;
+	}
+	.orgchart .pipeline1 .content {
+	  border-color: #996633;
+	}
+	.orgchart .frontend1 .title {
+	  background-color: #cc0066;
+	}
+	.orgchart .frontend1 .content {
+	  border-color: #cc0066;
+	}
 </style>
+<script type="text/javascript">
+	'use strict';
+
+	(function($){
+	  $(function() {
+
+	    var datascource = {
+	      'name': 'Lao Lao',
+	      'title': 'general manager',
+	      'children': [
+	        { 'name': 'Bo Miao', 'title': 'department manager', 'className': 'middle-level',
+	          'children': [
+	            { 'name': 'Li Jing', 'title': 'senior engineer', 'className': 'product-dept' },
+	            { 'name': 'Li Xin', 'title': 'senior engineer', 'className': 'product-dept',
+	              'children': [
+	                { 'name': 'To To', 'title': 'engineer', 'className': 'pipeline1' },
+	                { 'name': 'Fei Fei', 'title': 'engineer', 'className': 'pipeline1' },
+	                { 'name': 'Xuan Xuan', 'title': 'engineer', 'className': 'pipeline1' }
+	              ]
+	            }
+	          ]
+	        },
+	        { 'name': 'Su Miao', 'title': 'department manager', 'className': 'middle-level',
+	          'children': [
+	            { 'name': 'Pang Pang', 'title': 'senior engineer', 'className': 'rd-dept' },
+	            { 'name': 'Hei Hei', 'title': 'senior engineer', 'className': 'rd-dept',
+	              'children': [
+	                { 'name': 'Xiang Xiang', 'title': 'UE engineer', 'className': 'frontend1' },
+	                { 'name': 'Dan Dan', 'title': 'engineer', 'className': 'frontend1' },
+	                { 'name': 'Zai Zai', 'title': 'engineer', 'className': 'frontend1' }
+	              ]
+	            }
+	          ]
+	        }
+	      ]
+	    };
+
+	    var oc = $('#operational_chart').orgchart({
+	      'data' : datascource,
+	      'nodeContent': 'title'
+	    });
+
+	  });
+
+	})(jQuery);
+</script>
 @endif
 
 <script src="{{ asset('public/assets/') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>	
