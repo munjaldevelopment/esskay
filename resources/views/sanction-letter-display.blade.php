@@ -2,128 +2,128 @@
 	<table class="table">
 		<tr>
 			<th style="width:50%;" class="border-bottom">Bank Name</th>
-			<td style="width:50%;">{{ $sanctionLetterData->bank_name }}</td>
+			<td style="width:50%;">{{ $sanctionLetterData['bank_name'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Type of Facility</th>
-			<td>{{ $sanctionLetterData->type_facility }}</td>
+			<td>{{ $sanctionLetterData['type_facility'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Facility Amount</th>
-			<td>{{ $sanctionLetterData->facility_amount }}</td>
+			<td>{{ $sanctionLetterData['facility_amount'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">ROI</th>
-			<td>{{ $sanctionLetterData->roi }}</td>
+			<td>{{ $sanctionLetterData['roi'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">All-inclusive ROI</th>
-			<td>{{ $sanctionLetterData->all_incluside_roi }}</td>
+			<td>{{ $sanctionLetterData['all_incluside_roi'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Processing Fees %</th>
-			<td>{{ $sanctionLetterData->processing_fees }}</td>
+			<td>{{ $sanctionLetterData['processing_fees'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Processing Fees Amount</th>
-			<td>{{ $sanctionLetterData->processing_fees_amount }}</td>
+			<td>{{ $sanctionLetterData['processing_fees_amount'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Arranger Fees %</th>
-			<td>{{ $sanctionLetterData->arranger_fees }}</td>
+			<td>{{ $sanctionLetterData['arranger_fees'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Arranger Fees Amount</th>
-			<td>{{ $sanctionLetterData->arranger_fees_amount }}</td>
+			<td>{{ $sanctionLetterData['arranger_fees_amount'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Other Charges Doc</th>
-			<td>{{ $sanctionLetterData->other_charges_doc }}</td>
+			<td>{{ $sanctionLetterData['other_charges_doc'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Total Associated Cost</th>
-			<td>{{ $sanctionLetterData->total_associated_cost }}</td>
+			<td>{{ $sanctionLetterData['total_associated_cost'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">All Inclusive Cost</th>
-			<td>{{ $sanctionLetterData->all_inclusive_cost }}</td>
+			<td>{{ $sanctionLetterData['all_inclusive_cost'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Financial Covenant</th>
-			<td>{!! $sanctionLetterData->financial_covenant !!}</td>
+			<td>{!! $sanctionLetterData['financial_covenant'] !!}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Rationale for Availing facility</th>
-			<td>{!! $sanctionLetterData->rationale_availing !!}</td>
+			<td>{!! $sanctionLetterData['rationale_availing'] !!}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Blended Cost</th>
-			<td>{{ $sanctionLetterData->blended_cost }}</td>
+			<td>{{ $sanctionLetterData['blended_cost'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Stamp Duty Fees</th>
-			<td>{{ $sanctionLetterData->stamp_duty_fees }}</td>
+			<td>{{ $sanctionLetterData['stamp_duty_fees'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Tenor</th>
-			<td>{{ $sanctionLetterData->tenor }}</td>
+			<td>{{ $sanctionLetterData['tenor'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Security Cover</th>
-			<td>{{ $sanctionLetterData->security_cover }}</td>
+			<td>{{ $sanctionLetterData['security_cover'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Cash Collateral</th>
-			<td>{{ $sanctionLetterData->cash_collateral }}</td>
+			<td>{{ $sanctionLetterData['cash_collateral'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Personal Guarantee</th>
-			<td>{{ $sanctionLetterData->personal_guarantee }}</td>
+			<td>{{ $sanctionLetterData['personal_guarantee'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Intermediary</th>
-			<td>{{ $sanctionLetterData->intermediary }}</td>
+			<td>{{ $sanctionLetterData['intermediary'] }}</td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Sanction Letter</th>
-			<td><a href="{{ asset('/') }}downloadsanctionLetter/{{ base64_encode($sanctionLetterData->id) }}" target="_blank"><i class="fa fa-file-{{ $sanctionLetterData->ext }}-o" aria-hidden="true"></i></a></td>
+			<td><a href="{{ asset('/') }}downloadsanctionLetter/{{ base64_encode($sanctionLetterData['id']) }}" target="_blank"><i class="fa fa-file-{{ $sanctionLetterData['ext }}-o" aria-hidden="true"></i></a></td>
 		</tr>
 		<tr>
 			<th class="border-bottom">Status</th>
-			<td>@if($sanctionLetterData->status == 1) Accepted @elseif($sanctionLetterData->status == 2) Rejected @else Pending @endif</td>
+			<td>@if($sanctionLetterData['status'] == 1) Accepted @elseif($sanctionLetterData['status'] == 2) Rejected @else Pending @endif</td>
 		</tr>
 		<tr>
 			<th style="min-width:120px;" class="border-bottom">Action</th>
-			<td class="accept-sanction-container{{ $sanctionLetterData->id }}">
+			<td class="accept-sanction-container{{ $sanctionLetterData['id'] }}">
 				@if($category_id == "new")
 					@if($trustee_id == 1)
-						@if($sanctionLetterData->is_approve1 == 0)<a class="btn btn-info accept-sanction1" data-id="{{ $sanctionLetterData->id }}" href="javascript:;">Accept <i class="fa fa-check"></i></a> 
+						@if($sanctionLetterData['is_approve1'] == 0)<a class="btn btn-info accept-sanction1" data-id="{{ $sanctionLetterData['id }}" href="javascript:;">Accept <i class="fa fa-check"></i></a> 
 						&nbsp;&nbsp; 
-						<a class="btn btn-danger reject-sanction1" data-id="{{ $sanctionLetterData->id }}" href="javascript:;">Reject <i class="fa fa-times"></i></a>@endif
+						<a class="btn btn-danger reject-sanction1" data-id="{{ $sanctionLetterData['id'] }}" href="javascript:;">Reject <i class="fa fa-times"></i></a>@endif
 					@elseif($trustee_id == 2)
-						@if($sanctionLetterData->is_approve2 == 0)<a class="btn btn-info accept-sanction2" data-id="{{ $sanctionLetterData->id }}" href="javascript:;">Accept <i class="fa fa-check"></i></a>
+						@if($sanctionLetterData['is_approve2'] == 0)<a class="btn btn-info accept-sanction2" data-id="{{ $sanctionLetterData['id }}" href="javascript:;">Accept <i class="fa fa-check"></i></a>
 						&nbsp;&nbsp;
-						<a class="btn btn-danger reject-sanction2" data-id="{{ $sanctionLetterData->id }}" href="javascript:;">Reject <i class="fa fa-times"></i></a>
+						<a class="btn btn-danger reject-sanction2" data-id="{{ $sanctionLetterData['id'] }}" href="javascript:;">Reject <i class="fa fa-times"></i></a>
 						@endif
 					@elseif($trustee_id == 3)
-						@if($sanctionLetterData->is_approve3 == 0)<a class="btn btn-info accept-sanction3" data-id="{{ $sanctionLetterData->id }}" href="javascript:;">Accept <i class="fa fa-check"></i></a>
+						@if($sanctionLetterData['is_approve3'] == 0)<a class="btn btn-info accept-sanction3" data-id="{{ $sanctionLetterData['id }}" href="javascript:;">Accept <i class="fa fa-check"></i></a>
 						&nbsp;&nbsp;
-						<a class="btn btn-danger reject-sanction3" data-id="{{ $sanctionLetterData->id }}" href="javascript:;">Reject <i class="fa fa-times"></i></a>
+						<a class="btn btn-danger reject-sanction3" data-id="{{ $sanctionLetterData['id'] }}" href="javascript:;">Reject <i class="fa fa-times"></i></a>
 						@endif
 					@endif
 				@else
 					@if($trustee_id == 1)
-						<a class="btn btn-info accept-sanction1" data-id="{{ $sanctionLetterData->id }}" href="javascript:;">Accept <i class="fa fa-check"></i></a> 
+						<a class="btn btn-info accept-sanction1" data-id="{{ $sanctionLetterData['id'] }}" href="javascript:;">Accept <i class="fa fa-check"></i></a> 
 						&nbsp;&nbsp; 
-						<a class="btn btn-danger reject-sanction1" data-id="{{ $sanctionLetterData->id }}" href="javascript:;">Reject <i class="fa fa-times"></i></a>
+						<a class="btn btn-danger reject-sanction1" data-id="{{ $sanctionLetterData['id'] }}" href="javascript:;">Reject <i class="fa fa-times"></i></a>
 					@elseif($trustee_id == 2)
-						<a class="btn btn-info accept-sanction2" data-id="{{ $sanctionLetterData->id }}" href="javascript:;">Accept <i class="fa fa-check"></i></a>
+						<a class="btn btn-info accept-sanction2" data-id="{{ $sanctionLetterData['id'] }}" href="javascript:;">Accept <i class="fa fa-check"></i></a>
 						&nbsp;&nbsp;
-						<a class="btn btn-danger reject-sanction2" data-id="{{ $sanctionLetterData->id }}" href="javascript:;">Reject <i class="fa fa-times"></i></a>
+						<a class="btn btn-danger reject-sanction2" data-id="{{ $sanctionLetterData['id'] }}" href="javascript:;">Reject <i class="fa fa-times"></i></a>
 					@elseif($trustee_id == 3)
-						<a class="btn btn-info accept-sanction3" data-id="{{ $sanctionLetterData->id }}" href="javascript:;">Accept <i class="fa fa-check"></i></a>
+						<a class="btn btn-info accept-sanction3" data-id="{{ $sanctionLetterData['id'] }}" href="javascript:;">Accept <i class="fa fa-check"></i></a>
 						&nbsp;&nbsp;
-						<a class="btn btn-danger reject-sanction3" data-id="{{ $sanctionLetterData->id }}" href="javascript:;">Reject <i class="fa fa-times"></i></a>
+						<a class="btn btn-danger reject-sanction3" data-id="{{ $sanctionLetterData['id'] }}" href="javascript:;">Reject <i class="fa fa-times"></i></a>
 					@endif
 				@endif
 			</td>

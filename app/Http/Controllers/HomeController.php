@@ -7535,8 +7535,6 @@ class HomeController extends Controller
     	$sanctionLetterData = \DB::table('sanction_letters')->find($sanction_id);
     	$sanctionLetterData = (array) $sanctionLetterData;
 
-    	dd($sanctionLetterData);
-
     	$current_year = date('Y');
 		return view('sanction-letter-display', ['trustee_id' => $trustee_id, 'category_id' => $category_id, 'sanctionLetterData' => $sanctionLetterData]);	
     }
