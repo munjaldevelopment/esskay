@@ -18,7 +18,7 @@
 									<tbody>
 										@foreach($boardData as $row)
 										<tr>
-											<td class="text-justify">{{ $row->director_name }}</td>
+											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
@@ -46,7 +46,7 @@
 									<tbody>
 										@foreach($auditData as $row)
 										<tr>
-											<td class="text-justify">{{ $row->director_name }}</td>
+											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
@@ -74,7 +74,7 @@
 									<tbody>
 										@foreach($assetData as $row)
 										<tr>
-											<td class="text-justify">{{ $row->director_name }}</td>
+											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
@@ -102,7 +102,7 @@
 									<tbody>
 										@foreach($riskData as $row)
 										<tr>
-											<td class="text-justify">{{ $row->director_name }}</td>
+											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
@@ -130,7 +130,7 @@
 									<tbody>
 										@foreach($corpData as $row)
 										<tr>
-											<td class="text-justify">{{ $row->director_name }}</td>
+											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
@@ -158,7 +158,7 @@
 									<tbody>
 										@foreach($nominationData as $row)
 										<tr>
-											<td class="text-justify">{{ $row->director_name }}</td>
+											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
@@ -186,7 +186,7 @@
 									<tbody>
 										@foreach($itstrategyData as $row)
 										<tr>
-											<td class="text-justify">{{ $row->director_name }}</td>
+											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
@@ -214,7 +214,7 @@
 									<tbody>
 										@foreach($executiveData as $row)
 										<tr>
-											<td class="text-justify">{{ $row->director_name }}</td>
+											<td class="text-justify" style="min-width: 140px;">{{ $row->director_name }}</td>
 											<td>{{ $row->status }}</td>
 											<td>{{ $row->nature_directorship }}</td>
 										</tr>
