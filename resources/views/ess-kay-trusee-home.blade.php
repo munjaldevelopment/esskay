@@ -63,14 +63,12 @@
 								<a class="dropdown-item transaction-category-class" data-category="{{ $row['category_id'] }}" href="javascript:;">{{ $row['category_name'] }}</a>
 
 								@if($row['children'])
-								>
 								<ul>
 									@foreach($row['children'] as $child)
                             		<li @if($child['children']) class="sub-menu-2" @endif>
                             			<a class="dropdown-item transaction-category-class" data-category="{{ $child['category_id'] }}" href="javascript:;">{{ $child['category_name'] }}</a>
                             			
                             			@if($child['children'])
-                            			>
                             			<ul>
                             				@foreach($child['children'] as $child1)
                             				<li>
