@@ -262,8 +262,8 @@
 }
 .mtb-inner-category .item a {
     font-size: 14px;
-    font-weight: 700;
-    color: #767676;
+    /*font-weight: 700;*/
+    color: #333333;/*#767676;*/
     background: #fff;
     border-radius: 10px;
     margin-left: 10px;
