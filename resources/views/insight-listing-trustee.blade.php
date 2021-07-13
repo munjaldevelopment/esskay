@@ -1005,7 +1005,7 @@
 <script type="text/javascript">
 	Highcharts.chart('operational_chart', {
     chart: {
-        height: 600,
+        height: 800,
         inverted: true
     },
     title: {
@@ -1158,7 +1158,8 @@
             color: 'white'
         },
         borderColor: 'white',
-        nodeWidth: 65
+        nodeWidth: 45,
+        nodeHeight: 25,
     }],
     tooltip: {
         outside: true
