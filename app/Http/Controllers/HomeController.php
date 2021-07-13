@@ -2101,7 +2101,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2111,7 +2111,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2220,7 +2220,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2230,7 +2230,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2307,7 +2307,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2317,7 +2317,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2391,7 +2391,7 @@ class HomeController extends Controller
 				'categories' => $capitalCategory,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2401,7 +2401,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2472,7 +2472,7 @@ class HomeController extends Controller
 				'categories' => $capitalCategory,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2482,7 +2482,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2549,7 +2549,7 @@ class HomeController extends Controller
 				'categories' => $assetData11,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2559,7 +2559,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2609,7 +2609,7 @@ class HomeController extends Controller
 				'categories' => $assetData21,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2619,7 +2619,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2682,7 +2682,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2692,7 +2692,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2744,7 +2744,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2754,7 +2754,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2836,7 +2836,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2846,7 +2846,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2954,7 +2954,7 @@ class HomeController extends Controller
 				'crosshair' => 'true',
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -2964,7 +2964,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -3060,7 +3060,7 @@ class HomeController extends Controller
 				'categories' => $profileCategory1,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -3070,7 +3070,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -3146,7 +3146,7 @@ class HomeController extends Controller
 				'categories' => $profileCategory1,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -3156,13 +3156,13 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ],
 				'stackLabels' => [
 		            'enabled' => 'true',
 		            'style' => [
-		                'fontWeight' => 'bold',
+		                //'fontWeight' => 'bold',
 		            ]
 		        ]
 			])
@@ -3228,7 +3228,7 @@ class HomeController extends Controller
 				'categories' => $capitalCategory,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -3237,7 +3237,7 @@ class HomeController extends Controller
 					'labels' => [
 						'format' => '{value} cm',
 						'style' => [
-	                    	'fontWeight' => 'bold',
+	                    	//'fontWeight' => 'bold',
 	                    ]
 					],
 					'title' => [
@@ -3253,7 +3253,7 @@ class HomeController extends Controller
 					'labels' => [
 						'format' => '{value} mm',
 						'style' => [
-	                    	'fontWeight' => 'bold',
+	                    	//'fontWeight' => 'bold',
 	                    ]
 					]
 				],
@@ -3265,7 +3265,7 @@ class HomeController extends Controller
 					'labels' => [
 						'format' => '{value} mb',
 						'style' => [
-	                    	'fontWeight' => 'bold',
+	                    	//'fontWeight' => 'bold',
 	                    ]
 					],
 					
@@ -3355,7 +3355,7 @@ class HomeController extends Controller
 				'labels' => [
             		'rotation' => '-45',
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -3366,13 +3366,13 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ],
 				'stackLabels' => [
 		            'enabled' => 'true',
 		            'style' => [
-		                'fontWeight' => 'bold',
+		                //'fontWeight' => 'bold',
 		            ]
 		        ]
 			])
@@ -3488,7 +3488,7 @@ class HomeController extends Controller
 				'categories' => $profileCategory1,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -3498,13 +3498,13 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ],
 				'stackLabels' => [
 		            'enabled' => 'true',
 		            'style' => [
-		                'fontWeight' => 'bold',
+		                //'fontWeight' => 'bold',
 		            ]
 		        ]
 			])
@@ -4422,7 +4422,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -4432,7 +4432,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -4541,7 +4541,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -4551,7 +4551,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -4628,7 +4628,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -4638,7 +4638,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -4712,7 +4712,7 @@ class HomeController extends Controller
 				'categories' => $capitalCategory,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -4722,7 +4722,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -4793,7 +4793,7 @@ class HomeController extends Controller
 				'categories' => $capitalCategory,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -4803,7 +4803,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -4870,7 +4870,7 @@ class HomeController extends Controller
 				'categories' => $assetData11,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -4880,7 +4880,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -4930,7 +4930,7 @@ class HomeController extends Controller
 				'categories' => $assetData21,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -4940,7 +4940,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -5003,7 +5003,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -5013,7 +5013,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -5065,7 +5065,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -5075,7 +5075,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -5157,7 +5157,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -5167,7 +5167,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -5275,7 +5275,7 @@ class HomeController extends Controller
 				'crosshair' => 'true',
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -5285,7 +5285,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -5381,7 +5381,7 @@ class HomeController extends Controller
 				'categories' => $profileCategory1,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -5391,7 +5391,7 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -5467,7 +5467,7 @@ class HomeController extends Controller
 				'categories' => $profileCategory1,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -5477,13 +5477,13 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ],
 				'stackLabels' => [
 		            'enabled' => 'true',
 		            'style' => [
-		                'fontWeight' => 'bold',
+		                //'fontWeight' => 'bold',
 		            ]
 		        ]
 			])
@@ -5550,7 +5550,7 @@ class HomeController extends Controller
 				'categories' => $capitalCategory,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -5559,7 +5559,7 @@ class HomeController extends Controller
 					'labels' => [
 						'format' => '',
 						'style' => [
-	                    	'fontWeight' => 'bold',
+	                    	//'fontWeight' => 'bold',
 	                    ]
 					],
 					'title' => [
@@ -5574,7 +5574,7 @@ class HomeController extends Controller
 					'labels' => [
 						'format' => '',
 						'style' => [
-	                    	'fontWeight' => 'bold',
+	                    	//'fontWeight' => 'bold',
 	                    ]
 					],
 					'opposite' => true
@@ -5587,7 +5587,7 @@ class HomeController extends Controller
 					'labels' => [
 						'format' => '',
 						'style' => [
-	                    	'fontWeight' => 'bold',
+	                    	//'fontWeight' => 'bold',
 	                    ]
 					],
 					'opposite' => true
@@ -5674,7 +5674,7 @@ class HomeController extends Controller
 				'labels' => [
             		'rotation' => '-45',
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -5685,13 +5685,13 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ],
 				'stackLabels' => [
 		            'enabled' => 'true',
 		            'style' => [
-		                'fontWeight' => 'bold',
+		                //'fontWeight' => 'bold',
 		            ]
 		        ]
 			])
@@ -5807,7 +5807,7 @@ class HomeController extends Controller
 				'categories' => $profileCategory1,
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ]
 			])
@@ -5817,13 +5817,13 @@ class HomeController extends Controller
 				],
 				'labels' => [
                 	'style' => [
-                    	'fontWeight' => 'bold',
+                    	//'fontWeight' => 'bold',
                     ]
                 ],
 				'stackLabels' => [
 		            'enabled' => 'true',
 		            'style' => [
-		                'fontWeight' => 'bold',
+		                //'fontWeight' => 'bold',
 		            ]
 		        ]
 			])
