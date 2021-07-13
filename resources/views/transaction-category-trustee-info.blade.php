@@ -46,8 +46,7 @@
 		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-relevant-doc-cont">
-					<h4>Investor </h4>
-					<i class="mtdd-relevant-name-first">I</i> 
+					<h4>Investor <i class="mtdd-relevant-name-first">I</i> </h4>
 					<div>
 						@foreach($relevantPartyInvestorData as $row)
 						<p>&bull; {{ $row->party_name }}</p>
@@ -62,8 +61,7 @@
 		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-relevant-doc-cont">
-					<h4>Trustee </h4>
-					<i class="mtdd-relevant-name-first">T</i> 
+					<h4>Trustee <i class="mtdd-relevant-name-first">T</i> </h4>
 					<div>
 						@foreach($relevantPartyTrusteeData as $row)
 						<p>&bull; {{ $row->party_name }}</p>
@@ -78,8 +76,7 @@
 		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-relevant-doc-cont">
-					<h4>Legal </h4>
-					<i class="mtdd-relevant-name-first">L</i> 
+					<h4>Legal <i class="mtdd-relevant-name-first">L</i> </h4>
 					<div>
 						@foreach($relevantPartyLegalData as $row)
 						<p>&bull; {{ $row->party_name }}</p>
@@ -94,8 +91,7 @@
 		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-relevant-doc-cont">
-					<h4>Arranger </h4>
-					<i class="mtdd-relevant-name-first">A</i> 
+					<h4>Arranger <i class="mtdd-relevant-name-first">A</i> </h4>
 					<div>
 						@foreach($relevantPartyArrangerData as $row)
 						<p>&bull; {{ $row->party_name }}</p>
@@ -110,8 +106,7 @@
 		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-relevant-doc-cont">
-					<h4>Rating </h4>
-					<i class="mtdd-relevant-name-first">R</i> 
+					<h4>Rating <i class="mtdd-relevant-name-first">R</i> </h4>
 					<div>
 						@foreach($relevantPartyRatingData as $row)
 						<p>{{ $row->party_name }}</p>
