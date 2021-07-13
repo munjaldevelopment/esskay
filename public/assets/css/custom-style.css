@@ -263,7 +263,7 @@
 .mtb-inner-category .item a {
     font-size: 14px;
     /*font-weight: 700;*/
-    color: #333333;/*#767676;*/
+    color: #030303;
     background: #fff;
     border-radius: 10px;
     margin-left: 10px;
@@ -924,7 +924,7 @@
     vertical-align: middle;
     padding: 13px 15px;
     line-height: 30px;
-    font-weight: 700;
+    /*font-weight: 700;*/
 }
 
 .white-box.outstanding-box .custom-table-area .table-responsive table.table thead tr th.border-bottom {
