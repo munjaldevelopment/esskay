@@ -2146,6 +2146,25 @@ nav.side-navbar a[aria-expanded="true"]::before{
   cursor:pointer !important;
 }
 
+/* sanction letter */
+.mtdd-sanction-letter-img i {
+    color: red;
+    font-size: 27px;
+    padding: 10px;
+}
+
+.mtdd-sanction-letter-img i.fa-file-pdf-o {
+  color: red;
+}
+
+.mtdd-sanction-letter-img i.fa-file-word-o {
+  color: blue;
+}
+
+.mtdd-sanction-letter-img i.fa-file-excel-o {
+  color: green;
+}
+
 
 /*nav.side-navbar li.active a.dropdown-box.category-list.collapsed::after{
   content: '\f105';
