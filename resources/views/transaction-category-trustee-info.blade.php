@@ -43,7 +43,7 @@
 <div class="mtd-timline-document mtd-investor-trustee">
 	<div class="row">
 		@if($relevantPartyInvestorData)
-		<div class="col-md-6 col-sm-12">
+		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-relevant-doc-cont">
 					<h4>Investor </h4>
@@ -58,7 +58,7 @@
 		@endif
 
 		@if($relevantPartyTrusteeData)
-		<div class="col-md-6 col-sm-12">
+		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-relevant-doc-cont">
 					<h4>Trustee </h4>
@@ -73,7 +73,7 @@
 		@endif
 
 		@if($relevantPartyLegalData)
-		<div class="col-md-6 col-sm-12">
+		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-relevant-doc-cont">
 					<h4>Legal </h4>
@@ -88,7 +88,7 @@
 		@endif
 
 		@if($relevantPartyArrangerData)
-		<div class="col-md-6 col-sm-12">
+		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-relevant-doc-cont">
 					<h4>Arranger </h4>
@@ -103,7 +103,7 @@
 		@endif
 
 		@if($relevantPartyRatingData)
-		<div class="col-md-6 col-sm-12">
+		<div class="col-md-3 col-sm-12">
 			<div class="mtd-container-box">
 				<div class="mtdd-relevant-doc-cont">
 					<h4>Rating </h4>
