@@ -5910,8 +5910,11 @@ class HomeController extends Controller
     	$trustee_id = $trusteeData->id;
 
 		$sanctionData = \DB::table('sanction_letters')->get();
+
+		$where = array('status' => '0');
+		$new_sanction = \DB::table('sanction_letters')->where($where)->count();
 		
-		return view('ess-kay-sanction-letter-listing', ['sanctionData' => $sanctionData, 'lenderData' => $trusteeData]);
+		return view('ess-kay-sanction-letter-listing', ['sanctionData' => $sanctionData, 'lenderData' => $trusteeData, 'new_sanction' => $new_sanction]);
 	}
 
 	public function dealTrustee()
