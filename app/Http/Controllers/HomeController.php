@@ -7535,6 +7535,23 @@ class HomeController extends Controller
     	$sanctionLetterData = \DB::table('sanction_letters')->find($sanction_id);
     	$sanctionLetterData = (array) $sanctionLetterData;
 
+    	$ext = pathinfo($sanctionLetterData['sanction_letter'], PATHINFO_EXTENSION);
+		$ext = strtolower($ext);
+		if($ext == "jpg" || $ext == "jpeg" || $ext == "png")
+		{
+			$ext = "picture";
+		}
+		else if($ext == "xls" || $ext == "xlsx" || $ext == "xlsb")
+		{
+			$ext = "excel";
+		}
+		else if($ext == "doc" || $ext == "docx")
+		{
+			$ext = "word";
+		}
+
+    	$sanctionLetterData['ext'] = $ext;
+
     	$current_year = date('Y');
 		return view('sanction-letter-display', ['trustee_id' => $trustee_id, 'category_id' => $category_id, 'sanctionLetterData' => $sanctionLetterData]);	
     }
