@@ -1026,7 +1026,7 @@
     var chart = new OrgChart(document.getElementById("operational_chart"), {
         template: "polina",
         mouseScrool: OrgChart.action.none,
-        //scaleInitial: OrgChart.match.boundary,
+        scaleInitial: OrgChart.match.boundary,
         nodeBinding: {
             field_0: "name"
         },
@@ -1037,6 +1037,9 @@
 				{ id: "{{ $row1['id'] }}", pid: "{{ $row['id'] }}", name: "{{ $row1['structure_name'] }}", html: "{!! $row1['structure_name'] !!}" },
 					@foreach($row1['child'] as $k => $row2)
 					{ id: "{{ $row2['id'] }}", pid: "{{ $row1['id'] }}", name: "{{ $row2['structure_name'] }}", html: "{!! $row2['structure_name'] !!}" },
+						@foreach($row2['child'] as $k => $row3)
+						{ id: "{{ $row3['id'] }}", pid: "{{ $row2['id'] }}", name: "{{ $row3['structure_name'] }}", html: "{!! $row3['structure_name'] !!}" },
+						@endforeach
 					@endforeach
 				@endforeach
 			@endforeach
