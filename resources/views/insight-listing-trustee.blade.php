@@ -1110,7 +1110,6 @@
 				'visibleLevel': 1,
 		        'pan': true,
 		        'data' : datascource,
-		        'nodeContent': 'title',
 		        'createNode': function($node, data) {
 		          $node.on('click', function(event) {
 		            if (!$(event.target).is('.edge, .toggleBtn')) {
