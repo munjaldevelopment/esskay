@@ -1061,7 +1061,7 @@
         layout: OrgChart.mixed,
         nodeBinding: {
             field_0: "name",
-            field_1: "title",
+            //field_1: "title",
             //img_0: "img"
         },
         nodes: nodes
