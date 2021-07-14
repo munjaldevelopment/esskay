@@ -1069,21 +1069,21 @@
 			var datascource = 
 			@foreach($organisationStructureData as $row)
 			{
-				'name': '{{ $row['structure_name'] }}',
+				'name': '{!! $row['structure_name'] !!}',
 				'title': '',
 				'className': 'top-level',
 				'children': [
 					@foreach($row['child'] as $k => $row1)
 					{
-						'name': '{{ $row1['structure_name'] }}', 'title': '', 'className': '@if($k == 0) middle-level @else middle-level1 @endif',
+						'name': '{!! $row1['structure_name'] !!}', 'title': '', 'className': '@if($k == 0) middle-level @else middle-level1 @endif',
 					  	'children': [
 					  		@foreach($row1['child'] as $k => $row2)
 						    {
-						    	'name': '{{ $row2['structure_name'] }}', 'title': '', 'className': 'product-dept',
+						    	'name': '{!! $row2['structure_name'] !!}', 'title': '', 'className': 'product-dept',
 						      	'children': [
 						      		@foreach($row2['child'] as $k => $row3)
 							        {
-							        	'name': '{{ $row3['structure_name'] }}', 'title': '', 'className': 'pipeline1',
+							        	'name': '{!! $row3['structure_name'] !!}', 'title': '', 'className': 'pipeline1',
 							        	'children': [
 								      		@foreach($row3['child'] as $k => $row4)
 									        {
