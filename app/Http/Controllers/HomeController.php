@@ -7624,9 +7624,9 @@ class HomeController extends Controller
 		{
 	   		$message = "Dear Sir, <br /> Sanction Letter of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." is approved.  <br /> Kindly click on below link for the details ".url('/')." <br /> ESS KAY FINCORP LIMITED.";
 
-	        if($tempUserData['email_address'])
+	        if($sanctionData['email_address'])
 	        {
-	        	$emailAddressData = explode(",", $tempUserData['email_address']);
+	        	$emailAddressData = explode(",", $sanctionData['email_address']);
 	        	foreach($emailAddressData as $emails)
 	        	{
 	        		$contactData = array('mail_message' => $message, 'first_name' => '', 'email' => $emails, 'telephone' => '');
@@ -7664,9 +7664,9 @@ class HomeController extends Controller
 		{
 			$message = "Dear Sir, <br /> Sanction Letter of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." is approved.  <br /> Kindly click on below link for the details ".url('/')." <br /> ESS KAY FINCORP LIMITED.";
 
-			if($tempUserData['email_address'])
+			if($sanctionData['email_address'])
 	        {
-	        	$emailAddressData = explode(",", $tempUserData['email_address']);
+	        	$emailAddressData = explode(",", $sanctionData['email_address']);
 	        	foreach($emailAddressData as $emails)
 	        	{
 	        		$contactData = array('mail_message' => $message, 'first_name' => '', 'email' => $emails, 'telephone' => '');
@@ -7704,9 +7704,9 @@ class HomeController extends Controller
 		{
 	        $message = "Dear Sir, <br /> Sanction Letter of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." is approved.  <br /> Kindly click on below link for the details ".url('/')." <br /> ESS KAY FINCORP LIMITED.";
 
-	        if($tempUserData['email_address'])
+	        if($sanctionData['email_address'])
 	        {
-	        	$emailAddressData = explode(",", $tempUserData['email_address']);
+	        	$emailAddressData = explode(",", $sanctionData['email_address']);
 	        	foreach($emailAddressData as $emails)
 	        	{
 	        		$contactData = array('mail_message' => $message, 'first_name' => '', 'email' => $emails, 'telephone' => '');
@@ -7744,9 +7744,9 @@ class HomeController extends Controller
 		{
 	        $message = "Dear Sir, <br /> Sanction Letter of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." is rejected.  <br /> Kindly click on below link for the details ".url('/')." <br /> ESS KAY FINCORP LIMITED.";
 
-	        if($tempUserData['email_address'])
+	        if($sanctionData['email_address'])
 	        {
-	        	$emailAddressData = explode(",", $tempUserData['email_address']);
+	        	$emailAddressData = explode(",", $sanctionData['email_address']);
 	        	foreach($emailAddressData as $emails)
 	        	{
 	        		$contactData = array('mail_message' => $message, 'first_name' => '', 'email' => $emails, 'telephone' => '');
@@ -7778,9 +7778,9 @@ class HomeController extends Controller
 		{
 			$message = "Dear Sir, <br /> Sanction Letter of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." is rejected.  <br /> Kindly click on below link for the details ".url('/')." <br /> ESS KAY FINCORP LIMITED.";
 
-			if($tempUserData['email_address'])
+			if($sanctionData['email_address'])
 	        {
-	        	$emailAddressData = explode(",", $tempUserData['email_address']);
+	        	$emailAddressData = explode(",", $sanctionData['email_address']);
 	        	foreach($emailAddressData as $emails)
 	        	{
 	        		$contactData = array('mail_message' => $message, 'first_name' => '', 'email' => $emails, 'telephone' => '');
@@ -7812,9 +7812,9 @@ class HomeController extends Controller
 		{
 			$message = "Dear Sir, <br /> Sanction Letter of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." is rejected.  <br /> Kindly click on below link for the details ".url('/')." <br /> ESS KAY FINCORP LIMITED.";
 
-			if($tempUserData['email_address'])
+			if($sanctionData['email_address'])
 	        {
-	        	$emailAddressData = explode(",", $tempUserData['email_address']);
+	        	$emailAddressData = explode(",", $sanctionData['email_address']);
 	        	foreach($emailAddressData as $emails)
 	        	{
 	        		$contactData = array('mail_message' => $message, 'first_name' => '', 'email' => $emails, 'telephone' => '');
