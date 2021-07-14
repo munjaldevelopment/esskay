@@ -3509,6 +3509,10 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
     background: #ffffff;
 }
 
+.tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu.active ul li a.dropdown-item.active, .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu.active ul li a.dropdown-item:hover { 	
+    background: #1976D2;
+}
+
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu ul li a:hover {
 	color: #FFFFFF;
 }
