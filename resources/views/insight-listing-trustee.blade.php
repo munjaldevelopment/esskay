@@ -1026,7 +1026,7 @@
     var chart = new OrgChart(document.getElementById("operational_chart"), {
         template: "diva",
         enableSearch: false,
-        mouseScrool: OrgChart.action.none,
+        //mouseScrool: OrgChart.action.none,
         //scaleInitial: OrgChart.match.boundary,
         nodeBinding: {
             field_0: "name"
