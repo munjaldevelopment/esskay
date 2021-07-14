@@ -59,7 +59,7 @@
 					  	<div class="dropdown-menu">
 					  		<ul>  
 					  		@foreach($docCategoryData as $row)
-							<li class="dropdown-item @if($row['children'])  sub-menu active @endif">
+							<li class="dropdown-item @if($row['children']) sub-menu @endif">
 								<a class="dropdown-item transaction-category-class" data-category="{{ $row['category_id'] }}" href="javascript:;">{{ $row['category_name'] }}</a>
 
 								@if($row['children'])
