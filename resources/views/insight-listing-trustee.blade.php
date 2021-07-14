@@ -1107,7 +1107,7 @@
 			@endforeach
 
 			var oc = $('#operational_chart').orgchart({
-				'visibleLevel': 2,
+				'visibleLevel': 1,
 		        'pan': true,
 		        'data' : datascource,
 		        'nodeContent': 'title',
