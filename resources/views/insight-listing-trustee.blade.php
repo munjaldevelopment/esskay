@@ -1037,7 +1037,7 @@
 				{ id: "{{ $row1['id'] }}", pid: "{{ $row['id'] }}", name: "{!! $row1['structure_name'] !!}", html: "{!! $row1['structure_name'] !!}" },
 				@endforeach
 			@endforeach
-    	];
+    	]
     });
 </script>
 @elseif($insightCatData->id == 16)
