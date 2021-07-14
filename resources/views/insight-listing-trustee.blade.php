@@ -1027,7 +1027,7 @@
         template: "isla",
         enableSearch: false,
         //mouseScrool: OrgChart.action.none,
-        //scaleInitial: OrgChart.match.boundary,
+        scaleInitial: OrgChart.match.boundary,
         nodeBinding: {
             field_0: "name"
         },
