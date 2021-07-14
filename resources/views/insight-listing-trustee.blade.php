@@ -1023,7 +1023,7 @@
 	}
 </style>
 <script type="text/javascript">
-	window.onload = function () { 
+	(function($){ 
 	    var nodes = [
 	        { id: "1", name: "Jack Hill", title: "Chairman and CEO", email: "amber@domain.com", img: "https://cdn.balkan.app/shared/1.jpg" },
 	        { id: "2", pid: "1", name: "Lexie Cole", title: "QA Lead", email: "ava@domain.com", img: "https://cdn.balkan.app/shared/2.jpg" },
@@ -1066,7 +1066,7 @@
 	        },
 	        nodes: nodes
 	    });
-	};
+	});
 </script>
 @elseif($insightCatData->id == 16)
 <style type="text/css">
