@@ -1087,7 +1087,7 @@
 				  ]
 				}
 				]
-			},
+			};
 			@endforeach
 
 			var oc = $('#operational_chart').orgchart({
