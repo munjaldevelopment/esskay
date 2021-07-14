@@ -1089,8 +1089,7 @@
 	    };
 
 	    var oc = $('#operational_chart').orgchart({
-	      'data' : datascource,
-	      'nodeContent': ''
+			'data' : datascource
 	    });
 
 	  });
