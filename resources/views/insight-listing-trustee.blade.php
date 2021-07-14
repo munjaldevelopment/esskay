@@ -1024,11 +1024,18 @@
 	  background-color: #01a3ae;
 	}
 	.orgchart .middle-level .title {
-	  background-color: #006699;
+	  background-color: #612622;
 	}
 	.orgchart .middle-level .content {
-	  border-color: #006699;
+	  border-color: #612622;
 	}
+	.orgchart .middle-level1 .title {
+	  background-color: #403152;
+	}
+	.orgchart .middle-level1 .content {
+	  border-color: #403152;
+	}
+	
 	.orgchart .product-dept .title {
 	  background-color: #009933;
 	}
@@ -1066,9 +1073,9 @@
 				'title': '',
 				'className': 'top-level',
 				'children': [
-					@foreach($row['child'] as $row1)
+					@foreach($row['child'] as $k => $row1)
 					{
-						'name': '{{ $row1['structure_name'] }}', 'title': '', 'className': 'middle-level',
+						'name': '{{ $row1['structure_name'] }}', 'title': '', 'className': '@if($k == 1) middle-level @else middle-level1 @endif',
 					  	'children': [
 						    { 'name': 'Li Jing', 'title': '', 'className': 'product-dept' },
 						    { 'name': 'Li Xin', 'title': '', 'className': 'product-dept',
