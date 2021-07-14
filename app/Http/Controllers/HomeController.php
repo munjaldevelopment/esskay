@@ -4337,7 +4337,7 @@ class HomeController extends Controller
 		$geographicalConData = $geographicalConTotalData = array();
 		$productConData = $productConTotalData = array();
 		$netWorthData = $netWorthData1 = $liquidityData = $liabilityProfileData = $liabilityProfile11Data = $liabilityProfileTableData = $liabilityProfileTable11Data = array();
-		$liabilityProfileDataTotal = $liquidityDataTotal = $topFiveLenders = $organisationStructureData = array();
+		$liabilityProfileDataTotal = $liquidityDataTotal = $topFiveLenders = $organisationStructureData = $hierarchyStructureData = array();
 
 		$covidReliefData = $covidReliefDataTotal = $covidReliefDataTotal1 = array();
 		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = $liabilityCategories = $liabilityCategoriesSlider = array();
@@ -5916,7 +5916,6 @@ class HomeController extends Controller
 					$organisationStructureData[] = array('structure_name' => $row->structure_name, 'child' => $organisationStructureChildData);
 				}
 			}
-			//echo '<pre>'; print_R($organisationStructureData); exit;
 		}
 		else if($request->category_id == 16)
 		{
@@ -5936,6 +5935,7 @@ class HomeController extends Controller
 			'topFiveLenders' => $topFiveLenders,
 
 			'organisationStructureData' => $organisationStructureData,
+			'hierarchyStructureData' => $hierarchyStructureData,
 
 			'covidReliefData' => $covidReliefData, 'covidReliefDataTotal' => $covidReliefDataTotal, 'covidReliefDataTotal1' => $covidReliefDataTotal1,
 			'covidRelief1Data' => $covidRelief1Data, 'covidRelief1DataTotal' => $covidRelief1DataTotal, 'covidRelief1DataTotal1' => $covidRelief1DataTotal1]);
