@@ -1094,7 +1094,7 @@
 							        },
 							        @endforeach
 						      	]
-						    }
+						    },
 						    @endforeach
 					  	]
 					},
