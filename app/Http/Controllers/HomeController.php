@@ -7536,7 +7536,7 @@ class HomeController extends Controller
 		}
 		else
 		{
-			$sanctionLetterData = \DB::table('sanction_letters')->leftJoin('users', 'sanction_letters.user_id', '=', 'users.id')->selectRaw('sanction_letters.*, users.name as created_name')->where($where)->get();	
+			$sanctionLetterData = \DB::table('sanction_letters')->leftJoin('users', 'sanction_letters.user_id', '=', 'users.id')->selectRaw('sanction_letters.*, users.name as created_name')->where($where)->orderBy('updated_at', 'DESC')->get();
 		}
 
     	$current_year = date('Y');
