@@ -7622,8 +7622,8 @@ class HomeController extends Controller
 
         $message = "Dear Sir, <br /> Sanction Letter of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." is approved.  <br /> Kindly click on below link for the details ".url('/')." <br /> ESS KAY FINCORP LIMITED.";
 
-        $contactData = array('mail_message' => $message, 'first_name' => $sanctionData->->name, 'email' => $sanctionData->->email, 'telephone' => $sanctionData->->phone);
-        $tempUserData = array('email' => $sanctionData->->email, 'name' => $sanctionData->->name, 'email_address' => $sanctionData->email_address);
+        $contactData = array('mail_message' => $message, 'first_name' => $sanctionData->name, 'email' => $sanctionData->email, 'telephone' => $sanctionData->phone);
+        $tempUserData = array('email' => $sanctionData->email, 'name' => $sanctionData->name, 'email_address' => $sanctionData->email_address);
         
         Mail::send('emails.send_sanction_letter', $contactData, function ($message) use ($tempUserData) {
             $message->to($tempUserData['email'])->subject("Sanction Letter created");
@@ -7654,8 +7654,8 @@ class HomeController extends Controller
 
         $message = "Dear Sir, <br /> Sanction Letter of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." is approved.  <br /> Kindly click on below link for the details ".url('/')." <br /> ESS KAY FINCORP LIMITED.";
 
-        $contactData = array('mail_message' => $message, 'first_name' => $sanctionData->->name, 'email' => $sanctionData->->email, 'telephone' => $sanctionData->->phone);
-        $tempUserData = array('email' => $sanctionData->->email, 'name' => $sanctionData->->name, 'email_address' => $sanctionData->email_address);
+        $contactData = array('mail_message' => $message, 'first_name' => $sanctionData->name, 'email' => $sanctionData->email, 'telephone' => $sanctionData->phone);
+        $tempUserData = array('email' => $sanctionData->email, 'name' => $sanctionData->name, 'email_address' => $sanctionData->email_address);
         
         Mail::send('emails.send_sanction_letter', $contactData, function ($message) use ($tempUserData) {
             $message->to($tempUserData['email'])->subject("Sanction Letter created");
@@ -7686,8 +7686,8 @@ class HomeController extends Controller
 
         $message = "Dear Sir, <br /> Sanction Letter of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." is approved.  <br /> Kindly click on below link for the details ".url('/')." <br /> ESS KAY FINCORP LIMITED.";
 
-        $contactData = array('mail_message' => $message, 'first_name' => $sanctionData->->name, 'email' => $sanctionData->->email, 'telephone' => $sanctionData->->phone);
-        $tempUserData = array('email' => $sanctionData->->email, 'name' => $sanctionData->->name, 'email_address' => $sanctionData->email_address);
+        $contactData = array('mail_message' => $message, 'first_name' => $sanctionData->name, 'email' => $sanctionData->email, 'telephone' => $sanctionData->phone);
+        $tempUserData = array('email' => $sanctionData->email, 'name' => $sanctionData->name, 'email_address' => $sanctionData->email_address);
         
         Mail::send('emails.send_sanction_letter', $contactData, function ($message) use ($tempUserData) {
             $message->to($tempUserData['email'])->subject("Sanction Letter created");
@@ -7718,8 +7718,8 @@ class HomeController extends Controller
 
         $message = "Dear Sir, <br /> Sanction Letter of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." is rejected.  <br /> Kindly click on below link for the details ".url('/')." <br /> ESS KAY FINCORP LIMITED.";
 
-        $contactData = array('mail_message' => $message, 'first_name' => $sanctionData->->name, 'email' => $sanctionData->->email, 'telephone' => $sanctionData->->phone);
-        $tempUserData = array('email' => $sanctionData->->email, 'name' => $sanctionData->->name, 'email_address' => $sanctionData->email_address);
+        $contactData = array('mail_message' => $message, 'first_name' => $sanctionData->name, 'email' => $sanctionData->email, 'telephone' => $sanctionData->phone);
+        $tempUserData = array('email' => $sanctionData->email, 'name' => $sanctionData->name, 'email_address' => $sanctionData->email_address);
         
         Mail::send('emails.send_sanction_letter', $contactData, function ($message) use ($tempUserData) {
             $message->to($tempUserData['email'])->subject("Sanction Letter created");
@@ -7744,8 +7744,8 @@ class HomeController extends Controller
 
         $message = "Dear Sir, <br /> Sanction Letter of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." is rejected.  <br /> Kindly click on below link for the details ".url('/')." <br /> ESS KAY FINCORP LIMITED.";
 
-        $contactData = array('mail_message' => $message, 'first_name' => $sanctionData->->name, 'email' => $sanctionData->->email, 'telephone' => $sanctionData->->phone);
-        $tempUserData = array('email' => $sanctionData->->email, 'name' => $sanctionData->->name, 'email_address' => $sanctionData->email_address);
+        $contactData = array('mail_message' => $message, 'first_name' => $sanctionData->name, 'email' => $sanctionData->email, 'telephone' => $sanctionData->phone);
+        $tempUserData = array('email' => $sanctionData->email, 'name' => $sanctionData->name, 'email_address' => $sanctionData->email_address);
         
         Mail::send('emails.send_sanction_letter', $contactData, function ($message) use ($tempUserData) {
             $message->to($tempUserData['email'])->subject("Sanction Letter created");
@@ -7770,8 +7770,8 @@ class HomeController extends Controller
 
         $message = "Dear Sir, <br /> Sanction Letter of ".$sanctionData->facility_amount." from ".$sanctionData->bank_name." is rejected.  <br /> Kindly click on below link for the details ".url('/')." <br /> ESS KAY FINCORP LIMITED.";
 
-        $contactData = array('mail_message' => $message, 'first_name' => $sanctionData->->name, 'email' => $sanctionData->->email, 'telephone' => $sanctionData->->phone);
-        $tempUserData = array('email' => $sanctionData->->email, 'name' => $sanctionData->->name, 'email_address' => $sanctionData->email_address);
+        $contactData = array('mail_message' => $message, 'first_name' => $sanctionData->name, 'email' => $sanctionData->email, 'telephone' => $sanctionData->phone);
+        $tempUserData = array('email' => $sanctionData->email, 'name' => $sanctionData->name, 'email_address' => $sanctionData->email_address);
         
         Mail::send('emails.send_sanction_letter', $contactData, function ($message) use ($tempUserData) {
             $message->to($tempUserData['email'])->subject("Sanction Letter created");
