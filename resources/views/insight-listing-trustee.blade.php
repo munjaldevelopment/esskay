@@ -1072,6 +1072,7 @@
 				'name': '{!! $row['structure_name'] !!}',
 				'title': '',
 				'className': 'top-level',
+				'parentNodeSymbol':'',
 				'children': [
 					@foreach($row['child'] as $k => $row1)
 					{
