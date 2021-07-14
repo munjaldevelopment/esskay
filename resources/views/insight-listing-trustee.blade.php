@@ -1056,7 +1056,9 @@
 
 	(function($){
 		$(function() {
-			var datascource = {
+			var datascource = 
+			@foreach($organisationStructureData as $row)
+			{
 				'name': 'Lao Lao',
 				'title': '',
 				'children': [
@@ -1085,7 +1087,8 @@
 				  ]
 				}
 				]
-			};
+			},
+			@endforeach
 
 			var oc = $('#operational_chart').orgchart({
 				'data' : datascource

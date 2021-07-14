@@ -5916,8 +5916,7 @@ class HomeController extends Controller
 					$organisationStructureData[] = array('structure_name' => $row->structure_name, 'child' => $organisationStructureChildData);
 				}
 			}
-
-			echo '<pre>'; print_R($organisationStructureData); exit;
+			//echo '<pre>'; print_R($organisationStructureData); exit;
 		}
 		else if($request->category_id == 16)
 		{
