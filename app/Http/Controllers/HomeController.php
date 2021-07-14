@@ -5889,7 +5889,7 @@ class HomeController extends Controller
 				}
 			}
 
-			dd($organisationStructureData);
+			echo '<pre>'; print_R($organisationStructureData); exit;
 		}
 		else if($request->category_id == 16)
 		{
