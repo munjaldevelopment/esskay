@@ -1057,6 +1057,7 @@
     }
 
     var chart = new OrgChart(document.getElementById("operational_chart"), {
+        enableSearch: false,
         layout: OrgChart.mixed,
         nodeBinding: {
             field_0: "name",
