@@ -5881,11 +5881,20 @@ class HomeController extends Controller
 					{
 						foreach($organisationStructuresChild as $rowChild)
 						{
-							$organisationStructureChildData = array('structure_name' => $rowChild->structure_name);
+							$organisationStructureSubChildData = array();
+							$organisationStructuresSubChild = \DB::table('organisation_structures')->where('parent_id', $rowChild->id)->orderBy('lft', 'ASC')->get();
+							if($organisationStructuresSubChild)
+							{
+								foreach($organisationStructuresSubChild as $rowSubChild)
+								{
+									$organisationStructureSubChildData[] = array('structure_name' => $rowSubChild->structure_name);
+								}
+							}
+							$organisationStructureChildData[] = array('structure_name' => $rowChild->structure_name, 'child' => $organisationStructureSubChildData);
 						}
 					}
 
-					$organisationStructureData = array('structure_name' => $row->structure_name, 'child' => $organisationStructureChildData);
+					$organisationStructureData[] = array('structure_name' => $row->structure_name, 'child' => $organisationStructureChildData);
 				}
 			}
 
