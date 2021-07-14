@@ -1023,22 +1023,21 @@
 	}
 </style>
 <script type="text/javascript">
-    var nodes = [
-    	@foreach($organisationStructureData as $row)
-			{ id: "{{ $row['id'] }}", name: "{{ $row['structure_name'] }}", html: "{{ $row['structure_name'] }}", title: ""},
-				@foreach($row['child'] as $k => $row1)
-				{ id: "{{ $row1['id'] }}", pid: "{{ $row['id'] }}", name: "{!! $row1['structure_name'] !!}", html: "{!! $row1['structure_name'] !!}" },
-				@endforeach
-		@endforeach
-    ];
-
     var chart = new OrgChart(document.getElementById("operational_chart"), {
+        mouseScrool: OrgChart.action.none,
         layout: OrgChart.mixed,
         nodeBinding: {
             field_0: "name",
             html: "html"
         },
-        nodes: nodes
+        nodes: [
+    		@foreach($organisationStructureData as $row)
+			{ id: "{{ $row['id'] }}", name: "{{ $row['structure_name'] }}", html: "{{ $row['structure_name'] }}", title: ""},
+				@foreach($row['child'] as $k => $row1)
+				{ id: "{{ $row1['id'] }}", pid: "{{ $row['id'] }}", name: "{!! $row1['structure_name'] !!}", html: "{!! $row1['structure_name'] !!}" },
+				@endforeach
+			@endforeach
+    	];
     });
 </script>
 @elseif($insightCatData->id == 16)
