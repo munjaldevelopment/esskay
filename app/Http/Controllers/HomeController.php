@@ -5899,11 +5899,11 @@ class HomeController extends Controller
 											{
 												foreach($organisationStructuresSubSubSubChild as $rowSubSubSubChild)
 												{
-													$organisationStructureSubSubSubChildData[] = array('structure_name' => $rowSubSubSubChild->structure_name);
+													$organisationStructureSubSubSubChildData[] = array('structure_name' => $rowSubSubSubChild->structure_name, 'id' => $rowSubSubSubChild->id);
 												}
 											}
 
-											$organisationStructureSubSubChildData[] = array('structure_name' => $rowSubSubChild->structure_name, 'child' => $organisationStructureSubSubSubChildData);
+											$organisationStructureSubSubChildData[] = array('structure_name' => $rowSubSubChild->structure_name, 'id' => $rowSubSubChild->id, 'child' => $organisationStructureSubSubSubChildData);
 										}
 									}
 									$organisationStructureSubChildData[] = array('structure_name' => $rowSubChild->structure_name, 'id' => $rowSubChild->id, 'child' => $organisationStructureSubSubChildData);
