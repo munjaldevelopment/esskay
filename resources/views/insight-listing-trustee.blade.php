@@ -1004,9 +1004,11 @@
 @elseif($insightCatData->id == 15)
 <style type="text/css">
 	#operational_chart {
+	  position: relative;
 	  height: 530px;
 	  /*border: 2px dashed #aaa;
 	  border-radius: 5px;*/
+	  margin: 0.5rem;
 	  overflow: auto;
 	  text-align: center;
 	}
@@ -1105,7 +1107,21 @@
 			@endforeach
 
 			var oc = $('#operational_chart').orgchart({
-				'data' : datascource
+				'visibleLevel': 2,
+		        'pan': true,
+		        'data' : datascource,
+		        'nodeContent': 'title',
+		        'createNode': function($node, data) {
+		          $node.on('click', function(event) {
+		            if (!$(event.target).is('.edge, .toggleBtn')) {
+		              var $this = $(this);
+		              var $chart = $this.closest('.orgchart');
+		              var newX = window.parseInt(($chart.outerWidth(true)/2) - ($this.offset().left - $chart.offset().left) - ($this.outerWidth(true)/2));
+		              var newY = window.parseInt(($chart.outerHeight(true)/2) - ($this.offset().top - $chart.offset().top) - ($this.outerHeight(true)/2));
+		              $chart.css('transform', 'matrix(1, 0, 0, 1, ' + newX + ', ' + newY + ')');
+		            }
+		          });
+		        }
 			});
 		});
 	})(jQuery);
