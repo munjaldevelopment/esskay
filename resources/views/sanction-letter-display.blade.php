@@ -166,6 +166,10 @@ $(document).ready(function() {
 							title: 'Your file has been approved.',
 							type: 'success'
 					    });
+
+					    setTimeout(function() {
+					    	location.reload(true);
+					    }, 1000);
 					}
 				});
 			} else {
@@ -203,15 +207,19 @@ $(document).ready(function() {
 
 						Swal.fire({
 							title: 'Approved',
-							title: 'Your file has been approved.',
+							title: 'Your sanction letter has been approved.',
 							type: 'success'
 					    });
+
+					    setTimeout(function() {
+					    	location.reload(true);
+					    }, 1000);
 					}
 				});
 			} else {
 	        	Swal.fire({
 					title: 'Cancelled',
-					title: 'Your file has been cancelled.',
+					title: 'Your sanction letter has been cancelled.',
 					type: 'warning'
 			    });
 			}
@@ -243,15 +251,19 @@ $(document).ready(function() {
 
 						Swal.fire({
 							title: 'Approved',
-							title: 'Your file has been approved.',
+							title: 'Your sanction letter has been approved.',
 							type: 'success'
 					    });
+
+					    setTimeout(function() {
+					    	location.reload(true);
+					    }, 1000);
 					}
 				});
 			} else {
 	        	Swal.fire({
 					title: 'Cancelled',
-					title: 'Your file has been cancelled.',
+					title: 'Your sanction letter has been cancelled.',
 					type: 'warning'
 			    });
 			}
@@ -284,15 +296,19 @@ $(document).ready(function() {
 
 						Swal.fire({
 							title: 'Rejected',
-							title: 'Your file has been rejected.',
+							title: 'Your sanction letter has been rejected.',
 							type: 'success'
 					    });
+
+					    setTimeout(function() {
+					    	location.reload(true);
+					    }, 1000);
 					}
 				});
 			} else {
 	        	Swal.fire({
 					title: 'Cancelled',
-					title: 'Your file has been cancelled.',
+					title: 'Your sanction letter has been cancelled.',
 					type: 'warning'
 			    });
 			}
@@ -324,15 +340,19 @@ $(document).ready(function() {
 
 						Swal.fire({
 							title: 'Rejected',
-							title: 'Your file has been reject.',
+							title: 'Your sanction letter has been reject.',
 							type: 'success'
 					    });
+
+					    setTimeout(function() {
+					    	location.reload(true);
+					    }, 1000);
 					}
 				});
 			} else {
 	        	Swal.fire({
 					title: 'Cancelled',
-					title: 'Your file has been cancelled.',
+					title: 'Your sanction letter has been cancelled.',
 					type: 'warning'
 			    });
 			}
@@ -364,15 +384,19 @@ $(document).ready(function() {
 
 						Swal.fire({
 							title: 'Rejected',
-							title: 'Your file has been rejected.',
+							title: 'Your sanction letter has been rejected.',
 							type: 'success'
 					    });
+
+					    setTimeout(function() {
+					    	location.reload(true);
+					    }, 1000);
 					}
 				});
 			} else {
 	        	Swal.fire({
 					title: 'Cancelled',
-					title: 'Your file has been cancelled.',
+					title: 'Your sanction letter has been cancelled.',
 					type: 'warning'
 			    });
 			}
