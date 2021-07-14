@@ -1004,7 +1004,7 @@
 @elseif($insightCatData->id == 15)
 <style type="text/css">
 	#operational_chart {
-	  height: 480px;
+	  height: 530px;
 	  /*border: 2px dashed #aaa;
 	  border-radius: 5px;*/
 	  overflow: auto;
