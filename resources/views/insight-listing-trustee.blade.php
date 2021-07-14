@@ -1020,6 +1020,9 @@
 	.orgchart td>.down {
 	  background-color: #aaa;
 	}
+	.orgchart .top-level .title {
+	  background-color: #01a3ae;
+	}
 	.orgchart .middle-level .title {
 	  background-color: #006699;
 	}
@@ -1061,6 +1064,7 @@
 			{
 				'name': '{{ $row['structure_name'] }}',
 				'title': '',
+				'className': 'top-level'
 				'children': [
 				{ 'name': 'Bo Miao', 'title': '', 'className': 'middle-level',
 				  'children': [
