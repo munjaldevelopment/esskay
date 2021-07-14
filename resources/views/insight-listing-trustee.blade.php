@@ -1059,7 +1059,7 @@
 			var datascource = 
 			@foreach($organisationStructureData as $row)
 			{
-				'name': 'Lao Lao',
+				'name': '{{ $row['structure_name'] }}',
 				'title': '',
 				'children': [
 				{ 'name': 'Bo Miao', 'title': '', 'className': 'middle-level',
