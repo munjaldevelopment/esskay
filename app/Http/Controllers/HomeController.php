@@ -7787,7 +7787,7 @@ class HomeController extends Controller
 			        $tempUserData = array('email' => $emails, 'name' => '', 'email_address' => $emails);
 			        
 			        Mail::send('emails.send_sanction_letter', $contactData, function ($message) use ($tempUserData) {
-			            $message->to($tempUserData['email'])->subject("Sanction Letter created");
+			            $message->to($tempUserData['email'])->subject("Sanction Letter rejected");
 			            $message->cc('munjaldevelopment@gmail.com');
 			            $message->cc('milan.khadiya@skfin.in');
 			            $message->from('communication@skfin.in', 'Ess Kay Fincorp');
@@ -7821,7 +7821,7 @@ class HomeController extends Controller
 			        $tempUserData = array('email' => $emails, 'name' => '', 'email_address' => $emails);
 			        
 			        Mail::send('emails.send_sanction_letter', $contactData, function ($message) use ($tempUserData) {
-			            $message->to($tempUserData['email'])->subject("Sanction Letter created");
+			            $message->to($tempUserData['email'])->subject("Sanction Letter rejected");
 			            $message->cc('munjaldevelopment@gmail.com');
 			            $message->cc('milan.khadiya@skfin.in');
 			            $message->from('communication@skfin.in', 'Ess Kay Fincorp');
