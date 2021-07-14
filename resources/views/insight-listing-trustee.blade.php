@@ -1027,8 +1027,7 @@
         mouseScrool: OrgChart.action.none,
         layout: OrgChart.mixed,
         nodeBinding: {
-            field_0: "name",
-            html: "html"
+            field_0: "name"
         },
         nodes: [
     		@foreach($organisationStructureData as $row)
