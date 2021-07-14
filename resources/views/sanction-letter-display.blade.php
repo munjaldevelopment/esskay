@@ -142,13 +142,13 @@ $(document).ready(function() {
 		var sanction_id = $(this).attr('data-id');
 
 		Swal.fire({
-			title: 'Are you sure?',
+			title: 'Are you sure you want to accept this saction letter?',
 			type: 'error',
 	        showCancelButton: true,
 	        confirmButtonColor: '#36c6d3',
 	        cancelButtonColor: '#d33',
-	        confirmButtonText: 'OK',
-	        cancelButtonText: 'Cancel'
+	        confirmButtonText: 'Yes',
+	        cancelButtonText: 'No'
 	    }).then((res) => {
 	    	if(res.isConfirmed){
 				$.ajax({
@@ -182,13 +182,13 @@ $(document).ready(function() {
 		var sanction_id = $(this).attr('data-id');
 
 		Swal.fire({
-			title: 'Are you sure?',
+			title: 'Are you sure you want to accept this saction letter?',
 			type: 'error',
 	        showCancelButton: true,
 	        confirmButtonColor: '#36c6d3',
 	        cancelButtonColor: '#d33',
-	        confirmButtonText: 'OK',
-	        cancelButtonText: 'Cancel'
+	        confirmButtonText: 'Yes',
+	        cancelButtonText: 'No'
 	    }).then((res) => {
 	    	if(res.isConfirmed){
 	    		$.ajax({
@@ -222,13 +222,13 @@ $(document).ready(function() {
 		var sanction_id = $(this).attr('data-id');
 
 		Swal.fire({
-			title: 'Are you sure?',
+			title: 'Are you sure you want to accept this saction letter?',
 			type: 'error',
 	        showCancelButton: true,
 	        confirmButtonColor: '#36c6d3',
 	        cancelButtonColor: '#d33',
-	        confirmButtonText: 'OK',
-	        cancelButtonText: 'Cancel'
+	        confirmButtonText: 'Yes',
+	        cancelButtonText: 'No'
 	    }).then((res) => {
 	    	if(res.isConfirmed){
 				$.ajax({
@@ -263,13 +263,13 @@ $(document).ready(function() {
 		var sanction_id = $(this).attr('data-id');
 
 		Swal.fire({
-			title: 'Are you sure?',
+			title: 'Are you sure you want to reject this saction letter?',
 			type: 'error',
 	        showCancelButton: true,
 	        confirmButtonColor: '#36c6d3',
 	        cancelButtonColor: '#d33',
-	        confirmButtonText: 'OK',
-	        cancelButtonText: 'Cancel'
+	        confirmButtonText: 'Yes',
+	        cancelButtonText: 'No'
 	    }).then((res) => {
 	    	if(res.isConfirmed){
 				$.ajax({
@@ -303,13 +303,13 @@ $(document).ready(function() {
 		var sanction_id = $(this).attr('data-id');
 
 		Swal.fire({
-			title: 'Are you sure?',
+			title: 'Are you sure you want to reject this saction letter?',
 			type: 'error',
 	        showCancelButton: true,
 	        confirmButtonColor: '#36c6d3',
 	        cancelButtonColor: '#d33',
-	        confirmButtonText: 'OK',
-	        cancelButtonText: 'Cancel'
+	        confirmButtonText: 'Yes',
+	        cancelButtonText: 'No'
 	    }).then((res) => {
 	    	if(res.isConfirmed){
 	    		$.ajax({
@@ -343,13 +343,13 @@ $(document).ready(function() {
 		var sanction_id = $(this).attr('data-id');
 
 		Swal.fire({
-			title: 'Are you sure?',
+			title: 'Are you sure you want to reject this saction letter?',
 			type: 'error',
 	        showCancelButton: true,
 	        confirmButtonColor: '#36c6d3',
 	        cancelButtonColor: '#d33',
-	        confirmButtonText: 'OK',
-	        cancelButtonText: 'Cancel'
+	        confirmButtonText: 'Yes',
+	        cancelButtonText: 'No'
 	    }).then((res) => {
 	    	if(res.isConfirmed){
 				$.ajax({
