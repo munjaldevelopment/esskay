@@ -2481,7 +2481,7 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
     margin-bottom: 20px;
     color: #fff;
     font-size: 16px;
-    border-left: 6px solid #0060ab;
+    /*border-left: 6px solid #0060ab;*/
 }
 
 .mtd-timline-document.mtd-investor-trustee .mtd-container-box .mtdd-relevant-doc-cont p {
@@ -3503,6 +3503,7 @@ ul.navbar-nav.ml-auto.nav-custome li .about-container a.active, ul.navbar-nav.ml
     font-weight: 500;
     font-size: 13px;
     padding: 9px 21px;
+    background: #ffffff;
 }
 
 .tab-top-area .nav .nav-item .dropdown .dropdown-menu .dropdown-item.sub-menu ul li a:hover {
