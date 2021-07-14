@@ -5881,11 +5881,11 @@ class HomeController extends Controller
 					{
 						foreach($organisationStructuresChild as $rowChild)
 						{
-							$organisationStructureChildData[] = array('structure_name' => $rowChild->structure_name);
+							$organisationStructureChildData = array('structure_name' => $rowChild->structure_name);
 						}
 					}
 
-					$organisationStructureData[] = array('structure_name' => $row->structure_name, 'child' => $organisationStructureChildData);
+					$organisationStructureData = array('structure_name' => $row->structure_name, 'child' => $organisationStructureChildData);
 				}
 			}
 
