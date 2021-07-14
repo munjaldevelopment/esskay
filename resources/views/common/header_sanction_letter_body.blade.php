@@ -30,8 +30,8 @@
 	<script src="{{ asset('public/assets/') }}/js/swiper.jquery.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/custom-sanction-letter.js"></script>
 	
-	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-  	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" id="theme-styles">
+	<script src="{{ asset('public/assets/') }}/js/sweetalert2.min.js"></script>
+  	<link rel="stylesheet" href="{{ asset('public/assets/') }}/js/sweetalert2.min.css" id="theme-styles">
 
 	<script src="https://maps.google.com/maps/api/js?key=AIzaSyCOpOpa4sWnCIrBNY8SjiO0dgsS0nd3G8E&sensor=false" type="text/javascript"></script>
 
