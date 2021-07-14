@@ -1024,37 +1024,10 @@
 </style>
 <script type="text/javascript">
     var nodes = [
-        { id: "1", name: "Jack Hill", title: "Chairman and CEO", email: "amber@domain.com", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" },
-        { id: "2", pid: "1", name: "Lexie Cole", title: "QA Lead", email: "ava@domain.com", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" },
-        { id: "3", pid: "1", name: "Janae Barrett", title: "Technical Director", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" },
-        { id: "4", pid: "1", name: "Aaliyah Webb", title: "Manager", email: "jay@domain.com", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" },
-        { id: "5", pid: "2", name: "Elliot Ross", title: "QA", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" },
-        { id: "6", pid: "2", name: "Anahi Gordon", title: "QA", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" },
-        { id: "7", pid: "2", name: "Knox Macias", title: "QA", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" },
-        { id: "8", pid: "3", name: "Nash Ingram", title: ".NET Team Lead", email: "kohen@domain.com", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" },
-        { id: "9", pid: "3", name: "Sage Barnett", title: "JS Team Lead", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" },
-        { id: "10", pid: "8", name: "Alice Gray", title: "Programmer", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" },
-        { id: "11", pid: "8", name: "Anne Ewing", title: "Programmer", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" },
-        { id: "12", pid: "9", name: "Reuben Mcleod", title: "Programmer", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" },
-        { id: "13", pid: "9", name: "Ariel Wiley", title: "Programmer", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" },
-        { id: "14", pid: "4", name: "Lucas West", title: "Marketer", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" },
-        { id: "15", pid: "4", name: "Adan Travis", title: "Designer", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" },
-        { id: "16", pid: "4", name: "Alex Snider", title: "Sales Manager", img: "http://esskay.microcrm.in/public/uploads/logo/SK_Logo_Squre_new.png" }
+    	@foreach($organisationStructureData as $row)
+		{ id: "{{ $row['id'] }}", name: "{{ $row['structure_name'] }}", title: ""},
+		@endforeach
     ];
-
-    for (var i = 0; i < nodes.length; i++) {
-        var node = nodes[i];
-        switch (node.title) {
-            case "QA":
-                node.tags = ["QA"];
-                break;
-            case "Marketer":
-            case "Designer":
-            case "Sales Manager":
-                node.tags = ["Marketing"];
-                break;
-        }
-    }
 
     var chart = new OrgChart(document.getElementById("operational_chart"), {
         enableSearch: false,
