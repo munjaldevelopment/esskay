@@ -1024,7 +1024,7 @@
 </style>
 <script type="text/javascript">
     var chart = new OrgChart(document.getElementById("operational_chart"), {
-        template: "polina",
+        template: "belinda",
         mouseScrool: OrgChart.action.none,
         //scaleInitial: OrgChart.match.boundary,
         nodeBinding: {
