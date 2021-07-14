@@ -5876,7 +5876,7 @@ class HomeController extends Controller
 				foreach($organisationStructures as $row)
 				{
 					$organisationStructureChildData = array();
-					$organisationStructuresChild = \DB::table('organisation_structures')->whereNull('parent_id')->orderBy('lft', 'ASC')->get();
+					$organisationStructuresChild = \DB::table('organisation_structures')->where('parent_id', $row->id)->orderBy('lft', 'ASC')->get();
 					if($organisationStructuresChild)
 					{
 						foreach($organisationStructuresChild as $rowChild)
