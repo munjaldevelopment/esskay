@@ -79,7 +79,7 @@
 
 .side-menu.side-menu-sanction {
     position: absolute;
-    width: 265px;
+    width: 205px;
 }
 
 .side-menu .navbar {
@@ -201,7 +201,7 @@
 }
 
 .side-body.side-body-sanction {
-	margin-left: 265px;
+	margin-left: 205px;
 	padding: 25px 41px;
 }
 

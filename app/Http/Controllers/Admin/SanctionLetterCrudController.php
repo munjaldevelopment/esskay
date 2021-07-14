@@ -112,6 +112,12 @@ class SanctionLetterCrudController extends CrudController
                                     'label' => 'Bank Name',
                                     'type' => 'text',
                                 ]);
+
+            $this->crud->addColumn([
+                                    'name' => 'sanction_date',
+                                    'label' => 'Sanction Date',
+                                    'type' => 'date',
+                                ]);
                                 
             $this->crud->addColumn([
                                     'name' => 'type_facility',
@@ -233,6 +239,13 @@ class SanctionLetterCrudController extends CrudController
                                 'name' => 'bank_name',
                                 'label' => 'Bank Name',
                                 'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addColumn([
+                                'name' => 'sanction_date',
+                                'label' => 'Sanction Date',
+                                'type' => 'date',
                                 'tab' => 'General'
                             ]);
                 
@@ -447,6 +460,13 @@ class SanctionLetterCrudController extends CrudController
                                 'name' => 'bank_name',
                                 'label' => 'Bank Name',
                                 'type' => 'text',
+                                'tab' => 'General'
+                            ]);
+
+        $this->crud->addColumn([
+                                'name' => 'sanction_date',
+                                'label' => 'Sanction Date',
+                                'type' => 'date',
                                 'tab' => 'General'
                             ]);
                 
