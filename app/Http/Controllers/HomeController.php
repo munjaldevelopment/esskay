@@ -4337,7 +4337,7 @@ class HomeController extends Controller
 		$geographicalConData = $geographicalConTotalData = array();
 		$productConData = $productConTotalData = array();
 		$netWorthData = $netWorthData1 = $liquidityData = $liabilityProfileData = $liabilityProfile11Data = $liabilityProfileTableData = $liabilityProfileTable11Data = array();
-		$liabilityProfileDataTotal = $liquidityDataTotal = $topFiveLenders = array();
+		$liabilityProfileDataTotal = $liquidityDataTotal = $topFiveLenders = $organisationStructureData = array();
 
 		$covidReliefData = $covidReliefDataTotal = $covidReliefDataTotal1 = array();
 		$covidRelief1Data = $covidRelief1DataTotal = $covidRelief1DataTotal1 = $liabilityCategories = $liabilityCategoriesSlider = array();
@@ -5869,6 +5869,27 @@ class HomeController extends Controller
 		}
 		else if($request->category_id == 15)
 		{
+			$organisationStructureData = array();
+			$organisationStructures = \DB::table('organisation_structures')->whereNull('parent_id')->orderBy('lft', 'ASC')->get();
+			if($organisationStructures)
+			{
+				foreach($organisationStructures as $row)
+				{
+					$organisationStructureChildData = array();
+					$organisationStructuresChild = \DB::table('organisation_structures')->whereNull('parent_id')->orderBy('lft', 'ASC')->get();
+					if($organisationStructuresChild)
+					{
+						foreach($organisationStructuresChild as $rowChild)
+						{
+							$organisationStructureChildData[] = array('structure_name' => $rowChild->structure_name);
+						}
+					}
+
+					$organisationStructureData[] = array('structure_name' => $row->structure_name, 'child' => $organisationStructureChildData);
+				}
+			}
+
+			dd($organisationStructureData);
 		}
 		else if($request->category_id == 16)
 		{
@@ -5886,6 +5907,8 @@ class HomeController extends Controller
 			'liabilityProfileTable11Data' => $liabilityProfileTable11Data,
 			'liabilityProfileDataTotal' => $liabilityProfileDataTotal,
 			'topFiveLenders' => $topFiveLenders,
+
+			'organisationStructureData' => $organisationStructureData,
 
 			'covidReliefData' => $covidReliefData, 'covidReliefDataTotal' => $covidReliefDataTotal, 'covidReliefDataTotal1' => $covidReliefDataTotal1,
 			'covidRelief1Data' => $covidRelief1Data, 'covidRelief1DataTotal' => $covidRelief1DataTotal, 'covidRelief1DataTotal1' => $covidRelief1DataTotal1]);
