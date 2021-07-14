@@ -7494,6 +7494,10 @@ class HomeController extends Controller
 			{
 				$where = ['is_approve1' => '2'];
 			}
+			else if($category_id == "new")
+			{
+				$where = ['is_approve1' => '0'];
+			}
 		}
 		else if($trustee_id == 2)
 		{
@@ -7504,6 +7508,10 @@ class HomeController extends Controller
 			else if($category_id == "rejected")
 			{
 				$where = ['is_approve2' => '2'];
+			}
+			else if($category_id == "new")
+			{
+				$where = ['is_approve2' => '0'];
 			}
 		}
 		else if($trustee_id == 3)
@@ -7516,9 +7524,11 @@ class HomeController extends Controller
 			{
 				$where = ['is_approve3' => '2'];
 			}
+			else if($category_id == "new")
+			{
+				$where = ['is_approve3' => '0'];
+			}
 		}
-
-		//echo '<pre>'.$trustee_id.",".$category_id; print_r($where); exit;
 
 		if($category_id == "new")
 		{
