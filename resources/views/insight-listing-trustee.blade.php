@@ -1025,7 +1025,7 @@
 <script type="text/javascript">
     var chart = new OrgChart(document.getElementById("operational_chart"), {
         mouseScrool: OrgChart.action.none,
-        layout: OrgChart.mixed,
+        //layout: OrgChart.mixed,
         nodeBinding: {
             field_0: "name"
         },
