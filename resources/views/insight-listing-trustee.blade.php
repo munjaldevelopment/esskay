@@ -1035,7 +1035,7 @@
 	.orgchart .middle-level1 .content {
 	  border-color: #403152;
 	}
-	
+
 	.orgchart .product-dept .title {
 	  background-color: #009933;
 	}
@@ -1075,16 +1075,27 @@
 				'children': [
 					@foreach($row['child'] as $k => $row1)
 					{
-						'name': '{{ $row1['structure_name'] }}', 'title': '', 'className': '@if($k == 1) middle-level @else middle-level1 @endif',
+						'name': '{{ $row1['structure_name'] }}', 'title': '', 'className': '@if($k == 0) middle-level @else middle-level1 @endif',
 					  	'children': [
-						    { 'name': 'Li Jing', 'title': '', 'className': 'product-dept' },
-						    { 'name': 'Li Xin', 'title': '', 'className': 'product-dept',
-						      'children': [
-						        { 'name': 'To To', 'title': '', 'className': 'pipeline1' },
-						        { 'name': 'Fei Fei', 'title': '', 'className': 'pipeline1' },
-						        { 'name': 'Xuan Xuan', 'title': '', 'className': 'pipeline1' }
-						      ]
+					  		@foreach($row1['child'] as $k => $row2)
+						    {
+						    	'name': '{{ $row2['structure_name'] }}', 'title': '', 'className': 'product-dept',
+						      	'children': [
+						      		@foreach($row2['child'] as $k => $row3)
+							        {
+							        	'name': '{{ $row3['structure_name'] }}', 'title': '', 'className': 'pipeline1',
+							        	'children': [
+								      		@foreach($row3['child'] as $k => $row4)
+									        {
+									        	'name': '{{ $row4['structure_name'] }}', 'title': '', 'className': 'pipeline1'
+									        },
+									        @endforeach
+								      	]
+							        },
+							        @endforeach
+						      	]
 						    }
+						    @endforeach
 					  	]
 					},
 					@endforeach
