@@ -1108,7 +1108,7 @@
 
 			var oc = $('#operational_chart').orgchart({
 				//'visibleLevel': 1,
-		        'pan': true,
+		        //'pan': true,
 		        'data' : datascource,
 		        'createNode': function($node, data) {
 		          $node.on('click', function(event) {
