@@ -1003,7 +1003,7 @@
 </script>
 @elseif($insightCatData->id == 15)
 <style type="text/css">
-	#tree {
+	#operational_chart {
 	    width: 100%;
 	    height: 100%;
 	}
