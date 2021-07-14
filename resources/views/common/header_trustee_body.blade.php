@@ -42,7 +42,7 @@
 	<script src="{{ asset('public/assets/') }}/js/export-data.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/accessibility.js"></script>
 
-	<script src="{{ asset('public/assets/') }}/js/jquery.orgchart.js"></script>
+	<script src="{{ asset('public/assets/') }}/js/jquery.orgchart.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/jquery.orgchart.min.css" />
 
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/jquery.dataTables.min.css"/>
