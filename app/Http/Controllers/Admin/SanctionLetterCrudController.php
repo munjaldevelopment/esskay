@@ -242,7 +242,7 @@ class SanctionLetterCrudController extends CrudController
                                 'tab' => 'General'
                             ]);
 
-        $this->crud->addColumn([
+        $this->crud->addField([
                                 'name' => 'sanction_date',
                                 'label' => 'Sanction Date',
                                 'type' => 'date',
@@ -463,7 +463,7 @@ class SanctionLetterCrudController extends CrudController
                                 'tab' => 'General'
                             ]);
 
-        $this->crud->addColumn([
+        $this->crud->addField([
                                 'name' => 'sanction_date',
                                 'label' => 'Sanction Date',
                                 'type' => 'date',
