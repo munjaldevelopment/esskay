@@ -1004,7 +1004,7 @@
 @elseif($insightCatData->id == 15)
 <style type="text/css">
 	#operational_chart {
-	  height: 450px;
+	  height: 480px;
 	  /*border: 2px dashed #aaa;
 	  border-radius: 5px;*/
 	  overflow: auto;
@@ -1113,7 +1113,7 @@
 @elseif($insightCatData->id == 16)
 <style type="text/css">
 	#hierarchy_chart {
-	  height: 480px;
+	  height: 500px;
 	  /*border: 2px dashed #aaa;
 	  border-radius: 5px;*/
 	  overflow: auto;
