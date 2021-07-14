@@ -5906,10 +5906,10 @@ class HomeController extends Controller
 											$organisationStructureSubSubChildData[] = array('structure_name' => $rowSubSubChild->structure_name, 'child' => $organisationStructureSubSubSubChildData);
 										}
 									}
-									$organisationStructureSubChildData[] = array('structure_name' => $rowSubChild->structure_name, 'child' => $organisationStructureSubSubChildData);
+									$organisationStructureSubChildData[] = array('structure_name' => $rowSubChild->structure_name, 'id' => $rowSubChild->id, 'child' => $organisationStructureSubSubChildData);
 								}
 							}
-							$organisationStructureChildData[] = array('structure_name' => $rowChild->structure_name, 'child' => $organisationStructureSubChildData);
+							$organisationStructureChildData[] = array('structure_name' => $rowChild->structure_name, 'id' => $rowChild->id, 'child' => $organisationStructureSubChildData);
 						}
 					}
 

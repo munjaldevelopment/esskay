@@ -1025,17 +1025,21 @@
 <script type="text/javascript">
     var nodes = [
     	@foreach($organisationStructureData as $row)
-		{ id: "{{ $row['id'] }}", name: "{{ $row['structure_name'] }}", title: ""},
+			{ id: "{{ $row['id'] }}", name: "{{ $row['structure_name'] }}", title: ""},
+				@foreach($row['child'] as $k => $row1)
+				{ id: "{{ $row1['id'] }}", pid: "{{ $row['id'] }}", name: "{{ $row['structure_name'] }}" },
+					@foreach($row1['child'] as $k => $row2)
+					{ id: "{{ $row2['id'] }}", pid: "{{ $row1['id'] }}", name: "{{ $row2['structure_name'] }}" },
+					@endforeach
+				@endforeach
 		@endforeach
     ];
 
     var chart = new OrgChart(document.getElementById("operational_chart"), {
         enableSearch: false,
-        layout: OrgChart.tree,
+        layout: OrgChart.mixed,
         nodeBinding: {
-            field_0: "name",
-            //field_1: "title",
-            //img_0: "img"
+            field_0: "name"
         },
         nodes: nodes
     });
