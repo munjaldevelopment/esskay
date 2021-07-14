@@ -1027,21 +1027,21 @@
         template: "diva",
         enableSearch: false,
         mouseScrool: OrgChart.action.none,
-        scaleInitial: OrgChart.match.boundary,
+        //scaleInitial: OrgChart.match.boundary,
         nodeBinding: {
             field_0: "name"
         },
         nodes: [
     		@foreach($organisationStructureData as $row)
-			{ id: "{{ $row['id'] }}", name: "{{ $row['structure_name'] }}", html: "{{ $row['structure_name'] }}"},
+			{ id: "{{ $row['id'] }}", name: "{{ $row['structure_name'] }}"},
 				@foreach($row['child'] as $k => $row1)
-				{ id: "{{ $row1['id'] }}", pid: "{{ $row['id'] }}", name: "{{ $row1['structure_name'] }}", html: "{!! $row1['structure_name'] !!}" },
+				{ id: "{{ $row1['id'] }}", pid: "{{ $row['id'] }}", name: "{{ $row1['structure_name'] }}"},
 					@foreach($row1['child'] as $k => $row2)
-					{ id: "{{ $row2['id'] }}", pid: "{{ $row1['id'] }}", name: "{{ $row2['structure_name'] }}", html: "{!! $row2['structure_name'] !!}" },
+					{ id: "{{ $row2['id'] }}", pid: "{{ $row1['id'] }}", name: "{{ $row2['structure_name'] }}"},
 						@foreach($row2['child'] as $k => $row3)
-						{ id: "{{ $row3['id'] }}", pid: "{{ $row2['id'] }}", name: "{{ $row3['structure_name'] }}", html: "{!! $row3['structure_name'] !!}" },
+						{ id: "{{ $row3['id'] }}", pid: "{{ $row2['id'] }}", name: "{{ $row3['structure_name'] }}"},
 							@foreach($row3['child'] as $k => $row4)
-							{ id: "{{ $row4['id'] }}", pid: "{{ $row3['id'] }}", name: "{{ $row4['structure_name'] }}", html: "{!! $row4['structure_name'] !!}" },
+							{ id: "{{ $row4['id'] }}", pid: "{{ $row3['id'] }}", name: "{{ $row4['structure_name'] }}"},
 							@endforeach
 						@endforeach
 					@endforeach
