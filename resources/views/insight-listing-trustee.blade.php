@@ -1003,127 +1003,70 @@
 </script>
 @elseif($insightCatData->id == 15)
 <style type="text/css">
-	#operational_chart {
-	  position: relative;
-	  height: 530px;
-	  /*border: 2px dashed #aaa;
-	  border-radius: 5px;*/
-	  margin: 0.5rem;
-	  overflow: auto;
-	  text-align: center;
+	#tree {
+	    width: 100%;
+	    height: 100%;
 	}
 
-	.orgchart {
-	  background: #fff; 
-	}
-	.orgchart td.left, .orgchart td.right, .orgchart td.top {
-	  border-color: #aaa;
-	}
-	.orgchart td>.down {
-	  background-color: #aaa;
-	}
-	.orgchart .top-level .title {
-	  background-color: #01a3ae;
-	}
-	.orgchart .middle-level .title {
-	  background-color: #612622;
-	}
-	.orgchart .middle-level .content {
-	  border-color: #612622;
-	}
-	.orgchart .middle-level1 .title {
-	  background-color: #403152;
-	}
-	.orgchart .middle-level1 .content {
-	  border-color: #403152;
+
+	/*partial*/
+	.node.QA rect {
+	    fill: #F57C00;
 	}
 
-	.orgchart .product-dept .title {
-	  background-color: #009933;
+	.node.Dev rect {
+	    fill: #039BE5;
 	}
-	.orgchart .product-dept .content {
-	  border-color: #009933;
-	}
-	.orgchart .rd-dept .title {
-	  background-color: #993366;
-	}
-	.orgchart .rd-dept .content {
-	  border-color: #993366;
-	}
-	.orgchart .pipeline1 .title {
-	  background-color: #996633;
-	}
-	.orgchart .pipeline1 .content {
-	  border-color: #996633;
-	}
-	.orgchart .frontend1 .title {
-	  background-color: #cc0066;
-	}
-	.orgchart .frontend1 .content {
-	  border-color: #cc0066;
+
+	.node.Marketing rect {
+	    fill: #FFCA28;
 	}
 </style>
 <script type="text/javascript">
-	'use strict';
+	window.onload = function () { 
+	    var nodes = [
+	        { id: "1", name: "Jack Hill", title: "Chairman and CEO", email: "amber@domain.com", img: "https://cdn.balkan.app/shared/1.jpg" },
+	        { id: "2", pid: "1", name: "Lexie Cole", title: "QA Lead", email: "ava@domain.com", img: "https://cdn.balkan.app/shared/2.jpg" },
+	        { id: "3", pid: "1", name: "Janae Barrett", title: "Technical Director", img: "https://cdn.balkan.app/shared/3.jpg" },
+	        { id: "4", pid: "1", name: "Aaliyah Webb", title: "Manager", email: "jay@domain.com", img: "https://cdn.balkan.app/shared/4.jpg" },
+	        { id: "5", pid: "2", name: "Elliot Ross", title: "QA", img: "https://cdn.balkan.app/shared/5.jpg" },
+	        { id: "6", pid: "2", name: "Anahi Gordon", title: "QA", img: "https://cdn.balkan.app/shared/6.jpg" },
+	        { id: "7", pid: "2", name: "Knox Macias", title: "QA", img: "https://cdn.balkan.app/shared/7.jpg" },
+	        { id: "8", pid: "3", name: "Nash Ingram", title: ".NET Team Lead", email: "kohen@domain.com", img: "https://cdn.balkan.app/shared/8.jpg" },
+	        { id: "9", pid: "3", name: "Sage Barnett", title: "JS Team Lead", img: "https://cdn.balkan.app/shared/9.jpg" },
+	        { id: "10", pid: "8", name: "Alice Gray", title: "Programmer", img: "https://cdn.balkan.app/shared/10.jpg" },
+	        { id: "11", pid: "8", name: "Anne Ewing", title: "Programmer", img: "https://cdn.balkan.app/shared/11.jpg" },
+	        { id: "12", pid: "9", name: "Reuben Mcleod", title: "Programmer", img: "https://cdn.balkan.app/shared/12.jpg" },
+	        { id: "13", pid: "9", name: "Ariel Wiley", title: "Programmer", img: "https://cdn.balkan.app/shared/13.jpg" },
+	        { id: "14", pid: "4", name: "Lucas West", title: "Marketer", img: "https://cdn.balkan.app/shared/14.jpg" },
+	        { id: "15", pid: "4", name: "Adan Travis", title: "Designer", img: "https://cdn.balkan.app/shared/15.jpg" },
+	        { id: "16", pid: "4", name: "Alex Snider", title: "Sales Manager", img: "https://cdn.balkan.app/shared/16.jpg" }
+	    ];
 
-	(function($){
-		$(function() {
-			var datascource = 
-			@foreach($organisationStructureData as $row)
-			{
-				'name': '{!! $row['structure_name'] !!}',
-				'title': '',
-				'className': 'top-level',
-				'parentNodeSymbol':'',
-				'children': [
-					@foreach($row['child'] as $k => $row1)
-					{
-						'name': '{!! $row1['structure_name'] !!}', 'title': '', 'className': '@if($k == 0) middle-level @else middle-level1 @endif',
-					  	'children': [
-					  		@foreach($row1['child'] as $k => $row2)
-						    {
-						    	'name': '{!! $row2['structure_name'] !!}', 'title': '', 'className': 'product-dept',
-						      	'children': [
-						      		@foreach($row2['child'] as $k => $row3)
-							        {
-							        	'name': '{!! $row3['structure_name'] !!}', 'title': '', 'className': 'pipeline1',
-							        	'children': [
-								      		@foreach($row3['child'] as $k => $row4)
-									        {
-									        	'name': '{{ $row4['structure_name'] }}', 'title': '', 'className': 'pipeline1'
-									        },
-									        @endforeach
-								      	]
-							        },
-							        @endforeach
-						      	]
-						    },
-						    @endforeach
-					  	]
-					},
-					@endforeach
-				]
-			};
-			@endforeach
+	    for (var i = 0; i < nodes.length; i++) {
+	        var node = nodes[i];
+	        switch (node.title) {
+	            case "QA":
+	                node.tags = ["QA"];
+	                break;
+	            case "Marketer":
+	            case "Designer":
+	            case "Sales Manager":
+	                node.tags = ["Marketing"];
+	                break;
+	        }
+	    }
 
-			var oc = $('#operational_chart').orgchart({
-				//'visibleLevel': 1,
-		        //'pan': true,
-		        'data' : datascource,
-		        'createNode': function($node, data) {
-		          $node.on('click', function(event) {
-		            if (!$(event.target).is('.edge, .toggleBtn')) {
-		              var $this = $(this);
-		              var $chart = $this.closest('.orgchart');
-		              var newX = window.parseInt(($chart.outerWidth(true)/2) - ($this.offset().left - $chart.offset().left) - ($this.outerWidth(true)/2));
-		              var newY = window.parseInt(($chart.outerHeight(true)/2) - ($this.offset().top - $chart.offset().top) - ($this.outerHeight(true)/2));
-		              $chart.css('transform', 'matrix(1, 0, 0, 1, ' + newX + ', ' + newY + ')');
-		            }
-		          });
-		        }
-			});
-		});
-	})(jQuery);
+	    var chart = new OrgChart(document.getElementById("operational_chart"), {
+	        layout: OrgChart.mixed,
+	        nodeBinding: {
+	            field_0: "name",
+	            field_1: "title",
+	            img_0: "img"
+	        },
+	        nodes: nodes
+	    });
+	};
 </script>
 @elseif($insightCatData->id == 16)
 <style type="text/css">

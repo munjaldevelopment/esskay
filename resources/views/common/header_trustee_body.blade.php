@@ -42,8 +42,10 @@
 	<script src="{{ asset('public/assets/') }}/js/export-data.js"></script>
 	<script src="{{ asset('public/assets/') }}/js/accessibility.js"></script>
 
-	<script src="{{ asset('public/assets/') }}/js/jquery.orgchart.js"></script>
-	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/jquery.orgchart.min.css" />
+	<!--<script src="{{ asset('public/assets/') }}/js/jquery.orgchart.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/jquery.orgchart.min.css" />-->
+
+	<script src="https://balkangraph.com/js/latest/OrgChart.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/jquery.dataTables.min.css"/>
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/assets/') }}/js/fixedColumns.dataTables.min.css"/>
