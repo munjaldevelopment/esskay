@@ -175,7 +175,7 @@ $(document).ready(function() {
 			} else {
 	        	Swal.fire({
 					title: 'Cancelled',
-					title: 'Your sanction letter has not approved.',
+					title: "Sanction letter wasn't approved. Please try again",
 					type: 'warning'
 			    });
 			}
@@ -219,7 +219,7 @@ $(document).ready(function() {
 			} else {
 	        	Swal.fire({
 					title: 'Cancelled',
-					title: 'Your sanction letter has not approved.',
+					title: "Sanction letter wasn't approved. Please try again",
 					type: 'warning'
 			    });
 			}
@@ -263,7 +263,7 @@ $(document).ready(function() {
 			} else {
 	        	Swal.fire({
 					title: 'Cancelled',
-					title: 'Your sanction letter has not approved.',
+					title: "Sanction letter wasn't approved. Please try again",
 					type: 'warning'
 			    });
 			}
@@ -308,7 +308,7 @@ $(document).ready(function() {
 			} else {
 	        	Swal.fire({
 					title: 'Cancelled',
-					title: 'Your sanction letter has not rejected.',
+					title: "Sanction letter wasn't rejected. Please try again",
 					type: 'warning'
 			    });
 			}
@@ -352,7 +352,7 @@ $(document).ready(function() {
 			} else {
 	        	Swal.fire({
 					title: 'Cancelled',
-					title: 'Your sanction letter has not rejected.',
+					title: "Sanction letter wasn't rejected. Please try again",
 					type: 'warning'
 			    });
 			}
@@ -396,7 +396,7 @@ $(document).ready(function() {
 			} else {
 	        	Swal.fire({
 					title: 'Cancelled',
-					title: 'Your sanction letter has not rejected.',
+					title: "Sanction letter wasn't rejected. Please try again",
 					type: 'warning'
 			    });
 			}
