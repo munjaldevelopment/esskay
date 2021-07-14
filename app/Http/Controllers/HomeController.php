@@ -5911,7 +5911,19 @@ class HomeController extends Controller
 
 		$sanctionData = \DB::table('sanction_letters')->get();
 
-		$where = array('status' => '0');
+		$where = array();
+		if($trustee_id == 1)
+		{
+			$where = ['status' => '0', 'is_approve1' => '0'];
+		}
+		else if($trustee_id == 2)
+		{
+			$where = ['status' => '0', 'is_approve2' => '0'];
+		}
+		else if($trustee_id == 3)
+		{
+			$where = ['status' => '0', 'is_approve3' => '0'];
+		}
 		$new_sanction = \DB::table('sanction_letters')->where($where)->count();
 		
 		return view('ess-kay-sanction-letter-listing', ['sanctionData' => $sanctionData, 'lenderData' => $trusteeData, 'new_sanction' => $new_sanction]);
