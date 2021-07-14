@@ -13,7 +13,7 @@
 							<th class="border-bottom">ROI</th>
 							<th class="border-bottom">Processing Fees</th>
 							<th class="border-bottom">Status</th>
-							<th style="min-width:90px;" class="border-bottom">Date</th>
+							<th style="min-width:100px;" class="border-bottom">Date</th>
 							<th class="border-bottom">Preview</th>
 							<th>Created By</th>
 							
