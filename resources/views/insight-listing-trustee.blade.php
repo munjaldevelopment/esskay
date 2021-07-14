@@ -1025,11 +1025,11 @@
 <script type="text/javascript">
     var nodes = [
     	@foreach($organisationStructureData as $row)
-			{ id: "{{ $row['id'] }}", name: "{{ $row['structure_name'] }}", title: ""},
+			{ id: "{{ $row['id'] }}", name: "{{ $row['structure_name'] }}", html: "{{ $row['structure_name'] }}", title: ""},
 				@foreach($row['child'] as $k => $row1)
-				{ id: "{{ $row1['id'] }}", pid: "{{ $row['id'] }}", name: "{!! $row1['structure_name'] !!}" },
+				{ id: "{{ $row1['id'] }}", pid: "{{ $row['id'] }}", name: "{!! $row1['structure_name'] !!}", html: "{!! $row1['structure_name'] !!}" },
 					@foreach($row1['child'] as $k => $row2)
-					{ id: "{{ $row2['id'] }}", pid: "{{ $row1['id'] }}", name: "{!! $row2['structure_name'] !!}" },
+					{ id: "{{ $row2['id'] }}", pid: "{{ $row1['id'] }}", name: "{!! $row2['structure_name'] !!}", html: "{!! $row2['structure_name'] !!}" },
 					@endforeach
 				@endforeach
 		@endforeach
@@ -1039,7 +1039,8 @@
         enableSearch: false,
         layout: OrgChart.mixed,
         nodeBinding: {
-            field_0: "name"
+            field_0: "name",
+            html: "html"
         },
         nodes: nodes
     });
