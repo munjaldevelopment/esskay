@@ -5931,6 +5931,19 @@ class HomeController extends Controller
 					{
 						foreach($organisationStructuresChild as $rowChild)
 						{
+							$organisationStructureSubChildData = array();
+							$organisationStructuresSubChild = \DB::table('hierarchy_structures')->where('parent_id', $rowChild->id)->orderBy('lft', 'ASC')->get();
+							if($organisationStructuresSubChild)
+							{
+								foreach($organisationStructuresSubChild as $rowSubChild)
+								{
+									$organisationStructureSubSubChildData = array();
+									
+									$organisationStructureSubChildData[] = array('structure_name' => $rowSubChild->structure_name, 'id' => $rowSubChild->id, 'child' => $organisationStructureSubSubChildData);
+								}
+							}
+
+							$organisationStructureChildData[] = array('structure_name' => $rowChild->structure_name, 'id' => $rowChild->id, 'child' => $organisationStructureSubChildData);
 						}
 					}
 
