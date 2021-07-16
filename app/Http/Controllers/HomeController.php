@@ -5919,6 +5919,24 @@ class HomeController extends Controller
 		}
 		else if($request->category_id == 16)
 		{
+			$hierarchyStructureData = array();
+			$organisationStructures = \DB::table('hierarchy_structures')->whereNull('parent_id')->orderBy('lft', 'ASC')->get();
+			if($organisationStructures)
+			{
+				foreach($organisationStructures as $row)
+				{
+					$organisationStructureChildData = array();
+					$organisationStructuresChild = \DB::table('hierarchy_structures')->where('parent_id', $row->id)->orderBy('lft', 'ASC')->get();
+					if($organisationStructuresChild)
+					{
+						foreach($organisationStructuresChild as $rowChild)
+						{
+						}
+					}
+
+					$organisationStructureData[] = array('structure_name' => $row->structure_name, 'id' => $row->id, 'child' => $organisationStructureChildData);
+				}
+			}
 		}
 		
 		$current_year = date('Y');
