@@ -5934,7 +5934,7 @@ class HomeController extends Controller
 						}
 					}
 
-					$organisationStructureData[] = array('structure_name' => $row->structure_name, 'id' => $row->id, 'child' => $organisationStructureChildData);
+					$hierarchyStructureData[] = array('structure_name' => $row->structure_name, 'id' => $row->id, 'child' => $organisationStructureChildData);
 				}
 			}
 		}
