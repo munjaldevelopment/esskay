@@ -1008,7 +1008,6 @@
 	    height: 100%;
 	}
 
-
 	/*partial*/
 	.node.QA rect {
 	    fill: #F57C00;
@@ -1053,95 +1052,51 @@
 @elseif($insightCatData->id == 16)
 <style type="text/css">
 	#hierarchy_chart {
-	  height: 500px;
-	  /*border: 2px dashed #aaa;
-	  border-radius: 5px;*/
-	  overflow: auto;
-	  text-align: center;
+	    width: 100%;
+	    height: 100%;
+	}
+	
+	/*partial*/
+	.node.QA rect {
+	    fill: #F57C00;
 	}
 
-	.orgchart {
-	  background: #fff; 
+	.node.Dev rect {
+	    fill: #039BE5;
 	}
-	.orgchart td.left, .orgchart td.right, .orgchart td.top {
-	  border-color: #aaa;
-	}
-	.orgchart td>.down {
-	  background-color: #aaa;
-	}
-	.orgchart .middle-level .title {
-	  background-color: #006699;
-	}
-	.orgchart .middle-level .content {
-	  border-color: #006699;
-	}
-	.orgchart .product-dept .title {
-	  background-color: #009933;
-	}
-	.orgchart .product-dept .content {
-	  border-color: #009933;
-	}
-	.orgchart .rd-dept .title {
-	  background-color: #993366;
-	}
-	.orgchart .rd-dept .content {
-	  border-color: #993366;
-	}
-	.orgchart .pipeline1 .title {
-	  background-color: #996633;
-	}
-	.orgchart .pipeline1 .content {
-	  border-color: #996633;
-	}
-	.orgchart .frontend1 .title {
-	  background-color: #cc0066;
-	}
-	.orgchart .frontend1 .content {
-	  border-color: #cc0066;
+
+	.node.Marketing rect {
+	    fill: #FFCA28;
 	}
 </style>
 <script type="text/javascript">
-	'use strict';
-
-	(function($){
-		$(function() {
-			var datascource = {
-				'name': 'Lao Lao',
-				'title': 'general manager',
-				'children': [
-				{ 'name': 'Bo Miao', 'title': 'department manager', 'className': 'middle-level',
-				  'children': [
-				    { 'name': 'Li Jing', 'title': 'senior engineer', 'className': 'product-dept' },
-				    { 'name': 'Li Xin', 'title': 'senior engineer', 'className': 'product-dept',
-				      'children': [
-				        { 'name': 'To To', 'title': 'engineer', 'className': 'pipeline1' },
-				        { 'name': 'Fei Fei', 'title': 'engineer', 'className': 'pipeline1' },
-				        { 'name': 'Xuan Xuan', 'title': 'engineer', 'className': 'pipeline1' }
-				      ]
-				    }
-				  ]
-				},
-				{ 'name': 'Su Miao', 'title': 'department manager', 'className': 'middle-level',
-				  'children': [
-				    { 'name': 'Pang Pang', 'title': 'senior engineer', 'className': 'rd-dept' },
-				    { 'name': 'Hei Hei', 'title': 'senior engineer', 'className': 'rd-dept',
-				      'children': [
-				        { 'name': 'Xiang Xiang', 'title': 'UE engineer', 'className': 'frontend1' },
-				        { 'name': 'Dan Dan', 'title': 'engineer', 'className': 'frontend1' },
-				        { 'name': 'Zai Zai', 'title': 'engineer', 'className': 'frontend1' }
-				      ]
-				    }
-				  ]
-				}
-				]
-			};
-
-			var oc = $('#hierarchy_chart').orgchart({
-				'data' : datascource,
-				'nodeContent': 'title'
-			});
-		});
-	})(jQuery);
+	var chart = new OrgChart(document.getElementById("hierarchy_chart"), {
+        template: "isla",
+        enableSearch: false,
+        mouseScrool: OrgChart.action.none,
+        scaleInitial: OrgChart.match.boundary,
+        nodeBinding: {
+            field_0: "name"
+        },
+        nodes: [
+    		@foreach($hierarchyStructureData as $row)
+			{
+				id: "{{ $row['id'] }}", name: "{{ $row['structure_name'] }}"},
+				@foreach($row['child'] as $k => $row1)
+				{ id: "{{ $row1['id'] }}", pid: "{{ $row['id'] }}", name: "{{ $row1['structure_name'] }}"},
+					@foreach($row1['child'] as $k => $row2)
+					{ id: "{{ $row2['id'] }}", pid: "{{ $row1['id'] }}", name: "{{ $row2['structure_name'] }}"},
+						@foreach($row2['child'] as $k => $row3)
+						{ id: "{{ $row3['id'] }}", pid: "{{ $row2['id'] }}", name: "{{ $row3['structure_name'] }}"},
+							@foreach($row3['child'] as $k => $row4)
+							{ id: "{{ $row4['id'] }}", pid: "{{ $row3['id'] }}", name: "{{ $row4['structure_name'] }}"},
+							@endforeach
+						@endforeach
+					@endforeach
+				@endforeach
+			@endforeach
+    	]
+    });
 </script>
 @endif
 
