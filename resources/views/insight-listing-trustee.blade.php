@@ -1073,11 +1073,11 @@
 	}
 </style>
 <script type="text/javascript">
-	OrgChart.templates.isla.field_0 = '<foreignobject style="color:#fff; font-size: 16px; text-align: center;" class="node_html" text-anchor="middle" width="180" height="100" rx="0" ry="0" x="0" y="40">{val}</foreignobject>';
-	OrgChart.templates.isla.html = '<foreignobject style="color:#fff; font-size: 16px; text-align: center;" class="node_html" text-anchor="middle" width="180" height="100" rx="0" ry="0" x="0" y="40">{val}</foreignobject>';
+	OrgChart.templates.deborah.field_0 = '<foreignobject style="color:#fff; font-size: 16px; text-align: center;" class="node_html" text-anchor="middle" width="180" height="100" rx="0" ry="0" x="0" y="40">{val}</foreignobject>';
+	OrgChart.templates.deborah.html = '<foreignobject style="color:#fff; font-size: 16px; text-align: center;" class="node_html" text-anchor="middle" width="180" height="100" rx="0" ry="0" x="0" y="40">{val}</foreignobject>';
 
 	var chart = new OrgChart(document.getElementById("hierarchy_chart"), {
-        template: "isla",
+        template: "deborah",
         enableSearch: false,
         scaleInitial: OrgChart.match.height,
         showXScroll: OrgChart.scroll.visible,
