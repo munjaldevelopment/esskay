@@ -1022,7 +1022,7 @@
 	}
 </style>
 <script type="text/javascript">
-	OrgChart.templates.isla.html = '<foreignobject style="color:#fff" class="node_html" x="90" y="60" text-anchor="middle" width="160" height="100">{val}</foreignobject>';
+	OrgChart.templates.isla.html = '<foreignobject style="color:#fff" class="node_html" text-anchor="middle" width="180" height="100" rx="0" ry="0" x="40" y="40">{val}</foreignobject>';
     var chart = new OrgChart(document.getElementById("operational_chart"), {
         template: "isla",
         enableSearch: false,
