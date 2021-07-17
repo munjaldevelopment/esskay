@@ -1077,7 +1077,7 @@
 	}
 </style>
 <script type="text/javascript">
-	OrgChart.templates.isla.html = '<foreignobject style="color:#fff" class="node_html" x="20" y="10" width="200" height="100">{val}</foreignobject>';
+	OrgChart.templates.isla.html = '<foreignobject style="color:#fff" class="node_html" x="0" y="0" width="160" height="100">{val}</foreignobject>';
 
 	var chart = new OrgChart(document.getElementById("hierarchy_chart"), {
         template: "isla",
