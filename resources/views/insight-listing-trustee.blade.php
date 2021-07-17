@@ -1083,7 +1083,7 @@
         mouseScrool: OrgChart.action.xScroll,
         nodeBinding: {
             field_0: "name",
-            html: "html"
+            //html: "html"
         },
         nodes: [
     		@foreach($hierarchyStructureData as $row)
