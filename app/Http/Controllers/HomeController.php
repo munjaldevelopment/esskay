@@ -5899,21 +5899,21 @@ class HomeController extends Controller
 											{
 												foreach($organisationStructuresSubSubSubChild as $rowSubSubSubChild)
 												{
-													$organisationStructureSubSubSubChildData[] = array('structure_name' => $rowSubSubSubChild->structure_name, 'id' => $rowSubSubSubChild->id);
+													$organisationStructureSubSubSubChildData[] = array('structure_code' => $rowSubSubSubChild->structure_code, 'structure_name' => $rowSubSubSubChild->structure_name, 'id' => $rowSubSubSubChild->id);
 												}
 											}
 
-											$organisationStructureSubSubChildData[] = array('structure_name' => $rowSubSubChild->structure_name, 'id' => $rowSubSubChild->id, 'child' => $organisationStructureSubSubSubChildData);
+											$organisationStructureSubSubChildData[] = array('structure_code' => $rowSubSubChild->structure_code, 'structure_name' => $rowSubSubChild->structure_name, 'id' => $rowSubSubChild->id, 'child' => $organisationStructureSubSubSubChildData);
 										}
 									}
-									$organisationStructureSubChildData[] = array('structure_name' => $rowSubChild->structure_name, 'id' => $rowSubChild->id, 'child' => $organisationStructureSubSubChildData);
+									$organisationStructureSubChildData[] = array('structure_code' => $rowSubChild->structure_code, 'structure_name' => $rowSubChild->structure_name, 'id' => $rowSubChild->id, 'child' => $organisationStructureSubSubChildData);
 								}
 							}
-							$organisationStructureChildData[] = array('structure_name' => $rowChild->structure_name, 'id' => $rowChild->id, 'child' => $organisationStructureSubChildData);
+							$organisationStructureChildData[] = array('structure_code' => $rowChild->structure_code, 'structure_name' => $rowChild->structure_name, 'id' => $rowChild->id, 'child' => $organisationStructureSubChildData);
 						}
 					}
 
-					$organisationStructureData[] = array('structure_name' => $row->structure_name, 'id' => $row->id, 'child' => $organisationStructureChildData);
+					$organisationStructureData[] = array('structure_code' => $row->structure_code, 'structure_name' => $row->structure_name, 'id' => $row->id, 'child' => $organisationStructureChildData);
 				}
 			}
 		}
@@ -5949,23 +5949,23 @@ class HomeController extends Controller
 											{
 												foreach($organisationStructuresSubSubSubChild as $rowSubSubSubChild)
 												{
-													$organisationStructureSubSubSubChildData[] = array('structure_name' => $rowSubSubSubChild->structure_name, 'id' => $rowSubSubSubChild->id);
+													$organisationStructureSubSubSubChildData[] = array('structure_code' => $rowSubSubSubChild->structure_code, 'structure_name' => $rowSubSubSubChild->structure_name, 'id' => $rowSubSubSubChild->id);
 												}
 											}
 
-											$organisationStructureSubSubChildData[] = array('structure_name' => $rowSubSubChild->structure_name, 'id' => $rowSubSubChild->id, 'child' => $organisationStructureSubSubSubChildData);
+											$organisationStructureSubSubChildData[] = array('structure_code' => $rowSubSubChild->structure_code, 'structure_name' => $rowSubSubChild->structure_name, 'id' => $rowSubSubChild->id, 'child' => $organisationStructureSubSubSubChildData);
 										}
 									}
 
-									$organisationStructureSubChildData[] = array('structure_name' => $rowSubChild->structure_name, 'id' => $rowSubChild->id, 'child' => $organisationStructureSubSubChildData);
+									$organisationStructureSubChildData[] = array('structure_code' => $rowSubChild->structure_code, 'structure_name' => $rowSubChild->structure_name, 'id' => $rowSubChild->id, 'child' => $organisationStructureSubSubChildData);
 								}
 							}
 
-							$organisationStructureChildData[] = array('structure_name' => $rowChild->structure_name, 'id' => $rowChild->id, 'child' => $organisationStructureSubChildData);
+							$organisationStructureChildData[] = array('structure_code' => $rowChild->structure_code, 'structure_name' => $rowChild->structure_name, 'id' => $rowChild->id, 'child' => $organisationStructureSubChildData);
 						}
 					}
 
-					$hierarchyStructureData[] = array('structure_name' => $row->structure_name, 'id' => $row->id, 'child' => $organisationStructureChildData);
+					$hierarchyStructureData[] = array('structure_code' => $row->structure_code, 'structure_name' => $row->structure_name, 'id' => $row->id, 'child' => $organisationStructureChildData);
 				}
 			}
 		}
