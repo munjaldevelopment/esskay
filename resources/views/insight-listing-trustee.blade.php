@@ -1022,7 +1022,7 @@
 	}
 </style>
 <script type="text/javascript">
-    OrgChart.templates.isla.html = '<foreignobject class="node" x="20" y="10" width="200" height="100">{val}</foreignobject>';
+    OrgChart.templates.isla.html = '<foreignobject fill="#fff" class="node" x="20" y="10" width="200" height="100">{val}</foreignobject>';
     var chart = new OrgChart(document.getElementById("operational_chart"), {
         template: "isla",
         enableSearch: false,
@@ -1072,7 +1072,7 @@
 	}
 </style>
 <script type="text/javascript">
-	OrgChart.templates.isla.html = '<foreignobject class="node" x="20" y="10" width="200" height="100">{val}</foreignobject>';
+	OrgChart.templates.isla.html = '<foreignobject fill="#fff" class="node" x="20" y="10" width="200" height="100">{val}</foreignobject>';
 
 	var chart = new OrgChart(document.getElementById("hierarchy_chart"), {
         template: "isla",
