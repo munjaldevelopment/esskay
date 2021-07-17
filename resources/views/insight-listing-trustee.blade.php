@@ -1082,7 +1082,7 @@
         showXScroll: OrgChart.scroll.visible,
         mouseScrool: OrgChart.action.xScroll,
         nodeBinding: {
-            field_0: "name",
+            field_0: "html",
             //html: "html"
         },
         nodes: [
