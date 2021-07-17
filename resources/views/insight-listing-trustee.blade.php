@@ -1071,14 +1071,9 @@
 	.node.Marketing rect {
 	    fill: #FFCA28;
 	}
-
-	.node_html {
-		fill: #fff;
-		color: #fff;
-	}
 </style>
 <script type="text/javascript">
-	OrgChart.templates.isla.html = '<foreignobject style="color:#fff; font-size: 16px; text-align: center;" class="node_html" x="0" y="40" width="160" height="100">{val}</foreignobject>';
+	OrgChart.templates.isla.html = '<foreignobject style="color:#fff; font-size: 16px; text-align: center;" class="node_html" text-anchor="middle" width="180" height="100" rx="0" ry="0" x="0" y="40">{val}</foreignobject>';
 
 	var chart = new OrgChart(document.getElementById("hierarchy_chart"), {
         template: "isla",
