@@ -1026,8 +1026,9 @@
     var chart = new OrgChart(document.getElementById("operational_chart"), {
         template: "isla",
         enableSearch: false,
-        mouseScrool: OrgChart.action.none,
-       	scaleInitial: OrgChart.match.height,
+        scaleInitial: OrgChart.match.height,
+        showXScroll: OrgChart.scroll.visible,
+        mouseScrool: OrgChart.action.xScroll,
         nodeBinding: {
             field_0: "name",
             html: "html"
